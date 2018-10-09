@@ -129,7 +129,7 @@ function QueryTGList() {
       "merchantId": 1,  //商户ID	
       "merchantName": "我是一只熊",
       "name": "快乐的蛋 出厂价团 只为宣传",	   //团购名称
-      "url": "https://s-mall.oss-cn-beijing.aliyuncs.com/meichao/g1.png?Expires=1539012298&OSSAccessKeyId=TMP.AQFuX_j98e_3qsZzg3d4_FGRpIhNvxzWdja7QuEmrjTTfZY5ImRd32kGn8hRAAAwLAIUSu5CvcEY5uFZX519SiYa1ut1bdMCFBCSZRZpA8XsM_SDI-lhQErO1dwf&Signature=zZ%2F5jV4mf6JwqT3x1PCiYQtf5y0%3D",	   //展示url
+      "url": "https://s-mall.oss-cn-beijing.aliyuncs.com/meichao/g1.png?Expires=1539125896&OSSAccessKeyId=TMP.AQEELfRCSA9BsOdqHjGTKAs2HIgYxAVqhpIb4Z37R0YzY51N9ufyBz55V78bADAtAhUA2QW0kLGRUlmBOtjB0hw2qTe6yKkCFAa6lMCYPVxVC4eaoq1v3ltzaYGn&Signature=%2BY6XDvCtmWFkiR%2BiBU5Mrr%2FOSKU%3D",	   //展示url
       "price": "15元", //团购价
       "status": 0, //0 未开始 1 进行中 2 已成团 3 已过期
       "comments": "可以生吃有身份的蛋", //简述
@@ -143,7 +143,7 @@ function QueryTGList() {
       "merchantId": 1,  //商户ID	
       "merchantName": "快乐山鸡",
       "name": "精品羊排 新鲜出厂当日送达",	   //团购名称
-      "url": "https://s-mall.oss-cn-beijing.aliyuncs.com/meichao/g2.png?Expires=1539012361&OSSAccessKeyId=TMP.AQFuX_j98e_3qsZzg3d4_FGRpIhNvxzWdja7QuEmrjTTfZY5ImRd32kGn8hRAAAwLAIUSu5CvcEY5uFZX519SiYa1ut1bdMCFBCSZRZpA8XsM_SDI-lhQErO1dwf&Signature=sB1h78e1kI64L5an%2FsdGTyIf%2B3A%3D",	   //展示url
+      "url": "https://s-mall.oss-cn-beijing.aliyuncs.com/meichao/g2.png?Expires=1539125843&OSSAccessKeyId=TMP.AQEELfRCSA9BsOdqHjGTKAs2HIgYxAVqhpIb4Z37R0YzY51N9ufyBz55V78bADAtAhUA2QW0kLGRUlmBOtjB0hw2qTe6yKkCFAa6lMCYPVxVC4eaoq1v3ltzaYGn&Signature=dZWbiAKPYBxJdQfwaalLYgh0WH0%3D",	   //展示url
       "price": "15元", //团购价
       "status": 0, //0 未开始 1 进行中 2 已成团 3 已过期
       "comments": "草原宏宝蒙巴克 无公害谷饲羔羊", //简述
@@ -165,7 +165,7 @@ function QueryBanner() {
     {
       "id": 1,  //id	
       "name": "轮播图2",	   //轮播图名称
-      "url": "https://s-mall.oss-cn-beijing.aliyuncs.com/meichao/b1.png?Expires=1539011994&OSSAccessKeyId=TMP.AQFuX_j98e_3qsZzg3d4_FGRpIhNvxzWdja7QuEmrjTTfZY5ImRd32kGn8hRAAAwLAIUSu5CvcEY5uFZX519SiYa1ut1bdMCFBCSZRZpA8XsM_SDI-lhQErO1dwf&Signature=5%2FXF%2Bq6CX366BOfOwowbV1GevME%3D",	   //url
+      "url": "https://s-mall.oss-cn-beijing.aliyuncs.com/meichao/b1.png?Expires=1539125930&OSSAccessKeyId=TMP.AQEELfRCSA9BsOdqHjGTKAs2HIgYxAVqhpIb4Z37R0YzY51N9ufyBz55V78bADAtAhUA2QW0kLGRUlmBOtjB0hw2qTe6yKkCFAa6lMCYPVxVC4eaoq1v3ltzaYGn&Signature=C%2BeuPV6DhVWlCTqYFOYFFso24%2Bw%3D",	   //url
       "target": "" //跳转地址
     },
     {

@@ -31,7 +31,7 @@
     </view>
   </view>
   <view class='row'>
-     <image class='tip-icon' src='/static/images/icon_collect.png'></image>
+     <image class='tip-icon' src='/static/images/icon-gp.png.png'></image>
      <text class='tip-text'>拼团优惠</text>
   </view>
   <!-- 团购商品列表  -->
@@ -51,7 +51,7 @@
                    </navigator>
                    <text class="desc">{{item.comments}}</text>
                    <view class="status-content row" style='margin-top: 11px;'>
-                       <image class='status-icon' src='/static/images/icon_collect.png'></image>
+                       <image class='status-icon' src="/static/images/{{item.status == 1 ? 'timer-active.png' : 'timer-done.png'}}"></image>
                        <text class='status-label'>{{item.statusStr}}</text>
                        <view wx:if="{{item.status == 1}}" class='timer'>
                           <!-- <text class='timer-num'>{{item.day}}</text> : -->
