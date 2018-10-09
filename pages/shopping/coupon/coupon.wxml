@@ -1,0 +1,31 @@
+<view class="container">
+  
+  <view class="coupon-list">
+
+     <view class="item" wx:for="{{couponList}}" wx:key="{{item.id}}">
+      <view class="tag" wx:if="{{item.send_type == 1 || item.send_type == 5 }}">普通礼品卡</view>
+      <view class="tag" wx:if="{{item.send_type == 3}}">商品礼品卡</view>
+      <view class="content">
+        <view class="left">
+          <view class="name">{{item.name}}</view>
+          <view class="time">{{item.use_start_date}} - {{item.use_end_date}}</view>
+        </view>
+        <view class="right">
+          <button class="go" bindtap='toUse' data-id='{{item.userCouponId}}' wx:if="{{item.isTransmit == 0 && item.isUsed == 0}}">使用</button>
+        </view>
+      </view>
+      <view class="condition" wx:if="{{item.useDesc != null}}">
+        <text class="txt">{{item.useDesc}}</text>
+        <image src="https://www.resource.yuntuodev.cn/resource/images/weixin/couponArrow-71315b4145.png" class="icon"></image>
+      </view>
+       <view class="condition" wx:else>
+        <text class="txt"></text>
+        <image src="https://www.resource.yuntuodev.cn/resource/images/weixin/couponArrow-71315b4145.png" class="icon"></image>
+      </view>
+    </view>
+  
+
+  </view>
+
+
+</view>

@@ -1,0 +1,136 @@
+<view class="container">
+    <view class="address-box">
+        <view class="address-item" bindtap="selectAddress" wx:if="{{1 > 0}}">
+            <view class="l">
+                <text class="name">{{checkedAddress.userName}}</text>
+                <text class="default" wx:if="{{checkedAddress.is_default === 1}}">默认</text>
+            </view>
+            <view class="m">
+                <text class="mobile">{{checkedAddress.telNumber}}</text>
+                <text class="address">{{checkedAddress.full_region+checkedAddress.detailInfo}}</text>
+            </view>
+            <view class="r">
+                <image src="https://www.resource.yuntuodev.cn/resource/images/weixin/address_right.png"></image>
+            </view>
+        </view>
+        <view class="address-item address-empty" bindtap="addAddress" wx:if="{{checkedAddress.id <= 0}}">
+            <view class="m">
+               还没有收货地址，去添加
+            </view>
+            <view class="r">
+                <image src="https://www.resource.yuntuodev.cn/resource/images/weixin/address_right.png"></image>
+            </view>
+        </view>
+    </view>
+
+    <view class="goods-items">
+        <view class="item" wx:for="{{checkedGoodsList}}" wx:key="{{item.id}}">
+            <view class="img">
+                <image src="{{item.list_pic_url}}"></image>
+            </view>
+            <view class="info">
+                <view class="t">
+                    <text class="name">{{item.goods_name}}</text>
+                    <text class="number">x{{item.number}}</text>
+                </view>
+                <view class="m">{{item.goods_specifition_name_value||''}}</view>
+                <view class="b">￥{{item.retail_price}}</view>
+            </view>
+        </view>
+    </view>
+
+    <view class="coupon-box" hidden="{{!couponPaySelected}}">
+        <view class="coupon-item" bindtap='selectCoupons'>
+            <view class="l">
+                <text class="name">请选择礼品卡</text>
+                <text class="txt">{{couponList.length}}张</text>
+            </view>
+            <view class="r">
+                <image src="https://www.resource.yuntuodev.cn/resource/images/weixin/address_right.png"></image>
+            </view>
+        </view>
+    </view>
+
+    <view class="order-box">
+        <view class="order-item">
+            <view class="l">
+                <text class="name">选择支付方式</text>
+            </view>
+            <view class="r">
+               
+            </view>
+        </view>
+        <view class="order-item" bindtap='switchPayWay' data-way='1'>
+            <view class="l">
+                <image src="https://www.resource.yuntuodev.cn/resource/images/weixin/balance.png" class="icon"></image>
+                <text class="name">余额支付</text>
+            </view>
+            <view class="r">
+                <view class="checkbox {{balancePaySelected ? 'checked' : ''}}"></view>
+            </view>
+        </view>
+        <view class="order-item" bindtap='switchPayWay' data-way='2'>
+            <view class="l">
+                <image src="https://www.resource.yuntuodev.cn/resource/images/weixin/weixinx.png" class="icon"></image>
+                <text class="name">微信支付</text>
+            </view>
+            <view class="r">
+               <view class="checkbox {{wxPaySelected ? 'checked' : ''}}"></view>
+            </view>
+        </view>
+          <view class="order-item" bindtap='switchPayWay' data-way='3'>
+            <view class="l">
+                <image src="https://www.resource.yuntuodev.cn/resource/images/weixin/exchange.png" class="icon"></image>
+                <text class="name">礼品置换</text>
+            </view>
+            <view class="r">
+                 <view class="checkbox {{couponPaySelected ? 'checked' : ''}}"></view>
+            </view>
+        </view>
+         <view class="order-item no-border" style="height: 123px; margin-bottom:6px;">
+            <view class="box-bd">
+                <view class="help-q">置换原则</view>
+                <view class="help-a">
+                  <text>1.可以使用礼品卡置换礼品；</text>
+                  <text>2.若礼品卡的总价小于置换的礼品，需支付差价；</text>
+                  <text>3.若礼品卡的总价大于置换的礼品，则不退差价。</text>
+                </view>
+          </view>
+        </view>
+        
+    </view>
+
+    <view class="order-box" style='margin-bottom: 88px;'>
+        <view class="order-item">
+            <view class="l">
+                <text class="name">商品合计</text>
+            </view>
+            <view class="r">
+                <text class="txt">￥{{goodsTotalPrice}}</text>
+            </view>
+        </view>
+        <view class="order-item">
+            <view class="l">
+                <text class="name">运费</text>
+            </view>
+            <view class="r">
+                <text class="txt">￥{{freightPrice}}</text>
+            </view>
+        </view>
+        <view class="order-item no-border" >
+            <view class="l">
+                <text class="name">礼品卡</text>
+            </view>
+            <view class="r">
+                <text class="txt">-￥{{couponPrice}}</text>
+            </view>
+        </view>
+    </view>
+
+    
+
+    <view class="order-total">
+        <view class="l">实付：￥{{actualPrice}}</view>
+        <view class="r" bindtap="submitOrder">去付款</view>
+    </view>
+</view>

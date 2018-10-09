@@ -1,0 +1,103 @@
+.location-header{
+  background: #72cfdd;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height: 36px;
+  font-size: 10pt;
+  position:fixed; 
+  top:0;
+  width: 100%;
+}
+.current-location{
+  margin-left: 11px;
+  align-items: center;
+}
+.location-icon{
+  width:11px;
+  height:13px;
+  margin-top:9px;
+  margin-right:6px;
+ }
+.location-address{
+  color: #fff;
+  height: 25px;
+  align-items: center;
+  line-height: 25px;
+}
+.location-map-icon{
+  width:13px;
+  height:13px;
+  margin-top:9px;
+  margin-right:3px;
+ }
+ .merchant-around{
+   color: #2c3ac2;
+   height: 25px;
+   align-items: center;
+   line-height: 25px;
+   margin-right:6px;
+   font-size: 9pt;
+ }
+
+.container{
+  margin-top: 36px;
+}
+ .treasure-nav{
+   width: 100%;
+   height: 79px;
+ }
+ .treasure-btn{
+   height: 50px;
+   width: 90%;
+   margin-left: 5%;
+   margin-top: 19px;
+ }
+ .treasure-btn-icon{
+     width: 64rpx;
+     height: 64rpx;
+ }
+
+.banner {
+  width: 750rpx;
+  height: 417rpx;
+}
+
+.banner image {
+  width: 100%;
+  height: 417rpx;
+}
+
+.m-menu {
+  display: flex;
+  height: 181rpx;
+  width: 750rpx;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #fff;
+}
+
+.m-menu .item {
+  flex: 1;
+  display: block;
+  padding: 20rpx 0;
+}
+
+.m-menu image {
+  display: block;
+  width: 76rpx;
+  height: 76rpx;
+  margin: 0 auto;
+  margin-bottom: 12rpx;
+}
+
+.m-menu text {
+  display: block;
+  font-size: 24rpx;
+  text-align: center;
+  margin: 0 auto;
+  line-height: 1;
+  color: #333;
+}
+

@@ -1,0 +1,17 @@
+<view class='container'>
+
+   <view class='success-t'>
+       <text class='s-tip'>恭喜参团付款成功</text>
+       <image class="s-img" src='/static/images/user.png'></image>
+       <view class='s-content'>
+           <text class='t'>预计1-2天到货 </text>
+           <text class='t'>到货后，将会在社区微信群中通知</text>
+       </view>
+
+       <view class='btn-t row'>
+          <view class='btn'>知道了</view>
+          <view class='btn'>订单详情</view>
+       </view>
+   </view>
+
+</view>

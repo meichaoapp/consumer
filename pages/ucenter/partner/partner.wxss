@@ -1,0 +1,125 @@
+page{
+    background: #f4f4f4;
+    min-height: 100%;
+}
+.container{
+    background: #f4f4f4;
+    min-height:100%;
+}
+.box {
+  display: flex;
+  background: #fff;
+}
+
+.box-title {
+  font-size: 13pt;
+}
+
+.box-bd {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 15rpx 40rpx 30rpx;
+}
+.help-q {
+  color: #999;
+  font-size: 11pt;
+  line-height: 200%;
+  margin-top: 5rpx;
+}
+.help-a {
+  color: #555;    
+  text-indent: 1em;
+  line-height: 160%;
+  display: flex;
+  flex-direction: column;
+}
+.help-a text{
+  word-break: break-all;
+}
+
+.form{
+  width: 100%;
+  background: #fff;
+  margin-top:6px;
+  padding-top:23rpx;
+  padding-bottom: 39px;
+}
+
+.title{
+  margin-left:10px;
+  margin-top:10px;
+  color: #333;
+  line-height: 39px;
+  font-size:11pt;
+}
+.box-base{
+  padding: 30rpx 65rpx 23rpx 50rpx;
+  font-size: 30rpx;
+  color: #72cfdd;
+  
+}
+ .label{
+  margin-top:2px;
+  color: #72cfdd;
+}
+input{
+  font-size: 26rpx;
+  color: #666666;
+  border: 1px solid #bfbfbf;
+  height:36px;
+  border-radius: 6rpx;
+}
+.phcolor{
+  padding-left: 3px;
+  font-size: 26rpx;
+  color: #666666;
+}
+ .location-icon{
+   width:11px;
+  height:15px;
+  margin-top:-3px;
+  margin-right:6px;
+ }
+
+.card-check{
+  width: 36rpx;
+  height:36rpx;
+}
+.box-contacts{
+  margin-top: 3px;
+}
+.box-checked{
+  margin-left: 35rpx;
+  margin-right: 14rpx;
+}
+.box-location-text{
+  margin-right: 80rpx;
+}
+.box-location{
+  width: 400rpx;
+}
+.box-pedestal{
+  margin-right: 65rpx;
+}
+
+
+.fb-btn{
+    width:690rpx;
+    height:85rpx;
+    line-height:85rpx;
+    margin:39rpx 29.5rpx;
+    text-align:center;
+    background:#72cfdd;
+    border-radius:10rpx;
+    font-size:32rpx;
+    color:#FFFFFF;
+    letter-spacing:-0.01rpx;
+}
+
+.policy{
+  display: flex;
+  justify-content: center;
+  text-justify: center;
+  color: #f0c33d;
+}
