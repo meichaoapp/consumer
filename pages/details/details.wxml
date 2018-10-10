@@ -31,7 +31,7 @@
     <view class='status-info'>
        <view class='status-button'>
           <view class="status-content row" style='margin-left:9px;'>
-              <image class='status-icon' src='/static/images/icon_collect.png'></image>
+              <image class='status-icon' src='/static/images/timer-active.png'></image>
               <text class='status-label'>{{detail.statusStr}}</text>
               <view wx:if="{{detail.status == 1}}" class='timer'>
                 <!-- <text class='timer-num'>{{item.day}}</text> : -->
@@ -110,7 +110,7 @@
         <text class='buy-price ml13 '>￥{{needPay}}</text>
         <text class='market-price'>￥{{totalPay}}</text>
         <view class='ticket'>
-           <image class='check-icon' src='/static/images/icon_collect.png'></image>
+           <image class='check-icon' src='/static/images/icon_detaliok.png'></image>
            <text class='ticket-title'>新人券</text>
         </view>
     </view>

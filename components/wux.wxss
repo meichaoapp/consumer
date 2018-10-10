@@ -177,6 +177,7 @@
 
 .weui-toast-text .weui-toast__content {
 	margin: 0;
+  color: #fff;
 }
 
 .weui-toast-text .weui-icon_toast {
@@ -222,6 +223,7 @@
 
 .weui-toast__content {
 	margin: 0 0 15px;
+  color: #fff;
 }
 
 .wux-rater {
