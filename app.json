@@ -3,6 +3,7 @@
     "pages/index/index",
 
     "pages/details/details",
+    "pages/details/success",
     
 
     "pages/ucenter/index/index",
