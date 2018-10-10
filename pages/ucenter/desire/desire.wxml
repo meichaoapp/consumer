@@ -1,16 +1,18 @@
+<import src="../../../components/toast/toast.wxml"/>
+<template is="toast" data="{{ ...$wux.toast }}"/>
+
 <view class="container">
 
- 
   <view class='form'>
      <view class='row'>
-     <image class='tip-icon' src='/static/images/icon_collect.png'></image>
+     <image class='tip-icon' src='/static/images/icon-title.png'></image>
      <text class='tip-text'> 想要什么商品，愿望总是出其不意的实现了呐~ </text>
   </view>
   <view class="fb-body">
-    <textarea class="content" placeholder-class='phcolor' placeholder="请输入你想要的商品..." />
+    <textarea bindinput='bindContent' class="content" value='{{content}}' placeholder-class='phcolor' placeholder="请输入你想要的商品..." />
   </view>
   </view>
    
   
-  <button class="fb-btn">提交</button>
+  <button bindtap='submit' class="fb-btn">提交</button>
 </view>
