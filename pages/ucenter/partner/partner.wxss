@@ -65,10 +65,14 @@ page{
 }
 input{
   font-size: 26rpx;
-  color: #666666;
-  border: 1px solid #bfbfbf;
-  height:36px;
+  color: rgb(153,153,153);
+  border: 1px solid rgb(191,191,191);
+  height:72rpx;
   border-radius: 6rpx;
+  padding-left:16rpx;
+}
+input::-webkit-input-placeholder {
+  color: rgb(153,153,153);
 }
 .phcolor{
   padding-left: 3px;

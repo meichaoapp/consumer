@@ -3,27 +3,26 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  height: 36px;
+  height: 72rpx;
   font-size: 10pt;
   position:fixed; 
   top:0;
   width: 100%;
 }
 .current-location{
-  margin-left: 11px;
+  margin-left: 22rpx;
   align-items: center;
+  margin-top: -10rpx; 
 }
 .location-icon{
-  width:13px;
-  height:15px;
-  margin-top:9px;
-  margin-right:6px;
+  width:33rpx;
+  height:33rpx;
+  margin-right:12rpx;
  }
  .select-icon{
-  width:8px;
-  height:11px;
-  margin-top:9px;
-  margin-left:3px;
+  width:20rpx;
+  height:15rpx;
+  margin-left:6rpx;
  }
 .location-address{
   color: #fff;
@@ -60,8 +59,8 @@
    margin-top: 19px;
  }
  .treasure-btn-icon{
-     width: 64rpx;
-     height: 64rpx;
+     width: 692rpx;
+     height: 80rpx;
  }
 
 .banner {
@@ -105,5 +104,40 @@
   margin: 0 auto;
   line-height: 1;
   color: #333;
+}
+.merchant-name {
+  width:208rpx;
+  text-align: justify;
+  padding-top: 5rpx; 
+}
+.join-btn {
+  text-align:center;
+  color:#fff;
+  background:#72cfdd;
+  width:146rpx;
+  height:64rpx;
+  border:1rpx solid #d9d9d9; 
+  margin-top:20rpx;
+  border-radius:48rpx;
+  margin-right:118rpx;
+  line-height:62rpx;
+  padding:0;
+}
+.join-btn-default {
+  text-align:center;
+  color:#72cfdd;
+  background:rgb(240,240,247);
+  width:146rpx;
+  height:64rpx;
+  margin-top:20rpx;
+  border-radius:48rpx;
+  margin-right:118rpx;
+  line-height:62rpx;
+  padding:0;
+}
+.tips {
+  color:#888;
+  text-align:right;
+  margin-right:26rpx;
 }
 

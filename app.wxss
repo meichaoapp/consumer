@@ -56,6 +56,7 @@ view,text{
    color: #333333;
    font-weight: bold;
    font-size: 31rpx;
+   margin-left: 8rpx; 
  }
 
 .section {
@@ -113,7 +114,7 @@ view,text{
 
 .goods-content .desc {
   display: block;
-  color: #a0a0a0;
+  color: rgb(102,102,102);
   line-height: 39rpx;
   font-size: 30rpx;
   margin-top: 2px;
@@ -133,7 +134,8 @@ view,text{
 }
 .status-content .status-label{
   font-size: 31rpx;
-  color: #333;
+  color: rgb(51,51,51);
+  margin: 0 10rpx;
 }
 .status-content .timer .timer-num{
   padding: 3px 6px;
@@ -169,8 +171,8 @@ view,text{
 }
 
 .tips{
-  margin-top: 11px;
-  width: 79px;
+  margin-top: 22rpx;
+  width: 160rpx;
   color: #888;
 }
 
@@ -184,4 +186,44 @@ view,text{
    color: #888;
    font-weight: bold;
    margin-left: 9px;
+}
+.flex {
+	display: flex;
+	display: -webkit-flex;
+}
+
+.flex_just {
+	-webkit-justify-content: center;
+	justify-content: center;
+}
+
+.flex_center {
+	-webkit-align-items: center;
+	-webkit-align-content: center;
+}
+
+.flex_colum {
+	-webkit-flex-direction: column;
+	flex-direction: column;
+}
+
+.flex_1 {
+	flex: 1;
+	-webkit-flex: 1;
+}
+
+.flex_around {
+	justify-content: space-around;
+}
+
+.flex_between {
+	justify-content: space-between;
+}
+
+.flex_start {
+	justify-content: flex-start;
+}
+
+.flex_end {
+	justify-content: flex-end;
 }

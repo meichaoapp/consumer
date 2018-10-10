@@ -18,10 +18,10 @@
    </view> -->
    
    <view class='form'>
-     <view class='row'>
-     <image class='tip-icon' src='/static/images/icon-partner-t.png'></image>
-     <text class='tip-text'>我们会很快与您取得联系</text>
-  </view>
+      <view class='row flex flex_center'>
+        <image class='tip-icon' src='/static/images/icon-partner-t.png'></image>
+        <text class='tip-text'>我们会很快与您取得联系</text>
+      </view>
      <view class='box-base'>
         <view class='label'>商超名称或个人姓名</view>
         <view class='box-contacts'><input name="name" placeholder='请输入...' placeholder-class="phcolor"></input></view>

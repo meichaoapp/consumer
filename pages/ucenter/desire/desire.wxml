@@ -4,13 +4,13 @@
 <view class="container">
 
   <view class='form'>
-     <view class='row'>
-     <image class='tip-icon' src='/static/images/icon-title.png'></image>
-     <text class='tip-text'> 想要什么商品，愿望总是出其不意的实现了呐~ </text>
-  </view>
-  <view class="fb-body">
-    <textarea bindinput='bindContent' class="content" value='{{content}}' placeholder-class='phcolor' placeholder="请输入你想要的商品..." />
-  </view>
+     <view class='row flex flex_center'>
+      <image class='tip-icon' src='/static/images/icon-title.png'></image>
+      <text class='tip-text'> 想要什么商品，愿望总是出其不意的实现了呐~ </text>
+    </view>
+    <view class="fb-body">
+      <textarea bindinput='bindContent' class="content" value='{{content}}' placeholder-class='phcolor' placeholder="请输入你想要的商品..." />
+    </view>
   </view>
    
   

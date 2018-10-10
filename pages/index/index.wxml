@@ -7,7 +7,7 @@
   <view>{{refreshTime}}</view>
 </view>
   <view class='location-header '>
-     <view class='current-location' bindtap='selectLocation'>
+     <view class='current-location flex flex_center' bindtap='selectLocation'>
          <image class='location-icon' src='/static/images/location.png'></image>
          <text class='location-address'>{{pointName}}</text>
          <image class='select-icon' src='/static/images/down.png'></image>
@@ -25,17 +25,14 @@
         <image src="{{item.url}}" background-size="cover"></image>
     </swiper-item>
   </swiper>
-  <view class='treasure-nav'>
-    <view class='treasure-btn'>
-        <!-- <image class="treasure-btn-icon" src='/static/images/icon_collect.png'></image>
-        <text>一元夺宝</text> -->
-    </view>
+  <view class='treasure-nav flex flex_just flex_center'>
+        <image class="treasure-btn-icon" src='/static/images/treasure-btn.png'></image>
   </view>
-  <view class='row'>
+  <view class='row flex flex_center'>
      <image class='tip-icon' src='/static/images/icon-gp.png'></image>
-     <text class='tip-text'>拼团优惠</text>
-  </view>
-  <!-- 团购商品列表  -->
+     <text class='tip-text'>拼团享优惠</text>
+  </view> 
+  <!-- 团购商品列表  --> 
   <scroll-view  scroll-y="true"  class='section'>
       <view class='m-item-list'>
          <view class='m-item'  wx:for="{{list}}" wx:for-index="index" wx:for-item="item" wx:key="{{item.id}}">
@@ -51,7 +48,7 @@
                      <text class="name">{{item.name}}</text>
                    </navigator>
                    <text class="desc">{{item.comments}}</text>
-                   <view class="status-content row" style='margin-top: 11px;'>
+                   <view class="status-content row flex flex_center" style='margin-top: 11px;'>
                        <image class='status-icon' src="/static/images/{{item.status == 1 ? 'timer-active.png' : 'timer-done.png'}}"></image>
                        <text class='status-label'>{{item.statusStr}}</text>
                        <view wx:if="{{item.status == 1}}" class='timer'>
@@ -67,6 +64,7 @@
              <view class='m-item-footer row'>
                 <view class='merchant-name'>团长:果缤纷鲜果超市</view>
                 <view class='join-btn'>参团</view>
+                <!-- <view class='join-btn-default'>查看</view> -->
                 <view class='tips column'>
                    <text class='tip-title'>已参团人数</text>
                    <text class='tip-num'>{{item.joinNum}}/{{item.limitNum}}</text>

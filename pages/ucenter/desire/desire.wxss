@@ -42,10 +42,10 @@ page{
 }
 
 .fb-body{
-  width: 100%;
+  width: 98%;
   background: #fff;
   height: 374rpx;
-  padding: 18rpx 30rpx 64rpx 30rpx;
+  padding: 25rpx 30rpx 64rpx 30rpx;
 }
 
 .fb-body .content{
@@ -55,7 +55,7 @@ page{
   line-height: 40rpx;
   font-size: 28rpx;
   border: 1px solid #bfbfbf;
-  padding:5px 0px 0px 5px;
+  padding:20rpx 0px 0px 20rpx;
 }
 
 .phcolor{
