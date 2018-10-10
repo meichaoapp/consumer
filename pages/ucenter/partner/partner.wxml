@@ -1,3 +1,5 @@
+<import src="../../../components/toast/toast.wxml"/>
+<template is="toast" data="{{ ...$wux.toast }}"/>
 <view class="container">
 
    <!-- <view class='box'>
@@ -22,7 +24,7 @@
   </view>
      <view class='box-base'>
         <view class='label'>商超名称或个人姓名</view>
-        <view class='box-contacts'><input name="merchantName" placeholder='请输入...' placeholder-class="phcolor"></input></view>
+        <view class='box-contacts'><input name="name" placeholder='请输入...' placeholder-class="phcolor"></input></view>
      </view>
      <view class='box-base'>
       <view class='label'>商超位置</view>
@@ -30,7 +32,7 @@
     </view>
       <view class='box-base'>
         <view class='label'>联系电话</view>
-        <view class='box-contacts'><input name="merchantName" placeholder='请输入...' placeholder-class="phcolor"></input></view>
+        <view class='box-contacts'><input name="phone" placeholder='请输入...' placeholder-class="phcolor"></input></view>
      </view>
 
       <button class="fb-btn">提交</button>
