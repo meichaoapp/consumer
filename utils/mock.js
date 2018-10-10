@@ -111,7 +111,7 @@ function wxLogin() {
     "nickName": "wangwang",	      //微信昵称
     "openid": "P90FDeUdnFMZkwZ274fEWnWqE",        // openid
     "sex": 0,        // 性别 0 男 1 女
-    "avatar": "https://wx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTLW3U1bBXQGaRILfI9mUgMNuX3MRicwXdVshxp7WWia3Ojq4K4ZL2V4HrTic9BATHKyQQbeFOHb4Rw2w/0" //头像	
+    "avatar": "https://s-mall.oss-cn-beijing.aliyuncs.com/meichao/user.png" //头像	
   }
 
 

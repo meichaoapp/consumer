@@ -28,9 +28,9 @@ Page({
     console.log("userInfo" + wxUser)
     user.wxLogin(wxUser).then(res => {
       this.setData({
-        userInfo: res.data.userInfo
+        userInfo: res.data.user
       });
-      app.globalData.userInfo = res.data.userInfo;
+      app.globalData.userInfo = res.data.user;
       app.globalData.token = res.data.token;
       wx.navigateBack({
         delta:1

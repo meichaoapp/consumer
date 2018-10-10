@@ -43,10 +43,10 @@ function wxLogin(userInfo) {
     return util.login().then((res) => {
       code = res.code;
       //登录远程服务器
-      util.request(api.AuthLoginByWeixin, { code: code, userInfo: userInfo }, 'POST').then(res => {
-        if (res.errno === 0) {
+      util.request(api.WXLogin, { code: code, userInfo: userInfo }, 'POST').then(res => {
+        if (res.rs === 1) {
           //存储用户信息
-          wx.setStorageSync('userInfo', res.data.userInfo);
+          wx.setStorageSync('userInfo', res.data.user);
           wx.setStorageSync('token', res.data.token);
 
           resolve(res);
