@@ -62,7 +62,9 @@ Page({
                 var data2 = res2.data;
                 
                 //跳转成功页
-
+                wx.redirectTo({
+                  url: '/pages/details/success',
+                })
 
               }else{
                 _this.$wuxToast.show({ type: 'text', text: "参团失败请重试!", });
