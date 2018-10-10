@@ -7,9 +7,10 @@
   <view>{{refreshTime}}</view>
 </view>
   <view class='location-header '>
-     <view class='current-location'>
-         <image class='location-icon' src='/static/images/local-icon.png'></image>
-         <text class='location-address'>{{cityname}}</text>
+     <view class='current-location' bindtap='selectLocation'>
+         <image class='location-icon' src='/static/images/location.png'></image>
+         <text class='location-address'>{{pointName}}</text>
+         <image class='select-icon' src='/static/images/down.png'></image>
      </view>
      <view class='merchant-map'>
          <!-- <image class='location-map-icon' src='/static/images/around.png'></image>
@@ -31,7 +32,7 @@
     </view>
   </view>
   <view class='row'>
-     <image class='tip-icon' src='/static/images/icon-gp.png.png'></image>
+     <image class='tip-icon' src='/static/images/icon-gp.png'></image>
      <text class='tip-text'>拼团优惠</text>
   </view>
   <!-- 团购商品列表  -->

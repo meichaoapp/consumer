@@ -14,10 +14,16 @@
   align-items: center;
 }
 .location-icon{
-  width:11px;
-  height:13px;
+  width:13px;
+  height:15px;
   margin-top:9px;
   margin-right:6px;
+ }
+ .select-icon{
+  width:8px;
+  height:11px;
+  margin-top:9px;
+  margin-left:3px;
  }
 .location-address{
   color: #fff;

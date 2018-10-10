@@ -2,6 +2,10 @@ const util = require('../../utils/util.js');
 const api = require('../../config/api.js');
 const user = require('../../services/user.js');
 const maps = require('../../utils/maps.js');
+const wecache = require('../../utils/wecache.js');
+
+const pointKey = "userLocation";
+
 //获取应用实例
 const app = getApp()
 const statusArr = ["即将开始", "距结束", "已成团", "已过期"];//0 未开始 1 进行中 2 已成团 3 已过期
@@ -10,6 +14,7 @@ Page({
     latitude:0.00,
     longitude:0.00,
     cityname:"",
+    pointName:"",
     merchants:[], // 附近商家
     banners: [],
     list:[], // 团购列表
@@ -34,7 +39,6 @@ Page({
     this.$wuxLoading = app.Wux().$wuxLoading //加载
     this.getCurrentLocation();
     this.queryBanner();
-    this.queryTGList();
     this.countDown();
   },
 
@@ -49,6 +53,63 @@ Page({
   },
   onUnload: function () {
     // 页面关闭
+  },
+
+  //选择位置
+  selectLocation: function () {
+    let _this = this;
+    maps.getLocation().then(res => {
+      _this.setData({
+        pointName: res.name,//具体的出发地点
+        longitude: res.longitude,
+        latitude: res.latitude,
+      })
+      //设置缓存信息
+      var userLocation = {
+        pointName: res.name,
+        longitude: res.longitude,
+        latitude: res.latitude,
+      };
+      wecache.put(pointKey, userLocation, -1);
+    });
+    _this.refresh(); // 加载行程信息
+  },
+
+
+  /**
+   * 获取当前地理位置信息
+   */
+  getCurrentLocation: function () {
+    var that = this;
+    var userLocation = wecache.get(pointKey, null);
+    if(userLocation == null){
+      wx.getLocation({
+        type: 'gcj02', //返回可以用于wx.openLocation的经纬度
+        success: function (res) {
+          var latitude = res.latitude//维度
+          var longitude = res.longitude//经度
+          ///设置当前地理位置
+          that.setData({
+            latitude: latitude,
+            longitude: longitude,
+          });
+          maps.getRegeo(latitude, longitude).then(res => {
+            that.setData({
+              pointName: res.poisData[0].address,
+            });
+
+          });
+        }
+      })
+    }else{
+      that.setData({
+        pointName: userLocation.pointName,
+        longitude: userLocation.longitude,
+        latitude: userLocation.latitude,
+      })
+    }
+   
+    that.refresh(); // 加载行程信息
   },
 
   // 上拉加载更多
@@ -83,30 +144,6 @@ Page({
     }, 300);
   },
 
-  /**
-   * 获取当前地理位置信息
-   */
-  getCurrentLocation:function(){
-    var that = this;
-    wx.getLocation({
-      type: 'gcj02', //返回可以用于wx.openLocation的经纬度
-      success: function (res) {
-        var latitude = res.latitude//维度
-        var longitude = res.longitude//经度
-        ///设置当前地理位置
-        that.setData({
-          latitude: latitude,
-          longitude: longitude,
-        });
-        maps.getRegeo(latitude, longitude).then(res => {
-          that.setData({
-            cityname: res.poisData[0].cityname,
-          });
-
-        });
-      }
-    })
-  },
 
   /**
    * 查询附近商户信息
@@ -147,6 +184,8 @@ Page({
     var data = {
       start: _this.data.start,
       limit: _this.data.limit,
+      latitude: _this.data.latitude,
+      longitude: _this.data.longitude,
     }
     util.request(api.QueryTGList,data,"POST").then(function (res) {
       if (res.rs === 1) {
