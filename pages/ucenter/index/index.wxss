@@ -11,18 +11,19 @@ page{
 }
 .profile-info{
     width: 100%;
-    height: 280rpx;
+    height: 150rpx;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     justify-content: flex-start;
     padding: 0 30.25rpx;
-    background: #72cfdd;
+    background: #fff;
+    margin-top: 20rpx;
 }
 
 .profile-info .avatar{
-    height: 148rpx;
-    width: 148rpx;
+    height: 90rpx;
+    width: 90rpx;
     border-radius: 50%;
 }
 
@@ -36,7 +37,7 @@ page{
     display: block;
     height: 45rpx;
     line-height: 45rpx;
-    color: #fff;
+    color: #72cfdd;
     font-size: 37.5rpx;
     margin-bottom: 10rpx;
 }
@@ -208,4 +209,45 @@ page{
 .btn-enter {
   width: 18rpx;
   height: 27rpx;
+}
+/*
+ *
+20181009
+wsx
+*
+*/
+.mylists{
+  margin-top: 10rpx;
+  background: #fff;
+}
+.mylist-cells{
+  padding-left: 10rpx;
+  display: flex;
+  flex-direction: row;
+}
+.mylist-cells text{
+  display: block;
+}
+.mylist-cells .mylist-cell-desc{
+  flex: 1;
+  border-bottom: 1px solid #f4f4f4;
+  padding: 30rpx 0;
+  height: 45rpx;
+  line-height: 45rpx;
+  box-sizing: content-box;
+  /* font-size: 32rpx; */
+}
+.mylist-cells .mylist-cell-image{
+  width: 35rpx;
+  height: 35rpx;
+  padding: 35rpx;
+  box-sizing: content-box;
+}
+.mylist-cells .mylist-cell-image image{
+  width: 35rpx;
+  height: 35rpx;
+}
+
+.noborder{
+  border: 0!important;
 }

@@ -248,3 +248,57 @@ page{
 .help-a text{
   word-break: break-all;
 }
+/*
+*wsx:20181010
+*/
+.Coupont{
+  background: #fff;
+  padding: 30rpx;
+  font-size: 32rpx;
+  color: #333;
+}
+.Couponlists-cells{
+background: #fff;
+box-shadow: 1px 1px 1px #f0f0f0;
+border-radius: 8rpx;
+margin: 20rpx 30rpx 0;
+}
+.Couponlists-cells-main{
+  border-bottom:1px dashed #bfbfbf;
+  padding: 30rpx 20rpx;
+  display: flex;
+  flex-direction:row; 
+}
+.Couponlists-cells-dataline{
+  padding: 20rpx 40rpx;
+  color: #e38f23;
+  font-size: 24rpx;
+}
+.Couponlists-cells-moneny{
+padding:0 20rpx;
+height: 75rpx;
+line-height: 75rpx;
+color: #e38f23;
+font-size: 24rpx;
+}
+.price{
+font-size: 40rpx;
+  font-weight: bold;
+  color: #e38f23;
+}
+.Couponlists-cells-descs{
+  flex: 1;
+}
+.proname{
+  color: #000;
+  font-size: 32rpx;
+}
+.Couponlists-cells-coupontstatus{
+  float: right;
+  color: #72cfdd;
+  font-size: 32rpx;
+  font-weight: bold;
+}
+.Couponlists-cells-Invalid view,.Couponlists-cells-Invalid text{
+  color:#ccc!important;
+}

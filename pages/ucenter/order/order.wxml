@@ -1,7 +1,6 @@
-
 <!--order.wxml-->
-<import src="../.././components/loading/loading.wxml"/>
-<template is="loading" data="{{ ...$wux.loading }}"/>
+<import src="../.././components/loading/loading.wxml" />
+<template is="loading" data="{{ ...$wux.loading }}" />
 <view class="header" hidden="{{hideHeader}}">
   <view>下拉刷新中……</view>
   <view>{{refreshTime}}</view>
@@ -9,8 +8,8 @@
 
 <view class="container">
 
-<scroll-view  scroll-y="true"  class='section'>
-      <view class='m-item-list'>
+  <scroll-view scroll-y="true" class='section'>
+    <!-- <view class='m-item-list'>
          <view class='m-item'  wx:for="{{orderList}}" wx:for-index="index" wx:for-item="item" wx:key="{{item.id}}">
            <navigator url="/pages/goods/goods?id={{item.id}}">
              <view class='m-item-header'>
@@ -32,9 +31,33 @@
             </navigator>
          </view>
 
+      </view> -->
+
+
+    <view class='o-details-lists' wx:for="{{orderList}}" wx:for-index="index" wx:for-item="item" wx:key="{{item.id}}">
+
+      <view class='o-details-lists-cell'>
+        <view class='o-details-lists-cell-main'>
+          <view class='o-details-lists-cell-img'>
+            <image src='{{item.url}}'></image>
+          </view>
+          <view class='o-details-lists-cell-desc'>
+            <text class='name'>{{item.name}}</text>
+            <text class='num'>订单数量：10盒</text>
+            <text class='detail'>点击查看详情</text>
+          </view>
+        </view>
+        <view class='o-details-lists-cell-status {{item.statusStr=="" ? true : false}}'>{{item.statusStr}}</view>
       </view>
+
+
+     
+
+    </view>
+
+
   </scroll-view>
-  
+
 </view>
 
 <view class="bottom" hidden="{{hideBottom}}">
