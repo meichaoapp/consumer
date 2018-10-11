@@ -22,10 +22,10 @@
         <text class="name">{{detail.title}}</text>
         <text class="desc">{{detail.comments}}</text>
       </view>
-      <view class='share column'>
+      <button bindtap='onShareAppMessage' class='share column' open-type="share">
          <image class='share-icon' src='/static/images/icon_collect.png'></image>
          <text class='share-text'>分享朋友</text>
-      </view>
+      </button>
     </view>
 
     <view class='status-info'>
@@ -71,7 +71,7 @@
       <view class='title'>为您精选</view>
   </view>
 
-  <view class='m-item-list mb13'>
+  <view class='m-item-list mb13' style='padding-bottom:50rpx;'>
          <view class='m-item'  wx:for="{{goodsList}}" wx:for-index="index" wx:for-item="item" wx:key="{{item.id}}">
            
              <view class='m-item-content row'>

@@ -138,6 +138,7 @@ flex: 1;
 }
 .o-details-lists-cell-desc text{
   display: block;
+  padding-left: 17rpx; 
 }
 .o-details-lists-cell-status{
 font-size: 34rpx;
@@ -159,7 +160,7 @@ height: 60rpx;
 font-size: 28rpx;
 color: #333;
 height: 40rpx;
-line-height: 40rpx;
+line-height: 36rpx;
 padding-left: 17rpx;
 }
 .o-details-lists-cell-desc text.detail{

@@ -41,6 +41,14 @@ Page({
     // 页面显示
 
   },
+  onShareAppMessage: function () {
+    var that = this
+    return {
+      title: that.data.detail.title,
+      imageUrl: that.data.detail.pics[0],
+      path: "/pages/index/index"
+    }
+  },
   //参团
   joinGroup: function(){
     //1.创建订单

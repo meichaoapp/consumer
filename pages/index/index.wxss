@@ -8,6 +8,7 @@
   position:fixed; 
   top:0;
   width: 100%;
+  z-index: 100;
 }
 .current-location{
   margin-left: 22rpx;
@@ -22,13 +23,10 @@
  .select-icon{
   width:20rpx;
   height:15rpx;
-  margin-left:6rpx;
+  margin-left: 10rpx;
  }
 .location-address{
   color: #fff;
-  height: 25px;
-  align-items: center;
-  line-height: 25px;
 }
 .location-map-icon{
   width:13px;

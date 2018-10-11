@@ -23,15 +23,24 @@
         <text class='tip-text'>我们会很快与您取得联系</text>
       </view>
      <view class='box-base'>
-        <view class='label'>商超名称或个人姓名</view>
+			 <view class='label flex flex_center'>
+			 	<text style='color:red;margin-right:4rpx;'>*</text>
+			 	<text class='label'>商超名称或个人姓名</text>
+			 </view>
         <view class='box-contacts'><input name="name" placeholder='请输入...' placeholder-class="phcolor"></input></view>
      </view>
      <view class='box-base'>
-      <view class='label'>商超位置</view>
+      <view class='label flex flex_center'>
+        <text style='color:red;margin-right:4rpx;'>*</text>
+        <text class='label'>商超位置</text>
+      </view>
       <view class='box-contacts'><input name="location" placeholder='请输入...' placeholder-class="phcolor"></input></view>
     </view>
       <view class='box-base'>
-        <view class='label'>联系电话</view>
+				<view class='label flex flex_center'>
+					<text style='color:red;margin-right:4rpx;'>*</text>
+					<text class='label'>联系电话</text>
+				</view>
         <view class='box-contacts'><input name="phone" placeholder='请输入...' placeholder-class="phcolor"></input></view>
      </view>
 

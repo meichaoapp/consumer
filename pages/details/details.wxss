@@ -78,6 +78,11 @@ page{
   justify-content: center;
   align-content: center;
   align-items: center;
+  background:#fff;
+  padding:0;
+}
+button.share::after{
+  border: none;
 }
 
 .share-icon{
