@@ -24,18 +24,18 @@
       </view>
      <view class='box-base'>
         <view class='label'>商超名称或个人姓名</view>
-        <view class='box-contacts'><input name="name" placeholder='请输入...' placeholder-class="phcolor"></input></view>
+        <view class='box-contacts'><input name="name" bindinput='bindName' value='{{name}}' placeholder='请输入...' placeholder-class="phcolor"></input></view>
      </view>
      <view class='box-base'>
       <view class='label'>商超位置</view>
-      <view class='box-contacts'><input name="location" placeholder='请输入...' placeholder-class="phcolor"></input></view>
+      <view class='box-contacts'><input name="location" value='{{address}}' placeholder='请输入...' placeholder-class="phcolor"></input></view>
     </view>
       <view class='box-base'>
         <view class='label'>联系电话</view>
-        <view class='box-contacts'><input name="phone" placeholder='请输入...' placeholder-class="phcolor"></input></view>
+        <view class='box-contacts'><input name="phone" bindinput='bindPhone' value='{{phone}}' placeholder='请输入...' placeholder-class="phcolor"></input></view>
      </view>
 
-      <button class="fb-btn">提交</button>
+      <button class="fb-btn" bindtap='submit'>提交</button>
       <view class='policy'>
         查看《美超社区团购合作政策》
       </view>
