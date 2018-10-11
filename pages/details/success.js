@@ -26,14 +26,14 @@ Page({
   //查看团购订单
   toOrder:function(){
     wx.redirectTo({
-      url: 'pages/ucenter/order/order?id='+this.data.id,
+      url: '/pages/ucenter/order/order?id='+this.data.id,
     })
   },
 
   //跳转首页(知道了)
   toIndex:function(){
      wx.switchTab({
-       url: 'pages/index/index',
+       url: '/pages/index/index',
      })
   }
   

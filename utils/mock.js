@@ -107,8 +107,8 @@ function getData(url, p) {
 function wxLogin() {
   var user = {
     "id": 1,  //id	
-    "name": "wangwang",	   //客户名称
-    "nickName": "wangwang",	      //微信昵称
+    "name": "茉莉花开",	   //客户名称
+    "nickName": "茉莉花开",	      //微信昵称
     "openid": "P90FDeUdnFMZkwZ274fEWnWqE",        // openid
     "sex": 0,        // 性别 0 男 1 女
     "avatar": "https://s-mall.oss-cn-beijing.aliyuncs.com/meichao/user.png" //头像	
@@ -205,7 +205,7 @@ function QueryGroupPurchaseDetail() {
       "merchantUserName": "张三",//团购商超负责人
       "merchantPhone": "010-3574787887",//团购商超电话
       "logo": "",//团购logo
-      "avatar": "/static/images/user.png" 
+      "avatar": "https://s-mall.oss-cn-beijing.aliyuncs.com/meichao/user.png" 
     },
     "goodsList": [
       {
@@ -284,21 +284,21 @@ function Friends(){
         "name":"wangwang",	   //客户名称
         "nickName": "王晓从新",	      //微信昵称
         "openid":"P90FDeUdnFMZkwZ274fEWnWqE",        // openid
-        "avatar": "/static/images/user.png" 
+        "avatar": "https://s-mall.oss-cn-beijing.aliyuncs.com/meichao/user.png" 
       },
       {
         "id": 1,  //id	
         "name": "好运连连",	   //客户名称
         "nickName": "好运连连",	      //微信昵称
         "openid": "P90FDeUdnFMZkwZ274fEWnWqE",        // openid
-        "avatar": "/static/images/user.png" 
+        "avatar": "https://s-mall.oss-cn-beijing.aliyuncs.com/meichao/user.png" 
       },
       {
         "id": 1,  //id	
         "name": "花开富贵",	   //客户名称
         "nickName": "花开富贵",	      //微信昵称
         "openid": "P90FDeUdnFMZkwZ274fEWnWqE",        // openid
-        "avatar": "/static/images/user.png" 	
+        "avatar": "https://s-mall.oss-cn-beijing.aliyuncs.com/meichao/user.png" 	
       }
     ]
   }

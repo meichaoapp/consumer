@@ -44,7 +44,7 @@
         <view class='box-contacts'><input name="phone" placeholder='请输入...' placeholder-class="phcolor"></input></view>
      </view>
 
-      <button class="fb-btn">提交</button>
+       <button class="fb-btn" bindtap='submit'>提交</button>
       <view class='policy'>
         查看《美超社区团购合作政策》
       </view>

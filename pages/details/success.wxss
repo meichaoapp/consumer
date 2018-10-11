@@ -1,4 +1,54 @@
 .container{
   background: #FFF;
   min-height: 100%;
+  text-align: center;
+  margin-top: 100rpx;
+}
+.s-tip{
+  font-size: 32rpx;
+  color:#ff4e54;
+  text-shadow: 1px 1px 1px #fb855a;
+}
+.s-imgbox{
+width: 100%;
+  text-align: center;
+  padding-top: 30rpx;
+  padding-bottom: 30rpx;
+}
+.s-img{
+  border-radius: 50%;
+  width: 280rpx;
+  height: 280rpx;
+  
+}
+.s-content{
+  width: 60%;
+  margin-left: 20%;
+}
+.s-content .t{
+  font-size: 28rpx;
+}
+.t1{
+display: block;
+}
+.btn-t{
+  margin-top: 300rpx;
+  text-align: center;
+}
+.btn-t .btn{
+
+  width: 35%;
+  /* margin: 16rpx; */
+  text-align: center;
+  background: #72cfdd;
+  color: #FFF;
+  height: 80rpx;
+  border-radius: 80rpx;
+  line-height: 80rpx;
+}
+.btn-t .btn1{
+  margin-left: 13%;
+}
+.btn-t .btn2{
+  margin-left: 4%;
 }

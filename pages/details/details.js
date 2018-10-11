@@ -71,7 +71,7 @@ Page({
                 
                 //跳转成功页
                 wx.redirectTo({
-                  url: '/pages/details/success',
+                  url: '/pages/details/success?id=' + data.id,
                 })
 
               }else{
