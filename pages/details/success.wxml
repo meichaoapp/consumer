@@ -12,8 +12,8 @@
        </view>
 
        <view class='btn-t row'>
-          <view class='btn btn1' bindtap='toOrder'>知道了</view>
-          <view class='btn btn2' bindtap='toIndex'>订单详情</view>
+          <view class='btn btn1' bindtap='toIndex'>知道了</view>
+          <view class='btn btn2' bindtap='toOrder'>订单详情</view>
        </view>
    </view>
 
