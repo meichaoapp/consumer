@@ -46,6 +46,10 @@ view,text{
   margin-bottom: 13px;
 }
 
+.mr6{
+  margin-right: 6px;
+}
+
  .tip-icon{
    width: 36rpx;
    height: 36rpx;
