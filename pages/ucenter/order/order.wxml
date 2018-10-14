@@ -36,23 +36,21 @@
 
     <view class='o-details-lists' wx:for="{{orderList}}" wx:for-index="index" wx:for-item="item" wx:key="{{item.id}}">
 
-      <view class='o-details-lists-cell'>
-        <view class='o-details-lists-cell-main'>
-          <view class='o-details-lists-cell-img'>
-            <image src='{{item.url}}'></image>
+      <navigator url='/pages/ucenter/orderDetail/orderDetail?id={{item.id}}'>
+          <view class='o-details-lists-cell'>
+            <view class='o-details-lists-cell-main'>
+              <view class='o-details-lists-cell-img'>
+                <image src='{{item.url}}'></image>
+              </view>
+              <view class='o-details-lists-cell-desc'>
+                <text class='name'>{{item.name}}</text>
+                <text class='num'>订单数量：10盒</text>
+                <text class='detail'>点击查看详情</text>
+              </view>
+            </view>
+            <view class='o-details-lists-cell-status {{item.statusStr=="" ? true : false}}'>{{item.statusStr}}</view>
           </view>
-          <view class='o-details-lists-cell-desc'>
-            <text class='name'>{{item.name}}</text>
-            <text class='num'>订单数量：10盒</text>
-            <text class='detail'>点击查看详情</text>
-          </view>
-        </view>
-        <view class='o-details-lists-cell-status {{item.statusStr=="" ? true : false}}'>{{item.statusStr}}</view>
-      </view>
-
-
-     
-
+      </navigator>
     </view>
 
 
