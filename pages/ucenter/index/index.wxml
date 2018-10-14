@@ -19,7 +19,7 @@
     </navigator>
 
 
-    <navigator>
+    <navigator url='/pages/shopping/mydollarTreasure/mydollarTreasure'>
       <view class='mylist-cells'>
         <view class='mylist-cell-image'>
           <image src='/static/images/icons-my-list02.png'></image>
