@@ -1,6 +1,5 @@
 {
   "pages": [
-    "pages/ucenter/orderDetail/orderDetail",
     "pages/index/index",
 
     "pages/details/details",
@@ -10,7 +9,8 @@
     "pages/ucenter/address/address",
     "pages/ucenter/addressAdd/addressAdd",
     "pages/ucenter/order/order",
-   
+    "pages/ucenter/orderDetail/orderDetail",
+    
     "pages/ucenter/feedback/feedback",
     "pages/ucenter/desire/desire",
     "pages/ucenter/partner/partner",
