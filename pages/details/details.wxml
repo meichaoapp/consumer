@@ -34,10 +34,10 @@
               <image class='status-icon' src='/static/images/timer-active.png'></image>
               <text class='status-label'>{{detail.statusStr}}</text>
               <view wx:if="{{detail.status == 1}}" class='timer'>
-                <!-- <text class='timer-num'>{{item.day}}</text> : -->
-                <text class='timer-num'>{{detail.hour}}</text> :
-                <text class='timer-num'>{{detail.min}}</text> :
-                <text class='timer-num'>{{detail.sec}}</text>
+                <text class='timer-num mr6' wx:if="{{detail.day != '00' }}">{{detail.day}}</text> 
+                <text class='timer-num' wx:if="{{detail.hour != '00' }}">{{detail.hour}}</text> :
+                <text class='timer-num' wx:if="{{detail.min != '00' }}">{{detail.min}}</text> :
+                <text class='timer-num' wx:if="{{detail.sec != '00' }}">{{detail.sec}}</text>
               </view>
           </view> 
           <view class='join-tip'>
