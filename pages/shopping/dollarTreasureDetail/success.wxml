@@ -1,0 +1,22 @@
+<view class='container'>
+
+  <view class='success-t'>
+    <text class='s-tip'>恭喜开抢成功</text>
+    <view class='s-imgbox'>
+      <image class="s-img" src='/static/images/success-icon.png'></image>
+    </view>
+
+    <view class='luckynum'>您的幸运号码是：10020033022</view>
+
+    <view class='s-content'>
+      <text class='t t1'>将于2018-10-10 19:00:00开奖 </text>
+      <text class='t'>请密切关注您的大奖</text>
+    </view>
+
+    <view class='btn-t row'>
+      <view class='btn btn1 gradientEffect' bindtap='toDollarTreasure'>知道了</view>
+      <view class='btn btn2 gradientEffect' bindtap='toMydollarTreasure'>查看详情</view>
+    </view>
+  </view>
+
+</view>

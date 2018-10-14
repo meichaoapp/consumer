@@ -13,84 +13,88 @@ Page({
     this.setData({
       orderId: options.id
     });
-    this.getOrderDetail();
+    //this.getOrderDetail();
   },
-  getOrderDetail() {
-    let that = this;
-    util.request(api.OrderDetail, {
-      orderId: that.data.orderId
-    }).then(function (res) {
-      if (res.errno === 0) {
-        console.log(res.data);
-        that.setData({
-          orderInfo: res.data.orderInfo,
-          orderGoods: res.data.orderGoods,
-          handleOption: res.data.handleOption
-        });
-        //that.payTimer();
-      }
-    });
-  },
-  payTimer() {
-    let that = this;
-    let orderInfo = that.data.orderInfo;
+  // getOrderDetail() {
+  //   let that = this;
+  //   util.request(api.OrderDetail, {
+  //     orderId: that.data.orderId
+  //   }).then(function (res) {
+  //     if (res.errno === 0) {
+  //       console.log(res.data);
+  //       that.setData({
+  //         orderInfo: res.data.orderInfo,
+  //         orderGoods: res.data.orderGoods,
+  //         handleOption: res.data.handleOption
+  //       });
+  //       //that.payTimer();
+  //     }
+  //   });
+  // },
+  // payTimer() {
+  //   let that = this;
+  //   let orderInfo = that.data.orderInfo;
 
-    setInterval(() => {
-      console.log(orderInfo);
-      orderInfo.add_time -= 1;
-      that.setData({
-        orderInfo: orderInfo,
-      });
-    }, 1000);
-  },
-  payOrder() {
-    let that = this;
-    util.request(api.PayPrepayId, {
-      orderId: that.data.orderId
-    }).then(function (res) {
-      if (res.errno === 0) {
-        const payParam = res.data;
-        wx.requestPayment({
-          'timeStamp': payParam.timeStamp,
-          'nonceStr': payParam.nonceStr,
-          'package': payParam.package,
-          'signType': payParam.signType,
-          'paySign': payParam.paySign,
-          'success': function (res) {
-            console.log(res)
-          },
-          'fail': function (res) {
-            console.log(res)
-          }
-        });
-      }
-    });
+  //   setInterval(() => {
+  //     console.log(orderInfo);
+  //     orderInfo.add_time -= 1;
+  //     that.setData({
+  //       orderInfo: orderInfo,
+  //     });
+  //   }, 1000);
+  // },
+  // payOrder() {
+  //   let that = this;
+  //   util.request(api.PayPrepayId, {
+  //     orderId: that.data.orderId
+  //   }).then(function (res) {
+  //     if (res.errno === 0) {
+  //       const payParam = res.data;
+  //       wx.requestPayment({
+  //         'timeStamp': payParam.timeStamp,
+  //         'nonceStr': payParam.nonceStr,
+  //         'package': payParam.package,
+  //         'signType': payParam.signType,
+  //         'paySign': payParam.paySign,
+  //         'success': function (res) {
+  //           console.log(res)
+  //         },
+  //         'fail': function (res) {
+  //           console.log(res)
+  //         }
+  //       });
+  //     }
+  //   });
 
-  },
-  //取消订单
-  cancelOrder :function(){
-    let that = this;
-    wx.showModal({
-      title: '',
-      content: '您确定要取消该订单吗？',
-      success: function (res) {
-        if (res.confirm) {
-          util.request(api.OrderCancel, {
-            orderId: that.data.orderId
-          }, 'POST').then(function (res) {
-            if (res.errno === 0) {
-              that.getOrderDetail();
-              wx.showToast({
-                title: "取消订单成功！"
-              })
-            } else {
-              util.showErrorToast(res.errmsg);
-            }
-          });
-        }
-      }
-    })
-  },
+  // },
+  // //取消订单
+  // cancelOrder :function(){
+  //   let that = this;
+  //   wx.showModal({
+  //     title: '',
+  //     content: '您确定要取消该订单吗？',
+  //     success: function (res) {
+  //       if (res.confirm) {
+  //         util.request(api.OrderCancel, {
+  //           orderId: that.data.orderId
+  //         }, 'POST').then(function (res) {
+  //           if (res.errno === 0) {
+  //             that.getOrderDetail();
+  //             wx.showToast({
+  //               title: "取消订单成功！"
+  //             })
+  //           } else {
+  //             util.showErrorToast(res.errmsg);
+  //           }
+  //         });
+  //       }
+  //     }
+  //   })
+  // },
+
+
+
+  
   onReady: function () {
     // 页面渲染完成
   },

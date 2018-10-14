@@ -1,0 +1,131 @@
+page{
+    background: #f4f4f4;
+    min-height: 100%;
+}
+
+.container{
+    background: #f4f4f4;
+    min-height: 100%;
+    padding-top: 10rpx;
+}
+.dollarTreasure{
+  width: 94%;
+  margin-left: 3%;
+}
+.dollarTreasure .dollarTreasure-cells{
+  width: 100%;
+background: #fff;
+  margin-top: 14rpx;
+  box-shadow: 1px 1px 1px #eaeaea;
+  border-radius: 8rpx;
+  padding: 20rpx;
+  box-sizing:border-box; 
+
+}
+.dollarTreasure-cells-main{
+  display: flex;
+  flex-direction: row;
+}
+.dollarTreasure-cells-main .proimgs{
+  width: 30%;
+}
+.dollarTreasure-cells-main .proimgs image{
+  width: 182rpx;
+  height: 140rpx;
+  /* height: auto; */
+}
+.dollarTreasure-cells-main .prodesc{
+  width: 70%;
+  padding-left: 10rpx;
+}
+.prodesc text{
+display: block;
+
+}
+.prodesc .nums{
+  text-align: right;
+  color: #e38f23;
+  font-size: 24rpx;
+  line-height: 20rpx;
+}
+.prodesc .name{
+  color: #333;
+  font-size:28rpx;
+  font-weight: bold;
+  line-height: 28rpx;
+}
+.prodesc .sharethis {
+  width: 100%;
+}
+.prodesc .sharethis .share{
+  color: #999;
+  font-size:24rpx;
+  padding: 10rpx 0; 
+}
+.prodesc .prices{
+  color: #e38f23;
+  font-size: 28rpx;
+  font-weight: bold;
+}
+.dollarTreasure-cells-dataline{
+  width: 72%;
+  margin-left: 28%;
+  display: flex;
+  margin-top: 10rpx;
+}
+.prizebtns{
+  width: 180rpx;
+  height: 48rpx;
+  margin: 0;
+  padding: 0;
+
+}
+.prizebtns .btns{
+  display: block;
+  width: 180rpx;
+  height: 48rpx;
+  line-height: 48rpx;
+  background: #72cfdd;
+  color: #fff;
+  border-radius: 48rpx;
+  font-size: 28rpx;
+  text-align: center;
+  box-sizing: border-box;
+}
+.dates{
+  flex: 1;  
+  display: block;
+  height: 48rpx;
+  line-height: 48rpx;
+  font-size: 20rpx;
+  color: #72cfdd;
+  text-align: right;
+}
+
+
+/* 恭喜中奖样式
+  */
+.WinPrize{
+   background: -webkit-linear-gradient(top, #fa875a, #ff4f54)!important; /* Safari 5.1 - 6.0 */
+  background: -o-linear-gradient(top, #fa875a, #ff4f54)!important; /* Opera 11.1 - 12.0 */
+  background: -moz-linear-gradient(top, #fa875a, #ff4f54)!important; /* Firefox 3.6 - 15 */
+  background: linear-gradient(to bottom, #fa875a , #ff4f54)!important; /* 标准的语法 */
+}
+.WinPrize .prodesc .nums,.WinPrize .prodesc .name,.WinPrize .prodesc .sharethis .share,.WinPrize .prodesc .prices,.WinPrize .dates{
+  color: #fff;
+}
+.WinPrize .prizebtns .btns{
+  color: #f84b4b;
+  background: #fff;
+  opacity: 0.7;
+}
+/* 未中奖的样式 */
+.nowinprize .prodesc .nums,.nowinprize .prodesc .name,.nowinprize .prodesc .sharethis .share,.nowinprize .prodesc .prices,.nowinprize .dates{
+  color: #ccc;
+}
+.nowinprize .prizebtns .btns{
+  color: #333;
+  background: #ccc;
+  opacity: 0.7;
+}
+

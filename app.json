@@ -1,35 +1,38 @@
 {
   "pages": [
+    "pages/ucenter/orderDetail/orderDetail",
     "pages/index/index",
 
     "pages/details/details",
     "pages/details/success",
-    
 
     "pages/ucenter/index/index",
     "pages/ucenter/address/address",
     "pages/ucenter/addressAdd/addressAdd",
     "pages/ucenter/order/order",
-    "pages/ucenter/orderDetail/orderDetail",
+   
     "pages/ucenter/feedback/feedback",
     "pages/ucenter/desire/desire",
     "pages/ucenter/partner/partner",
 
     "pages/auth/login/login",
-
     "pages/pay/pay",
     "pages/payResult/payResult",
     "pages/search/search",
-   
+
+    
     "pages/shopping/checkout/checkout",
     "pages/shopping/address/address",
     "pages/shopping/addressAdd/addressAdd",
-    "pages/shopping/coupon/coupon"
-
+    "pages/shopping/coupon/coupon",
+    "pages/shopping/dollarTreasureDetail/dollarTreasureDetail",
+    "pages/shopping/dollarTreasureDetail/success",
+    "pages/shopping/dollarTreasure/dollarTreasure",
+    "pages/shopping/mydollarTreasure/mydollarTreasure"
   ],
   "window": {
     "backgroundTextStyle": "dark",
-    "navigationStyle":"default",
+    "navigationStyle": "default",
     "navigationBarBackgroundColor": "#72cfdd",
     "navigationBarTitleText": "美超",
     "navigationBarTextStyle": "white",
@@ -59,7 +62,6 @@
         "selectedIconPath": "static/images/icon-partner-selected.png",
         "text": "成为伙伴"
       },
-     
       {
         "pagePath": "pages/ucenter/index/index",
         "iconPath": "static/images/icon-user.png",
@@ -68,6 +70,5 @@
       }
     ]
   },
- 
   "debug": true
 }

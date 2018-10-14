@@ -1,0 +1,171 @@
+@import "../../../utils/iconfonts.wxss";
+
+page{
+    background: #f4f4f4;
+    min-height: 100%;
+}
+
+.row { display:flex;	display: -webkit-flex; flex-direction:row; }
+.column { display:flex;	display: -webkit-flex; flex-direction:column; }
+.gradientEffect{
+ background: -webkit-linear-gradient(top, #fa875a, #ff4f54); /* Safari 5.1 - 6.0 */
+  background: -o-linear-gradient(top, #fa875a, #ff4f54); /* Opera 11.1 - 12.0 */
+  background: -moz-linear-gradient(top, #fa875a, #ff4f54); /* Firefox 3.6 - 15 */
+  background: linear-gradient(to bottom, #fa875a , #ff4f54); /* 标准的语法 */
+}
+.icon-shizhong,.icon--yiwen{
+  font-size: 30rpx;
+color: #fff;
+}
+.img{
+  width: 100%;
+  height:450rpx;
+
+}
+.img image{
+  width: 100%;
+  height: 450rpx;
+}
+.decsbox{
+  padding: 20rpx;
+  background: #fff;
+
+}
+.desc{
+  flex: 1;
+  -webkit-box-flex: 1;
+}
+.desc text{
+  display: block;
+}
+.share{
+  float: right;
+width: 110rpx;
+text-align: center;
+}
+
+.share text{
+  width: 110rpx;
+  display: block;
+  color: #72cfdd;
+  font-size: 24rpx;
+}
+.desc01{
+  font-size: 32rpx;
+  font-weight: bold;
+  margin:15rpx 0; 
+
+}
+.desc02{
+  font-size: 24rpx;
+color: #ccc;
+  
+}
+.share  image{
+  width: 40rpx;
+  height: 38rpx;
+}
+
+.Calculationbox{
+  padding: 20rpx;
+}
+.Calculationbox .dates{
+  flex: 1;
+  font-size: 24rpx;
+  color: #fff;
+}
+.Calculationbox .dates image{
+  width: 20rpx;
+  height: 20rpx;
+}
+.Calculationbox .CalculationMethod{
+  float: right;
+  width: 160rpx;
+  text-align: right;
+  font-size: 28rpx;
+  color: #fff;
+}
+.Calculationbox .CalculationMethod image{
+  width: 20rpx;
+  height: 20rpx;
+  margin-left: 5rpx;
+}
+.dollarTDetailscon .titles{
+padding: 30rpx 0;
+width: 100%;
+text-align: center;
+color: #fa875a;
+font-size: 24rpx;
+}
+.recordslist{
+  padding: 20rpx;
+  background: #fff;
+}
+.recordslistitl{
+  width: 100%;
+  text-align: center;
+  padding: 20rpx 0;
+  font-size: 28rpx;
+  justify-content:center;
+}
+.con{
+margin: 0  10rpx;
+}
+.line{
+  margin-top: 20rpx;
+  width: 80rpx;
+  height:1px;
+  background: #ccc;
+  display: inline-block;
+}
+
+.recordslist .recordslistitl-cell .userimg{
+  width: 70rpx;
+  height: 70rpx;
+  border-radius: 50%;
+  border: 1px solid #f0f0f0;
+  overflow: hidden;
+}
+.recordslist .recordslistitl-cell .userimg image{
+width: 70rpx;
+height: 70rpx;
+}
+.userinfos{
+  flex: 1;
+  padding: 20rpx 0;
+  border-bottom:1px solid #bfbfbf; 
+padding-left: 10rpx;
+}
+.userinfos text{
+  font-size: 26rpx!important;
+}
+.usernums{
+  margin: 0 10rpx;
+}
+.foot{
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  z-index: 10;
+  background: #fff;
+  height: 88rpx;
+  width: 100%;
+}
+.price{
+  flex: 1;
+  height: 88rpx;
+  line-height: 88rpx;
+ padding-left:20rpx; 
+   font-size: 30rpx; 
+   font-weight: bold;
+   color: #e38f23;
+}
+.bugbtn{
+  float: right;
+  width:220rpx;
+  height: 88rpx;
+  line-height: 88rpx;
+  text-align: center;
+  color: #fff;
+  font-size: 30rpx; 
+}

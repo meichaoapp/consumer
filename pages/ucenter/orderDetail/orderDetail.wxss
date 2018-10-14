@@ -1,255 +1,125 @@
-page{
-    height: 100%;
-    width: 100%;
-    background: #f4f4f4;
+@import "../../../utils/iconfonts.wxss";
+
+page {
+  height: 100%;
+  width: 100%;
+  background: #fff;
 }
 
-.order-info{
-    padding-top: 25rpx;
-    background: #fff;
-    height: auto;
-    overflow: hidden;
+.blue {
+  color: #72cfdd;
 }
 
-.item-a{
-    padding-left: 31.25rpx;
-    height: 42.5rpx;
-    padding-bottom: 12.5rpx;
-    line-height: 30rpx;
-    font-size: 30rpx;
-    color: #666;
+.header {
+  padding: 20rpx;
+  background: #fff;
+  border-top: 10px solid #f4f4f4;
+  border-bottom: 1px solid #f4f4f4;
 }
 
-.item-b{
-    padding-left: 31.25rpx;
-    height: 29rpx;
-    line-height: 29rpx;
-    margin-top: 12.5rpx;
-    margin-bottom: 41.5rpx;
-    font-size: 30rpx;
-    color: #666;
+.pro-decs {
+  font-size: 30rpx;
+  text-align: left;
 }
 
-.item-c{
-    margin-left: 31.25rpx;
-    border-top: 1px solid #f4f4f4;
-    height: 103rpx;
-    line-height: 103rpx;
+.pro-num {
+  float: right;
+  width: 200rpx;
+  text-align: right;
+  font-size: 30rpx;
+}
+.businessCard{
+  width: 94%;
+  margin-left:3%;
+  padding: 20rpx;
+  box-sizing: border-box;
+  border-radius: 6rpx;
+  box-shadow: 1px 1px 8px #dbdbdb;
+   position: relative;
+   padding-left: 140rpx;
+   margin-top: 60rpx;
+}
+.businessCard .img{
+position: absolute;
+top: -20rpx;
+left: 20rpx;
+width: 100rpx;
+height: 100rpx;
+border-radius: 50%;
+border: 1px solid #f0f0f0;
+overflow: hidden;
+}
+.businessCard .img image{
+  width: 100rpx;
+  height: 100rpx;
 }
 
-.item-c .l{
-    float: left;
-}
 
-.item-c .r{
-    height: 103rpx;
-    float: right;
-    display: flex;
-    align-items: center;
-    padding-right: 16rpx;
+.shopname{
+  color: #333;
+  font-size: 30rpx;
+  margin-bottom: 20rpx;
 }
-
-.item-c .r .btn{
-    float: right;
+.shopname  text{
+  display: inline-block;
+  padding: 2rpx 3rpx;
+  border-radius:4rpx; 
+  background: #72cfdd;
+  font-size: 24rpx;
+  color: #fff;
+  margin-right: 3rpx;
 }
-
-.item-c .cost{
-    color: #b4282d;
+.head,.phone{
+  color: #999;
+  font-size: 24rpx;
 }
-
-.item-c .btn{
-    line-height: 66rpx;
-    border-radius: 5rpx;
-    text-align: center;
-    margin: 0 15rpx;
-    padding: 0 20rpx;
-    height: 66rpx;
+.shoplist .title{
+padding: 20rpx;
 }
-
-.item-c .btn.active{
-    background: #b4282d;
-    color: #fff;
+.shoplists{
+ width: 94%;
+  margin-left:3%;
+  padding: 0 20rpx;
+  box-sizing: border-box;
+  border-radius: 6rpx;
+  box-shadow: 1px 1px 8px #dbdbdb;
+  
 }
-
-.order-goods{
-    margin-top: 20rpx;
-    background: #fff;
+.shoplists-cell{
+  width: 100%;
+  box-sizing: border-box;
+  padding: 20rpx 0;
+  border-bottom: 1px solid #f4f4f4;
 }
-
-.order-goods .h{
-    height: 93.75rpx;
-    line-height: 93.75rpx;
-    margin-left: 31.25rpx;
-    border-bottom: 1px solid #f4f4f4;
-    padding-right: 31.25rpx;
+.shoplists-cell:last-child{
+  border: 0!important;
 }
-
-.order-goods .h .label{
-    float: left;
-    font-size: 30rpx;
-    color: #333;
+.shoplists-cell .proname{
+  width: 110rpx;
+  height: 84rpx;
+  border: 1px solid #f4f4f4;
+  margin-right: 20rpx;
 }
-
-.order-goods .h .status{
-    float: right;
-    font-size: 30rpx;
-    color: #b4282d;
+.shoplists-cell .proname image{
+    width: 110rpx;
+  height: 84rpx;
 }
-
-.order-goods .item{
-    display: flex;
-    align-items: center;
-    height: 192rpx;
-    margin-left: 31.25rpx;
-    padding-right: 31.25rpx;
-    border-bottom: 1px solid #f4f4f4;
+.shoplists-cell .prodecs{
+  flex: 1;
 }
-
-.order-goods .item:last-child{
-    border-bottom: none;
+.shoplists-cell .prodecs text{
+  display: block;
 }
-
-.order-goods .item .img{
-    height: 145.83rpx;
-    width: 145.83rpx;
-    background: #f4f4f4;
+.shoplists-cell .prodecs text.name{
+  font-size: 30rpx;
+  margin-bottom: 10rpx;
 }
-
-.order-goods .item .img image{
-    height: 145.83rpx;
-    width: 145.83rpx;
+.shoplists-cell .prodecs text.decs{
+   color: #999;
+  font-size: 24rpx;
 }
-
-.order-goods .item .info{
-    flex: 1;
-    height: 145.83rpx;
-    margin-left: 20rpx;
-}
-
-.order-goods .item .t{
-    margin-top: 8rpx;
-    height: 33rpx;
-    line-height: 33rpx;
-    margin-bottom: 10.5rpx;
-}
-
-.order-goods .item .t .name{
-    display: block;
-    float: left;
-    height: 33rpx;
-    line-height: 33rpx;
-    color: #333;
-    font-size: 30rpx;
-}
-
-.order-goods .item .t .number{
-    display: block;
-    float: right;
-    height: 33rpx;
-    text-align: right;
-    line-height: 33rpx;
-    color: #333;
-    font-size: 30rpx;
-}
-
-.order-goods .item .attr{
-    height: 29rpx;
-    line-height: 29rpx;
-    color: #666;
-    margin-bottom: 25rpx;
-    font-size: 25rpx;
-}
-
-.order-goods .item .price{
-    height: 30rpx;
-    line-height: 30rpx;
-    color: #333;
-    font-size: 30rpx;
-}
-
-.order-bottom{
-    margin-top: 20rpx;
-    padding-left: 31.25rpx;
-    height: auto;
-    overflow: hidden;
-    background: #fff;
-}
-
-.order-bottom .address{
-    height: 128rpx;
-    padding-top: 25rpx;
-    border-bottom: 1px solid #f4f4f4;
-}
-
-.order-bottom .address .t{
-    height: 35rpx;
-    line-height: 35rpx;
-    margin-bottom: 7.5rpx;
-}
-
-.order-bottom .address .name{
-    display: inline-block;
-    height: 35rpx;
-    width: 140rpx;
-    line-height: 35rpx;
-    font-size: 25rpx;
-}
-
-.order-bottom .address .mobile{
-    display: inline-block;
-    height: 35rpx;
-    line-height: 35rpx;
-    font-size: 25rpx;
-}
-
-.order-bottom .address .b{
-    height: 35rpx;
-    line-height: 35rpx;
-    font-size: 25rpx;
-}
-
-.order-bottom .total{
-    height: 106rpx;
-    padding-top: 20rpx;
-    border-bottom: 1px solid #f4f4f4;
-}
-
-.order-bottom .total .t{
-    height: 25rpx;
-    line-height: 25rpx;
-    margin-bottom: 7.5rpx;
-    display: flex;
-}
-
-.order-bottom .total .label{
-    width: 140rpx;
-    display: inline-block;
-    height: 35rpx;
-    line-height: 35rpx;
-    font-size: 25rpx;
-}
-
-.order-bottom .total .txt{
-    flex: 1;
-    display: inline-block;
-    height: 35rpx;
-    line-height: 35rpx;
-    font-size: 25rpx;
-}
-
-.order-bottom .pay-fee{
-    height: 81rpx;
-    line-height: 81rpx;
-}
-
-.order-bottom .pay-fee .label{
-    display: inline-block;
-    width: 140rpx;
-    color: #b4282d;
-}
-
-.order-bottom .pay-fee .txt{
-    display: inline-block;
-    width: 140rpx;
-    color: #b4282d;
+.shoplists-cell .nums{
+  float: right;
+  padding: 20rpx 0;
+  font-size: 24rpx; 
 }

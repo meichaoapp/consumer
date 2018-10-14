@@ -1,4 +1,4 @@
-<view class="container">
+<!-- <view class="container">
     <view class="order-info">
         <view class="item-a">下单时间：{{orderInfo.add_time}}</view>
         <view class="item-b">订单编号：{{orderInfo.order_sn}}</view>
@@ -56,4 +56,65 @@
             <text class="txt">￥{{orderInfo.actual_price}}</text>
         </view>
     </view>
+</view> -->
+
+
+<view>
+
+  <view class='header row'>
+    <view class='pro-decs flex_1'>
+      <text class='iconfont icon-mn_biaoqian_fill blue'></text>细嫩多汁 水果团购</view>
+    <view class='pro-num blue'>合计：10盒</view>
+  </view>
+
+
+  <!-- 名片 -->
+  <view class='businessCard'>
+    <view class='img'>
+      <image src='/static/images/TB1baFLaOrpK1RjSZFhXXXSdXXa_!!0-item_pic.jpg_250x250.jpg'></image>
+    </view>
+    <view class='shopname'>
+      <text>团长</text> 果缤纷生鲜百货超市
+    </view>
+    <view class='head'>团负责人：张三</view>
+    <view class='phone'>联系电话：14588793370</view>
+  </view>
+
+  <!-- 购物清单 -->
+  <view class='shoplist'>
+    <view class='title'> 购物清单 </view>
+
+    <view class='shoplists'>
+      <view class='shoplists-cell row'>
+
+
+        <view class='proname'>
+          <image src='/static/images/TB1baFLaOrpK1RjSZFhXXXSdXXa_!!0-item_pic.jpg_250x250.jpg'></image>
+        </view>
+        <view class='prodecs'>
+          <text class='name'>细嫩多汁细嫩多汁</text>
+          <text class='decs'>正装箱20个</text>
+        </view>
+        <view class='nums'>1盒*2</view>
+      </view>
+
+      <view class='shoplists-cell row'>
+        <view class='proname'>
+          <image src='/static/images/TB1baFLaOrpK1RjSZFhXXXSdXXa_!!0-item_pic.jpg_250x250.jpg'></image>
+        </view>
+        <view class='prodecs'>
+          <text class='name'>细嫩多汁细嫩多汁</text>
+          <text class='decs'>正装箱20个</text>
+        </view>
+        <view class='nums'>1盒*2</view>
+      </view>
+
+
+
+    </view>
+
+
+  </view>
+
+
 </view>

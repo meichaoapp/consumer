@@ -1,0 +1,101 @@
+<view class="container dollarTDetailscon">
+  <view class='img'>
+    <image src='/static/images/TB1baFLaOrpK1RjSZFhXXXSdXXa_!!0-item_pic.jpg_250x250.jpg'></image>
+  </view>
+
+  <view class='row gradientEffect Calculationbox'>
+    <view class='dates'>
+     <text class='iconfont icon-shizhong'></text>
+      正在开奖 05:24:18
+    </view>
+    <view class='CalculationMethod'>
+      计算方法
+      <text class='iconfont icon--yiwen'></text>
+    </view>
+  </view>
+
+
+
+
+  <view class='decsbox row'>
+    <view class='desc'>
+      <text class='desc01'>难以置信 1块钱就能得到</text>
+      <text class='desc02'>参与赢大奖</text>
+    </view>
+
+
+    <view class='share'>
+
+      <image src='/static/images/icon_collect.png'></image>
+      <text class='share01'>分享朋友</text>
+      <text class='share02'>机会翻倍</text>
+    </view>
+  </view>
+
+
+  <view class='titles'>您还没有来抢吆～</view>
+
+
+<!-- <text class="iconfont icon-huore"></text> -->
+
+
+
+
+  <view class='recordslist'>
+
+
+
+    <view class='recordslistitl row'>
+      <text class='line'></text>
+      <text class='con'>  所有参与记录</text>
+      <text class='line'></text>
+    </view>
+
+    <view class='row recordslistitl-cell'>
+      <view class='userimg'>
+        <image src='/static/images/TB1baFLaOrpK1RjSZFhXXXSdXXa_!!0-item_pic.jpg_250x250.jpg'></image>
+      </view>
+      <view class='userinfos'>
+        <text class='username'>微信昵称</text>
+        <text class='usernums'>10000089</text>
+        <text class='userdate'>于2018-10-10 18:00:00开抢</text>
+      </view>
+    </view>
+<view class='row recordslistitl-cell'>
+      <view class='userimg'>
+        <image src='/static/images/TB1baFLaOrpK1RjSZFhXXXSdXXa_!!0-item_pic.jpg_250x250.jpg'></image>
+      </view>
+      <view class='userinfos'>
+        <text class='username'>微信昵称</text>
+        <text class='usernums'>10000089</text>
+        <text class='userdate'>于2018-10-10 18:00:00开抢</text>
+      </view>
+    </view>
+
+
+
+  </view>
+
+
+
+<view class='foot row'>
+<view class='price'>
+¥ 1.00 
+</view>
+
+<navigator url='/pages/shopping/dollarTreasureDetail/success'>
+<view class='bugbtn gradientEffect'>立即抢购</view>
+</navigator>
+
+
+</view>
+
+
+
+
+
+
+
+
+
+</view>

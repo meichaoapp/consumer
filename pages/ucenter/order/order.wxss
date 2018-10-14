@@ -141,7 +141,8 @@ flex: 1;
   padding-left: 17rpx; 
 }
 .o-details-lists-cell-status{
-font-size: 34rpx;
+font-size: 32rpx;
+/* font-weight: bold; */
 color: #72cfdd;
 text-align: right;
 padding-right: 30rpx;
@@ -151,7 +152,8 @@ padding-bottom: 20rpx;
   color: #999999!important;
 }
 .o-details-lists-cell-desc text.name{
-font-size: 34rpx;
+font-size: 30rpx;
+font-weight: bold;
 color: #333;
 height: 60rpx;
 

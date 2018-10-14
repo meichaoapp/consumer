@@ -1,82 +1,83 @@
-
 <!--index.wxml-->
-<import src="../../components/loading/loading.wxml"/>
-<template is="loading" data="{{ ...$wux.loading }}"/>
+<import src="../../components/loading/loading.wxml" />
+<template is="loading" data="{{ ...$wux.loading }}" />
 <view class="header" hidden="{{hideHeader}}">
   <view>下拉刷新中……</view>
   <view>{{refreshTime}}</view>
 </view>
-  <view class='location-header '>
-     <view class='current-location flex flex_center' bindtap='selectLocation'>
-         <image class='location-icon' src='/static/images/location.png'></image>
-         <text class='location-address'>{{pointName}}</text>
-         <image class='select-icon' src='/static/images/down.png'></image>
-     </view>
-     <view class='merchant-map'>
-         <!-- <image class='location-map-icon' src='/static/images/around.png'></image>
-         <text class='merchant-around'>附近商家</text> -->
-     </view>
+<view class='location-header '>
+  <view class='current-location flex flex_center' bindtap='selectLocation'>
+    <image class='location-icon' src='/static/images/location.png'></image>
+    <text class='location-address'>{{pointName}}</text>
+    <image class='select-icon' src='/static/images/down.png'></image>
   </view>
+  <view class='merchant-map'>
+    <!-- <image class='location-map-icon' src='/static/images/around.png'></image>
+         <text class='merchant-around'>附近商家</text> -->
+  </view>
+</view>
 <view class="container">
 
-   <!--  轮播图  -->
+  <!--  轮播图  -->
   <swiper class="banner" indicator-dots="true" autoplay="true" interval="3000" duration="1000">
     <swiper-item wx:for="{{banners}}" wx:key="{{item.id}}">
-        <image src="{{item.url}}" background-size="cover"></image>
+      <image src="{{item.url}}" background-size="cover"></image>
     </swiper-item>
   </swiper>
-  <view class='treasure-nav flex flex_just flex_center'>
-        <image class="treasure-btn-icon" src='/static/images/treasure-btn.png'></image>
-  </view>
+  <navigator url='/pages/shopping/dollarTreasure/dollarTreasure'>
+    <view class='treasure-nav flex flex_just flex_center'>
+      <image class="treasure-btn-icon" src='/static/images/treasure-btn.png'></image>
+    </view>
+  </navigator>
   <view class='row flex flex_center'>
-     <image class='tip-icon' src='/static/images/icon-gp.png'></image>
-     <text class='tip-text'>拼团享优惠</text>
-  </view> 
-  <!-- 团购商品列表  --> 
-  <scroll-view  scroll-y="true"  class='section'>
-      <view class='m-item-list'>
-         <view class='m-item'  wx:for="{{list}}" wx:for-index="index" wx:for-item="item" wx:key="{{item.id}}">
-           
-             <view class='m-item-content row'>
-             <navigator url="/pages/details/details?id={{item.id}}">
-                <view class='pre-img'>
-                   <image src='{{item.url}}'></image>
-                </view>
-              </navigator>
-                <view class='goods-content'>
-                   <navigator url="/pages/details/details?id={{item.id}}">
-                     <text class="name">{{item.name}}</text>
-                   </navigator>
-                   <text class="desc">{{item.comments}}</text>
-                   <view class="status-content row flex flex_center" style='margin-top: 11px;'>
-                       <image class='status-icon' src="/static/images/{{item.status == 1 ? 'timer-active.png' : 'timer-done.png'}}"></image>
-                       <text class='status-label'>{{item.statusStr}}</text>
-                       <view wx:if="{{item.status == 1}}" class='timer'>
-                          <text class='timer-num mr6'>{{item.day}}</text>
-                          <text class='timer-num'>{{item.hour}}</text> :
-                          <text class='timer-num'>{{item.min}}</text> :
-                          <text class='timer-num'>{{item.sec}}</text>
-                       </view>
-                   </view> 
-                </view>
-                
-             </view>
-             <view class='m-item-footer row'>
-                <view class='merchant-name'>团长:果缤纷鲜果超市</view>
-                <view class='join-btn'>参团</view>
-                <!-- <view class='join-btn-default'>查看</view> -->
-                <view class='tips column'>
-                   <text class='tip-title'>已参团人数</text>
-                   <text class='tip-num'>{{item.joinNum}}/{{item.limitNum}}</text>
-                </view>
-             </view>
-            
-         </view>
+    <image class='tip-icon' src='/static/images/icon-gp.png'></image>
+    <text class='tip-text'>拼团享优惠</text>
+  </view>
+  <!-- 团购商品列表  -->
+  <scroll-view scroll-y="true" class='section'>
+    <view class='m-item-list'>
+      <view class='m-item' wx:for="{{list}}" wx:for-index="index" wx:for-item="item" wx:key="{{item.id}}">
+
+        <view class='m-item-content row'>
+          <navigator url="/pages/details/details?id={{item.id}}">
+            <view class='pre-img'>
+              <image src='{{item.url}}'></image>
+            </view>
+          </navigator>
+          <view class='goods-content'>
+            <navigator url="/pages/details/details?id={{item.id}}">
+              <text class="name">{{item.name}}</text>
+            </navigator>
+            <text class="desc">{{item.comments}}</text>
+            <view class="status-content row flex flex_center" style='margin-top: 11px;'>
+              <image class='status-icon' src="/static/images/{{item.status == 1 ? 'timer-active.png' : 'timer-done.png'}}"></image>
+              <text class='status-label'>{{item.statusStr}}</text>
+              <view wx:if="{{item.status == 1}}" class='timer'>
+                <text class='timer-num mr6'>{{item.day}}</text>
+                <text class='timer-num'>{{item.hour}}</text> :
+                <text class='timer-num'>{{item.min}}</text> :
+                <text class='timer-num'>{{item.sec}}</text>
+              </view>
+            </view>
+          </view>
+
+        </view>
+        <view class='m-item-footer row'>
+          <view class='merchant-name'>团长:果缤纷鲜果超市</view>
+          <view class='join-btn'>参团</view>
+          <!-- <view class='join-btn-default'>查看</view> -->
+          <view class='tips column'>
+            <text class='tip-title'>已参团人数</text>
+            <text class='tip-num'>{{item.joinNum}}/{{item.limitNum}}</text>
+          </view>
+        </view>
 
       </view>
+
+    </view>
   </scroll-view>
 
-  
+
 </view>
 <view class="bottom" hidden="{{hideBottom}}">
   <view>{{loadMoreData}}</view>
