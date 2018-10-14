@@ -53,10 +53,10 @@
               <image class='status-icon' src="/static/images/{{item.status == 1 ? 'timer-active.png' : 'timer-done.png'}}"></image>
               <text class='status-label'>{{item.statusStr}}</text>
               <view wx:if="{{item.status == 1}}" class='timer'>
-                <text class='timer-num mr6'>{{item.day}}</text>
-                <text class='timer-num'>{{item.hour}}</text> :
-                <text class='timer-num'>{{item.min}}</text> :
-                <text class='timer-num'>{{item.sec}}</text>
+                <text class='timer-num mr6' wx:if="{{item.day != '00' }}" >{{item.day}}</text>
+                <text class='timer-num' wx:if="{{item.hour != '00' }}" >{{item.hour}}</text> :
+                <text class='timer-num' wx:if="{{item.min != '00' }}" >{{item.min}}</text> :
+                <text class='timer-num' wx:if="{{item.sec != '00' }}" >{{item.sec}}</text>
               </view>
             </view>
           </view>
