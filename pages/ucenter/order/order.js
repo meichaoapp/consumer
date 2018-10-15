@@ -4,6 +4,7 @@ var api = require('../../../config/api.js');
 const app = getApp()
 Page({
   data:{
+    userInfo: {},
     orderList: [],
     start: 1, // 页码
     totalPage: 0, // 共有页
@@ -15,6 +16,19 @@ Page({
     loadMoreData: '加载更多……',
   },
   onLoad:function(options){
+    let userInfo = wx.getStorageSync('userInfo');
+    let token = wx.getStorageSync('token');
+
+    // 页面显示
+    if (userInfo && token) {
+      app.globalData.userInfo = userInfo;
+      app.globalData.token = token;
+    }
+
+    this.setData({
+      userInfo: app.globalData.userInfo,
+    });
+
     this.$wuxLoading = app.Wux().$wuxLoading //加载
     this.getOrderList();
   },
@@ -53,7 +67,11 @@ Page({
 
   getOrderList(){
     let _this = this;
-    util.request(api.QueryOrderList,{},"POST").then(function (res) {
+    util.request(api.QueryOrderList,{
+       userId:_this.data.userInfo.id,
+       start: _this.data.start, // 页码
+       limit: _this.data.limit ,//每页条数
+      },"POST").then(function (res) {
       if (res.rs === 1) {
         var list = res.data.list;
         if (_this.data.start == 1) { // 下拉刷新
