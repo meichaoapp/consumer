@@ -9,31 +9,6 @@
 <view class="container">
 
   <scroll-view scroll-y="true" class='section'>
-    <!-- <view class='m-item-list'>
-         <view class='m-item'  wx:for="{{orderList}}" wx:for-index="index" wx:for-item="item" wx:key="{{item.id}}">
-           <navigator url="/pages/goods/goods?id={{item.id}}">
-             <view class='m-item-header'>
-                 <view  class='status-label'>{{item.statusStr}}</view>
-             </view>
-             <view class='m-item-content row'>
-                <view class='pre-img'>
-                   <image src='{{item.url}}'></image>
-                </view>
-                <view class='goods-content'>
-                   <text class="name">{{item.name}}</text>
-                   <text class="desc">{{item.comments}}</text>
-                   <text class="price">￥{{item.price}}</text>
-                </view>
-                <view class='content-extend'>
-                    
-                </view>
-             </view>
-            </navigator>
-         </view>
-
-      </view> -->
-
-
     <view class='o-details-lists' wx:for="{{orderList}}" wx:for-index="index" wx:for-item="item" wx:key="{{item.id}}">
 
       <navigator url='/pages/ucenter/orderDetail/orderDetail?id={{item.id}}'>
@@ -44,7 +19,7 @@
               </view>
               <view class='o-details-lists-cell-desc'>
                 <text class='name'>{{item.name}}</text>
-                <text class='num'>订单数量：10盒</text>
+                <text class='num'>订单数量：{{item.orderNums}}</text>
                 <text class='detail'>点击查看详情</text>
               </view>
             </view>
