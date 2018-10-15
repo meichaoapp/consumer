@@ -255,7 +255,7 @@ function CreateOrder(){
       "merchantName": "团购商超",//团购商超
       "merchantUserName": "张三",//团购商超负责人
       "merchantPhone": "010-3574787887",//团购商超电话
-      "logo": "",//团购logo
+      "avatar": "https://s-mall.oss-cn-beijing.aliyuncs.com/meichao/user.png", //头像
       
     }, //团长信息
 
@@ -317,7 +317,7 @@ function QueryOrderList(){
         "orderId": 1,  //团购订单ID	
         "merchantId": 1,  //商户ID	
         "name": "精品羊排 新鲜出厂当日即达",	   //团购名称
-        "url": "https://yanxuan.nosdn.127.net/dab1e16fb89680657a4a70341ee0ee9c.jpg?imageView&quality=95&thumbnail=60x60",	   //展示url
+        "url": "https://s-mall.oss-cn-beijing.aliyuncs.com/meichao/g1.png",	   //展示url
         "orderNums": "5盒", //订单数量
         "status": 0, //0 即将到货 1 已完成
       }
@@ -336,6 +336,7 @@ function QueryOrderDetail(){
     "needPay": 100.05,// 应付
     "orderQRcode": "",// 订单二维码（包含订单id）
     "code": "773b8bde7ed698bc2cc2227d5c765704", //订单识别码
+    "orderNums": "5盒", //订单数量
     "groupPurchase": {
       "id": 1,  //id	
       "merchantId": 1,  //商户ID	
@@ -352,16 +353,25 @@ function QueryOrderDetail(){
       "merchantName": "团购商超",//团购商超
       "merchantUserName": "张三",//团购商超负责人
       "merchantPhone": "010-3574787887",//团购商超电话
-      "logo": "",//团购logo
+      "avatar": "https://s-mall.oss-cn-beijing.aliyuncs.com/meichao/user.png" //头像	
     }, //团长信息
 
     "goodsList": [
       {
         "id": 1, // 商品id
-        "url": "",//展示图片
-        "name": "",//名称
+        "url": "/static/images/TB1baFLaOrpK1RjSZFhXXXSdXXa_!!0-item_pic.jpg_250x250.jpg",//展示图片
+        "name": "细嫩多汁蜜蜂21.5C绿心奇异果",//名称
         "specifications": "整箱20个",//规格
-        "marketPrice": 10.05,//市场价
+        "marketPrice": 11.05,//市场价
+        "price": 10.05,//单价
+        "buyNum": 100,//购买数量
+      },
+      {
+        "id": 2, // 商品id
+        "url": "/static/images/TB1baFLaOrpK1RjSZFhXXXSdXXa_!!0-item_pic.jpg_250x250.jpg",//展示图片
+        "name": "精品羊排 新鲜出厂当日即达",//名称
+        "specifications": "整箱20个",//规格
+        "marketPrice": 19.05,//市场价
         "price": 10.05,//单价
         "buyNum": 100,//购买数量
       }
@@ -369,6 +379,8 @@ function QueryOrderDetail(){
 
 
   }
+
+  
   RS.data = data;
   return JSON.stringify(RS);
 }
