@@ -123,3 +123,17 @@ padding: 20rpx;
   padding: 20rpx 0;
   font-size: 24rpx; 
 }
+
+.order-qrcode{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  justify-items: center;
+  margin-top: 33rpx;
+  margin-bottom: 33rpx;
+}
+
+.order-qrcode image{
+  width: 260px;
+  height: 260px;
+}
