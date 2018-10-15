@@ -1,5 +1,5 @@
 var NewApiRootUrl = 'http://localhost:8080/api/';
-//var NewApiRootUrl = "https://www.gift.wananhevip.com/api/";
+var NewApiRootUrl = "http://101.201.213.248:8093/api/";
 module.exports = {
   WXLogin: NewApiRootUrl + 'consumer/user/login',//微信登录
 

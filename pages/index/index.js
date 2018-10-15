@@ -169,7 +169,7 @@ Page({
   */
   queryBanner: function () {
     let that = this;
-    util.request(api.QueryBanner).then(function (res) {
+    util.request(api.QueryBanner,{token:""},"POST").then(function (res) {
       if (res.rs === 1) {
         that.setData({
           banners: res.data.banners

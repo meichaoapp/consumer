@@ -43,7 +43,7 @@ function wxLogin(userInfo) {
     return util.login().then((res) => {
       code = res.code;
       //登录远程服务器
-      util.request(api.WXLogin, { code: code, userInfo: userInfo }, 'POST').then(res => {
+      util.request(api.WXLogin, { code: code, nickName: userInfo.nickName, avatar: userInfo.avatarUrl, sex: userInfo.sex  }, 'POST').then(res => {
         if (res.rs === 1) {
           //存储用户信息
           wx.setStorageSync('userInfo', res.data.user);
