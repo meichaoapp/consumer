@@ -13,7 +13,7 @@ module.exports = {
   Friends: NewApiRootUrl + "groupPurchase/friends",//参团好友
 
   QueryOrderList: NewApiRootUrl + "groupPurchase/orderList",//获取参团信息（我的参团）
-  QueryOrderDetail: NewApiRootUrl + "groupPurchase/orderList",//获取参团详情（我的参团-兑现)
+  QueryOrderDetail: NewApiRootUrl + "groupPurchase/orderDetail",//获取参团详情（我的参团-兑现)
 
   QueryTreasureList: NewApiRootUrl + "treasure/list",//获取一元夺宝列表信息
   QueryWinList: NewApiRootUrl + "treasure/winList",//中奖信息
