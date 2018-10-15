@@ -63,54 +63,38 @@
 
   <view class='header row'>
     <view class='pro-decs flex_1'>
-      <text class='iconfont icon-mn_biaoqian_fill blue'></text>细嫩多汁 水果团购</view>
-    <view class='pro-num blue'>合计：10盒</view>
+      <text class='iconfont icon-mn_biaoqian_fill blue'></text>{{groupPurchase.name}}</view>
+    <view class='pro-num blue'>合计：{{orderNums}}</view>
   </view>
 
 
   <!-- 名片 -->
   <view class='businessCard'>
     <view class='img'>
-      <image src='/static/images/TB1baFLaOrpK1RjSZFhXXXSdXXa_!!0-item_pic.jpg_250x250.jpg'></image>
+      <image src='{{merchant.avatar}}'></image>
     </view>
     <view class='shopname'>
-      <text>团长</text> 果缤纷生鲜百货超市
+      <text>团长</text> {{merchant.merchantName}}
     </view>
-    <view class='head'>团负责人：张三</view>
-    <view class='phone'>联系电话：14588793370</view>
+    <view class='head'>团负责人：{{merchant.merchantUserName}}</view>
+    <view class='phone'>联系电话：{{merchant.merchantPhone}}</view>
   </view>
 
   <!-- 购物清单 -->
   <view class='shoplist'>
     <view class='title'> 购物清单 </view>
 
-    <view class='shoplists'>
-      <view class='shoplists-cell row'>
-
-
-        <view class='proname'>
-          <image src='/static/images/TB1baFLaOrpK1RjSZFhXXXSdXXa_!!0-item_pic.jpg_250x250.jpg'></image>
-        </view>
-        <view class='prodecs'>
-          <text class='name'>细嫩多汁细嫩多汁</text>
-          <text class='decs'>正装箱20个</text>
-        </view>
-        <view class='nums'>1盒*2</view>
-      </view>
-
+    <view class='shoplists' wx:for="{{goodsList}}" wx:for-index="index" wx:for-item="item" wx:key="{{item.id}}">
       <view class='shoplists-cell row'>
         <view class='proname'>
-          <image src='/static/images/TB1baFLaOrpK1RjSZFhXXXSdXXa_!!0-item_pic.jpg_250x250.jpg'></image>
+          <image src='{{item.url}}'></image>
         </view>
         <view class='prodecs'>
-          <text class='name'>细嫩多汁细嫩多汁</text>
-          <text class='decs'>正装箱20个</text>
+          <text class='name'>{{item.name}}</text>
+          <text class='decs'>{{item.specifications}}</text>
         </view>
-        <view class='nums'>1盒*2</view>
+        <view class='nums'>1盒*{{item.buyNum}}</view>
       </view>
-
-
-
     </view>
 
 
