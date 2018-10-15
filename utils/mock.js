@@ -334,13 +334,11 @@ function QueryOrderDetail(){
     "status": 0, // 订单状态 0 待支付 1 已支付 2 待领取 3 已完成 4 放弃 5 退货
     "totalPay": 100.05,//共付
     "needPay": 100.05,// 应付
-    "orderQRcode": "",// 订单二维码（包含订单id）
+    "orderQRcode": "https://qr.api.cli.im/qr?data=1&level=H&transparent=false&bgcolor=%23ffffff&forecolor=%23000000&blockpixel=12&marginblock=1&logourl=&size=260&kid=cliim&key=309f76334fe78db4caacfd008659a22a",// 订单二维码（包含订单id）
     "code": "773b8bde7ed698bc2cc2227d5c765704", //订单识别码
     "orderNums": "5盒", //订单数量
     "groupPurchase": {
       "id": 1,  //id	
-      "merchantId": 1,  //商户ID	
-      "merchantName": "我是一只熊",  //商户名称（团长）
       "name": "精品羊排 新鲜出厂当日即达",	   //团购名称
       "url": "https://yanxuan.nosdn.127.net/dab1e16fb89680657a4a70341ee0ee9c.jpg?imageView&quality=95&thumbnail=60x60",	   //展示url
       "status":0, //0 未开始 1 进行中 2 已成团 3 已过期
@@ -364,6 +362,7 @@ function QueryOrderDetail(){
         "specifications": "整箱20个",//规格
         "marketPrice": 11.05,//市场价
         "price": 10.05,//单价
+        "unit":"盒",//单位
         "buyNum": 100,//购买数量
       },
       {
@@ -373,6 +372,7 @@ function QueryOrderDetail(){
         "specifications": "整箱20个",//规格
         "marketPrice": 19.05,//市场价
         "price": 10.05,//单价
+        "unit": "盒",//单位
         "buyNum": 100,//购买数量
       }
     ]//商品清单
