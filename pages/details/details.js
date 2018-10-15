@@ -167,7 +167,7 @@ Page({
   //参团好友
   friends: function(){
     let that = this;
-    util.request(api.Friends, { id: that.data.id }).then(function (res) {
+    util.request(api.Friends, { id: that.data.id }, "POST").then(function (res) {
       if (res.rs === 1) {
         var data = res.data;
         that.setData({
@@ -182,7 +182,7 @@ Page({
   ////获取货品信息
   queryGroupPurchaseDetail: function () {
     let that = this;
-    util.request(api.QueryGroupPurchaseDetail, { id: that.data.id }).then(function (res) {
+    util.request(api.QueryGroupPurchaseDetail, { id: that.data.id }, "POST").then(function (res) {
       if (res.rs === 1) {
         var data = res.data;
         var goodsList = data.goodsList;
