@@ -56,6 +56,19 @@
     width: 44rpx;
 }
 
+.logo{
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  margin-bottom: 33px;
+}
+
+.logo image{
+  width: 116px;
+  height: 82px;
+}
+
 .login-btn{
     margin: 60rpx 0 40rpx 0;
     height: 96rpx;

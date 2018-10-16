@@ -3,7 +3,7 @@
 
     	<view class='logo'>
       
-         <image src='/static/images/success-icon.png'></image>
+         <image src='/static/images/logo.png'></image>
       
       </view>
       
