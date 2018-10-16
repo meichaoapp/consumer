@@ -60,36 +60,31 @@ Page({
     util.request(api.CreateOrder, order ,"POST").then(function (res) {
       if (res.rs === 1) { //创建成功
         var data = res.data;
-        //2.调用微信支付
-        util.request(api.Pay, _this.getPayDatas() , "POST").then(function (res1) {
-          if (res1.rs === 1) { //支付成功
-            var data1 = res1.data;
 
-            //跳转成功页
-            wx.redirectTo({
-              url: '/pages/details/success?id=' + data.id,
-            })
-            //3.确认参团
-            // util.request(api.FirmOrder, _this.getFirmOrderDatas(data.id), "POST").then(function (res2) {
-            //   if (res2.rs === 1) { //参团成功
-            //     var data2 = res2.data;
-                
-            //     //跳转成功页
-            //     wx.redirectTo({
-            //       url: '/pages/details/success?id=' + data.id,
-            //     })
+        console.log(res.data.wxPayResponse);
 
-            //   }else{
-            //     _this.$wuxToast.show({ type: 'text', text: "参团失败请重试!", });
-            //     return false;
-            //   }
-            // });
+        wx.requestPayment(
+          {
+            'timeStamp': '',
+            'nonceStr': '',
+            'package': '',
+            'signType': 'MD5',
+            'paySign': '',
+            'success': function (res) { 
+       //     //     //跳转成功页
+        //     //     wx.redirectTo({
+        //     //       url: '/pages/details/success?id=' + data.id,
+        //     //     })
+            },
+            'fail': function (res) {
+           //   _this.$wuxToast.show({ type: 'text', text: "参团失败请重试!", });
+        //     //     return false;
+             },
+            'complete': function (res) { 
 
-          }else{
-            _this.$wuxToast.show({ type: 'text', text: "参团失败请重试!", });
-            return false;
-          }
-        });
+            }
+          })
+
       }else{
         _this.$wuxToast.show({ type: 'text', text: "参团失败请重试!", });
         return false;
