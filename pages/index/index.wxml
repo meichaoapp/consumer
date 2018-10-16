@@ -63,7 +63,7 @@
 
         </view>
         <view class='m-item-footer row'>
-          <view class='merchant-name'>团长:果缤纷鲜果超市</view>
+          <view class='merchant-name'>团长:{{item.merchantName}}</view>
           <view class='join-btn'>参团</view>
           <!-- <view class='join-btn-default'>查看</view> -->
           <view class='tips column'>
