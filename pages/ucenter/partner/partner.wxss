@@ -132,6 +132,12 @@ input::-webkit-input-placeholder {
   position: relative;
   padding-left: 20rpx;
 }
+.pos-shangchao{
+  position: relative;
+}
+.pos-shangchao input{
+  padding-left: 50rpx;
+}
 .pos .HintInfor{
   position: absolute;
   top: 12rpx;
@@ -140,10 +146,11 @@ font-size: 30rpx;
 color: #fd1a2a;
 
 }
-.icon-xuanze{
+.icon-zuobiao{
   position: absolute;
   top: 13rpx;
   left: 0;
-font-size: 20rpx;
-color: #fd1a2a;
+font-size: 40rpx;
+color: #72cfdd;
+
 }
