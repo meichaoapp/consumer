@@ -23,22 +23,23 @@
         <text class='tip-text'>我们会很快与您取得联系</text>
       </view>
      <view class='box-base'>
-			 <view class='label flex flex_center'>
-			 	<text style='color:red;margin-right:4rpx;'>*</text>
+			 <view class='label flex flex_center pos'>
+			 	<text class="HintInfor">*</text>
 			 	<text class='label'>商超名称或个人姓名</text>
 			 </view>
         <view class='box-contacts'><input name="name" bindinput='bindName' placeholder='请输入...' placeholder-class="phcolor" value='{{name}}'></input></view>
      </view>
      <view class='box-base'>
-      <view class='label flex flex_center'>
-        <text style='color:red;margin-right:4rpx;'>*</text>
+      <view class='label flex flex_center pos'>
+        <!-- <text style='color:red;margin-right:4rpx;'>*</text> -->
+        <text class="iconfont icon-xuanze"></text>
         <text class='label'>商超位置</text>
       </view>
       <view class='box-contacts'><input name="location" placeholder='请输入...' placeholder-class="phcolor" value='{{address}}'></input></view>
     </view>
       <view class='box-base'>
-				<view class='label flex flex_center'>
-					<text style='color:red;margin-right:4rpx;'>*</text>
+				<view class='label flex flex_center pos'>
+					<text class="HintInfor">*</text>
 					<text class='label'>联系电话</text>
 				</view>
         <view class='box-contacts'><input name="phone" bindinput='bindPhone' placeholder='请输入...' placeholder-class="phcolor" value='{{phone}}'></input></view>

@@ -23,8 +23,8 @@
   <view class='shoplist'>
     <view class='title'> 购物清单 </view>
 
-    <view class='shoplists' wx:for="{{goodsList}}" wx:for-index="index" wx:for-item="item" wx:key="{{item.id}}">
-      <view class='shoplists-cell row'>
+    <view class='shoplists'>
+      <view class='shoplists-cell row' wx:for="{{goodsList}}" wx:for-index="index" wx:for-item="item" wx:key="{{item.id}}">
         <view class='proname'>
           <image src='{{item.url}}'></image>
         </view>
@@ -38,9 +38,14 @@
 
 
   </view>
+<!-- 二维码 -->
 
   <view class='order-qrcode'>
-     <image src='{{orderQRcode}}'></image>
+   <view class='title'> 购物清单 <text class='hintInfor'>（请向店主出示此二维码，来获取所购商品）</text> </view>
+   <view class='qrcode'>
+      <image src='{{orderQRcode}}'></image>
+   </view>
+     
   </view>
 
 

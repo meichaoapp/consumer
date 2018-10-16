@@ -419,10 +419,11 @@ font-size:28rpx;
 }
 
 .friends-list .friends-item{
-   align-content: center;
+   /* align-content: center; */
    align-items: center;
-   height: 151rpx;
-   text-justify: center;
+   height:116rpx;
+   /* text-justify: center; */
+   padding-left: 20rpx;
 }
 
 .friends-avatar{
@@ -433,21 +434,28 @@ font-size:28rpx;
   margin-right:13rpx;
 }
 .friends-name-box-nob{
-   height: 150rpx;
-   line-height:150rpx;
-   width: 80%;
+   height: 115rpx;
+   line-height:115rpx;
+   /* width: 80%; */
+   flex: 1;
    color: #888888;
+   overflow: hidden;
 }
 .friends-name-box{
-   height: 150rpx;
-   line-height:150rpx;
-   width: 80%;
+   height: 115rpx;
+   line-height:115rpx;
+   /* width: 80%; */
+   flex: 1;
    border-top: 1px solid #d1d2d3;
    color: #888888;
+   overflow: hidden;
 }
 .container .m-item-content .goods-content{
 font-size: 30rpx;
 }
 .container .m-item-content .desc{
   font-size: 28rpx;
+}
+.groupnums{
+  margin-left: 18rpx;
 }

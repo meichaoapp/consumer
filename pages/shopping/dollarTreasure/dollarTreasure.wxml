@@ -1,7 +1,9 @@
 <view class="container">
   <!-- 一元夺宝 -->
 
-<view class='dollarTreasuretitle'>🔥火热开抢</view>
+<view class='dollarTreasuretitle'>
+<text class='iconfont icon-huore'></text>
+火热开抢</view>
 
 
   <view class='dollarTreasure'>

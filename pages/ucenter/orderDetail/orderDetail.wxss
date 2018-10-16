@@ -73,8 +73,9 @@ overflow: hidden;
   color: #999;
   font-size: 24rpx;
 }
-.shoplist .title{
+.shoplist .title,.order-qrcode .title{
 padding: 20rpx;
+font-size:30rpx;
 }
 .shoplists{
  width: 94%;
@@ -125,15 +126,26 @@ padding: 20rpx;
 }
 
 .order-qrcode{
-  display: flex;
+  /* display: flex;
   align-items: center;
   justify-content: center;
   justify-items: center;
   margin-top: 33rpx;
-  margin-bottom: 33rpx;
+  margin-bottom: 33rpx; */
 }
 
-.order-qrcode image{
-  width: 260px;
-  height: 260px;
+
+.hintInfor{
+  font-size: 24rpx;
+  color: #e38f23;
+}
+.qrcode{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  justify-items: center;
+}
+.qrcode image{
+  width: 400rpx;
+  height:400rpx;
 }

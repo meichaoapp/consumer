@@ -120,9 +120,10 @@
   <view class="container" wx:if="{{tabIndex == 1}}">
       <view class='friends-info mb13'>
          <view class='friends-number ml13'>
-             参团人数:{{joinNum}}
+             参团人数: <text class='groupnums'>86</text>
+             <!-- {{joinNum}} -->
          </view>
-         <view class='friends-list ml13'>
+         <view class='friends-list'>
              <view class='friends-item row' wx:for="{{friensList}}" wx:for-index="index" wx:for-item="item" wx:key="{{item.id}}">
                 <view>
                   <image class='friends-avatar' src='{{item.avatar }}'></image>

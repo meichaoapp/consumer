@@ -1,3 +1,4 @@
+@import "../../../utils/iconfonts.wxss";
 page{
     background: #f4f4f4;
     min-height: 100%;
@@ -126,4 +127,23 @@ input::-webkit-input-placeholder {
   justify-content: center;
   text-justify: center;
   color: #f0c33d;
+}
+.pos{
+  position: relative;
+  padding-left: 20rpx;
+}
+.pos .HintInfor{
+  position: absolute;
+  top: 12rpx;
+  left: 0;
+font-size: 30rpx;
+color: #fd1a2a;
+
+}
+.icon-xuanze{
+  position: absolute;
+  top: 13rpx;
+  left: 0;
+font-size: 20rpx;
+color: #fd1a2a;
 }

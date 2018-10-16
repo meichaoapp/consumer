@@ -1,3 +1,4 @@
+@import "../../../utils/iconfonts.wxss";
 page{
     background: #f4f4f4;
     min-height: 100%;
@@ -156,4 +157,7 @@ margin-top: 40rpx;
 }
 .winprizeinfo .peoplename,.winprizeinfo .nums,.winprizeinfo .date{
 font-size: 26rpx;
+}
+.icon-huore{
+  color: #e38f23;
 }
