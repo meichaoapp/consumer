@@ -41,7 +41,7 @@
 <!-- 二维码 -->
 
   <view class='order-qrcode'>
-   <view class='title'> 购物清单 <text class='hintInfor'>（请向店主出示此二维码，来获取所购商品）</text> </view>
+   <view class='title'> 购物二维码 <text class='hintInfor'>（请向店主出示此二维码，来获取所购商品）</text> </view>
    <view class='qrcode'>
       <image src='{{orderQRcode}}'></image>
    </view>
