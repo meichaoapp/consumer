@@ -1,10 +1,10 @@
 @font-face {
   font-family: 'iconfont';  /* project id 872414 */
-  src: url('//at.alicdn.com/t/font_872414_obqamb4j9r8.eot');
-  src: url('//at.alicdn.com/t/font_872414_obqamb4j9r8.eot?#iefix') format('embedded-opentype'),
-  url('//at.alicdn.com/t/font_872414_obqamb4j9r8.woff') format('woff'),
-  url('//at.alicdn.com/t/font_872414_obqamb4j9r8.ttf') format('truetype'),
-  url('//at.alicdn.com/t/font_872414_obqamb4j9r8.svg#iconfont') format('svg');
+  src: url('//at.alicdn.com/t/font_872414_41ph1rjiar1.eot');
+  src: url('//at.alicdn.com/t/font_872414_41ph1rjiar1.eot?#iefix') format('embedded-opentype'),
+  url('//at.alicdn.com/t/font_872414_41ph1rjiar1.woff') format('woff'),
+  url('//at.alicdn.com/t/font_872414_41ph1rjiar1.ttf') format('truetype'),
+  url('//at.alicdn.com/t/font_872414_41ph1rjiar1.svg#iconfont') format('svg');
 }
 .iconfont {
   font-family:"iconfont" !important;
@@ -25,6 +25,9 @@
 .icon-xuanze:before { content: "\e611"; }/*选择*/
 
 .icon-xialaxuanze-:before { content: "\e609"; }/*下拉选择*/
+
+.icon-zuobiao:before { content: "\e615"; }/*地图坐标*/
+
 
 
 

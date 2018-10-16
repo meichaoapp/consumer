@@ -30,12 +30,14 @@
         <view class='box-contacts'><input name="name" bindinput='bindName' placeholder='请输入...' placeholder-class="phcolor" value='{{name}}'></input></view>
      </view>
      <view class='box-base'>
-      <view class='label flex flex_center pos'>
+      <view class='label flex flex_center '>
         <!-- <text style='color:red;margin-right:4rpx;'>*</text> -->
-        <text class="iconfont icon-xuanze"></text>
+        
         <text class='label'>商超位置</text>
       </view>
-      <view class='box-contacts'><input name="location" placeholder='请输入...' placeholder-class="phcolor" value='{{address}}'></input></view>
+      <view class='box-contacts pos-shangchao' bindtap='selectLocation'>
+      <text class="iconfont icon-zuobiao"></text>
+      <input   name="location" placeholder='请输入...' placeholder-class="phcolor" value='{{address}}'></input></view>
     </view>
       <view class='box-base'>
 				<view class='label flex flex_center pos'>
