@@ -64,21 +64,26 @@ Page({
         util.request(api.Pay, _this.getPayDatas() , "POST").then(function (res1) {
           if (res1.rs === 1) { //支付成功
             var data1 = res1.data;
-            //3.确认参团
-            util.request(api.FirmOrder, _this.getFirmOrderDatas(data.id), "POST").then(function (res2) {
-              if (res2.rs === 1) { //参团成功
-                var data2 = res2.data;
-                
-                //跳转成功页
-                wx.redirectTo({
-                  url: '/pages/details/success?id=' + data.id,
-                })
 
-              }else{
-                _this.$wuxToast.show({ type: 'text', text: "参团失败请重试!", });
-                return false;
-              }
-            });
+            //跳转成功页
+            wx.redirectTo({
+              url: '/pages/details/success?id=' + data.id,
+            })
+            //3.确认参团
+            // util.request(api.FirmOrder, _this.getFirmOrderDatas(data.id), "POST").then(function (res2) {
+            //   if (res2.rs === 1) { //参团成功
+            //     var data2 = res2.data;
+                
+            //     //跳转成功页
+            //     wx.redirectTo({
+            //       url: '/pages/details/success?id=' + data.id,
+            //     })
+
+            //   }else{
+            //     _this.$wuxToast.show({ type: 'text', text: "参团失败请重试!", });
+            //     return false;
+            //   }
+            // });
 
           }else{
             _this.$wuxToast.show({ type: 'text', text: "参团失败请重试!", });
