@@ -1,6 +1,6 @@
 var api = require('../config/api.js');
 
-let DEBUG = true;//切换数据入口
+let DEBUG = false;//切换数据入口
 var Mock = require('mock.js')
 
 function formatTime(date) {
