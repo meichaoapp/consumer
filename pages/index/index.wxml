@@ -64,7 +64,10 @@
         </view>
         <view class='m-item-footer row'>
           <view class='merchant-name'>团长:{{item.merchantName}}</view>
-          <view class='join-btn'>参团</view>
+           <navigator url="/pages/details/details?id={{item.id}}">
+              <view class='join-btn'>参团</view>
+           </navigator>
+          
           <!-- <view class='join-btn-default'>查看</view> -->
           <view class='tips column'>
             <text class='tip-title'>已参团人数</text>
