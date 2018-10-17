@@ -7,7 +7,7 @@ Page({
     userInfo:null,
   },
   onLoad: function (options) {
-
+    this.$wuxToast = app.Wux().$wuxToast
   },
   onReady: function () {
 
@@ -24,18 +24,25 @@ Page({
 
   },
   login: function (e) {
+    var _this = this;
     var wxUser = e.detail.userInfo;
     console.log("userInfo" + wxUser)
     user.wxLogin(wxUser).then(res => {
-      this.setData({
-        userInfo: res.data.user
-      });
-      app.globalData.userInfo = res.data.user;
-      app.globalData.token = res.data.token;
-      wx.navigateBack({
-        delta:1
-      })
+      if(res.rs == 1){
+        _this.setData({
+          userInfo: res.data.user
+        });
+        app.globalData.userInfo = res.data.user;
+        app.globalData.token = res.data.token;
+        wx.navigateBack({
+          delta: 1
+        })
+      }else{
+        _this.$wuxToast.show({ type: 'forbidden', text: "登录失败，请重试！", });
+      }
+     
     }).catch((err) => {
+      _this.$wuxToast.show({ type: 'forbidden', text: "提交失败，请重试！", });
       console.log(err)
     });
   },

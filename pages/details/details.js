@@ -107,6 +107,9 @@ Page({
         _this.$wuxToast.show({ type: 'text', text: "参团失败请重试!", });
         return false;
       }
+    }).catch((err) => {
+      _this.$wuxToast.show({ type: 'forbidden', text: "提交失败，请重试！", });
+      console.log(err)
     });
   },
 
