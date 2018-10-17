@@ -181,6 +181,7 @@ Page({
 
   queryTGList: function () {
     let _this = this;
+    _this.$wuxLoading.show({ text: '数据加载中', })
     var data = {
       start: _this.data.start,
       limit: _this.data.limit,
@@ -188,6 +189,7 @@ Page({
       longitude: _this.data.longitude,
     }
     util.request(api.QueryTGList,data,"POST").then(function (res) {
+      _this.$wuxLoading.hide(); //隐藏加载动画
       if (res.rs === 1) {
         var list = res.data.list;
         if (_this.data.start == 1) { // 下拉刷新
@@ -208,6 +210,9 @@ Page({
         }
         
       }
+    }).catch((err) => {
+      _this.$wuxLoading.hide(); //隐藏加载动画
+      console.log(err)
     });
   
   },
