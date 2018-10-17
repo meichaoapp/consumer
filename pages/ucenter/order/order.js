@@ -16,20 +16,18 @@ Page({
     loadMoreData: '加载更多……',
   },
   onLoad:function(options){
+    this.$wuxLoading = app.Wux().$wuxLoading //加载
     let userInfo = wx.getStorageSync('userInfo');
     let token = wx.getStorageSync('token');
 
-    // 页面显示
-    if (userInfo && token) {
-      app.globalData.userInfo = userInfo;
-      app.globalData.token = token;
+    if (null == userInfo || userInfo == "" || undefined == userInfo) {
+      wx.navigateTo({
+        url: '/pages/auth/login/login'
+      });
     }
-
     this.setData({
-      userInfo: app.globalData.userInfo,
+      userInfo: userInfo,
     });
-
-    this.$wuxLoading = app.Wux().$wuxLoading //加载
     this.getOrderList();
   },
 

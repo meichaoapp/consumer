@@ -15,23 +15,24 @@ Page({
   },
 
   onLoad: function (options) {
-    let userInfo = wx.getStorageSync('userInfo');
-    let token = wx.getStorageSync('token');
-    this.$wuxToast = app.Wux().$wuxToast
-    
-    this.getCurrentLocation();
 
-    if(null == userInfo){
-      wx.redirectTo({
-        url: '/pages/auth/login/login'
-      });
-    }
+    this.$wuxToast = app.Wux().$wuxToast
+   
   },
   onReady: function () {
 
   },
   onShow: function () {
-
+    let userInfo = wx.getStorageSync('userInfo');
+    if (null == userInfo || userInfo == "" || undefined == userInfo) {
+      wx.navigateTo({
+        url: '/pages/auth/login/login'
+      });
+    }
+    this.setData({
+      userInfo: userInfo,
+    });
+    this.getCurrentLocation();
   },
   onHide: function () {
     // 页面隐藏
@@ -47,7 +48,7 @@ Page({
       return;
     }
     var data = {
-      token: wx.getStorageSync('token'),
+      //token: wx.getStorageSync('token'),
       userId: _this.data.userInfo.id,
       openid: _this.data.userInfo.openid,
       latitude: _this.data.latitude,

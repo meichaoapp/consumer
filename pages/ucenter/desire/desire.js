@@ -7,6 +7,7 @@ var app = getApp();
 
 Page({
   data: {
+    userInfo: {},
     array: ['请选择反馈类型', '商品相关', '物流状况', '客户服务', '优惠活动', '功能异常', '产品建议', '其他'],
     index: 0,
     content:"",
@@ -19,13 +20,20 @@ Page({
   },
   onLoad: function (options) {
     this.$wuxToast = app.Wux().$wuxToast
-
   },
   onReady: function () {
 
   },
   onShow: function () {
-
+    let userInfo = wx.getStorageSync('userInfo');
+    if (null == userInfo || userInfo == "" || undefined == userInfo) {
+      wx.navigateTo({
+        url: '/pages/auth/login/login'
+      });
+    }
+    this.setData({
+      userInfo: userInfo,
+    });
   },
   onHide: function () {
     // 页面隐藏
@@ -43,6 +51,8 @@ Page({
     }
     var data ={
        content: _this.data.content,
+       userId: _this.data.userInfo.id,
+       openid: _this.data.userInfo.openid,
     }
     util.request(api.Desire, data,"POST").then(function (res) {
       if (res.rs === 1) {

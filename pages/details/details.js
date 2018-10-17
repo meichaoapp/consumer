@@ -5,6 +5,7 @@ var api = require('../../config/api.js');
 const statusArr = ["即将开始", "距结束", "已成团", "已过期"];//0 未开始 1 进行中 2 已成团 3 已过期
 Page({
   data: {
+    userInfo: {},
     id: 0,
     tabIndex:0,
     detail:{}, //团购详情
@@ -53,6 +54,15 @@ Page({
   joinGroup: function(){
     //1.创建订单
     let _this = this;
+    let userInfo = wx.getStorageSync('userInfo');
+    if (null == userInfo || userInfo == "" || undefined == userInfo) {
+      wx.navigateTo({
+        url: '/pages/auth/login/login'
+      });
+    }
+    _this.setData({
+      userInfo: userInfo,
+    });
     var order = _this.getOrderDatas();
     if(null == order){
       return;
@@ -63,27 +73,31 @@ Page({
 
         console.log(res.data.wxPayResponse);
 
-        wx.requestPayment(
-          {
-            'timeStamp': '',
-            'nonceStr': '',
-            'package': '',
-            'signType': 'MD5',
-            'paySign': '',
-            'success': function (res) { 
-       //     //     //跳转成功页
-        //     //     wx.redirectTo({
-        //     //       url: '/pages/details/success?id=' + data.id,
-        //     //     })
-            },
-            'fail': function (res) {
-           //   _this.$wuxToast.show({ type: 'text', text: "参团失败请重试!", });
-        //     //     return false;
-             },
-            'complete': function (res) { 
+        wx.redirectTo({
+          url: '/pages/details/success?id=' + data.id,
+        })
 
-            }
-          })
+        // wx.requestPayment(
+        //   {
+        //     'timeStamp': '',
+        //     'nonceStr': '',
+        //     'package': '',
+        //     'signType': 'MD5',
+        //     'paySign': '',
+        //     'success': function (res) { 
+        //        //跳转成功页
+        //         wx.redirectTo({
+        //           url: '/pages/details/success?id=' + data.id,
+        //         })
+        //     },
+        //     'fail': function (res) {
+        //       _this.$wuxToast.show({ type: 'text', text: "参团失败请重试!", });
+        //       return false;
+        //      },
+        //     'complete': function (res) { 
+
+        //     }
+        //   })
 
       }else{
         _this.$wuxToast.show({ type: 'text', text: "参团失败请重试!", });
@@ -93,12 +107,13 @@ Page({
   },
 
   getFirmOrderDatas : function(orderId){
+    let _this = this;
     return {
       "token": "773b8bde7ed698bc2cc2227d5c765704", //token
       "id": orderId,  //订单id
-      "userId": 1,  //用户ID
+      "userId": _this.data.userInfo.id,  //用户ID
       "payStatus": 0,  //支付状态 0 成功 1 失败
-      "openid": "P90FDeUdnFMZkwZ274fEWnWqE",        // openid
+      "openid": this.data.userInfo.openid,        // openid
     };
   },
 
@@ -119,8 +134,8 @@ Page({
     let _this = this;
     var order = {
       id: _this.data.id,  //团购id
-      userId: 1,  //用户ID
-      openid: "P90FDeUdnFMZkwZ274fEWnWqE",        // openid
+      userId: _this.data.userInfo.id,  //用户ID
+      openid: this.data.userInfo.openid,     // openid
       totalPay: _this.data.totalPay,//共付
       needPay: _this.data.needPay,// 应付
 
