@@ -61,7 +61,7 @@ page{
   
 }
  .label{
-  margin-top:2px;
+  margin-top:4rpx;
   color: #72cfdd;
 }
 input{
@@ -142,15 +142,13 @@ input::-webkit-input-placeholder {
   position: absolute;
   top: 12rpx;
   left: 0;
-font-size: 30rpx;
-color: #fd1a2a;
-
+  font-size: 30rpx;
+  color: #fd1a2a;
 }
 .icon-zuobiao{
   position: absolute;
-  top: 13rpx;
-  left: 0;
-font-size: 40rpx;
-color: #72cfdd;
-
+  top: 15rpx;
+  left: 6rpx;
+  font-size: 40rpx;
+  color: #72cfdd;
 }
