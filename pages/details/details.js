@@ -73,31 +73,35 @@ Page({
 
         console.log(res.data.wxPayResponse);
 
-        wx.redirectTo({
-          url: '/pages/details/success?id=' + data.id,
-        })
+        // wx.redirectTo({
+        //   url: '/pages/details/success?id=' + data.id,
+        // })
 
-        // wx.requestPayment(
-        //   {
-        //     'timeStamp': '',
-        //     'nonceStr': '',
-        //     'package': '',
-        //     'signType': 'MD5',
-        //     'paySign': '',
-        //     'success': function (res) { 
-        //        //跳转成功页
-        //         wx.redirectTo({
-        //           url: '/pages/details/success?id=' + data.id,
-        //         })
-        //     },
-        //     'fail': function (res) {
-        //       _this.$wuxToast.show({ type: 'text', text: "参团失败请重试!", });
-        //       return false;
-        //      },
-        //     'complete': function (res) { 
 
-        //     }
-        //   })
+        var wxPayResponse = res.data.wxPayResponse;
+        var timestamp = Date.parse(new Date());
+        timestamp = timestamp / 1000;
+        wx.requestPayment(
+          {
+            'timeStamp': timestamp,
+            'nonceStr': wxPayResponse.nonceStr,
+            'package': wxPayResponse.prepayId,
+            'signType': 'MD5',
+            'paySign': wxPayResponse.sign,
+            'success': function (res) { 
+               //跳转成功页
+                wx.redirectTo({
+                  url: '/pages/details/success?id=' + data.id,
+                })
+            },
+            'fail': function (res) {
+              _this.$wuxToast.show({ type: 'text', text: "参团失败请重试!", });
+              return false;
+             },
+            'complete': function (res) { 
+
+            }
+          })
 
       }else{
         _this.$wuxToast.show({ type: 'text', text: "参团失败请重试!", });
