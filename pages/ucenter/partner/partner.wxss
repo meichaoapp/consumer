@@ -140,7 +140,7 @@ input::-webkit-input-placeholder {
 }
 .pos .HintInfor{
   position: absolute;
-  top: 12rpx;
+  top: 11rpx;
   left: 0;
   font-size: 30rpx;
   color: #fd1a2a;
