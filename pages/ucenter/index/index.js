@@ -22,7 +22,6 @@ Page({
     // 页面显示
     if (userInfo) {
       app.globalData.userInfo = userInfo;
-      app.globalData.token = token;
     }
 
     this.setData({
