@@ -151,16 +151,17 @@ Page({
     var goodsListArr = [];
     var goodsList = _this.data.goodsList;
     var hasBuy = false;
+    var buyNums = 0;
     if (goodsList != null && goodsList.length > 0) {
       goodsList.forEach(o => {
         if (o.number > 0){
           hasBuy =  true;
+          var g = {
+            "id": o.id, // 商品id
+            "buyNum": o.number,//购买数量
+          }
+          goodsListArr.push(g);
         }
-        var g = {
-          "id": o.id, // 商品id
-          "buyNum": o.number,//购买数量
-        }
-        goodsListArr.push(g);
       });
     }
 
@@ -168,6 +169,8 @@ Page({
       _this.$wuxToast.show({ type: 'text', text: "请选择想要参团的商品，谢谢！", });
       return null;
     }
+    order.buyNum = buyNums; //购买总数量
+
     order.goodsList = goodsListArr;
     return order;
   },
