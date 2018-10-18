@@ -37,17 +37,13 @@
   <scroll-view scroll-y="true" class='section'>
     <view class='m-item-list'>
       <view class='m-item' wx:for="{{list}}" wx:for-index="index" wx:for-item="item" wx:key="{{item.id}}">
-
+       <navigator url="/pages/details/details?id={{item.id}}">
         <view class='m-item-content row'>
-          <navigator url="/pages/details/details?id={{item.id}}">
             <view class='pre-img'>
               <image src='{{item.url}}'></image>
             </view>
-          </navigator>
           <view class='goods-content'>
-            <navigator url="/pages/details/details?id={{item.id}}">
               <text class="name">{{item.name}}</text>
-            </navigator>
             <text class="desc">{{item.comments}}</text>
             <view class="status-content row flex flex_center" style='margin-top: 11px;'>
               <image class='status-icon' src="/static/images/{{item.status == 1 ? 'timer-active.png' : 'timer-done.png'}}"></image>
@@ -74,7 +70,7 @@
             <text class='tip-num'>{{item.joinNum}}/{{item.limitNum}}</text>
           </view>
         </view>
-
+       </navigator>
       </view>
 
     </view>
