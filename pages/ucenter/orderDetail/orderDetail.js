@@ -35,7 +35,7 @@ Page({
           needPay: res.data.needPay,// 应付
           orderQRcode: res.data.orderQRcode,// 订单二维码（包含订单id）
           code: res.data.code, //订单识别码
-          orderNums: res.data.orderNums,
+          //orderNums: res.data.orderNums,
           merchant: res.data.merchant,
           groupPurchase: res.data.groupPurchase,
           goodsList: res.data.goodsList

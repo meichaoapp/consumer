@@ -2,8 +2,8 @@
 
   <view class='header row'>
     <view class='pro-decs flex_1'>
-      <text class='iconfont icon-mn_biaoqian_fill blue'></text>{{groupPurchase.name}}</view>
-    <view class='pro-num blue'>合计：{{orderNums}}</view>
+      <text class='iconfont icon-mn_biaoqian_fill blue'></text>{{groupPurchase.title}}</view>
+    <!-- <view class='pro-num blue'>合计：{{orderNums}}</view> -->
   </view>
 
 

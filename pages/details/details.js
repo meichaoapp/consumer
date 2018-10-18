@@ -155,6 +155,7 @@ Page({
     if (goodsList != null && goodsList.length > 0) {
       goodsList.forEach(o => {
         if (o.number > 0){
+          buyNums += o.number;
           hasBuy =  true;
           var g = {
             "id": o.id, // 商品id
