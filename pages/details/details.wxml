@@ -109,10 +109,10 @@
     <view class='p'>
         <text class='buy-price ml13 '>￥{{needPay}}</text>
         <text class='market-price'>￥{{totalPay}}</text>
-        <view class='ticket'>
+        <!-- <view class='ticket'>
            <image class='check-icon' src='/static/images/icon_detaliok.png'></image>
            <text class='ticket-title'>新人券</text>
-        </view>
+        </view> -->
     </view>
     <view class="r" bindtap='joinGroup'>立即参团</view>
   </view>
