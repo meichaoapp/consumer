@@ -34,6 +34,9 @@ view,text{
 .row { display:flex; flex-direction:row; }
 .column { display:flex; flex-direction:column; }
 
+.mt13{
+  margin-top: 13px;
+}
 .ml13{
   margin-left: 13px;
 }
