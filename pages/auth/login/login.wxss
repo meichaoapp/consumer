@@ -65,8 +65,8 @@
 }
 
 .logo image{
-  width: 116px;
-  height: 82px;
+  width: 362rpx;
+  height: 120rpx;
 }
 
 .login-btn{
