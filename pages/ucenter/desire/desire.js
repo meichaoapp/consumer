@@ -49,6 +49,10 @@ Page({
       _this.$wuxToast.show({ type: 'forbidden', text: "内容不能为空，请填写后提交！", });
       return;
     }
+    if (_this.data.content.length > 1000) {
+      _this.$wuxToast.show({ type: 'forbidden', text: "内容不能不能多于1000个字符，请填写后提交！", });
+      return;
+    }
     var data ={
        content: _this.data.content,
        userId: _this.data.userInfo.id,
