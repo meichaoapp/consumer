@@ -286,36 +286,38 @@ Page({
 
     let o = this.data.detail;
     if (o != null & o  != undefined) {
-      
-      // 对结束时间进行处理渲染到页面
-      let startTime = new Date(o.startTime).getTime();
-      let endTime = new Date(o.endTime).getTime();
+      if (o.status != 2) {
+        // 对结束时间进行处理渲染到页面
+        let startTime = new Date(o.startTime).getTime();
+        let endTime = new Date(o.endTime).getTime();
 
-      if (newTime - startTime >= 0) {
-        // 如果活动未结束，对时间进行处理
-        if (endTime - newTime > 0) {
-          let time = (endTime - newTime) / 1000;
-          // 获取天、时、分、秒
-          let day = parseInt(time / (60 * 60 * 24));
-          let hou = parseInt(time % (60 * 60 * 24) / 3600);
-          let min = parseInt(time % (60 * 60 * 24) % 3600 / 60);
-          let sec = parseInt(time % (60 * 60 * 24) % 3600 % 60);
+        if (newTime - startTime >= 0) {
+          // 如果活动未结束，对时间进行处理
+          if (endTime - newTime > 0) {
+            let time = (endTime - newTime) / 1000;
+            // 获取天、时、分、秒
+            let day = parseInt(time / (60 * 60 * 24));
+            let hou = parseInt(time % (60 * 60 * 24) / 3600);
+            let min = parseInt(time % (60 * 60 * 24) % 3600 / 60);
+            let sec = parseInt(time % (60 * 60 * 24) % 3600 % 60);
 
-          o.day = this.timeFormat(day);
-          o.hour = this.timeFormat(hou);
-          o.min = this.timeFormat(min);
-          o.sec = this.timeFormat(sec);
-          o.status = 1; // 设置状态为进行中
-        } else {//活动已结束，全部设置为'00'
-          o.status = 2;
-          o.day = this.timeFormat(0);
-          o.hour = this.timeFormat(0);
-          o.min = this.timeFormat(0);
-          o.sec = this.timeFormat(0);
+            o.day = this.timeFormat(day);
+            o.hour = this.timeFormat(hou);
+            o.min = this.timeFormat(min);
+            o.sec = this.timeFormat(sec);
+            o.status = 1; // 设置状态为进行中
+          } else {//活动已结束，全部设置为'00'
+            o.status = 3;
+            o.day = this.timeFormat(0);
+            o.hour = this.timeFormat(0);
+            o.min = this.timeFormat(0);
+            o.sec = this.timeFormat(0);
+          }
+        } else {
+          o.status = 0;
         }
-      } else {
-        o.status = 0;
       }
+     
       // console.log("o.status---" + o.status);
       o.statusStr = statusArr[o.status];
      
