@@ -31,6 +31,20 @@ Page({
     this.getOrderList();
   },
 
+  /**
+   * 页面相关事件处理函数--监听用户下拉动作
+   */
+  onPullDownRefresh: function () {
+    this.refresh();
+  },
+
+  /**
+   * 页面上拉触底事件的处理函数
+   */
+  onReachBottom: function () {
+    console.log("loadMore");
+    this.loadMore();
+  },
   // 上拉加载更多
   loadMore: function () {
     let _this = this;

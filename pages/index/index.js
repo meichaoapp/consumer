@@ -54,6 +54,19 @@ Page({
   onUnload: function () {
     // 页面关闭
   },
+  /**
+   * 页面相关事件处理函数--监听用户下拉动作
+   */
+  onPullDownRefresh: function () {
+    this.refresh();
+  },
+
+  /**
+   * 页面上拉触底事件的处理函数
+   */
+  onReachBottom: function () {
+    this.loadMore();
+  },
 
   //选择位置
   selectLocation: function () {
@@ -249,7 +262,7 @@ Page({
       // 对结束时间进行处理渲染到页面
       list.forEach(o => {
         if(o.status != 2){
-          
+
           let startTime = new Date(o.startTime).getTime();
           let endTime = new Date(o.endTime).getTime();
 
