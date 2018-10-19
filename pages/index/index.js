@@ -249,7 +249,7 @@ Page({
       // 对结束时间进行处理渲染到页面
       list.forEach(o => {
         if(o.status != 2){
-
+          
           let startTime = new Date(o.startTime).getTime();
           let endTime = new Date(o.endTime).getTime();
 

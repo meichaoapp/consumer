@@ -54,6 +54,9 @@ Page({
   joinGroup: function(){
     //1.创建订单
     let _this = this;
+    if (_this.data.detail.status != 1){
+      return;
+    }
     let userInfo = wx.getStorageSync('userInfo');
     if (null == userInfo || userInfo == "" || undefined == userInfo) {
       wx.navigateTo({
