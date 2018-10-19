@@ -47,7 +47,10 @@
             <text class="desc">{{item.comments}}</text>
             <view class="status-content row flex flex_center" style='margin-top: 11px;'>
               <image class='status-icon' src="/static/images/{{item.status == 1 ? 'timer-active.png' : 'timer-done.png'}}"></image>
-              <text class='status-label'>{{item.statusStr}}</text>
+              
+              <text class="status-label">{{item.statusStr}}</text>
+
+
               <view wx:if="{{item.status == 1}}" class='timer'>
                 <text class='timer-num mr6' wx:if="{{item.day != '00' }}" >{{item.day}}</text>
                 <text class='timer-num' wx:if="{{item.hour != '00' }}" >{{item.hour}}</text> :
@@ -61,7 +64,7 @@
         <view class='m-item-footer row'>
           <view class='merchant-name'>团长:{{item.merchantName}}</view>
            <navigator url="/pages/details/details?id={{item.id}}">
-              <view class='join-btn'>参团</view>
+              <view class="join-btn {{item.status != 1 ? 'join-btn-default' : ''}}"> {{item.status != 1 ? '查看' : '参团'}}   </view>
            </navigator>
           
           <!-- <view class='join-btn-default'>查看</view> -->
