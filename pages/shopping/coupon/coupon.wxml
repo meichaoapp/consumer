@@ -11,7 +11,7 @@
         </view>
         <view class='Couponlists-cells-descs'>
           <text class='proname'>果缤纷生鲜超市</text>
-          <view>无门槛使用
+          <view style='padding-top:6rpx;'>无门槛使用
               <text class='Couponlists-cells-coupontstatus'>即将过期</text>
         </view>
         </view>

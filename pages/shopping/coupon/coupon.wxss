@@ -282,12 +282,13 @@ color: #e38f23;
 font-size: 24rpx;
 }
 .price{
-font-size: 40rpx;
+font-size: 50rpx;
   font-weight: bold;
   color: #e38f23;
 }
 .Couponlists-cells-descs{
   flex: 1;
+  margin-left: 20rpx;
 }
 .proname{
   color: #000;

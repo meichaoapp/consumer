@@ -1,9 +1,9 @@
 <view class="container">
   <view class="profile-info" bindtap="goLogin">
     <image class="avatar" src="{{userInfo.avatar}}"></image>
-    <view class="info">
+    <view class="info flex flex_center">
       <text class="name">{{userInfo.nickName}}</text>
-      <text class="level">{{userInfo.userName}}</text>
+      <text class="level" wx:if="{{userInfo.userName}}">{{userInfo.userName}}</text>
     </view>
   </view>
 

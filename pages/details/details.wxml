@@ -81,7 +81,7 @@
                 <view class='goods-content'>
                    <text class="name">{{item.name}}</text>
                    <text class="desc">{{item.specifications}}</text>
-                   <view class="price-content row" style='margin-top: 11px;'>
+                   <view class="price-content row" style='margin-top: 12rpx;'>
                      <view class='p'>
                        <text class='buy-price'>￥{{item.price}}</text>
                        <text class='market-price'>￥{{item.marketPrice}}</text>

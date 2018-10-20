@@ -102,7 +102,7 @@ button.share::after{
   color: #666;
   border-radius: 70rpx;
   justify-content: space-between;
- padding: 0 10rpx;
+  padding: 0 16rpx;
 }
 .status-button .status-content ,.status-button .join-tip{
   font-size: 28rpx;
@@ -154,19 +154,17 @@ margin-right:10rpx;
 }
 
 .merchant-box{
-  height: 165rpx;
+  height: 170rpx;
   margin: 0 20rpx;
   background: #FFF;
-  border:1rpx solid #dfe8f1;
   border-radius: 6rpx;
-  -moz-box-shadow:3rpx 6rpx 9rpx #dfe8f1; 
-  -webkit-box-shadow:3rpx 6rpx 9rpx #dfe8f1; 
-  box-shadow:3rpx 6rpx 9rpx#dfe8f1;
+  -moz-box-shadow:0 5rpx 22rpx #f0f0f0; 
+  -webkit-box-shadow:0 5rpx 22rpx #f0f0f0; 
+  box-shadow:0 5rpx 22rpx#f0f0f0;
   padding-left:130rpx;
   padding-top: 20rpx;
   padding-bottom: 20rpx;
   box-sizing: border-box;
-
 }
 
 .merchant-label{
@@ -179,15 +177,21 @@ font-size:28rpx;
 }
 
 .merchant-name{
-  color: #333;
+  color: #000;
   font-size: 32rpx;
    padding:3rpx 6rpx;
 }
 .merchant-c{
-  color: #888888;
+  color: #666;
   font-size: 28rpx;
-
 }
+.merchant-c:first-child{
+  padding-top: 26rpx; 
+}
+.merchant-c:nth-child(2){
+  padding-top: 14rpx; 
+}
+
 .merchant-avatar{
   width: 100rpx;
   height: 100rpx;
@@ -236,6 +240,7 @@ font-size:28rpx;
   height: 24rpx;
   line-height: 24rpx;
   text-decoration: line-through;
+  margin-left:18rpx;
 }
 .check-icon{
   width: 25rpx;

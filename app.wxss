@@ -23,7 +23,7 @@ view,image,text,navigator{
 
 view,text{
   font-family: PingFangSC-Light,helvetica,'Heiti SC';
-  font-size: 29rpx;
+  font-size: 28rpx;
   color: #333;
 }
 
@@ -81,7 +81,7 @@ view,text{
 
 .m-item{
   background: #fff;
-  margin-top: 13rpx;
+  margin-top: 10rpx;
   width: 100%;
 }
 
@@ -93,7 +93,7 @@ view,text{
 
 .m-item-content{
   width: 100%;
-  padding-top: 11px;
+  padding-top: 22rpx;
 }
 
 .pre-img{
@@ -103,19 +103,21 @@ view,text{
 .pre-img image{
   width: 209rpx;
   height: 165rpx;
-  margin-left: 11px;
-  margin-right: 11px;
+  margin-left: 20rpx;
+  margin-right: 20rpx;
+  border: solid 1px #eee; 
 }
 
 .goods-content{
    width: 68%;
+   margin-left: 8rpx;
 }
 
 .goods-content .name {
   display: block;
   color: #5a5a5a;
   line-height: 50rpx;
-  font-size: 31rpx;
+  font-size: 32rpx;
   font-weight: bold;
 }
 
@@ -123,12 +125,10 @@ view,text{
   display: block;
   color: rgb(102,102,102);
   line-height: 39rpx;
-  font-size: 30rpx;
-  margin-top: 2px;
+  margin-top: 6rpx;
 }
 .status-content{
   font-size: 27rpx;
- 
 }
 
 .status-content .status-icon{
@@ -180,11 +180,11 @@ view,text{
 .tips{
   margin-top: 22rpx;
   width: 160rpx;
-  color: #888;
+  color: #666;
 }
 
 .tip-title{
-  color: #888;
+  color: #666;
   font-size: 27rpx;
   font-weight: bold;
 }

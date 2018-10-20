@@ -2,7 +2,7 @@
   background: #FFF;
   min-height: 100%;
   text-align: center;
-  margin-top: 100rpx;
+  margin-top: 120rpx;
 }
 .s-tip{
   font-size: 32rpx;
@@ -12,8 +12,8 @@
 .s-imgbox{
 width: 100%;
   text-align: center;
-  padding-top: 30rpx;
-  padding-bottom: 30rpx;
+  padding-top: 34rpx;
+  padding-bottom: 50rpx;
 }
 .s-img{
   border-radius: 50%;
@@ -22,33 +22,33 @@ width: 100%;
   
 }
 .s-content{
-  width: 60%;
-  margin-left: 20%;
+  width: 100%;
+  text-align: center;
 }
 .s-content .t{
-  font-size: 28rpx;
+  font-size: 32rpx;
+  color: #4e4e4e;
+  line-height: 48rpx;
 }
 .t1{
 display: block;
 }
 .btn-t{
-  margin-top: 300rpx;
+  margin-top: 400rpx;
   text-align: center;
 }
 .btn-t .btn{
-
-  width: 35%;
-  /* margin: 16rpx; */
+  width: 280rpx;
   text-align: center;
   background: #72cfdd;
   color: #FFF;
-  height: 80rpx;
-  border-radius: 80rpx;
-  line-height: 80rpx;
+  height: 78rpx;
+  border-radius: 78rpx;
+  line-height: 78rpx;
 }
 .btn-t .btn1{
-  margin-left: 13%;
+  /* margin-left: 13%; */
 }
 .btn-t .btn2{
-  margin-left: 4%;
+  margin-left: 22rpx;
 }

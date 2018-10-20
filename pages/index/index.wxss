@@ -27,6 +27,7 @@
  }
 .location-address{
   color: #fff;
+  font-size: 32rpx;
 }
 .location-map-icon{
   width:13px;
@@ -132,6 +133,7 @@
   margin-right:118rpx;
   line-height:62rpx;
   padding:0;
+  border: none!important;
 }
 .tips {
   color:#888;

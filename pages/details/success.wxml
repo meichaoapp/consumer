@@ -6,12 +6,12 @@
         <image class="s-img" src='/static/images/user.png'></image>
        </view>
       
-       <view class='s-content'>
+       <view class='s-content flex flex_center flex_colum'>
            <text class='t t1'>预计1-2天到货 </text>
            <text class='t'>到货后，将会在社区微信群中通知</text>
        </view>
 
-       <view class='btn-t row'>
+       <view class='btn-t row flex flex_just flex_center'>
           <view class='btn btn1' bindtap='toIndex'>知道了</view>
           <view class='btn btn2' bindtap='toOrder'>订单详情</view>
        </view>

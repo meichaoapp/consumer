@@ -35,17 +35,18 @@ page{
 
 .profile-info .name{
     display: block;
-    height: 45rpx;
-    line-height: 45rpx;
+    /* height: 45rpx; */
+    /* line-height: 45rpx; */
     color: #72cfdd;
     font-size: 37.5rpx;
-    margin-bottom: 10rpx;
+    /* margin-bottom: 10rpx; */
 }
 
 .profile-info .level{
     display: block;
     height: 30rpx;
     line-height: 30rpx;
+    margin-top: 10rpx;
     margin-bottom: 10rpx;
     color: #7f7f7f;
     font-size: 30rpx;
@@ -235,7 +236,7 @@ wsx
   height: 45rpx;
   line-height: 45rpx;
   box-sizing: content-box;
-  /* font-size: 32rpx; */
+  font-size: 32rpx;
 }
 .mylist-cells .mylist-cell-image{
   width: 35rpx;

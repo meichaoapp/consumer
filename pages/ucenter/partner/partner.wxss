@@ -42,9 +42,9 @@ page{
 .form{
   width: 100%;
   background: #fff;
-  margin-top:6px;
+  margin-top: 18rpx;
   padding-top:23rpx;
-  padding-bottom: 39px;
+  padding-bottom: 80rpx;
 }
 
 .title{
@@ -66,14 +66,14 @@ page{
 }
 input{
   font-size: 26rpx;
-  color: rgb(153,153,153);
+  color: #333;
   border: 1px solid rgb(191,191,191);
   height:72rpx;
   border-radius: 6rpx;
-  padding-left:16rpx;
+  padding-left:16rpx; 
 }
 input::-webkit-input-placeholder {
-  color: rgb(153,153,153);
+  color: #999;
 }
 .phcolor{
   padding-left: 3px;
