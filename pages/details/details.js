@@ -297,7 +297,7 @@ Page({
             let time = (endTime - newTime) / 1000;
             // 获取天、时、分、秒
             let day = parseInt(time / (60 * 60 * 24));
-            let hou = parseInt(time % (60 * 60 * 24) / 3600);
+            let hou = parseInt(time % (60 * 60 * 24) / 3600) + 24 * day;
             let min = parseInt(time % (60 * 60 * 24) % 3600 / 60);
             let sec = parseInt(time % (60 * 60 * 24) % 3600 % 60);
 

@@ -19,14 +19,14 @@
     </navigator>
 
 
-    <!-- <navigator url='/pages/shopping/mydollarTreasure/mydollarTreasure'>
+    <navigator url='/pages/shopping/mydollarTreasure/mydollarTreasure'>
       <view class='mylist-cells'>
         <view class='mylist-cell-image'>
           <image src='/static/images/icons-my-list02.png'></image>
         </view>
         <view class='mylist-cell-desc'>我的一元夺宝</view>
       </view>
-    </navigator> -->
+    </navigator>
 
     <navigator url="/pages/shopping/coupon/coupon">
       <view class='mylist-cells'>

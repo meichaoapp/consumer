@@ -24,12 +24,12 @@
       <image src="{{item.url}}" background-size="cover"></image>
     </swiper-item>
   </swiper>
-  <!-- <navigator url='/pages/shopping/dollarTreasure/dollarTreasure'>
+  <navigator url='/pages/shopping/dollarTreasure/dollarTreasure'>
     <view class='treasure-nav flex flex_just flex_center'>
       <image class="treasure-btn-icon" src='/static/images/treasure-btn.png'></image>
     </view>
-  </navigator> -->
-  <view class='row flex flex_center mt13'>
+  </navigator>
+  <view class='row flex flex_center'>
     <image class='tip-icon' src='/static/images/icon-gp.png'></image>
     <text class='tip-text'>拼团享优惠</text>
   </view>
@@ -63,9 +63,7 @@
         </view>
         <view class='m-item-footer row'>
           <view class='merchant-name'>团长:{{item.merchantName}}</view>
-           <navigator url="/pages/details/details?id={{item.id}}">
               <view class="join-btn {{item.status != 1 ? 'join-btn-default' : ''}}"> {{item.status != 1 ? '查看' : '参团'}}   </view>
-           </navigator>
           
           <!-- <view class='join-btn-default'>查看</view> -->
           <view class='tips column'>

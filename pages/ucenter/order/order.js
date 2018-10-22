@@ -8,7 +8,7 @@ Page({
     orderList: [],
     start: 1, // 页码
     totalPage: 0, // 共有页
-    limit: 3,//每页条数
+    limit: 6,//每页条数
     hideHeader: true, //隐藏顶部提示
     hideBottom: true, //隐藏底部提示
     srollViewHeight: 0, //滚动分页区域高度
@@ -42,7 +42,6 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-    console.log("loadMore");
     this.loadMore();
   },
   // 上拉加载更多
@@ -94,7 +93,7 @@ Page({
           })
         } else { // 加载更多
           //console.log('加载更多');
-          var tempArray = _this.data.list;
+          var tempArray = _this.data.orderList;
           tempArray = tempArray.concat(list);
           _this.setData({
             totalPage: res.data.totalPage,
