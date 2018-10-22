@@ -165,6 +165,7 @@ margin-right:10rpx;
   padding-top: 20rpx;
   padding-bottom: 20rpx;
   box-sizing: border-box;
+  overflow: hidden!important;
 }
 
 .merchant-label{

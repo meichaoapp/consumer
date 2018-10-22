@@ -55,7 +55,7 @@
                 <text class='timer-num mr6' wx:if="{{item.day != '00' }}" >{{item.day}}</text>
                 <text class='timer-num' wx:if="{{item.hour != '00' }}" >{{item.hour}}</text> :
                 <text class='timer-num' wx:if="{{item.min != '00' }}" >{{item.min}}</text> :
-                <text class='timer-num' wx:if="{{item.sec != '00' }}" >{{item.sec}}</text>
+                <text class='timer-num' wx:if="{{item.sec != '00' || item.min != '00'}}" >{{item.sec}}</text>
               </view>
             </view>
           </view>

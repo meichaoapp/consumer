@@ -320,6 +320,8 @@ function QueryOrderList(){
         "url": "https://s-mall.oss-cn-beijing.aliyuncs.com/meichao/g1.png",	   //展示url
         "orderNums": "5盒", //订单数量
         "status": 0, //0 即将到货 1 已完成
+        "joinTime": "2018/09/16 00:00:00", // 下单时间，注意格式
+        "comments": "草原宏宝蒙巴克 无公害谷饲羔羊" // 简述
       }
     ]
   }

@@ -117,11 +117,14 @@ page{
 *wsx
 */
 .o-details-lists-cell{
-  margin:20rpx 30rpx 0;
+  margin:0 28rpx 18rpx 28rpx;
   background: #fff;
   box-shadow: 1px 1px 1px #f0f0f0;
   border-radius: 20rpx;
   box-sizing: border-box;
+}
+.o-details-lists:first-child {
+  margin-top: 17rpx; 
 }
 .o-details-lists-cell-main{
   /* width: 100%; */
@@ -131,14 +134,14 @@ page{
 }
 .o-details-lists-cell-img,.o-details-lists-cell-img image{
 width: 180rpx;
-height: 130rpx;
+height: 136rpx;
 }
 .o-details-lists-cell-desc{
 flex: 1;
 }
 .o-details-lists-cell-desc text{
   display: block;
-  padding-left: 17rpx; 
+  padding-left: 18rpx; 
 }
 .o-details-lists-cell-status{
 font-size: 32rpx;
@@ -152,11 +155,10 @@ padding-bottom: 20rpx;
   color: #999999!important;
 }
 .o-details-lists-cell-desc text.name{
-font-size: 30rpx;
+font-size: 32rpx;
 font-weight: bold;
 color: #333;
-height: 60rpx;
-
+height: 57rpx;
 }
 .o-details-lists-cell-desc text.num{
 font-size: 28rpx;
@@ -166,9 +168,13 @@ line-height: 36rpx;
 padding-left: 17rpx;
 }
 .o-details-lists-cell-desc text.detail{
-font-size: 24rpx;
+font-size: 20rpx;
 color: #e38f23;
-height: 30rpx;
+height: 42rpx;
 padding-left: 17rpx;
-line-height: 30rpx;
+line-height: 42rpx;
+}
+.create_time {
+  font-size: 26rpx;
+  color: #333;
 }

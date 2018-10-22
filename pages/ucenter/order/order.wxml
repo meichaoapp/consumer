@@ -19,6 +19,7 @@
               </view>
               <view class='o-details-lists-cell-desc'>
                 <text class='name'>{{item.name}}</text>
+                <text class='create_time'>下单时间：{{item.joinTime}}</text>
                 <!-- <text class='num'>订单数量：{{item.orderNums}}</text> -->
                 <text class='detail'>点击查看详情</text>
               </view>
