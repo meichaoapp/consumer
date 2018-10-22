@@ -106,12 +106,12 @@ Page({
         //     }
         //   })
 
-      }else{
-        _this.$wuxToast.show({ type: 'text', text: "参团失败请重试", });
+      } else {
+        _this.$wuxToast.show({ type: 'text', text: res.info, });
         return false;
       }
     }).catch((err) => {
-      _this.$wuxToast.show({ type: 'forbidden', text: "提交失败请重试", });
+      _this.$wuxToast.show({ type: 'forbidden', text: err.info, });
       console.log(err)
     });
   },
@@ -297,7 +297,7 @@ Page({
             let time = (endTime - newTime) / 1000;
             // 获取天、时、分、秒
             let day = parseInt(time / (60 * 60 * 24));
-            let hou = parseInt(time % (60 * 60 * 24) / 3600);
+            let hou = parseInt(time % (60 * 60 * 24) / 3600) + 24 * day;
             let min = parseInt(time % (60 * 60 * 24) % 3600 / 60);
             let sec = parseInt(time % (60 * 60 * 24) % 3600 % 60);
 

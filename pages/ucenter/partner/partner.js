@@ -65,7 +65,7 @@ Page({
         });
         _this.$wuxToast.show({ type: 'success', text: "提交成功!", });
       } else {
-        _this.$wuxToast.show({ type: 'forbidden', text: "提交失败，请重试！", });
+        _this.$wuxToast.show({ type: 'forbidden', text: res.info, });
       }
 
     }).catch((err) => {

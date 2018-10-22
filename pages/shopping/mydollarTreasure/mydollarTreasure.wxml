@@ -1,82 +1,79 @@
+<import src="../../../components/loading/loading.wxml" />
+<template is="loading" data="{{ ...$wux.loading }}" />
+<import src="../../../components/toast/toast.wxml"/>
+<template is="toast" data="{{ ...$wux.toast }}"/>
+<view class="header" hidden="{{hideHeader}}">
+  <view>下拉刷新中……</view>
+  <view>{{refreshTime}}</view>
+</view>
 <view class="container">
 <!-- 我的一元夺宝 -->
 
-  <view class='dollarTreasure'>
-
-    <view class='dollarTreasure-cells'>
+  <scroll-view scroll-y="true" class='dollarTreasure'>
+  <block wx:for="{{list}}" wx:for-index="index" wx:for-item="item" wx:key="{{item.id}}" >
+    <view  wx:if="{{item.status == 2}}"  class="dollarTreasure-cells"  >
       <view class='dollarTreasure-cells-main'>
         <view class='proimgs'>
-          <image src='/static/images/TB1baFLaOrpK1RjSZFhXXXSdXXa_!!0-item_pic.jpg_250x250.jpg'></image>
+          <image src='{{item.url}}'></image>
         </view>
         <view class='prodesc'>
-          <text class='nums'>1000022</text>
-          <text class='name'>难以置信，一块钱就能得到</text>
+          <text class='nums'>{{item.code}}</text>
+          <text class='name'>{{item.name}}</text>
           <navigator class='sharethis'>
-            <text class='share'>分享朋友，机会翻倍</text>
+            <text class='share'>{{item.comments}}</text>
           </navigator>
-          <text class='prices'>  ¥1.00 </text>
+          <text class='prices'>  ¥{{item.price}} </text>
         </view>
 
       </view>
-      <view class='dollarTreasure-cells-dataline'>
-
-
+      <view class='dollarTreasure-cells-dataline' >
         <navigator class='prizebtns'>
           <text class='btns'>等待开奖</text>
         </navigator>
-
-        <text class='dates'>20181001 24：00：00开奖</text>
-
+        <text class='dates'>{{item.lotterynTime}}开奖</text>
       </view>
+
     </view>
 
 
-    <view class='dollarTreasure-cells WinPrize'>
+    <view  wx:if="{{item.status == 3}}" class='dollarTreasure-cells WinPrize'>
 
       <view class='dollarTreasure-cells-main'>
         <view class='proimgs'>
-          <image src='/static/images/TB1baFLaOrpK1RjSZFhXXXSdXXa_!!0-item_pic.jpg_250x250.jpg'></image>
+          <image src='{{item.url}}'></image>
         </view>
         <view class='prodesc'>
-          <text class='nums'>1000022</text>
-          <text class='name'>难以置信，一块钱就能得到</text>
+           <text class='nums'>{{item.code}}</text>
+          <text class='name'>{{item.name}}</text>
           <navigator class='sharethis'>
-            <text class='share'>分享朋友，机会翻倍</text>
+            <text class='share'>{{item.comments}}</text>
           </navigator>
-          <text class='prices'>  ¥1.00 </text>
+          <text class='prices'>  ¥{{item.price}} </text>
         </view>
 
       </view>
       <view class='dollarTreasure-cells-dataline'>
-
-
         <navigator class='prizebtns'>
           <text class='btns'>恭喜中奖</text>
         </navigator>
-
-        <text class='dates'>20181001 24：00：00开奖</text>
-
+        <text class='dates'>{{item.lotterynTime}}开奖</text>
       </view>
     
     </view>
 
-
-
-
-
-     <view class='dollarTreasure-cells nowinprize'>
+     <view  wx:if="{{item.status == 4}}" class='dollarTreasure-cells nowinprize'>
 
       <view class='dollarTreasure-cells-main'>
         <view class='proimgs'>
-          <image src='/static/images/TB1baFLaOrpK1RjSZFhXXXSdXXa_!!0-item_pic.jpg_250x250.jpg'></image>
+          <image src='{{item.url}}'></image>
         </view>
         <view class='prodesc'>
-          <text class='nums'>1000022</text>
-          <text class='name'>难以置信，一块钱就能得到</text>
+          <text class='nums'>{{item.code}}</text>
+          <text class='name'>{{item.name}}</text>
           <navigator class='sharethis'>
-            <text class='share'>分享朋友，机会翻倍</text>
+            <text class='share'>{{item.comments}}</text>
           </navigator>
-          <text class='prices'>  ¥1.00 </text>
+          <text class='prices'>  ¥{{item.price}} </text>
         </view>
 
       </view>
@@ -87,7 +84,7 @@
           <text class='btns'>未中奖</text>
         </navigator>
 
-        <text class='dates'>20181001 24：00：00开奖</text>
+        <text class='dates'>{{item.lotterynTime}}开奖</text>
 
       </view>
     
@@ -97,8 +94,8 @@
 
 
 
-
-  </view>
+  </block>
+  </scroll-view>
 
 
 
