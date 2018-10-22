@@ -392,28 +392,30 @@ function QueryTreasureList(){
       {
         "id": 1,  //id	
         "name": "难以置信 1块钱就能得到",	   //名称
-        "url": "https://yanxuan.nosdn.127.net/dab1e16fb89680657a4a70341ee0ee9c.jpg?imageView&quality=95&thumbnail=60x60",	   //展示url
+        "url": "https://s-mall.oss-cn-beijing.aliyuncs.com/meichao/g1.png",	   //展示url
         "marketPrice": 10.05,//市场价
         "price": 10.05,//单价
         "status": 0, //0 未开始 1 进行中 2 已完成 3 已过期
         "comments": "分享朋友机会翻倍", //宣传语
         "limitNum": 99, //参加人数上限
         "joinNum": 90, //参加人数
-        "startTime": "2018/09/16 00:00:00", //开始时间，注意格式
-        "endTime": "2018/09/16 00:00:00", //结束时间，注意格式
+        "startTime": "2018/10/22 00:00:00", //开始时间，注意格式
+        "endTime": "2018/10/23 00:00:00", //结束时间，注意格式
+        "lotteryTime": "2018/10/30 00:00:00", //开奖时间，注意格式
       },
       {
         "id": 2,  //id	
         "name": "难以置信 1块钱就能得到2",	   //名称
-        "url": "https://yanxuan.nosdn.127.net/dab1e16fb89680657a4a70341ee0ee9c.jpg?imageView&quality=95&thumbnail=60x60",	   //展示url
+        "url": "https://s-mall.oss-cn-beijing.aliyuncs.com/meichao/g1.png",	   //展示url
         "marketPrice": 10.05,//市场价
         "price": 10.05,//单价
-        "status": 0, //0 未开始 1 进行中 2 已完成 3 已过期
+        "status": 2, //0 未开始 1 进行中 2 已完成 3 已过期
         "comments": "分享朋友机会翻倍", //宣传语
         "limitNum": 99, //参加人数上限
         "joinNum": 90, //参加人数
-        "startTime": "2018/09/16 00:00:00", //开始时间，注意格式
-        "endTime": "2018/09/16 00:00:00", //结束时间，注意格式
+        "startTime": "2018/10/21 00:00:00", //开始时间，注意格式
+        "endTime": "2018/10/22 00:00:00", //结束时间，注意格式
+        "lotteryTime": "2018/10/30 00:00:00", //开奖时间，注意格式
       }
     ]
   }
@@ -434,7 +436,7 @@ function QueryWinList(){
         "url": "https://yanxuan.nosdn.127.net/dab1e16fb89680657a4a70341ee0ee9c.jpg?imageView&quality=95&thumbnail=60x60",	   //展示url
         "nickName": "wangwang",	      //微信昵称
         "avatar": "https://wx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTLW3U1bBXQGaRILfI9mUgMNuX3MRicwXdVshxp7WWia3Ojq4K4ZL2V4HrTic9BATHKyQQbeFOHb4Rw2w/0" ,//头像
-        "openTime": "2018/09/16 00:00:00", //开奖时间，注意格式
+        "lotterynTime": "2018/09/16 00:00:00", //开奖时间，注意格式
       }
     ]
   }
@@ -448,17 +450,19 @@ function QueryTreasureDetails(){
     "detail": {
       "id": 1,  //id	
       "pics": [
-        "https://yanxuan.nosdn.127.net/dab1e16fb89680657a4a70341ee0ee9c.jpg?imageView&quality=95&thumbnail=700x240", 
-        "https://yanxuan.nosdn.127.net/dab1e16fb89680657a4a70341ee0ee9c.jpg?imageView&quality=95&thumbnail=700x240"
-      ],  //展示图片
+        "https://s-mall.oss-cn-beijing.aliyuncs.com/meichao/g3.png",
+        "https://s-mall.oss-cn-beijing.aliyuncs.com/meichao/g3.png",
+         ],  //展示图片
       "title": "难以置信 1块钱就能得到",	   //夺宝名称
       "status": 0, //0 未开始 1 进行中 2 已完成 3 已过期
-      "comments": "", //宣传语
+      "comments": "参与赢大奖", //宣传语
       "content": "", //描述
       "limitNum": 99, //人数上限
       "startTime": "2018/09/16 00:00:00", //开始时间，注意格式
       "endTime": "2018/09/16 00:00:00", //结束时间，注意格式
       "joinNum": 90, //参加人数
+      "marketPrice": 100.05,//市场价
+      "price": 1.00,//单价
       "codes": [
         {
           "code": "34245353", //参与码（幸运号码）
@@ -472,9 +476,9 @@ function QueryTreasureDetails(){
     "joinHistories": [
       {
         "name": "wangwang",	   //客户名称
-        "nickName": "wangwang",	      //微信昵称
+        "nickName": "白色的忧伤",	      //微信昵称
         "openid": "P90FDeUdnFMZkwZ274fEWnWqE",        // openid
-        "avatar": "https://wx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTLW3U1bBXQGaRILfI9mUgMNuX3MRicwXdVshxp7WWia3Ojq4K4ZL2V4HrTic9BATHKyQQbeFOHb4Rw2w/0", //头像
+        "avatar": "https://s-mall.oss-cn-beijing.aliyuncs.com/meichao/user.png", //头像
         "code": "34245353", //参与码（幸运号码）
         "createTime": "2018/09/16 00:00:00", //获取时间，注意格式
       }
@@ -494,14 +498,45 @@ function QueryMyTreasures() {
         "id": 1,  //id	
         "code": "34245353", //参与码（幸运号码）
         "name": "难以置信 1块钱就能得到",	   //名称
-        "url": "https://yanxuan.nosdn.127.net/dab1e16fb89680657a4a70341ee0ee9c.jpg?imageView&quality=95&thumbnail=60x60",	   //展示url
+        "url": "https://s-mall.oss-cn-beijing.aliyuncs.com/meichao/g1.png",	   //展示url
         "marketPrice": 10.05,//市场价
-        "price": 10.05,//单价
-        "status": 0, //0 未开始 1 进行中 2 已完成 3 已过期
+        "price": 1.00,//单价
+        "status": 2, //0 未开始 1 进行中 2 已完成 3 已过期
+        "isLottery":0, //未中奖
         "comments": "分享朋友机会翻倍", //宣传语
         "startTime": "2018/09/16 00:00:00", //开始时间，注意格式
         "endTime": "2018/09/16 00:00:00", //结束时间，注意格式
+        "lotterynTime": "2018/09/16 00:00:00", //开奖时间，注意格式
+      },
+      {
 
+        "id": 2,  //id	
+        "code": "34245353", //参与码（幸运号码）
+        "name": "难以置信 1块钱就能得到",	   //名称
+        "url": "https://s-mall.oss-cn-beijing.aliyuncs.com/meichao/g2.png",	   //展示url
+        "marketPrice": 10.05,//市场价
+        "price": 1.00,//单价
+        "status": 3, //0 未开始 1 进行中 2 已完成 3 已过期
+        "isLottery": 0, //未中奖
+        "comments": "分享朋友机会翻倍", //宣传语
+        "startTime": "2018/09/16 00:00:00", //开始时间，注意格式
+        "endTime": "2018/09/16 00:00:00", //结束时间，注意格式
+        "lotterynTime": "2018/09/16 00:00:00", //开奖时间，注意格式
+      },
+      {
+
+        "id": 3,  //id	
+        "code": "34245353", //参与码（幸运号码）
+        "name": "难以置信 1块钱就能得到",	   //名称
+        "url": "https://s-mall.oss-cn-beijing.aliyuncs.com/meichao/g1.png",	   //展示url
+        "marketPrice": 10.05,//市场价
+        "price": 1.00,//单价
+        "status": 4, //0 未开始 1 进行中 2 已完成 3 已过期
+        "isLottery": 0, //未中奖
+        "comments": "分享朋友机会翻倍", //宣传语
+        "startTime": "2018/09/16 00:00:00", //开始时间，注意格式
+        "endTime": "2018/09/16 00:00:00", //结束时间，注意格式
+        "lotterynTime": "2018/09/16 00:00:00", //开奖时间，注意格式
       }
     ]
   }

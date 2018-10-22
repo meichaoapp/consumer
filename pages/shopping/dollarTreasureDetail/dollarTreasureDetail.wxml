@@ -1,12 +1,18 @@
+<import src="../../../components/loading/loading.wxml" />
+<template is="loading" data="{{ ...$wux.loading }}" />
+<import src="../../../components/toast/toast.wxml"/>
+<template is="toast" data="{{ ...$wux.toast }}"/>
 <view class="container dollarTDetailscon">
-  <view class='img'>
-    <image src='/static/images/TB1baFLaOrpK1RjSZFhXXXSdXXa_!!0-item_pic.jpg_250x250.jpg'></image>
-  </view>
+  <swiper class="img" indicator-dots="true" autoplay="true" interval="3000" duration="1000">
+      <swiper-item wx:for="{{detail.pics}}" wx:key="{{item.index}}">
+        <image src="{{item}}" background-size="cover"></image>
+      </swiper-item>
+    </swiper>
 
   <view class='row gradientEffect Calculationbox'>
     <view class='dates'>
      <text class='iconfont icon-shizhong'></text>
-      正在开奖 05:24:18
+      正在开奖 {{detail.hour}}:{{detail.min}}:{{detail.sec}}
     </view>
     <view class='CalculationMethod'>
       计算方法
@@ -19,8 +25,8 @@
 
   <view class='decsbox row'>
     <view class='desc'>
-      <text class='desc01'>难以置信 1块钱就能得到</text>
-      <text class='desc02'>参与赢大奖</text>
+      <text class='desc01'>{{detail.title}}</text>
+      <text class='desc02'>{{detail.comments}}</text>
     </view>
 
 
@@ -51,24 +57,14 @@
       <text class='line'></text>
     </view>
 
-    <view class='row recordslistitl-cell'>
+    <view class='row recordslistitl-cell' wx:for="{{joinHistories}}" wx:for-index="index" wx:for-item="item" wx:key="{{item.id}}">
       <view class='userimg'>
-        <image src='/static/images/TB1baFLaOrpK1RjSZFhXXXSdXXa_!!0-item_pic.jpg_250x250.jpg'></image>
+        <image src='{{item.avatar}}'></image>
       </view>
       <view class='userinfos'>
-        <text class='username'>微信昵称</text>
-        <text class='usernums'>10000089</text>
-        <text class='userdate'>于2018-10-10 18:00:00开抢</text>
-      </view>
-    </view>
-<view class='row recordslistitl-cell'>
-      <view class='userimg'>
-        <image src='/static/images/TB1baFLaOrpK1RjSZFhXXXSdXXa_!!0-item_pic.jpg_250x250.jpg'></image>
-      </view>
-      <view class='userinfos'>
-        <text class='username'>微信昵称</text>
-        <text class='usernums'>10000089</text>
-        <text class='userdate'>于2018-10-10 18:00:00开抢</text>
+        <text class='username'>{{item.nickName}}</text>
+        <text class='usernums'>{{item.code}}</text>
+        <text class='userdate'>于{{item.createTime}}开抢</text>
       </view>
     </view>
 
@@ -80,12 +76,10 @@
 
 <view class='foot row'>
 <view class='price'>
-¥ 1.00 
+¥ {{detail.price}} 
 </view>
 
-<navigator url='/pages/shopping/dollarTreasureDetail/success'>
-<view class='bugbtn gradientEffect'>立即抢购</view>
-</navigator>
+<view bindtap='join' class='bugbtn gradientEffect'>立即抢购</view>
 
 
 </view>
