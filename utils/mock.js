@@ -503,7 +503,7 @@ function QueryMyTreasures() {
         "url": "https://s-mall.oss-cn-beijing.aliyuncs.com/meichao/g1.png",	   //展示url
         "marketPrice": 10.05,//市场价
         "price": 1.00,//单价
-        "status": 2, //0 未开始 1 进行中 2 已完成 3 已过期
+        "status": 0, // 0 未开奖 1 中奖  2 未中奖
         "isLottery":0, //未中奖
         "comments": "分享朋友机会翻倍", //宣传语
         "startTime": "2018/09/16 00:00:00", //开始时间，注意格式
@@ -518,7 +518,7 @@ function QueryMyTreasures() {
         "url": "https://s-mall.oss-cn-beijing.aliyuncs.com/meichao/g2.png",	   //展示url
         "marketPrice": 10.05,//市场价
         "price": 1.00,//单价
-        "status": 3, //0 未开始 1 进行中 2 已完成 3 已过期
+        "status": 1, // 0 未开奖 1 中奖  2 未中奖
         "isLottery": 0, //未中奖
         "comments": "分享朋友机会翻倍", //宣传语
         "startTime": "2018/09/16 00:00:00", //开始时间，注意格式
@@ -533,7 +533,7 @@ function QueryMyTreasures() {
         "url": "https://s-mall.oss-cn-beijing.aliyuncs.com/meichao/g1.png",	   //展示url
         "marketPrice": 10.05,//市场价
         "price": 1.00,//单价
-        "status": 4, //0 未开始 1 进行中 2 已完成 3 已过期
+        "status": 2, // 0 未开奖 1 中奖  2 未中奖
         "isLottery": 0, //未中奖
         "comments": "分享朋友机会翻倍", //宣传语
         "startTime": "2018/09/16 00:00:00", //开始时间，注意格式

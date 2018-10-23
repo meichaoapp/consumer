@@ -11,7 +11,7 @@
 
   <scroll-view scroll-y="true" class='dollarTreasure'>
   <block wx:for="{{list}}" wx:for-index="index" wx:for-item="item" wx:key="{{item.id}}" >
-    <view  wx:if="{{item.status == 2}}"  class="dollarTreasure-cells"  >
+    <view  wx:if="{{item.status == 0}}"  class="dollarTreasure-cells"  >
       <view class='dollarTreasure-cells-main'>
         <view class='proimgs'>
           <image src='{{item.url}}'></image>
@@ -36,7 +36,7 @@
     </view>
 
 
-    <view  wx:if="{{item.status == 3}}" class='dollarTreasure-cells WinPrize'>
+    <view  wx:if="{{item.status == 1}}" class='dollarTreasure-cells WinPrize'>
 
       <view class='dollarTreasure-cells-main'>
         <view class='proimgs'>
@@ -61,7 +61,7 @@
     
     </view>
 
-     <view  wx:if="{{item.status == 4}}" class='dollarTreasure-cells nowinprize'>
+     <view  wx:if="{{item.status == 2}}" class='dollarTreasure-cells nowinprize'>
 
       <view class='dollarTreasure-cells-main'>
         <view class='proimgs'>
