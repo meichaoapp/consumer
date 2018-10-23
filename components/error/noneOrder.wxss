@@ -1,0 +1,26 @@
+image {
+  width: 280rpx;
+  height: 280rpx;
+  margin: 190rpx auto 50rpx auto;
+  display: inherit;
+}
+view {
+  font-size: 32rpx;
+  text-align: center;
+  color: #333;
+  line-height: 50rpx;
+}
+button {
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 100rpx; 
+  width: 280rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  text-align: center;
+  color: #fff;
+  background: #72cfdd;
+  border-radius: 80rpx;
+  font-size: 32rpx; 
+}

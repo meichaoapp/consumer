@@ -27,7 +27,9 @@
     "pages/shopping/dollarTreasureDetail/dollarTreasureDetail",
     "pages/shopping/dollarTreasureDetail/success",
     "pages/shopping/dollarTreasure/dollarTreasure",
-    "pages/shopping/mydollarTreasure/mydollarTreasure"
+    "pages/shopping/mydollarTreasure/mydollarTreasure",
+    "components/error/noNetwork",
+    "components/error/noneOrder"
   ],
   "window": {
     "backgroundTextStyle": "dark",

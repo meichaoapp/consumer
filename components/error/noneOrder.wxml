@@ -1,0 +1,4 @@
+<image  src="../../../static/images/noneOrder.png"></image>
+<view>网络错误</view>
+<view>稍后重试或联系管理员</view>
+<button>知道了</button>
