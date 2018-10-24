@@ -1,0 +1,31 @@
+<import src="../../../components/loading/loading.wxml" />
+<template is="loading" data="{{ ...$wux.loading }}" />
+<view class="header" hidden="{{hideHeader}}">
+  <view>下拉刷新中……</view>
+  <view>{{refreshTime}}</view>
+</view>
+<view class="container">
+  <scroll-view scroll-y="true" class='dollarTreasure'>
+    <!-- 中奖信息 -->
+    <view class='dollarTreasure-cells' wx:for="{{list}}" wx:for-index="index" wx:for-item="item" wx:key="{{item.id}}">
+      <view class='dollarTreasure-cells-main'>
+        <view class='proimgs'>
+          <image src='{{item.url}}'></image>
+        </view>
+        <view class='prodesc winprizeinfo'>
+          <text class='name'>{{item.name}}</text>
+          <text class='peoplename'>获奖者：{{item.nickName}}</text>
+          <text class='nums'>参与次数：{{item.winNum}}次</text>
+          <text class='date'>开奖时间：{{item.lotteryTime}}</text>
+        </view>
+      </view>
+
+    </view>
+
+
+
+  </scroll-view>
+
+
+
+</view>

@@ -65,9 +65,9 @@
 
 
     <!-- 更多往期中奖按钮 -->
-    <view class='morewinprizenav'>
+    <navigator url='/pages/shopping/dollarTreasure/dollarTreasureWin' class='morewinprizenav' >
       <view class='morewinprize'>更多往期中奖</view>
-    </view>
+    </navigator>
 
 
     <!-- 中奖信息 -->

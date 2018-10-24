@@ -458,13 +458,164 @@ function QueryWinList(){
     "list": [
       {
         "id": 1,  //id	
-        "joinNum": 1000,  //参与次数	      
         "name": "难以置信 1块钱就能得到",	   //名称
-        "url": "https://yanxuan.nosdn.127.net/dab1e16fb89680657a4a70341ee0ee9c.jpg?imageView&quality=95&thumbnail=60x60",	   //展示url
-        "nickName": "wangwang",	      //微信昵称
-        "avatar": "https://wx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTLW3U1bBXQGaRILfI9mUgMNuX3MRicwXdVshxp7WWia3Ojq4K4ZL2V4HrTic9BATHKyQQbeFOHb4Rw2w/0" ,//头像
-        "lotterynTime": "2018/09/16 00:00:00", //开奖时间，注意格式
-      }
+        "url": "https://s-mall.oss-cn-beijing.aliyuncs.com/meichao/g1.png", //展示url
+        "marketPrice": 10.05,//市场价
+        "price": 10.05,//单价
+        "status": 1, // 0 未开奖 1 中奖  2 未中奖
+        "comments": "分享朋友机会翻倍", //宣传语
+        "limitNum": 99, //参加人数上限
+        "joinNum": 90, //参加人数
+        "startTime": "2018/10/22 00:00:00", //开始时间，注意格式
+        "endTime": "2018/10/23 00:00:00", //结束时间，注意格式
+        "lotteryTime": "2018/10/30 00:00:00", //开奖时间，注意格式
+        "winNum": "46",//中奖次数,
+        "nickName": "白色的忧伤" // 中奖者昵称
+      },
+      {
+        "id": 1,  //id	
+        "name": "难以置信 1块钱就能得到",	   //名称
+        "url": "https://s-mall.oss-cn-beijing.aliyuncs.com/meichao/g1.png", //展示url
+        "marketPrice": 10.05,//市场价
+        "price": 10.05,//单价
+        "status": 0, // 0 未开奖 1 中奖  2 未中奖
+        "comments": "分享朋友机会翻倍", //宣传语
+        "limitNum": 99, //参加人数上限
+        "joinNum": 90, //参加人数
+        "startTime": "2018/10/22 00:00:00", //开始时间，注意格式
+        "endTime": "2018/10/23 00:00:00", //结束时间，注意格式
+        "lotteryTime": "2018/10/30 00:00:00", //开奖时间，注意格式
+        "winNum": "46",//中奖次数,
+        "nickName": "白色的忧伤" // 中奖者昵称
+      },
+      {
+        "id": 1,  //id	
+        "name": "难以置信 1块钱就能得到",	   //名称
+        "url": "https://s-mall.oss-cn-beijing.aliyuncs.com/meichao/g1.png", //展示url
+        "marketPrice": 10.05,//市场价
+        "price": 10.05,//单价
+        "status": 1, // 0 未开奖 1 中奖  2 未中奖
+        "comments": "分享朋友机会翻倍", //宣传语
+        "limitNum": 99, //参加人数上限
+        "joinNum": 90, //参加人数
+        "startTime": "2018/10/22 00:00:00", //开始时间，注意格式
+        "endTime": "2018/10/23 00:00:00", //结束时间，注意格式
+        "lotteryTime": "2018/10/30 00:00:00", //开奖时间，注意格式
+        "winNum": "46",//中奖次数,
+        "nickName": "白色的忧伤" // 中奖者昵称
+      },
+      {
+        "id": 1,  //id	
+        "name": "难以置信 1块钱就能得到",	   //名称
+        "url": "https://s-mall.oss-cn-beijing.aliyuncs.com/meichao/g1.png", //展示url
+        "marketPrice": 10.05,//市场价
+        "price": 10.05,//单价
+        "status": 1, // 0 未开奖 1 中奖  2 未中奖
+        "comments": "分享朋友机会翻倍", //宣传语
+        "limitNum": 99, //参加人数上限
+        "joinNum": 90, //参加人数
+        "startTime": "2018/10/22 00:00:00", //开始时间，注意格式
+        "endTime": "2018/10/23 00:00:00", //结束时间，注意格式
+        "lotteryTime": "2018/10/30 00:00:00", //开奖时间，注意格式
+        "winNum": "46",//中奖次数,
+        "nickName": "白色的忧伤" // 中奖者昵称
+      },
+      {
+        "id": 1,  //id	
+        "name": "难以置信 1块钱就能得到",	   //名称
+        "url": "https://s-mall.oss-cn-beijing.aliyuncs.com/meichao/g1.png", //展示url
+        "marketPrice": 10.05,//市场价
+        "price": 10.05,//单价
+        "status": 1, // 0 未开奖 1 中奖  2 未中奖
+        "comments": "分享朋友机会翻倍", //宣传语
+        "limitNum": 99, //参加人数上限
+        "joinNum": 90, //参加人数
+        "startTime": "2018/10/22 00:00:00", //开始时间，注意格式
+        "endTime": "2018/10/23 00:00:00", //结束时间，注意格式
+        "lotteryTime": "2018/10/30 00:00:00", //开奖时间，注意格式
+        "winNum": "46",//中奖次数,
+        "nickName": "白色的忧伤" // 中奖者昵称
+      },
+      {
+        "id": 1,  //id	
+        "name": "难以置信 1块钱就能得到",	   //名称
+        "url": "https://s-mall.oss-cn-beijing.aliyuncs.com/meichao/g1.png", //展示url
+        "marketPrice": 10.05,//市场价
+        "price": 10.05,//单价
+        "status": 1, // 0 未开奖 1 中奖  2 未中奖
+        "comments": "分享朋友机会翻倍", //宣传语
+        "limitNum": 99, //参加人数上限
+        "joinNum": 90, //参加人数
+        "startTime": "2018/10/22 00:00:00", //开始时间，注意格式
+        "endTime": "2018/10/23 00:00:00", //结束时间，注意格式
+        "lotteryTime": "2018/10/30 00:00:00", //开奖时间，注意格式
+        "winNum": "46",//中奖次数,
+        "nickName": "白色的忧伤" // 中奖者昵称
+      },
+      {
+        "id": 1,  //id	
+        "name": "难以置信 1块钱就能得到",	   //名称
+        "url": "https://s-mall.oss-cn-beijing.aliyuncs.com/meichao/g1.png", //展示url
+        "marketPrice": 10.05,//市场价
+        "price": 10.05,//单价
+        "status": 1, // 0 未开奖 1 中奖  2 未中奖
+        "comments": "分享朋友机会翻倍", //宣传语
+        "limitNum": 99, //参加人数上限
+        "joinNum": 90, //参加人数
+        "startTime": "2018/10/22 00:00:00", //开始时间，注意格式
+        "endTime": "2018/10/23 00:00:00", //结束时间，注意格式
+        "lotteryTime": "2018/10/30 00:00:00", //开奖时间，注意格式
+        "winNum": "46",//中奖次数,
+        "nickName": "白色的忧伤" // 中奖者昵称
+      },
+      {
+        "id": 1,  //id	
+        "name": "难以置信 1块钱就能得到",	   //名称
+        "url": "https://s-mall.oss-cn-beijing.aliyuncs.com/meichao/g1.png", //展示url
+        "marketPrice": 10.05,//市场价
+        "price": 10.05,//单价
+        "status": 1, // 0 未开奖 1 中奖  2 未中奖
+        "comments": "分享朋友机会翻倍", //宣传语
+        "limitNum": 99, //参加人数上限
+        "joinNum": 90, //参加人数
+        "startTime": "2018/10/22 00:00:00", //开始时间，注意格式
+        "endTime": "2018/10/23 00:00:00", //结束时间，注意格式
+        "lotteryTime": "2018/10/30 00:00:00", //开奖时间，注意格式
+        "winNum": "46",//中奖次数,
+        "nickName": "白色的忧伤" // 中奖者昵称
+      },
+      {
+        "id": 1,  //id	
+        "name": "难以置信 1块钱就能得到",	   //名称
+        "url": "https://s-mall.oss-cn-beijing.aliyuncs.com/meichao/g1.png", //展示url
+        "marketPrice": 10.05,//市场价
+        "price": 10.05,//单价
+        "status": 1, // 0 未开奖 1 中奖  2 未中奖
+        "comments": "分享朋友机会翻倍", //宣传语
+        "limitNum": 99, //参加人数上限
+        "joinNum": 90, //参加人数
+        "startTime": "2018/10/22 00:00:00", //开始时间，注意格式
+        "endTime": "2018/10/23 00:00:00", //结束时间，注意格式
+        "lotteryTime": "2018/10/30 00:00:00", //开奖时间，注意格式
+        "winNum": "46",//中奖次数,
+        "nickName": "白色的忧伤" // 中奖者昵称
+      },
+      {
+        "id": 1,  //id	
+        "name": "难以置信 1块钱就能得到",	   //名称
+        "url": "https://s-mall.oss-cn-beijing.aliyuncs.com/meichao/g1.png", //展示url
+        "marketPrice": 10.05,//市场价
+        "price": 10.05,//单价
+        "status": 1, // 0 未开奖 1 中奖  2 未中奖
+        "comments": "分享朋友机会翻倍", //宣传语
+        "limitNum": 99, //参加人数上限
+        "joinNum": 90, //参加人数
+        "startTime": "2018/10/22 00:00:00", //开始时间，注意格式
+        "endTime": "2018/10/23 00:00:00", //结束时间，注意格式
+        "lotteryTime": "2018/10/30 00:00:00", //开奖时间，注意格式
+        "winNum": "46",//中奖次数,
+        "nickName": "白色的忧伤" // 中奖者昵称
+      },
     ]
   }
   RS.data = data;
