@@ -27,11 +27,11 @@
             <view class='prices'> 
             <text class='rmb'>¥</text> {{item.price}}
              </view>
-             <view class='market-price'>￥98</view>
-            <view class='shares'>
+             <view class='market-price'>￥{{item.marketPrice}}</view>
+            <!-- <view class='shares'>
               分享朋友 机会翻倍
               <image src='/static/images/icon_collect.png'></image>
-            </view>
+            </view> -->
 
           </view>
 
