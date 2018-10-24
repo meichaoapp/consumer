@@ -78,6 +78,7 @@
 <view class='price'>
 ¥ {{detail.price}} 
 </view>
+<view class='market-price'>￥98</view>
 
 <view bindtap='join' class='bugbtn gradientEffect'>立即抢购</view>
 

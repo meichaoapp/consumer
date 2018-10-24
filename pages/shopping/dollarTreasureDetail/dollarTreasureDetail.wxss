@@ -152,11 +152,11 @@ padding-left: 10rpx;
   width: 100%;
 }
 .price{
-  flex: 1;
+
   height: 88rpx;
   line-height: 88rpx;
  padding-left:20rpx; 
-   font-size: 30rpx; 
+   font-size: 34rpx; 
    font-weight: bold;
    color: #e38f23;
 }
@@ -168,4 +168,14 @@ padding-left: 10rpx;
   text-align: center;
   color: #fff;
   font-size: 30rpx; 
+}
+.market-price{
+  margin-right: 13rpx;
+  color: #aeaeae;
+  font-size: 20rpx;
+  text-decoration: line-through;
+  margin-left:18rpx;
+  height:88rpx;
+line-height:88rpx;
+  flex: 1;
 }

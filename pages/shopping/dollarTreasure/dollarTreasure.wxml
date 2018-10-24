@@ -24,7 +24,10 @@
           <text class='name'>{{item.name}}</text>
 
           <view class='rows'>
-            <view class='prices'> ¥{{item.price}} </view>
+            <view class='prices'> 
+            <text class='rmb'>¥</text> {{item.price}}
+             </view>
+             <view class='market-price'>￥98</view>
             <view class='shares'>
               分享朋友 机会翻倍
               <image src='/static/images/icon_collect.png'></image>

@@ -8,12 +8,13 @@ page{
   flex-direction:row; 
 }
 .dollarTreasuretitle{
-  width: 94%;
-  margin-left: 3%;
-  font-size: 32rpx;
+margin-top: 18rpx;
+  font-size: 34rpx;
+  font-weight: bold;
+  padding: 0 14rpx;
 }
 .timer-num{
-  padding: 3px 6px;
+  padding: 3rpx 6rpx;
   background: -webkit-linear-gradient(top, #fa875a, #ff4f54); /* Safari 5.1 - 6.0 */
   background: -o-linear-gradient(top, #fa875a, #ff4f54); /* Opera 11.1 - 12.0 */
   background: -moz-linear-gradient(top, #fa875a, #ff4f54); /* Firefox 3.6 - 15 */
@@ -31,13 +32,13 @@ page{
   margin-left: 3%;
 }
 .dollarTreasure .dollarTreasure-cells{
-  width: 100%;
+  /* width: 100%; */
   background: #fff;
   margin-top: 16rpx;
-  box-shadow: 1px 1px 6px #fb8781;
-  border-radius: 8rpx;
+  box-shadow: 5rpx 0 6rpx #fac6c6;
+  /* border-radius: 8rpx; */
   padding: 20rpx;
-  box-sizing:border-box; 
+  /* box-sizing:border-box;  */
 
 }
 .dollarTreasure-cells-main{
@@ -64,8 +65,8 @@ display: block;
 .prodesc .name{
   color: #333;
   font-size:28rpx;
-  font-weight: bold;
-  line-height: 28rpx;
+  /* font-weight: bold; */
+  line-height: 32rpx;
   padding-top: 8rpx;
   padding-bottom: 34rpx;
 }
@@ -77,6 +78,13 @@ display: block;
   font-size: 42rpx;
   font-weight: bold;
 }
+.prodesc .prices .rmb{
+  font-size: 24rpx;
+  display: inline;
+    color: #e38f23;
+}
+
+
 .prodesc .shares{
   flex: 1;
   color: #72cfdd;
@@ -95,6 +103,8 @@ display: block;
   margin-left: 28%;
   display: flex;
   margin-top: 10rpx;
+  box-sizing: border-box;
+  padding-left: 8rpx;
 }
 
 .prizebtns{
@@ -104,6 +114,16 @@ display: block;
   margin: 0;
   padding: 0;
   text-align: right;
+}
+.market-price{
+  margin-right: 13rpx;
+  color: #aeaeae;
+  font-size: 24rpx;
+  text-decoration: line-through;
+  margin-left:18rpx;
+  height:50rpx;
+line-height:50rpx;
+
 }
 .prizebtns .btns{
   float:right;
@@ -136,6 +156,9 @@ display: block;
 .waitFor .countDownv{
   color: #ccc!important;
   font-size: 24rpx;
+  height:48rpx;
+line-height:48rpx;
+
 }
 .waitFor .btns{
   background: #f0f0f7;
@@ -157,7 +180,10 @@ margin-top: 40rpx;
 }
 .winprizeinfo .peoplename,.winprizeinfo .nums,.winprizeinfo .date{
 font-size: 26rpx;
+color: #999;
 }
 .icon-huore{
   color: #e38f23;
+ font-size: 40rpx;
+ margin-right: 6rpx
 }
