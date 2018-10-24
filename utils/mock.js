@@ -478,8 +478,8 @@ function QueryTreasureDetails(){
       "id": 1,  //id
       "detailId": 1,  //夺宝详情id		
       "pics": [
-        "https://s-mall.oss-cn-beijing.aliyuncs.com/meichao/g3.png",
-        "https://s-mall.oss-cn-beijing.aliyuncs.com/meichao/g3.png",
+        "https://s-mall.oss-cn-beijing.aliyuncs.com/meichao/t1.png",
+        "https://s-mall.oss-cn-beijing.aliyuncs.com/meichao/t1.png",
          ],  //展示图片
       "title": "难以置信 1块钱就能得到",	   //夺宝名称
       "status": 1, //0 未开始 1 进行中 2 已完成 3 已过期
