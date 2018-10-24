@@ -34,10 +34,12 @@ margin-top: 18rpx;
 .dollarTreasure .dollarTreasure-cells{
   /* width: 100%; */
   background: #fff;
-  margin-top: 16rpx;
-  box-shadow: 5rpx 0 6rpx #fac6c6;
+  margin-top: 18rpx;
+  box-shadow: 0rpx 0 12rpx #fac6c6;
   /* border-radius: 8rpx; */
   padding: 20rpx;
+  width: 97%;
+  margin-left: 1%;
   /* box-sizing:border-box;  */
 
 }

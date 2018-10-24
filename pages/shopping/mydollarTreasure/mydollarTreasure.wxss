@@ -9,18 +9,18 @@ page{
     padding-top: 10rpx;
 }
 .dollarTreasure{
-  width: 94%;
-  margin-left: 3%;
+  /* width: 94%;
+  margin-left: 3%; */
 }
 .dollarTreasure .dollarTreasure-cells{
-  width: 100%;
-background: #fff;
+  background: #fff;
   margin-top: 14rpx;
   box-shadow: 1px 1px 1px #eaeaea;
   border-radius: 8rpx;
   padding: 20rpx;
   box-sizing:border-box; 
-
+  width:88%;
+  margin-left:3%;
 }
 .dollarTreasure-cells-main{
   display: flex;
