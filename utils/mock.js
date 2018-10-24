@@ -90,9 +90,16 @@ function getData(url, p) {
   }
   //夺宝
   if (url == api.JoinTreasure) {
-    RS.data.code = "4545772";
     return JSON.stringify(RS);
   }
+
+  if (url == api.JoinBack) {
+    RS.data.code = "4545772";
+    RS.data.lotteryTime = "2018/10/30 00:00:00";
+    return JSON.stringify(RS);
+  }
+
+  
   
   //支付
   if(url == api.Pay){
@@ -401,8 +408,8 @@ function QueryTreasureList(){
         "comments": "分享朋友机会翻倍", //宣传语
         "limitNum": 99, //参加人数上限
         "joinNum": 90, //参加人数
-        "startTime": "2018/10/22 00:00:00", //开始时间，注意格式
-        "endTime": "2018/10/23 00:00:00", //结束时间，注意格式
+        "startTime": "2018/10/24 00:00:00", //开始时间，注意格式
+        "endTime": "2018/10/30 00:00:00", //结束时间，注意格式
         "lotteryTime": "2018/10/30 00:00:00", //开奖时间，注意格式
       },
       {
@@ -419,7 +426,25 @@ function QueryTreasureList(){
         "endTime": "2018/10/22 00:00:00", //结束时间，注意格式
         "lotteryTime": "2018/10/30 00:00:00", //开奖时间，注意格式
       }
-    ]
+    ],
+    "winTreasure":{
+      "id": 1,  //id	
+      "name": "难以置信 1块钱就能得到",	   //名称
+      "url": "https://s-mall.oss-cn-beijing.aliyuncs.com/meichao/g1.png", //展示url
+      "marketPrice": 10.05,//市场价
+      "price": 10.05,//单价
+      "status": 0, // 0 未开奖 1 中奖  2 未中奖
+      "comments": "分享朋友机会翻倍", //宣传语
+      "limitNum": 99, //参加人数上限
+      "joinNum": 90, //参加人数
+      "startTime": "2018/10/22 00:00:00", //开始时间，注意格式
+      "endTime": "2018/10/23 00:00:00", //结束时间，注意格式
+      "lotteryTime": "2018/10/30 00:00:00", //开奖时间，注意格式
+      "winNum": "46",//中奖次数,
+      "nickName":"白色的忧伤" // 中奖者昵称
+      }
+      
+
   }
   RS.data = data;
   return JSON.stringify(RS)
@@ -450,18 +475,19 @@ function QueryWinList(){
 function QueryTreasureDetails(){
   var data = {
     "detail": {
-      "id": 1,  //id	
+      "id": 1,  //id
+      "detailId": 1,  //夺宝详情id		
       "pics": [
         "https://s-mall.oss-cn-beijing.aliyuncs.com/meichao/g3.png",
         "https://s-mall.oss-cn-beijing.aliyuncs.com/meichao/g3.png",
          ],  //展示图片
       "title": "难以置信 1块钱就能得到",	   //夺宝名称
-      "status": 0, //0 未开始 1 进行中 2 已完成 3 已过期
+      "status": 1, //0 未开始 1 进行中 2 已完成 3 已过期
       "comments": "参与赢大奖", //宣传语
       "content": "", //描述
       "limitNum": 99, //人数上限
-      "startTime": "2018/09/16 00:00:00", //开始时间，注意格式
-      "endTime": "2018/09/16 00:00:00", //结束时间，注意格式
+      "startTime": "2018/10/24 00:00:00", //开始时间，注意格式
+      "endTime": "2018/10/30 00:00:00", //结束时间，注意格式
       "joinNum": 90, //参加人数
       "marketPrice": 100.05,//市场价
       "price": 1.00,//单价

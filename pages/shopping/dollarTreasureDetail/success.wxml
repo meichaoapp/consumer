@@ -1,3 +1,5 @@
+<import src="../../../components/toast/toast.wxml"/>
+<template is="toast" data="{{ ...$wux.toast }}"/>
 <view class='container'>
 
   <view class='success-t'>
@@ -6,10 +8,10 @@
       <image class="s-img" src='/static/images/success-icon.png'></image>
     </view>
 
-    <view class='luckynum'>您的幸运号码是：10020033022</view>
+    <view class='luckynum'>您的幸运号码是：{{code}}</view>
 
     <view class='s-content'>
-      <text class='t t1'>将于2018-10-10 19:00:00开奖 </text>
+      <text class='t t1'>将于{{lotteryTime}}开奖 </text>
       <text class='t'>请密切关注您的大奖</text>
     </view>
 

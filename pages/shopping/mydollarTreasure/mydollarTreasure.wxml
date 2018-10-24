@@ -11,31 +11,32 @@
 
   <scroll-view scroll-y="true" class='dollarTreasure'>
   <block wx:for="{{list}}" wx:for-index="index" wx:for-item="item" wx:key="{{item.id}}" >
-    <view  wx:if="{{item.status == 0}}"  class="dollarTreasure-cells"  >
-      <view class='dollarTreasure-cells-main'>
-        <view class='proimgs'>
-          <image src='{{item.url}}'></image>
+    <navigator url='/pages/shopping/dollarTreasureDetail/dollarTreasureDetail?tag=1&id={{item.id}}'>
+      <view  wx:if="{{item.status == 0}}"  class="dollarTreasure-cells"  >
+        <view class='dollarTreasure-cells-main'>
+          <view class='proimgs'>
+            <image src='{{item.url}}'></image>
+          </view>
+          <view class='prodesc'>
+            <text class='nums'>{{item.code}}</text>
+            <text class='name'>{{item.name}}</text>
+            <view class='sharethis'>
+              <text class='share'>{{item.comments}}</text>
+            </view>
+            <text class='prices'>  ¥{{item.price}} </text>
+          </view>
+
         </view>
-        <view class='prodesc'>
-          <text class='nums'>{{item.code}}</text>
-          <text class='name'>{{item.name}}</text>
-          <navigator class='sharethis'>
-            <text class='share'>{{item.comments}}</text>
-          </navigator>
-          <text class='prices'>  ¥{{item.price}} </text>
+        <view class='dollarTreasure-cells-dataline' >
+          <view class='prizebtns'>
+            <text class='btns'>等待开奖</text>
+          </view>
+          <text class='dates'>{{item.lotterynTime}}开奖</text>
         </view>
 
       </view>
-      <view class='dollarTreasure-cells-dataline' >
-        <navigator class='prizebtns'>
-          <text class='btns'>等待开奖</text>
-        </navigator>
-        <text class='dates'>{{item.lotterynTime}}开奖</text>
-      </view>
-
-    </view>
-
-
+   </navigator>
+  <navigator url='/pages/shopping/dollarTreasureDetail/dollarTreasureDetail?tag=1&id={{item.id}}'>
     <view  wx:if="{{item.status == 1}}" class='dollarTreasure-cells WinPrize'>
 
       <view class='dollarTreasure-cells-main'>
@@ -45,22 +46,23 @@
         <view class='prodesc'>
            <text class='nums'>{{item.code}}</text>
           <text class='name'>{{item.name}}</text>
-          <navigator class='sharethis'>
+          <view class='sharethis'>
             <text class='share'>{{item.comments}}</text>
-          </navigator>
+          </view>
           <text class='prices'>  ¥{{item.price}} </text>
         </view>
 
       </view>
       <view class='dollarTreasure-cells-dataline'>
-        <navigator class='prizebtns'>
+        <view class='prizebtns'>
           <text class='btns'>恭喜中奖</text>
-        </navigator>
+        </view>
         <text class='dates'>{{item.lotterynTime}}开奖</text>
       </view>
     
     </view>
-
+   </navigator>
+   <navigator url='/pages/shopping/dollarTreasureDetail/dollarTreasureDetail?tag=1&id={{item.id}}'>
      <view  wx:if="{{item.status == 2}}" class='dollarTreasure-cells nowinprize'>
 
       <view class='dollarTreasure-cells-main'>
@@ -70,9 +72,9 @@
         <view class='prodesc'>
           <text class='nums'>{{item.code}}</text>
           <text class='name'>{{item.name}}</text>
-          <navigator class='sharethis'>
+          <view class='sharethis'>
             <text class='share'>{{item.comments}}</text>
-          </navigator>
+          </view>
           <text class='prices'>  ¥{{item.price}} </text>
         </view>
 
@@ -80,16 +82,16 @@
       <view class='dollarTreasure-cells-dataline'>
 
 
-        <navigator class='prizebtns'>
+        <view class='prizebtns'>
           <text class='btns'>未中奖</text>
-        </navigator>
+        </view>
 
         <text class='dates'>{{item.lotterynTime}}开奖</text>
 
       </view>
     
     </view>
-
+</navigator>
 
 
 

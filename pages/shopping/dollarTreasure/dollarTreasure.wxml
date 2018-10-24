@@ -15,7 +15,7 @@
   <scroll-view scroll-y="true" class='dollarTreasure'>
 
     <view class='dollarTreasure-cells' wx:for="{{list}}" wx:for-index="index" wx:for-item="item" wx:key="{{item.id}}">
-      <navigator url='/pages/shopping/dollarTreasureDetail/dollarTreasureDetail?id={{item.id}}'>
+      <navigator url='/pages/shopping/dollarTreasureDetail/dollarTreasureDetail?tag=0&id={{item.id}}'>
       <view class='dollarTreasure-cells-main'>
         <view class='proimgs'>
           <image src='{{item.url}}'></image>
@@ -45,9 +45,9 @@
           <text class='timer-num'>{{item.min}}</text> :
           <text class='timer-num'>{{item.sec}}</text>
         </view>
-        <navigator class='prizebtns'>
+        <view class='prizebtns'>
           <text class='btns'>马上抢</text>
-        </navigator>
+        </view>
       </view>
 
      <view wx:if="{{item.status == 2}}" class='dollarTreasure-cells-dataline waitFor'>
@@ -56,33 +56,31 @@
           {{item.lotteryTime}} 开奖
 
         </view>
-        <navigator class='prizebtns'>
+        <view class='prizebtns'>
           <text class='btns'>等待开奖</text>
-        </navigator>
+        </view>
       </view>
       </navigator>
     </view>
 
 
     <!-- 更多往期中奖按钮 -->
-    <navigator class='morewinprizenav'>
+    <view class='morewinprizenav'>
       <view class='morewinprize'>更多往期中奖</view>
-    </navigator>
+    </view>
 
 
     <!-- 中奖信息 -->
     <view class='dollarTreasure-cells'>
       <view class='dollarTreasure-cells-main'>
         <view class='proimgs'>
-          <image src='/static/images/TB1baFLaOrpK1RjSZFhXXXSdXXa_!!0-item_pic.jpg_250x250.jpg'></image>
+          <image src='{{winTreasure.url}}'></image>
         </view>
         <view class='prodesc winprizeinfo'>
-          <text class='name'>难以置信，一块钱就能得到</text>
-          <text class='peoplename'>获奖者：微信昵称</text>
-          <text class='nums'>参与次数：47次</text>
-          <text class='date'>开奖时间：2018-10-01 19:00:00</text>
-
-
+          <text class='name'>{{winTreasure.name}}</text>
+          <text class='peoplename'>获奖者：{{winTreasure.nickName}}</text>
+          <text class='nums'>参与次数：{{winTreasure.winNum}}次</text>
+          <text class='date'>开奖时间：{{winTreasure.lotteryTime}}</text>
         </view>
 
       </view>

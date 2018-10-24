@@ -5,6 +5,7 @@ var app = getApp();
 
 Page({
   data: {
+    sourceTag: 0, //0 表示首页跳转  1 我的
     userInfo: {},
     id: 0,
     detail: {},
@@ -15,9 +16,24 @@ Page({
     this.$wuxLoading = app.Wux().$wuxLoading //加载
     this.$wuxToast = app.Wux().$wuxToast
     this.setData({
-      id: parseInt(options.id)
+      id: parseInt(options.id),
+      sourceTag: parseInt(options.tag),
     });
-    this.queryDetail();
+    let userInfo = wx.getStorageSync('userInfo');
+    let token = wx.getStorageSync('token');
+
+    if (null == userInfo || userInfo == "" || undefined == userInfo) {
+      wx.navigateTo({
+        url: '/pages/auth/login/login'
+      });
+    }else{
+      this.setData({
+        userInfo: userInfo,
+      });
+
+      this.queryDetail();
+    }
+  
   },
   onReady: function () {
 
@@ -30,23 +46,16 @@ Page({
   join: function () {
     //1.创建订单
     let _this = this;
-    // if (_this.data.detail.status != 1) {
-    //   return;
-    // }
-    let userInfo = wx.getStorageSync('userInfo');
-    if (null == userInfo || userInfo == "" || undefined == userInfo) {
-      wx.navigateTo({
-        url: '/pages/auth/login/login'
-      });
+    if (_this.data.detail.status != 1) {
+      return;
     }
-    _this.setData({
-      userInfo: userInfo,
-    });
-    
     util.request(api.JoinTreasure, {
-      id: _this.data.id,  //夺宝id
-      //userId: _this.userInfo.id,  //用户ID
-
+        id: _this.data.id,  //夺宝id
+        userId: _this.data.userInfo.id,  //用户ID
+        needPay: _this.data.detail.price, 
+        buyNum: 1,
+        detailId: _this.data.detail.detailId,
+        openid: _this.data.userInfo.openid,
     }, "POST").then(function (res) {
       if (res.rs === 1) { //创建成功
         var data = res.data;
@@ -54,34 +63,31 @@ Page({
         console.log(res.data.wxPayResponse);
 
         wx.redirectTo({
-          url: '/pages/shopping/dollarTreasureDetail/success?id=' + data.id,
+          url: '/pages/shopping/dollarTreasureDetail/success?id=' + data.id + "&code=1233443" ,
         })
 
 
-        // var wxPayResponse = res.data.wxPayResponse;
-        // var timestamp = Date.parse(new Date());
-        // timestamp = timestamp / 1000;
-        // wx.requestPayment(
-        //   {
-        //     'timeStamp': timestamp,
-        //     'nonceStr': wxPayResponse.nonceStr,
-        //     'package': wxPayResponse.prepayId,
-        //     'signType': 'MD5',
-        //     'paySign': wxPayResponse.sign,
-        //     'success': function (res) { 
-        //        //跳转成功页
-        //         wx.redirectTo({
-        //           url: '/pages/details/success?id=' + data.id,
-        //         })
-        //     },
-        //     'fail': function (res) {
-        //       _this.$wuxToast.show({ type: 'text', text: "参团失败请重试!", });
-        //       return false;
-        //      },
-        //     'complete': function (res) { 
-
-        //     }
-        //   })
+      //  var wxPayResponse = res.data.wxPayResponse;
+      //   wx.requestPayment(
+      //     {
+      //       'timeStamp': wxPayResponse.timeStamp,
+      //       'nonceStr': wxPayResponse.nonceStr,
+      //       'package': "prepay_id=" + wxPayResponse.prepayId,
+      //       'signType': 'MD5',
+      //       'paySign': wxPayResponse.sign,
+      //       'success': function (res) {
+      //         //跳转成功页
+      //         wx.redirectTo({
+      //           url: '/pages/shopping/dollarTreasureDetail/success?id=' + data.id,
+      //         })
+      //       },
+      //       'fail': function (res) {
+      //         _this.$wuxToast.show({ type: 'text', text: "参与失败请重试!", });
+      //         return false;
+      //       },
+      //       'complete': function (res) {
+      //       }
+      //     })
 
       } else {
         _this.$wuxToast.show({ type: 'text', text: res.info, });
@@ -95,9 +101,15 @@ Page({
   //查询详情
   queryDetail:function(){
     let that = this;
-    util.request(api.QueryTreasureDetails, { id: that.data.id }, "POST").then(function (res) {
+    util.request(api.QueryTreasureDetails, 
+      { 
+        id: that.data.id, 
+        userId:that.data.userInfo.id,
+        sourceTag : that.data.sourceTag,
+      }, "POST").then(function (res) {
       if (res.rs === 1) {
         var data = res.data;
+        console.log("detail.status : " + data.detail.status );
         that.setData({
           detail: data.detail, //详情
           joinHistories: data.joinHistories,//参与历史

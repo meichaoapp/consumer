@@ -74,13 +74,13 @@
 
 
 
-<view class='foot row'>
+<view wx:if="{{sourceTag == 0 }}" class='foot row'>
 <view class='price'>
 ¥ {{detail.price}} 
 </view>
-<view class='market-price'>￥98</view>
+<view class='market-price'>￥{{detail.marketPrice}} </view>
 
-<view bindtap='join' class='bugbtn gradientEffect'>立即抢购</view>
+<view bindtap='join' class="bugbtn {{detail.status != 1 ? 'graybtn':'gradientEffect'}}">立即抢购</view>
 
 
 </view>

@@ -9,6 +9,7 @@ var app = getApp();
 Page({
   data: {
     list: [], // 团购列表
+    winTreasure:{},
     start: 1, // 页码
     totalPage: 0, // 共有页
     limit: 2,//每页条数
@@ -89,6 +90,7 @@ Page({
         var list = res.data.list;
         if (_this.data.start == 1) { // 下拉刷新
           _this.setData({
+            winTreasure: res.data.winTreasure,
             list: list,
             hideHeader: true,
             totalPage: res.data.totalPage,
@@ -98,6 +100,7 @@ Page({
           var tempArray = _this.data.list;
           tempArray = tempArray.concat(list);
           _this.setData({
+            winTreasure: res.data.winTreasure,
             totalPage: res.data.totalPage,
             list: tempArray,
             hideBottom: true
