@@ -106,6 +106,12 @@ Page({
     });
     
   },
+  //跳转首页(知道了)
+  toIndex: function () {
+    wx.switchTab({
+      url: '/pages/index/index',
+    })
+  },
 
   onReady:function(){
     // 页面渲染完成

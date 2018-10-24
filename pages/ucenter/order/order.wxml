@@ -6,7 +6,7 @@
   <view>{{refreshTime}}</view>
 </view>
 
-<view class="container">
+<view class="container" wx:if="{{orderList != null && orderList.length > 0}}">
 
   <scroll-view scroll-y="true" class='section'>
     <view class='o-details-lists' wx:for="{{orderList}}" wx:for-index="index" wx:for-item="item" wx:key="{{item.id}}">
@@ -31,10 +31,17 @@
 
 
   </scroll-view>
+  <view class="bottom" hidden="{{hideBottom}}">
+    <view>{{loadMoreData}}</view>
+    <view>{{refreshTime}}</view>
+  </view>
+</view>
+<view wx:else>
+    <image class='no_order_img'  src="../../../static/images/noneOrder.png"></image>
+    <view class='no_order_tip'>订单不存在</view>
 
+    <button class='no_order_btn' bindtap='toIndex'>知道了</button>
 </view>
 
-<view class="bottom" hidden="{{hideBottom}}">
-  <view>{{loadMoreData}}</view>
-  <view>{{refreshTime}}</view>
-</view>
+
+
