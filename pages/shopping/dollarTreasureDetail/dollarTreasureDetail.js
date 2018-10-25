@@ -8,6 +8,7 @@ Page({
     sourceTag: 0, //0 表示首页跳转  1 我的
     userInfo: {},
     id: 0,
+    orderId:0,
     detail: {},
     joinHistories:[],
   },
@@ -18,6 +19,7 @@ Page({
     this.setData({
       id: parseInt(options.id),
       sourceTag: parseInt(options.tag),
+      orderId: parseInt(options.orderId),
     });
     let userInfo = wx.getStorageSync('userInfo');
     let token = wx.getStorageSync('token');
@@ -106,6 +108,7 @@ Page({
         id: that.data.id, 
         userId:that.data.userInfo.id,
         sourceTag : that.data.sourceTag,
+        orderId: that.data.orderId,
       }, "POST").then(function (res) {
       if (res.rs === 1) {
         var data = res.data;

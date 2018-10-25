@@ -627,7 +627,7 @@ function QueryTreasureDetails(){
   var data = {
     "detail": {
       "id": 1,  //id
-      "detailId": 1,  //夺宝详情id		
+      "detailId": 1,  //夺宝详情id	
       "pics": [
         "https://s-mall.oss-cn-beijing.aliyuncs.com/meichao/t1.png",
         "https://s-mall.oss-cn-beijing.aliyuncs.com/meichao/t1.png",
@@ -674,7 +674,8 @@ function QueryMyTreasures() {
     "list": [
       {
 
-        "id": 1,  //id	
+        "id": 1,  //id
+        "treasureId": 1,  //id	
         "code": "34245353", //参与码（幸运号码）
         "name": "难以置信 1块钱就能得到",	   //名称
         "url": "https://s-mall.oss-cn-beijing.aliyuncs.com/meichao/g1.png",	   //展示url
@@ -690,6 +691,7 @@ function QueryMyTreasures() {
       {
 
         "id": 2,  //id	
+        "treasureId": 1,  //id
         "code": "34245353", //参与码（幸运号码）
         "name": "难以置信 1块钱就能得到",	   //名称
         "url": "https://s-mall.oss-cn-beijing.aliyuncs.com/meichao/g2.png",	   //展示url

@@ -15,7 +15,7 @@
   <scroll-view scroll-y="true" class='dollarTreasure'>
 
     <view class='dollarTreasure-cells' wx:for="{{list}}" wx:for-index="index" wx:for-item="item" wx:key="{{item.id}}">
-      <navigator url='/pages/shopping/dollarTreasureDetail/dollarTreasureDetail?tag=0&id={{item.id}}'>
+      <navigator url='/pages/shopping/dollarTreasureDetail/dollarTreasureDetail?tag=0&id={{item.id}}&orderId=0'>
       <view class='dollarTreasure-cells-main'>
         <view class='proimgs'>
           <image src='{{item.url}}'></image>
