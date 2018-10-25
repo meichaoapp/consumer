@@ -47,9 +47,9 @@
      </view>
 
        <button class="fb-btn" bindtap='submit'>提交</button>
-      <view class='policy'>
+      <!-- <view class='policy'>
         查看《美超社区团购合作政策》
-      </view>
+      </view> -->
    </view>
 
   

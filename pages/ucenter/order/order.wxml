@@ -36,7 +36,7 @@
     <view>{{refreshTime}}</view>
   </view>
 </view>
-<view wx:else>
+<view wx:if="{{orderList == null }}">
     <image class='no_order_img'  src="../../../static/images/noneOrder.png"></image>
     <view class='no_order_tip'>订单不存在</view>
 
