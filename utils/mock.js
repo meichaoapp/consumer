@@ -99,6 +99,12 @@ function getData(url, p) {
     return JSON.stringify(RS);
   }
 
+  if (url == api.JoinHistories) {
+    return JoinHistories();
+  }
+
+  
+
   
   
   //支付
@@ -650,22 +656,54 @@ function QueryTreasureDetails(){
         }
       ], //参与码（幸运号码）
 
-    },
-
-    "joinHistories": [
-      {
-        "name": "wangwang",	   //客户名称
-        "nickName": "白色的忧伤",	      //微信昵称
-        "openid": "P90FDeUdnFMZkwZ274fEWnWqE",        // openid
-        "avatar": "https://s-mall.oss-cn-beijing.aliyuncs.com/meichao/user.png", //头像
-        "code": "34245353", //参与码（幸运号码）
-        "createTime": "2018/09/16 00:00:00", //获取时间，注意格式
-      }
-    ]
+    }
   }
   RS.data = data;
   return JSON.stringify(RS)
 }
+
+ function JoinHistories(){
+   var data = {
+     "totalPage": 2, //总页数
+     "list": [
+       {
+         "name": "wangwang",	   //客户名称
+         "nickName": "白色的忧伤",	      //微信昵称
+         "openid": "P90FDeUdnFMZkwZ274fEWnWqE",        // openid
+         "avatar": "https://s-mall.oss-cn-beijing.aliyuncs.com/meichao/user.png", //头像
+         "code": "34245353", //参与码（幸运号码）
+         "createTime": "2018/09/16 00:00:00", //获取时间，注意格式
+       },
+       {
+         "name": "wangwang",	   //客户名称
+         "nickName": "白色的忧伤",	      //微信昵称
+         "openid": "P90FDeUdnFMZkwZ274fEWnWqE",        // openid
+         "avatar": "https://s-mall.oss-cn-beijing.aliyuncs.com/meichao/user.png", //头像
+         "code": "34245353", //参与码（幸运号码）
+         "createTime": "2018/09/16 00:00:00", //获取时间，注意格式
+       },
+       {
+         "name": "wangwang",	   //客户名称
+         "nickName": "白色的忧伤",	      //微信昵称
+         "openid": "P90FDeUdnFMZkwZ274fEWnWqE",        // openid
+         "avatar": "https://s-mall.oss-cn-beijing.aliyuncs.com/meichao/user.png", //头像
+         "code": "34245353", //参与码（幸运号码）
+         "createTime": "2018/09/16 00:00:00", //获取时间，注意格式
+       },
+       {
+         "name": "wangwang",	   //客户名称
+         "nickName": "白色的忧伤",	      //微信昵称
+         "openid": "P90FDeUdnFMZkwZ274fEWnWqE",        // openid
+         "avatar": "https://s-mall.oss-cn-beijing.aliyuncs.com/meichao/user.png", //头像
+         "code": "34245353", //参与码（幸运号码）
+         "createTime": "2018/09/16 00:00:00", //获取时间，注意格式
+       }
+     ]
+   }
+   RS.data = data;
+   return JSON.stringify(RS)
+
+ }
 
 function QueryMyTreasures() {
 

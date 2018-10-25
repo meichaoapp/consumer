@@ -22,7 +22,7 @@ module.exports = {
   QueryMyTreasures: NewApiRootUrl + "treasure/myTreasures",//获取我的一元夺宝列表信息
   JoinTreasure: NewApiRootUrl + "treasure/join",//夺宝
   JoinBack: NewApiRootUrl + "treasure/joinBack",//夺宝
-
+  JoinHistories: NewApiRootUrl + "treasure/joinHistories",//夺宝
   Desire: NewApiRootUrl + "common/desire",//我想要（我想要页）
   Partner: NewApiRootUrl + "common/partner", //成为伙伴（成为伙伴页）
   Pay: NewApiRootUrl + "common/pay", ///支付

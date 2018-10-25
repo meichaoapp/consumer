@@ -2,6 +2,10 @@
 <template is="loading" data="{{ ...$wux.loading }}" />
 <import src="../../../components/toast/toast.wxml"/>
 <template is="toast" data="{{ ...$wux.toast }}"/>
+<view class="header" hidden="{{hideHeader}}">
+  <view>下拉刷新中……</view>
+  <view>{{refreshTime}}</view>
+</view>
 <view class="container dollarTDetailscon">
   <swiper class="img" indicator-dots="true" autoplay="true" interval="3000" duration="1000">
       <swiper-item wx:for="{{detail.pics}}" wx:key="{{item.index}}">
@@ -47,7 +51,7 @@
 
 
 
-  <view class='recordslist'>
+  <scroll-view scroll-y="true"  class='recordslist'>
 
 
 
@@ -56,8 +60,8 @@
       <text class='con'>  所有参与记录</text>
       <text class='line'></text>
     </view>
-
-    <view class='row recordslistitl-cell' wx:for="{{joinHistories}}" wx:for-index="index" wx:for-item="item" wx:key="{{item.id}}">
+  
+    <view class='row recordslistitl-cell' wx:for="{{list}}" wx:for-index="index" wx:for-item="item" wx:key="{{item.id}}">
       <view class='userimg'>
         <image src='{{item.avatar}}'></image>
       </view>
@@ -67,10 +71,9 @@
         <text class='userdate'>于{{item.createTime}}开抢</text>
       </view>
     </view>
+    
 
-
-
-  </view>
+  </scroll-view>
 
 
 
