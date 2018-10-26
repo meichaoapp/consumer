@@ -61,7 +61,7 @@
            <view class='merchant-name'>{{merchant.merchantName }}</view>
         </view>
         <view class='merchant-c'>
-            团负责人：{{merchant.merchantName }}
+            团负责人：{{merchant.merchantUserName }}
         </view>
         <view class='merchant-c'>
             联系电话：{{merchant.merchantPhone }}

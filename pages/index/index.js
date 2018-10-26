@@ -8,7 +8,7 @@ const pointKey = "userLocation";
 
 //获取应用实例
 const app = getApp()
-const statusArr = ["即将开始", "距结束", "已成团", "已结束"];//0 未开始 1 进行中 2 已成团 3 已结束
+const statusArr = ["即将开始", "距结束", "已成团", "已成团"];//0 未开始 1 进行中 2 已成团 3 已结束
 Page({
   data: {
     latitude:0.00,

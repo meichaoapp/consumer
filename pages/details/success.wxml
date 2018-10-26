@@ -3,7 +3,7 @@
    <view class='success-t'>
        <text class='s-tip'>恭喜参团付款成功</text>
        <view class='s-imgbox'>
-        <image class="s-img" src='/static/images/user.png'></image>
+        <image class="s-img" src='/static/images/success-icon.png'></image>
        </view>
       
        <view class='s-content flex flex_center flex_colum'>

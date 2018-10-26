@@ -2,7 +2,7 @@ var app = getApp();
 var WxParse = require('../../lib/wxParse/wxParse.js');
 var util = require('../../utils/util.js');
 var api = require('../../config/api.js');
-const statusArr = ["即将开始", "距结束", "已成团", "已过期"];//0 未开始 1 进行中 2 已成团 3 已过期
+const statusArr = ["即将开始", "距结束", "已成团", "已成团"];//0 未开始 1 进行中 2 已成团 3 已过期
 Page({
   data: {
     userInfo: {},
