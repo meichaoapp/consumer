@@ -29,7 +29,7 @@ page{
 }
 
 .container{
-    margin-bottom: 100rpx;
+    padding-bottom: 100rpx;
 }
 .goodsimgs{
   width: 100%;
