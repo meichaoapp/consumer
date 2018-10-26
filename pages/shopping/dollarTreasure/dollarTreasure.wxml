@@ -71,7 +71,7 @@
 
 
     <!-- 中奖信息 -->
-    <view class='dollarTreasure-cells'>
+    <view wx:if="{{winTreasure != null}}" class='dollarTreasure-cells'>
       <view class='dollarTreasure-cells-main'>
         <view class='proimgs'>
           <image src='{{winTreasure.url}}'></image>
