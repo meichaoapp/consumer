@@ -21,7 +21,7 @@
   <!--  轮播图  -->
   <swiper class="banner" indicator-dots="true" autoplay="true" interval="3000" duration="1000">
     <swiper-item wx:for="{{banners}}" wx:key="{{item.id}}">
-      <image src="{{item.url}}" background-size="cover"></image>
+      <image src="{{item.url}}"></image>
     </swiper-item>
   </swiper>
   <navigator url='/pages/shopping/dollarTreasure/dollarTreasure'>
