@@ -100,8 +100,9 @@ font-size: 24rpx;
 .recordslist{
   padding: 20rpx;
   background: #fff;
+  margin-bottom: 130rpx;
 }
-.recordslistitl{
+.recordslistitl{ 
   width: 100%;
   text-align: center;
   padding: 20rpx 0;
