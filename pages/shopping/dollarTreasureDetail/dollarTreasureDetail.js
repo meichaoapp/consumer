@@ -73,32 +73,32 @@ Page({
 
         console.log(res.data.wxPayResponse);
 
-        wx.redirectTo({
-          url: '/pages/shopping/dollarTreasureDetail/success?id=' + data.id + "&code=1233443" ,
-        })
+        // wx.redirectTo({
+        //   url: '/pages/shopping/dollarTreasureDetail/success?id=' + data.id + "&code=1233443" ,
+        // })
 
 
-      //  var wxPayResponse = res.data.wxPayResponse;
-      //   wx.requestPayment(
-      //     {
-      //       'timeStamp': wxPayResponse.timeStamp,
-      //       'nonceStr': wxPayResponse.nonceStr,
-      //       'package': "prepay_id=" + wxPayResponse.prepayId,
-      //       'signType': 'MD5',
-      //       'paySign': wxPayResponse.sign,
-      //       'success': function (res) {
-      //         //跳转成功页
-      //         wx.redirectTo({
-      //           url: '/pages/shopping/dollarTreasureDetail/success?id=' + data.id,
-      //         })
-      //       },
-      //       'fail': function (res) {
-      //         _this.$wuxToast.show({ type: 'text', text: "参与失败请重试!", });
-      //         return false;
-      //       },
-      //       'complete': function (res) {
-      //       }
-      //     })
+       var wxPayResponse = res.data.wxPayResponse;
+        wx.requestPayment(
+          {
+            'timeStamp': wxPayResponse.timeStamp,
+            'nonceStr': wxPayResponse.nonceStr,
+            'package': "prepay_id=" + wxPayResponse.prepayId,
+            'signType': 'MD5',
+            'paySign': wxPayResponse.sign,
+            'success': function (res) {
+              //跳转成功页
+              wx.redirectTo({
+                url: '/pages/shopping/dollarTreasureDetail/success?id=' + data.id,
+              })
+            },
+            'fail': function (res) {
+              _this.$wuxToast.show({ type: 'text', text: "参与失败请重试!", });
+              return false;
+            },
+            'complete': function (res) {
+            }
+          })
 
       } else {
         _this.$wuxToast.show({ type: 'text', text: res.info, });
