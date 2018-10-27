@@ -82,20 +82,20 @@ color: #ccc;
   float: right;
   width: 160rpx;
   text-align: right;
-  font-size: 28rpx;
+  font-size: 26rpx;
   color: #fff;
 }
 .Calculationbox .CalculationMethod image{
-  width: 20rpx;
-  height: 20rpx;
+  width: 26rpx;
+  height: 26rpx;
   margin-left: 5rpx;
 }
 .dollarTDetailscon .titles{
-padding: 30rpx 0;
+padding: 34rpx 0;
 width: 100%;
 text-align: center;
-color: #fa875a;
-font-size: 24rpx;
+color: #e38f23;
+font-size: 26rpx;
 }
 .recordslist{
   padding: 20rpx;
@@ -126,16 +126,22 @@ margin: 0  10rpx;
   border-radius: 50%;
   border: 1px solid #f0f0f0;
   overflow: hidden;
+  margin-right: 20rpx;
+margin-top: 20rpx;
 }
 .recordslist .recordslistitl-cell .userimg image{
 width: 70rpx;
 height: 70rpx;
+
 }
 .userinfos{
   flex: 1;
-  padding: 20rpx 0;
-  border-bottom:1px solid #bfbfbf; 
+  /* padding: 20rpx 0; */
+  height: 110rpx;
+  line-height: 110rpx;
+  border-bottom:1px solid #d1d2d3; 
 padding-left: 10rpx;
+
 }
 .userinfos text{
   font-size: 26rpx!important;
@@ -184,4 +190,70 @@ line-height:88rpx;
 .graybtn{
   background: #999999!important;
   border: 1px solid #999999!important;
+}
+.Questionmark{
+  width: 26rpx;
+  height: 26rpx;
+  margin-left: 11rpx;
+}
+.Luckynumcon{
+ text-align: center;
+ padding: 34rpx 0;
+}
+.Luckynumt{
+    color: #e38f23;
+}
+.Luckynum{
+  color: #e38f23;
+}
+.mask{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 99;
+  background: #999999;
+  opacity: 0.5;
+}
+.jsbox{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+  background: #f4f4f4;
+
+}
+.jsimg{
+  width: 100%;
+  height: 180rpx;
+  margin: 30rpx 0;
+}
+.Calculationformulavalue{
+  background: #fff;
+  padding-left: 32rpx;
+}
+.value_A,.value_B,.value_result{
+height: 170rpx;
+border-bottom: 1px solid #f5f5f5;
+color: #333;
+font-size: 32rpx;
+padding-top: 30rpx;
+box-sizing: border-box;
+}
+.Calculationformulavalue text{
+  display: block;
+color: #666;
+font-size: 26rpx;
+}
+.Calculationformulavalue text.results{
+  color: #ff4b54;
+font-size: 26rpx;
+}
+.borderno{
+  border: 0!important;
+}
+.CalculationformulaCon{
+  display: none;
 }

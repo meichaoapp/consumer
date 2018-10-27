@@ -20,6 +20,8 @@ Page({
     srollViewHeight: 0, //滚动分页区域高度
     refreshTime: '', // 刷新的时间 
     loadMoreData: '加载更多……',
+    CalculationFlag:false,//计算方法弹框
+    prizecodes:[10021,10022,10023],//模拟中奖codes
   },
   onLoad: function (options) {
     // 页面初始化 options为页面跳转所带来的参数
@@ -239,12 +241,17 @@ Page({
       _this.$wuxLoading.hide(); //隐藏加载动画
       if (res.rs === 1) {
         var list = res.data.list;
+
+        console.log(list);
+
+
         if (_this.data.start == 1) { // 下拉刷新
           _this.setData({
             list: list,
             hideHeader: true,
             totalPage: res.data.totalPage,
           })
+
         } else { // 加载更多
           //console.log('加载更多');
           var tempArray = _this.data.list;
@@ -263,7 +270,15 @@ Page({
     });
 
   },
-
+//计算方法
+  Calculation:function(){
+    let _this = this;
+    var CalculationFlag = _this.data.CalculationFlag;
+    var nCalculationFlag = !CalculationFlag;
+    _this.setData({
+      CalculationFlag: nCalculationFlag
+    })
+  },
 
 
 

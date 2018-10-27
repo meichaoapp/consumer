@@ -184,8 +184,15 @@ margin-top: 40rpx;
 font-size: 26rpx;
 color: #999;
 }
-.icon-huore{
-  color: #e38f23;
- font-size: 40rpx;
+.icon-huoress{
+  border: 0;
+width:28rpx;
+height:32rpx; 
  margin-right: 6rpx
+}
+.OpeningTime{
+  color:  #e38f23;
+  font-size: 24rpx;
+  height: 48rpx;
+  line-height: 48rpx;
 }

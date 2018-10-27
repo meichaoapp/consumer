@@ -8,7 +8,8 @@
   <!-- 一元夺宝 -->
 
 <view class='dollarTreasuretitle'>
-   <text class='iconfont icon-huore'></text>火热开抢
+   <!-- <text class='iconfont icon-huore'></text>火热开抢 -->
+   <image class="icon-huoress" src='/static/images/fire.png'></image>火热开抢
 </view>
 
 
@@ -39,14 +40,17 @@
 
       </view>
       <view wx:if="{{item.status == 1}}" class='dollarTreasure-cells-dataline' >
-        <view class='countDownv'>
-          <text class='textddkj'>等待开奖</text>
+        <!-- <view class='countDownv'>
+          <text class='textddkj'>正在开奖</text>
           <text class='timer-num'>{{item.hour}}</text> :
           <text class='timer-num'>{{item.min}}</text> :
           <text class='timer-num'>{{item.sec}}</text>
+        </view> -->
+        <view class='OpeningTime'>
+          {{item.lotteryTime}} 开奖
         </view>
         <view class='prizebtns'>
-          <text class='btns'>马上抢</text>
+          <text class='btns'>查看</text>
         </view>
       </view>
 

@@ -1,33 +1,61 @@
 <import src="../../../components/loading/loading.wxml" />
 <template is="loading" data="{{ ...$wux.loading }}" />
-<import src="../../../components/toast/toast.wxml"/>
-<template is="toast" data="{{ ...$wux.toast }}"/>
+<import src="../../../components/toast/toast.wxml" />
+<template is="toast" data="{{ ...$wux.toast }}" />
 <view class="header" hidden="{{hideHeader}}">
   <view>下拉刷新中……</view>
   <view>{{refreshTime}}</view>
 </view>
 <view class="container dollarTDetailscon">
   <swiper class="img" indicator-dots="true" autoplay="true" interval="3000" duration="1000">
-      <swiper-item wx:for="{{detail.pics}}" wx:key="{{item.index}}">
-        <image src="{{item}}" background-size="cover"></image>
-      </swiper-item>
-    </swiper>
+    <swiper-item wx:for="{{detail.pics}}" wx:key="{{item.index}}">
+      <image src="{{item}}" background-size="cover"></image>
+    </swiper-item>
+  </swiper>
 
   <view class='row gradientEffect Calculationbox'>
     <view class='dates'>
-     <text class='iconfont icon-shizhong'></text>
-      正在开奖 {{detail.hour}}:{{detail.min}}:{{detail.sec}}
+      <text class='iconfont icon-shizhong'></text> 正在开奖 {{detail.hour}}:{{detail.min}}:{{detail.sec}}
     </view>
     <view class='CalculationMethod'>
       计算方法
-      <text class='iconfont icon--yiwen'></text>
+      <!-- <text class='iconfont icon--yiwen'></text> -->
+      <image class='Questionmark' bindtap='Calculation' src='/static/images/Questionmark.png'></image>
     </view>
   </view>
 
 
 
+  <!-- 计算方法 -->
+  <view wx:if="{{CalculationFlag}}">
+    <view class='mask' bindtap='Calculation' ></view>
+    <view class='jsbox'>
+      <view class='Calculationformula'>
+        <image class='jsimg' src='/static/images/computation.png'></image>
+      </view>
+      <view class='Calculationformulavalue'>
+        <view class='value_A'>
+        数值A
+          <text>=截止时间前最后10条记录</text>
+          <text class='results'>+370273131730</text>
+        </view>
+        <view class='value_B'>
+        数值B
+          <text>=最近一期开奖结果</text>
+          <text class='results'>=94857</text>
+        </view>
+        <view class='value_result borderno'>
+          计算结果
+          <text>幸运号码</text>
+          <text class='results'>1000022</text>
+        </view>
+      </view>
+    </view>
+  </view>
 
-  <view class='decsbox row'>
+
+
+  <!-- <view class='decsbox row'>
     <view class='desc'>
       <text class='desc01'>{{detail.title}}</text>
       <text class='desc02'>{{detail.comments}}</text>
@@ -39,19 +67,29 @@
       <image src='/static/images/icon_collect.png'></image>
       <text class='share01'>分享朋友</text>
       <text class='share02'>机会翻倍</text>
-    </view> -->
+    </view>
+  </view> -->
+
+
+
+
+  <view class='Luckynumcon' wx:if="{{prizecodes != null }}">
+    <view class='Luckynumt'>您的幸运号码为：</view>
+
+    <view class='Luckynum' wx:for="{{prizecodes}}">{{item}} </view>
+    <!-- <view class='Luckynum'>100023</view>
+    <view class='Luckynum'>100023</view> -->
   </view>
+  
+  <view class='titles' wx:if="{{prizecodes == null }}">您还没有来抢吆～</view>
 
 
-  <view class='titles'>您还没有来抢吆～</view>
-
-
-<!-- <text class="iconfont icon-huore"></text> -->
+  <!-- <text class="iconfont icon-huore"></text> -->
 
 
 
 
-  <scroll-view scroll-y="true"  class='recordslist'>
+  <scroll-view scroll-y="true" class='recordslist'>
 
 
 
@@ -60,33 +98,36 @@
       <text class='con'>  所有参与记录</text>
       <text class='line'></text>
     </view>
-  
+
     <view class='row recordslistitl-cell' wx:for="{{list}}" wx:for-index="index" wx:for-item="item" wx:key="{{item.id}}">
       <view class='userimg'>
         <image src='{{item.avatar}}'></image>
       </view>
       <view class='userinfos'>
-        <text class='username'>{{item.nickName}}</text>
-        <text class='usernums'>{{item.code}}</text>
-        <text class='userdate'>于{{item.createTime}}开抢</text>
+        <view style='width:100%;word-wrap:break-word; '>
+          <text class='username'>{{item.nickName}}</text>
+          <text wx:if="{{item.code != null }}" class='usernums'>{{item.code}}</text>
+          <text class='userdate'>于{{item.createTime}}开抢</text>
+        </view>
+
       </view>
     </view>
-    
+
 
   </scroll-view>
 
 
 
-<view wx:if="{{sourceTag == 0 }}" class='foot row'>
-<view class='price'>
-¥ {{detail.price}} 
-</view>
-<view class='market-price'>￥{{detail.marketPrice}} </view>
+  <view wx:if="{{sourceTag == 0 }}" class='foot row'>
+    <view class='price'>
+      ¥ {{detail.price}}
+    </view>
+    <view class='market-price'>￥{{detail.marketPrice}} </view>
 
-<view bindtap='join' class="bugbtn {{detail.status != 1 ? 'graybtn':'gradientEffect'}}">立即抢购</view>
+    <view bindtap='join' class="bugbtn {{detail.status != 1 ? 'graybtn':'gradientEffect'}}">立即抢购</view>
 
 
-</view>
+  </view>
 
 
 
