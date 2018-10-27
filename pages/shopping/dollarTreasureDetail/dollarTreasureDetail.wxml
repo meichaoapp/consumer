@@ -90,17 +90,17 @@
 
 
 
-  <scroll-view scroll-y="true" class='recordslist'>
+  <scroll-view   scroll-y="true" class='recordslist'>
 
 
 
-    <view wx:if="{{sourceTag == 0}}" class='recordslistitl row'>
+    <view  class='recordslistitl row'>
       <text class='line'></text>
       <text class='con'>  所有参与记录</text>
       <text class='line'></text>
     </view>
 
-    <view wx:if="{{sourceTag == 0}}" class='row recordslistitl-cell' wx:for="{{list}}" wx:for-index="index" wx:for-item="item" wx:key="{{item.id}}">
+    <view  class='row recordslistitl-cell' wx:for="{{list}}" wx:for-index="index" wx:for-item="item" wx:key="{{item.id}}">
       <view class='userimg'>
         <image src='{{item.avatar}}'></image>
       </view>
