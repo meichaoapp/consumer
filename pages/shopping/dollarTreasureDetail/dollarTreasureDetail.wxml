@@ -77,7 +77,7 @@
   <view class='Luckynumcon' wx:if="{{detail.codes != null && detail.codes.length > 0}}">
     <view class='Luckynumt'>您的幸运号码为：</view>
 
-    <view class='Luckynum' wx:for="{{detail.codes}}">{{item}} </view>
+    <view class='Luckynum' wx:for="{{detail.codes}}" wx:for-index="index" wx:for-item="item" wx:key="{{item.code}}">{{item.code}} </view>
     <!-- <view class='Luckynum'>100023</view>
     <view class='Luckynum'>100023</view> -->
   </view>
