@@ -100,7 +100,7 @@
       <text class='line'></text>
     </view>
 
-    <view class='row recordslistitl-cell' wx:for="{{list}}" wx:for-index="index" wx:for-item="item" wx:key="{{item.id}}">
+    <view wx:if="{{sourceTag == 0}}" class='row recordslistitl-cell' wx:for="{{list}}" wx:for-index="index" wx:for-item="item" wx:key="{{item.id}}">
       <view class='userimg'>
         <image src='{{item.avatar}}'></image>
       </view>
