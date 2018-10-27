@@ -74,15 +74,15 @@
 
 
 
-  <view class='Luckynumcon' wx:if="{{prizecodes != null }}">
+  <view class='Luckynumcon' wx:if="{{detail.codes != null && detail.codes.length > 0}}">
     <view class='Luckynumt'>您的幸运号码为：</view>
 
-    <view class='Luckynum' wx:for="{{prizecodes}}">{{item}} </view>
+    <view class='Luckynum' wx:for="{{detail.codes}}">{{item}} </view>
     <!-- <view class='Luckynum'>100023</view>
     <view class='Luckynum'>100023</view> -->
   </view>
   
-  <view class='titles' wx:if="{{prizecodes == null }}">您还没有来抢吆～</view>
+  <view class='titles' wx:if="{{detail.codes == null || detail.codes.length  == 0}}">您还没有来抢吆～</view>
 
 
   <!-- <text class="iconfont icon-huore"></text> -->
@@ -94,7 +94,7 @@
 
 
 
-    <view class='recordslistitl row'>
+    <view wx:if="{{sourceTag == 0}}" class='recordslistitl row'>
       <text class='line'></text>
       <text class='con'>  所有参与记录</text>
       <text class='line'></text>
