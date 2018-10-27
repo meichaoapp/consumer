@@ -15,7 +15,7 @@
 
   <view class='row gradientEffect Calculationbox'>
     <view class='dates'>
-      <text class='iconfont icon-shizhong'></text> 正在开奖 {{detail.hour}}:{{detail.min}}:{{detail.sec}}
+      <text class='iconfont icon-shizhong'></text> 正在开奖 {{detail.hour}}:  {{detail.min}}: {{detail.sec}}
     </view>
     <view class='CalculationMethod'>
       计算方法

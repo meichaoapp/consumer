@@ -43,7 +43,6 @@ Page({
       this.setData({
         userInfo: userInfo,
       });
-
       this.queryDetail();
     }
     this.queryList();

@@ -71,7 +71,7 @@ color: #ccc;
 }
 .Calculationbox .dates{
   flex: 1;
-  font-size: 24rpx;
+  font-size: 26rpx;
   color: #fff;
 }
 .Calculationbox .dates image{
@@ -81,14 +81,20 @@ color: #ccc;
 .Calculationbox .CalculationMethod{
   float: right;
   width: 160rpx;
+  height: 30rpx;
+  line-height: 30rpx;
   text-align: right;
   font-size: 26rpx;
+  position: relative;
+  padding-right: 30rpx;
   color: #fff;
 }
 .Calculationbox .CalculationMethod image{
   width: 26rpx;
   height: 26rpx;
-  margin-left: 5rpx;
+  position: absolute;
+  right: 0;
+  top: 0rpx;
 }
 .dollarTDetailscon .titles{
 padding: 34rpx 0;
@@ -195,6 +201,7 @@ line-height:88rpx;
   width: 26rpx;
   height: 26rpx;
   margin-left: 11rpx;
+  margin-top: 2rpx;
 }
 .Luckynumcon{
  text-align: center;
