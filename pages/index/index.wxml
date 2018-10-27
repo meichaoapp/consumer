@@ -2,8 +2,7 @@
 <import src="../../components/loading/loading.wxml" />
 <template is="loading" data="{{ ...$wux.loading }}" />
 <view class="header" hidden="{{hideHeader}}">
-  <view>下拉刷新中……</view>
-  <view>{{refreshTime}}</view>
+  <view>下拉刷新中…</view>
 </view>
 <view class='location-header '>
   <view class='current-location flex flex_center' bindtap='selectLocation'>
@@ -81,5 +80,4 @@
 </view>
 <view class="bottom" hidden="{{hideBottom}}">
   <view>{{loadMoreData}}</view>
-  <view>{{refreshTime}}</view>
 </view>

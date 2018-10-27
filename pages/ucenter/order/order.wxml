@@ -2,8 +2,7 @@
 <import src="../.././components/loading/loading.wxml" />
 <template is="loading" data="{{ ...$wux.loading }}" />
 <view class="header" hidden="{{hideHeader}}">
-  <view>下拉刷新中……</view>
-  <view>{{refreshTime}}</view>
+  <view>下拉刷新中…</view>
 </view>
 
 <view class="container" wx:if="{{orderList != null && orderList.length > 0}}">
@@ -33,7 +32,6 @@
   </scroll-view>
   <view class="bottom" hidden="{{hideBottom}}">
     <view>{{loadMoreData}}</view>
-    <view>{{refreshTime}}</view>
   </view>
 </view>
 <view wx:if="{{orderList == null }}">
