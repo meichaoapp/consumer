@@ -26,6 +26,7 @@ margin-top: 18rpx;
     background: #f4f4f4;
     min-height: 100%;
     padding-top: 10rpx;
+    padding-bottom: 30rpx;
 }
 .dollarTreasure{
   width: 94%;
