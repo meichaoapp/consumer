@@ -59,6 +59,7 @@ Page({
         hideBottom: false
       })
       _this.queryList();
+      wx.stopPullDownRefresh();
     }, 300);
   },
 

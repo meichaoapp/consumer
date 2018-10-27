@@ -12,7 +12,7 @@ Page({
     winTreasure:{},
     start: 1, // 页码
     totalPage: 0, // 共有页
-    limit: 2,//每页条数
+    limit: 3,//每页条数
     hideHeader: true, //隐藏顶部提示
     hideBottom: true, //隐藏底部提示
     srollViewHeight: 0, //滚动分页区域高度
@@ -43,6 +43,7 @@ Page({
    */
   onReachBottom: function () {
     this.loadMore();
+    console.log('上拉加载更多');
   },
 
   // 上拉加载更多
@@ -54,7 +55,7 @@ Page({
       return;
     }
     setTimeout(function () {
-      //console.log('上拉加载更多');
+      console.log('上拉加载更多');
       _this.setData({
         start: _this.data.start + 1,
         hideBottom: false
@@ -68,7 +69,7 @@ Page({
   refresh: function (e) {
     let _this = this;
     setTimeout(function () {
-      //console.log('下拉刷新');
+      console.log('下拉刷新');
       _this.setData({
         start: 1,
         refreshTime: new Date().toLocaleTimeString(),

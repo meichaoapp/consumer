@@ -17,7 +17,7 @@
     <view class='dates'>
       <text class='iconfont icon-shizhong'></text> 正在开奖 {{detail.hour}}:  {{detail.min}}: {{detail.sec}}
     </view>
-    <view class='CalculationMethod'>
+    <view class='CalculationMethod' bindtap='Calculation'>
       计算方法
       <!-- <text class='iconfont icon--yiwen'></text> -->
       <image class='Questionmark' bindtap='Calculation' src='/static/images/Questionmark.png'></image>
