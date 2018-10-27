@@ -126,7 +126,6 @@ Page({
         console.log("detail.status : " + data.detail.status );
         that.setData({
           detail: data.detail, //详情
-          joinHistories: data.joinHistories,//参与历史
         });
         that.countDown();
       }

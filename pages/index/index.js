@@ -134,7 +134,7 @@ Page({
       return;
     }
     setTimeout(function () {
-      //console.log('上拉加载更多');
+      console.log('上拉加载更多');
       _this.setData({
         start: _this.data.start + 1,
         hideBottom: false
@@ -147,7 +147,7 @@ Page({
   refresh: function (e) {
     let _this = this;
     setTimeout(function () {
-      //console.log('下拉刷新');
+      console.log('下拉刷新');
       _this.setData({
         start: 1,
         refreshTime: new Date().toLocaleTimeString(),
@@ -218,7 +218,7 @@ Page({
           _this.setData({
             totalPage: res.data.totalPage,
             list: tempArray,
-            hideBottom: true
+            //hideBottom: true
           })
         }
         

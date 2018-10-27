@@ -98,7 +98,7 @@ Page({
           _this.setData({
             totalPage: res.data.totalPage,
             orderList: tempArray,
-            hideBottom: true
+            //hideBottom: true
           })
         }
 
