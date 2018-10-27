@@ -60,7 +60,7 @@ Page({
         hideBottom: false
       })
       _this.queryList();
-      wx.stopPullDownRefresh();
+      
     }, 300);
   },
 
@@ -75,6 +75,7 @@ Page({
         hideHeader: false
       })
       _this.queryList();
+      wx.stopPullDownRefresh();
     }, 300);
   },
   //获取一元夺宝列表
