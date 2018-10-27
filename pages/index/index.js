@@ -154,6 +154,7 @@ Page({
         hideHeader: false
       })
       _this.queryTGList();
+      wx.stopPullDownRefresh();
     }, 300);
   },
 

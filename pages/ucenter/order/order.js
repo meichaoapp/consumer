@@ -73,6 +73,7 @@ Page({
         hideHeader: false
       })
       _this.getOrderList();
+      wx.stopPullDownRefresh();
     }, 300);
   },
 
