@@ -37,7 +37,7 @@
       </view>
    </navigator>
   <navigator url='/pages/shopping/dollarTreasureDetail/dollarTreasureDetail?tag=1&id={{item.id}}'>
-    <view  wx:if="{{item.status == 1}}" class='dollarTreasure-cells WinPrize'>
+    <view  wx:if="{{item.status == 2}}" class='dollarTreasure-cells WinPrize'>
 
       <view class='dollarTreasure-cells-main'>
         <view class='proimgs'>
@@ -63,7 +63,7 @@
     </view>
    </navigator>
    <navigator url='/pages/shopping/dollarTreasureDetail/dollarTreasureDetail?tag=1&id={{item.id}}'>
-     <view  wx:if="{{item.status == 2}}" class='dollarTreasure-cells nowinprize'>
+     <view  wx:if="{{item.status == 1}}" class='dollarTreasure-cells nowinprize'>
 
       <view class='dollarTreasure-cells-main'>
         <view class='proimgs'>
