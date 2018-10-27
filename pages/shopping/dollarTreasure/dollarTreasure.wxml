@@ -50,18 +50,18 @@
           {{item.lotteryTime}} 开奖
         </view>
         <view class='prizebtns'>
-          <text class='btns'>查看</text>
+          <text class='btns'>马上抢</text>
         </view>
       </view>
 
-     <view wx:if="{{item.status == 2}}" class='dollarTreasure-cells-dataline waitFor'>
+     <view wx:else class='dollarTreasure-cells-dataline waitFor'>
         <view class='countDownv '>
 
           {{item.lotteryTime}} 开奖
 
         </view>
         <view class='prizebtns'>
-          <text class='btns'>等待开奖</text>
+          <text class='btns'>查看</text>
         </view>
       </view>
       </navigator>
