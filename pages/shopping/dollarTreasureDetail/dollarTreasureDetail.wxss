@@ -257,3 +257,9 @@ font-size: 26rpx;
 .CalculationformulaCon{
   display: none;
 }
+.Calculationtitle{
+  text-align: center;
+  color: #fff;
+  font-size: 32rpx;
+  padding: 20rpx;
+}

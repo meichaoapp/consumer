@@ -30,6 +30,7 @@
   <view wx:if="{{CalculationFlag}}">
     <view class='mask' bindtap='Calculation' ></view>
     <view class='jsbox'>
+     <view class='gradientEffect Calculationtitle'>计算方法</view>
       <view class='Calculationformula'>
         <image class='jsimg' src='/static/images/computation.png'></image>
       </view>
