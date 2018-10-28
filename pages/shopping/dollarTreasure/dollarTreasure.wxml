@@ -39,7 +39,7 @@
         </view>
 
       </view>
-      <view wx:if="{{item.status == 1}}" class='dollarTreasure-cells-dataline' >
+      <view wx:if="{{item.status == 0}}" class='dollarTreasure-cells-dataline' >
         <!-- <view class='countDownv'>
           <text class='textddkj'>正在开奖</text>
           <text class='timer-num'>{{item.hour}}</text> :
@@ -70,12 +70,14 @@
 
     <!-- 更多往期中奖按钮 -->
     <navigator url='/pages/shopping/dollarTreasure/dollarTreasureWin' class='morewinprizenav' >
-      <view class='morewinprize'>更多往期中奖</view>
+      <view wx:if="{{winTreasure != null}}" class='morewinprize'>更多往期中奖</view>
     </navigator>
 
 
     <!-- 中奖信息 -->
+
     <view wx:if="{{winTreasure != null}}" class='dollarTreasure-cells'>
+       <navigator url='/pages/shopping/dollarTreasureDetail/dollarTreasureDetail?tag=1&id={{item.treasureId}}&orderId={{item.id}}'>
       <view class='dollarTreasure-cells-main'>
         <view class='proimgs'>
           <image src='{{winTreasure.url}}'></image>
@@ -86,9 +88,9 @@
           <text class='nums'>参与次数：{{winTreasure.winNum}}次</text>
           <text class='date'>开奖时间：{{winTreasure.lotteryTime}}</text>
         </view>
-
+       
       </view>
-
+     </navigator>
     </view>
 
 

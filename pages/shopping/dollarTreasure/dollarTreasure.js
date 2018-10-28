@@ -22,7 +22,7 @@ Page({
   onLoad: function (options) {
     this.$wuxLoading = app.Wux().$wuxLoading //加载
     this.queryList();
-    this.countDown();
+    //this.countDown();
   },
   onReady: function () {
 

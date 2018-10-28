@@ -142,7 +142,7 @@ Page({
 
     let o = this.data.detail;
     if (o != null & o != undefined) {
-      if (o.status != 2) {
+    
         // 对结束时间进行处理渲染到页面
         let startTime = new Date(o.startTime).getTime();
         let endTime = new Date(o.endTime).getTime();
@@ -161,18 +161,18 @@ Page({
             o.hour = this.timeFormat(hou);
             o.min = this.timeFormat(min);
             o.sec = this.timeFormat(sec);
-            o.status = 1; // 设置状态为进行中
+            o.status = 0; // 设置状态为进行中
           } else {//活动已结束，全部设置为'00'
-            o.status = 3;
+            o.status = 1;
             o.day = this.timeFormat(0);
             o.hour = this.timeFormat(0);
             o.min = this.timeFormat(0);
             o.sec = this.timeFormat(0);
           }
         } else {
-          o.status = 0;
+          o.status = 1;
         }
-      }
+      
 
       // console.log("o.status---" + o.status);
 

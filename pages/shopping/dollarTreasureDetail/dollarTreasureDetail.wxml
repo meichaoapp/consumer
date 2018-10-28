@@ -14,8 +14,11 @@
   </swiper>
 
   <view class='row gradientEffect Calculationbox'>
-    <view class='dates'>
+    <view wx:if="{{detail.status == 0}}" class='dates'>
       <text class='iconfont icon-shizhong'></text> 正在开奖 {{detail.hour}}:  {{detail.min}}: {{detail.sec}}
+    </view>
+     <view wx:else class='dates'>
+          {{detail.lotteryTime}} 开奖
     </view>
     <view class='CalculationMethod' bindtap='Calculation'>
       计算方法
@@ -125,7 +128,7 @@
     </view>
     <view class='market-price'>￥{{detail.marketPrice}} </view>
 
-    <view bindtap='join' class="bugbtn {{detail.status != 1 ? 'graybtn':'gradientEffect'}}">立即抢购</view>
+    <view bindtap='join' class="bugbtn {{detail.status != 0 ? 'graybtn':'gradientEffect'}}">立即抢购</view>
 
 
   </view>

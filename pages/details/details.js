@@ -98,7 +98,11 @@ Page({
                 })
             },
             'fail': function (res) {
-              _this.$wuxToast.show({ type: 'text', text: "参团失败请重试!", });
+              wx.showToast({
+                icon: "none",
+                title: '参团失败请重试!',
+              })
+              //_this.$wuxToast.show({ type: 'text', text: "参团失败请重试!", });
               return false;
              },
             'complete': function (res) { 
@@ -107,11 +111,19 @@ Page({
           })
 
       } else {
-        _this.$wuxToast.show({ type: 'text', text: res.info, });
+        wx.showToast({
+          icon: "none",
+          title: res.info,
+        })
+        //_this.$wuxToast.show({ type: 'text', text: res.info, });
         return false;
       }
     }).catch((err) => {
-      _this.$wuxToast.show({ type: 'forbidden', text: err.info, });
+      wx.showToast({
+        icon: "none",
+        title: err.info,
+      })
+     // _this.$wuxToast.show({ type: 'forbidden', text: err.info, });
       console.log(err)
     });
   },
@@ -170,7 +182,11 @@ Page({
     }
 
     if(!hasBuy){
-      _this.$wuxToast.show({ type: 'text', text: "请选择想要参团的商品，谢谢！", });
+      wx.showToast({
+        icon:"none",
+        title: "请选择想要参团的商品",
+      })
+      //_this.$wuxToast.show({ type: 'text', text: "请选择想要参团的商品，谢谢！", });
       return null;
     }
     order.buyNum = buyNums; //购买总数量
