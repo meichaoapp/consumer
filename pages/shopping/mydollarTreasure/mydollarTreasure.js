@@ -64,7 +64,7 @@ Page({
       return;
     }
     setTimeout(function () {
-      //console.log('上拉加载更多');
+      console.log('上拉加载更多');
       _this.setData({
         start: _this.data.start + 1,
         hideBottom: false
@@ -77,7 +77,7 @@ Page({
   refresh: function (e) {
     let _this = this;
     setTimeout(function () {
-      //console.log('下拉刷新');
+      console.log('下拉刷新');
       _this.setData({
         start: 1,
         refreshTime: new Date().toLocaleTimeString(),
@@ -105,7 +105,7 @@ Page({
           })
         } else { // 加载更多
           //console.log('加载更多');
-          var tempArray = _this.data.orderList;
+          var tempArray = _this.data.list;
           tempArray = tempArray.concat(list);
           _this.setData({
             totalPage: res.data.totalPage,
