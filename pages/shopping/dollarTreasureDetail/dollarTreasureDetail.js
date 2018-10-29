@@ -58,7 +58,7 @@ Page({
   join: function () {
     //1.创建订单
     let _this = this;
-    if (_this.data.detail.status != 1) {
+    if (_this.data.detail.status != 0) {
       return;
     }
     util.request(api.JoinTreasure, {
