@@ -22,6 +22,7 @@ Page({
     loadMoreData: '加载更多……',
     CalculationFlag:false,//计算方法弹框
     prizecodes:[10021,10022,10023],//模拟中奖codes
+    count: 0, //提交计数
   },
   onLoad: function (options) {
     // 页面初始化 options为页面跳转所带来的参数
@@ -31,6 +32,7 @@ Page({
       id: parseInt(options.id),
       sourceTag: parseInt(options.tag),
       orderId: parseInt(options.orderId),
+      count: 0, //提交计数
     });
     let userInfo = wx.getStorageSync('userInfo');
     let token = wx.getStorageSync('token');
@@ -51,14 +53,25 @@ Page({
 
   },
   onShow: function () {
-
+    this.setData({
+      count: 0, //提交计数
+    });
   },
   
   //参与
   join: function () {
     //1.创建订单
     let _this = this;
+    if (_this.data.count > 0) {
+      return;
+    }
+    _this.setData({
+      count: _this.data.count + 1,
+    });
     if (_this.data.detail.status != 0) {
+      _this.setData({
+        count: 0,
+      });
       return;
     }
     util.request(api.JoinTreasure, {
@@ -94,7 +107,14 @@ Page({
               })
             },
             'fail': function (res) {
-              _this.$wuxToast.show({ type: 'text', text: "参与失败请重试!", });
+              _this.setData({
+                count: 0,
+              });
+              //_this.$wuxToast.show({ type: 'text', text: "参与失败请重试!", });
+              wx.showToast({
+                icon: "none",
+                title: "参与失败请重试!",
+              })
               return false;
             },
             'complete': function (res) {
@@ -102,11 +122,25 @@ Page({
           })
 
       } else {
-        _this.$wuxToast.show({ type: 'text', text: res.info, });
+        _this.setData({
+          count: 0,
+        });
+       // _this.$wuxToast.show({ type: 'text', text: res.info, });
+        wx.showToast({
+          icon: "none",
+          title: res.info,
+        })
         return false;
       }
     }).catch((err) => {
-      _this.$wuxToast.show({ type: 'forbidden', text: err.info, });
+      _this.setData({
+        count: 0,
+      });
+     // _this.$wuxToast.show({ type: 'forbidden', text: err.info, });
+      wx.showToast({
+        icon: "none",
+        title: err.info,
+      })
       console.log(err)
     });
   },

@@ -114,7 +114,7 @@
            <text class='ticket-title'>新人券</text>
         </view> -->
     </view>
-    <view hidden="{{!detail.status}}" class="r {{detail.status != 1 ?'graybtn':'greenBtn'}}" bindtap='joinGroup'>立即参团</view>
+    <view hidden="{{!detail.status}}" class="r {{(detail.status != 1 || count > 0) ?'graybtn':'greenBtn'}}" bindtap='joinGroup'>立即参团</view>
   </view>
 
   <view class="container" wx:if="{{tabIndex == 1}}">

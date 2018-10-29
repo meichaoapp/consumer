@@ -128,7 +128,7 @@
     </view>
     <view class='market-price'>￥{{detail.marketPrice}} </view>
 
-    <view bindtap='join' class="bugbtn {{detail.status != 0 ? 'graybtn':'gradientEffect'}}">立即抢购</view>
+    <view bindtap='join' class="bugbtn {{(detail.status != 0 || count > 0) ? 'graybtn':'gradientEffect'}}">立即抢购</view>
 
 
   </view>

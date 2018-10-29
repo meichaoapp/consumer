@@ -20,7 +20,9 @@ Page({
     openAttr: false,
     noCollectImage: "/static/images/icon_collect.png",
     hasCollectImage: "/static/images/icon_collect_checked.png",
-    collectBackImage: "/static/images/icon_collect.png"
+    collectBackImage: "/static/images/icon_collect.png",
+    count:0, //提交计数
+    
   },
 
   onLoad: function (options) {
@@ -28,7 +30,8 @@ Page({
     this.$wuxLoading = app.Wux().$wuxLoading //加载
     this.$wuxToast = app.Wux().$wuxToast
     this.setData({
-      id: parseInt(options.id)
+      id: parseInt(options.id),
+      count: 0, //提交计数
     });
     var that = this;
     this.queryGroupPurchaseDetail();
@@ -40,7 +43,9 @@ Page({
   },
   onShow: function () {
     // 页面显示
-
+    this.setData({
+      count: 0, //提交计数
+    });
   },
   onShareAppMessage: function () {
     var that = this
@@ -54,11 +59,24 @@ Page({
   joinGroup: function(){
     //1.创建订单
     let _this = this;
+    if(_this.data.count > 0){
+      return;
+    }
+    _this.setData({
+      count: _this.data.count + 1,
+    });
+    //console.log("count-----" + _this.data.count);
     if (_this.data.detail.status != 1){
+      _this.setData({
+        count: 0,
+      });
       return;
     }
     let userInfo = wx.getStorageSync('userInfo');
     if (null == userInfo || userInfo == "" || undefined == userInfo) {
+      _this.setData({
+        count: 0,
+      });
       wx.navigateTo({
         url: '/pages/auth/login/login'
       });
@@ -68,13 +86,17 @@ Page({
     });
     var order = _this.getOrderDatas();
     if(null == order){
+      _this.setData({
+        count: 0,
+      });
       return;
     }
     util.request(api.CreateOrder, order ,"POST").then(function (res) {
+      
       if (res.rs === 1) { //创建成功
         var data = res.data;
 
-        console.log(res.data.wxPayResponse);
+        //console.log(res.data.wxPayResponse);
 
         // wx.redirectTo({
         //   url: '/pages/details/success?id=' + data.id,
@@ -98,6 +120,9 @@ Page({
                 })
             },
             'fail': function (res) {
+              _this.setData({
+                count: 0,
+              });
               wx.showToast({
                 icon: "none",
                 title: '参团失败请重试!',
@@ -111,6 +136,9 @@ Page({
           })
 
       } else {
+        _this.setData({
+          count: 0,
+        });
         wx.showToast({
           icon: "none",
           title: res.info,
@@ -119,6 +147,9 @@ Page({
         return false;
       }
     }).catch((err) => {
+      _this.setData({
+        count: 0,
+      });
       wx.showToast({
         icon: "none",
         title: err.info,
@@ -182,6 +213,9 @@ Page({
     }
 
     if(!hasBuy){
+      _this.setData({
+        count: 0,
+      });
       wx.showToast({
         icon:"none",
         title: "请选择想要参团的商品",
