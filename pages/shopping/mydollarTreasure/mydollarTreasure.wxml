@@ -31,7 +31,7 @@
           <view class='prizebtns'>
             <text class='btns'>等待开奖</text>
           </view>
-          <text class='dates'>{{item.lotterynTime}}开奖</text>
+          <text class='dates'>{{item.lotteryTime}}开奖</text>
         </view>
 
       </view>
@@ -57,7 +57,7 @@
         <view class='prizebtns'>
           <text class='btns'>恭喜中奖</text>
         </view>
-        <text class='dates'>{{item.lotterynTime}}开奖</text>
+        <text class='dates'>{{item.lotteryTime}}开奖</text>
       </view>
     
     </view>
@@ -86,7 +86,7 @@
           <text class='btns'>未中奖</text>
         </view>
 
-        <text class='dates'>{{item.lotterynTime}}开奖</text>
+        <text class='dates'>{{item.lotteryTime}}开奖</text>
 
       </view>
     

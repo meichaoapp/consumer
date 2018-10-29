@@ -174,7 +174,7 @@ Page({
         }
       
 
-      // console.log("o.status---" + o.status);
+       //console.log("o.status---" + o.status);
 
       this.setData({ detail: o })
     }
