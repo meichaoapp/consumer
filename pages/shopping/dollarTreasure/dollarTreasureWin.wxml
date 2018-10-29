@@ -8,7 +8,7 @@
   <scroll-view scroll-y="true" class='dollarTreasure'>
     <!-- 中奖信息 -->
     <view class='dollarTreasure-cells' wx:for="{{list}}" wx:for-index="index" wx:for-item="item" wx:key="{{item.id}}">
-      <navigator url='/pages/shopping/dollarTreasureDetail/dollarTreasureDetail?tag=1&id={{item.treasureId}}&orderId={{item.id}}'>
+      <navigator url='/pages/shopping/dollarTreasureDetail/dollarTreasureDetail?tag=1&id={{item.treasureId}}&orderId={{item.orderId}}'>
       <view class='dollarTreasure-cells-main'>
         <view class='proimgs'>
           <image src='{{item.url}}'></image>
