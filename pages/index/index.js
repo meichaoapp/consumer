@@ -130,7 +130,7 @@ Page({
     let _this = this;
     // 当前页是最后一页
     if (_this.data.start == _this.data.totalPage) {
-      _this.setData({ loadMoreData: '已加载全部内容' })
+      _this.setData({ loadMoreData: '我是有底线的' })
       return;
     }
     setTimeout(function () {

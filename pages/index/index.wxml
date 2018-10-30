@@ -36,41 +36,41 @@
   <scroll-view scroll-y="true" class='section'>
     <view class='m-item-list'>
       <view class='m-item' wx:for="{{list}}" wx:for-index="index" wx:for-item="item" wx:key="{{item.id}}">
-       <navigator url="/pages/details/details?id={{item.id}}">
-        <view class='m-item-content row'>
+        <navigator url="/pages/details/details?id={{item.id}}">
+          <view class='m-item-content row'>
             <view class='pre-img'>
               <image src='{{item.url}}'></image>
             </view>
-          <view class='goods-content'>
+            <view class='goods-content'>
               <text class="name">{{item.name}}</text>
-            <text class="desc">{{item.comments}}</text>
-            <view class="status-content row flex flex_center" style='margin-top: 11px;'>
-              <image class='status-icon' src="/static/images/{{item.status == 1 ? 'timer-active.png' : 'timer-done.png'}}"></image>
-              
-              <text class="status-label">{{item.statusStr}}</text>
+              <text class="desc">{{item.comments}}</text>
+              <view class="status-content row flex flex_center" style='margin-top: 11px;'>
+                <image class='status-icon' src="/static/images/{{item.status == 1 ? 'timer-active.png' : 'timer-done.png'}}"></image>
+
+                <text class="status-label">{{item.statusStr}}</text>
 
 
-              <view wx:if="{{item.status == 1}}" class='timer'>
-                <!-- <text class='timer-num mr6' wx:if="{{item.day != '00' }}" >{{item.day}}</text> -->
-                <text class='timer-num'>{{item.hour}}</text> :
-                <text class='timer-num'>{{item.min}}</text> :
-                <text class='timer-num'>{{item.sec}}</text>
+                <view wx:if="{{item.status == 1}}" class='timer'>
+                  <!-- <text class='timer-num mr6' wx:if="{{item.day != '00' }}" >{{item.day}}</text> -->
+                  <text class='timer-num'>{{item.hour}}</text> :
+                  <text class='timer-num'>{{item.min}}</text> :
+                  <text class='timer-num'>{{item.sec}}</text>
+                </view>
               </view>
             </view>
-          </view>
 
-        </view>
-        <view class='m-item-footer row'>
-          <view class='merchant-name'>团长:{{item.merchantName}}</view>
-              <view class="join-btn {{item.status != 1 ? 'join-btn-default' : ''}}"> {{item.status != 1 ? '查看' : '参团'}}   </view>
-          
-          <!-- <view class='join-btn-default'>查看</view> -->
-          <view class='tips column'>
-            <text class='tip-title'>已参团人数</text>
-            <text class='tip-num'>{{item.joinNum}}/{{item.limitNum}}</text>
           </view>
-        </view>
-       </navigator>
+          <view class='m-item-footer row'>
+            <view class='merchant-name'>团长:{{item.merchantName}}</view>
+            <view class="join-btn {{item.status != 1 ? 'join-btn-default' : ''}}"> {{item.status != 1 ? '查看' : '参团'}} </view>
+
+            <!-- <view class='join-btn-default'>查看</view> -->
+            <view class='tips column'>
+              <text class='tip-title'>已参团人数</text>
+              <text class='tip-num'>{{item.joinNum}}/{{item.limitNum}}</text>
+            </view>
+          </view>
+        </navigator>
       </view>
 
     </view>
@@ -78,6 +78,15 @@
 
 
 </view>
-<view class="bottom" hidden="{{hideBottom}}">
+<!-- <view class="bottom" hidden="{{hideBottom}}">
   <view>{{loadMoreData}}</view>
+</view> -->
+<view class="n-bottom" hidden="{{hideBottom}}">
+  <view>
+    <view class='transverseline'><text class='line'></text></view>
+
+    <text class='txt'>{{loadMoreData}}</text>
+
+    <view class='transverseline'><text class='line'></text></view>
+  </view>
 </view>
