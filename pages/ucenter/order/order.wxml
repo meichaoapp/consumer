@@ -30,10 +30,20 @@
 
 
   </scroll-view>
-  <view class="bottom" hidden="{{hideBottom}}">
+  <!-- <view class="bottom" hidden="{{hideBottom}}">
     <view>{{loadMoreData}}</view>
+  </view>-->
+  <view class="n-bottom" hidden="{{hideBottom}}">
+  <view>
+    <view class='transverseline'><text class='line'></text></view>
+
+    <text class='txt'>{{loadMoreData}}</text>
+
+    <view class='transverseline'><text class='line'></text></view>
   </view>
 </view>
+</view> 
+
 <view wx:if="{{orderList == null }}">
     <image class='no_order_img'  src="../../../static/images/noneOrder.png"></image>
     <view class='no_order_tip'>订单不存在</view>

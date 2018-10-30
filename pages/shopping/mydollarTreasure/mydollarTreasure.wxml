@@ -108,3 +108,13 @@
 </view>
 
 </view>
+
+<view class="n-bottom" hidden="{{hideBottom}}">
+  <view>
+    <view class='transverseline'><text class='line'></text></view>
+
+    <text class='txt'>{{loadMoreData}}</text>
+
+    <view class='transverseline'><text class='line'></text></view>
+  </view>
+</view>
