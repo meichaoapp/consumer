@@ -77,7 +77,7 @@
     <!-- 中奖信息 -->
 
     <view wx:if="{{winTreasure != null}}" class='dollarTreasure-cells'>
-       <navigator url='/pages/shopping/dollarTreasureDetail/dollarTreasureDetail?tag=1&id={{item.treasureId}}&orderId={{item.orderId}}'>
+       <navigator url='/pages/shopping/dollarTreasureDetail/dollarTreasureDetail?tag=2&id={{winTreasure.treasureId}}&orderId='>
       <view class='dollarTreasure-cells-main'>
         <view class='proimgs'>
           <image src='{{winTreasure.url}}'></image>

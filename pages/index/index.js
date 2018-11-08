@@ -11,6 +11,7 @@ const app = getApp()
 const statusArr = ["即将开始", "距结束", "已成团", "已成团"];//0 未开始 1 进行中 2 已成团 3 已结束
 Page({
   data: {
+    userInfo:null,
     latitude:0.00,
     longitude:0.00,
     cityname:"",
@@ -37,9 +38,14 @@ Page({
 
   onLoad: function (options) {
     this.$wuxLoading = app.Wux().$wuxLoading //加载
-    this.getCurrentLocation();
     this.queryBanner();
-    this.countDown();
+    let userInfo = wx.getStorageSync('userInfo');
+    if (null != userInfo || userInfo != "" || undefined != userInfo) {
+      this.setData({
+        userInfo: userInfo,
+      });
+    }
+   
   },
 
   onReady: function () {
@@ -47,6 +53,15 @@ Page({
   },
   onShow: function () {
     // 页面显示
+    let userInfo = wx.getStorageSync('userInfo');
+
+    if (null != userInfo || userInfo != "" || undefined != userInfo) {
+      this.setData({
+        userInfo: userInfo,
+      });
+    }
+    this.getCurrentLocation();
+    this.countDown();
   },
   onHide: function () {
     // 页面隐藏
@@ -197,6 +212,7 @@ Page({
     let _this = this;
     _this.$wuxLoading.show({ text: '数据加载中', })
     var data = {
+      userId: (_this.data.userInfo != null) ? _this.data.userInfo.id : null,
       start: _this.data.start,
       limit: _this.data.limit,
       latitude: _this.data.latitude,

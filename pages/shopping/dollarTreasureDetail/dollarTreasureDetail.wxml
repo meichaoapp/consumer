@@ -85,9 +85,17 @@
     <view class='Luckynum'>100023</view> -->
   </view>
   
-  <view class='titles' wx:if="{{detail.codes == null || detail.codes.length  == 0}}">您还没有来抢吆～</view>
+  <view class='titles' wx:if="{{detail.codes == null || detail.codes.length  == 0}}">
+    <text wx:if="{{sourceTag == 2}}">您未参与本期夺宝~</text>
+    <text wx:else>您还没有来抢吆～</text>
+  </view>
 
+  <view class='Luckynumcon' wx:if="{{sourceTag == 2}}">
+    <view class='Luckynumt'>中奖号码为：</view>
 
+    <view class='Luckynum'>{{detail.code}}</view>
+   
+  </view>
   <!-- <text class="iconfont icon-huore"></text> -->
 
 

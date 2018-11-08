@@ -41,7 +41,7 @@
   </view>
 
 
-  <view class='mylists'>
+  <!-- <view class='mylists'>
 
       <view class='mylist-cells' data-phone="13370636266" bindtap='callCFPhone'>
         <view class='mylist-cell-image'>
@@ -57,7 +57,7 @@
       </view>
 
 
-  </view>
+  </view> -->
   <action-sheet hidden="{{isShowContactBox}}" bindchange="toHideContactBox">
       <action-sheet-item >+美超小邻：hlkjshi</action-sheet-item>
       <action-sheet-cancel>取消</action-sheet-cancel>
