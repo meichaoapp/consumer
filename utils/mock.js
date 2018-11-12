@@ -112,6 +112,23 @@ function getData(url, p) {
     return JSON.stringify(RS);
   }
   
+  //短信验证码
+  if (url == api.GetVerifiCode) {
+    RS.data.verifiCode = "1234";
+    return JSON.stringify(RS);
+  }
+  
+
+  //添加/修改个人资料
+  if (url == api.SubmitUserInfo) {
+    return JSON.stringify(RS);
+  }
+  
+
+  //获取个人资料
+  if (url == api.QueryUserInfo) {
+    return queryUserInfo();
+  }
 
 
 }
@@ -124,11 +141,33 @@ function wxLogin() {
     "nickName": "茉莉花开",	      //微信昵称
     "openid": "P90FDeUdnFMZkwZ274fEWnWqE",        // openid
     "sex": 0,        // 性别 0 男 1 女
+    "completionInfo":false,
     "avatar": "https://s-mall.oss-cn-beijing.aliyuncs.com/meichao/user.png" //头像	
   }
 
 
   RS.data.user = user;
+  RS.data.token = "773b8bde7ed698bc2cc2227d5c765704";
+  return JSON.stringify(RS);
+
+}
+
+
+//获取个人资料
+function queryUserInfo() {
+  var data = {
+    "userId": 1,  //用户id
+    "userInfoId": 1,  //用户信息id
+    "phone": "18911111111",  //手机号
+    "name": "茉莉花开",  //联系人
+    "province": "河北省",  //省code
+    "city": "石家庄市",  //市code
+    "area": "桥东区",  //地区code
+    "address": "月亮小区18号",  //详细地址
+  }
+
+
+  RS.data = data;
   RS.data.token = "773b8bde7ed698bc2cc2227d5c765704";
   return JSON.stringify(RS);
 
@@ -639,12 +678,12 @@ function QueryTreasureDetails(){
         "https://s-mall.oss-cn-beijing.aliyuncs.com/meichao/t1.png",
          ],  //展示图片
       "title": "难以置信 1块钱就能得到",	   //夺宝名称
-      "status": 1, //0 未开始 1 进行中 2 已完成 3 已过期
+      "status": 0, //0 未开始 1 进行中 2 已完成 3 已过期
       "comments": "参与赢大奖", //宣传语
       "content": "", //描述
       "limitNum": 99, //人数上限
-      "startTime": "2018/10/24 00:00:00", //开始时间，注意格式
-      "endTime": "2018/10/30 00:00:00", //结束时间，注意格式
+      "startTime": "2018/11/10 00:00:00", //开始时间，注意格式
+      "endTime": "2018/12/30 00:00:00", //结束时间，注意格式
       "joinNum": 90, //参加人数
       "marketPrice": 100.05,//市场价
       "price": 1.00,//单价

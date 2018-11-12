@@ -3,6 +3,8 @@ var NewApiRootUrl = "https://wxapp.galaxyxd.com/api/";
 //var NewApiRootUrl = 'http://101.201.213.248:8093/api/';
 module.exports = {
   WXLogin: NewApiRootUrl + 'consumer/user/login',//微信登录
+  QueryUserInfo: NewApiRootUrl + 'consumer/info',//获取个人资料
+  SubmitUserInfo: NewApiRootUrl + 'consumer/editInfo',//添加/修改个人资料
 
   QueryMerchants: NewApiRootUrl + 'index/merchants',//查询附近商户信息
   QueryBanner: NewApiRootUrl + 'index/banners',//查询轮播图
@@ -26,6 +28,7 @@ module.exports = {
   Desire: NewApiRootUrl + "common/desire",//我想要（我想要页）
   Partner: NewApiRootUrl + "common/partner", //成为伙伴（成为伙伴页）
   Pay: NewApiRootUrl + "common/pay", ///支付
+  GetVerifiCode: NewApiRootUrl + "common/verifiCode", //短信验证码
 
     
 

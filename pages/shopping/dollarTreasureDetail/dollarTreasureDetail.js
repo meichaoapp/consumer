@@ -87,9 +87,9 @@ Page({
 
         console.log(res.data.wxPayResponse);
 
-        // wx.redirectTo({
-        //   url: '/pages/shopping/dollarTreasureDetail/success?id=' + data.id + "&code=1233443" ,
-        // })
+        wx.redirectTo({
+          url: '/pages/shopping/dollarTreasureDetail/success?id=' + data.id  ,
+        })
 
 
        var wxPayResponse = res.data.wxPayResponse;
@@ -208,7 +208,7 @@ Page({
         }
       
 
-       //console.log("o.status---" + o.status);
+      // console.log("o.status---" + o.status);
 
       this.setData({ detail: o })
     }
@@ -311,7 +311,7 @@ Page({
     _this.setData({
       CalculationFlag: nCalculationFlag
     })
-  },
+  }
 
 
 

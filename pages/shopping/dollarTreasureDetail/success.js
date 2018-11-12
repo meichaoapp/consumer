@@ -73,6 +73,12 @@ Page({
     wx.redirectTo({
       url: '/pages/shopping/dollarTreasure/dollarTreasure?id=' + this.data.id,
     })
+  },
+
+  toEditUserInfo: function () {
+    wx.redirectTo({
+      url: '/pages/ucenter/yourinfor/yourinfor',
+    })
   }
   
 

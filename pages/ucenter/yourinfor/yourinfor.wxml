@@ -1,4 +1,5 @@
-
+<import src="../../../components/toast/toast.wxml"/>
+<template is="toast" data="{{ ...$wux.toast }}"/>
 
 <!-- <view class="container">
   <picker mode="region" bindchange="bindRegionChange" value="{{region}}" custom-item="{{customItem}}">
@@ -12,13 +13,13 @@
 <view class='userinfobox1'>
   <view class='cell_input row'>
     <view class='u-label'>手机号码</view>
-    <view class='u-bd'><input class="weui-inputs" type="number" placeholder="输入手机号码" placeholder-class='nplaceholder'/></view>
+    <view class='u-bd'><input class="weui-inputs" name="phone" value='{{phone}}' bindinput='bindPhone' type="number" placeholder="输入手机号码" placeholder-class='nplaceholder'/></view>
   </view>
   <view class='cell_input row noborder'>
     <view class='u-label'>验证码</view>
     <view class='u-bd  u-validate'>
-    <input class="weui-inputs" type="number" placeholder="输入验证码" placeholder-class='nplaceholder'/>
-    <view class='getcodebtn' style="background-image: url('/static/images/commonbag.png');background-size: 100% 100%;">获取验证码</view>
+    <input class="weui-inputs" type="number" name="verifiCode" value='{{verifiCode}}' bindinput='bindVerifiCode' placeholder="输入验证码" placeholder-class='nplaceholder'/>
+    <view class='getcodebtn' bindtap='getVerifiCode' style="background-image: url('/static/images/commonbag.png');background-size: 100% 100%;">获取验证码</view>
     </view>
   </view>
 </view>
@@ -26,7 +27,7 @@
 <view class='userinfobox2'>
   <view class='cell_input row'>
     <view class='u-label'>联系人</view>
-    <view class='u-bd'><input class="weui-inputs" type="number" placeholder="收货人姓名" placeholder-class='nplaceholder'/></view>
+    <view class='u-bd'><input class="weui-inputs" type="number" name="name" value='{{name}}' bindinput='bindName' placeholder="收货人姓名" placeholder-class='nplaceholder'/></view>
   </view>
   <view class='cell_input row'>
     <view class='u-label'>所在地区</view>
@@ -42,13 +43,12 @@
   </view>
   <view class='cell_input row noborder'>
     <view class='u-label'>详细地址</view>
-    <view class='u-bd'><input class="weui-inputs" type="number" placeholder="请输入楼号门牌号等详细信息" placeholder-class='nplaceholder'/></view>
+    <view class='u-bd'><input class="weui-inputs" name="address" value='{{address}}' bindinput='bindAddress' type="number" placeholder="请输入楼号门牌号等详细信息" placeholder-class='nplaceholder'/></view>
   </view>
  
 </view>
 
 
-
-
+ <button bindtap='submitUserInfo'>确认修改</button>
 
 </view>

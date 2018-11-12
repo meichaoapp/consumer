@@ -15,6 +15,11 @@
       <text class='t'>请密切关注您的大奖</text>
     </view>
 
+     <view class='s-content' wx:if="{{userInfo.completionInfo == false}}">
+      <text class='t t1'>及时与您取得联系，请及时补齐更新您的个人信息 </text>
+      <view class='t' bindtap='toEditUserInfo'>现在就去 >>></view>
+    </view>
+
     <view class='btn-t row'>
       <view class='btn btn1 gradientEffect' bindtap='toDollarTreasure'>知道了</view>
       <view class='btn btn2 gradientEffect' bindtap='toMydollarTreasure'>查看详情</view>
