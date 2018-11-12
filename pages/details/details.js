@@ -233,7 +233,7 @@ Page({
   //切换Tab
   clickTab:function(e){
     let _this = this;
-    var id = e.target.dataset.id;
+    var id = e.currentTarget.dataset.id;
     _this.setData({
       tabIndex: id,
     });

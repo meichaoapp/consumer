@@ -1,135 +1,148 @@
+<import src="../../components/loading/loading.wxml" />
+<template is="loading" data="{{ ...$wux.loading }}" />
 
-<import src="../../components/loading/loading.wxml"/>
-<template is="loading" data="{{ ...$wux.loading }}"/>
+<import src="../../components/toast/toast.wxml" />
+<template is="toast" data="{{ ...$wux.toast }}" />
 
-<import src="../../components/toast/toast.wxml"/>
-<template is="toast" data="{{ ...$wux.toast }}"/>
-
-<view class='detail-tab'>
+<!-- <view class='detail-tab'>
    <view class="tab-item l {{tabIndex == 0 ? 'selected' : ''}}" data-id='0' bindtap='clickTab'>团购详情</view>
    <view class="tab-item r {{tabIndex == 1 ? 'selected' : ''}} " data-id='1' bindtap='clickTab'>参团好友</view>
+</view> -->
+<view class='row'>
+  <view class='tabbar01'>
+  <view class='tabbtns' data-id='0' bindtap='clickTab'>
+      <image class="{{tabIndex == 0 ? '' : 'hide'}}"  src='/static/images/groupD.png'></image>
+      <text class="nosel {{tabIndex == 0 ? 'hide' : ''}}'">团购详情</text>
+    </view>
+  </view>
+  <view class='tabbar02'>
+      <view class='tabbtns' data-id='1'  bindtap='clickTab'>
+      <image  class="{{tabIndex == 1? '' : 'hide'}}"  src='/static/images/friends.png'></image>
+      <text class="nosel {{tabIndex == 1 ? 'hide' : ''}}'">参团好友</text>
+    </view>
+  </view>
 </view>
-
 <view wx:if="{{tabIndex == 0}}" class="container">
-    <swiper class="goodsimgs" indicator-dots="true" autoplay="true" interval="3000" duration="1000">
-      <swiper-item wx:for="{{detail.pics}}" wx:key="{{item.index}}">
-        <image src="{{item}}" background-size="cover"></image>
-      </swiper-item>
-    </swiper>
+  <swiper class="goodsimgs" indicator-dots="true" autoplay="true" interval="3000" duration="1000">
+    <swiper-item wx:for="{{detail.pics}}" wx:key="{{item.index}}">
+      <image src="{{item}}" background-size="cover"></image>
+    </swiper-item>
+  </swiper>
 
-    <view class='detail-info'>
-      <view class="info">
-        <text class="name">{{detail.title}}</text>
-        <text class="desc">{{detail.comments}}</text>
+  <view class='detail-info'>
+    <view class="info">
+      <text class="name">{{detail.title}}</text>
+      <text class="desc">{{detail.comments}}</text>
+    </view>
+    <button bindtap='onShareAppMessage' class='share column' open-type="share">
+      <image class='share-icon' src='/static/images/icon_collect.png'></image>
+      <text class='share-text'>分享朋友</text>
+    </button>
+  </view>
+
+  <view class='status-info'>
+    <view class='status-button'>
+      <view class="status-content row" style='margin-left:9px;'>
+        <image class='status-icon' src='/static/images/timer-active.png'></image>
+        <text class='status-label'>{{detail.statusStr}}</text>
+        <view wx:if="{{detail.status == 1}}" class='timer'>
+          <!-- <text class='timer-num mr6' wx:if="{{detail.day != '00' }}">{{detail.day}}</text>  -->
+          <text class='timer-num'>{{detail.hour}}</text> :
+          <text class='timer-num'>{{detail.min}}</text> :
+          <text class='timer-num'>{{detail.sec}}</text>
+        </view>
       </view>
-      <button bindtap='onShareAppMessage' class='share column' open-type="share">
-         <image class='share-icon' src='/static/images/icon_collect.png'></image>
-         <text class='share-text'>分享朋友</text>
-      </button>
+      <view class='join-tip'>
+        已参团人数 {{detail.joinNum}}/{{detail.limitNum}}
+      </view>
     </view>
+  </view>
 
-    <view class='status-info'>
-       <view class='status-button'>
-          <view class="status-content row" style='margin-left:9px;'>
-              <image class='status-icon' src='/static/images/timer-active.png'></image>
-              <text class='status-label'>{{detail.statusStr}}</text>
-              <view wx:if="{{detail.status == 1}}" class='timer'>
-                <!-- <text class='timer-num mr6' wx:if="{{detail.day != '00' }}">{{detail.day}}</text>  -->
-                <text class='timer-num'>{{detail.hour}}</text> :
-                <text class='timer-num'>{{detail.min}}</text> :
-                <text class='timer-num'>{{detail.sec}}</text>
-              </view>
-          </view> 
-          <view class='join-tip'>
-              已参团人数 {{detail.joinNum}}/{{detail.limitNum}}
-          </view>
-       </view>
-    </view>
-  
   <view class='line'></view>
 
   <view class='desc-info'>
-     <view class='title'>团购描述</view>
-     <view class='content'>{{detail.content}}</view>
+    <view class='title'>团购描述</view>
+    <view class='content'>{{detail.content}}</view>
   </view>
 
   <view class='merchant-info'>
-      <image class='merchant-avatar' src='{{merchant.avatar }}'></image>
-     <view class='merchant-box'>
-        <view class='row'>
-           <view class='merchant-label'>团长</view>
-           <view class='merchant-name'>{{merchant.merchantName }}</view>
-        </view>
-        <view class='merchant-c'>
-            团负责人：{{merchant.merchantUserName }}
-        </view>
-        <view class='merchant-c'>
-            联系电话：{{merchant.merchantPhone }}
-        </view>
-     </view>
+    <image class='merchant-avatar' src='{{merchant.avatar }}'></image>
+    <view class='merchant-box'>
+      <view class='row'>
+        <view class='merchant-label'>团长</view>
+        <view class='merchant-name'>{{merchant.merchantName }}</view>
+      </view>
+      <view class='merchant-c'>
+        团负责人：{{merchant.merchantUserName }}
+      </view>
+      <view class='merchant-c'>
+        联系电话：{{merchant.merchantPhone }}
+      </view>
+    </view>
 
-      <view class='title'>为您精选</view>
+    <view class='title'>为您精选</view>
   </view>
 
   <view class='m-item-list mb13' style='padding-bottom:10rpx;'>
-         <view class='m-item'  wx:for="{{goodsList}}" wx:for-index="index" wx:for-item="item" wx:key="{{item.id}}">
-           
-             <view class='m-item-content row'>
-                <view class='pre-img'>
-                   <image src='{{item.url}}'></image>
-                </view>
-                <view class='goods-content'>
-                   <text class="name">{{item.name}}</text>
-                   <text class="desc">{{item.specifications}}</text>
-                   <view class="price-content row" style='margin-top: 12rpx;'>
-                     <view class='p'>
-                       <text class='buy-price'>￥{{item.price}}</text>
-                       <text class='market-price'>￥{{item.marketPrice}}</text>
-                     </view>
-                     <view class="number-item">
-                      <view class="selnum">
-                        <view class="cut" data-id='{{item.id}}' bindtap="cutNumber">-</view>
-                        <input value="{{item.number}}" class="number" disabled="true" type="number" />
-                        <view class="add" data-id='{{item.id}}' bindtap="addNumber">+</view>
-                      </view>
-                    </view>
-                   </view> 
-                </view>
-                
-             </view>
-            
-         </view>
+    <view class='m-item' wx:for="{{goodsList}}" wx:for-index="index" wx:for-item="item" wx:key="{{item.id}}">
+
+      <view class='m-item-content row'>
+        <view class='pre-img'>
+          <image src='{{item.url}}'></image>
+        </view>
+        <view class='goods-content'>
+          <text class="name">{{item.name}}</text>
+          <text class="desc">{{item.specifications}}</text>
+          <view class="price-content row" style='margin-top: 12rpx;'>
+            <view class='p'>
+              <text class='buy-price'>￥{{item.price}}</text>
+              <text class='market-price'>￥{{item.marketPrice}}</text>
+            </view>
+            <view class="number-item">
+              <view class="selnum">
+                <view class="cut" data-id='{{item.id}}' bindtap="cutNumber">-</view>
+                <input value="{{item.number}}" class="number" disabled="true" type="number" />
+                <view class="add" data-id='{{item.id}}' bindtap="addNumber">+</view>
+              </view>
+            </view>
+          </view>
+        </view>
 
       </view>
-  
+
+    </view>
+
+  </view>
+
 
 
 </view>
 <view class="bottom-btn" wx:if="{{tabIndex == 0}}">
-    <view class='p'>
-        <text class='buy-price ml13 '>￥{{needPay}}</text>
-        <text class='market-price'>￥{{totalPay}}</text>
-        <!-- <view class='ticket'>
+  <view class='p'>
+    <text class='buy-price ml13 '>￥{{needPay}}</text>
+    <text class='market-price'>￥{{totalPay}}</text>
+    <!-- <view class='ticket'>
            <image class='check-icon' src='/static/images/icon_detaliok.png'></image>
            <text class='ticket-title'>新人券</text>
         </view> -->
-    </view>
-    <view hidden="{{!detail.status}}" class="r {{(detail.status != 1 || count > 0) ?'graybtn':'greenBtn'}}" bindtap='joinGroup'>立即参团</view>
   </view>
+  <view hidden="{{!detail.status}}" class="r {{(detail.status != 1 || count > 0) ?'graybtn':'greenBtn'}}" bindtap='joinGroup'>立即参团</view>
+</view>
 
-  <view class="container" wx:if="{{tabIndex == 1}}">
-      <view class='friends-info mb13'>
-         <view class='friends-number ml13'>
-             参团人数: <text class='groupnums'>{{joinNum}}</text>
-         </view>
-         <view class='friends-list'>
-             <view class='friends-item row' wx:for="{{friensList}}" wx:for-index="index" wx:for-item="item" wx:key="{{item.id}}">
-                <view>
-                  <image class='friends-avatar' src='{{item.avatar }}'></image>
-                </view>
-           
-                <view class="{{ index ==0 ? 'friends-name-box-nob' : 'friends-name-box' }}">{{item.nickName}}</view>
-             </view>
-         </view>
+<view class="container" wx:if="{{tabIndex == 1}}">
+  <view class='friends-info mb13'>
+    <view class='friends-number ml13'>
+      参团人数:
+      <text class='groupnums'>{{joinNum}}</text>
+    </view>
+    <view class='friends-list'>
+      <view class='friends-item row' wx:for="{{friensList}}" wx:for-index="index" wx:for-item="item" wx:key="{{item.id}}">
+        <view>
+          <image class='friends-avatar' src='{{item.avatar }}'></image>
+        </view>
+
+        <view class="{{ index ==0 ? 'friends-name-box-nob' : 'friends-name-box' }}">{{item.nickName}}</view>
       </view>
+    </view>
   </view>
+</view>

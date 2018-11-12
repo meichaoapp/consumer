@@ -8,6 +8,14 @@
   </view>
 
   <view class='mylists'>
+  <navigator url="/pages/ucenter/yourinfor/yourinfor">
+      <view class='mylist-cells'>
+        <view class='mylist-cell-image'>
+          <image src='/static/images/gerenzhongxin.png'></image>
+        </view>
+        <view class='mylist-cell-desc'>个人资料</view>
+      </view>
+    </navigator>
 
     <navigator url="/pages/ucenter/order/order">
       <view class='mylist-cells'>

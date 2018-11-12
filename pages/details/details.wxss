@@ -469,3 +469,33 @@ font-size: 30rpx;
   background: #999999!important;
   border: 1px solid #999999!important;
 }
+/*wsx20181112*/
+.tabbar01,.tabbar02{
+  width: 50%;
+  background: #fff;
+  padding: 5rpx 0;
+}
+.tabbar01 .tabbtns{
+  /* text-align: right; */
+  float: right;
+}
+.tabbar01 image,.tabbar02 image{
+width: 220rpx;
+height: 79rpx;
+}
+.tabbtns{
+width: 220rpx;
+height: 79rpx;
+}
+.nosel{
+  display: block;
+  width: 220rpx;
+  height: 79rpx;
+  line-height: 79rpx;
+  color: #000;
+  font-size: 28rpx;
+  text-align: center;
+}
+.hide{
+  display: none;
+}
