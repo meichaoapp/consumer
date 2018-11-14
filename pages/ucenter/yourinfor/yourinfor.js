@@ -3,7 +3,7 @@ var api = require('../../../config/api.js');
 const user = require('../../../services/user.js');
 var app = getApp();
 
-const countTime = 30; // 120 s
+const countTime = 120; // 120 s
 
 Page({
   data: {
