@@ -149,3 +149,41 @@ font-size:30rpx;
   width: 400rpx;
   height:400rpx;
 }
+/* .nheader{
+padding: 37rpx 26rpx;
+padding-bottom: 22rpx;
+background: #fff;
+}
+.nheader .icons{
+  width: 36rpx;
+  height: 36rpx;
+  margin-right: 20rpx;
+}
+.nheader .icons .iconfont{
+  font-size: 36rpx;
+  color: #73cfdc;
+}
+.buyerinfo{
+  flex: 1;
+}
+.buyerinfo text{
+  display: block;
+  margin-bottom: 15rpx;
+  color: #464646;
+  font-size: 32rpx;
+  text-overflow:clip;
+  letter-spacing:3rpx;
+  overflow:hidden;
+  white-space:nowrap;
+  font-family:UICTFontTextStyleBody;
+}
+.Testpass-bd{
+  display: flex;
+  justify-content: center;
+  padding-top: 58rpx;
+  padding-bottom: 80rpx;
+}
+.Testpass-bd image{
+width: 267rpx;
+height: 51rpx;
+} */
