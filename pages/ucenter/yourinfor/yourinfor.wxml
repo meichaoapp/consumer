@@ -19,8 +19,9 @@
     <view class='u-label'>验证码</view>
     <view class='u-bd  u-validate'>
     <input class="weui-inputs" type="number" name="verifiCode" value='{{verifiCode}}' bindinput='bindVerifiCode' placeholder="输入验证码" placeholder-class='nplaceholder'/>
-    <!-- <view class='getcodebtn' bindtap='getVerifiCode' style="background-image: url('/static/images/commonbag.png');background-size: 100% 100%;">获取验证码</view> -->
-    <view class='getcodebtn' bindtap='getVerifiCode'><image class='getcodeuimage' src='/static/images/getVerifiCode.png'></image></view>
+    <view wx:if="{{refreshTime <= 0}}" class='getcodebtn' bindtap='getVerifiCode' style="background-image: url('/static/images/commonbag.png');background-size: 100% 100%;">获取验证码</view>
+    <view wx:else class='getcodebtn' bindtap='getVerifiCode' style="background-image: url('/static/images/commonbag.png');background-size: 100% 100%;">{{refreshTime}}秒后重新获取</view>
+    <!-- <view class='getcodebtn' bindtap='getVerifiCode'><image class='getcodeuimage' src='/static/images/getVerifiCode.png'></image></view> -->
     </view>
   </view>
 </view>

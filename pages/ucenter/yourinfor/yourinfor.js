@@ -3,6 +3,8 @@ var api = require('../../../config/api.js');
 const user = require('../../../services/user.js');
 var app = getApp();
 
+const countTime = 30; // 120 s
+
 Page({
   data: {
     userInfo: {},
@@ -18,6 +20,8 @@ Page({
     area: "海淀区",  //地区code
     address: "",  //详细地址
     verifiCode:"",//验证码
+    refreshTime:0,
+    count: 0, //提交计数
   },
   onLoad: function (options) {
     // 页面初始化 options为页面跳转所带来的参数
@@ -86,13 +90,25 @@ Page({
   //获取验证码
   getVerifiCode: function () {
     let _this = this;
+    if (_this.data.count > 0) {
+      return;
+    }
+    _this.setData({
+      count: _this.data.count + 1,
+    });
 
     if ("" == _this.data.phone || _this.data.phone == null) {
+      _this.setData({
+        count: 0,
+      });
       _this.$wuxToast.show({ type: 'forbidden', text: "手机号码不能为空，请填写后提交！", });
       return;
     }
     var exp = new RegExp("^0?(13|15|18|14)[0-9]{9}$");
     if (!exp.test(_this.data.phone)) {
+      _this.setData({
+        count: 0,
+      });
       _this.$wuxToast.show({ type: 'forbidden', text: "手机号码格式不正确！", });
       return;
     }
@@ -105,14 +121,38 @@ Page({
     };
     util.request(api.GetVerifiCode, data, "POST").then(function (res) {
       if (res.rs === 1) {
-        _this.setData({
-          verifiCode: res.data.verifiCode,
-        });
         console.log("获取验证码请求成功！");
+        _this.setData({
+          refreshTime: countTime,
+        })
+        wx.showToast({
+          title: '发送验证码成功！',
+          icon: 'success',
+          duration: 2000
+        })
+        _this.countDown();
       } else { 
+        _this.setData({
+          count: 0,
+        });
         _this.$wuxToast.show({ type: 'forbidden', text: res.info, });
       }
     });
+  },
+  //倒计时
+  countDown:function(){
+    let _this = this;
+    if (_this.data.refreshTime <= 0){
+      _this.setData({
+        count: 0,
+        refreshTime: 0,
+      })
+      return;
+    }
+    _this.setData({
+      refreshTime: _this.data.refreshTime - 1,
+    })
+    setTimeout(_this.countDown,1000);
   },
 
   //提交用户信息
