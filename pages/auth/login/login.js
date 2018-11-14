@@ -5,6 +5,7 @@ Page({
   data: {
     canIUse: wx.canIUse('button.open-type.getUserInfo'), // 查看用户微信版本是否支持
     userInfo:null,
+    count: 0, //提交计数
   },
   onLoad: function (options) {
     this.$wuxToast = app.Wux().$wuxToast
@@ -14,6 +15,9 @@ Page({
   },
   onShow: function () {
     // 页面显示
+    this.setData({
+      count: 0, //提交计数
+    });
   },
   onHide: function () {
     // 页面隐藏
@@ -25,6 +29,12 @@ Page({
   },
   login: function (e) {
     var _this = this;
+    if (_this.data.count > 0) {
+      return;
+    }
+    _this.setData({
+      count: _this.data.count + 1,
+    });
     var wxUser = e.detail.userInfo;
     console.log("userInfo" + wxUser)
     user.wxLogin(wxUser).then(res => {
@@ -38,10 +48,16 @@ Page({
           delta: 1
         })
       }else{
+        _this.setData({
+          count: 0,
+        });
         _this.$wuxToast.show({ type: 'forbidden', text: res.info, });
       }
      
     }).catch((err) => {
+      _this.setData({
+        count: 0,
+      });
       _this.$wuxToast.show({ type: 'forbidden', text: "提交失败，请重试！", });
       console.log(err)
     });

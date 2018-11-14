@@ -74,9 +74,12 @@ Page({
     });
   },
   goLogin(){
-    wx.navigateTo({
-      url: '/pages/auth/login/login',
-    })
+    let userInfo = wx.getStorageSync('userInfo');
+    if (null == userInfo || userInfo == "" || undefined == userInfo) {
+      wx.navigateTo({
+        url: '/pages/auth/login/login'
+      });
+    }
   },
   exitLogin: function () {
     wx.showModal({
