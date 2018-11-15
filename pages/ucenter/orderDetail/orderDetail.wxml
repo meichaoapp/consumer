@@ -24,7 +24,8 @@
 
     <view class='shoplists'>
       <view class='shoplists-cell row' wx:for="{{goodsList}}" wx:for-index="index" wx:for-item="item" wx:key="{{item.id}}">
-      <image class='received' src='/static/images/received.png'></image>
+      <!-- 状态为3的时候为已经领取，显示图片 -->
+      <image wx:if="{{status==3}}" class='received' src='/static/images/received.png'></image>
       
         <view class='proname'>
           <image src='{{item.url}}'></image>

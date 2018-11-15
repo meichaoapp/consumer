@@ -91,6 +91,7 @@ font-size:30rpx;
   box-sizing: border-box;
   padding: 20rpx 0;
   border-bottom: 1px solid #f4f4f4;
+  position: relative;
 }
 .shoplists-cell:last-child{
   border: 0!important;
@@ -100,6 +101,7 @@ font-size:30rpx;
   height: 84rpx;
   border: 1px solid #f4f4f4;
   margin-right: 20rpx;
+  margin-left:10rpx;
 }
 .shoplists-cell .proname image{
     width: 110rpx;
@@ -149,41 +151,11 @@ font-size:30rpx;
   width: 400rpx;
   height:400rpx;
 }
-/* .nheader{
-padding: 37rpx 26rpx;
-padding-bottom: 22rpx;
-background: #fff;
+.shoplists-cell .received{
+  position: absolute;
+  bottom: 20rpx;
+  right: -10rpx;
+  width: 80rpx;
+  height: 80rpx;
+  z-index: 100;
 }
-.nheader .icons{
-  width: 36rpx;
-  height: 36rpx;
-  margin-right: 20rpx;
-}
-.nheader .icons .iconfont{
-  font-size: 36rpx;
-  color: #73cfdc;
-}
-.buyerinfo{
-  flex: 1;
-}
-.buyerinfo text{
-  display: block;
-  margin-bottom: 15rpx;
-  color: #464646;
-  font-size: 32rpx;
-  text-overflow:clip;
-  letter-spacing:3rpx;
-  overflow:hidden;
-  white-space:nowrap;
-  font-family:UICTFontTextStyleBody;
-}
-.Testpass-bd{
-  display: flex;
-  justify-content: center;
-  padding-top: 58rpx;
-  padding-bottom: 80rpx;
-}
-.Testpass-bd image{
-width: 267rpx;
-height: 51rpx;
-} */
