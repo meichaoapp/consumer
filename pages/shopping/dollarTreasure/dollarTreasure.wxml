@@ -40,15 +40,15 @@
 
       </view>
       <view wx:if="{{item.status == 0}}" class='dollarTreasure-cells-dataline' >
-        <!-- <view class='countDownv'>
+        <view class='countDownv'>
           <text class='textddkj'>正在开奖</text>
           <text class='timer-num'>{{item.hour}}</text> :
           <text class='timer-num'>{{item.min}}</text> :
           <text class='timer-num'>{{item.sec}}</text>
-        </view> -->
-        <view class='OpeningTime'>
-          {{item.lotteryTime}} 开奖
         </view>
+        <!-- <view class='OpeningTime'>
+          {{item.lotteryTime}} 开奖
+        </view> -->
         <view class='prizebtns'>
           <text class='btns'>马上抢</text>
         </view>

@@ -18,11 +18,20 @@ Page({
     srollViewHeight: 0, //滚动分页区域高度
     refreshTime: '', // 刷新的时间 
     loadMoreData: '加载更多',
+    shareImage: "/static/images/logo.png",
+  },
+  onShareAppMessage: function () {
+    var that = this;
+    return {
+      title: '一元夺宝',
+      imageUrl: that.data.shareImage,
+      path: '/pages/shopping/dollarTreasure/dollarTreasure'
+    }
   },
   onLoad: function (options) {
     this.$wuxLoading = app.Wux().$wuxLoading //加载
     this.queryList();
-    //this.countDown();
+    this.countDown();
   },
   onReady: function () {
 

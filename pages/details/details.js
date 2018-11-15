@@ -52,7 +52,7 @@ Page({
     return {
       title: that.data.detail.title,
       imageUrl: that.data.detail.pics[0],
-      path: "/pages/index/index"
+      path: "/pages/details/details?id="+that.id
     }
   },
   //参团
