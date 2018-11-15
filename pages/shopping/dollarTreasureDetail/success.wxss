@@ -2,13 +2,34 @@
   background: #FFF;
   min-height: 100%;
   text-align: center;
-  margin-top: 100rpx;
 }
 
 .s-tip{
-  font-size: 32rpx;
+  /* font-size: 32rpx;
   color:#ff4e54;
-  text-shadow: 1px 1px 1px #fb855a;
+  text-shadow: 1px 1px 1px #fb855a; */
+  display: flex;
+  justify-content: center;
+  padding-top: 100rpx;
+  padding-bottom: 20rpx;
+}
+.s-tip image{
+  width: 60rpx;
+  height: 60rpx;
+  margin-right: 20rpx;
+}
+.s-tip text{
+  display: inline-block;
+height: 60rpx;
+line-height: 60rpx;
+  font-size: 45rpx!important;
+color: #fe5b56;
+font-weight:600;
+letter-spacing: 2px;
+text-overflow:clip;
+overflow:hidden;
+white-space:nowrap;
+font-family:UICTFontTextStyleBody;
 }
 .gradientEffect{
  background: -webkit-linear-gradient(top, #fa875a, #ff4f54); /* Safari 5.1 - 6.0 */
@@ -16,26 +37,64 @@
   background: -moz-linear-gradient(top, #fa875a, #ff4f54); /* Firefox 3.6 - 15 */
   background: linear-gradient(to bottom, #fa875a , #ff4f54); /* 标准的语法 */
 }
+.luckynumbd{
+ width: 636rpx;
+ height: 174rpx;
+ background: #f6f6f6;
+border-top-left-radius:18rpx;
+border-top-right-radius:18rpx;
+text-align: center;
+}
 .luckynum{
+/*  
   color: #e38f23;
   font-size: 28rpx;
-  margin-bottom: 60rpx;
+  margin-bottom: 60rpx; */
+  display: flex;
+  justify-content: center;
+}
+.luckynumbd .t{
+  display: block;
+  color: #333333;
+  font-size: 32rpx;
+  letter-spacing: 2rpx;
+  text-overflow:clip;
+overflow:hidden;
+white-space:nowrap;
+font-family:UICTFontTextStyleBody;
+margin-top: 30rpx;
+margin-bottom: 28rpx;
+}
+.luckynumbd .n{
+  display: block;
+  color: #ff4e54;
+  font-weight: 900;
+  font-size: 32rpx;
+  letter-spacing: 3rpx;
+  text-overflow:clip;
+overflow:hidden;
+white-space:nowrap;
+font-family:UICTFontTextStyleBody;
+margin: 0;
+padding: 0;
 }
 .s-imgbox{
-width: 100%;
+  width: 100%;
   text-align: center;
-  padding-top: 30rpx;
-  padding-bottom: 30rpx;
+  padding-bottom: 40rpx;
 }
 .s-img{
   border-radius: 50%;
   width: 280rpx;
   height: 280rpx;
-  
 }
 .s-content{
-  width: 60%;
-  margin-left: 20%;
+ width: 636rpx;
+ height: 50rpx;
+ line-height: 50rpx;
+ text-align: center;
+ font-size: 24rpx;
+ color: #fff;
 }
 .s-content .t{
   font-size: 28rpx;
@@ -44,11 +103,10 @@ width: 100%;
 display: block;
 }
 .btn-t{
-  margin-top: 300rpx;
   text-align: center;
 }
 .btn-t .btn{
-
+letter-spacing: 2rpx;
   width: 35%;
   /* margin: 16rpx; */
   text-align: center;
@@ -62,4 +120,35 @@ display: block;
 }
 .btn-t .btn2{
   margin-left: 4%;
+}
+.gouserinfo{
+  display: flex;
+  justify-content: center;
+  padding-top: 90rpx;
+}
+.gouserinfobd{
+  width: 560rpx;
+  font-size: 30rpx;
+  line-height: 120%;
+  color: #686868;
+font-family:UICTFontTextStyleBody;
+text-align: center;
+}
+.rightnowgo{
+    display: flex;
+  justify-content: center;
+   padding-top: 25rpx;
+   padding-bottom: 58rpx;
+}
+.rightnowgobd{
+  width: 250rpx;
+  height: 58rpx;
+  line-height: 58rpx;
+  border-radius: 18rpx;
+  border: 1px solid #ff4e54;
+  font-size: 30rpx;
+  text-align: center;
+  background: #feefee;
+  color: #fd6156;
+
 }

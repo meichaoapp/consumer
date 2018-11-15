@@ -1,25 +1,39 @@
-<import src="../../../components/toast/toast.wxml"/>
-<template is="toast" data="{{ ...$wux.toast }}"/>
+<import src="../../../components/toast/toast.wxml" />
+<template is="toast" data="{{ ...$wux.toast }}" />
 <view class='container'>
 
   <view class='success-t'>
-    <text class='s-tip'>恭喜开抢成功</text>
+    <view class='s-tip'>
+      <image src='/static/images/success.png'></image>
+      <text>恭喜开抢成功</text>
+    </view>
     <view class='s-imgbox'>
       <image class="s-img" src='/static/images/success-icon.png'></image>
     </view>
 
-    <view class='luckynum'>您的幸运号码是：{{code}}</view>
-
-    <view class='s-content'>
-      <text class='t t1'>将于{{lotteryTime}}开奖 </text>
-      <text class='t'>请密切关注您的大奖</text>
+    <view class='luckynum'>
+      <view class='luckynumbd'>
+        <text class='t'>您的幸运号码是</text>
+        <text class='n'>{{code}}</text>
+      </view>
     </view>
 
-     <view class='s-content' wx:if="{{userInfo.completionInfo == false}}">
-      <text class='t t1'>及时与您取得联系，请及时补齐更新您的个人信息 </text>
-      <view class='t' bindtap='toEditUserInfo'>现在就去 >>></view>
+
+    <view class='luckynum'>
+      <view class='s-content gradientEffect'>
+        将于{{lotteryTime}}开奖,请密切关注您的大奖
+      </view>
     </view>
 
+    <view class='gouserinfo' wx:if="{{userInfo.completionInfo == true}}">
+      <view class='gouserinfobd'>
+        及时与您取得联系，请及时补齐更新您的个人信息
+      </view>
+
+    </view>
+    <view class='rightnowgo'>
+      <view class='rightnowgobd' bindtap='toEditUserInfo'>现在就去 >></view>
+    </view>
     <view class='btn-t row'>
       <view class='btn btn1 gradientEffect' bindtap='toDollarTreasure'>知道了</view>
       <view class='btn btn2 gradientEffect' bindtap='toMydollarTreasure'>查看详情</view>
