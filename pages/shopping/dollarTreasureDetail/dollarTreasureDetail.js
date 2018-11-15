@@ -57,6 +57,15 @@ Page({
       count: 0, //提交计数
     });
   },
+
+  onShareAppMessage: function () {
+    var that = this;
+    return {
+      title: '一元夺宝',
+      imageUrl: that.data.detail.pics[0],
+      path: '/pages/shopping/dollarTreasureDetail/dollarTreasureDetail?tag=0&id=' + that.data.id + '&orderId=0',
+    }
+  },
   
   //参与
   join: function () {
@@ -87,9 +96,9 @@ Page({
 
         console.log(res.data.wxPayResponse);
 
-        wx.redirectTo({
-          url: '/pages/shopping/dollarTreasureDetail/success?id=' + data.id  ,
-        })
+        // wx.redirectTo({
+        //   url: '/pages/shopping/dollarTreasureDetail/success?id=' + data.id  ,
+        // })
 
 
        var wxPayResponse = res.data.wxPayResponse;
