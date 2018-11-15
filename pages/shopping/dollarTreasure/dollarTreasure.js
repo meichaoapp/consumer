@@ -8,6 +8,7 @@ var app = getApp();
 
 Page({
   data: {
+    id:0,
     list: [], // 团购列表
     winTreasure:{},
     start: 1, // 页码
@@ -25,7 +26,7 @@ Page({
     return {
       title: '一元夺宝',
       imageUrl: that.data.shareImage,
-      path: '/pages/shopping/dollarTreasure/dollarTreasure'
+      path: '/pages/shopping/dollarTreasureDetail/dollarTreasureDetail?tag=0&id='+that.data.id+'&orderId=0',
     }
   },
   onLoad: function (options) {

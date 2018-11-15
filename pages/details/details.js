@@ -33,9 +33,10 @@ Page({
       id: parseInt(options.id),
       count: 0, //提交计数
     });
+    this.onShareAppMessage();
     var that = this;
     this.queryGroupPurchaseDetail();
-   
+  
   },
   onReady: function () {
     // 页面渲染完成
@@ -52,7 +53,7 @@ Page({
     return {
       title: that.data.detail.title,
       imageUrl: that.data.detail.pics[0],
-      path: "/pages/details/details?id="+that.id
+      path: "/pages/details/details?id="+that.data.id
     }
   },
   //参团
