@@ -66,12 +66,13 @@
     </view>
 
 
-    <!-- <view class='share'>
+    <button bindtap='onShareAppMessage' class='share' open-type="share">
+        <image class='share-icon' src='/static/images/icon_collect.png'></image>
+        <text class='share-text'>分享朋友</text>
+        <text class='share-text'>机会翻倍</text>
+    </button>
 
-      <image src='/static/images/icon_collect.png'></image>
-      <text class='share01'>分享朋友</text>
-      <text class='share02'>机会翻倍</text>
-    </view> -->
+
   </view>
 
 

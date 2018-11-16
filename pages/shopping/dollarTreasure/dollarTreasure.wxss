@@ -14,7 +14,11 @@ margin-top: 18rpx;
   padding: 0 14rpx;
 }
 .timer-num{
-  padding: 3rpx 6rpx;
+  /* padding: 3rpx 6rpx; */
+width: 47rpx;
+text-align:center;
+display:inline-block;
+padding: 3rpx 0;
   background: -webkit-linear-gradient(top, #fa875a, #ff4f54); /* Safari 5.1 - 6.0 */
   background: -o-linear-gradient(top, #fa875a, #ff4f54); /* Opera 11.1 - 12.0 */
   background: -moz-linear-gradient(top, #fa875a, #ff4f54); /* Firefox 3.6 - 15 */

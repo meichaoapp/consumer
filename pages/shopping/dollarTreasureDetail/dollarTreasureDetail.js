@@ -23,6 +23,15 @@ Page({
     CalculationFlag:false,//计算方法弹框
     prizecodes:[10021,10022,10023],//模拟中奖codes
     count: 0, //提交计数
+    shareImage: "/static/images/logo.png",
+  },
+  onShareAppMessage: function () {
+    var that = this;
+    return {
+      title: '一元夺宝',
+      imageUrl: that.data.shareImage,
+      path: '/pages/shopping/dollarTreasureDetail/dollarTreasureDetail?tag=0&id=' + that.data.id + '&orderId=0',
+    }
   },
   onLoad: function (options) {
     // 页面初始化 options为页面跳转所带来的参数

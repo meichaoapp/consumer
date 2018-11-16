@@ -159,3 +159,72 @@ font-size:30rpx;
   height: 80rpx;
   z-index: 100;
 }
+
+
+
+
+
+
+
+
+/* pages/goods/lengSHops.wxss */
+
+.shop-lists .main-title {
+  font-size: 32rpx;
+  color: #000;
+  padding: 25rpx 30rpx;  
+}
+.lists-box {
+  padding: 0 13rpx;
+}
+.list-item {
+  position: relative;
+  padding: 37rpx 0;
+  padding-left: 100rpx;
+  padding-right: 40rpx;
+  margin-bottom: 13rpx;
+  background: #fff;
+  box-shadow: 0 4rpx 18rpx rgba(0,0,0,0.08);
+  border-radius:8rpx; 
+}
+.checkedimg,.ncheckedimg{
+  width: 40rpx;
+  height: 40rpx;
+  position: absolute;
+  top: 52rpx;
+  left: 39rpx;
+}
+.lingqu{
+    width: 129rpx;
+  height: 108rpx;
+  position: absolute;
+  top: 0rpx;
+  left:0rpx;
+  z-index: 100;
+}
+.list-item .shop-img {
+ width: 106rpx;
+ height: 70rpx;
+ margin-right: 20rpx;
+}
+.list-item .con{
+  flex: 1;
+}
+.list-item .con .shop-title{
+color: #333333;
+font-size: 29rpx;
+ text-overflow:clip;
+  letter-spacing:2rpx;
+  overflow:hidden;
+  white-space:nowrap;
+  font-family:UICTFontTextStyleBody;
+  margin-bottom: 13rpx;
+}
+.list-item .con .total-count{
+justify-content:space-between;
+}
+
+.list-item .con .total-count text{
+color: #636363;
+font-size: 24rpx;
+}

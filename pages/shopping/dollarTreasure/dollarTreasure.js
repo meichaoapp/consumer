@@ -21,14 +21,14 @@ Page({
     loadMoreData: '加载更多',
     shareImage: "/static/images/logo.png",
   },
-  onShareAppMessage: function () {
-    var that = this;
-    return {
-      title: '一元夺宝',
-      imageUrl: that.data.shareImage,
-      path: '/pages/shopping/dollarTreasureDetail/dollarTreasureDetail?tag=0&id='+that.data.id+'&orderId=0',
-    }
-  },
+  // onShareAppMessage: function () {
+  //   var that = this;
+  //   return {
+  //     title: '一元夺宝',
+  //     imageUrl: that.data.shareImage,
+  //     path: '/pages/shopping/dollarTreasureDetail/dollarTreasureDetail?tag=0&id='+that.data.id+'&orderId=0',
+  //   }
+  // },
   onLoad: function (options) {
     this.$wuxLoading = app.Wux().$wuxLoading //加载
     this.queryList();

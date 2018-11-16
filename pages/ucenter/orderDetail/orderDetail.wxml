@@ -19,12 +19,12 @@
   </view>
 
   <!-- 购物清单 -->
-  <view class='shoplist'>
+  <!-- <view class='shoplist'>
     <view class='title'> 购物清单 </view>
 
     <view class='shoplists'>
       <view class='shoplists-cell row' wx:for="{{goodsList}}" wx:for-index="index" wx:for-item="item" wx:key="{{item.id}}">
-      <!-- 状态为3的时候为已经领取，显示图片 -->
+   
       <image wx:if="{{status==3}}" class='received' src='/static/images/received.png'></image>
       
         <view class='proname'>
@@ -39,7 +39,27 @@
     </view>
 
 
-  </view>
+  </view> -->
+
+ <view class='shop-lists'>
+  <view class='main-title'>购物清单</view>
+  <view class="lists-box">
+    <view class='list-item row' wx:for="{{goodsList}}" wx:for-index="index" wx:for-item="item" wx:key="{{item.id}}">
+      <block wx:if="{{status==3}}">
+        <image class='lingqu' src='/static/images/received.png'></image>
+      </block>
+      <image class='shop-img' src='{{item.url}}'></image>
+      <view class='con'>
+        <view class='shop-title'>
+        {{item.name}}
+        </view>
+        <view class='total-count row'>
+          <text class='shop-brief'>{{item.specifications}}</text>
+          <text class='shop-nums'>x{{item.buyNum}}</text>
+        </view>
+      </view>
+    </view>
+
 <!-- 二维码 -->
 
   <view class='order-qrcode'>
