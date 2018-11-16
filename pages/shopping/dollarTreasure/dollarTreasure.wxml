@@ -33,10 +33,14 @@
               分享朋友 机会翻倍
               <image src='/static/images/icon_collect.png'></image>
             </view> -->
+<<<<<<< HEAD
             <!-- <button bindtap='onShareAppMessage' class='share' open-type="share">
               <text class='share-text'>分享朋友 机会翻倍</text>
                <image class='share-icon' src='/static/images/icon_collect.png'></image>
             </button> -->
+=======
+            
+>>>>>>> 43c353de00338cc1c22c3a95f95f03fb5bf6d424
           </view>
 
         </view>

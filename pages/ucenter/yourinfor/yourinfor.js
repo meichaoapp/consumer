@@ -178,7 +178,7 @@ Page({
         userInfo.completionInfo = true;
         wx.setStorageSync('userInfo', userInfo);
         wx.showToast({
-          title: '保存用户信息成功',
+          title: '保存成功',
           icon: 'success',
           duration: 2000
         })
