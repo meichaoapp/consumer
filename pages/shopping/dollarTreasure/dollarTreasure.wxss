@@ -13,7 +13,7 @@ margin-top: 18rpx;
   font-weight: bold;
   padding: 0 14rpx;
 }
-.timer-num{
+.countDownv .timer-num{
   /* padding: 3rpx 6rpx; */
 width: 47rpx;
 text-align:center;
