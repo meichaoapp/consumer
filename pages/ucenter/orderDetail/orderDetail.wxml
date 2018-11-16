@@ -1,4 +1,4 @@
-<view>
+
   <view class='header row'>
     <view class='pro-decs flex_1'>
       <text class='iconfont icon-mn_biaoqian_fill blue'></text>{{groupPurchase.title}}</view>
@@ -41,34 +41,35 @@
 
   </view> -->
 
- <view class='shop-lists'>
-  <view class='main-title'>购物清单</view>
-  <view class="lists-box">
-    <view class='list-item row' wx:for="{{goodsList}}" wx:for-index="index" wx:for-item="item" wx:key="{{item.id}}">
-      <block wx:if="{{status==3}}">
-        <image class='lingqu' src='/static/images/received.png'></image>
-      </block>
-      <image class='shop-img' src='{{item.url}}'></image>
-      <view class='con'>
-        <view class='shop-title'>
-        {{item.name}}
-        </view>
-        <view class='total-count row'>
-          <text class='shop-brief'>{{item.specifications}}</text>
-          <text class='shop-nums'>x{{item.buyNum}}</text>
+  <view class='shop-lists'>
+    <view class='main-title'>购物清单</view>
+    <view class="lists-box">
+      <view class='list-item row' wx:for="{{goodsList}}" wx:for-index="index" wx:for-item="item" wx:key="{{item.id}}">
+        <block wx:if="{{status==3}}">
+          <image class='lingqu' src='/static/images/received.png'></image>
+        </block>
+        <image class='shop-img' src='{{item.url}}'></image>
+        <view class='con'>
+          <view class='shop-title'>
+            {{item.name}}
+          </view>
+          <view class='total-count row'>
+            <text class='shop-brief'>{{item.specifications}}</text>
+            <text class='shop-nums'>x{{item.buyNum}}</text>
+          </view>
         </view>
       </view>
-    </view>
-
-<!-- 二维码 -->
-
-  <view class='order-qrcode'>
-   <view class='title'> 购物二维码 <text class='hintInfor'>（请向店主出示此二维码，来获取所购商品）</text> </view>
-   <view class='qrcode'>
-      <image src='{{orderQRcode}}'></image>
-   </view>
-     
   </view>
+      <!-- 二维码 -->
+
+      <view class='order-qrcode'>
+        <view class='title'> 购物二维码
+          <text class='hintInfor'>（请向店主出示此二维码，来获取所购商品）</text> </view>
+        <view class='qrcode'>
+          <image src='{{orderQRcode}}'></image>
+        </view>
+
+      </view>
 
 
-</view>
+    </view>
