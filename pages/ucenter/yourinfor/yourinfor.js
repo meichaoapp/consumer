@@ -26,6 +26,16 @@ Page({
   onLoad: function (options) {
     // 页面初始化 options为页面跳转所带来的参数
     this.$wuxToast = app.Wux().$wuxToast
+    let userInfo = wx.getStorageSync('userInfo');
+    if (null == userInfo || userInfo == "" || undefined == userInfo) {
+      wx.navigateTo({
+        url: '/pages/auth/login/login'
+      });
+    }
+    this.setData({
+      userInfo: userInfo,
+      userId: userInfo.id,
+    });
     //查询用户信息
     this.queryUserInfo();
   },
@@ -66,7 +76,7 @@ Page({
   queryUserInfo: function(){
     let  _this = this;
     var data = {
-      userId:_this.data.userInfo.id,
+      userId: _this.data.userId,
     };
     util.request(api.QueryUserInfo, data, "POST").then(function (res) {
       if (res.rs === 1) {

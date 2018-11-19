@@ -29,7 +29,7 @@
 <view class='userinfobox2'>
   <view class='cell_input row'>
     <view class='u-label'>联系人</view>
-    <view class='u-bd'><input class="weui-inputs" type="number" name="name" value='{{name}}' bindinput='bindName' placeholder="收货人姓名" placeholder-class='nplaceholder'/></view>
+    <view class='u-bd'><input class="weui-inputs"  name="name" value='{{name}}' bindinput='bindName' placeholder="收货人姓名" placeholder-class='nplaceholder'/></view>
   </view>
   <view class='cell_input row'>
     <view class='u-label'>所在地区</view>
@@ -45,7 +45,7 @@
   </view>
   <view class='cell_input row noborder'>
     <view class='u-label'>详细地址</view>
-    <view class='u-bd'><input class="weui-inputs" name="address" value='{{address}}' bindinput='bindAddress' type="number" placeholder="请输入楼号门牌号等详细信息" placeholder-class='nplaceholder'/></view>
+    <view class='u-bd'><input class="weui-inputs" name="address" value='{{address}}' bindinput='bindAddress' placeholder="请输入楼号门牌号等详细信息" placeholder-class='nplaceholder'/></view>
   </view>
  
 </view>

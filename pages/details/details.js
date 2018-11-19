@@ -276,6 +276,7 @@ Page({
           merchant: data.merchant,//商家
           goodsList: goodsList,
         });
+        WxParse.wxParse('goodsDetail', 'html', res.data.detail.content, that);
         that.countDown();
       }
     });

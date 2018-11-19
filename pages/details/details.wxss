@@ -146,6 +146,13 @@ margin-right:10rpx;
   color: #666666;
   font-size: 28rpx;
   line-height: 48rpx;
+  height: auto;
+  overflow: hidden;
+}
+
+.desc-info .content image{
+  width: 750rpx;
+  display: block;
 }
 
 

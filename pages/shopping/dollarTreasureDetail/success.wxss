@@ -104,6 +104,7 @@ display: block;
 }
 .btn-t{
   text-align: center;
+  margin-top: 39rpx;
 }
 .btn-t .btn{
 letter-spacing: 2rpx;

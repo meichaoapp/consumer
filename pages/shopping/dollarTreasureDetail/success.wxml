@@ -25,13 +25,13 @@
       </view>
     </view>
 
-    <view class='gouserinfo' wx:if="{{userInfo.completionInfo == true}}">
+    <view class='gouserinfo' wx:if="{{userInfo.completionInfo == false}}">
       <view class='gouserinfobd'>
         及时与您取得联系，请及时补齐更新您的个人信息
       </view>
 
     </view>
-    <view class='rightnowgo'>
+    <view class='rightnowgo' wx:if="{{userInfo.completionInfo == false}}">
       <view class='rightnowgobd' bindtap='toEditUserInfo'>现在就去 >></view>
     </view>
     <view class='btn-t row'>

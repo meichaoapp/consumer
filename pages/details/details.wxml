@@ -62,7 +62,11 @@
 
   <view class='desc-info'>
     <view class='title'>团购描述</view>
-    <view class='content'>{{detail.content}}</view>
+    <view class='content'>
+      <import src="../../lib/wxParse/wxParse.wxml" />
+      <template is="wxParse" data="{{wxParseData:goodsDetail.nodes}}" />
+      <!-- {{detail.content}} -->
+    </view>
   </view>
 
   <view class='merchant-info'>
