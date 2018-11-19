@@ -53,7 +53,7 @@ Page({
     return {
       title: that.data.detail.title,
       imageUrl: that.data.detail.pics[0],
-      path: "/pages/details/details?id="+that.data.id
+      path: '/pages/index/index?source=0&id=' + that.data.id,
     }
   },
   //参团

@@ -7,6 +7,7 @@ const countTime = 120; // 120 s
 
 Page({
   data: {
+    tag:0,
     userInfo: {},
     region: ['北京市', '北京市', '海淀区'],
     customItem: '全部',
@@ -24,6 +25,9 @@ Page({
     count: 0, //提交计数
   },
   onLoad: function (options) {
+    this.setData({
+      tag: options.tag
+    });
     // 页面初始化 options为页面跳转所带来的参数
     this.$wuxToast = app.Wux().$wuxToast
     let userInfo = wx.getStorageSync('userInfo');
@@ -191,6 +195,9 @@ Page({
           title: '保存成功',
           icon: 'success',
           duration: 2000
+        })
+        wx.navigateBack({
+          delta: 1
         })
       } else {
         _this.$wuxToast.show({ type: 'forbidden', text: res.info, });

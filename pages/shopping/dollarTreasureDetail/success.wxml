@@ -27,7 +27,7 @@
 
     <view class='gouserinfo' wx:if="{{userInfo.completionInfo == false}}">
       <view class='gouserinfobd'>
-        及时与您取得联系，请及时补齐更新您的个人信息
+        及时与您取得联系，请补齐或更新您的个人信息
       </view>
 
     </view>

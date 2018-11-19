@@ -45,7 +45,7 @@
       </view>
       <view wx:if="{{item.status == 0}}" class='dollarTreasure-cells-dataline' >
         <view class='countDownv'>
-          <text class='textddkj'>正在开奖</text>
+          <text class='textddkj'>倒计时</text>
           <text class='timer-num'>{{item.hour}}</text> :
           <text class='timer-num'>{{item.min}}</text> :
           <text class='timer-num'>{{item.sec}}</text>

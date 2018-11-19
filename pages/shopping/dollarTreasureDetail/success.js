@@ -77,7 +77,7 @@ Page({
 
   toEditUserInfo: function () {
     wx.redirectTo({
-      url: '/pages/ucenter/yourinfor/yourinfor',
+      url: '/pages/ucenter/yourinfor/yourinfor?tag=1',
     })
   }
   

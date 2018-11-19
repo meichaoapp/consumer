@@ -64,7 +64,7 @@ Page({
     return {
       title: '一元夺宝',
       imageUrl: that.data.detail.pics[0],
-      path: '/pages/shopping/dollarTreasureDetail/dollarTreasureDetail?tag=0&id=' + that.data.id + '&orderId=0',
+      path: '/pages/index/index?source=1&id='+that.data.id,
     }
   },
   

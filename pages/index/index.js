@@ -37,6 +37,18 @@ Page({
   },
 
   onLoad: function (options) {
+    if (options.id != undefined && options.source == 1){
+      wx.navigateTo({
+        url: '/pages/shopping/dollarTreasureDetail/dollarTreasureDetail?tag=0&id=' + options.id + '&orderId=0'
+      });
+    }
+
+    if (options.id != undefined && options.source == 0) {
+      wx.navigateTo({
+        url: '/pages/details/details?id=' + options.id
+      });
+    }
+    
     this.$wuxLoading = app.Wux().$wuxLoading //加载
     this.queryBanner();
     let userInfo = wx.getStorageSync('userInfo');

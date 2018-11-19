@@ -8,7 +8,7 @@
   </view>
 
   <view class='mylists'>
-  <navigator url="/pages/ucenter/yourinfor/yourinfor">
+  <navigator url="/pages/ucenter/yourinfor/yourinfor?tag=0">
       <view class='mylist-cells'>
         <view class='mylist-cell-image'>
           <image src='/static/images/gerenzhongxin.png'></image>
