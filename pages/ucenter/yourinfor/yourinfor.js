@@ -237,10 +237,10 @@ Page({
 
   validate: function () {
     var _this = this;
-    if ("" == _this.data.verifiCode || _this.data.verifiCode == null) {
-      _this.$wuxToast.show({ type: 'forbidden', text: "验证码不能为空，请填写后提交！", });
-      return false;
-    }
+    // if ("" == _this.data.verifiCode || _this.data.verifiCode == null) {
+    //   _this.$wuxToast.show({ type: 'forbidden', text: "验证码不能为空，请填写后提交！", });
+    //   return false;
+    // }
 
     if ("" == _this.data.name || _this.data.name == null) {
       _this.$wuxToast.show({ type: 'forbidden', text: "收货人姓名不能为空，请填写后提交！", });
