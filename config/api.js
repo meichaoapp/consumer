@@ -1,17 +1,28 @@
 //var NewApiRootUrl = 'http://localhost:8080/api/';
-var NewApiRootUrl = "https://wxapp.galaxyxd.com/api/";
+//var NewApiRootUrl = "https://wxapp.galaxyxd.com/api/";
 var NewApiRootUrl = 'https://wxapp.iliangpin.cn/api/';
 module.exports = {
-  WXLogin: NewApiRootUrl + 'consumer/user/login',//微信登录
+  WXLogin: NewApiRootUrl + 'consumer/user/login',//微信登录（新）
   QueryUserInfo: NewApiRootUrl + 'consumer/info',//获取个人资料
   SubmitUserInfo: NewApiRootUrl + 'consumer/editInfo',//添加/修改个人资料
 
-  QueryMerchants: NewApiRootUrl + 'index/merchants',//查询附近商户信息
-  QueryBanner: NewApiRootUrl + 'index/banners',//查询轮播图
-  QueryTGList: NewApiRootUrl + 'index/list', ///获取团购信息
+  QueryMerchants: NewApiRootUrl + 'groupPurchase/merchants',//查询附近商户信息（新）
 
-  QueryGroupPurchaseDetail: NewApiRootUrl + 'groupPurchase/details', ///获取团购详情信息
-  CreateOrder: NewApiRootUrl + 'groupPurchase/createOrder', ///参团（首页+详情页）返回订单信息
+   //new index query api
+  QueryIndexInfo: NewApiRootUrl + 'index/info',//查询首页信息（新）
+  QueryTGListv: NewApiRootUrl + 'index/list', ///获取团购分类和商品信息（新）
+
+  //old index query api
+  QueryBanner: NewApiRootUrl + 'index/banners',//查询轮播图（旧）
+  QueryTGList: NewApiRootUrl + 'index/list', ///获取团购信息（旧）
+
+  QueryGroupPurchaseGoodsDetail: NewApiRootUrl + 'groupPurchase/details', ///获取团购详情信息（新）
+
+  QueryGroupPurchaseDetail: NewApiRootUrl + 'groupPurchase/details', ///获取团购详情信息（旧）
+
+  CreateOrder: NewApiRootUrl + 'groupPurchase/createOrder', ///参团（首页+详情页）返回订单信息（旧）
+  CreateOrderNew: NewApiRootUrl + 'groupPurchase/createOrder', ///参团（首页+详情页）返回订单信息（新）
+  
   FirmOrder: NewApiRootUrl + 'groupPurchase/firmOrder', ///参团（首页+详情页）确认订单信息
   Friends: NewApiRootUrl + "groupPurchase/friends",//参团好友
 
@@ -28,7 +39,7 @@ module.exports = {
   Desire: NewApiRootUrl + "common/desire",//我想要（我想要页）
   Partner: NewApiRootUrl + "common/partner", //成为伙伴（成为伙伴页）
   Pay: NewApiRootUrl + "common/pay", ///支付
-  GetVerifiCode: NewApiRootUrl + "common/verifiCode", //短信验证码
+  GetVerifiCode: NewApiRootUrl + "common/sendMsg", //短信验证码
 
     
 
