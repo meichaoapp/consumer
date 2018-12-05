@@ -29,6 +29,7 @@ Page({
         sellList:[],//拼团店铺列表
         list: [], // 团购列表
         merchantList:[], // 团长列表
+        merchat:{},//选中的团长信息
     },
     onShareAppMessage: function () {
         return {
@@ -140,7 +141,9 @@ Page({
                 that.setData({
                     banners:res.data.banners,
                     classifyList:res.data.classifys,
-                    treasures:res.data.treasures
+                    treasures:res.data.treasures,
+                    merchatList:res.data.merchantList,
+                    merchat: res.data.merchantList[0]
                 })
             }
         });

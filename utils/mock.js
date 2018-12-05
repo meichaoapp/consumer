@@ -249,9 +249,9 @@ function queryIndexInfo() {
       {
       "merchantId": 1,  //店铺id
       "distance": "700米",  //距离
-      "merchantName": "",  //店长名称
+      "merchantName":"幸福的鸭梨树",  //店长名称
       "merchantUserName": "张三",//团购商超负责人
-        "logo": "https://wxpic.iliangpin.cn/meichao/nav1.png",  //店铺logo
+      "logo": "https://wxpic.iliangpin.cn/meichao/Bitmap.png",  //店铺logo
       "address": "山东省日照市大连路540号（兴业春天花园）",  //取货地址
      }
     ],

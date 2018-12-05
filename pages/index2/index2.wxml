@@ -5,9 +5,9 @@
     <view>下拉刷新中…</view>
 </view>
 <view class='merchant-header flex flex_between'>
-    <view class='current-location flex flex_center' bindtap='selectLocation'>
+    <view wx:if="{{merchat != null }}"  class='current-location flex flex_center' bindtap='selectLocation'>
         <image class='location-icon' src='https://wxpic.iliangpin.cn/meichao/address.png'></image>
-        <text class='location-address'>当前团长名称</text>
+        <text class='location-address'>{{merchat.merchantName}}</text>
     </view>
     <view class='other-merchant'>
         选择其他团长
