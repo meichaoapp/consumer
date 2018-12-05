@@ -24,31 +24,11 @@ Page({
         srollViewHeight: 0, //滚动分页区域高度
         refreshTime: '', // 刷新的时间
         loadMoreData: '加载更多',
-        classifyList: [
-            {
-                logo: '../../static/images/classify_01.png',
-                name: '鲜嫩果蔬',
-                index: 0
-            },
-            {
-                logo: '../../static/images/classify_02.png',
-                name: '休闲零食',
-                index: 1
-            },
-            {
-                logo: '../../static/images/classify_03.png',
-                name: '家居用品',
-                index: 2
-            },
-            {
-                logo: '../../static/images/classify_04.png',
-                name: '日用百货',
-                index: 3
-            }
-        ],
+        classifyList: [],
         treasures:[],//一元购物
         sellList:[],//拼团店铺列表
         list: [], // 团购列表
+        merchantList:[], // 团长列表
     },
     onShareAppMessage: function () {
         return {
@@ -72,7 +52,6 @@ Page({
         }
 
         this.$wuxLoading = app.Wux().$wuxLoading //加载
-        //this.queryBanner();
         this.queryIndexInfo();
         this.queryTGList();
         let userInfo = wx.getStorageSync('userInfo');
@@ -81,6 +60,7 @@ Page({
                 userInfo: userInfo,
             });
         }
+      this.countDown();
 
     },
 
@@ -159,13 +139,10 @@ Page({
             if(res.rs === 1){
                 that.setData({
                     banners:res.data.banners,
-                    //classifyList:res.data.classifys
+                    classifyList:res.data.classifys,
                     treasures:res.data.treasures
                 })
             }
-            // for(let item of that.treasures){
-            //     item.ss = item.limitNum;
-            // }
         });
     },
     /**
@@ -180,7 +157,7 @@ Page({
             "limit": 20,
             "previewFlag": -1
         }
-        util.request(api.QueryTGListv, data, "GET").then(function (res) {
+        util.request(api.QueryTGListv, data, "POST").then(function (res) {
             _this.$wuxLoading.hide(); //隐藏加载动画
             console.log('======团购信息======',res.data);
             _this.setData({
@@ -208,8 +185,65 @@ Page({
             })
         }
     },
-    //小于10的格式化函数
-    timeFormat(param) {
-        return param < 10 ? '0' + param : param;
-    },
+  //小于10的格式化函数
+  timeFormat(param) {
+    return param < 10 ? '0' + param : param;
+  },
+  countDown() {//倒计时函数
+    // 获取当前时间，同时得到活动结束时间数组
+    let newTime = new Date().getTime();
+    let list = this.data.treasures;
+    let countDownArr = [];
+
+    if (list != null && list.length > 0) {
+      // 对结束时间进行处理渲染到页面
+      list.forEach(o => {
+        if (o.status == 0) {
+
+          let startTime = new Date(o.startTime).getTime();
+          let endTime = new Date(o.endTime).getTime();
+
+          if (newTime - startTime >= 0) {
+            // 如果活动未结束，对时间进行处理
+            if (endTime - newTime > 0) {
+              let time = (endTime - newTime) / 1000;
+              // 获取天、时、分、秒
+              let day = parseInt(time / (60 * 60 * 24));
+              let hou = parseInt(time % (60 * 60 * 24) / 3600) + 24 * day;
+              let min = parseInt(time % (60 * 60 * 24) % 3600 / 60);
+              let sec = parseInt(time % (60 * 60 * 24) % 3600 % 60);
+
+              o.day = this.timeFormat(day);
+              o.hour = this.timeFormat(hou);
+              o.min = this.timeFormat(min);
+              o.sec = this.timeFormat(sec);
+            } else {//活动已结束，全部设置为'00'
+              o.status = 1;
+              o.day = this.timeFormat(0);
+              o.hour = this.timeFormat(0);
+              o.min = this.timeFormat(0);
+              o.sec = this.timeFormat(0);
+            }
+          } else {
+            o.day = this.timeFormat(0);
+            o.hour = this.timeFormat(0);
+            o.min = this.timeFormat(0);
+            o.sec = this.timeFormat(0);
+            o.status = 1;
+          }
+        } else {
+          o.day = this.timeFormat(0);
+          o.hour = this.timeFormat(0);
+          o.min = this.timeFormat(0);
+          o.sec = this.timeFormat(0);
+          o.status = 1;
+        }
+        //console.log("o.status---" + o.status);
+      })
+
+      this.setData({ treasures: list })
+    }
+    // 渲染，然后每隔一秒执行一次倒计时函数
+    setTimeout(this.countDown, 1000);
+  }
 })

@@ -241,7 +241,7 @@ function queryIndexInfo() {
       {
         "id": 1,  //id
         "name": "wangwang",	   //轮播图名称
-        "url": "https://yanxuan.nosdn.127.net/dab1e16fb89680657a4a70341ee0ee9c.jpg?imageView&quality=95&thumbnail=700x240",	   //url
+        "url": "https://wxpic.iliangpin.cn/meichao/banner1.png",	   //url
         "target": "" //跳转地址
       }
     ],
@@ -251,15 +251,27 @@ function queryIndexInfo() {
       "distance": "700米",  //距离
       "merchantName": "",  //店长名称
       "merchantUserName": "张三",//团购商超负责人
-        "logo": "https://xxxcs.com/meichao/g1.png",  //店铺logo
+        "logo": "https://wxpic.iliangpin.cn/meichao/nav1.png",  //店铺logo
       "address": "山东省日照市大连路540号（兴业春天花园）",  //取货地址
      }
     ],
-    "classifys ": [
+    "classifys": [
       {
         "name": "鲜嫩果蔬",  //类别名称
-        "logo": "https://xxxcs.com/meichao/g1.png"  //店铺logo
-      }
+        "logo": "https://wxpic.iliangpin.cn/meichao/nav1.png"  //店铺logo
+      },
+      {
+        "name": "休闲零食",  //类别名称
+        "logo": "https://wxpic.iliangpin.cn/meichao/nav2.png"  //店铺logo
+      },
+      {
+        "name": "家居用品",  //类别名称
+        "logo": "https://wxpic.iliangpin.cn/meichao/nav3.png"  //店铺logo
+      },
+      {
+        "name": "日用百货",  //类别名称
+        "logo": "https://wxpic.iliangpin.cn/meichao/nav4.png"  //店铺logo
+      },
     ], //分类导航
     "treasures": [
         {
@@ -267,8 +279,24 @@ function queryIndexInfo() {
         "name": "1块钱就能得到",	   //名称
         "url": "https://wxpic.iliangpin.cn/meichao/goods1.png", //展示url
         "marketPrice": 10.05,//市场价
-        "price": 1,//单价
-        "status": 0, // 开奖状态：// 0 未开奖 1 已开奖 2 查看
+        "price": 100.00,//单价
+        "comments": "分享朋友机会翻倍", //宣传语
+        "limitNum": 99, //参加人数上限
+        "joinNum": 90, //参加人数
+        "startTime": "2018/12/01 00:00:00", //开始时间，注意格式
+        "endTime": "2018/12/23 00:00:00", //结束时间，注意格式
+        "lotteryTime": "2018/12/30 00:00:00", //开奖时间，注意格式
+        "winNum": "46",//中奖次数,
+        "nickName":"昵称", // 中奖者昵称 为空，则不显示此列
+        "status": 0, //开奖状态： 0 未开奖 1 已开奖
+        "code": "100001" // 幸运号码
+      },
+      {
+        "id": 2,  //id
+        "name": "1块钱就能得到",	   //名称
+        "url": "https://wxpic.iliangpin.cn/meichao/goods1.png", //展示url
+        "marketPrice": 10.05,//市场价
+        "price": 1000,//单价
         "comments": "分享朋友机会翻倍", //宣传语
         "limitNum": 99, //参加人数上限
         "joinNum": 90, //参加人数
@@ -276,10 +304,10 @@ function queryIndexInfo() {
         "endTime": "2018/10/23 00:00:00", //结束时间，注意格式
         "lotteryTime": "2018/10/30 00:00:00", //开奖时间，注意格式
         "winNum": "46",//中奖次数,
-        "nickName":"昵称", // 中奖者昵称 为空，则不显示此列
-        "status": 0, //开奖状态： 0 未开奖 1 已开奖
+        "nickName": "昵称", // 中奖者昵称 为空，则不显示此列
+        "status": 1, //开奖状态： 0 未开奖 1 已开奖
         "code": "100001" // 幸运号码
-      }
+      },
     ] //一元夺宝
   }
 
@@ -294,7 +322,7 @@ function QueryTGList() {
       "merchantId": 1,  //商户ID
       "merchantName": "我是一只熊",
       "name": "快乐的蛋 出厂价团 只为宣传",	   //团购名称
-      "url": "https://s-mall.oss-cn-beijing.aliyuncs.com/meichao/g1.png",	   //展示url
+      "url": "https://wxpic.iliangpin.cn/meichao/1.png",	   //展示url
       "price": "15元", //团购价
       "status": 0, //0 未开始 1 进行中 2 已成团 3 已过期
       "comments": "可以生吃有身份的蛋", //简述
@@ -308,7 +336,21 @@ function QueryTGList() {
       "merchantId": 1,  //商户ID
       "merchantName": "快乐山鸡",
       "name": "精品羊排 新鲜出厂当日送达",	   //团购名称
-      "url": "https://s-mall.oss-cn-beijing.aliyuncs.com/meichao/g2.png",	   //展示url
+      "url": "https://wxpic.iliangpin.cn/meichao/1.png",	   //展示url
+      "price": "15元", //团购价
+      "status": 0, //0 未开始 1 进行中 2 已成团 3 已过期
+      "comments": "草原宏宝蒙巴克 无公害谷饲羔羊", //简述
+      "limitNum": 99, //参团人数上限
+      "joinNum": 12, //参团人数
+      "startTime": "2018/09/16 00:00:00", //开始时间，注意格式
+      "endTime": "2018/09/18 23:00:00", //结束时间，注意格式
+    },
+    {
+      "id": 3,  //id
+      "merchantId": 1,  //商户ID
+      "merchantName": "快乐山鸡",
+      "name": "精品羊排 新鲜出厂当日送达",	   //团购名称
+      "url": "https://wxpic.iliangpin.cn/meichao/1.png",	   //展示url
       "price": "15元", //团购价
       "status": 0, //0 未开始 1 进行中 2 已成团 3 已过期
       "comments": "草原宏宝蒙巴克 无公害谷饲羔羊", //简述
