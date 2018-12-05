@@ -1,0 +1,149 @@
+<!--index.wxml-->
+<import src="../../components/loading/loading.wxml" />
+<template is="loading" data="{{ ...$wux.loading }}" />
+<view class="header" hidden="{{hideHeader}}" style="display:none">
+    <view>下拉刷新中…</view>
+</view>
+<view class='merchant-header flex flex_between'>
+    <view class='current-location flex flex_center' bindtap='selectLocation'>
+        <image class='location-icon' src='https://wxpic.iliangpin.cn/meichao/address.png'></image>
+        <text class='location-address'>当前团长名称</text>
+    </view>
+    <view class='other-merchant'>
+        选择其他团长
+    </view>
+</view>
+<view class="container">
+
+    <view class="banner_box flex flex_center bg_ff">
+        <image src="https://wxpic.iliangpin.cn/meichao/banner1.png"></image>
+    </view>
+    <!--<navigator url='/pages/shopping/dollarTreasure/dollarTreasure'>
+      <view class='treasure-nav flex flex_just flex_center'>
+        <image class="treasure-btn-icon" src='/static/images/treasure-btn.png'></image>
+      </view>
+    </navigator>-->
+    <!-- 分类列表 -->
+    <view class="classify_box flex flex_center flex_around">
+        <view class="flex flex_colum flex_center" wx:for="{{classifyList}}" wx:key="{{item.index}}" data-index="{{item.index}}" bindtap='goPage'>
+            <image src="{{item.logo}}"></image>
+            <text>{{item.name}}</text>
+        </view>
+    </view>
+    <!-- 一元夺宝 -->
+    <view class="truesure_box">
+        <view class="headline flex flex_center flex_between">
+            <view class="flex flex_baseline">
+                <text class="icon_bg"></text>
+                <text class="strong ml10 mr20">一元夺宝</text>
+                <text>分享朋友，机会翻倍</text>
+            </view>
+            <view class="flex flex_center">
+                <text>查看更多</text>
+                <image class="icon_go" src="../../static/images/go.png"></image>
+            </view>
+        </view>
+        <view class="con flex flex_between">
+            <view class="single_box br5" wx:for="{{treasures}}" :key="{{item.id}}">
+                <view class="top flex flex_between">
+                    <image class="pre_img" src='{{item.url}}'></image>
+                    <view class="content">
+                        <view class="font15">{{item.name}}</view>
+                        <view class="mt6">
+                            <text class="curr_price">{{item.price}}</text>
+                            <text class="old_price">{{item.marketPrice}}</text>
+                        </view>
+                    </view>
+                </view>
+                <view class="progress">
+                    <view class="progress_bar" style="width:{{(item.joinNum/item.limitNum)*100+'%'}}">
+                        <view class="bg_ff"></view>
+                    </view>
+                </view>
+                <view class="bottom flex flex_between flex_center bg_ff">
+                    <view class="timer">
+                        <text>09</text> :
+                        <text>20</text> :
+                        <text>58</text>
+                    </view>
+                    <view class="state">
+                        马上抢
+                    </view>
+                </view>
+            </view>
+            <view class="single_box br5">
+                <view class="top flex flex_between">
+                    <image class="pre_img" src='https://wxpic.iliangpin.cn/meichao/goods1.png'></image>
+                    <view class="content">
+                        <view class="font15">1块钱就能抢到</view>
+                        <view class="mt6">
+                            <text class="curr_price">￥1.00</text>
+                            <text class="old_price">￥1800</text>
+                        </view>
+                    </view>
+                </view>
+                <view class="progress">
+                    <view class="progress_bar">
+                        <view class="bg_ff"></view>
+                    </view>
+                </view>
+                <view class="bottom flex flex_between flex_center bg_ff">
+                    <view class="timer">
+                        <text>09</text> :
+                        <text>20</text> :
+                        <text>58</text>
+                    </view>
+                    <view class="state check">
+                        查看颁奖
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <!-- 团购商品列表  -->
+    <view class="m_list flex flex_between bg_ff">
+        <view class="m_menu">
+            <view class="active">打折促销</view>
+            <view wx:for="{{sellList}}">{{item.sellDesc}}</view>
+        </view>
+        <scroll-view scroll-y="true">
+            <view class="m_con">
+            <view class="curr_menu">打折促销</view>
+            <view class="goods_con flex flex_between" wx:for="{{list}}" wx:key="{{item.id}}"  bindtap="goGoodsDetail" data-id="{{item.id}}">
+                <view class="good_image flex flex_center flex_just br5">
+                    <image  src="{{item.url}}"></image>
+                </view>
+                <view class="content flex flex_colum">
+                    <view class="name">{{item.name}}</view>
+                    <view class="desc">整装箱20多头，鲜嫩多汁</view>
+                    <view class="flex" style="flex:1;">
+                        <view class="price_box flex flex_center">
+                            <view class="curr_price">￥12.00</view>
+                            <view class="old_price">￥38.00</view>
+                        </view>
+                        <view class="set_car flex flex_center ml10">
+                            <image src="https://wxpic.iliangpin.cn/meichao/minus.png"></image>
+                            <text class="count">4</text>
+                            <image src="https://wxpic.iliangpin.cn/meichao/plus.png"></image>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+        </scroll-view>
+    </view>
+
+
+</view>
+<!-- <view class="bottom" hidden="{{hideBottom}}">
+  <view>{{loadMoreData}}</view>
+</view> -->
+<view class="n-bottom" hidden="{{hideBottom}}">
+    <view>
+        <view class='transverseline'><text class='line'></text></view>
+
+        <text class='txt'>{{loadMoreData}}</text>
+
+        <view class='transverseline'><text class='line'></text></view>
+    </view>
+</view>

@@ -121,7 +121,7 @@ function getMerchantOrder(_arr, t_id, user) {
   var merchantOrder = {
     "id": t_id,  //团购id
     "userId": user.id,  //用户ID
-  },
+  };
   var totalPay =  0.00;//共付
   var needPay =  0.00;// 应付
   var buyNum =  0;//购买总数量

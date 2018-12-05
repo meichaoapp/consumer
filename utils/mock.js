@@ -23,7 +23,7 @@ function getData(url, p) {
   if (url == api.QueryMerchants) {
     return queryMerchants();
   }
-  
+
   //-----------------------新首页
   if (url == api.QueryIndexInfo) {
     return queryIndexInfo();
@@ -55,7 +55,7 @@ function getData(url, p) {
     return queryGroupPurchaseGoodsDetail();
   }
 
-  
+
   ///参团（首页+详情页）返回订单信息
   if (url == api.CreateOrder){
     return CreateOrder();
@@ -65,7 +65,7 @@ function getData(url, p) {
     return CreateOrderNew();
   }
 
-  
+
   //确认订单
   if (url == api.FirmOrder){
     return JSON.stringify(RS);
@@ -132,27 +132,27 @@ function getData(url, p) {
     return JoinHistories();
   }
 
-  
 
-  
-  
+
+
+
   //支付
   if(url == api.Pay){
     return JSON.stringify(RS);
   }
-  
+
   //短信验证码
   if (url == api.GetVerifiCode) {
     RS.data.verifiCode = "1234";
     return JSON.stringify(RS);
   }
-  
+
 
   //添加/修改个人资料
   if (url == api.SubmitUserInfo) {
     return JSON.stringify(RS);
   }
-  
+
 
   //获取个人资料
   if (url == api.QueryUserInfo) {
@@ -166,14 +166,14 @@ function getData(url, p) {
 function wxLogin() {
   var user = {
     "user": {
-      "id": 1, //id	
+      "id": 1, //id
       "name": "wangwang", //客户名称
       "nickName": "wangwang", //微信昵称
       "openid": "P90FDeUdnFMZkwZ274fEWnWqE", // openid
       "sex": 0, // 性别 0 男 1 女
-      "avatar": "https://s-mall.oss-cn-beijing.aliyuncs.com/meichao/user.png", //头像	
+      "avatar": "https://s-mall.oss-cn-beijing.aliyuncs.com/meichao/user.png", //头像
 			"completionInfo": "false", //  true 个人资料已填写，false 个人资料未填写
-			"previewFlag": null, // 用于查询previewFlag为-1时，则可以预览新添的团品信息 
+			"previewFlag": null, // 用于查询previewFlag为-1时，则可以预览新添的团品信息
       "phone": "18911111111",  //手机号
       "name": 张果果,  //联系人
       "province": "河北省",  //省code
@@ -239,7 +239,7 @@ function queryIndexInfo() {
   var data = {
     "banners": [
       {
-        "id": 1,  //id	
+        "id": 1,  //id
         "name": "wangwang",	   //轮播图名称
         "url": "https://yanxuan.nosdn.127.net/dab1e16fb89680657a4a70341ee0ee9c.jpg?imageView&quality=95&thumbnail=700x240",	   //url
         "target": "" //跳转地址
@@ -257,15 +257,15 @@ function queryIndexInfo() {
     ],
     "classifys ": [
       {
-        "name": "鲜嫩果蔬",  //类别名称 
+        "name": "鲜嫩果蔬",  //类别名称
         "logo": "https://xxxcs.com/meichao/g1.png"  //店铺logo
       }
     ], //分类导航
     "treasures": [
         {
-        "id": 1,  //id	
-        "name": "难以置信 1块钱就能得到",	   //名称
-        "url": "https://xxxcs.com/meichao/g1.png", //展示url
+        "id": 1,  //id
+        "name": "1块钱就能得到",	   //名称
+        "url": "https://wxpic.iliangpin.cn/meichao/goods1.png", //展示url
         "marketPrice": 10.05,//市场价
         "price": 1,//单价
         "status": 0, // 开奖状态：// 0 未开奖 1 已开奖 2 查看
@@ -290,8 +290,8 @@ function queryIndexInfo() {
 function QueryTGList() {
   var list = [
     {
-      "id": 1,  //id	
-      "merchantId": 1,  //商户ID	
+      "id": 1,  //id
+      "merchantId": 1,  //商户ID
       "merchantName": "我是一只熊",
       "name": "快乐的蛋 出厂价团 只为宣传",	   //团购名称
       "url": "https://s-mall.oss-cn-beijing.aliyuncs.com/meichao/g1.png",	   //展示url
@@ -304,8 +304,8 @@ function QueryTGList() {
       "endTime": "2018/10/20 00:00:00", //结束时间，注意格式
     },
     {
-      "id": 2,  //id	
-      "merchantId": 1,  //商户ID	
+      "id": 2,  //id
+      "merchantId": 1,  //商户ID
       "merchantName": "快乐山鸡",
       "name": "精品羊排 新鲜出厂当日送达",	   //团购名称
       "url": "https://s-mall.oss-cn-beijing.aliyuncs.com/meichao/g2.png",	   //展示url
@@ -318,8 +318,28 @@ function QueryTGList() {
       "endTime": "2018/09/18 23:00:00", //结束时间，注意格式
     },
   ];
+  var sellList = [
+            {  //
+                "sellType": "1",
+                "sellDesc": "拼团爆品",
+                "sort": "1", // 排序
+                "selected": true // 是否被选中
+            },
+            {
+                "sellType": "2",
+                "sellDesc": "每日促销",
+                "sort": "1",
+                "selected": false
+            },
+            {
+                "sellType": "3",
+                "sellDesc": "产品预售",
+                "sort": "1",
+                "selected": false
+            }];
 
   RS.data.list = list;
+  RS.data.sellList = sellList;
   RS.data.totalPage = 2;
   return JSON.stringify(RS);
 }
@@ -328,13 +348,13 @@ function QueryTGList() {
 function QueryBanner() {
   var banners = [
     {
-      "id": 1,  //id	
+      "id": 1,  //id
       "name": "轮播图2",	   //轮播图名称
       "url": "https://s-mall.oss-cn-beijing.aliyuncs.com/meichao/b1.png",	   //url
       "target": "" //跳转地址
     },
     {
-      "id": 2,  //id	
+      "id": 2,  //id
       "name": "轮播图1",	   //轮播图名称
       "url": "https://gw.alicdn.com/tfs/TB1dHNDXMHqK1RjSZFEXXcGMXXa-750-291.jpg_Q90.jpg",	   //url
       "target": "" //跳转地址
@@ -351,12 +371,12 @@ function QueryTGNewList() {
   var data = {
     "totalPage": 2, //总页数
     "sellList": [
-      { 
+      {
         "sellType": "1",
         "sellDesc": "拼团爆品",
         "sort": "1", // 排序
         "selected": true // 是否被选中
-      }, 
+      },
       {
         "sellType": "2",
         "sellDesc": "每日促销",
@@ -372,7 +392,7 @@ function QueryTGNewList() {
     ],
     "list": [
       {
-          "id": 1, //id	
+          "id": 1, //id
           "name": "精品羊排 新鲜出厂当日即达", //团购名称
         "url": "https://s-mall.oss-cn-beijing.aliyuncs.com/meichao/g2.png", //展示url
           "price": "", //团购价
@@ -380,7 +400,7 @@ function QueryTGNewList() {
           "status": 0, //0 未开始 1 进行中 2 已成团 3 已过期
           "comments": "草原宏宝蒙巴克 无公害谷饲羔羊", //简述
           "specifications": "整箱20个",//规格
-          "productType": "1"//商品类型 1.普通团品 2. 一元购 3. 店长自营产品 		
+          "productType": "1"//商品类型 1.普通团品 2. 一元购 3. 店长自营产品
       }
     ]
     };
@@ -392,18 +412,18 @@ function QueryTGNewList() {
 function QueryBanner() {
   var banners = [
     {
-      "id": 1,  //id	
+      "id": 1,  //id
       "name": "轮播图2",	   //轮播图名称
       "url": "https://s-mall.oss-cn-beijing.aliyuncs.com/meichao/b1.png",	   //url
       "target": "" //跳转地址
     },
     {
-      "id": 2,  //id	
+      "id": 2,  //id
       "name": "轮播图1",	   //轮播图名称
       "url": "https://gw.alicdn.com/tfs/TB1dHNDXMHqK1RjSZFEXXcGMXXa-750-291.jpg_Q90.jpg",	   //url
       "target": "" //跳转地址
     },
-    
+
   ];
   RS.data.banners = banners;
 
@@ -414,7 +434,7 @@ function QueryBanner() {
 function queryGroupPurchaseGoodsDetail() {
   var data = {
     "detail": {
-      "id": 1,  //id	
+      "id": 1,  //id
       "pics": [
         "https://s-mall.oss-cn-beijing.aliyuncs.com/meichao/g3.png",
         "https://s-mall.oss-cn-beijing.aliyuncs.com/meichao/g3.png"
@@ -433,7 +453,7 @@ function queryGroupPurchaseGoodsDetail() {
       "productType": "1"//商品类型 1.普通团品 2. 一元购 3. 店长自营产品
     },
     "merchant": {
-      "merchantId": 1, //商户ID	
+      "merchantId": 1, //商户ID
       "merchantName": "美超团长", //商户名称（团长）
       "merchantUserName": "张三",//团购商超负责人
       "merchantPhone": "010-3574787887",//团购商超电话
@@ -450,7 +470,7 @@ function queryGroupPurchaseGoodsDetail() {
 function QueryGroupPurchaseDetail() {
   var data = {
     "detail": {
-      "id": 1,  //id	
+      "id": 1,  //id
       "pics": [
         "https://s-mall.oss-cn-beijing.aliyuncs.com/meichao/g3.png",
         "https://s-mall.oss-cn-beijing.aliyuncs.com/meichao/g3.png",
@@ -470,7 +490,7 @@ function QueryGroupPurchaseDetail() {
       "merchantUserName": "张三",//团购商超负责人
       "merchantPhone": "010-3574787887",//团购商超电话
       "logo": "",//团购logo
-      "avatar": "https://s-mall.oss-cn-beijing.aliyuncs.com/meichao/user.png" 
+      "avatar": "https://s-mall.oss-cn-beijing.aliyuncs.com/meichao/user.png"
     },
     "goodsList": [
       {
@@ -530,8 +550,8 @@ function CreateOrder(){
     "totalPay": 100.05,//共付
     "needPay": 100.05,// 应付
     "groupPurchase": {
-      "id": 1,  //id	
-      "merchantId": 1,  //商户ID	
+      "id": 1,  //id
+      "merchantId": 1,  //商户ID
       "merchantName": "美超团长",  //商户名称（团长）
       "name": "精品羊排 新鲜出厂当日即达",	   //团购名称
       "url": "https://yanxuan.nosdn.127.net/dab1e16fb89680657a4a70341ee0ee9c.jpg?imageView&quality=95&thumbnail=60x60",	   //展示url
@@ -545,7 +565,7 @@ function CreateOrder(){
       "merchantUserName": "张三",//团购商超负责人
       "merchantPhone": "010-3574787887",//团购商超电话
       "avatar": "https://s-mall.oss-cn-beijing.aliyuncs.com/meichao/user.png", //头像
-      
+
     }, //团长信息
 
     "goodsList": [
@@ -569,25 +589,25 @@ function Friends(){
     "joinNum": 90, //参团人数
     "list": [
       {
-        "id":1,  //id	
+        "id":1,  //id
         "name":"wangwang",	   //客户名称
         "nickName": "王晓从新",	      //微信昵称
         "openid":"P90FDeUdnFMZkwZ274fEWnWqE",        // openid
-        "avatar": "https://s-mall.oss-cn-beijing.aliyuncs.com/meichao/user.png" 
+        "avatar": "https://s-mall.oss-cn-beijing.aliyuncs.com/meichao/user.png"
       },
       {
-        "id": 1,  //id	
+        "id": 1,  //id
         "name": "好运连连",	   //客户名称
         "nickName": "好运连连",	      //微信昵称
         "openid": "P90FDeUdnFMZkwZ274fEWnWqE",        // openid
-        "avatar": "https://s-mall.oss-cn-beijing.aliyuncs.com/meichao/user.png" 
+        "avatar": "https://s-mall.oss-cn-beijing.aliyuncs.com/meichao/user.png"
       },
       {
-        "id": 1,  //id	
+        "id": 1,  //id
         "name": "花开富贵",	   //客户名称
         "nickName": "花开富贵",	      //微信昵称
         "openid": "P90FDeUdnFMZkwZ274fEWnWqE",        // openid
-        "avatar": "https://s-mall.oss-cn-beijing.aliyuncs.com/meichao/user.png" 	
+        "avatar": "https://s-mall.oss-cn-beijing.aliyuncs.com/meichao/user.png"
       }
     ]
   }
@@ -602,9 +622,9 @@ function QueryOrderList(){
     "totalPage": 2, //总页数
     "list": [
       {
-        "id": 1,  //团购订单ID	
-        "orderId": 1,  //团购订单ID	
-        "merchantId": 1,  //商户ID	
+        "id": 1,  //团购订单ID
+        "orderId": 1,  //团购订单ID
+        "merchantId": 1,  //商户ID
         "name": "精品羊排 新鲜出厂当日即达",	   //团购名称
         "url": "https://s-mall.oss-cn-beijing.aliyuncs.com/meichao/g1.png",	   //展示url
         "orderNums": "5盒", //订单数量
@@ -633,7 +653,7 @@ function QueryOrderDetail(){
     "code": "773b8bde7ed698bc2cc2227d5c765704", //订单识别码
     "orderNums": "5盒", //订单数量
     "groupPurchase": {
-      "id": 1,  //id	
+      "id": 1,  //id
       "name": "精品羊排 新鲜出厂当日即达",	   //团购名称
       "url": "https://yanxuan.nosdn.127.net/dab1e16fb89680657a4a70341ee0ee9c.jpg?imageView&quality=95&thumbnail=60x60",	   //展示url
       "status":0, //0 未开始 1 进行中 2 已成团 3 已过期
@@ -646,7 +666,7 @@ function QueryOrderDetail(){
       "merchantName": "团购商超",//团购商超
       "merchantUserName": "张三",//团购商超负责人
       "merchantPhone": "010-3574787887",//团购商超电话
-      "avatar": "https://s-mall.oss-cn-beijing.aliyuncs.com/meichao/user.png" //头像	
+      "avatar": "https://s-mall.oss-cn-beijing.aliyuncs.com/meichao/user.png" //头像
     }, //团长信息
 
     "goodsList": [
@@ -677,7 +697,7 @@ function QueryOrderDetail(){
 
   }
 
-  
+
   RS.data = data;
   return JSON.stringify(RS);
 }
@@ -687,7 +707,7 @@ function QueryTreasureList(){
     "totalPage": 2, //总页数
     "list": [
       {
-        "id": 1,  //id	
+        "id": 1,  //id
         "name": "难以置信 1块钱就能得到",	   //名称
         "url": "https://s-mall.oss-cn-beijing.aliyuncs.com/meichao/g1.png",	   //展示url
         "marketPrice": 10.05,//市场价
@@ -701,7 +721,7 @@ function QueryTreasureList(){
         "lotteryTime": "2018/10/30 00:00:00", //开奖时间，注意格式
       },
       {
-        "id": 2,  //id	
+        "id": 2,  //id
         "name": "难以置信 1块钱就能得到2",	   //名称
         "url": "https://s-mall.oss-cn-beijing.aliyuncs.com/meichao/g1.png",	   //展示url
         "marketPrice": 10.05,//市场价
@@ -716,7 +736,7 @@ function QueryTreasureList(){
       }
     ],
     "winTreasure":{
-      "id": 1,  //id	
+      "id": 1,  //id
       "name": "难以置信 1块钱就能得到",	   //名称
       "url": "https://s-mall.oss-cn-beijing.aliyuncs.com/meichao/g1.png", //展示url
       "marketPrice": 10.05,//市场价
@@ -731,7 +751,7 @@ function QueryTreasureList(){
       "winNum": "46",//中奖次数,
       "nickName":"白色的忧伤" // 中奖者昵称
       }
-      
+
 
   }
   RS.data = data;
@@ -745,7 +765,7 @@ function QueryWinList(){
     "totalPage": 2, //总页数
     "list": [
       {
-        "id": 1,  //id	
+        "id": 1,  //id
         "name": "难以置信 1块钱就能得到",	   //名称
         "url": "https://s-mall.oss-cn-beijing.aliyuncs.com/meichao/g1.png", //展示url
         "marketPrice": 10.05,//市场价
@@ -761,7 +781,7 @@ function QueryWinList(){
         "nickName": "白色的忧伤" // 中奖者昵称
       },
       {
-        "id": 1,  //id	
+        "id": 1,  //id
         "name": "难以置信 1块钱就能得到",	   //名称
         "url": "https://s-mall.oss-cn-beijing.aliyuncs.com/meichao/g1.png", //展示url
         "marketPrice": 10.05,//市场价
@@ -777,7 +797,7 @@ function QueryWinList(){
         "nickName": "白色的忧伤" // 中奖者昵称
       },
       {
-        "id": 1,  //id	
+        "id": 1,  //id
         "name": "难以置信 1块钱就能得到",	   //名称
         "url": "https://s-mall.oss-cn-beijing.aliyuncs.com/meichao/g1.png", //展示url
         "marketPrice": 10.05,//市场价
@@ -793,7 +813,7 @@ function QueryWinList(){
         "nickName": "白色的忧伤" // 中奖者昵称
       },
       {
-        "id": 1,  //id	
+        "id": 1,  //id
         "name": "难以置信 1块钱就能得到",	   //名称
         "url": "https://s-mall.oss-cn-beijing.aliyuncs.com/meichao/g1.png", //展示url
         "marketPrice": 10.05,//市场价
@@ -809,7 +829,7 @@ function QueryWinList(){
         "nickName": "白色的忧伤" // 中奖者昵称
       },
       {
-        "id": 1,  //id	
+        "id": 1,  //id
         "name": "难以置信 1块钱就能得到",	   //名称
         "url": "https://s-mall.oss-cn-beijing.aliyuncs.com/meichao/g1.png", //展示url
         "marketPrice": 10.05,//市场价
@@ -825,7 +845,7 @@ function QueryWinList(){
         "nickName": "白色的忧伤" // 中奖者昵称
       },
       {
-        "id": 1,  //id	
+        "id": 1,  //id
         "name": "难以置信 1块钱就能得到",	   //名称
         "url": "https://s-mall.oss-cn-beijing.aliyuncs.com/meichao/g1.png", //展示url
         "marketPrice": 10.05,//市场价
@@ -841,7 +861,7 @@ function QueryWinList(){
         "nickName": "白色的忧伤" // 中奖者昵称
       },
       {
-        "id": 1,  //id	
+        "id": 1,  //id
         "name": "难以置信 1块钱就能得到",	   //名称
         "url": "https://s-mall.oss-cn-beijing.aliyuncs.com/meichao/g1.png", //展示url
         "marketPrice": 10.05,//市场价
@@ -857,7 +877,7 @@ function QueryWinList(){
         "nickName": "白色的忧伤" // 中奖者昵称
       },
       {
-        "id": 1,  //id	
+        "id": 1,  //id
         "name": "难以置信 1块钱就能得到",	   //名称
         "url": "https://s-mall.oss-cn-beijing.aliyuncs.com/meichao/g1.png", //展示url
         "marketPrice": 10.05,//市场价
@@ -873,7 +893,7 @@ function QueryWinList(){
         "nickName": "白色的忧伤" // 中奖者昵称
       },
       {
-        "id": 1,  //id	
+        "id": 1,  //id
         "name": "难以置信 1块钱就能得到",	   //名称
         "url": "https://s-mall.oss-cn-beijing.aliyuncs.com/meichao/g1.png", //展示url
         "marketPrice": 10.05,//市场价
@@ -889,7 +909,7 @@ function QueryWinList(){
         "nickName": "白色的忧伤" // 中奖者昵称
       },
       {
-        "id": 1,  //id	
+        "id": 1,  //id
         "name": "难以置信 1块钱就能得到",	   //名称
         "url": "https://s-mall.oss-cn-beijing.aliyuncs.com/meichao/g1.png", //展示url
         "marketPrice": 10.05,//市场价
@@ -915,7 +935,7 @@ function QueryTreasureDetails(){
   var data = {
     "detail": {
       "id": 1,  //id
-      "detailId": 1,  //夺宝详情id	
+      "detailId": 1,  //夺宝详情id
       "pics": [
         "https://s-mall.oss-cn-beijing.aliyuncs.com/meichao/t1.png",
         "https://s-mall.oss-cn-beijing.aliyuncs.com/meichao/t1.png",
@@ -995,7 +1015,7 @@ function QueryMyTreasures() {
       {
 
         "id": 1,  //id
-        "treasureId": 1,  //id	
+        "treasureId": 1,  //id
         "code": "34245353", //参与码（幸运号码）
         "name": "难以置信 1块钱就能得到",	   //名称
         "url": "https://s-mall.oss-cn-beijing.aliyuncs.com/meichao/g1.png",	   //展示url
@@ -1010,7 +1030,7 @@ function QueryMyTreasures() {
       },
       {
 
-        "id": 2,  //id	
+        "id": 2,  //id
         "treasureId": 1,  //id
         "code": "34245353", //参与码（幸运号码）
         "name": "难以置信 1块钱就能得到",	   //名称
@@ -1026,7 +1046,7 @@ function QueryMyTreasures() {
       },
       {
 
-        "id": 3,  //id	
+        "id": 3,  //id
         "code": "34245353", //参与码（幸运号码）
         "name": "难以置信 1块钱就能得到",	   //名称
         "url": "https://s-mall.oss-cn-beijing.aliyuncs.com/meichao/g1.png",	   //展示url

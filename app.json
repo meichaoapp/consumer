@@ -1,6 +1,10 @@
 {
   "pages": [
+    "pages/index2/index2",
     "pages/index/index",
+
+
+
 
     "pages/details/details",
     "pages/details/success",
@@ -11,7 +15,7 @@
     "pages/ucenter/order/order",
     "pages/ucenter/orderDetail/orderDetail",
     "pages/ucenter/yourinfor/yourinfor",
-    
+
     "pages/ucenter/desire/desire",
     "pages/ucenter/partner/partner",
 
@@ -20,7 +24,7 @@
     "pages/payResult/payResult",
     "pages/search/search",
 
-    
+
     "pages/shopping/checkout/checkout",
     "pages/shopping/address/address",
     "pages/shopping/addressAdd/addressAdd",
@@ -34,9 +38,9 @@
   "window": {
     "backgroundTextStyle": "dark",
     "navigationStyle": "default",
-    "navigationBarBackgroundColor": "#72cfdd",
+    "navigationBarBackgroundColor": "#ffffff",
     "navigationBarTitleText": "美超",
-    "navigationBarTextStyle": "white",
+    "navigationBarTextStyle": "black",
     "enablePullDownRefresh": true
   },
   "tabBar": {
@@ -46,7 +50,7 @@
     "color": "#666",
     "list": [
       {
-        "pagePath": "pages/index/index",
+        "pagePath": "pages/index2/index2",
         "iconPath": "static/images/icon-home.png",
         "selectedIconPath": "static/images/icon-home-selected.png",
         "text": "首页"

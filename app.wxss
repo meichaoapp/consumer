@@ -6,7 +6,7 @@
   background-color: #f4f4f4;
   font-family: PingFangSC-Light,helvetica,'Heiti SC';
   height: 100%;
-} 
+}
 /**分页下拉拓展样式*/
 .header ,.bottom{
   color:#999;
@@ -84,6 +84,24 @@ view,text{
 .mr6{
   margin-right: 6px;
 }
+.mt6{
+  margin-top:6rpx;
+}
+.mt10{
+  margin-top: 10rpx;
+}
+.ml10{
+  margin-left: 10rpx;
+}
+.mt20{
+  margin-top: 20rpx;
+}
+.mb20{
+  margin-bottom:20rpx;
+}
+.mr20{
+  margin-right: 20rpx;
+}
 
  .tip-icon{
    width: 36rpx;
@@ -95,7 +113,7 @@ view,text{
    color: #333333;
    font-weight: bold;
    font-size: 31rpx;
-   margin-left: 8rpx; 
+   margin-left: 8rpx;
  }
 
 .section {
@@ -137,7 +155,7 @@ view,text{
   height: 165rpx;
   margin-left: 20rpx;
   margin-right: 20rpx;
-  border: solid 1px #eee; 
+  border: solid 1px #eee;
 }
 
 .goods-content{
@@ -169,7 +187,7 @@ view,text{
  }
 
  .status-content .timer{
-  margin-left: 6px; 
+  margin-left: 6px;
 }
 .status-content .status-label{
   font-size: 31rpx;
@@ -270,6 +288,9 @@ view,text{
 .flex_end {
 	justify-content: flex-end;
 }
+.flex_baseline{
+  align-items:baseline;
+}
 
 
 .no_order_img {
@@ -288,7 +309,7 @@ view,text{
   position: fixed;
   left: 50%;
   transform: translateX(-50%);
-  bottom: 100rpx; 
+  bottom: 100rpx;
   width: 280rpx;
   height: 80rpx;
   line-height: 80rpx;
@@ -296,5 +317,16 @@ view,text{
   color: #fff;
   background: #72cfdd;
   border-radius: 80rpx;
-  font-size: 32rpx; 
+  font-size: 32rpx;
 }
+.bg_ff{
+  background:#fff;
+}
+.br5{
+  border-radius:5px;
+}
+.font15{
+  font-size:30rpx;
+}
+
+
