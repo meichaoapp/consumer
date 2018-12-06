@@ -17,14 +17,14 @@
 
     <view class="banner_box flex flex_center bg_ff">
         <image src="https://wxpic.iliangpin.cn/meichao/banner1.png"></image>
-    </view> 
+    </view>
     <!-- 轮播图 -->
     <!-- <swiper class="banner_box flex flex_center bg_ff" indicator-dots="true" autoplay="true" interval="3000" duration="1000">
       <swiper-item wx:for="{{banners}}" wx:key="{{item.id}}">
         <image src="{{item.url}}"></image>
       </swiper-item>
     </swiper> -->
-  
+
     <!-- 分类列表 -->
     <view wx:if="{{classifyList != null}}" class="classify_box flex flex_center flex_around">
         <view class="flex flex_colum flex_center" wx:for="{{classifyList}}" wx:key="{{item.index}}" data-index="{{item.index}}" bindtap='goPage'>
@@ -50,7 +50,7 @@
         <view class="con flex flex_between">
             <view class="single_box br5" wx:for="{{treasures}}" wx:key="{{item.id}}">
                 <view class="top flex flex_between">
-                    <image class="pre_img" src='{{item.url}}'></image>
+                    <image class="pre_img" src="{{item.url}}"></image>
                     <view class="content">
                         <view class="font15">{{item.name}}</view>
                         <view class="mt6">
@@ -83,12 +83,11 @@
     <!-- 团购商品列表  -->
     <view class="m_list flex flex_between bg_ff">
         <view class="m_menu">
-            <view class="active">打折促销</view>
-            <view wx:for="{{sellList}}" wx:key="{{item.id}}">{{item.sellDesc}}</view>
+            <view wx:for="{{sellList}}" wx:key="{{item.id}}" data-index="{{index}}" data-id="{{item.sellType}}" class="{{num==index?'active':''}}" bindtap="showList">{{item.sellDesc}}</view>
         </view>
         <scroll-view scroll-y="true">
             <view class="m_con">
-            <view class="curr_menu">打折促销</view>
+            <!--<view class="curr_menu">{{currSellDesc}}</view>-->
             <view class="goods_con flex flex_between" wx:for="{{list}}" wx:key="{{item.index}}"  bindtap="goGoodsDetail" data-id="{{item.id}}">
                 <view class="good_image flex flex_center flex_just br5">
                     <image  src="{{item.url}}"></image>

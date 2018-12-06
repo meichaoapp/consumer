@@ -1,0 +1,63 @@
+<!--order.wxml-->
+<import src="../.././components/loading/loading.wxml" />
+<template is="loading" data="{{ ...$wux.loading }}" />
+<view class="header" hidden="{{hideHeader}}">
+    <view>下拉刷新中…</view>
+</view>
+
+<view class="container" wx:if="{{orderList != null && orderList.length > 0}}">
+
+    <scroll-view scroll-y="true" class='section'>
+        <view class='o-details-lists' wx:for="{{orderList}}" wx:for-index="index" wx:for-item="item" wx:key="{{item.id}}">
+
+            <navigator url='/pages/ucenter/orderDetail/orderDetail?id={{item.id}}'>
+                <view class='o-details-lists-cell'>
+                    <view class="o-details-lists-cell-title flex flex_between">
+                        <view>开团时间：{{item.joinTime}}</view>
+                        <view>未开始</view>
+                    </view>
+                    <view class='o-details-lists-cell-main'>
+                        <view class='o-details-lists-cell-img'>
+                            <image src='{{item.url}}'></image>
+                        </view>
+                        <view class='o-details-lists-cell-desc flex flex_colum flex_just'>
+                            <view class="join_num flex flex_between">
+                                <text>当前参团人数</text>
+                                <text>0</text>
+                            </view>
+                            <view class="curr_sale flex flex_between">
+                                <text>实时销售额</text>
+                                <text>￥0</text>
+                            </view>
+                        </view>
+                    </view>
+                    <view class='o-details-lists-cell-status {{item.statusStr=="" ? true : false}}'>{{item.statusStr}}</view>
+                </view>
+            </navigator>
+        </view>
+
+
+    </scroll-view>
+    <!-- <view class="bottom" hidden="{{hideBottom}}">
+      <view>{{loadMoreData}}</view>
+    </view>-->
+    <view class="n-bottom" hidden="{{hideBottom}}">
+        <view>
+            <view class='transverseline'><text class='line'></text></view>
+
+            <text class='txt'>{{loadMoreData}}</text>
+
+            <view class='transverseline'><text class='line'></text></view>
+        </view>
+    </view>
+</view>
+
+<view wx:if="{{orderList == null }}">
+    <image class='no_order_img'  src="../../../static/images/noneOrder.png"></image>
+    <view class='no_order_tip'>订单不存在</view>
+
+    <button class='no_order_btn' bindtap='toIndex'>知道了</button>
+</view>
+
+
+

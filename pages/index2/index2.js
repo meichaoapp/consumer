@@ -30,6 +30,8 @@ Page({
         list: [], // 团购列表
         merchantList:[], // 团长列表
         merchat:{},//选中的团长信息
+        num:0,//和index相比，控制左侧显示激活状态样式
+       // currSellDesc:''
     },
     onShareAppMessage: function () {
         return {
@@ -151,11 +153,11 @@ Page({
     /**
      * 团购信息
      */
-    queryTGList: function (){
+    queryTGList: function (id){
         let _this = this;
         _this.$wuxLoading.show({text: '数据加载中',});
         let data = {
-            "merchantId": 1,//店铺id
+            "merchantId": id,//店铺id
             "start": 0,
             "limit": 20,
             "previewFlag": -1
@@ -167,8 +169,26 @@ Page({
                 sellList:res.data.sellList,
                 list:res.data.list
             })
+            // for(let item of _this.data.sellList){
+            //
+            //     if(item.selected){
+            //         item.currSellDesc = item.sellDesc;
+            //         console.log('===============',item);
+            //         return;
+            //     }
+            //
+            // }
         })
 
+    },
+    showList: function(e){
+        let that = this;
+        let index = e.currentTarget.dataset.index;
+        let id = e.currentTarget.dataset.id;
+        that.setData({
+            num: index
+        });
+        that.queryTGList(id)
     },
     //导航跳转
     navTo: function (e) {

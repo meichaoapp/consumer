@@ -256,6 +256,8 @@
 }
 .m_menu .active{
     background:#fff;
+    border-left:10rpx solid #8DD26A ;
+    box-sizing:border-box;
 }
 .m_con .good_image{
     width:189rpx;
