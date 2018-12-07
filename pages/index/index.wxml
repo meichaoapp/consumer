@@ -92,11 +92,11 @@
                     </view>
                     <view class="content flex flex_colum">
                         <view class="name">{{item.name}}</view>
-                        <view class="desc">整装箱20多头，鲜嫩多汁</view>
+                        <view class="desc">{{item.comments}}</view>
                         <view class="flex" style="flex:1;">
                             <view class="price_box flex flex_center">
-                                <view class="curr_price">￥12.00</view>
-                                <view class="old_price">￥38.00</view>
+                                <view class="curr_price">￥{{item.price}}</view>
+                                <view class="old_price">￥{{item.marketPrice}}</view>
                             </view>
                             <view class="set_car flex flex_center ml10">
                                 <image src="https://wxpic.iliangpin.cn/meichao/minus.png"></image>
@@ -142,14 +142,14 @@
         <image src="/static/images/close.png" class="icon_close"></image>
     </view>
     <view class='modal-content'>
-        <view class="merchant_item flex flex_center" wx:for='{{goodsList}}' wx:key='{{index}}' title="{{item.name}}" mode='input' rowpadding='10rpx' currentId="{{index}}">
-            <image src="/static/images/default.png"></image>
+        <view class="merchant_item flex flex_center" wx:for='{{merchantList}}' wx:key='{{item.index}}' title="{{item.merchantName}}" mode='input' rowpadding='10rpx' currentId="{{item.index}}">
+            <image src="{{item.logo}}"></image>
             <view class="right_part">
                 <view class="flex flex_between">
-                    <text class="font15">团长名称</text>
-                    <text class="C999">据您700米</text>
+                    <text class="font15">{{item.merchantName}}</text>
+                    <text class="C999">据您{{item.distance}}</text>
                 </view>
-                <view class="mt6 C666">取货地址：团长名称团长名称团长名称团长名称团长名称</view>
+                <view class="mt6 C666">取货地址：{{item.address}}</view>
             </view>
         </view>
     </view>

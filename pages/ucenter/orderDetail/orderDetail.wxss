@@ -1,5 +1,3 @@
-@import "../../../utils/iconfonts.wxss";
-
 page {
   height: 100%;
   width: 100%;
