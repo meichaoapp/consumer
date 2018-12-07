@@ -1,4 +1,7 @@
 {
   "enablePullDownRefresh": true,
-  "backgroundTextStyle": "white"
+  "backgroundTextStyle": "white",
+  "usingComponents": {
+    "modal": "/components/modal/modal"
+  }
 }

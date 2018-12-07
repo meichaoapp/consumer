@@ -119,13 +119,13 @@
     margin-right:9rpx;
 }
 .banner_box{
-    width:100%;
-    height:260rpx;
-}
-.banner_box image{
     width:90%;
     height:260rpx;
-    margin: 0 auto;
+    margin:0 auto;
+}
+.banner_box image{
+    width:100%;
+    height:260rpx;
 }
 .classify_box{
     padding:40rpx 0;
@@ -246,9 +246,11 @@
 /*团购*/
 .m_list{
     padding-right:20rpx;
+    margin-bottom:103rpx;
+    flex:1;
 }
 .m_menu{
-    height:648rpx;
+    height:100%;
     width:160rpx;
     background: #F7F8F9;
 }
@@ -273,7 +275,7 @@
     height:164rpx;
 }
 .m_con .goods_con{
-    margin-bottom:90rpx;
+    margin-bottom:64rpx;
 }
 .m_con .curr_menu{
     height:93rpx;
@@ -303,5 +305,63 @@
 .m_con .content .set_car .count{
     margin:0 20rpx;
 }
+/*底部购物车和结算*/
+.car_box{
+    position:fixed;
+    bottom:0;
+    left:0;
+    width:100%;
+    height:103rpx;
+    background:#F6F6F6;
+    border-top:1px solid #E5E5E5;
+    border-bottom:1px solid #E5E5E5;
+}
+.car_box image{
+    width:55rpx;
+    height:50rpx;
+    margin:0 45rpx;
+}
+.total_money{
+    font-size:36rpx;
+}
+.icon_settle{
+    background:#81C95A;
+    width:231rpx;
+    height:103rpx;
+    line-height:103rpx;
+    text-align:center;
+    color:#fff;
+    font-size:36rpx;
+}
+.title{
+    height:103rpx;
+    padding:0 30rpx;
+    border-bottom:1px solid #D9D9D9;
+}
+.title view{
+    font-size:36rpx;
+}
+.title image{
+    width:27rpx;
+    height:27rpx;
+}
+.modal-content{
+    padding:0 30rpx;
+    overflow:auto;
+}
+.merchant_item{
+    height:188rpx;
+    border-bottom:1px solid #ddd;
+}
+.merchant_item image{
+    width:87rpx;
+    height:87rpx;
+    margin-right:13rpx;
+}
+.right_part{
+    flex:1;
+}
+.pickup_address{
 
+}
 

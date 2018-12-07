@@ -33,6 +33,25 @@ Page({
         merchat:{},//选中的团长信息
         num:0,//和index相比，控制左侧显示激活状态样式
        // currSellDesc:''
+        showModal:false,
+        goodsList:[
+            {
+                "name": "鲜嫩果蔬",  //类别名称
+                "logo": "https://wxpic.iliangpin.cn/meichao/nav1.png"  //店铺logo
+            },
+            {
+                "name": "休闲零食",  //类别名称
+                "logo": "https://wxpic.iliangpin.cn/meichao/nav2.png"  //店铺logo
+            },
+            {
+                "name": "家居用品",  //类别名称
+                "logo": "https://wxpic.iliangpin.cn/meichao/nav3.png"  //店铺logo
+            },
+            {
+                "name": "日用百货",  //类别名称
+                "logo": "https://wxpic.iliangpin.cn/meichao/nav4.png"  //店铺logo
+            }
+        ]
     },
     onShareAppMessage: function () {
         return {
@@ -200,6 +219,12 @@ Page({
             num: index
         });
         that.queryTGList(id)
+    },
+    //选择团长，打开modal
+    choiceMerchant(){
+        this.setData({
+            showModal:true
+        })
     },
     //导航跳转
     navTo: function (e) {
