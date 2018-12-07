@@ -325,6 +325,9 @@ view,text{
 .br5{
   border-radius:5px;
 }
+.font12{
+  font-size:24rpx;
+}
 .font15{
   font-size:30rpx;
 }

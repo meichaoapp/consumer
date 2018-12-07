@@ -11,27 +11,25 @@
         <view class='o-details-lists' wx:for="{{orderList}}" wx:for-index="index" wx:for-item="item" wx:key="{{item.id}}">
 
             <navigator url='/pages/ucenter/orderDetail/orderDetail?id={{item.id}}'>
-                <view class='o-details-lists-cell'>
+                <view class='o-details-lists-cell flex flex_colum flex_center'>
                     <view class="o-details-lists-cell-title flex flex_between">
-                        <view>开团时间：{{item.joinTime}}</view>
+                        <view>订单编号：2018900018</view>
                         <view>未开始</view>
                     </view>
-                    <view class='o-details-lists-cell-main'>
+                    <view class='o-details-lists-cell-main flex flex_center'>
                         <view class='o-details-lists-cell-img'>
-                            <image src='{{item.url}}'></image>
+                            <image src='/static/images/default.png'></image>
                         </view>
                         <view class='o-details-lists-cell-desc flex flex_colum flex_just'>
-                            <view class="join_num flex flex_between">
-                                <text>当前参团人数</text>
-                                <text>0</text>
+                            <view class="merchant_name flex flex_between flex_center">
+                                <text class="font15">团长名称</text>
+                                <text class="font12">{{item.joinTime}}</text>
                             </view>
-                            <view class="curr_sale flex flex_between">
-                                <text>实时销售额</text>
-                                <text>￥0</text>
+                            <view class="C666" style="line-height:40rpx;">
+                               取货地址：山东省日照市东港区大连路3号院
                             </view>
                         </view>
                     </view>
-                    <view class='o-details-lists-cell-status {{item.statusStr=="" ? true : false}}'>{{item.statusStr}}</view>
                 </view>
             </navigator>
         </view>

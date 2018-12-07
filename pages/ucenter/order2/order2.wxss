@@ -117,7 +117,7 @@ page{
 *wsx
 */
 .o-details-lists-cell{
-    height:252rpx;
+    height:273rpx;
     background: #fff;
     margin-top: 17rpx;
 }
@@ -125,6 +125,7 @@ page{
    // margin-top: 17rpx;
 }
 .o-details-lists-cell-title{
+    width:100%;
     padding:25rpx 30rpx;
     border-bottom:1px solid #CCCCCC;
 }
@@ -133,26 +134,22 @@ page{
     padding: 20rpx;
     display: flex;
     flex-direction: row;
+    flex:1;
 }
 .o-details-lists-cell-img,.o-details-lists-cell-img image{
-    width: 180rpx;
-    height: 136rpx;
+    width: 87rpx;
+    height: 87rpx;
 }
 .o-details-lists-cell-desc{
     flex: 1;
     margin-left: 18rpx;
 }
-.o-details-lists-cell-desc .join_num{
-    border-bottom:1px solid #EEEEEE;
+.o-details-lists-cell-desc .merchant_name{
     padding-bottom:11rpx;
     width:100%;
 }
-.join_num text:first-child{
-    color:#666;
-}
 .join_num text:last-child{
-    color:#333;
-    font-size:36rpx;
+    color:#999;
 }
 .o-details-lists-cell-desc .curr_sale{
     width:100%;
