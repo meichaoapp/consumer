@@ -1,0 +1,22 @@
+<view class="login_box container">
+    <view class="flex flex_colum flex_center">
+        <image class="icon_location" src="https://wxpic.iliangpin.cn/meichao/shop-location.png"></image>
+        <view class="name_box">
+            <image src="/static/images/mingpian.png"></image>
+            <text>团长名称</text>
+        </view>
+    </view>
+    <view class="location_box">
+        <text>您当前的取货地址为</text>
+        <view class="flex flex_center">
+            <image class="icon_address" src="/static/images/address.png"></image>
+            <view class="curr_location">
+                山东省青岛市黄岛区工业开发园
+            </view>
+        </view>
+    </view>
+    <view class="btn_box flex flex_just">
+        <image src="/static/images/group4.png"></image>
+        <image src="/static/images/group3.png"></image>
+    </view>
+</view>
