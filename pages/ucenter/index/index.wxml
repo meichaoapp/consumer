@@ -1,5 +1,5 @@
 <view class="container">
-  <view class="profile-info" bindtap="goLogin">
+  <view class="profile-info">
     <image class="avatar" src="{{userInfo.avatar}}"></image>
     <view class="info flex flex_center">
       <text class="name">{{userInfo.nickName}}</text>
@@ -17,7 +17,7 @@
       </view>
     </navigator>
 
-    <navigator url="/pages/ucenter/order2/order2">
+    <navigator url="/pages/ucenter/order/order">
       <view class='mylist-cells'>
         <view class='mylist-cell-image'>
           <image src='/static/images/icons-my-list01.png'></image>

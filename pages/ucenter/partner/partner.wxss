@@ -114,7 +114,7 @@ input::-webkit-input-placeholder {
     line-height:85rpx;
     margin:39rpx 29.5rpx;
     text-align:center;
-    background:#72cfdd;
+    background:#81C95A;
     border-radius:10rpx;
     font-size:32rpx;
     color:#FFFFFF;
