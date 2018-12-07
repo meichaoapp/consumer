@@ -1,143 +1,307 @@
-.location-header{
-  background: #72cfdd;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  height: 72rpx;
-  font-size: 10pt;
-  position:fixed; 
-  top:0;
-  width: 100%;
-  z-index: 100;
+
+.merchant-around{
+    color: #2c3ac2;
+    height: 25px;
+    align-items: center;
+    line-height: 25px;
+    margin-right:6px;
+    font-size: 9pt;
 }
-.current-location{
-  margin-left: 22rpx;
-  align-items: center;
-  margin-top: -10rpx; 
-}
-.location-icon{
-  width:33rpx;
-  height:33rpx;
-  margin-right:12rpx;
- }
- .select-icon{
-  width:20rpx;
-  height:15rpx;
-  margin-left: 10rpx;
- }
-.location-address{
-  color: #fff;
-  font-size: 32rpx;
-}
-.location-map-icon{
-  width:13px;
-  height:13px;
-  margin-top:9px;
-  margin-right:3px;
- }
- .merchant-around{
-   color: #2c3ac2;
-   height: 25px;
-   align-items: center;
-   line-height: 25px;
-   margin-right:6px;
-   font-size: 9pt;
- }
 
 .container{
-  margin-top: 36px;
+    margin-top: 36px;
 }
- .treasure-nav{
-   width: 100%;
-   height: 79px;
- }
- .treasure-btn{
-   height: 50px;
-   width: 90%;
-   margin-left: 5%;
-   margin-top: 19px;
- }
- .treasure-btn-icon{
-     width: 692rpx;
-     height: 80rpx;
- }
+.treasure-nav{
+    width: 100%;
+    height: 79px;
+}
+.treasure-btn{
+    height: 50px;
+    width: 90%;
+    margin-left: 5%;
+    margin-top: 19px;
+}
+.treasure-btn-icon{
+    width: 692rpx;
+    height: 80rpx;
+}
 
 .banner {
-  width: 750rpx;
-  height: 417rpx;
+    width: 750rpx;
+    height: 417rpx;
 }
 
 .banner image {
-  width: 100%;
-  height: 417rpx;
+    width: 100%;
+    height: 417rpx;
 }
 
 .m-menu {
-  display: flex;
-  height: 181rpx;
-  width: 750rpx;
-  flex-flow: row nowrap;
-  align-items: center;
-  justify-content: space-between;
-  background-color: #fff;
+    display: flex;
+    height: 181rpx;
+    width: 750rpx;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #fff;
 }
 
 .m-menu .item {
-  flex: 1;
-  display: block;
-  padding: 20rpx 0;
+    flex: 1;
+    display: block;
+    padding: 20rpx 0;
 }
 
 .m-menu image {
-  display: block;
-  width: 76rpx;
-  height: 76rpx;
-  margin: 0 auto;
-  margin-bottom: 12rpx;
+    display: block;
+    width: 76rpx;
+    height: 76rpx;
+    margin: 0 auto;
+    margin-bottom: 12rpx;
 }
 
 .m-menu text {
-  display: block;
-  font-size: 24rpx;
-  text-align: center;
-  margin: 0 auto;
-  line-height: 1;
-  color: #333;
+    display: block;
+    font-size: 24rpx;
+    text-align: center;
+    margin: 0 auto;
+    line-height: 1;
+    color: #333;
 }
 .merchant-name {
-  width:208rpx;
-  text-align: justify;
-  padding-top: 5rpx; 
+    width:208rpx;
+    text-align: justify;
+    padding-top: 5rpx;
 }
 .join-btn {
-  text-align:center;
-  color:#fff;
-  background:#72cfdd;
-  width:146rpx;
-  height:64rpx;
-  border:1rpx solid #d9d9d9; 
-  margin-top:20rpx;
-  border-radius:48rpx;
-  margin-right:118rpx;
-  line-height:62rpx;
-  padding:0;
+    text-align:center;
+    color:#fff;
+    background:#72cfdd;
+    width:146rpx;
+    height:64rpx;
+    border:1rpx solid #d9d9d9;
+    margin-top:20rpx;
+    border-radius:48rpx;
+    margin-right:118rpx;
+    line-height:62rpx;
+    padding:0;
 }
 .join-btn-default {
-  text-align:center;
-  color:#72cfdd;
-  background:rgb(240,240,247);
-  width:146rpx;
-  height:64rpx;
-  margin-top:20rpx;
-  border-radius:48rpx;
-  margin-right:118rpx;
-  line-height:62rpx;
-  padding:0;
-  border: none!important;
+    text-align:center;
+    color:#72cfdd;
+    background:rgb(240,240,247);
+    width:146rpx;
+    height:64rpx;
+    margin-top:20rpx;
+    border-radius:48rpx;
+    margin-right:118rpx;
+    line-height:62rpx;
+    padding:0;
+    border: none!important;
 }
 .tips {
-  color:#888;
-  text-align:right;
-  margin-right:26rpx;
+    color:#888;
+    text-align:right;
+    margin-right:26rpx;
 }
+
+.merchant-header{
+    padding:15rpx 30rpx;
+    position:fixed;
+    top:0;
+    width: 100%;
+    z-index: 100;
+    background:#fff;
+}
+.merchant-header image{
+    width:28rpx;
+    height:31rpx;
+    margin-right:9rpx;
+}
+.banner_box{
+    width:100%;
+    height:260rpx;
+}
+.banner_box image{
+    width:90%;
+    height:260rpx;
+    margin: 0 auto;
+}
+.classify_box{
+    padding:40rpx 0;
+    background:#fff;
+}
+.classify_box image{
+    width:80rpx;
+    height:80rpx;
+}
+.classify_box text{
+    font-size:28rpx;
+    color:#333;
+    margin-top:15rpx;
+}
+
+.truesure_box{
+    background:#fff;
+    height:339rpx;
+    padding:0 20rpx;
+    margin:20rpx 0;
+}
+.truesure_box .headline{
+    padding:20rpx 0;
+}
+.truesure_box .con{
+    display:flex;
+
+}
+.con .single_box{
+    border:1px solid #E4E4E4;
+    width:348rpx;
+    height:229rpx;
+    padding:10rpx;
+}
+.con .single_box .pre_img{
+    width:110rpx;
+    height:110rpx;
+}
+.con .single_box .content .curr_price{
+    font-size:36rpx;
+    color:#FF9000;
+    margin-right:4rpx;
+}
+.con .single_box .content .old_price{
+    font-size:22rpx;
+    text-decoration: line-through;
+}
+.progress{
+    width:328rpx;
+    height:12rpx;
+    background:#FFCF3B;
+    position:relative;
+    border-radius:100rpx;
+    margin-top:10rpx;
+}
+.progress_bar{
+    position:absolute;
+    left:0;
+    background:#FF9000;
+    width:20%;
+    height:100%;
+    border-radius:100rpx;
+}
+.progress_bar view{
+    width:8rpx;
+    height:8rpx;
+    border-radius:100%;
+    position:absolute;
+    right:2rpx;
+    top:2rpx;
+}
+.single_box .bottom{
+    height:80rpx;
+}
+.bottom .timer text{
+    width:37rpx;
+    height:37rpx;
+    border-radius:5rpx;
+    background:#131313;
+    color:#fff;
+    text-align:center;
+    line-height:37rpx;
+}
+.bottom .state{
+    width:150rpx;
+    height:42rpx;
+    text-align:center;
+    line-height:42rpx;
+    background:#81C95A;
+    color:#fff;
+    border-radius:100rpx;
+}
+.bottom .check{
+    background:none;
+    color:#81C95A;
+    border:1px solid #81C95A;
+}
+.truesure_box text{
+    display:inline-block;
+}
+.icon_bg{
+    width:10rpx;
+    height:40rpx;
+    background:#8DD26A;
+}
+.strong{
+    width:128rpx;
+    height:45rpx;
+    font-size:32rpx;
+    font-weight:600;
+}
+.icon_go{
+    width:15rpx;
+    height:28rpx;
+    margin-left:5rpx;
+}
+
+/*团购*/
+.m_list{
+    padding-right:20rpx;
+}
+.m_menu{
+    height:648rpx;
+    width:160rpx;
+    background: #F7F8F9;
+}
+.m_menu view{
+    height:93rpx;
+    line-height:93rpx;
+    text-align:center;
+}
+.m_menu .active{
+    background:#fff;
+    border-left:10rpx solid #8DD26A ;
+    box-sizing:border-box;
+}
+.m_con .good_image{
+    width:189rpx;
+    height:189rpx;
+    background:#F8F6F7;
+    margin-right:6rpx;
+}
+.m_con .good_image image{
+    width:164rpx;
+    height:164rpx;
+}
+.m_con .goods_con{
+    margin-bottom:90rpx;
+}
+.m_con .curr_menu{
+    height:93rpx;
+    line-height:93rpx;
+}
+.m_con .content{
+    flex:1;
+}
+.m_con .content .desc{
+    margin:10rpx 0 20rpx;
+    color:#999999;
+}
+.m_con .content .curr_price{
+    font-size:32rpx;
+    color:#FF9000;
+    margin-right:4rpx;
+}
+.m_con .content .old_price{
+    font-size:18rpx;
+    text-decoration: line-through;
+    color:#999999;
+}
+.m_con .content .set_car image{
+    width:46rpx;
+    height:46rpx;
+}
+.m_con .content .set_car .count{
+    margin:0 20rpx;
+}
+
 

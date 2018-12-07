@@ -175,7 +175,7 @@ function wxLogin() {
 			"completionInfo": "false", //  true 个人资料已填写，false 个人资料未填写
 			"previewFlag": null, // 用于查询previewFlag为-1时，则可以预览新添的团品信息
       "phone": "18911111111",  //手机号
-      "name": 张果果,  //联系人
+      "name": "李四",  //联系人
       "province": "河北省",  //省code
       "city": "石家庄市",  //市code
       "area": "桥东区",  //地区code
@@ -188,7 +188,7 @@ function wxLogin() {
 
 
 
-  RS.data = data;
+  RS.data.user = user;
   return JSON.stringify(RS);
 
 }
@@ -200,9 +200,9 @@ function queryMerchants() {
       {
         "merchantId": 1,  //店铺id
         "distance": "700米",  //距离
-        "merchantName": "幸福山竹",  //店长名称
+        "merchantName": "幸福的鸭梨树",  //店长名称
         "merchantUserName": "张三",//团购商超负责人
-        "logo": "https://s-mall.oss-cn-beijing.aliyuncs.com/meichao/user.png",  //店铺logo
+        "logo": "https://wxpic.iliangpin.cn/meichao/Bitmap.png",  //店铺logo
         "address": "山东省日照市大连路540号（兴业春天花园）",  //取货地址
       }
     ]
@@ -273,6 +273,7 @@ function queryIndexInfo() {
         "logo": "https://wxpic.iliangpin.cn/meichao/nav4.png"  //店铺logo
       },
     ], //分类导航
+
     "treasures": [
         {
         "id": 1,  //id
@@ -308,8 +309,28 @@ function queryIndexInfo() {
         "status": 1, //开奖状态： 0 未开奖 1 已开奖
         "code": "100001" // 幸运号码
       },
-    ] //一元夺宝
+    ] ,//一元夺宝
+    "sellList": [
+      {  //
+        "sellType": "1",
+        "sellDesc": "拼团爆品",
+        "sort": "1", // 排序
+        "selected": true // 是否被选中
+      },
+      {
+        "sellType": "2",
+        "sellDesc": "每日促销",
+        "sort": "1",
+        "selected": false
+      },
+      {
+        "sellType": "3",
+        "sellDesc": "产品预售",
+        "sort": "1",
+        "selected": false
+      }]
   }
+
 
   RS.data = data;
   return JSON.stringify(RS);
@@ -360,28 +381,10 @@ function QueryTGList() {
       "endTime": "2018/09/18 23:00:00", //结束时间，注意格式
     },
   ];
-  var sellList = [
-            {  //
-                "sellType": "1",
-                "sellDesc": "拼团爆品",
-                "sort": "1", // 排序
-                "selected": true // 是否被选中
-            },
-            {
-                "sellType": "2",
-                "sellDesc": "每日促销",
-                "sort": "1",
-                "selected": false
-            },
-            {
-                "sellType": "3",
-                "sellDesc": "产品预售",
-                "sort": "1",
-                "selected": false
-            }];
+ 
 
   RS.data.list = list;
-  RS.data.sellList = sellList;
+ 
   RS.data.totalPage = 2;
   return JSON.stringify(RS);
 }
