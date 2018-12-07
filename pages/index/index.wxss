@@ -316,10 +316,26 @@
     border-top:1px solid #E5E5E5;
     border-bottom:1px solid #E5E5E5;
 }
+
 .car_box image{
     width:55rpx;
     height:50rpx;
+}
+.shopingcart_box{
     margin:0 45rpx;
+    position:relative;
+}
+.shopingcart_box .count_num{
+    position:absolute;
+    width:29rpx;
+    height:29rpx;
+    border-radius:50%;
+    background:#FF9000;
+    font-size:24rpx;
+    text-align:center;
+    line-heigt:29rpx;
+    right:-16rpx;
+    top:0;
 }
 .total_money{
     font-size:36rpx;

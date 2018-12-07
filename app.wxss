@@ -334,6 +334,9 @@ view,text{
 .C666{
   color:#666;
 }
+.cfff{
+  color:#fff;
+}
 
 
 
