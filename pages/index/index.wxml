@@ -116,7 +116,10 @@
 <view>
     <view  class="car_box flex flex_between">
         <view class="flex flex_center">
-            <image src="/static/images/shopping_cart.png"></image>
+            <view class="shopingcart_box">
+                <image src="/static/images/shopping_cart.png"></image>
+                <view class="count_num cfff">2</view>
+            </view>
             <view class="total_money">￥40.00</view>
         </view>
         <view class="icon_settle">去结算</view>
