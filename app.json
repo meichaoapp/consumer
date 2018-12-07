@@ -5,7 +5,6 @@
     "pages/details/success",
 
     "pages/ucenter/index/index",
-    "pages/ucenter/index2/index2",
     "pages/ucenter/address/address",
     "pages/ucenter/addressAdd/addressAdd",
     "pages/ucenter/order/order",
@@ -67,7 +66,7 @@
         "text": "成为伙伴"
       },
       {
-        "pagePath": "pages/ucenter/index2/index2",
+        "pagePath": "pages/ucenter/index/index",
         "iconPath": "static/images/icon-user.png",
         "selectedIconPath": "static/images/icon-user-selected.png",
         "text": "我的"

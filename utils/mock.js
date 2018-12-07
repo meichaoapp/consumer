@@ -164,7 +164,7 @@ function getData(url, p) {
 
 //微信登录
 function wxLogin() {
-  var user = {
+  var data = {
     "user": {
       "id": 1, //id
       "name": "wangwang", //客户名称
@@ -188,7 +188,7 @@ function wxLogin() {
 
 
 
-  RS.data.user = user;
+  RS.data = data;
   return JSON.stringify(RS);
 
 }
@@ -443,7 +443,7 @@ function QueryTGNewList() {
           "id": 1, //id
           "name": "精品羊排 新鲜出厂当日即达", //团购名称
           "url": "https://s-mall.oss-cn-beijing.aliyuncs.com/meichao/g2.png", //展示url
-          "price": "", //团购价
+          "price": 10.01, //团购价
           "marketPrice": 10.05,//市场价/原价
           "status": 0, //0 未开始 1 进行中 2 已成团 3 已过期
           "comments": "草原宏宝蒙巴克 无公害谷饲羔羊", //简述

@@ -19,12 +19,6 @@ Page({
         this.$wuxLoading = app.Wux().$wuxLoading //加载
         let userInfo = wx.getStorageSync('userInfo');
         let token = wx.getStorageSync('token');
-
-        if (null == userInfo || userInfo == "" || undefined == userInfo) {
-            wx.navigateTo({
-                url: '/pages/auth/login/login'
-            });
-        }
         this.setData({
             userInfo: userInfo,
         });
