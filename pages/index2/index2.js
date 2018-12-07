@@ -54,16 +54,22 @@ Page({
             });
         }
 
+        let userInfo = wx.getStorageSync('userInfo');
+        console.log("userinfo----" + userInfo);
+        if (null != userInfo && userInfo != "" && undefined != userInfo) {
+          this.setData({
+            userInfo: userInfo,
+          });
+        }else{
+          wx.navigateTo({
+            url: '/pages/auth/login2/login2'
+          });
+        }
+
         this.$wuxLoading = app.Wux().$wuxLoading //加载
         this.queryIndexInfo();
         this.queryTGList();
-        let userInfo = wx.getStorageSync('userInfo');
-        if (null != userInfo || userInfo != "" || undefined != userInfo) {
-            this.setData({
-                userInfo: userInfo,
-            });
-        }
-      this.countDown();
+        this.countDown();
 
     },
 
