@@ -9,7 +9,6 @@ const currentMerchat = "currentMerchat";
 
 //获取应用实例
 const app = getApp()
-const statusArr = ["即将开始", "距结束", "已成团", "已成团"];//0 未开始 1 进行中 2 已成团 3 已结束
 Page({
     data: {
         userInfo: null,
@@ -73,12 +72,7 @@ Page({
                 url: '/pages/details/details?id=' + options.id
             });
         }
-        let merchant = wx.getStorageSync(currentMerchat);
-        if (null != merchant && undefined != merchant){
-          this.setData({
-            merchat: merchant,
-          });
-        }
+        
         let userInfo = wx.getStorageSync('userInfo');
         console.log("userinfo----" + userInfo);
         if (null != userInfo && userInfo != "" && undefined != userInfo) {
@@ -110,6 +104,13 @@ Page({
                 userInfo: userInfo,
             });
         }
+
+      let merchant = wx.getStorageSync(currentMerchat);
+      if (null != merchant && undefined != merchant) {
+        this.setData({
+          merchat: merchant,
+        });
+      }
     },
     onHide: function () {
         // 页面隐藏
@@ -169,14 +170,13 @@ Page({
     queryIndexInfo: function () {
         let that = this;
         util.request(api.QueryIndexInfo, {token: ""}, "POST").then(function (res) {
-            console.log('------首頁信息',res);
             if(res.rs === 1){
                 that.setData({
                     banners:res.data.banners,
                     classifyList:res.data.classifys,
                     treasures:res.data.treasures,
                     merchatList:res.data.merchantList,
-                  sellList: res.data.sellList,
+                    sellList: res.data.sellList,
                 })
             }
         });
@@ -193,21 +193,11 @@ Page({
             "limit": 20,
             "previewFlag": -1
         }
-        util.request(api.QueryTGListv, data, "POST").then(function (res) {
+       util.request(api.QueryTGNewList, data, "POST").then(function (res) {
             _this.$wuxLoading.hide(); //隐藏加载动画
-            console.log('======团购信息======',res.data);
             _this.setData({
                 list:res.data.list
             })
-            // for(let item of _this.data.sellList){
-            //
-            //     if(item.selected){
-            //         item.currSellDesc = item.sellDesc;
-            //         console.log('===============',item);
-            //         return;
-            //     }
-            //
-            // }
         })
 
     },

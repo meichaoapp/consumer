@@ -259,7 +259,23 @@ function queryIndexInfo() {
       "merchantUserName": "张三",//团购商超负责人
       "logo": "https://wxpic.iliangpin.cn/meichao/Bitmap.png",  //店铺logo
       "address": "山东省日照市大连路540号（兴业春天花园）",  //取货地址
-     }
+     },
+      {
+        "merchantId": 2,  //店铺id
+        "distance": "700米",  //距离
+        "merchantName": "幸福的鸭梨树1",  //店长名称
+        "merchantUserName": "张三",//团购商超负责人
+        "logo": "https://wxpic.iliangpin.cn/meichao/Bitmap.png",  //店铺logo
+        "address": "山东省日照市大连路540号（兴业春天花园）",  //取货地址
+      },
+      {
+        "merchantId": 3,  //店铺id
+        "distance": "700米",  //距离
+        "merchantName": "幸福的鸭梨树2",  //店长名称
+        "merchantUserName": "张三",//团购商超负责人
+        "logo": "https://wxpic.iliangpin.cn/meichao/Bitmap.png",  //店铺logo
+        "address": "山东省日照市大连路540号（兴业春天花园）",  //取货地址
+      },
     ],
     "classifys": [
       {
@@ -421,31 +437,12 @@ function QueryBanner() {
 function QueryTGNewList() {
   var data = {
     "totalPage": 2, //总页数
-    "sellList": [
-      {
-        "sellType": "1",
-        "sellDesc": "拼团爆品",
-        "sort": "1", // 排序
-        "selected": true // 是否被选中
-      },
-      {
-        "sellType": "2",
-        "sellDesc": "每日促销",
-        "sort": "1",
-        "selected": false
-      },
-      {
-        "sellType": "3",
-        "sellDesc": "产品预售",
-        "sort": "1",
-        "selected": false
-      }
-    ],
+
     "list": [
       {
           "id": 1, //id
           "name": "精品羊排 新鲜出厂当日即达", //团购名称
-        "url": "https://s-mall.oss-cn-beijing.aliyuncs.com/meichao/g2.png", //展示url
+          "url": "https://s-mall.oss-cn-beijing.aliyuncs.com/meichao/g2.png", //展示url
           "price": "", //团购价
           "marketPrice": 10.05,//市场价/原价
           "status": 0, //0 未开始 1 进行中 2 已成团 3 已过期
