@@ -328,6 +328,12 @@ view,text{
 .font15{
   font-size:30rpx;
 }
+.C999{
+  color:#999;
+}
+.C666{
+  color:#666;
+}
 
 
 

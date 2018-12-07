@@ -243,7 +243,13 @@ function queryIndexInfo() {
         "name": "wangwang",	   //轮播图名称
         "url": "https://wxpic.iliangpin.cn/meichao/banner1.png",	   //url
         "target": "" //跳转地址
-      }
+      },
+        {
+            "id": 1,  //id
+            "name": "wangwang",	   //轮播图名称
+            "url": "https://wxpic.iliangpin.cn/meichao/banner1.png",	   //url
+            "target": "" //跳转地址
+        }
     ],
     "merchantList": [
       {
