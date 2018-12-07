@@ -14,16 +14,12 @@
     </view>
 </view>
 <view class="container">
-
-    <view class="banner_box flex flex_center bg_ff">
-        <image src="https://wxpic.iliangpin.cn/meichao/banner1.png"></image>
-    </view>
     <!-- 轮播图 -->
-    <!-- <swiper class="banner_box flex flex_center bg_ff" indicator-dots="true" autoplay="true" interval="3000" duration="1000">
+     <swiper class="banner_box flex flex_center bg_ff" indicator-dots="true" autoplay="true" interval="3000" duration="1000">
       <swiper-item wx:for="{{banners}}" wx:key="{{item.id}}">
         <image src="{{item.url}}"></image>
       </swiper-item>
-    </swiper> -->
+    </swiper>
 
     <!-- 分类列表 -->
     <view wx:if="{{classifyList != null}}" class="classify_box flex flex_center flex_around">
