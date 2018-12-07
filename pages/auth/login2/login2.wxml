@@ -16,7 +16,11 @@
         </view>
     </view>
     <view class="btn_box flex flex_just">
-        <image src="/static/images/group4.png"></image>
-        <image src="/static/images/group3.png"></image>
+        <button open-type="getUserInfo" class='icon_btn' bindgetuserinfo="getUserInfo">
+           选择其他团长
+        </button>
+        <button open-type="getUserInfo"  class='icon_btn sure_btn' bindgetuserinfo="getUserInfo">
+           确认此团长
+        </button>
     </view>
 </view>

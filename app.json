@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/auth/login2/login2",
     "pages/index2/index2",
     "pages/index/index",
 
@@ -24,7 +25,7 @@
     "pages/ucenter/partner/partner",
 
     "pages/auth/login/login",
-    "pages/auth/login2/login2",
+
     "pages/pay/pay",
     "pages/payResult/payResult",
     "pages/search/search",

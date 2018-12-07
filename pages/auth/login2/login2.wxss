@@ -51,3 +51,21 @@ page{
 .btn_box image:first-child{
    margin-right:25rpx;
 }
+
+.btn_box .icon_btn{
+    width:257rpx;
+    height:64rpx;
+    line-height:64rpx;
+    padding:0;
+    color: #fff;
+    font-size: 30rpx;
+    background: #ffcf3b;
+    border-radius: 50rpx;
+    margin:0;
+    outline:none;
+    border:none;
+}
+.btn_box .sure_btn{
+    background:#81C95A;
+    margin-left:25rpx;
+}
