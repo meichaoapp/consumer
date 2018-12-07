@@ -122,7 +122,7 @@
             </view>
             <view class="total_money">￥40.00</view>
         </view>
-        <view class="icon_settle">去结算</view>
+        <view class="icon_settle" bindtap="openshopCar">去结算</view>
     </view>
 </view>
 <view class="n-bottom" hidden="{{hideBottom}}">
@@ -154,3 +154,52 @@
         </view>
     </view>
 </modal>
+
+<!-- 蒙层 -->
+<view class="commodity_screen" bindtap="hideshopCar" wx:if="{{shopCarStatus}}"></view>
+<!--购物车详情框 -->
+<view animation="{{animationData}}" class="shop_car" wx:if="{{shopCarStatus}}">
+    <view class="car_title flex flex_between flex_center">
+        <view class="font18">您选购的商品</view>
+        <view class="C666">清空购物车</view>
+    </view>
+    <view class="classify_list">
+        <view class="classify_title">拼团商品</view>
+        <view class="classify_con">
+            <view class="classify_item flex flex_center flex_between">
+                <text class="goods_name  ellipsis font16">蜜蜂绿心奇异果</text>
+                <view class="right_part flex flex_between">
+                    <text class="font16">￥12.00</text>
+                    <view class="set_car flex flex_center">
+                        <image src="https://wxpic.iliangpin.cn/meichao/minus.png"></image>
+                        <text class="count">4</text>
+                        <image src="https://wxpic.iliangpin.cn/meichao/plus.png"></image>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view class="classify_con">
+            <view class="classify_item flex flex_center flex_between">
+                <text class="goods_name  ellipsis font16">蜜蜂绿心奇异果</text>
+                <view class="right_part flex flex_between">
+                    <text class="font16">￥12.00</text>
+                    <view class="set_car flex flex_center">
+                        <image src="https://wxpic.iliangpin.cn/meichao/minus.png"></image>
+                        <text class="count">4</text>
+                        <image src="https://wxpic.iliangpin.cn/meichao/plus.png"></image>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view  class="car_box flex flex_between">
+        <view class="flex flex_center">
+            <view class="shopingcart_box">
+                <image src="/static/images/shopping_cart.png"></image>
+                <view class="count_num cfff">2</view>
+            </view>
+            <view class="total_money">￥40.00</view>
+        </view>
+        <view class="icon_settle" bindtap="openshopCar">去结算</view>
+    </view>
+</view>

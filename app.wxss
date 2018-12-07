@@ -328,6 +328,12 @@ view,text{
 .font15{
   font-size:30rpx;
 }
+.font16{
+  font-size:32rpx;
+}
+.font18{
+  font-size:36rpx;
+}
 .C999{
   color:#999;
 }
@@ -337,6 +343,10 @@ view,text{
 .cfff{
   color:#fff;
 }
-
+.ellipsis{
+  overflow:hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
 
 

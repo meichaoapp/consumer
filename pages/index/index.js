@@ -72,7 +72,7 @@ Page({
                 url: '/pages/details/details?id=' + options.id
             });
         }
-        
+
         let userInfo = wx.getStorageSync('userInfo');
         console.log("userinfo----" + userInfo);
         if (null != userInfo && userInfo != "" && undefined != userInfo) {
@@ -233,6 +233,49 @@ Page({
                 }
             })
         }
+    },
+    //打开购物车详情
+    openshopCar:function() {
+        let that = this;
+        // 显示遮罩层
+        var animation = wx.createAnimation({
+            duration: 200,
+            timingFunction: "linear",
+            delay: 0
+        })
+        that.animation = animation
+        animation.translateY(300).step()
+            that.setData({
+                animationData: animation.export(),
+                shopCarStatus: true
+            })
+        setTimeout(function () {
+            animation.translateY(0).step()
+            that.setData({
+                animationData: animation.export()
+            })
+        }.bind(this), 200)
+    },
+    //隐藏购物车详情
+    hideshopCar: function() {
+        // 隐藏遮罩层
+        var animation = wx.createAnimation({
+            duration: 200,
+            timingFunction: "linear",
+            delay: 0
+        })
+        this.animation = animation
+        animation.translateY(300).step()
+        this.setData({
+            animationData: animation.export(),
+        })
+        setTimeout(function() {
+            animation.translateY(0).step()
+            this.setData({
+                animationData: animation.export(),
+                shopCarStatus: false,
+            })
+        }.bind(this), 200)
     },
   //小于10的格式化函数
   timeFormat(param) {
