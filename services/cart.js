@@ -153,7 +153,7 @@ function createOrder(t_id , user){
      totalPay: totalPay,
      needPay: needPay,
      merchantOrder: getMerchantOrder(m_list, t_id, user),// 团购订单
-     oneselfOrder: oneselfOrder = getSelfOrder(s_list, t_id, user),
+     oneselfOrder: getSelfOrder(s_list, t_id, user),
    };
 
 }

@@ -469,6 +469,16 @@ Page({
           })
       }.bind(this), 200)
   },
+  //去订单确认页
+  toOrderConfirm:function() {
+    let _this = this;
+    if (_this.data.goodsNums <= 0){
+      return;
+    }
+    wx.navigateTo({
+      url: '/pages/orderConfirm/orderConfirm'
+    });
+  },
   //小于10的格式化函数
   timeFormat(param) {
     return param < 10 ? '0' + param : param;

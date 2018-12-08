@@ -132,7 +132,7 @@
             </view>
             <view class="total_money">￥{{needPay}}</view>
         </view>
-        <view class="icon_settle" >去结算</view>
+        <view bindtap='toOrderConfirm' class="icon_settle" >去结算</view>
     </view>
 </view>
 
@@ -205,6 +205,6 @@
             </view>
             <view class="total_money">￥{{needPay}}</view>
         </view>
-        <view class="icon_settle">去结算</view>
+        <view bindtap='toOrderConfirm' class="icon_settle">去结算</view>
     </view>
 </view>

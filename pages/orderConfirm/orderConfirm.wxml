@@ -99,20 +99,20 @@
                 </view>
             </view>
             <view  class="single single2 flex flex_end flex_center">
-                <view class="mr13">已优惠<text class="c_9000">￥28.19</text></view>
-                <view class="flex flex_center"><text>合计:</text>￥<text class="font24">115</text></view>
+                <view class="mr13">已优惠<text class="c_9000">￥{{preferential}}</text></view>
+                <view class="flex flex_center"><text>合计:</text>￥<text class="font24">{{needPay}}</text></view>
             </view>
         </view>
     </view>
     <!--定位在底部-->
     <view class="fixed_box bg_ff flex flex_between">
         <view class="total flex flex_center">
-            <view class="mr6 C666">已优惠￥28.19</view>
-            <view class="flex flex_center"><text>合计：</text><text>￥</text><text class="font24">115</text></view>
+            <view class="mr6 C666">已优惠￥{{preferential}}</view>
+            <view class="flex flex_center"><text>合计：</text><text>￥</text><text class="font24">{{needPay}}</text></view>
         </view>
         <view class="flex pay_box flex_center flex_just">
             <image class="icon_pay2" src="/static/images/wx_pay.png"></image>
-            <view class="font16 cfff">微信支付</view>
+            <view class="font16 cfff">{{needPay}}</view>
         </view>
     </view>
 </view>
