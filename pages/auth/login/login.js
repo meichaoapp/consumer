@@ -67,35 +67,23 @@ Page({
    */
   getCurrentLocation: function () {
     var that = this;
-    var userLocation = wecache.get(pointKey, null);
-    if (userLocation == null) {
-      wx.getLocation({
-        type: 'gcj02', //返回可以用于wx.openLocation的经纬度
-        success: function (res) {
-          var latitude = res.latitude//维度
-          var longitude = res.longitude//经度
-          ///设置当前地理位置
-          that.setData({
-            latitude: latitude,
-            longitude: longitude,
-          });
-          maps.getRegeo(latitude, longitude).then(res => {
-            that.setData({
-              pointName: res.poisData[0].address,
-            });
+   
+    wx.getLocation({
+      type: 'gcj02', //返回可以用于wx.openLocation的经纬度
+      success: function (res) {
+        var latitude = res.latitude//维度
+        var longitude = res.longitude//经度
+        ///设置当前地理位置
+        that.setData({
+          latitude: latitude,
+          longitude: longitude,
+        });
+        that.queryMerchats(); // 加载商户信息
+      }
+    })
+   
 
-          });
-        }
-      })
-    } else {
-      that.setData({
-        pointName: userLocation.pointName,
-        longitude: userLocation.longitude,
-        latitude: userLocation.latitude,
-      })
-    }
-
-    that.queryMerchats(); // 加载商户信息
+    
   },
 
   //查询商户列表信息
@@ -166,14 +154,16 @@ Page({
     console.log("userInfo" + wxUser)
     user.wxLogin(wxUser).then(res => {
       if (res.rs == 1) {
+        var userInfo = res.data.user;
         _this.setData({
-          userInfo: res.data.user
+          userInfo: userInfo
         });
+       
         //缓存当前商户信息
         wx.setStorageSync(currentMerchat, _this.data.merchat);
-        app.globalData.userInfo = res.data.user;
+        app.globalData.userInfo = userInfo;
         app.globalData.token = res.data.token;
-        wx.setStorageSync('userInfo', res.data.user);
+        wx.setStorageSync('userInfo', userInfo);
         wx.setStorageSync('token', res.data.token);
         wx.navigateBack({
           delta: 1

@@ -72,7 +72,7 @@ Page({
         }
 
         this.$wuxLoading = app.Wux().$wuxLoading //加载
-        this.queryIndexInfo();
+        this.getCurrentLocation();
         //this.queryTGList();
         this.countDown();
 
@@ -89,6 +89,10 @@ Page({
             this.setData({
                 userInfo: userInfo,
             });
+        } else {
+          wx.navigateTo({
+            url: '/pages/auth/login/login'
+          });
         }
 
       let merchant = wx.getStorageSync(currentMerchat);
@@ -150,12 +154,36 @@ Page({
             wx.stopPullDownRefresh();
         }, 300);
     },
+  /**
+ * 获取当前地理位置信息
+ */
+  getCurrentLocation: function () {
+    var that = this;
+
+    wx.getLocation({
+      type: 'gcj02', //返回可以用于wx.openLocation的经纬度
+      success: function (res) {
+        var latitude = res.latitude//维度
+        var longitude = res.longitude//经度
+        ///设置当前地理位置
+        that.setData({
+          latitude: latitude,
+          longitude: longitude,
+        });
+        that.queryIndexInfo(); // 查询首页信息
+      }
+    })
+  },
     /**
      * 查询首页信息
      */
     queryIndexInfo: function () {
         let that = this;
-        util.request(api.QueryIndexInfo, {token: ""}, "POST").then(function (res) {
+        var data = {
+          "longitude": that.data.longitude,//经度
+          "latitude": that.data.latitude//纬度
+        };
+      util.request(api.QueryIndexInfo, data, "POST").then(function (res) {
             if(res.rs === 1){
                 that.setData({
                     banners:res.data.banners,
@@ -180,8 +208,8 @@ Page({
         //console.log("sellType--"+sellType);
         let data = {
             "merchantId": _this.data.merchat.merchantId,//店铺id
-            "start": 0,     //分页开始页  必填
-            "limit": 20,    //当前页共显示多少条  必填
+            "start": _this.data.start,     //分页开始页  必填
+            "limit": _this.data.limit,    //当前页共显示多少条  必填
             "previewFlag": -1,// 用于查询previewFlag为-1时，则可以预览新添的团品信息
             "sellType": sellType, // 销售类型被选中，默认为1
         }
@@ -207,9 +235,21 @@ Page({
               }
 
             }
-            _this.setData({
-              goodsList: goodsList,
-            })
+         if (_this.data.start == 1) { // 下拉刷新
+           _this.setData({
+             goodsList: goodsList,
+             hideHeader: true,
+             totalPage: res.data.totalPage,
+           })
+         }else {
+           var tempArray = _this.data.goodsList;
+           tempArray = tempArray.concat(goodsList);
+           _this.setData({
+             goodsList: tempArray,
+             totalPage: res.data.totalPage,
+           })
+         }
+          
             _this.refreshCartRef();
         })
 

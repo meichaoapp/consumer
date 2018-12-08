@@ -112,6 +112,16 @@
 
 
 </view>
+<view class="n-bottom" hidden="{{hideBottom}}">
+    <view>
+        <view class='transverseline'><text class='line'></text></view>
+
+        <text class='txt'>11{{loadMoreData}}</text>
+
+        <view class='transverseline'><text class='line'></text></view>
+    </view>
+</view>
+
 <!--底部购物车和去结算-->
 <view>
     <view  class="car_box flex flex_between">
@@ -125,15 +135,7 @@
         <view class="icon_settle" >去结算</view>
     </view>
 </view>
-<view class="n-bottom" hidden="{{hideBottom}}">
-    <view>
-        <view class='transverseline'><text class='line'></text></view>
 
-        <text class='txt'>{{loadMoreData}}</text>
-
-        <view class='transverseline'><text class='line'></text></view>
-    </view>
-</view>
 
 <!--自定义弹框组件-->
 <modal wx:if="{{showModal}}" show="{{showModal}}" height='80%' bindcancel="modalCancel" bindconfirm='modalConfirm'>
