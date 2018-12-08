@@ -1,7 +1,56 @@
 <view class="order_confirm_box container">
     <view class="auto_tip font15">已为您自动拆分成两个订单</view>
+    <!--订单：拼团商品 -->
     <view class="intro_box bg_ff">
         <view class="title C66">订单：拼团商品</view>
+        <view style="padding:0 30rpx">
+            <view class="intro flex flex_colum">
+                <view class="address_box flex">
+                    <view class="icon_address">取货地址</view>
+                    <view class="address">山东省日照市东港区大连路208号三号海鲜生活超市888号</view>
+                </view>
+                <view class="merchant_name">
+                    <text class="C666 mr30">团长名称</text>
+                    <text class="C666">1500000000</text>
+                </view>
+            </view>
+        </view>
+        <view class="list bg_ff">
+            <view class="list_item flex flex_between flex_center">
+                <view class="left_part">
+                    <image src="/static/images/default.png"></image>
+                </view>
+                <view class="right_part">
+                    <view class="flex flex_between">
+                        <view>蜜蜂21.5C绿心奇异果</view>
+                        <view>
+                            <text class="mr6 C999">￥16.8</text>
+                            <text class=" font18">￥6.8</text>
+                        </view>
+                    </view>
+                    <view class="C999 mt10">×1</view>
+                </view>
+            </view>
+            <view class="list_item flex flex_between flex_center">
+                <view class="left_part">
+                    <image src="/static/images/default.png"></image>
+                </view>
+                <view class="right_part">
+                    <view class="flex flex_between">
+                        <view>蜜蜂21.5C绿心奇异果</view>
+                        <view>
+                            <text class="mr6 C999">￥16.8</text>
+                            <text class=" font18">￥6.8</text>
+                        </view>
+                    </view>
+                    <view class="C999 mt10">×1</view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <!-- 订单：店铺自营商品 -->
+    <view class="intro_box bg_ff">
+        <view class="title C66">订单：店铺自营商品</view>
         <view style="padding:0 30rpx">
             <!--门店自取-->
             <view class="intro flex flex_colum">
