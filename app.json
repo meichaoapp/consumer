@@ -1,9 +1,10 @@
 {
   "pages": [
-    "pages/details/details",
+    "pages/category/goodsList",
     "pages/index/index",
-    "pages/orderConfirm/orderConfirm",
 
+    "pages/orderConfirm/orderConfirm",
+    "pages/details/details",
     "pages/details/success",
 
     "pages/ucenter/index/index",
