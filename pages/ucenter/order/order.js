@@ -1,7 +1,8 @@
 var util = require('../../../utils/util.js');
 var api = require('../../../config/api.js');
 //获取应用实例
-const app = getApp()
+const app = getApp();
+const statusColor = [""];
 Page({
   data:{
     userInfo: {},

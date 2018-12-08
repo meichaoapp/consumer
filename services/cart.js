@@ -19,7 +19,7 @@ const DELIVERY_COST_PRICE  = 10.00; // 邮费
  * add goods to cart
  */
 function add2Cart(goods) {
-  var _arr = [];
+  var _arr = loadCart();
   _arr.push(goods);
   wecache.put(CART_KEY, _arr,-1);
 }

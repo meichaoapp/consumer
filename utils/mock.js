@@ -463,15 +463,37 @@ function QueryTGNewList() {
     "list": [
       {
           "id": 1, //id
-          "name": "精品羊排 新鲜出厂当日即达", //团购名称
+          "name": "精品羊排 新鲜出厂当日即达1", //团购名称
           "url": "https://s-mall.oss-cn-beijing.aliyuncs.com/meichao/g2.png", //展示url
           "price": 10.01, //团购价
           "marketPrice": 10.05,//市场价/原价
           "status": 0, //0 未开始 1 进行中 2 已成团 3 已过期
           "comments": "草原宏宝蒙巴克 无公害谷饲羔羊", //简述
           "specifications": "整箱20个",//规格
-          "productType": "1"//商品类型 1.普通团品 2. 一元购 3. 店长自营产品
-      }
+          "productType": 1//商品类型 1.普通团品 2. 一元购 3. 店长自营产品
+      },
+      {
+        "id": 2, //id
+        "name": "精品羊排 新鲜出厂当日即达2", //团购名称
+        "url": "https://s-mall.oss-cn-beijing.aliyuncs.com/meichao/g2.png", //展示url
+        "price": 10.01, //团购价
+        "marketPrice": 10.05,//市场价/原价
+        "status": 0, //0 未开始 1 进行中 2 已成团 3 已过期
+        "comments": "草原宏宝蒙巴克 无公害谷饲羔羊", //简述
+        "specifications": "整箱20个",//规格
+        "productType": 3 //商品类型 1.普通团品 2. 一元购 3. 店长自营产品
+      },
+      {
+        "id": 3, //id
+        "name": "精品羊排 新鲜出厂当日即达3", //团购名称
+        "url": "https://s-mall.oss-cn-beijing.aliyuncs.com/meichao/g2.png", //展示url
+        "price": 10.01, //团购价
+        "marketPrice": 10.05,//市场价/原价
+        "status": 0, //0 未开始 1 进行中 2 已成团 3 已过期
+        "comments": "草原宏宝蒙巴克 无公害谷饲羔羊", //简述
+        "specifications": "整箱20个",//规格
+        "productType": 1 //商品类型 1.普通团品 2. 一元购 3. 店长自营产品
+      },
     ]
     };
   RS.data = data;
@@ -699,6 +721,7 @@ function QueryOrderList(){
         "url": "https://s-mall.oss-cn-beijing.aliyuncs.com/meichao/g1.png",	   //展示url
         "orderNums": "5盒", //订单数量
         "status": 0,  // 团品状态 0即将到货 1请前往取货 2已完成 
+        "statusStr": "请前往取货", // 团品状态 0即将到货 1请前往取货 2已完成 
         "joinTime": "2018/09/16 00:00:00", // 下单时间，注意格式
         "merchantName": "美超团长", //商户名称（团长）
         "comments": "草原宏宝蒙巴克 无公害谷饲羔羊", // 简述
@@ -714,6 +737,7 @@ function QueryOrderList(){
         "url": "https://s-mall.oss-cn-beijing.aliyuncs.com/meichao/g1.png",	   //展示url
         "orderNums": "5盒", //订单数量
         "status": 1, //0 即将到货 1 已完成
+        "statusStr": "请前往取货", // 团品状态 0即将到货 1请前往取货 2已完成 
         "joinTime": "2018/09/16 00:00:00", // 下单时间，注意格式
         "merchantName": "美超团长", //商户名称（团长）
         "comments": "草原宏宝蒙巴克 无公害谷饲羔羊", // 简述
@@ -729,6 +753,7 @@ function QueryOrderList(){
         "url": "https://s-mall.oss-cn-beijing.aliyuncs.com/meichao/g1.png",	   //展示url
         "orderNums": "5盒", //订单数量
         "status": 2, //0 即将到货 1 已完成
+        "statusStr": "请前往取货", // 团品状态 0即将到货 1请前往取货 2已完成 
         "joinTime": "2018/09/16 00:00:00", // 下单时间，注意格式
         "merchantName": "美超团长", //商户名称（团长）
         "comments": "草原宏宝蒙巴克 无公害谷饲羔羊", // 简述
@@ -749,6 +774,7 @@ function QueryOrderDetail(){
     "orderId": 123456,  //系统生成订单编号 
     "joinTime":"2018/09/16 00:00:00", //下单时间，注意格式
     "status": 0, //团品状态 0即将到货 1请前往取货 2已完成 
+    "statusStr": "请前往取货", // 团品状态 0即将到货 1请前往取货 2已完成
     "totalPay": 100.05,//共付
     "needPay": 100.05,// 应付
     "address": "山东省日照市东港区大连路三好鲜生超市",//取货地址
