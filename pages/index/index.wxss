@@ -173,30 +173,7 @@
     font-size:22rpx;
     text-decoration: line-through;
 }
-.progress{
-    width:328rpx;
-    height:12rpx;
-    background:#FFCF3B;
-    position:relative;
-    border-radius:100rpx;
-    margin-top:10rpx;
-}
-.progress_bar{
-    position:absolute;
-    left:0;
-    background:#FF9000;
-    width:20%;
-    height:100%;
-    border-radius:100rpx;
-}
-.progress_bar view{
-    width:8rpx;
-    height:8rpx;
-    border-radius:100%;
-    position:absolute;
-    right:2rpx;
-    top:2rpx;
-}
+
 .single_box .bottom{
     height:80rpx;
 }

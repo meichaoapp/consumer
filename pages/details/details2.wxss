@@ -1,0 +1,508 @@
+page{
+  background-color:#f4f4f4;
+  min-height: 100%;
+}
+.detail-tab{
+  background: #FFF;
+  display:flex; 
+  flex-direction:row;
+  width: 100%;
+  padding: 26rpx 0;
+}
+.tab-item{
+  color: #999999;
+  width: 50%;
+  font-size: 30rpx;
+}
+
+.l{
+  text-align: right;
+  margin-right: 6rpx;
+}
+
+.r{
+  margin-left: 6rpx;
+}
+
+.selected{
+  color: #333333;
+}
+
+.container{
+    padding-bottom: 100rpx;
+}
+.goodsimgs{
+  width: 100%;
+  height: 480rpx;
+}
+
+.goodsimgs image{
+  width: 100%;
+}
+
+.detail-info{
+   background: #FFF;
+   display: flex;
+   justify-content: space-between;
+}
+
+.detail-info .info{
+  width: 76%;
+  margin-left: 25rpx;
+  padding-top: 30rpx;
+}
+.info .name {
+  display: block;
+  color: #5a5a5a;
+  margin-bottom: 18rpx;
+  font-size: 32rpx;
+  font-weight: bold;
+}
+
+.info .desc {
+  display: block;
+  color: #a0a0a0;
+  font-size: 28rpx;
+}
+
+.share{
+  margin-right: 13rpx;
+  margin-top: 29rpx;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  background:#fff;
+  padding:0;
+}
+button.share::after{
+  border: none;
+}
+
+.share-icon{
+  width: 36rpx;
+  height: 36rpx;
+}
+
+.share-text{
+  color: #72cfdd;
+  font-size: 24rpx;
+
+}
+
+.status-info{
+  background: #FFF;
+}
+
+.status-button{
+  display: flex;
+  height: 70rpx;
+  line-height: 70rpx;
+  margin: 20rpx;
+  background: #fcf3e0;
+  color: #666;
+  border-radius: 70rpx;
+  justify-content: space-between;
+  padding: 0 16rpx;
+}
+.status-button .status-content ,.status-button .join-tip{
+  font-size: 28rpx;
+}
+
+.container .status-button .status-icon{
+width:24rpx;
+height:24rpx;
+margin-top:23rpx;
+margin-right:10rpx;
+}
+
+
+
+.join-tip{
+  color: #888;
+  margin-right:9rpx;
+}
+.line{
+  margin-left: 13rpx;
+  margin-right: 13rpx;
+  background: #FFF;
+  border-top: 0.1rpx solid #d1d2d3;
+}
+
+.desc-info{
+   background: #FFF;
+  
+}
+
+.title{
+  margin: 24rpx 20rpx;
+  display: block;
+  color: #7a7a7a;
+  font-size: 32rpx;
+  font-weight: bold;
+}
+
+.desc-info .content{
+  margin: 0 20rpx;
+  color: #666666;
+  font-size: 28rpx;
+  line-height: 48rpx;
+  height: auto;
+  overflow: hidden;
+}
+
+.desc-info .content image{
+  width: 750rpx;
+  display: block;
+}
+
+
+.merchant-info{
+   background: #FFF;
+}
+
+.merchant-box{
+  height: 170rpx;
+  margin: 0 20rpx;
+  background: #FFF;
+  border-radius: 6rpx;
+  -moz-box-shadow:0 5rpx 22rpx #f0f0f0; 
+  -webkit-box-shadow:0 5rpx 22rpx #f0f0f0; 
+  box-shadow:0 5rpx 22rpx#f0f0f0;
+  padding-left:130rpx;
+  padding-top: 20rpx;
+  padding-bottom: 20rpx;
+  box-sizing: border-box;
+  overflow: hidden!important;
+}
+
+.merchant-label{
+  padding:3rpx 6rpx;
+  background:#72cfdd;
+  color:#fff;
+  border-radius:6rpx;
+font-size:28rpx;
+
+}
+
+.merchant-name{
+  color: #000;
+  font-size: 32rpx;
+   padding:3rpx 6rpx;
+}
+.merchant-c{
+  color: #666;
+  font-size: 28rpx;
+}
+.merchant-c:first-child{
+  padding-top: 26rpx; 
+}
+.merchant-c:nth-child(2){
+  padding-top: 14rpx; 
+}
+
+.merchant-avatar{
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+  position: relative;
+  left:30rpx;
+  top:70rpx;
+}
+
+.price-content{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+
+.bottom-btn{
+    position: fixed;
+    left:0;
+    bottom:0;
+    z-index: 10;
+    width: 100%;
+    height: 100rpx;
+    display: flex;
+    justify-content: space-around;
+    background: #fff;
+}
+
+.bottom-btn .p{
+    border-top: 1rpx solid #f4f4f4;
+    height: 100rpx;
+    width: 80%;
+    display: flex;
+    align-items: center;
+}
+
+.buy-price{
+  color: #f0c33d;
+  font-size: 35rpx;
+  margin-right:3rpx;
+}
+.market-price{
+  margin-right: 13rpx;
+  color: #aeaeae;
+  font-size: 24rpx;
+  height: 24rpx;
+  line-height: 24rpx;
+  text-decoration: line-through;
+  margin-left:18rpx;
+}
+.check-icon{
+  width: 25rpx;
+  height: 25rpx;
+  margin-right: 3px;
+}
+.ticket{
+  margin-left: 6rpx;
+  font-size: 24rpx;
+  align-content: center;
+  align-items: center;
+}
+.ticket-title{
+   font-size: 24rpx;
+   color: #787878;
+}
+.bottom-btn .c{
+    float: left;
+    height: 100rpx;
+    line-height: 96rpx;
+    flex: 1;
+    text-align: center;
+    color: #333;
+    border-top: 1px solid #f4f4f4;
+    border-bottom: 1px solid #f4f4f4;
+}
+
+.bottom-btn .r{
+    width: 200rpx;
+    border:1px solid #72cfdd;
+    background: #72cfdd;
+    float: left;
+    height: 100rpx;
+    line-height: 96rpx;
+    text-align: center;
+    color: #fff;
+}
+@import "../../lib/wxParse/wxParse.wxss";
+
+.attr-pop{
+    width: 100%;
+    height: 100%;
+    padding: 31.25rpx;
+    background: #fff;
+}
+
+.attr-pop .img-info{
+    width: 687.5rpx;
+    height: 177rpx;
+    overflow: hidden;
+    margin-bottom: 41.5rpx;
+}
+
+.attr-pop .img{
+    float: left;
+    height: 177rpx;
+    width: 177rpx;
+    background: #f4f4f4;
+    margin-right: 31.25rpx;
+}
+
+.attr-pop .info{
+    float: left;
+    height: 177rpx;
+    display: flex;
+    align-items: center;
+}
+
+.attr-pop .p{
+    font-size: 32rpx;
+    color: #333;
+    height: 33rpx;
+    line-height: 33rpx;
+    margin-bottom: 10rpx;
+}
+
+.attr-pop .a{
+    font-size: 29rpx;
+    color: #333;
+    height: 40rpx;
+    line-height: 40rpx;
+}
+
+.spec-con{
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+}
+
+.spec-con .name{
+    height: 32rpx;
+    margin-bottom: 22rpx;
+    font-size: 29rpx;
+    color: #333;
+}
+
+.spec-con .values{
+    height: auto;
+    margin-bottom: 31.25rpx;
+    font-size: 0;
+}
+
+.spec-con .value{
+    display: inline-block;
+    height: 62rpx;
+    padding: 0 35rpx;
+    line-height: 56rpx;
+    text-align: center;
+    margin-right: 25rpx;
+    margin-bottom: 16.5rpx;
+    border: 1px solid #333;
+    font-size: 25rpx;
+    color: #333;
+}
+
+.spec-con .value.disable{
+    border: 1px solid #ccc;
+    color: #ccc;
+}
+
+.spec-con .value.selected{
+    border: 1px solid #b4282d;
+    color: #b4282d;
+}
+
+.number-item .selnum{
+    width: 169rpx;
+    height: 71rpx;
+    display: flex;
+    margin-right:11rpx;
+
+}
+
+.number-item .cut{
+    width: 50rpx;
+    height: 50rpx;
+    text-align: center;
+    line-height: 45rpx;
+    border: 1px solid #72cfdd;
+    border-radius: 50%;
+    color: #72cfdd;
+}
+
+.number-item .number{
+    flex: 1;
+    height: 50rpx;
+    text-align: center;
+    line-height: 50rpx;
+    float: left;
+}
+
+.number-item .add{
+   width: 50rpx;
+    height: 50rpx;
+    text-align: center;
+    line-height: 45rpx;
+    border: 1px solid #72cfdd;
+    border-radius: 50%;
+    color: #FFF;
+    background: #72cfdd;
+}
+
+
+.friends-info{
+  background: #FFF;
+  margin-top: 13rpx;
+  font-size: 30rpx;
+  padding-bottom:19rpx;
+}
+
+.friends-number{
+   color: #666;
+   line-height: 99rpx;
+   border-bottom: 1px solid #d1d2d3;
+}
+
+
+
+.friends-list{
+  background: #FFF;
+}
+
+.friends-list .friends-item{
+   /* align-content: center; */
+   align-items: center;
+   height:116rpx;
+   /* text-justify: center; */
+   padding-left: 20rpx;
+}
+
+.friends-avatar{
+  width: 99rpx;
+  height: 99rpx;
+  border-radius: 50%;
+  margin-top:9rpx;
+  margin-right:13rpx;
+}
+.friends-name-box-nob{
+   height: 115rpx;
+   line-height:115rpx;
+   /* width: 80%; */
+   flex: 1;
+   color: #888888;
+   overflow: hidden;
+}
+.friends-name-box{
+   height: 115rpx;
+   line-height:115rpx;
+   /* width: 80%; */
+   flex: 1;
+   border-top: 1px solid #d1d2d3;
+   color: #888888;
+   overflow: hidden;
+}
+.container .m-item-content .goods-content{
+font-size: 30rpx;
+}
+.container .m-item-content .desc{
+  font-size: 28rpx;
+}
+.groupnums{
+  margin-left: 18rpx;
+}
+.graybtn{
+  background: #999999!important;
+  border: 1px solid #999999!important;
+}
+/*wsx20181112*/
+.tabbar01,.tabbar02{
+  width: 50%;
+  background: #fff;
+  padding: 5rpx 0;
+}
+.tabbar01 .tabbtns{
+  /* text-align: right; */
+  float: right;
+}
+.tabbar01 image,.tabbar02 image{
+width: 220rpx;
+height: 79rpx;
+}
+.tabbtns{
+width: 220rpx;
+height: 79rpx;
+}
+.nosel{
+  display: block;
+  width: 220rpx;
+  height: 79rpx;
+  line-height: 79rpx;
+  color: #000;
+  font-size: 28rpx;
+  text-align: center;
+}
+.hide{
+  display: none;
+}
