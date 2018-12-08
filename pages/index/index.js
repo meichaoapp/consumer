@@ -3,7 +3,7 @@ const api = require('../../config/api.js');
 const user = require('../../services/user.js');
 const maps = require('../../utils/maps.js');
 const wecache = require('../../utils/wecache.js');
-
+const cart = require('../../services/cart.js');
 const pointKey = "userLocation";
 const currentMerchat = "currentMerchat";
 
@@ -14,6 +14,8 @@ Page({
         userInfo: null,
         latitude: 0.00,
         longitude: 0.00,
+        merchantList: [], // 团长列表
+        merchat: {},//选中的团长信息
         cityname: "",
         banners: [],
         start: 1, // 页码
@@ -24,33 +26,16 @@ Page({
         srollViewHeight: 0, //滚动分页区域高度
         refreshTime: '', // 刷新的时间
         loadMoreData: '加载更多',
-        classifyList: [],
+        classifyList: [],//分类导航
         treasures:[],//一元购物
         sellList:[],//拼团店铺列表
-        list: [], // 团购列表
-        merchantList:[], // 团长列表
-        merchat:{},//选中的团长信息
+        goodsList: [],//团购商品列表
+        cartGoodsList: [],//购物车商品列表
+        needPay:0.00, // 购物车核算价格
+        goodsNums:0, //商品数量
         num:0,//和index相比，控制左侧显示激活状态样式
-       // currSellDesc:''
         showModal:false,
-        goodsList:[
-            {
-                "name": "鲜嫩果蔬",  //类别名称
-                "logo": "https://wxpic.iliangpin.cn/meichao/nav1.png"  //店铺logo
-            },
-            {
-                "name": "休闲零食",  //类别名称
-                "logo": "https://wxpic.iliangpin.cn/meichao/nav2.png"  //店铺logo
-            },
-            {
-                "name": "家居用品",  //类别名称
-                "logo": "https://wxpic.iliangpin.cn/meichao/nav3.png"  //店铺logo
-            },
-            {
-                "name": "日用百货",  //类别名称
-                "logo": "https://wxpic.iliangpin.cn/meichao/nav4.png"  //店铺logo
-            }
-        ]
+        
     },
     onShareAppMessage: function () {
         return {
@@ -195,8 +180,31 @@ Page({
         }
        util.request(api.QueryTGNewList, data, "POST").then(function (res) {
             _this.$wuxLoading.hide(); //隐藏加载动画
+            var goodsList = res.data.list;
+            if (goodsList != null && goodsList.length > 0) {
+              goodsList.forEach(o => {
+                o.number = 0;
+              });
+              var _arr = cart.loadCart();//购物车商品
+              //console.log("cart goods ---" + JSON.stringify(_arr));
+              if (null != _arr && _arr.length > 0){
+                var len = _arr.length;
+                for (var i = 0; i < len; i++) {
+                  var gid = _arr[i].id;
+                  goodsList.forEach(o => {
+                    if (o.id == gid){
+                      o.number = _arr[i].number;
+                    }
+                  });
+                }
+              }
+
+            }
             _this.setData({
-                list:res.data.list
+              goodsList: goodsList,
+              needPay: cart.loadPrice().toFixed(2), // 购物车核算价格
+              goodsNums: cart.loadGooodsNums(), //商品数量
+              cartGoodsList: cart.loadCart(),
             })
         })
 
@@ -234,49 +242,126 @@ Page({
             })
         }
     },
+    //减
+  cutNumber: function (e) {
+    let _this = this;
+    var id = e.currentTarget.dataset.id;
+    var goodsList = _this.data.goodsList;
+    if (goodsList != null && goodsList.length > 0) {
+      goodsList.forEach(o => {
+        if (o.id == id) {
+          o.number = o.number - 1;
+          if (o.number < 0) {
+            o.number = 0;
+          }
+          var g = cart.loadCartGoods(o.id);
+          if (g != null) {//如果购物车以前有则更新
+            if (o.number == 0) {
+              cart.removeCart(o.id);
+            }else {
+              cart.updateCart(o);
+            }
+            
+          } 
+        }
+      });
+    }
+    _this.setData({
+      goodsList: goodsList,
+      needPay: cart.loadPrice().toFixed(2), // 购物车核算价格
+      goodsNums: cart.loadGooodsNums(), //商品数量
+      cartGoodsList: cart.loadCart(),
+    });
+  },
+  //加
+  addNumber: function (e) {
+    let _this = this;
+    var id = e.currentTarget.dataset.id;
+    var goodsList = _this.data.goodsList;
+    if (goodsList != null && goodsList.length > 0) {
+      goodsList.forEach(o => {
+        if (o.id == id) {
+          o.number = o.number + 1;
+          var g = cart.loadCartGoods(o.id);
+          //console.log("购物无车商品---" + JSON.stringify(g));
+          if (g == null) {//如果没有则加入购物车
+            cart.add2Cart(o);
+          } else {//如果购物车以前有则更新购物车商品数量
+            cart.updateCart(o);
+          }
+          
+        }
+      });
+    }
+    
+    _this.setData({
+      goodsList: goodsList,
+      needPay: cart.loadPrice().toFixed(2), // 购物车核算价格
+      goodsNums: cart.loadGooodsNums(), //商品数量
+      cartGoodsList: cart.loadCart(),
+    });
+  },
+  ///清除购物车商品
+  clearCart:function(){
+     let _this = this;
+     cart.cleanCart();
+    var goodsList = _this.data.goodsList;
+    if (goodsList != null && goodsList.length > 0) {
+      goodsList.forEach(o => {
+        o.number = 0;
+      });
+    }
+    _this.setData({
+      goodsList: goodsList,
+      needPay: cart.loadPrice().toFixed(2), // 购物车核算价格
+      goodsNums: cart.loadGooodsNums(), //商品数量
+      cartGoodsList: cart.loadCart(),
+    });
+  },
+ 
     //打开购物车详情
-    openshopCar:function() {
-        let that = this;
-        // 显示遮罩层
-        var animation = wx.createAnimation({
-            duration: 200,
-            timingFunction: "linear",
-            delay: 0
-        })
-        that.animation = animation
-        animation.translateY(300).step()
-            that.setData({
-                animationData: animation.export(),
-                shopCarStatus: true
-            })
-        setTimeout(function () {
-            animation.translateY(0).step()
-            that.setData({
-                animationData: animation.export()
-            })
-        }.bind(this), 200)
-    },
+  openshopCar:function() {
+      let that = this;
+      // 显示遮罩层
+      var animation = wx.createAnimation({
+          duration: 200,
+          timingFunction: "linear",
+          delay: 0
+      })
+      that.animation = animation
+      animation.translateY(300).step()
+          that.setData({
+              animationData: animation.export(),
+              shopCarStatus: true
+          })
+      setTimeout(function () {
+          animation.translateY(0).step()
+          that.setData({
+              animationData: animation.export()
+          })
+      }.bind(this), 200)
+  },
     //隐藏购物车详情
-    hideshopCar: function() {
-        // 隐藏遮罩层
-        var animation = wx.createAnimation({
-            duration: 200,
-            timingFunction: "linear",
-            delay: 0
-        })
-        this.animation = animation
-        animation.translateY(300).step()
-        this.setData({
-            animationData: animation.export(),
-        })
-        setTimeout(function() {
-            animation.translateY(0).step()
-            this.setData({
-                animationData: animation.export(),
-                shopCarStatus: false,
-            })
-        }.bind(this), 200)
-    },
+  hideshopCar: function() {
+      // 隐藏遮罩层
+      var animation = wx.createAnimation({
+          duration: 200,
+          timingFunction: "linear",
+          delay: 0
+      })
+      this.animation = animation
+      animation.translateY(300).step()
+      this.setData({
+          animationData: animation.export(),
+      })
+      setTimeout(function() {
+          animation.translateY(0).step()
+          this.setData({
+              animationData: animation.export(),
+              shopCarStatus: false,
+          })
+      }.bind(this), 200)
+  },
   //小于10的格式化函数
   timeFormat(param) {
     return param < 10 ? '0' + param : param;

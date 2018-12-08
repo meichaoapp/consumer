@@ -38,6 +38,49 @@ function loadCart() {
  return wecache.get(CART_KEY,[]);
 }
 
+/***
+ * load cart goods by id 
+ */
+function loadCartGoods(id) {
+  var _arr = loadCart();
+  var goods = null;
+  if (_arr.length > 0) {
+    _arr.map(g => {
+      //replace
+      if (g.id == id) {
+         goods = g;
+      }
+    });
+  } 
+  return goods;
+}
+/**
+ * 加载购物车商品总价
+ */
+function loadPrice() {
+  var total = 0.00;
+  var _arr = loadCart();
+  if (_arr.length > 0) {
+    _arr.map(g => {
+      total += g.price * g.number;
+    });
+  } 
+  return total;
+}
+/**
+ * 购物车商品数
+ */
+function loadGooodsNums() {
+  var total = 0;
+  var _arr = loadCart();
+  if (_arr.length > 0) {
+    _arr.map(g => {
+      total += g.number;
+    });
+  }
+  return total;
+}
+
 /**
  *  update cart data
  */
@@ -47,7 +90,8 @@ function updateCart(goods) {
     _arr.map(g => {
       //replace
       if(g.id == goods.id) {
-         g = goods;
+        removeCart(g.id);
+        add2Cart(goods);
       }
     });
    }else {
@@ -201,7 +245,10 @@ function getSelfOrder(_arr, t_id, user) {
     add2Cart, //添加购物车
     cleanCart,//清空购物车
     loadCart,//加载购车商品
+    loadCartGoods, //加载购物车商品
     updateCart,//更改购物车信息
     removeCart,//移除购物车商品
+    loadPrice,//购物车商品价格
+    loadGooodsNums,//商品数量
     createOrder,//生成订单数据（包含拆单逻辑） 
   };
