@@ -17,7 +17,7 @@
       </view>
     </navigator>
 
-    <navigator url="/pages/ucenter/order2/order2">
+    <navigator url="/pages/ucenter/order/order">
       <view class='mylist-cells'>
         <view class='mylist-cell-image'>
           <image src='/static/images/icons-my-list01.png'></image>

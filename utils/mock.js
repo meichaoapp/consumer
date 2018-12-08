@@ -673,18 +673,49 @@ function QueryOrderList(){
     "list": [
       {
         "id": 1,  //团购订单ID
-        "orderId": 1,  //团购订单ID
+        "orderId": 2018900018,  //团购订单ID
         "merchantId": 1,  //商户ID
         "name": "精品羊排 新鲜出厂当日即达",	   //团购名称
         "url": "https://s-mall.oss-cn-beijing.aliyuncs.com/meichao/g1.png",	   //展示url
         "orderNums": "5盒", //订单数量
-        "status": 0, //0 即将到货 1 已完成
+        "status": 0,  // 团品状态 0即将到货 1请前往取货 2已完成 
         "joinTime": "2018/09/16 00:00:00", // 下单时间，注意格式
+        "merchantName": "美超团长", //商户名称（团长）
         "comments": "草原宏宝蒙巴克 无公害谷饲羔羊", // 简述
         "address": "山东省日照市东港区大连路三好鲜生超市",//取货地址
         "deliveryType": 1, // 1自提 2送货上门
 
-      }
+      },
+      {
+        "id": 2,  //团购订单ID
+        "orderId": 2018900019,  //团购订单ID
+        "merchantId": 1,  //商户ID
+        "name": "精品羊排 新鲜出厂当日即达",	   //团购名称
+        "url": "https://s-mall.oss-cn-beijing.aliyuncs.com/meichao/g1.png",	   //展示url
+        "orderNums": "5盒", //订单数量
+        "status": 1, //0 即将到货 1 已完成
+        "joinTime": "2018/09/16 00:00:00", // 下单时间，注意格式
+        "merchantName": "美超团长", //商户名称（团长）
+        "comments": "草原宏宝蒙巴克 无公害谷饲羔羊", // 简述
+        "address": "山东省日照市东港区大连路三好鲜生超市",//取货地址
+        "deliveryType": 2, // 1自提 2送货上门
+
+      },
+      {
+        "id": 3,  //团购订单ID
+        "orderId": 2018900019,  //团购订单ID
+        "merchantId": 1,  //商户ID
+        "name": "精品羊排 新鲜出厂当日即达",	   //团购名称
+        "url": "https://s-mall.oss-cn-beijing.aliyuncs.com/meichao/g1.png",	   //展示url
+        "orderNums": "5盒", //订单数量
+        "status": 2, //0 即将到货 1 已完成
+        "joinTime": "2018/09/16 00:00:00", // 下单时间，注意格式
+        "merchantName": "美超团长", //商户名称（团长）
+        "comments": "草原宏宝蒙巴克 无公害谷饲羔羊", // 简述
+        "address": "山东省日照市东港区大连路三好鲜生超市",//取货地址
+        "deliveryType": 1, // 1自提 2送货上门
+
+      },
     ]
   }
   RS.data = data;

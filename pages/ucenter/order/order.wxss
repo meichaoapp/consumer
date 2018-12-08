@@ -117,65 +117,62 @@ page{
 *wsx
 */
 .o-details-lists-cell{
-  margin:0 28rpx 18rpx 28rpx;
-  background: #fff;
-  box-shadow: 1px 1px 1px #f0f0f0;
-  border-radius: 20rpx;
-  box-sizing: border-box;
+    height:273rpx;
+    background: #fff;
+    margin-top: 17rpx;
 }
 .o-details-lists:first-child {
-  margin-top: 17rpx; 
+   // margin-top: 17rpx;
+}
+.o-details-lists-cell-title{
+    width:100%;
+    padding:25rpx 30rpx;
+    border-bottom:1px solid #CCCCCC;
 }
 .o-details-lists-cell-main{
-  /* width: 100%; */
-  padding: 20rpx;
-  display: flex;
-  flex-direction: row;
+    /* width: 100%; */
+    padding: 20rpx;
+    display: flex;
+    flex-direction: row;
+    flex:1;
 }
 .o-details-lists-cell-img,.o-details-lists-cell-img image{
-width: 180rpx;
-height: 136rpx;
+    width: 87rpx;
+    height: 87rpx;
 }
 .o-details-lists-cell-desc{
-flex: 1;
+    flex: 1;
+    margin-left: 18rpx;
 }
-.o-details-lists-cell-desc text{
-  display: block;
-  padding-left: 18rpx; 
+.o-details-lists-cell-desc .merchant_name{
+    padding-bottom:11rpx;
+    width:100%;
+}
+.join_num text:last-child{
+    color:#999;
+}
+.o-details-lists-cell-desc .curr_sale{
+    width:100%;
+    margin-top:11rpx;
+}
+.curr_sale text:first-child{
+    color:#666;
+}
+.curr_sale text:last-child{
+    color:#333;
+    font-size:36rpx;
 }
 .o-details-lists-cell-status{
-font-size: 32rpx;
-/* font-weight: bold; */
-color: #72cfdd;
-text-align: right;
-padding-right: 30rpx;
-padding-bottom: 20rpx;
+    font-size: 32rpx;
+    /* font-weight: bold; */
+    color: #72cfdd;
+    text-align: right;
+    padding-right: 30rpx;
+    padding-bottom: 20rpx;
 }
 .finished{
-  color: #999999!important;
+    color: #999999!important;
 }
-.o-details-lists-cell-desc text.name{
-font-size: 32rpx;
-font-weight: bold;
-color: #333;
-height: 57rpx;
-}
-.o-details-lists-cell-desc text.num{
-font-size: 28rpx;
-color: #333;
-height: 40rpx;
-line-height: 36rpx;
-padding-left: 17rpx;
-}
-.o-details-lists-cell-desc text.detail{
-font-size: 20rpx;
-color: #e38f23;
-height: 42rpx;
-padding-left: 17rpx;
-line-height: 42rpx;
-}
-.create_time {
-  font-size: 26rpx;
-  color: #333;
-}
+
+
 
