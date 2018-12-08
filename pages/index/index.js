@@ -101,6 +101,7 @@ Page({
           merchant: merchant,
         });
       }
+      this.refreshCartRef();
     },
     onHide: function () {
         // 页面隐藏

@@ -129,10 +129,11 @@ Page({
 
         //console.log(res.data.wxPayResponse);
 
-        wx.redirectTo({
-          url: '/pages/details/success?id=' + data.id,
-        })
-        return;
+        // wx.redirectTo({
+        //   url: '/pages/details/success?id=' + data.id,
+        // })
+        // cart.cleanCart();
+        // return;
 
 
         var wxPayResponse = res.data.wxPayResponse;
@@ -146,6 +147,7 @@ Page({
             'signType': 'MD5',
             'paySign': wxPayResponse.sign,
             'success': function (res) {
+              cart.cleanCart();
               //跳转成功页
               wx.redirectTo({
                 url: '/pages/details/success?id=' + data.id,
