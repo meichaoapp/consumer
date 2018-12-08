@@ -354,7 +354,7 @@ Page({
         if (o.id == id) {
           o.number = o.number + 1;
           var g = cart.loadCartGoods(o.id);
-          console.log("购物无车商品---" + JSON.stringify(g));
+          //console.log("购物无车商品---" + JSON.stringify(g));
           if (g == null) {//如果没有则加入购物车
             cart.add2Cart(o);
           } else {//如果购物车以前有则更新购物车商品数量
