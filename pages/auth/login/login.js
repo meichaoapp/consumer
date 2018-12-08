@@ -22,6 +22,7 @@ Page({
     count: 0, //提交计数
     merchantList: [], // 团长列表
     merchat: {},//选中的团长信息
+    currentIndex:0
   },
 
   /**
@@ -67,7 +68,7 @@ Page({
    */
   getCurrentLocation: function () {
     var that = this;
-   
+
     wx.getLocation({
       type: 'gcj02', //返回可以用于wx.openLocation的经纬度
       success: function (res) {
@@ -81,9 +82,9 @@ Page({
         that.queryMerchats(); // 加载商户信息
       }
     })
-   
 
-    
+
+
   },
 
   //查询商户列表信息
@@ -120,7 +121,11 @@ Page({
   //选中商户
   clickMerchant(e) {
     let _this = this;
-    let id = e.currentTarget.dataset.id;
+    let id = e.currentTarget.dataset.id,
+      index = e.currentTarget.dataset.index;
+      _this.setData({
+          currentIndex: index,
+      })
     console.log("clickMerchant id -- " + id);
     var merchantList = _this.data.merchantList;
     var merchat = {};
@@ -158,7 +163,7 @@ Page({
         _this.setData({
           userInfo: userInfo
         });
-       
+
         //缓存当前商户信息
         wx.setStorageSync(currentMerchat, _this.data.merchat);
         app.globalData.userInfo = userInfo;
