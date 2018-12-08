@@ -7,6 +7,7 @@ Page({
         orderNo:0,
         joinTime:"",
         status: 0, // 订单状态 
+        statusStr:"",
         deliveryType:1,
         address:"",
         totalPay: 0.00,//共付
@@ -37,6 +38,7 @@ Page({
                     orderNo: res.data.orderId,
                     joinTime: res.data.joinTime,
                     status: res.data.status, // 订单状态 0 待支付 1 已支付 2 待领取 3 已完成 4 放弃 5 退货
+                    statusStr: res.data.statusStr,
                     totalPay: res.data.totalPay,//共付
                     needPay: res.data.needPay,// 应付
                     orderQRcode: res.data.orderQRcode,// 订单二维码（包含订单id）

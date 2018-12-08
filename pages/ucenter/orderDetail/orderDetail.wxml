@@ -13,9 +13,7 @@
                 </view>
                 <view class="o_item flex flex_between flex_center">
                     <view class="o_item_left font15 C999">订单状态</view>
-                    <view class="o_item_right font15" wx:if="{{status == 0}}">即将到货</view>
-                    <view class="o_item_right font15" wx:if="{{status == 1}}">请前往取货</view>
-                    <view class="o_item_right font15" wx:if="{{status == 2}}">已完成</view>
+                    <view class="o_item_right font15">{{statusStr}}</view>
                 </view>
                 <view class="o_item flex flex_between flex_center">
                      <view wx:if="{{deliveryType == 1}}" class="o_item_left font15 C999" >
