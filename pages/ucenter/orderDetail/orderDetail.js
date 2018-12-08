@@ -4,7 +4,11 @@ var api = require('../../../config/api.js');
 Page({
     data: {
         orderId:0,
-        status: 0, // 订单状态 0 待支付 1 已支付 2 待领取 3 已完成 4 放弃 5 退货
+        orderNo:0,
+        joinTime:"",
+        status: 0, // 订单状态 
+        deliveryType:1,
+        address:"",
         totalPay: 0.00,//共付
         needPay: 0.00,// 应付
         orderQRcode: "",// 订单二维码（包含订单id）
@@ -30,12 +34,15 @@ Page({
                 //   console.log(res.data);
                 that.setData({
                     orderId: res.data.id, //订单ID
+                    orderNo: res.data.orderId,
+                    joinTime: res.data.joinTime,
                     status: res.data.status, // 订单状态 0 待支付 1 已支付 2 待领取 3 已完成 4 放弃 5 退货
                     totalPay: res.data.totalPay,//共付
                     needPay: res.data.needPay,// 应付
                     orderQRcode: res.data.orderQRcode,// 订单二维码（包含订单id）
                     code: res.data.code, //订单识别码
-                    //orderNums: res.data.orderNums,
+                    deliveryType: res.data.deliveryType,
+                    address: res.data.address,
                     merchant: res.data.merchant,
                     groupPurchase: res.data.groupPurchase,
                     goodsList: res.data.goodsList

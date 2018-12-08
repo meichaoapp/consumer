@@ -727,9 +727,12 @@ function QueryOrderDetail(){
   var data = {
     "id": 1,  //订单id	 
     "orderId": 123456,  //系统生成订单编号 
-    "status": 0, // 订单状态 0 待支付 1 已支付 2 待领取 3 已完成 4 放弃 5 退货
+    "joinTime":"2018/09/16 00:00:00", //下单时间，注意格式
+    "status": 0, //团品状态 0即将到货 1请前往取货 2已完成 
     "totalPay": 100.05,//共付
     "needPay": 100.05,// 应付
+    "address": "山东省日照市东港区大连路三好鲜生超市",//取货地址
+    "deliveryType": 1, // 1自提 2送货上门
     "orderQRcode": "https://qr.api.cli.im/qr?data=1&level=H&transparent=false&bgcolor=%23ffffff&forecolor=%23000000&blockpixel=12&marginblock=1&logourl=&size=260&kid=cliim&key=309f76334fe78db4caacfd008659a22a",// 订单二维码（包含订单id）
     "code": "773b8bde7ed698bc2cc2227d5c765704", //订单识别码
     "orderNums": "5盒", //订单数量
@@ -747,7 +750,7 @@ function QueryOrderDetail(){
       "merchantName": "团购商超",//团购商超
       "merchantUserName": "张三",//团购商超负责人
       "merchantPhone": "010-3574787887",//团购商超电话
-      "avatar": "https://s-mall.oss-cn-beijing.aliyuncs.com/meichao/user.png" //头像
+      "avatar": "https://wxpic.iliangpin.cn/meichao/user.png" //头像
     }, //团长信息
 
     "goodsList": [

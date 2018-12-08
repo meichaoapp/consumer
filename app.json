@@ -8,9 +8,8 @@
     "pages/ucenter/address/address",
     "pages/ucenter/addressAdd/addressAdd",
     "pages/ucenter/order/order",
-    "pages/ucenter/orderDetail2/orderDetail2",
-
     "pages/ucenter/orderDetail/orderDetail",
+    
     "pages/ucenter/yourinfor/yourinfor",
 
     "pages/ucenter/desire/desire",
