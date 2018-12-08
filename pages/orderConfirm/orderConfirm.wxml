@@ -1,0 +1,118 @@
+<view class="order_confirm_box container">
+    <view class="auto_tip font15">已为您自动拆分成两个订单</view>
+    <view class="intro_box bg_ff">
+        <view class="title C66">订单：拼团商品</view>
+        <view style="padding:0 30rpx">
+            <!--门店自取-->
+            <view class="intro flex flex_colum">
+                <view class="flex flex_center choice_state">
+                    <image class="icon_choice" src="/static/images/choice.png"></image>
+                    <view class="font16">门店自取</view>
+                </view>
+                <view class="address_box flex">
+                    <view class="icon_address">取货地址</view>
+                    <view class="address">山东省日照市东港区大连路208号三号海鲜生活超市888号</view>
+                </view>
+                <view class="merchant_name">
+                    <text class="C666 mr30">团长名称</text>
+                    <text class="C666">1500000000</text>
+                </view>
+            </view>
+            <!--送货上门-->
+            <view class="intro flex flex_colum">
+                <view class="flex flex_center choice_state">
+                    <image class="icon_choice" src="/static/images/un_choice.png"></image>
+                    <view class="font16">送货上门</view>
+                </view>
+                <view class="address_box flex">
+                    <view class="icon_address icon_address2">取货地址</view>
+                    <view class="flex flex_center">
+                        <view class="address">山东省日照市东港区大连路208号三号海鲜生活超市888号</view>
+                        <image src="/static/images/go.png"></image>
+                    </view>
+                </view>
+                <view class="merchant_name">
+                    <text class="C666 mr30">团长名称</text>
+                    <text class="C666">1500000000</text>
+                </view>
+            </view>
+        </view>
+        <view class="list bg_ff">
+            <view class="list_item flex flex_between flex_center">
+                <view class="left_part">
+                    <image src="/static/images/default.png"></image>
+                </view>
+                <view class="right_part">
+                    <view class="flex flex_between">
+                        <view>蜜蜂21.5C绿心奇异果</view>
+                        <view>
+                            <text class="mr6 C999">￥16.8</text>
+                            <text class=" font18">￥6.8</text>
+                        </view>
+                    </view>
+                    <view class="C999 mt10">×1</view>
+                </view>
+            </view>
+            <view class="list_item flex flex_between flex_center">
+                <view class="left_part">
+                    <image src="/static/images/default.png"></image>
+                </view>
+                <view class="right_part">
+                    <view class="flex flex_between">
+                        <view>蜜蜂21.5C绿心奇异果</view>
+                        <view>
+                            <text class="mr6 C999">￥16.8</text>
+                            <text class=" font18">￥6.8</text>
+                        </view>
+                    </view>
+                    <view class="C999 mt10">×1</view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="bottom_box bg_ff">
+        <view class="bottom_item">
+            <view  class="single flex flex_between flex_center">
+                <view class="flex">
+                    <view class="mr10">配送费</view>
+                    <view class="C999 font12">(不足200元收运费5元)</view>
+                </view>
+                <view class="font16">￥5</view>
+            </view>
+            <view  class="single flex flex_between flex_center">
+                <view class="flex">
+                    <view class="mr10">优惠券</view>
+                </view>
+                <view class="C999 font12 flex flex_center">
+                    <text>暂无可用的优惠券</text>
+                    <image class="icon_go" src="/static/images/go.png"></image>
+                </view>
+
+            </view>
+            <view  class="single flex flex_between flex_center">
+                <view class="flex">
+                    <view class="mr10">支付方式</view>
+                </view>
+                <view class="flex flex_center">
+                    <image class="icon_pay" src="/static/images/wx-pay.png"></image>
+                    <view class="font16">微信支付</view>
+                </view>
+            </view>
+            <view  class="single single2 flex flex_end flex_center">
+                <view class="mr13">已优惠<text class="c_9000">￥28.19</text></view>
+                <view class="flex flex_center"><text>合计:</text>￥<text class="font24">115</text></view>
+            </view>
+        </view>
+    </view>
+    <!--定位在底部-->
+    <view class="fixed_box bg_ff flex flex_between">
+        <view class="total flex flex_center">
+            <view class="mr6 C666">已优惠￥28.19</view>
+            <view class="flex flex_center"><text>合计：</text><text>￥</text><text class="font24">115</text></view>
+        </view>
+        <view class="flex pay_box flex_center flex_just">
+            <image class="icon_pay2" src="/static/images/wx_pay.png"></image>
+            <view class="font16 cfff">微信支付</view>
+        </view>
+    </view>
+</view>

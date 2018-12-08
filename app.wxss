@@ -105,7 +105,9 @@ view,text{
 .mr20{
   margin-right: 20rpx;
 }
-
+.mr30{
+  margin-right:30rpx;
+}
  .tip-icon{
    width: 36rpx;
    height: 36rpx;
@@ -340,6 +342,9 @@ view,text{
 .font18{
   font-size:36rpx;
 }
+.font24{
+  font-size:48rpx;
+}
 .C999{
   color:#999;
 }
@@ -349,6 +354,12 @@ view,text{
 .cfff{
   color:#fff;
 }
+.bg_9000{
+  background:#FF9000
+}
+.c_9000{color:#FF9000}
+
+
 .ellipsis{
   overflow:hidden;
   white-space: nowrap;
