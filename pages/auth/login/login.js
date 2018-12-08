@@ -118,12 +118,35 @@ Page({
       }
     });
   },
-    //选择团长，打开modal
-    choiceMerchant(){
-        this.setData({
-            showModal:true
-        })
-    },
+  //选择团长，打开modal
+  choiceMerchant(){
+      this.setData({
+          showModal:true
+      })
+  },
+  closeMerchant() {
+    this.setData({
+      showModal: false
+    })
+  },
+  //选中商户
+  clickMerchant(e) {
+    let _this = this;
+    let id = e.currentTarget.dataset.id;
+    console.log("clickMerchant id -- " + id);
+    var merchantList = _this.data.merchantList;
+    var merchat = {};
+    if (null != merchantList) {
+      merchantList.forEach(o => {
+        if (o.merchantId == id) {
+          merchat = o;
+        }
+      });
+      _this.setData({
+        merchat: merchat
+      })
+    }
+  },
   //确认商户授权用户
   login: function (e) {
     var _this = this;

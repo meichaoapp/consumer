@@ -206,6 +206,26 @@ function queryMerchants() {
         "address": "山东省日照市大连路540号（兴业春天花园）",  //取货地址
         "deliveryCost": 10,  //快递费
         "expenditure": 100//消费额，消费额满多少钱后，免运费，只在自营商品时有此选项
+      },
+      {
+        "merchantId": 2,  //店铺id
+        "distance": "700米",  //距离
+        "merchantName": "幸福的鸭梨树1",  //店长名称
+        "merchantUserName": "张三",//团购商超负责人
+        "logo": "https://wxpic.iliangpin.cn/meichao/Bitmap.png",  //店铺logo
+        "address": "山东省日照市大连路540号（兴业春天花园）",  //取货地址
+        "deliveryCost": 10,  //快递费
+        "expenditure": 100//消费额，消费额满多少钱后，免运费，只在自营商品时有此选项
+      },
+      {
+        "merchantId": 3,  //店铺id
+        "distance": "700米",  //距离
+        "merchantName": "幸福的鸭梨树2",  //店长名称
+        "merchantUserName": "张三",//团购商超负责人
+        "logo": "https://wxpic.iliangpin.cn/meichao/Bitmap.png",  //店铺logo
+        "address": "山东省日照市大连路540号（兴业春天花园）",  //取货地址
+        "deliveryCost": 10,  //快递费
+        "expenditure": 100//消费额，消费额满多少钱后，免运费，只在自营商品时有此选项
       }
     ]
   }

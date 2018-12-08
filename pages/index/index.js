@@ -72,7 +72,7 @@ Page({
 
         this.$wuxLoading = app.Wux().$wuxLoading //加载
         this.queryIndexInfo();
-        this.queryTGList();
+        //this.queryTGList();
         this.countDown();
 
     },
@@ -163,20 +163,26 @@ Page({
                     merchantList:res.data.merchantList,
                     sellList: res.data.sellList,
                 })
+              that.queryTGList();
             }
         });
+
     },
     /**
      * 团购信息
      */
-    queryTGList: function (id){
+    queryTGList: function (){
         let _this = this;
+        let sellType = 1;
         _this.$wuxLoading.show({text: '数据加载中',});
+        sellType = _this.data.sellList[_this.data.num].sellType;
+        //console.log("sellType--"+sellType);
         let data = {
-            "merchantId": id,//店铺id
-            "start": 0,
-            "limit": 20,
-            "previewFlag": -1
+            "merchantId": _this.data.merchat.merchantId,//店铺id
+            "start": 0,     //分页开始页  必填
+            "limit": 20,    //当前页共显示多少条  必填
+            "previewFlag": -1,// 用于查询previewFlag为-1时，则可以预览新添的团品信息
+            "sellType": sellType, // 销售类型被选中，默认为1
         }
        util.request(api.QueryTGNewList, data, "POST").then(function (res) {
             _this.$wuxLoading.hide(); //隐藏加载动画
@@ -224,6 +230,47 @@ Page({
             showModal:true
         })
     },
+
+  modalCancel:function(){
+    this.setData({
+      showModal: false
+    })
+  },
+  modalConfirm:function(){
+    let _this = this;
+    //console.log("modalConfirm-----");
+    //将选中的商户写入缓存
+    wx.setStorageSync(currentMerchat, _this.data.merchat);
+    //刷新和重置数据
+    _this.setData({
+      goodsList: [],//团购商品列表
+      cartGoodsList: [],//购物车商品列表
+      needPay: 0.00, // 购物车核算价格
+      goodsNums: 0, //商品数量
+      num: 0,//和index相比，控制左侧显示激活状态样式
+    });
+    
+    _this.queryTGList();
+
+  },
+  //选中商户
+  clickMerchant(e) {
+    let _this = this;
+    let id = e.currentTarget.dataset.id;
+    console.log("clickMerchant id -- " + id);
+    var merchantList = _this.data.merchantList;
+    var merchat = {};
+    if (null != merchantList) {
+      merchantList.forEach(o => {
+        if (o.merchantId == id) {
+          merchat = o;
+        }
+      });
+      _this.setData({
+        merchat: merchat
+      })
+    }
+  },
     //导航跳转
     navTo: function (e) {
         //跳转TabBar路径
