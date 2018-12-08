@@ -1,4 +1,4 @@
-<import src="../../components/toast/toast.wxml"/>
+<import src="../../../components/toast/toast.wxml"/>
 <template is="toast" data="{{ ...$wux.toast }}"/>
 <view class="login_box container">
     <view class="flex flex_colum flex_center">

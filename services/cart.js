@@ -131,7 +131,7 @@ function indexOf(id, _arr) {
  * t_id 团购ID  
  * cart googs list to orders( split orders)
  */
-function createOrder(t_id , user){
+function createOrder(flag, t_id, user, _dt, merchant){
   var totalPay = 0.00;//共付
   var needPay =  0.00;// 应付
   var _arr = loadCart();
@@ -152,14 +152,14 @@ function createOrder(t_id , user){
    return {
      totalPay: totalPay,
      needPay: needPay,
-     merchantOrder: getMerchantOrder(m_list, t_id, user),// 团购订单
-     oneselfOrder: getSelfOrder(s_list, t_id, user),
+     merchantOrder: getMerchantOrder(flag,m_list, t_id, user),// 团购订单
+     oneselfOrder: getSelfOrder(flag,s_list, t_id, user, _dt, merchant),
    };
 
 }
 
 //获取团购订单
-function getMerchantOrder(_arr, t_id, user) {
+function getMerchantOrder(flag,_arr, t_id, user) {
   if (_arr.length == 0) {return null;}
 
   var merchantOrder = {
@@ -175,11 +175,21 @@ function getMerchantOrder(_arr, t_id, user) {
   for (var i = 0; i < len; i++) {
     totalPay += _arr[i].marketPrice;
     needPay += _arr[i].price;
-    buyNum += _arr[i].buyNum;
+    buyNum += _arr[i].number;
     var g = {
       "id": _arr[i].id,  // 商品id
-      "buyNum": _arr[i].buyNum, //购买数量
+      "buyNum": _arr[i].number, //购买数量
     };
+    if(flag == 0) {
+      g = {
+        "id": _arr[i].id,  // 商品id
+        "buyNum": _arr[i].number, //购买数量
+        "name": _arr[i].name, //团购名称
+        "url": _arr[i].url, //展示url
+        "price": _arr[i].price, //团购价
+        "marketPrice": _arr[i].marketPrice,//市场价/原价
+      };
+    }
     goodsList.push(g);
   }
 
@@ -192,22 +202,17 @@ function getMerchantOrder(_arr, t_id, user) {
  
 }
 //获取自营订单
-function getSelfOrder(_arr, t_id, user) {
+function getSelfOrder(flag,_arr, t_id, user, _dt, merchant) {
   if (_arr.length == 0) { return null; }
   // 自营订单
   var oneselfOrder = {
     "id": t_id,  //团购id
     "userId": user.id,  //用户ID
-    "deliveryType": 1, // 1自提 2送货上门
+    "deliveryType": _dt, // 1自提 2送货上门
     "address": user.province + user.city + user.area + user.address, //送货上门地址
     "phone": user.phone,
     "name": user.name,
-    "goodsList": [
-      {
-        "id": 1, // 商品id
-        "buyNum": 10,//购买数量
-      }
-    ]
+    "goodsList": []
   }
   var totalPay = 0.00;//共付
   var needPay = 0.00;// 应付
@@ -219,20 +224,30 @@ function getSelfOrder(_arr, t_id, user) {
   for (var i = 0; i < len; i++) {
     totalPay += _arr[i].marketPrice;
     needPay += _arr[i].price;
-    buyNum += _arr[i].buyNum;
+    buyNum += _arr[i].number;
     var g = {
       "id": _arr[i].id,  // 商品id
-      "buyNum": _arr[i].buyNum, //购买数量
+      "buyNum": _arr[i].number, //购买数量
     };
+    if (flag == 0) {
+      g = {
+        "id": _arr[i].id,  // 商品id
+        "buyNum": _arr[i].number, //购买数量
+        "name": _arr[i].name, //团购名称
+        "url": _arr[i].url, //展示url
+        "price": _arr[i].price, //团购价
+        "marketPrice": _arr[i].marketPrice,//市场价/原价
+      };
+    }
     goodsList.push(g);
   }
 
-  // //判断邮费
-  // if (needPay < DELIVERY_LINE) {
-  //   deliveryCost = DELIVERY_COST_PRICE;
-  // }
+  //判断邮费
+  if (_dt == 2 && merchant.expenditure != 0 && needPay < merchant.expenditure ) {
+    deliveryCost = merchant.deliveryCost;
+  }
 
-  oneselfOrder.totalPay = totalPay;
+  oneselfOrder.totalPay = totalPay + deliveryCost;
   oneselfOrder.needPay = needPay + deliveryCost;
   oneselfOrder.deliveryCost = deliveryCost;
   oneselfOrder.buyNum = buyNum;
