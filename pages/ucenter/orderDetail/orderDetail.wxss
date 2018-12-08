@@ -1,228 +1,98 @@
-page {
-  height: 100%;
-  width: 100%;
-  background: #fff;
+page{
+    background:#f4f4f4;
+}
+.o_detail_box{
+    height:100%;
+    background:#f4f4f4;
+}
+.o_detail_top{
+    height:604rpx;
+    margin-top:20rpx;
+}
+ .title{
+    height:91rpx;
+    line-height:91rpx;
+    padding:0 30rpx;
+    border-bottom:1px solid #eee;
+}
+.o_item_box{
+   padding:15rpx 0;
+
+}
+.o_item{
+    height:72rpx;
+    padding:0 30rpx;
+}
+.address{
+    line-height:42rpx;
+}
+.o_item_left{
+    width:300rpx;
+}
+.o_item_right{
+    flex:1;
 }
 
-.blue {
-  color: #72cfdd;
+.merchant_name_box{
+    height:151rpx;
+    padding:0 30rpx;
+
+}
+.merchant_name_con{
+    height:100%;
+    border-top:1px solid #eee;
+}
+.merchant_name_box .left_part{
+    width:87rpx;
+    height:87rpx;
+    margin-right:13rpx;
+}
+ .right_part{
+    flex:1;
+}
+.icon_user{
+    width:22rpx;
+    height:25rpx;
+    margin-right:6rpx;
+}
+.icon_link{
+    width:25rpx;
+    height:25rpx;
+    margin-right:6rpx;
+}
+.first_child{
+    margin-right:120rpx;
+}
+.shoplist_box{
+    flex:1;
+    margin-top:20rpx;
+}
+.list_item{
+    padding:20rpx 30rpx;
+}
+.per_image{
+    width:95rpx;
+    height:95rpx;
+    margin-right:20rpx;
+}
+.has_received{
+    color:#60A33B;
+}
+.unreceived{
+    color:#FF9000;
 }
 
-.header {
-  padding: 20rpx;
-  background: #fff;
-  border-top: 10px solid #f4f4f4;
-  border-bottom: 1px solid #f4f4f4;
-}
-
-.pro-decs {
-  font-size: 30rpx;
-  text-align: left;
-}
-
-.pro-num {
-  float: right;
-  width: 200rpx;
-  text-align: right;
-  font-size: 30rpx;
-}
-.businessCard{
-  width: 94%;
-  margin-left:3%;
-  padding: 20rpx;
-  box-sizing: border-box;
-  border-radius: 6rpx;
-  box-shadow: 1px 1px 8px #dbdbdb;
-   position: relative;
-   padding-left: 140rpx;
-   margin-top: 60rpx;
-}
-.businessCard .img{
-position: absolute;
-top: -20rpx;
-left: 20rpx;
-width: 100rpx;
-height: 100rpx;
-border-radius: 50%;
-border: 1px solid #f0f0f0;
-overflow: hidden;
-}
-.businessCard .img image{
-  width: 100rpx;
-  height: 100rpx;
-}
-
-
-.shopname{
-  color: #333;
-  font-size: 30rpx;
-  margin-bottom: 20rpx;
-}
-.shopname  text{
-  display: inline-block;
-  padding: 2rpx 3rpx;
-  border-radius:4rpx; 
-  background: #72cfdd;
-  font-size: 24rpx;
-  color: #fff;
-  margin-right: 3rpx;
-}
-.head,.phone{
-  color: #999;
-  font-size: 24rpx;
-}
-.shoplist .title,.order-qrcode .title{
-padding: 20rpx;
-font-size:30rpx;
-}
-.shoplists{
- width: 94%;
-  margin-left:3%;
-  padding: 0 20rpx;
-  box-sizing: border-box;
-  border-radius: 6rpx;
-  box-shadow: 1px 1px 8px #dbdbdb;
-  
-}
-.shoplists-cell{
-  width: 100%;
-  box-sizing: border-box;
-  padding: 20rpx 0;
-  border-bottom: 1px solid #f4f4f4;
-  position: relative;
-}
-.shoplists-cell:last-child{
-  border: 0!important;
-}
-.shoplists-cell .proname{
-  width: 110rpx;
-  height: 84rpx;
-  border: 1px solid #f4f4f4;
-  margin-right: 20rpx;
-  margin-left:10rpx;
-}
-.shoplists-cell .proname image{
-    width: 110rpx;
-  height: 84rpx;
-}
-.shoplists-cell .prodecs{
-  flex: 1;
-}
-.shoplists-cell .prodecs text{
-  display: block;
-}
-.shoplists-cell .prodecs text.name{
-  font-size: 30rpx;
-  margin-bottom: 10rpx;
-}
-.shoplists-cell .prodecs text.decs{
-   color: #999;
-  font-size: 24rpx;
-}
-.shoplists-cell .nums{
-  float: right;
-  padding: 20rpx 0;
-  font-size: 24rpx; 
-}
-
-.order-qrcode{
-  /* display: flex;
-  align-items: center;
-  justify-content: center;
-  justify-items: center;
-  margin-top: 33rpx;
-  margin-bottom: 33rpx; */
-}
-
-
-.hintInfor{
-  font-size: 24rpx;
-  color: #e38f23;
-}
 .qrcode{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  justify-items: center;
+    margin-top:20rpx;
 }
 .qrcode image{
-  width: 400rpx;
-  height:400rpx;
+    width:293rpx;
+    height:293rpx;
+    margin-bottom:25rpx;
 }
-.shoplists-cell .received{
-  position: absolute;
-  bottom: 20rpx;
-  right: -10rpx;
-  width: 80rpx;
-  height: 80rpx;
-  z-index: 100;
+.qrcode view{
+    width:293rpx;
+    line-height:40rpx;
+    text-align:center;
 }
 
-
-
-
-
-
-
-
-/* pages/goods/lengSHops.wxss */
-
-.shop-lists .main-title {
-  font-size: 32rpx;
-  color: #000;
-  padding: 25rpx 30rpx;  
-}
-.lists-box {
-  padding: 0 13rpx;
-}
-.list-item {
-  position: relative;
-  padding: 37rpx 0;
-  padding-left: 100rpx;
-  padding-right: 40rpx;
-  margin-bottom: 13rpx;
-  background: #fff;
-  box-shadow: 0 4rpx 18rpx rgba(0,0,0,0.08);
-  border-radius:8rpx; 
-}
-.checkedimg,.ncheckedimg{
-  width: 40rpx;
-  height: 40rpx;
-  position: absolute;
-  top: 52rpx;
-  left: 39rpx;
-}
-.lingqu{
-    width: 129rpx;
-  height: 108rpx;
-  position: absolute;
-  top: 0rpx;
-  left:0rpx;
-  z-index: 100;
-}
-.list-item .shop-img {
- width: 106rpx;
- height: 70rpx;
- margin-right: 20rpx;
-}
-.list-item .con{
-  flex: 1;
-}
-.list-item .con .shop-title{
-color: #333333;
-font-size: 29rpx;
- text-overflow:clip;
-  letter-spacing:2rpx;
-  overflow:hidden;
-  white-space:nowrap;
-  font-family:UICTFontTextStyleBody;
-  margin-bottom: 13rpx;
-}
-.list-item .con .total-count{
-justify-content:space-between;
-}
-
-.list-item .con .total-count text{
-color: #636363;
-font-size: 24rpx;
-}
