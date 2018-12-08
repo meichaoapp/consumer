@@ -35,7 +35,7 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-  
+
   },
 
   /**
@@ -53,14 +53,14 @@ Page({
    * 生命周期函数--监听页面隐藏
    */
   onHide: function () {
-  
+
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-  
+
   },
   /**
    * 获取当前地理位置信息
@@ -111,13 +111,19 @@ Page({
         var merchantList = res.data.list;
         if( null != merchantList) {
           that.setData({
-            merchatList: merchantList,
+            merchantList: merchantList,
             merchat: merchantList[0]
           })
         }
       }
     });
   },
+    //选择团长，打开modal
+    choiceMerchant(){
+        this.setData({
+            showModal:true
+        })
+    },
   //确认商户授权用户
   login: function (e) {
     var _this = this;

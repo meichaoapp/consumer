@@ -18,7 +18,7 @@
         </view>
     </view>
     <view class="btn_box flex flex_just">
-        <button  class='icon_btn'            >
+        <button  class='icon_btn' bindtap="choiceMerchant">
            选择其他团长
         </button>
         <button open-type="getUserInfo"  class='icon_btn sure_btn' bindgetuserinfo="login">
@@ -26,3 +26,22 @@
         </button>
     </view>
 </view>
+<!--自定义弹框组件-->
+<modal wx:if="{{showModal}}" show="{{showModal}}" height='80%' bindcancel="modalCancel" bindconfirm='modalConfirm'>
+    <view class="title flex flex_between flex_center" slot="slot1">
+        <view>选择团长</view>
+        <image src="/static/images/close.png" class="icon_close"></image>
+    </view>
+    <view class='modal-content' slot="slot2">
+        <view class="merchant_item flex flex_center" wx:for='{{merchantList}}' wx:key='{{item.index}}' title="{{item.merchantName}}" mode='input' rowpadding='10rpx' currentId="{{item.index}}">
+            <image src="{{item.logo}}"></image>
+            <view class="right_part">
+                <view class="flex flex_between">
+                    <text class="font15">{{item.merchantName}}</text>
+                    <text class="C999">据您{{item.distance}}</text>
+                </view>
+                <view class="mt6 C666">取货地址：{{item.address}}</view>
+            </view>
+        </view>
+    </view>
+</modal>

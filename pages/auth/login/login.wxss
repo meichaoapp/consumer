@@ -69,3 +69,33 @@ page{
     background:#81C95A;
     margin-left:25rpx;
 }
+
+
+.title{
+    height:103rpx;
+    padding:0 30rpx;
+    border-bottom:1px solid #D9D9D9;
+}
+.title view{
+    font-size:36rpx;
+}
+.title image{
+    width:27rpx;
+    height:27rpx;
+}
+.modal-content{
+    padding:0 30rpx;
+    overflow:auto;
+}
+.merchant_item{
+    height:188rpx;
+    border-bottom:1px solid #ddd;
+}
+.merchant_item image{
+    width:87rpx;
+    height:87rpx;
+    margin-right:13rpx;
+}
+.right_part{
+    flex:1;
+}
