@@ -15,7 +15,7 @@ Page({
         latitude: 0.00,
         longitude: 0.00,
         merchantList: [], // 团长列表
-        merchat: {},//选中的团长信息
+        merchant: {},//选中的团长信息
         cityname: "",
         banners: [],
         start: 1, // 页码
@@ -98,7 +98,7 @@ Page({
       let merchant = wx.getStorageSync(currentMerchat);
       if (null != merchant && undefined != merchant) {
         this.setData({
-          merchat: merchant,
+          merchant: merchant,
         });
       }
     },
@@ -207,7 +207,7 @@ Page({
         sellType = _this.data.sellList[_this.data.num].sellType;
         //console.log("sellType--"+sellType);
         let data = {
-            "merchantId": _this.data.merchat.merchantId,//店铺id
+          "merchantId": _this.data.merchant.merchantId,//店铺id
             "start": _this.data.start,     //分页开始页  必填
             "limit": _this.data.limit,    //当前页共显示多少条  必填
             "previewFlag": -1,// 用于查询previewFlag为-1时，则可以预览新添的团品信息
@@ -279,7 +279,7 @@ Page({
     let _this = this;
     //console.log("modalConfirm-----");
     //将选中的商户写入缓存
-    wx.setStorageSync(currentMerchat, _this.data.merchat);
+    wx.setStorageSync(currentMerchat, _this.data.merchant);
     //刷新和重置数据
     _this.setData({
       goodsList: [],//团购商品列表
@@ -298,15 +298,15 @@ Page({
     let id = e.currentTarget.dataset.id;
     console.log("clickMerchant id -- " + id);
     var merchantList = _this.data.merchantList;
-    var merchat = {};
+    var merchant = {};
     if (null != merchantList) {
       merchantList.forEach(o => {
         if (o.merchantId == id) {
-          merchat = o;
+          merchant = o;
         }
       });
       _this.setData({
-        merchat: merchat
+        merchant: merchant
       })
     }
   },
