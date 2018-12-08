@@ -97,34 +97,10 @@
     <view class="mem_box bg_ff">
         <view class="title font15">参团成员</view>
         <view class="portrait_box">
-            <view class="portrait">
-                <image src="/static/images/default.png"></image>
+            <view class="portrait" wx:for="{{friensList}}" wx:key="{{item.id}}">
+                <image src="{{item.avatar}}"></image>
             </view>
-            <view class="portrait">
-                <image src="/static/images/default.png"></image>
-            </view>
-            <view class="portrait">
-                <image src="/static/images/default.png"></image>
-            </view>
-            <view class="portrait">
-                <image src="/static/images/default.png"></image>
-            </view>
-            <view class="portrait">
-                <image src="/static/images/default.png"></image>
-            </view>
-            <view class="portrait">
-                <image src="/static/images/default.png"></image>
-            </view>
-            <view class="portrait">
-                <image src="/static/images/default.png"></image>
-            </view>
-            <view class="portrait">
-                <image src="/static/images/default.png"></image>
-            </view>
-            <view class="portrait">
-                <image src="/static/images/default.png"></image>
-            </view>
-            <view class="portrait">
+            <view class="portrait" wx:if="{{friensList.length>=10}}">
                 <image class="icon_more" src="/static/images/more.png"></image>
             </view>
         </view>
