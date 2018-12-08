@@ -260,7 +260,9 @@ Page({
         let index = e.currentTarget.dataset.index;
         let id = e.currentTarget.dataset.id;
         that.setData({
-            num: index
+            num: index,
+            goodsList:[],
+            start:1,
         });
         that.queryTGList(id)
     },
