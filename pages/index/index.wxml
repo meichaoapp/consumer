@@ -87,12 +87,18 @@
             <view class="m_con">
                 <!--<view class="curr_menu">{{currSellDesc}}</view>-->
                 <view class="goods_con flex flex_between" wx:for="{{goodsList}}" wx:key="{{item.index}}"  data-id="{{item.id}}">
-                    <view class="good_image flex flex_center flex_just br5">
-                        <image  src="{{item.url}}"></image>
-                    </view>
+                   <navigator url="/pages/details/details?id={{item.id}}">
+                      <view class="good_image flex flex_center flex_just br5">
+                          <image  src="{{item.url}}"></image>
+                      </view>
+                    </navigator>
                     <view class="content flex flex_colum">
-                        <view class="name">{{item.name}}</view>
-                        <view class="desc">{{item.comments}}</view>
+                        <navigator url="/pages/details/details?id={{item.id}}">
+                           <view class="name">{{item.name}}</view>
+                        </navigator>
+                        <navigator url="/pages/details/details?id={{item.id}}">
+                            <view class="desc">{{item.comments}}</view>
+                        </navigator>
                         <view class="flex" style="flex:1;">
                             <view class="price_box flex flex_center">
                                 <view class="curr_price">￥{{item.price}}</view>

@@ -1,66 +1,41 @@
-// pages/details/success.js
+var app = getApp();
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
-  
+     id : 0,
   },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
   onLoad: function (options) {
-  
+    this.setData({
+      id: parseInt(options.id)
+    });
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
   onReady: function () {
-  
-  },
 
-  /**
-   * 生命周期函数--监听页面显示
-   */
+  },
   onShow: function () {
-  
+    // 页面显示
   },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
   onHide: function () {
-  
-  },
+    // 页面隐藏
 
-  /**
-   * 生命周期函数--监听页面卸载
-   */
+  },
   onUnload: function () {
-  
+    // 页面关闭
+
   },
 
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-  
+  //查看团购订单
+  toOrder:function(){
+    wx.redirectTo({
+      url: '/pages/ucenter/order/order?id='+this.data.id,
+    })
   },
 
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-  
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-  
+  //跳转首页(知道了)
+  toIndex:function(){
+     wx.switchTab({
+       url: '/pages/index/index',
+     })
   }
+  
+
 })

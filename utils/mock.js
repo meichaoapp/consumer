@@ -545,8 +545,8 @@ function queryGroupPurchaseGoodsDetail() {
       ],  //商品展示图片
       "title": "精品羊排 新鲜出厂当日即达",	   //团购名称
       "status": 0, //0 未开始 1 进行中 2 已成团 3 已过期
-      "comments": "", //宣传语
-      "content": "", //描述
+      "comments": "精品羊排 新鲜出厂当日即达", //宣传语
+      "content": "精品羊排 新鲜出厂当日即达精品羊排 新鲜出厂当日即达精品羊排 新鲜出厂当日即达", //描述
       "startTime": "2018/12/01 00:00:00", //开始时间，注意格式
       "endTime": "2018/12/31 00:00:00", //结束时间，注意格式
       "limitNum": 99, //参团人数上限
@@ -561,7 +561,7 @@ function queryGroupPurchaseGoodsDetail() {
       "merchantName": "美超团长", //商户名称（团长）
       "merchantUserName": "张三",//团购商超负责人
       "merchantPhone": "010-3574787887",//团购商超电话
-      "logo": "",//团购logo
+      "logo": "https://wxpic.iliangpin.cn/meichao/Bitmap.png",//团购logo
       "address": "山东省日照市东港区大连路三好鲜生超市"//取货地址
     }
   }
@@ -575,6 +575,7 @@ function QueryGroupPurchaseDetail() {
   var data = {
     "detail": {
       "id": 1,  //id
+      "goodsPic":"https://wxpic.iliangpin.cn/meichao/1.png",
       "pics": [
         "https://s-mall.oss-cn-beijing.aliyuncs.com/meichao/g3.png",
         "https://s-mall.oss-cn-beijing.aliyuncs.com/meichao/g3.png",
@@ -586,15 +587,21 @@ function QueryGroupPurchaseDetail() {
       "limitNum": 99, //参团人数上限
       "startTime": "2018/10/05 00:00:00", //开始时间，注意格式
       "endTime": "2018/10/18 00:00:00", //结束时间，注意格式
-      "joinNum": 9, //参团人数
+      "joinNum": 90, //参团人数
+      "marketPrice": 10.05,//市场价
+      "price": 10.05,//单价
+      "productType": "1"//商品类型 1.普通团品 2. 一元购 3. 店长自营产品
+
+
     },
     "merchant": {
       "merchantId": 1,  //商户ID
       "merchantName": "生源鲜果超市",//团购商超
       "merchantUserName": "张三",//团购商超负责人
       "merchantPhone": "010-3574787887",//团购商超电话
-      "logo": "",//团购logo
-      "avatar": "https://s-mall.oss-cn-beijing.aliyuncs.com/meichao/user.png"
+      "logo": "https://wxpic.iliangpin.cn/meichao/Bitmap.png",//团购logo
+      "address": "山东省日照市东港区大连路三好鲜生超市"//取货地址
+
     },
     "goodsList": [
       {
