@@ -35,7 +35,7 @@ Page({
         goodsNums:0, //商品数量
         num:0,//和index相比，控制左侧显示激活状态样式
         showModal:false,
-        
+
     },
     onShareAppMessage: function () {
         return {
@@ -160,7 +160,7 @@ Page({
                     banners:res.data.banners,
                     classifyList:res.data.classifys,
                     treasures:res.data.treasures,
-                    merchatList:res.data.merchantList,
+                    merchantList:res.data.merchantList,
                     sellList: res.data.sellList,
                 })
             }
@@ -261,8 +261,8 @@ Page({
             }else {
               cart.updateCart(o);
             }
-            
-          } 
+
+          }
         }
       });
     }
@@ -289,11 +289,11 @@ Page({
           } else {//如果购物车以前有则更新购物车商品数量
             cart.updateCart(o);
           }
-          
+
         }
       });
     }
-    
+
     _this.setData({
       goodsList: goodsList,
       needPay: cart.loadPrice().toFixed(2), // 购物车核算价格
@@ -318,7 +318,7 @@ Page({
       cartGoodsList: cart.loadCart(),
     });
   },
- 
+
     //打开购物车详情
   openshopCar:function() {
       let that = this;
