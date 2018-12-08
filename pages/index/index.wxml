@@ -86,7 +86,7 @@
         <scroll-view scroll-y="true" style="flex:1;">
             <view class="m_con">
                 <!--<view class="curr_menu">{{currSellDesc}}</view>-->
-                <view class="goods_con flex flex_between" wx:for="{{list}}" wx:key="{{item.index}}"  bindtap="goGoodsDetail" data-id="{{item.id}}">
+                <view class="goods_con flex flex_between" wx:for="{{goodsList}}" wx:key="{{item.index}}"  data-id="{{item.id}}">
                     <view class="good_image flex flex_center flex_just br5">
                         <image  src="{{item.url}}"></image>
                     </view>
@@ -99,9 +99,9 @@
                                 <view class="old_price">￥{{item.marketPrice}}</view>
                             </view>
                             <view class="set_car flex flex_center ml10">
-                                <image src="https://wxpic.iliangpin.cn/meichao/minus.png"></image>
-                                <text class="count">4</text>
-                                <image src="https://wxpic.iliangpin.cn/meichao/plus.png"></image>
+                                <image bindtap='cutNumber' data-id='{{item.id}}' src="https://wxpic.iliangpin.cn/meichao/minus.png"></image>
+                                <text class="count">{{item.number}}</text>
+                                <image bindtap='addNumber' data-id='{{item.id}}'  src="https://wxpic.iliangpin.cn/meichao/plus.png"></image>
                             </view>
                         </view>
                     </view>
@@ -116,13 +116,13 @@
 <view>
     <view  class="car_box flex flex_between">
         <view class="flex flex_center">
-            <view class="shopingcart_box">
+            <view class="shopingcart_box" bindtap="openshopCar">
                 <image src="/static/images/shopping_cart.png"></image>
-                <view class="count_num cfff">2</view>
+                <view wx:if="{{goodsNums != 0}}" class="count_num cfff">{{goodsNums}}</view>
             </view>
-            <view class="total_money">￥40.00</view>
+            <view class="total_money">￥{{needPay}}</view>
         </view>
-        <view class="icon_settle" bindtap="openshopCar">去结算</view>
+        <view class="icon_settle" >去结算</view>
     </view>
 </view>
 <view class="n-bottom" hidden="{{hideBottom}}">
@@ -161,45 +161,33 @@
 <view animation="{{animationData}}" class="shop_car" wx:if="{{shopCarStatus}}">
     <view class="car_title flex flex_between flex_center">
         <view class="font18">您选购的商品</view>
-        <view class="C666">清空购物车</view>
+        <view bindtap='clearCart' class="C666">清空购物车</view>
     </view>
     <view class="classify_list">
-        <view class="classify_title">拼团商品</view>
-        <view class="classify_con">
-            <view class="classify_item flex flex_center flex_between">
-                <text class="goods_name  ellipsis font16">蜜蜂绿心奇异果</text>
-                <view class="right_part flex flex_between">
-                    <text class="font16">￥12.00</text>
-                    <view class="set_car flex flex_center">
-                        <image src="https://wxpic.iliangpin.cn/meichao/minus.png"></image>
-                        <text class="count">4</text>
-                        <image src="https://wxpic.iliangpin.cn/meichao/plus.png"></image>
-                    </view>
-                </view>
-            </view>
-        </view>
-        <view class="classify_con">
-            <view class="classify_item flex flex_center flex_between">
-                <text class="goods_name  ellipsis font16">蜜蜂绿心奇异果</text>
-                <view class="right_part flex flex_between">
-                    <text class="font16">￥12.00</text>
-                    <view class="set_car flex flex_center">
-                        <image src="https://wxpic.iliangpin.cn/meichao/minus.png"></image>
-                        <text class="count">4</text>
-                        <image src="https://wxpic.iliangpin.cn/meichao/plus.png"></image>
-                    </view>
-                </view>
-            </view>
-        </view>
+        <!-- <view class="classify_title">拼团商品</view> -->
+          <view wx:for="{{cartGoodsList}}" wx:key="{{item.index}}"  data-id="{{item.id}}" class="classify_con">
+              <view class="classify_item flex flex_center flex_between">
+                  <text class="goods_name  ellipsis font16">{{item.name}}</text>
+                  <view class="right_part flex flex_between">
+                      <text class="font16">￥{{item.price}}</text>
+                      <view class="set_car flex flex_center">
+                         <image bindtap='cutNumber' data-id='{{item.id}}' src="https://wxpic.iliangpin.cn/meichao/minus.png"></image>
+                            <text class="count">{{item.number}}</text>
+                          <image bindtap='addNumber' data-id='{{item.id}}'  src="https://wxpic.iliangpin.cn/meichao/plus.png"></image>
+                      </view>
+                  </view>
+              </view>
+          </view>
+       
     </view>
     <view  class="car_box flex flex_between">
         <view class="flex flex_center">
             <view class="shopingcart_box">
                 <image src="/static/images/shopping_cart.png"></image>
-                <view class="count_num cfff">2</view>
+                <view wx:if="{{goodsNums != 0}}" class="count_num cfff">{{goodsNums}}</view>
             </view>
-            <view class="total_money">￥40.00</view>
+            <view class="total_money">￥{{needPay}}</view>
         </view>
-        <view class="icon_settle" bindtap="openshopCar">去结算</view>
+        <view class="icon_settle">去结算</view>
     </view>
 </view>
