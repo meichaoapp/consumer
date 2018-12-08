@@ -1,1 +1,76 @@
+<view class="o_detail_box flex flex_colum">
+    <view class="o_detail_top bg_ff flex flex_colum">
+        <view class="flex flex_colum " style="flex:1;">
+            <view class="title font15">订单信息</view>
+            <view class="o_item_box">
+                <view class="o_item  flex flex_between flex_center">
+                    <view class="o_item_left font15 C999">订单编号</view>
+                    <view class="o_item_right font15">20181121190008</view>
+                </view>
+                <view class="o_item flex flex_between flex_center">
+                    <view class="o_item_left font15 C999">下单时间</view>
+                    <view class="o_item_right font15">2018/11/21 19:00:08</view>
+                </view>
+                <view class="o_item flex flex_between flex_center">
+                    <view class="o_item_left font15 C999">订单状态</view>
+                    <view class="o_item_right font15">请前往取货</view>
+                </view>
+                <view class="o_item flex flex_between flex_center">
+                    <view class="o_item_left font15 C999">取货地址</view>
+                    <view class="o_item_right font15 address">山东省日照市东港区大连路三号生鲜超市10001号</view>
+                </view>
+            </view>
+        </view>
+        <view class="merchant_name_box">
+            <view class="merchant_name_con flex flex_between flex_center">
+                <image class="left_part" src="/static/images/default.png"></image>
+                <view class="right_part">
+                    <view class="font15">
+                        团长名称
+                    </view>
+                    <view class="flex flex_center mt5">
+                        <view class="flex flex_center first_child">
+                            <image class="icon_user" src="https://wxpic.iliangpin.cn/meichao/user.png"></image>
+                            <text class="C666">张三丰</text>
+                        </view>
+                        <view class="flex flex_center">
+                            <image class="icon_link" src="https://wxpic.iliangpin.cn/meichao/link.png"></image>
+                            <text class="C666">138****0002</text>
+                        </view>
+                    </view>
+                </view>
+            </view>
 
+        </view>
+    </view>
+    <view class="shoplist_box bg_ff">
+        <view class="title font15">购物清单</view>
+        <view class="list_item flex flex_between">
+            <image class="per_image" src="/static/images/default.png"></image>
+            <view class="right_part">
+                <view class="flex flex_between">
+                    <view>蜜蜂21.5绿心奇异果</view>
+                    <view class="has_received">已领取</view>
+                    <!--<view class="unreceived">未领取</view>-->
+                </view>
+                <view class="mt5 C999">×3</view>
+            </view>
+        </view>
+        <view class="list_item flex flex_between">
+            <image class="per_image" src="/static/images/default.png"></image>
+            <view class="right_part">
+                <view class="flex flex_between">
+                    <view>蜜蜂21.5绿心奇异果</view>
+                    <view class="unreceived">未领取</view>
+                </view>
+                <view class="mt5 C999">×5</view>
+            </view>
+        </view>
+
+        <!-- 二维码 -->
+        <view class='qrcode flex flex_colum flex_center'>
+            <image src='{{orderQRcode}}'></image>
+            <view>请向店主出示此二维码来获取所购商品</view>
+        </view>
+    </view>
+</view>

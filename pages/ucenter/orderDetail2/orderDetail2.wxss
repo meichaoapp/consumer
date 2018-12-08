@@ -1,1 +1,98 @@
-/* pages/ucenter/orderDetail2/orderDetail2.wxss */
+page{
+    background:#f4f4f4;
+}
+.o_detail_box{
+    height:100%;
+    background:#f4f4f4;
+}
+.o_detail_top{
+    height:604rpx;
+    margin-top:20rpx;
+}
+ .title{
+    height:91rpx;
+    line-height:91rpx;
+    padding:0 30rpx;
+    border-bottom:1px solid #eee;
+}
+.o_item_box{
+   padding:15rpx 0;
+
+}
+.o_item{
+    height:72rpx;
+    padding:0 30rpx;
+}
+.address{
+    line-height:42rpx;
+}
+.o_item_left{
+    width:300rpx;
+}
+.o_item_right{
+    flex:1;
+}
+
+.merchant_name_box{
+    height:151rpx;
+    padding:0 30rpx;
+
+}
+.merchant_name_con{
+    height:100%;
+    border-top:1px solid #eee;
+}
+.merchant_name_box .left_part{
+    width:87rpx;
+    height:87rpx;
+    margin-right:13rpx;
+}
+ .right_part{
+    flex:1;
+}
+.icon_user{
+    width:22rpx;
+    height:25rpx;
+    margin-right:6rpx;
+}
+.icon_link{
+    width:25rpx;
+    height:25rpx;
+    margin-right:6rpx;
+}
+.first_child{
+    margin-right:120rpx;
+}
+.shoplist_box{
+    flex:1;
+    margin-top:20rpx;
+}
+.list_item{
+    padding:20rpx 30rpx;
+}
+.per_image{
+    width:95rpx;
+    height:95rpx;
+    margin-right:20rpx;
+}
+.has_received{
+    color:#60A33B;
+}
+.unreceived{
+    color:#FF9000;
+}
+
+.qrcode{
+    margin-top:20rpx;
+}
+.qrcode image{
+    width:293rpx;
+    height:293rpx;
+    margin-bottom:25rpx;
+}
+.qrcode view{
+    width:293rpx;
+    line-height:40rpx;
+    text-align:center;
+}
+
