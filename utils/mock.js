@@ -463,15 +463,37 @@ function QueryTGNewList() {
     "list": [
       {
           "id": 1, //id
-          "name": "精品羊排 新鲜出厂当日即达", //团购名称
+          "name": "精品羊排 新鲜出厂当日即达1", //团购名称
           "url": "https://s-mall.oss-cn-beijing.aliyuncs.com/meichao/g2.png", //展示url
           "price": 10.01, //团购价
           "marketPrice": 10.05,//市场价/原价
           "status": 0, //0 未开始 1 进行中 2 已成团 3 已过期
           "comments": "草原宏宝蒙巴克 无公害谷饲羔羊", //简述
           "specifications": "整箱20个",//规格
-          "productType": "1"//商品类型 1.普通团品 2. 一元购 3. 店长自营产品
-      }
+          "productType": 1//商品类型 1.普通团品 2. 一元购 3. 店长自营产品
+      },
+      {
+        "id": 2, //id
+        "name": "精品羊排 新鲜出厂当日即达2", //团购名称
+        "url": "https://s-mall.oss-cn-beijing.aliyuncs.com/meichao/g2.png", //展示url
+        "price": 10.01, //团购价
+        "marketPrice": 10.05,//市场价/原价
+        "status": 0, //0 未开始 1 进行中 2 已成团 3 已过期
+        "comments": "草原宏宝蒙巴克 无公害谷饲羔羊", //简述
+        "specifications": "整箱20个",//规格
+        "productType": 3 //商品类型 1.普通团品 2. 一元购 3. 店长自营产品
+      },
+      {
+        "id": 3, //id
+        "name": "精品羊排 新鲜出厂当日即达3", //团购名称
+        "url": "https://s-mall.oss-cn-beijing.aliyuncs.com/meichao/g2.png", //展示url
+        "price": 10.01, //团购价
+        "marketPrice": 10.05,//市场价/原价
+        "status": 0, //0 未开始 1 进行中 2 已成团 3 已过期
+        "comments": "草原宏宝蒙巴克 无公害谷饲羔羊", //简述
+        "specifications": "整箱20个",//规格
+        "productType": 1 //商品类型 1.普通团品 2. 一元购 3. 店长自营产品
+      },
     ]
     };
   RS.data = data;

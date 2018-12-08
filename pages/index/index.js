@@ -30,7 +30,8 @@ Page({
         treasures:[],//一元购物
         sellList:[],//拼团店铺列表
         goodsList: [],//团购商品列表
-        cartGoodsList: [],//购物车商品列表
+        cartselfGoodsList: [],//购物车自营商品列表
+        cartmerchatGoodsList: [],//购物车团购商品列表
         needPay:0.00, // 购物车核算价格
         goodsNums:0, //商品数量
         num:0,//和index相比，控制左侧显示激活状态样式
@@ -208,10 +209,8 @@ Page({
             }
             _this.setData({
               goodsList: goodsList,
-              needPay: cart.loadPrice().toFixed(2), // 购物车核算价格
-              goodsNums: cart.loadGooodsNums(), //商品数量
-              cartGoodsList: cart.loadCart(),
             })
+            _this.refreshCartRef();
         })
 
     },
@@ -289,6 +288,33 @@ Page({
             })
         }
     },
+    //刷新购物车相关
+    refreshCartRef:function(){
+
+      let _this = this;
+      
+      var _arr = cart.loadCart();//购物车商品
+      var cartselfGoodsList = [];
+      var cartmerchatGoodsList = [];
+      //console.log("cart goods ---" + JSON.stringify(_arr));
+      if (null != _arr && _arr.length > 0) {
+        var len = _arr.length;
+        for (var i = 0; i < len; i++) {
+          var productType = _arr[i].productType;
+          if (productType == 1){
+            cartmerchatGoodsList.push(_arr[i]);
+          } else if (productType == 3) {
+            cartselfGoodsList.push(_arr[i]);
+          }
+        }
+      }
+      _this.setData({
+        needPay: cart.loadPrice().toFixed(2), // 购物车核算价格
+        goodsNums: cart.loadGooodsNums(), //商品数量
+        cartselfGoodsList: cartselfGoodsList,//购物车自营商品列表
+        cartmerchatGoodsList: cartmerchatGoodsList,//购物车团购商品列表
+      });
+    },
     //减
   cutNumber: function (e) {
     let _this = this;
@@ -315,10 +341,8 @@ Page({
     }
     _this.setData({
       goodsList: goodsList,
-      needPay: cart.loadPrice().toFixed(2), // 购物车核算价格
-      goodsNums: cart.loadGooodsNums(), //商品数量
-      cartGoodsList: cart.loadCart(),
     });
+    _this.refreshCartRef();
   },
   //加
   addNumber: function (e) {
@@ -330,7 +354,7 @@ Page({
         if (o.id == id) {
           o.number = o.number + 1;
           var g = cart.loadCartGoods(o.id);
-          //console.log("购物无车商品---" + JSON.stringify(g));
+          console.log("购物无车商品---" + JSON.stringify(g));
           if (g == null) {//如果没有则加入购物车
             cart.add2Cart(o);
           } else {//如果购物车以前有则更新购物车商品数量
@@ -343,10 +367,8 @@ Page({
 
     _this.setData({
       goodsList: goodsList,
-      needPay: cart.loadPrice().toFixed(2), // 购物车核算价格
-      goodsNums: cart.loadGooodsNums(), //商品数量
-      cartGoodsList: cart.loadCart(),
     });
+    _this.refreshCartRef();
   },
   ///清除购物车商品
   clearCart:function(){
@@ -360,10 +382,8 @@ Page({
     }
     _this.setData({
       goodsList: goodsList,
-      needPay: cart.loadPrice().toFixed(2), // 购物车核算价格
-      goodsNums: cart.loadGooodsNums(), //商品数量
-      cartGoodsList: cart.loadCart(),
     });
+    _this.refreshCartRef();
   },
 
     //打开购物车详情

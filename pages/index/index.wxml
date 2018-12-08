@@ -164,8 +164,23 @@
         <view bindtap='clearCart' class="C666">清空购物车</view>
     </view>
     <view class="classify_list">
-        <!-- <view class="classify_title">拼团商品</view> -->
-          <view wx:for="{{cartGoodsList}}" wx:key="{{item.index}}"  data-id="{{item.id}}" class="classify_con">
+          <view wx:if="{{cartmerchatGoodsList != null && cartmerchatGoodsList.length > 0}}" class="classify_title">拼团商品</view>
+          <view wx:for="{{cartmerchatGoodsList}}" wx:key="{{item.index}}"  data-id="{{item.id}}" class="classify_con">
+              <view class="classify_item flex flex_center flex_between">
+                  <text class="goods_name  ellipsis font16">{{item.name}}</text>
+                  <view class="right_part flex flex_between">
+                      <text class="font16">￥{{item.price}}</text>
+                      <view class="set_car flex flex_center">
+                         <image bindtap='cutNumber' data-id='{{item.id}}' src="https://wxpic.iliangpin.cn/meichao/minus.png"></image>
+                            <text class="count">{{item.number}}</text>
+                          <image bindtap='addNumber' data-id='{{item.id}}'  src="https://wxpic.iliangpin.cn/meichao/plus.png"></image>
+                      </view>
+                  </view>
+              </view>
+          </view>
+
+           <view wx:if="{{cartselfGoodsList != null && cartselfGoodsList.length > 0}}" class="classify_title">店铺自营商品</view>
+          <view wx:for="{{cartselfGoodsList}}" wx:key="{{item.index}}"  data-id="{{item.id}}" class="classify_con">
               <view class="classify_item flex flex_center flex_between">
                   <text class="goods_name  ellipsis font16">{{item.name}}</text>
                   <view class="right_part flex flex_between">
