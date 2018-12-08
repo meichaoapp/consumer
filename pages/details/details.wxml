@@ -6,20 +6,20 @@
 
 <view class="detail_box container">
     <!-- 商品图片 -->
-    <view>
-       <image src="{{detail.goodsPic}}" ></image>
+    <view class="top_image">
+       <image src="{{detail.goodsPic}}"mode="widthFix"></image>
     </view>
- 
-
     <view class="goods_intro bg_ff">
         <view class="goods_name flex flex_between">
             <view class="left flex">
                 <view class="icon_sale font12">今日特卖</view>
                 <view class="name font15">{{detail.title}}</view>
             </view>
-            <view class="right flex flex_colum flex_center flex_just">
-                <image class="icon_share" src="/static/images/share.png"></image>
-                <view class="C666">分享</view>
+            <view class="right">
+                <button class="share_btn  flex flex_colum flex_center flex_just" open-type='share' bindtap='onShareAppMessage'>
+                    <image class="icon_share" src="/static/images/share.png"></image>
+                    <view class="C666 font12">分享</view>
+                </button>
             </view>
         </view>
         <view class="goods_dec C666 font12">
@@ -92,13 +92,50 @@
             <template is="wxParse" data="{{wxParseData:goodsDetail.nodes}}" />
         </view>
     </view>
+
+    <!--参团成员-->
+    <view class="mem_box bg_ff">
+        <view class="title font15">参团成员</view>
+        <view class="portrait_box">
+            <view class="portrait">
+                <image src="/static/images/default.png"></image>
+            </view>
+            <view class="portrait">
+                <image src="/static/images/default.png"></image>
+            </view>
+            <view class="portrait">
+                <image src="/static/images/default.png"></image>
+            </view>
+            <view class="portrait">
+                <image src="/static/images/default.png"></image>
+            </view>
+            <view class="portrait">
+                <image src="/static/images/default.png"></image>
+            </view>
+            <view class="portrait">
+                <image src="/static/images/default.png"></image>
+            </view>
+            <view class="portrait">
+                <image src="/static/images/default.png"></image>
+            </view>
+            <view class="portrait">
+                <image src="/static/images/default.png"></image>
+            </view>
+            <view class="portrait">
+                <image src="/static/images/default.png"></image>
+            </view>
+            <view class="portrait">
+                <image class="icon_more" src="/static/images/more.png"></image>
+            </view>
+        </view>
+    </view>
     <!-- 图文详情 -->
     <view class="graphic_details bg_ff">
         <view class="graphic_details_title font15">图文详情</view>
-        <view wx:for="{{detail.pics}}" wx:key="{{item.index}}">
-            <image src="{{item}}" ></image>
+        <view  wx:for="{{detail.pics}}" wx:key="{{item.index}}">
+            <image src="{{item}}" mode="withFix"></image>
         </view>
-      
+
     </view>
     <view class="fixed_box flex">
         <view class="part_one flex flex_center bg_ff">
@@ -107,8 +144,10 @@
                 <view class="C999 font12">首页</view>
             </view>
             <view class="kefu  flex flex_colum flex_center flex_just">
-                <image class="icon_kefu" src="https://wxpic.iliangpin.cn/meichao/kefu.png"></image>
-                <view class="C999 font12">客服</view>
+                <button class="contact_btn" open-type='contact'>
+                    <image class="icon_kefu" src="https://wxpic.iliangpin.cn/meichao/kefu.png"></image>
+                    <view class="C999 font12">客服</view>
+                </button>
             </view>
         </view>
         <view class="part_two flex flex_center">

@@ -3,14 +3,14 @@
 .detail_box{
     margin-bottom:90rpx;
 }
-.banner_box{
+.top_image{
     width:100%;
 }
-.banner_box image{
+.top_image image{
     width:100%;
 }
 .goods_intro{
-    padding:0 30rpx;
+    padding:25rpx 30rpx;
 }
 .goods_name .left{
     flex:1;
@@ -33,7 +33,9 @@
 .right{
     width:100rpx;
     border-left:1px solid #979797;
+    position:relative;
 }
+
 .icon_share{
     width:38rpx;
     height:38rpx;
@@ -62,6 +64,7 @@
 }
 .merchant_name_con{
     height:100%;
+    padding:25rpx 0;
 }
 .merchant_name_box2 .left_part{
     width:87rpx;
@@ -83,6 +86,9 @@
 }
 .first_child{
     margin-right:120rpx;
+}
+.address_box{
+    margin-top:18rpx;
 }
 .address_box image{
     width:20rpx;
@@ -154,15 +160,74 @@
     height:81rpx;
     padding:0 30rpx;
     border-bottom:1px solid #eee;
-    text-align:center;
     line-height:81rpx;
 }
 .group_buy_desc .con{
     padding:10rpx 30rpx 25rpx 30rpx;
     line-height:48rpx;
 }
+.graphic_details{
+    margin-top:20rpx;
+}
+.graphic_details image{
+    width:100%;
+}
 .graphic_details_title{
     height:81rpx;
     line-height:81rpx;
     padding:0 30rpx;
+}
+
+
+.share_btn{
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    background:#fff;
+    padding:0;
+}
+button.share_btn::after{
+    border: none;
+}
+
+.contact_btn{
+    display:flex;
+    flex-direction:column;
+    justify-content: center;
+    align-items: center;
+    background:#fff;
+    padding:0;
+    margin:0;
+    width:100%;
+}
+.contact_btn view{
+    line-height:30rpx;
+}
+button.contact_btn::after{
+    border: none;
+}
+
+.mem_box{
+    height:348rpx;
+    margin-top:20rpx;
+}
+.mem_box .title{
+    line-height:81rpx;
+    border-bottom:1px solid #eee;
+    padding:0 48rpx;
+
+}
+.portrait_box {
+    padding:0 48rpx;
+}
+.portrait image{
+    width:72rpx;
+    height:72rpx;
+    border-radius:50%;
+    margin:15rpx 28rpx;
+    float:left;
+}
+.icon_more{
+    width:68rpx;
+    height:68rpx;
 }

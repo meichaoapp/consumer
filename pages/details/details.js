@@ -114,7 +114,7 @@ Page({
       g.number = num + 1;
       cart.updateCart(g);
     }
-    
+
   },
 
   //小于10的格式化函数
@@ -161,7 +161,7 @@ Page({
       }
 
       // console.log("o.status---" + o.status);
-  
+
 
       this.setData({ detail: o })
     }
