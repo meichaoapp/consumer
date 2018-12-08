@@ -1,7 +1,9 @@
 {
   "pages": [
-    "pages/category/goodsList",
+    
     "pages/index/index",
+
+    "pages/category/goodsList",
 
     "pages/orderConfirm/orderConfirm",
     "pages/details/details",

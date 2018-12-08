@@ -33,6 +33,11 @@ function getData(url, p) {
     return QueryTGNewList();
   }
 
+  if (url == api.QueryClassifyList) {
+    return QueryClassifyList();
+  }
+  
+
   //-----------------------旧首页
   //查询banner
   if (url == api.QueryBanner) {
@@ -159,6 +164,62 @@ function getData(url, p) {
     return queryUserInfo();
   }
 
+
+}
+
+function QueryClassifyList() {
+  var data = {
+    "totalPage": 2, //总页数
+    "list": [
+      {
+          "id": 1, //id	 团购详情id
+          "name": "蜜蜂21.5C绿心奇异果绿心奇异果绿心奇异果", //团购名称
+          "url": "https://wxpic.iliangpin.cn/meichao/1.png", //展示url
+          "price": 9.01, //团购价
+          "marketPrice": 10.05,//市场价/原价
+          "status": 0, //0 未开始 1 进行中 2 已成团 3 已过期
+          "comments": "草原宏宝蒙巴克 无公害谷饲羔羊", //简述
+          "specifications": "整箱20个",//规格
+          "productType": 1 //商品类型 1.普通团品 2. 一元购 3. 店长自营产品 		
+     },
+      {
+        "id": 2, //id	 团购详情id
+        "name": "蜜蜂21.5C绿心奇异果绿心奇异果绿心奇异果1", //团购名称
+        "url": "https://wxpic.iliangpin.cn/meichao/1.png", //展示url
+        "price": 9.01, //团购价
+        "marketPrice": 10.05,//市场价/原价
+        "status": 0, //0 未开始 1 进行中 2 已成团 3 已过期
+        "comments": "草原宏宝蒙巴克 无公害谷饲羔羊", //简述
+        "specifications": "整箱20个",//规格
+        "productType": 1 //商品类型 1.普通团品 2. 一元购 3. 店长自营产品 		
+      },
+      {
+        "id": 3, //id	 团购详情id
+        "name": "蜜蜂21.5C绿心奇异果绿心奇异果绿心奇异果2", //团购名称
+        "url": "https://wxpic.iliangpin.cn/meichao/1.png", //展示url
+        "price": 9.01, //团购价
+        "marketPrice": 10.05,//市场价/原价
+        "status": 0, //0 未开始 1 进行中 2 已成团 3 已过期
+        "comments": "草原宏宝蒙巴克 无公害谷饲羔羊", //简述
+        "specifications": "整箱20个",//规格
+        "productType": 1 //商品类型 1.普通团品 2. 一元购 3. 店长自营产品 		
+      },
+      {
+        "id": 4, //id	 团购详情id
+        "name": "蜜蜂21.5C绿心奇异果绿心奇异果绿心奇异果3", //团购名称
+        "url": "https://wxpic.iliangpin.cn/meichao/1.png", //展示url
+        "price": 9.01, //团购价
+        "marketPrice": 10.05,//市场价/原价
+        "status": 0, //0 未开始 1 进行中 2 已成团 3 已过期
+        "comments": "草原宏宝蒙巴克 无公害谷饲羔羊", //简述
+        "specifications": "整箱20个",//规格
+        "productType": 1 //商品类型 1.普通团品 2. 一元购 3. 店长自营产品 		
+      },
+    ]
+  }
+
+  RS.data = data;
+  return JSON.stringify(RS);
 
 }
 
@@ -313,18 +374,22 @@ function queryIndexInfo() {
     ],
     "classifys": [
       {
+        "type":1,
         "name": "鲜嫩果蔬",  //类别名称
         "logo": "https://wxpic.iliangpin.cn/meichao/nav1.png"  //店铺logo
       },
       {
+        "type": 2,
         "name": "休闲零食",  //类别名称
         "logo": "https://wxpic.iliangpin.cn/meichao/nav2.png"  //店铺logo
       },
       {
+        "type": 3,
         "name": "家居用品",  //类别名称
         "logo": "https://wxpic.iliangpin.cn/meichao/nav3.png"  //店铺logo
       },
       {
+        "type": 4,
         "name": "日用百货",  //类别名称
         "logo": "https://wxpic.iliangpin.cn/meichao/nav4.png"  //店铺logo
       },

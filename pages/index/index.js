@@ -482,6 +482,14 @@ Page({
       url: '/pages/orderConfirm/orderConfirm'
     });
   },
+  //跳转分类商品类别页
+  goCateGrory:function(e) {
+    let _this = this;
+    var type = e.currentTarget.dataset.type;
+    wx.navigateTo({
+      url: '/pages/category/goodsList?classify='+type,
+    });
+  },
   //小于10的格式化函数
   timeFormat(param) {
     return param < 10 ? '0' + param : param;

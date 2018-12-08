@@ -25,7 +25,7 @@
 
     <!-- 分类列表 -->
     <view wx:if="{{classifyList != null}}" class="classify_box flex flex_center flex_around">
-        <view class="flex flex_colum flex_center" wx:for="{{classifyList}}" wx:key="{{item.index}}" data-index="{{item.index}}" bindtap='goPage'>
+        <view class="flex flex_colum flex_center" wx:for="{{classifyList}}" wx:key="{{item.index}}" data-index="{{item.index}}" bindtap='goCateGrory' data-type='{{item.type}}'>
             <image src="{{item.logo}}"></image>
             <text>{{item.name}}</text>
         </view>

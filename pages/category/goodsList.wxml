@@ -1,113 +1,69 @@
+<import src="../../components/loading/loading.wxml" />
+<template is="loading" data="{{ ...$wux.loading }}" />
+<view class="header" hidden="{{hideHeader}}" style="display:none">
+    <view>下拉刷新中…</view>
+</view>
 <view class="goods_list_box container">
     <!-- 搜索框 -->
     <view class="search_box bg_ff">
-        <input class="input" name="userName" placeholder="搜索想找的商品"
-               bindinput="userNameInput"/>
-        <image class="icon_search" src="/static/images/search.png"></image>
+        <input class="input" name="goodsName" placeholder="搜索想找的商品"
+               bindinput="goodsNameInput"/>
+        <image bindtap='search' class="icon_search" src="/static/images/search.png"></image>
     </view>
 
     <!--菜单-->
     <view class="menu bg_ff flex flex_center">
-        <view class="on">拼团爆品</view>
-        <view>拼团爆品</view>
-        <view>拼团爆品</view>
-        <view>拼团爆品</view>
-        <view>拼团爆品</view>
+      <block wx:for="{{classifyList}}" wx:key="{{item.index}}">
+        <view bindtap='switchClassifyList' data-type='{{item.type}}' class="{{classify == item.type ? 'on' : '' }}">{{item.name}}</view>
+      </block> 
     </view>
 
     <!--商品列表-->
     <view class="goods_list">
+     <block wx:for="{{goodsList}}" wx:key="{{item.index}}">
         <view class="goods_con bg_ff flex flex_between">
             <view class="good_image flex flex_center flex_just br5">
-                <image  src="https://wxpic.iliangpin.cn/meichao/banner1.png"></image>
+                <image  src="{{item.url}}"></image>
             </view>
             <view class="content flex flex_colum">
-                <view class="name">蜜蜂21.5奇异果奇异果奇异果奇异果奇异果奇异果奇异果</view>
-                <view class="desc">整箱20个，很好吃整箱20个，很好吃整箱20个，很好吃整箱20个，很好吃</view>
+                <view class="name">{{item.name}}</view>
+                <view class="desc">{{item.comments}}</view>
                 <view class="flex flex_between" style="flex:1;">
                     <view class="price_box flex flex_center">
-                        <view class="curr_price">￥12.00</view>
-                        <view class="old_price">￥38.00</view>
+                        <view class="curr_price">￥{{item.price}}</view>
+                        <view class="old_price">￥{{item.marketPrice}}</view>
                     </view>
                     <view class="set_car flex flex_center ml10">
-                        <image bindtap='cutNumber' src="https://wxpic.iliangpin.cn/meichao/minus.png"></image>
-                        <text class="count">6</text>
-                        <image bindtap='addNumber'   src="https://wxpic.iliangpin.cn/meichao/plus.png"></image>
+                        <image bindtap='cutNumber' data-id='{{item.id}}' src="https://wxpic.iliangpin.cn/meichao/minus.png"></image>
+                        <text class="count">{{item.number}}</text>
+                        <image bindtap='addNumber' data-id='{{item.id}}'   src="https://wxpic.iliangpin.cn/meichao/plus.png"></image>
                     </view>
                 </view>
             </view>
         </view>
-        <view class="goods_con bg_ff flex flex_between">
-            <view class="good_image flex flex_center flex_just br5">
-                <image  src="https://wxpic.iliangpin.cn/meichao/banner1.png"></image>
-            </view>
-            <view class="content flex flex_colum">
-                <view class="name">蜜蜂21.5奇异果奇异果奇异果奇异果奇异果奇异果奇异果</view>
-                <view class="desc">整箱20个，很好吃整箱20个，很好吃整箱20个，很好吃整箱20个，很好吃</view>
-                <view class="flex flex_between" style="flex:1;">
-                    <view class="price_box flex flex_center">
-                        <view class="curr_price">￥12.00</view>
-                        <view class="old_price">￥38.00</view>
-                    </view>
-                    <view class="set_car flex flex_center ml10">
-                        <image bindtap='cutNumber' src="https://wxpic.iliangpin.cn/meichao/minus.png"></image>
-                        <text class="count">6</text>
-                        <image bindtap='addNumber'   src="https://wxpic.iliangpin.cn/meichao/plus.png"></image>
-                    </view>
-                </view>
-            </view>
-        </view>
-        <view class="goods_con bg_ff flex flex_between">
-            <view class="good_image flex flex_center flex_just br5">
-                <image  src="https://wxpic.iliangpin.cn/meichao/banner1.png"></image>
-            </view>
-            <view class="content flex flex_colum">
-                <view class="name">蜜蜂21.5奇异果奇异果奇异果奇异果奇异果奇异果奇异果</view>
-                <view class="desc">整箱20个，很好吃整箱20个，很好吃整箱20个，很好吃整箱20个，很好吃</view>
-                <view class="flex flex_between" style="flex:1;">
-                    <view class="price_box flex flex_center">
-                        <view class="curr_price">￥12.00</view>
-                        <view class="old_price">￥38.00</view>
-                    </view>
-                    <view class="set_car flex flex_center ml10">
-                        <image bindtap='cutNumber' src="https://wxpic.iliangpin.cn/meichao/minus.png"></image>
-                        <text class="count">6</text>
-                        <image bindtap='addNumber'   src="https://wxpic.iliangpin.cn/meichao/plus.png"></image>
-                    </view>
-                </view>
-            </view>
-        </view>
-        <view class="goods_con bg_ff flex flex_between">
-            <view class="good_image flex flex_center flex_just br5">
-                <image  src="https://wxpic.iliangpin.cn/meichao/banner1.png"></image>
-            </view>
-            <view class="content flex flex_colum">
-                <view class="name">蜜蜂21.5奇异果奇异果奇异果奇异果奇异果奇异果奇异果</view>
-                <view class="desc">整箱20个，很好吃整箱20个，很好吃整箱20个，很好吃整箱20个，很好吃</view>
-                <view class="flex flex_between" style="flex:1;">
-                    <view class="price_box flex flex_center">
-                        <view class="curr_price">￥12.00</view>
-                        <view class="old_price">￥38.00</view>
-                    </view>
-                    <view class="set_car flex flex_center ml10">
-                        <image bindtap='cutNumber' src="https://wxpic.iliangpin.cn/meichao/minus.png"></image>
-                        <text class="count">6</text>
-                        <image bindtap='addNumber'   src="https://wxpic.iliangpin.cn/meichao/plus.png"></image>
-                    </view>
-                </view>
-            </view>
-        </view>
+     </block> 
+        
     </view>
     <!-- 底部购物车 -->
     <view  class="car_box flex flex_between">
         <view class="flex flex_center">
             <view class="shopingcart_box" bindtap="openshopCar">
                 <image src="/static/images/shopping_cart.png"></image>
-                <view  class="count_num cfff">0</view>
+                <view wx:if="{{goodsNums != 0}}" class="count_num cfff">{{goodsNums}}</view>
             </view>
-            <view class="total_money">￥<text class="font24">0</text></view>
+            <view class="total_money">￥<text class="font24">{{needPay}}</text></view>
         </view>
         <view bindtap='toOrderConfirm' class="icon_settle" >去结算</view>
+    </view>
+</view>
+
+<view class="n-bottom" hidden="{{hideBottom}}">
+    <view>
+        <view class='transverseline'><text class='line'></text></view>
+
+        <text class='txt'>11{{loadMoreData}}</text>
+
+        <view class='transverseline'><text class='line'></text></view>
     </view>
 </view>
 
@@ -120,44 +76,44 @@
         <view bindtap='clearCart' class="C666">清空购物车</view>
     </view>
     <view class="classify_list">
-        <view  class="classify_title">拼团商品</view>
-        <view class="classify_con">
-            <view class="classify_item flex flex_center flex_between">
-                <text class="goods_name  ellipsis font16">绿心奇异果</text>
-                <view class="right_part flex flex_between">
-                    <text class="font16">￥10.08</text>
-                    <view class="set_car flex flex_center">
-                        <image bindtap='cutNumber' src="https://wxpic.iliangpin.cn/meichao/minus.png"></image>
-                        <text class="count">8</text>
-                        <image bindtap='addNumber'   src="https://wxpic.iliangpin.cn/meichao/plus.png"></image>
-                    </view>
-                </view>
-            </view>
-        </view>
+        <view wx:if="{{cartmerchatGoodsList != null && cartmerchatGoodsList.length > 0}}" class="classify_title">拼团商品</view>
+          <view wx:for="{{cartmerchatGoodsList}}" wx:key="{{item.index}}"  data-id="{{item.id}}" class="classify_con">
+              <view class="classify_item flex flex_center flex_between">
+                  <text class="goods_name  ellipsis font16">{{item.name}}</text>
+                  <view class="right_part flex flex_between">
+                      <text class="font16">￥{{item.price}}</text>
+                      <view class="set_car flex flex_center">
+                         <image bindtap='cutNumber' data-id='{{item.id}}' src="https://wxpic.iliangpin.cn/meichao/minus.png"></image>
+                            <text class="count">{{item.number}}</text>
+                          <image bindtap='addNumber' data-id='{{item.id}}'  src="https://wxpic.iliangpin.cn/meichao/plus.png"></image>
+                      </view>
+                  </view>
+              </view>
+          </view>
 
-        <view class="classify_title">店铺自营商品</view>
-        <view  class="classify_con">
-            <view class="classify_item flex flex_center flex_between">
-                <text class="goods_name  ellipsis font16">自营商品名称</text>
-                <view class="right_part flex flex_between">
-                    <text class="font16">￥4.00</text>
-                    <view class="set_car flex flex_center">
-                        <image bindtap='cutNumber'  src="https://wxpic.iliangpin.cn/meichao/minus.png"></image>
-                        <text class="count">9</text>
-                        <image bindtap='addNumber'   src="https://wxpic.iliangpin.cn/meichao/plus.png"></image>
-                    </view>
-                </view>
-            </view>
-        </view>
+           <view wx:if="{{cartselfGoodsList != null && cartselfGoodsList.length > 0}}" class="classify_title">店铺自营商品</view>
+          <view wx:for="{{cartselfGoodsList}}" wx:key="{{item.index}}"  data-id="{{item.id}}" class="classify_con">
+              <view class="classify_item flex flex_center flex_between">
+                  <text class="goods_name  ellipsis font16">{{item.name}}</text>
+                  <view class="right_part flex flex_between">
+                      <text class="font16">￥{{item.price}}</text>
+                      <view class="set_car flex flex_center">
+                         <image bindtap='cutNumber' data-id='{{item.id}}' src="https://wxpic.iliangpin.cn/meichao/minus.png"></image>
+                            <text class="count">{{item.number}}</text>
+                          <image bindtap='addNumber' data-id='{{item.id}}'  src="https://wxpic.iliangpin.cn/meichao/plus.png"></image>
+                      </view>
+                  </view>
+              </view>
+          </view>
 
     </view>
     <view  class="car_box flex flex_between">
         <view class="flex flex_center">
             <view class="shopingcart_box">
                 <image src="/static/images/shopping_cart.png"></image>
-                <view class="count_num cfff">0</view>
+                <view wx:if="{{goodsNums != 0}}" class="count_num cfff">{{goodsNums}}</view>
             </view>
-            <view class="total_money">￥<text class="font24">0</text></view>
+            <view class="total_money">￥<text class="font24">{{needPay}}</text></view>
         </view>
         <view bindtap='toOrderConfirm' class="icon_settle">去结算</view>
     </view>
