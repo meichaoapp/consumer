@@ -1,16 +1,21 @@
+<import src="../../components/loading/loading.wxml" />
+<template is="loading" data="{{ ...$wux.loading }}" />
+
+<import src="../../components/toast/toast.wxml" />
+<template is="toast" data="{{ ...$wux.toast }}" />
+
 <view class="detail_box container">
-    <!-- 轮播图 -->
-    <swiper class="banner_box bg_ff" indicator-dots="true" autoplay="true" interval="3000" duration="1000">
-        <swiper-item wx:for="{{banners}}" wx:key="{{item.id}}">
-            <image src="{{item.url}}" mode="widthFix"></image>
-        </swiper-item>
-    </swiper>
+    <!-- 商品图片 -->
+    <view>
+       <image src="{{detail.goodsPic}}" ></image>
+    </view>
+ 
 
     <view class="goods_intro bg_ff">
         <view class="goods_name flex flex_between">
             <view class="left flex">
                 <view class="icon_sale font12">今日特卖</view>
-                <view class="name font15">蜜蜂21.5绿心奇异果绿心奇异果绿心奇异果绿心奇异果果绿心奇异果果绿心奇异果果</view>
+                <view class="name font15">{{detail.title}}</view>
             </view>
             <view class="right flex flex_colum flex_center flex_just">
                 <image class="icon_share" src="/static/images/share.png"></image>
@@ -18,22 +23,22 @@
             </view>
         </view>
         <view class="goods_dec C666 font12">
-            正裝箱20头 蜜蜂21.5绿心奇异果绿心奇异果蜜蜂21.5绿心奇异果绿心奇异果
+            {{detail.comments}}
         </view>
         <view class="goods_price flex flex_center flex_between">
             <view>
-                <text class="c_9000 font24 ">￥35.9</text>
-                <text class="old_price font12 C666">￥298</text>
+                <text class="c_9000 font24 ">￥{{detail.price}}</text>
+                <text class="old_price font12 C666">￥{{detail.marketPrice}}</text>
             </view>
             <view class="flex flex_colum flex_end">
-                <view class="timer C666 font12">距结束09：21：28</view>
+                <view class="timer C666 font12">距结束{{detail.hour}}:{{detail.min}}:{{detail.sec}}</view>
                 <view class="flex mt10">
                     <view class="progress">
-                        <view class="progress_bar" style="width:{{(item.joinNum/item.limitNum)*100+'%'}}">
+                        <view class="progress_bar" style="width:{{(detail.joinNum/detail.limitNum)*100+'%'}}">
                             <view class="bg_ff"></view>
                         </view>
                     </view>
-                    <text class="C666 font10">68/90</text>
+                    <text class="C666 font10">{{detail.joinNum}}/{{detail.limitNum}}</text>
                 </view>
 
             </view>
@@ -42,24 +47,24 @@
     <!-- 团长介绍 -->
     <view class="merchant_name_box2 bg_ff">
         <view class="merchant_name_con flex flex_between">
-            <image class="left_part" src="/static/images/default.png"></image>
+            <image class="left_part" src="{{merchant.logo}}"></image>
             <view class="right_part">
                 <view class="font15">
-                    团长名称
+                    {{merchant.merchantName}}
                 </view>
                 <view class="flex flex_center mt5">
                     <view class="flex flex_center first_child">
-                        <image class="icon_user" src="/static/images/user.png"></image>
-                        <text class="C666">张三丰</text>
+                        <image class="icon_user" src="https://wxpic.iliangpin.cn/meichao/user.png"></image>
+                        <text class="C666">{{merchant.merchantUserName}}</text>
                     </view>
                     <view class="flex flex_center">
                         <image class="icon_link" src="https://wxpic.iliangpin.cn/meichao/link.png"></image>
-                        <text class="C666">138474849902</text>
+                        <text class="C666">{{merchant.merchantPhone}}</text>
                     </view>
                 </view>
                 <view class="address_box flex">
                     <image src="https://wxpic.iliangpin.cn/meichao/location-icon.png"></image>
-                    <view>山东省日照市山东省日照市山东省日照市山东省日照市山东省日照市</view>
+                    <view>{{merchant.address}}</view>
                 </view>
             </view>
         </view>
@@ -82,18 +87,22 @@
     <!--团购描述-->
     <view class="group_buy_desc bg_ff">
         <view class="title font15">团购描述</view>
-        <view class="con C666">猕猴桃猕猴猕猴桃猕猴桃猕猴桃猕猴桃猕猴桃猕猴桃桃猕猴桃猕猴桃猕猴桃猕猴桃</view>
+        <view class="con C666">
+            <import src="../../lib/wxParse/wxParse.wxml" />
+            <template is="wxParse" data="{{wxParseData:goodsDetail.nodes}}" />
+        </view>
     </view>
     <!-- 图文详情 -->
     <view class="graphic_details bg_ff">
         <view class="graphic_details_title font15">图文详情</view>
-        <view>
-            <!--这里放图片-->
+        <view wx:for="{{detail.pics}}" wx:key="{{item.index}}">
+            <image src="{{item}}" ></image>
         </view>
+      
     </view>
     <view class="fixed_box flex">
         <view class="part_one flex flex_center bg_ff">
-            <view class="home flex flex_colum flex_center flex_just" >
+            <view bindtap='toIndex' class="home flex flex_colum flex_center flex_just" >
                 <image class="icon_home" src="https://wxpic.iliangpin.cn/meichao/home.png"></image>
                 <view class="C999 font12">首页</view>
             </view>
@@ -103,8 +112,8 @@
             </view>
         </view>
         <view class="part_two flex flex_center">
-            <view class="cfff font15">加入购物车</view>
-            <view class="cfff font15">立即购买</view>
+            <view bindtap='addCart' class="cfff font15">加入购物车</view>
+            <view bindtap='toOrderConfirm' class="cfff font15">立即购买</view>
         </view>
     </view>
 </view>
