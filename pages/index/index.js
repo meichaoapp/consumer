@@ -35,6 +35,7 @@ Page({
         needPay:0.00, // 购物车核算价格
         goodsNums:0, //商品数量
         num:0,//和index相比，控制左侧显示激活状态样式
+        currentIndex:0,
         showModal:false,
 
     },
@@ -250,7 +251,7 @@ Page({
              totalPage: res.data.totalPage,
            })
          }
-          
+
             _this.refreshCartRef();
         })
 
@@ -291,14 +292,18 @@ Page({
       goodsNums: 0, //商品数量
       num: 0,//和index相比，控制左侧显示激活状态样式
     });
-    
+
     _this.queryTGList();
 
   },
   //选中商户
   clickMerchant(e) {
     let _this = this;
-    let id = e.currentTarget.dataset.id;
+    let id = e.currentTarget.dataset.id,
+      index = e.currentTarget.dataset.index
+      _this.setData({
+          currentIndex: index,
+      })
     console.log("clickMerchant id -- " + id);
     var merchantList = _this.data.merchantList;
     var merchant = {};
@@ -335,7 +340,7 @@ Page({
     refreshCartRef:function(){
 
       let _this = this;
-      
+
       var _arr = cart.loadCart();//购物车商品
       var cartselfGoodsList = [];
       var cartmerchatGoodsList = [];

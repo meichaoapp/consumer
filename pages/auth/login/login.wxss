@@ -84,10 +84,11 @@ page{
     height:27rpx;
 }
 .modal-content{
-    padding:0 30rpx;
+
     overflow:auto;
 }
 .merchant_item{
+    padding:0 30rpx;
     height:188rpx;
     border-bottom:1px solid #ddd;
 }
@@ -98,4 +99,8 @@ page{
 }
 .right_part{
     flex:1;
+}
+
+.on{
+    background:#F4FFEE;
 }

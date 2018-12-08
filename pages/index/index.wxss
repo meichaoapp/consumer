@@ -339,12 +339,12 @@
     height:27rpx;
 }
 .modal-content{
-    padding:0 30rpx;
     overflow:auto;
 }
 .merchant_item{
     height:188rpx;
     border-bottom:1px solid #ddd;
+    padding:0 30rpx;
 }
 .merchant_item image{
     width:87rpx;
@@ -353,6 +353,9 @@
 }
 .right_part{
     flex:1;
+}
+.on{
+    background:#F4FFEE;
 }
 
 
