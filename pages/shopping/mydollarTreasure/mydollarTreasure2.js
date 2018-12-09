@@ -39,7 +39,7 @@ Page({
 
   },
   onShow: function () {
-
+   
   },
 
   /**
@@ -87,8 +87,8 @@ Page({
       wx.stopPullDownRefresh();
     }, 300);
   },
-
-  queryMyTreasures: function () {
+ 
+  queryMyTreasures:function(){
     let _this = this;
     util.request(api.QueryMyTreasures, {
       userId: _this.data.userInfo.id,
@@ -125,6 +125,6 @@ Page({
     })
   },
 
-
+  
 
 })

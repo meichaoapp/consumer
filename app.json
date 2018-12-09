@@ -1,6 +1,6 @@
 {
   "pages": [
-
+    "pages/shopping/mydollarTreasure/mydollarTreasure",
     "pages/index/index",
 
     "pages/category/goodsList",
@@ -33,8 +33,8 @@
     "pages/shopping/dollarTreasureDetail/dollarTreasureDetail",
     "pages/shopping/dollarTreasureDetail/success",
     "pages/shopping/dollarTreasure/dollarTreasure",
-    "pages/shopping/dollarTreasure/dollarTreasureWin",
-    "pages/shopping/mydollarTreasure/mydollarTreasure"
+    "pages/shopping/dollarTreasure/dollarTreasureWin"
+
   ],
   "window": {
     "backgroundTextStyle": "dark",

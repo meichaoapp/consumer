@@ -1,4 +1,5 @@
 {
-"enablePullDownRefresh": true,
-"backgroundTextStyle": "white"
+  "navigationBarTitleText": "我的一元夺宝",
+  "enablePullDownRefresh": true,
+  "backgroundTextStyle": "white"
 }
