@@ -42,11 +42,11 @@ Page({
                     totalPay: res.data.totalPay,//共付
                     needPay: res.data.needPay,// 应付
                     orderQRcode: res.data.orderQRcode,// 订单二维码（包含订单id）
-                    code: res.data.code, //订单识别码
+                    //code: res.data.code, //订单识别码
                     deliveryType: res.data.deliveryType,
                     address: res.data.address,
                     merchant: res.data.merchant,
-                    groupPurchase: res.data.groupPurchase,
+                    //groupPurchase: res.data.groupPurchase,
                     goodsList: res.data.goodsList
                 });
                 //that.payTimer();
