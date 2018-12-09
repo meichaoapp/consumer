@@ -186,6 +186,7 @@ Page({
    
     util.request(api.QueryClassifys, {token:""}, "POST").then(function (res) {
       if (res.rs === 1) {
+        console.log("queryClassifyList --- " + JSON.stringify(res.data));
         that.setData({
           classifyList: res.data,
         })

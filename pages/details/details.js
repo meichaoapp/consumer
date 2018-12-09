@@ -82,6 +82,7 @@ Page({
     util.request(api.QueryGroupPurchaseGoodsDetail, { id: that.data.id }, "POST").then(function (res) {
       if (res.rs == 1) {
         var data = res.data;
+        //console.log("queryGroupPurchaseDetail --- " + JSON.stringify(data));
         that.setData({
           detail: data.detail, //团购详情
           merchant: data.merchant,//商家

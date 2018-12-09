@@ -47,7 +47,7 @@
         </view>
         <view class="con flex flex_between">
           <block wx:for="{{treasures}}" wx:key="{{item.id}}">
-          <navigator url='/pages/shopping/dollarTreasureDetail/dollarTreasureDetail?tag=1&id={{item.treasureId}}&orderId={{item.orderId}}'>
+          <navigator url='/pages/shopping/dollarTreasureDetail/dollarTreasureDetail?tag=0&id={{item.treasureId}}&orderId={{item.orderId}}'>
             <view class="single_box br5" >
                 <view class="top flex flex_between">
                     <image class="pre_img" src="{{item.url}}"></image>

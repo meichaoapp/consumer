@@ -12,7 +12,7 @@
     <scroll-view scroll-y="true" class='dollarTreasure'>
         <block wx:for="{{list}}" wx:for-index="index" wx:for-item="item" wx:key="{{item.id}}" >
 
-            <navigator url='/pages/shopping/dollarTreasureDetail/dollarTreasureDetail?tag=1&id={{item.treasureId}}&orderId={{item.orderId}}'>
+            <navigator url='/pages/shopping/dollarTreasureDetail/dollarTreasureDetail?tag=0&id={{item.treasureId}}&orderId={{item.orderId}}'>
                 <view>
                     <view class="dollarTreasure-cells flex flex_between"  >
                         <view class="left_part">
@@ -63,9 +63,12 @@
             
         </block>
     </scroll-view>
-    <view class=" flex flex_center flex_just">
-        <view class="more_lottery">更多往期中奖</view>
-    </view>
+
+    <navigator url='/pages/shopping/dollarTreasure/dollarTreasureWin' class='morewinprizenav' >
+      <view class=" flex flex_center flex_just">
+          <view class="more_lottery">更多往期中奖</view>
+      </view>
+    </navigator>
 
     <view wx:if="{{list == null  }}">
         <image class='no_order_img'  src="/static/images/noneOrder.png"></image>
