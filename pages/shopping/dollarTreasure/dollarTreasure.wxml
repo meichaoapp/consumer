@@ -11,9 +11,10 @@
 
     <scroll-view scroll-y="true" class='dollarTreasure'>
         <block wx:for="{{list}}" wx:for-index="index" wx:for-item="item" wx:key="{{item.id}}" >
+
             <navigator url='/pages/shopping/dollarTreasureDetail/dollarTreasureDetail?tag=1&id={{item.treasureId}}&orderId={{item.orderId}}'>
                 <view>
-                    <view  wx:if="{{item.status == 0}}"  class="dollarTreasure-cells flex flex_between"  >
+                    <view class="dollarTreasure-cells flex flex_between"  >
                         <view class="left_part">
                             <image src='{{item.url}}'></image>
                         </view>
@@ -30,9 +31,9 @@
                                             <view class="bg_ff"></view>
                                         </view>
                                     </view>
-                                    <view class="lotteryn_time C666">{{item.lotterynTime}}</view>
+                                    <view class="lotteryn_time C666">{{item.lotteryTime}}开奖</view>
                                 </view>
-                                <view class="share_btn_box flex flex_center">
+                                <view wx:if="{{ item.status != 2}}" class="share_btn_box flex flex_center">
                                     <button class="share_btn  flex flex_colum flex_center flex_just" open-type='share' bindtap='onShareAppMessage'>
                                         <image class="icon_share" src="/static/images/share.png"></image>
                                         <view class="C666 font12" style="line-height:33rpx;">分享</view>
@@ -44,62 +45,22 @@
                     </view>
                     <view class="bottom bg_ff flex flex_between flex_center">
                         <view class="part_one">
-                            <button class="share_btn  flex flex_center flex_just" open-type='share' bindtap='onShareAppMessage'>
+                            <!-- <button class="share_btn  flex flex_center flex_just" open-type='share' bindtap='onShareAppMessage'>
                                 <image class="icon_share2" src="/static/images/share.png"></image>
-                                <view class="C666">分享朋友，机会翻倍</view>
-                            </button>
+                                <view class="C666">分享朋友，111机会翻倍</view>
+                            </button> -->
                         </view>
-                        <view class="lottery_now">
-                            正在开奖05:24:18
+                        <view wx:if="{{ item.status != 2}}" class="lottery_now">
+                            正在开奖{{item.hour}}:{{item.min}}:{{item.sec}}
+                        </view>
+                        <view wx:if="{{ item.status == 2}}" class="lottery_now">
+                            等待开奖
                         </view>
                     </view>
                 </view>
 
             </navigator>
-            <navigator url='/pages/shopping/dollarTreasureDetail/dollarTreasureDetail?tag=1&id={{item.treasureId}}&orderId={{item.orderId}}'>
-                <view>
-                    <view  wx:if="{{item.status == 2}}"  class="dollarTreasure-cells flex flex_between"  >
-                        <view class="left_part">
-                            <image src='{{item.url}}'></image>
-                        </view>
-                        <view class="right_part">
-                            <view class="name">{{item.name}}</view>
-                            <view class="price flex flex_center mt6">
-                                <view class="font18 c_9000 mr6">￥{{item.price}}</view>
-                                <view class="old_price C999">￥{{item.marketPrice}}</view>
-                            </view>
-                            <view class="pro_share_box flex">
-                                <view class="mr6">
-                                    <view class="progress">
-                                        <view class="progress_bar" style="width:{{(item.joinNum/item.limitNum)*100+'%'}}">
-                                            <view class="bg_ff"></view>
-                                        </view>
-                                    </view>
-                                    <view class="lotteryn_time C666">{{item.lotterynTime}}</view>
-                                </view>
-                                <view class="share_btn_box flex flex_center">
-                                    <button class="share_btn  flex flex_colum flex_center flex_just" open-type='share' bindtap='onShareAppMessage'>
-                                        <image class="icon_share" src="/static/images/share.png"></image>
-                                        <view class="C666 font12" style="line-height:33rpx;">分享</view>
-                                    </button>
-                                </view>
-                            </view>
-                        </view>
-
-                    </view>
-                    <view class="bottom bg_ff flex flex_between flex_center">
-                        <view class="part_one">
-                            <button class="share_btn  flex flex_center flex_just" open-type='share' bindtap='onShareAppMessage'>
-                                <image class="icon_share2" src="/static/images/share.png"></image>
-                                <view class="C666">分享朋友，机会翻倍</view>
-                            </button>
-                        </view>
-                        <view class="lottery_now">
-                            正在开奖05:24:18
-                        </view>
-                    </view>
-                </view>
-            </navigator>
+            
         </block>
     </scroll-view>
     <view class=" flex flex_center flex_just">

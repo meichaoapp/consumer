@@ -100,7 +100,7 @@ Page({
         util.request(api.QueryTreasureList, data, "POST").then(function (res) {
             _this.$wuxLoading.hide(); //隐藏加载动画
             if (res.rs === 1) {
-                console.log(res.data);
+              console.log("QueryTreasureList-0---" + JSON.stringify(res.data));
                 var list = res.data.list;
                 if (_this.data.start == 1) { // 下拉刷新
                     _this.setData({

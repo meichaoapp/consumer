@@ -46,7 +46,9 @@
             </navigator>
         </view>
         <view class="con flex flex_between">
-            <view class="single_box br5" wx:for="{{treasures}}" wx:key="{{item.id}}">
+          <block wx:for="{{treasures}}" wx:key="{{item.id}}">
+          <navigator url='/pages/shopping/dollarTreasureDetail/dollarTreasureDetail?tag=1&id={{item.treasureId}}&orderId={{item.orderId}}'>
+            <view class="single_box br5" >
                 <view class="top flex flex_between">
                     <image class="pre_img" src="{{item.url}}"></image>
                     <view class="content">
@@ -76,6 +78,8 @@
                     </view>
                 </view>
             </view>
+          </navigator>
+          </block>
         </view>
     </view>
     <!-- 团购商品列表  -->
