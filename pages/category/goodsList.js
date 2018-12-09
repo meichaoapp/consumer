@@ -184,10 +184,10 @@ Page({
   queryClassifyList: function () {
     let that = this;
    
-    util.request(api.QueryIndexInfo, {token:""}, "POST").then(function (res) {
+    util.request(api.QueryClassifys, {token:""}, "POST").then(function (res) {
       if (res.rs === 1) {
         that.setData({
-          classifyList: res.data.classifys,
+          classifyList: res.data,
         })
         that.queryTGList();
       }

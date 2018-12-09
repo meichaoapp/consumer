@@ -33,6 +33,11 @@ function getData(url, p) {
     return QueryTGNewList();
   }
 
+  if (url == api.QueryClassifys) {
+    return QueryClassifys();
+  }
+  
+
   if (url == api.QueryClassifyList) {
     return QueryClassifyList();
   }
@@ -166,7 +171,32 @@ function getData(url, p) {
 
 
 }
-
+function QueryClassifys() {
+  var data = [
+    {
+      "type": 1,
+      "name": "鲜嫩果蔬",  //类别名称
+      "logo": "https://wxpic.iliangpin.cn/meichao/nav1.png"  //店铺logo
+    },
+    {
+      "type": 2,
+      "name": "休闲零食",  //类别名称
+      "logo": "https://wxpic.iliangpin.cn/meichao/nav2.png"  //店铺logo
+    },
+    {
+      "type": 3,
+      "name": "家居用品",  //类别名称
+      "logo": "https://wxpic.iliangpin.cn/meichao/nav3.png"  //店铺logo
+    },
+    {
+      "type": 4,
+      "name": "日用百货",  //类别名称
+      "logo": "https://wxpic.iliangpin.cn/meichao/nav4.png"  //店铺logo
+    },
+  ];
+  RS.data = data;
+  return JSON.stringify(RS);
+}
 function QueryClassifyList() {
   var data = {
     "totalPage": 2, //总页数

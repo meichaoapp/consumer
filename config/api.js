@@ -8,6 +8,7 @@ module.exports = {
 
   QueryMerchants: NewApiRootUrl + 'groupPurchase/merchants',//查询附近商户信息（新）
 
+  QueryClassifys: NewApiRootUrl + "/api/index/classifys",
   QueryClassifyList: NewApiRootUrl +  "/api/index/classifyList",
    //new index query api
   QueryIndexInfo: NewApiRootUrl + 'index/info',//查询首页信息（新）
