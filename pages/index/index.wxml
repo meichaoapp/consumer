@@ -52,10 +52,10 @@
                 <view class="top flex flex_between">
                     <image class="pre_img" src="{{item.url}}"></image>
                     <view class="content">
-                        <view class="font15">{{item.name}}</view>
+                        <view class="font15 ellipsis_2">{{item.name}}</view>
                         <view class="mt6">
-                            <text class="curr_price">{{item.price}}</text>
-                            <text class="old_price">{{item.marketPrice}}</text>
+                            <text class="curr_price">￥{{item.price}}</text>
+                            <text class="old_price">￥{{item.marketPrice}}</text>
                         </view>
                     </view>
                 </view>
@@ -98,10 +98,10 @@
                     </navigator>
                     <view class="content flex flex_colum">
                         <navigator url="/pages/details/details?id={{item.id}}">
-                           <view class="name">{{item.name}}</view>
+                           <view class="name ellipsis_2">{{item.name}}</view>
                         </navigator>
                         <navigator url="/pages/details/details?id={{item.id}}">
-                            <view class="desc">{{item.comments}}</view>
+                            <view class="desc ellipsis">{{item.comments}}</view>
                         </navigator>
                         <view class="flex" style="flex:1;">
                             <view class="price_box flex flex_center">

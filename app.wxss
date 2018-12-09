@@ -393,5 +393,13 @@ view,text{
   right:2rpx;
   top:2rpx;
 }
+/*超过两行显示省略号*/
+.ellipsis_2{
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
 
 

@@ -143,7 +143,7 @@
 
 .truesure_box{
     background:#fff;
-    height:339rpx;
+    /*height:339rpx;*/
     padding:0 20rpx;
     margin:20rpx 0;
 }
@@ -152,17 +152,24 @@
 }
 .truesure_box .con{
     display:flex;
-
+    padding-bottom:20rpx;
 }
 .con .single_box{
     border:1px solid #E4E4E4;
     width:348rpx;
-    height:229rpx;
+    height:259rpx;
     padding:10rpx;
+}
+.single_box .top{
+    height:132rpx;
 }
 .con .single_box .pre_img{
     width:110rpx;
     height:110rpx;
+    margin-right:10rpx;
+}
+.con .single_box .content{
+    flex:1;
 }
 .con .single_box .content .curr_price{
     font-size:36rpx;
@@ -177,8 +184,11 @@
 .single_box .bottom{
     height:80rpx;
 }
+.bottom .timer{
+    flex:1;
+}
 .bottom .timer text{
-    width:37rpx;
+    /*width:37rpx;*/
     height:37rpx;
     border-radius:5rpx;
     background:#131313;
@@ -260,6 +270,7 @@
 }
 .m_con .content{
     flex:1;
+    width:0;
 }
 .m_con .content .desc{
     margin:10rpx 0 20rpx;
