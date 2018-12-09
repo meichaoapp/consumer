@@ -1,5 +1,5 @@
 {
- "enablePullDownRefresh": true,
- "navigationBarBackgroundColor":"#fc7058",
- "navigationBarTextStyle":"white"
+  "navigationBarTitleText": "一元夺宝",
+  "enablePullDownRefresh": true,
+  "backgroundTextStyle": "white"
 }

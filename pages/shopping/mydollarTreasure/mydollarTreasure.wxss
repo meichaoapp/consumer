@@ -27,31 +27,6 @@ page{
 .lotteryn_time{
     margin-top:12rpx;
 }
-.share_btn_box{
-    border-left:1px solid #979797;
-    flex:1;
-}
-.share_btn{
-    justify-content: center;
-    align-content: center;
-    align-items: center;
-    background:#fff;
-    padding:0;
-
-}
-.icon_share{
-    width:38rpx;
-    height:38rpx;
-    margin-bottom:6rpx;
-}
-.icon_share2{
-    width:38rpx;
-    height:38rpx;
-    margin-right:6rpx;
-}
-button.share_btn::after{
-    border: none;
-}
 .right_part{
     flex:1;
 }
@@ -63,14 +38,25 @@ button.share_btn::after{
     border-top:1px solid #eee;
     padding:0 30rpx;
 }
-.lottery_now{
-    width:288rpx;
+.btn_lottery{
+    width:174rpx;
     height:51rpx;
-    border-radius:25.5rpx;
-    background: #FF9000;
-    color:#fff;
     text-align:center;
     line-height:51rpx;
+    border-radius: 25.5px;
+}
+.lottery_wait{
+    border: 1px solid #FF9000;
+    color:#FF9000;
+
+}
+.prizebtns{
+    background: #FF3F3F;
+    color:#fff;
+}
+.un_lottery{
+    background: #DFDFDF;
+    color:#fff;
 }
 .more_lottery{
     width:316rpx;
@@ -81,4 +67,5 @@ button.share_btn::after{
     line-height:84rpx;
     color:#fff;
 }
+
 

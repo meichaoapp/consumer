@@ -32,29 +32,51 @@
                                     </view>
                                     <view class="lotteryn_time C666">{{item.lotterynTime}}</view>
                                 </view>
-                                <view class="share_btn_box flex flex_center">
-                                    <button class="share_btn  flex flex_colum flex_center flex_just" open-type='share' bindtap='onShareAppMessage'>
-                                        <image class="icon_share" src="/static/images/share.png"></image>
-                                        <view class="C666 font12" style="line-height:33rpx;">分享</view>
-                                    </button>
+                            </view>
+                        </view>
+
+                    </view>
+                    <view wx:if="{{item.status == 0}}"  class="bottom bg_ff flex flex_between flex_center">
+                        <view>我的幸运号码为：1000003</view>
+                        <view class="btn_lottery lottery_wait">
+                            等待开奖
+                        </view>
+                    </view>
+                </view>
+
+            </navigator>
+            <navigator url='/pages/shopping/dollarTreasureDetail/dollarTreasureDetail?tag=1&id={{item.treasureId}}&orderId={{item.orderId}}'>
+                <view>
+                    <view  wx:if="{{item.status == 1}}"  class="dollarTreasure-cells flex flex_between"  >
+                        <view class="left_part">
+                            <image src='{{item.url}}'></image>
+                        </view>
+                        <view class="right_part">
+                            <view class="name">{{item.name}}</view>
+                            <view class="price flex flex_center mt6">
+                                <view class="font18 c_9000 mr6">￥{{item.price}}</view>
+                                <view class="old_price C999">￥{{item.marketPrice}}</view>
+                            </view>
+                            <view class="pro_share_box flex">
+                                <view class="mr6">
+                                    <view class="progress">
+                                        <view class="progress_bar" style="width:{{(item.joinNum/item.limitNum)*100+'%'}}">
+                                            <view class="bg_ff"></view>
+                                        </view>
+                                    </view>
+                                    <view class="lotteryn_time C666">{{item.lotterynTime}}</view>
                                 </view>
                             </view>
                         </view>
 
                     </view>
-                    <view class="bottom bg_ff flex flex_between flex_center">
-                        <view class="part_one">
-                            <button class="share_btn  flex flex_center flex_just" open-type='share' bindtap='onShareAppMessage'>
-                                <image class="icon_share2" src="/static/images/share.png"></image>
-                                <view class="C666">分享朋友，机会翻倍</view>
-                            </button>
-                        </view>
-                        <view class="lottery_now">
-                            正在开奖05:24:18
+                    <view wx:if="{{item.status == 1}}" class="bottom bg_ff flex flex_between flex_center">
+                        <view>我的幸运号码为：1000003</view>
+                        <view class="btn_lottery prizebtns">
+                            恭喜中奖
                         </view>
                     </view>
                 </view>
-
             </navigator>
             <navigator url='/pages/shopping/dollarTreasureDetail/dollarTreasureDetail?tag=1&id={{item.treasureId}}&orderId={{item.orderId}}'>
                <view>
@@ -77,34 +99,20 @@
                                    </view>
                                    <view class="lotteryn_time C666">{{item.lotterynTime}}</view>
                                </view>
-                               <view class="share_btn_box flex flex_center">
-                                   <button class="share_btn  flex flex_colum flex_center flex_just" open-type='share' bindtap='onShareAppMessage'>
-                                       <image class="icon_share" src="/static/images/share.png"></image>
-                                       <view class="C666 font12" style="line-height:33rpx;">分享</view>
-                                   </button>
-                               </view>
                            </view>
                        </view>
 
                    </view>
-                   <view class="bottom bg_ff flex flex_between flex_center">
-                       <view class="part_one">
-                           <button class="share_btn  flex flex_center flex_just" open-type='share' bindtap='onShareAppMessage'>
-                               <image class="icon_share2" src="/static/images/share.png"></image>
-                               <view class="C666">分享朋友，机会翻倍</view>
-                           </button>
-                       </view>
-                       <view class="lottery_now">
-                           正在开奖05:24:18
+                   <view wx:if="{{item.status == 2}}" class="bottom bg_ff flex flex_between flex_center">
+                       <view>我的幸运号码为：1000003</view>
+                       <view class="btn_lottery un_lottery">
+                           未中奖
                        </view>
                    </view>
                </view>
             </navigator>
         </block>
     </scroll-view>
-    <view class=" flex flex_center flex_just">
-        <view class="more_lottery">更多往期中奖</view>
-    </view>
 
     <view wx:if="{{list == null  }}">
         <image class='no_order_img'  src="/static/images/noneOrder.png"></image>

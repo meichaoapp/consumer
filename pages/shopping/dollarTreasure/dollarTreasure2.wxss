@@ -1,0 +1,230 @@
+page{
+    background: #f4f4f4;
+    min-height: 100%;
+}
+.rows{
+  display: flex;
+  flex-direction:row; 
+}
+.dollarTreasuretitle{
+margin-top: 18rpx;
+  font-size: 34rpx;
+  font-weight: bold;
+  padding: 0 14rpx;
+}
+.countDownv .timer-num{
+  /* padding: 3rpx 6rpx; */
+width: 47rpx;
+text-align:center;
+display:inline-block;
+height: 34rpx;
+line-height: 34rpx;
+/* padding: 3rpx 0; */
+  background: -webkit-linear-gradient(top, #fa875a, #ff4f54); /* Safari 5.1 - 6.0 */
+  background: -o-linear-gradient(top, #fa875a, #ff4f54); /* Opera 11.1 - 12.0 */
+  background: -moz-linear-gradient(top, #fa875a, #ff4f54); /* Firefox 3.6 - 15 */
+  background: linear-gradient(to bottom, #fa875a , #ff4f54); /* 标准的语法 */
+  color: #fff;
+  border-radius: 6rpx;
+}
+.container{
+    background: #f4f4f4;
+    min-height: 100%;
+    padding-top: 10rpx;
+    padding-bottom: 30rpx;
+}
+.dollarTreasure{
+  width: 98%;
+  margin-left: 1%;
+}
+.dollarTreasure .dollarTreasure-cells{
+  /* width: 100%; */
+  background: #fff;
+  margin-top: 18rpx;
+  box-shadow: 0rpx 0 12rpx #fac6c6;
+  /* border-radius: 8rpx; */
+  padding: 20rpx;
+  width: 97%;
+  margin-left: 1%;
+  /* box-sizing:border-box;  */
+
+}
+.dollarTreasure-cells-main{
+  display: flex;
+  flex-direction: row;
+}
+.dollarTreasure-cells-main .proimgs{
+  width: 28%;
+}
+.dollarTreasure-cells-main .proimgs image{
+  width: 180rpx;
+  height: 140rpx;
+  /* height: auto; */
+}
+.dollarTreasure-cells-main .prodesc{
+  width: 72%;
+  padding-left: 10rpx;
+}
+.prodesc text{
+display: block;
+
+}
+
+.prodesc .name{
+  color: #333;
+  font-size:28rpx;
+  /* font-weight: bold; */
+  line-height: 32rpx;
+  padding-top: 8rpx;
+  padding-bottom: 34rpx;
+}
+
+.prodesc .prices{
+  color: #e38f23;
+  height: 50rpx;
+  line-height: 50rpx;
+  font-size: 42rpx;
+  font-weight: bold;
+}
+.prodesc .prices .rmb{
+  font-size: 24rpx;
+  display: inline;
+    color: #e38f23;
+}
+button.share::after{
+border: none;
+}
+.share{
+  background: transparent;
+  border: 0;
+  padding: 0;
+  margin: 0;
+  border-radius: 0;
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+height: 50rpx;
+
+}
+.share .share-text{
+  flex: 1;
+  font-size: 24rpx;
+  color: #72cfdd;
+  height: 50rpx;
+  line-height: 50rpx;
+}
+.share .share-icon{
+  margin-top: 15rpx;
+  width:18rpx;
+  height: 17rpx; 
+  margin-left: 4rpx;
+}
+.prodesc .shares{
+  flex: 1;
+  color: #72cfdd;
+  height: 50rpx;
+  text-align: right;
+  line-height: 60rpx;
+  font-size: 24rpx;
+  vertical-align:bottom;
+}
+.prodesc .shares image{
+  width: 20rpx;
+  height: 20rpx;
+}
+.dollarTreasure-cells-dataline{
+  width: 72%;
+  margin-left: 28%;
+  display: flex;
+  margin-top: 10rpx;
+  box-sizing: border-box;
+  padding-left: 8rpx;
+}
+
+.prizebtns{
+  display: block;
+  flex: 1;
+  height: 48rpx;
+  margin: 0;
+  padding: 0;
+  text-align: right;
+}
+.market-price{
+  margin-right: 13rpx;
+  color: #aeaeae;
+  font-size: 24rpx;
+  text-decoration: line-through;
+  margin-left:18rpx;
+  height:50rpx;
+line-height:50rpx;
+
+}
+.prizebtns .btns{
+  float:right;
+  display: block;
+  width: 140rpx;
+  height: 48rpx;
+  line-height: 48rpx;
+  color: #fff;
+  border-radius: 48rpx;
+  font-size: 28rpx;
+  text-align: center;
+  box-sizing: border-box;
+    background: -webkit-linear-gradient(top, #fa875a, #ff4f54); /* Safari 5.1 - 6.0 */
+  background: -o-linear-gradient(top, #fa875a, #ff4f54); /* Opera 11.1 - 12.0 */
+  background: -moz-linear-gradient(top, #fa875a, #ff4f54); /* Firefox 3.6 - 15 */
+  background: linear-gradient(to bottom, #fa875a , #ff4f54); /* 标准的语法 */
+}
+.countDownv{
+  width: 300rpx;
+}
+
+.textddkj{
+  color:#e38f23;
+  font-size: 24rpx;
+  margin-right: 15rpx;
+}
+.countDownv .timer-num{
+  font-size: 24rpx;
+}
+.waitFor .countDownv{
+  color: #ccc!important;
+  font-size: 24rpx;
+  height:48rpx;
+line-height:48rpx;
+
+}
+.waitFor .btns{
+  background: #f0f0f7;
+  color: #999;
+}
+.morewinprizenav{
+  display: block;
+}
+.morewinprize{
+  width: 36%;
+margin-left: 32%;
+text-align: center;
+padding: 20rpx 0;
+border-radius: 40rpx;
+background: #f0f0f7;
+color: #72cfdd;
+font-size: 32rpx;
+margin-top: 40rpx;
+}
+.winprizeinfo .peoplename,.winprizeinfo .nums,.winprizeinfo .date{
+font-size: 26rpx;
+color: #999;
+}
+.icon-huoress{
+  border: 0;
+width:28rpx;
+height:32rpx; 
+ margin-right: 6rpx
+}
+.OpeningTime{
+  color:  #e38f23;
+  font-size: 24rpx;
+  height: 48rpx;
+  line-height: 48rpx;
+}

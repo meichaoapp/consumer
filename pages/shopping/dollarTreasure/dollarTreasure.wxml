@@ -1,106 +1,127 @@
 <import src="../../../components/loading/loading.wxml" />
 <template is="loading" data="{{ ...$wux.loading }}" />
+<import src="../../../components/toast/toast.wxml"/>
+<template is="toast" data="{{ ...$wux.toast }}"/>
 <view class="header" hidden="{{hideHeader}}">
-  <view>下拉刷新中……</view>
-  <view>{{refreshTime}}</view>
+    <view>下拉刷新中……</view>
+    <view>{{refreshTime}}</view>
 </view>
 <view class="container">
-  <!-- 一元夺宝 -->
+    <!-- 一元夺宝 -->
 
-<view class='dollarTreasuretitle'>
-   <!-- <text class='iconfont icon-huore'></text>火热开抢 -->
-   <image class="icon-huoress" src='/static/images/fire.png'></image>火热开抢
-</view>
+    <scroll-view scroll-y="true" class='dollarTreasure'>
+        <block wx:for="{{list}}" wx:for-index="index" wx:for-item="item" wx:key="{{item.id}}" >
+            <navigator url='/pages/shopping/dollarTreasureDetail/dollarTreasureDetail?tag=1&id={{item.treasureId}}&orderId={{item.orderId}}'>
+                <view>
+                    <view  wx:if="{{item.status == 0}}"  class="dollarTreasure-cells flex flex_between"  >
+                        <view class="left_part">
+                            <image src='{{item.url}}'></image>
+                        </view>
+                        <view class="right_part">
+                            <view class="name">{{item.name}}</view>
+                            <view class="price flex flex_center mt6">
+                                <view class="font18 c_9000 mr6">￥{{item.price}}</view>
+                                <view class="old_price C999">￥{{item.marketPrice}}</view>
+                            </view>
+                            <view class="pro_share_box flex">
+                                <view class="mr6">
+                                    <view class="progress">
+                                        <view class="progress_bar" style="width:{{(item.joinNum/item.limitNum)*100+'%'}}">
+                                            <view class="bg_ff"></view>
+                                        </view>
+                                    </view>
+                                    <view class="lotteryn_time C666">{{item.lotterynTime}}</view>
+                                </view>
+                                <view class="share_btn_box flex flex_center">
+                                    <button class="share_btn  flex flex_colum flex_center flex_just" open-type='share' bindtap='onShareAppMessage'>
+                                        <image class="icon_share" src="/static/images/share.png"></image>
+                                        <view class="C666 font12" style="line-height:33rpx;">分享</view>
+                                    </button>
+                                </view>
+                            </view>
+                        </view>
 
+                    </view>
+                    <view class="bottom bg_ff flex flex_between flex_center">
+                        <view class="part_one">
+                            <button class="share_btn  flex flex_center flex_just" open-type='share' bindtap='onShareAppMessage'>
+                                <image class="icon_share2" src="/static/images/share.png"></image>
+                                <view class="C666">分享朋友，机会翻倍</view>
+                            </button>
+                        </view>
+                        <view class="lottery_now">
+                            正在开奖05:24:18
+                        </view>
+                    </view>
+                </view>
 
-  <scroll-view scroll-y="true" class='dollarTreasure'>
+            </navigator>
+            <navigator url='/pages/shopping/dollarTreasureDetail/dollarTreasureDetail?tag=1&id={{item.treasureId}}&orderId={{item.orderId}}'>
+                <view>
+                    <view  wx:if="{{item.status == 2}}"  class="dollarTreasure-cells flex flex_between"  >
+                        <view class="left_part">
+                            <image src='{{item.url}}'></image>
+                        </view>
+                        <view class="right_part">
+                            <view class="name">{{item.name}}</view>
+                            <view class="price flex flex_center mt6">
+                                <view class="font18 c_9000 mr6">￥{{item.price}}</view>
+                                <view class="old_price C999">￥{{item.marketPrice}}</view>
+                            </view>
+                            <view class="pro_share_box flex">
+                                <view class="mr6">
+                                    <view class="progress">
+                                        <view class="progress_bar" style="width:{{(item.joinNum/item.limitNum)*100+'%'}}">
+                                            <view class="bg_ff"></view>
+                                        </view>
+                                    </view>
+                                    <view class="lotteryn_time C666">{{item.lotterynTime}}</view>
+                                </view>
+                                <view class="share_btn_box flex flex_center">
+                                    <button class="share_btn  flex flex_colum flex_center flex_just" open-type='share' bindtap='onShareAppMessage'>
+                                        <image class="icon_share" src="/static/images/share.png"></image>
+                                        <view class="C666 font12" style="line-height:33rpx;">分享</view>
+                                    </button>
+                                </view>
+                            </view>
+                        </view>
 
-    <view class='dollarTreasure-cells' wx:for="{{list}}" wx:for-index="index" wx:for-item="item" wx:key="{{item.id}}">
-      <navigator url='/pages/shopping/dollarTreasureDetail/dollarTreasureDetail?tag=0&id={{item.id}}&orderId=0'>
-      <view class='dollarTreasure-cells-main'>
-        <view class='proimgs'>
-          <image src='{{item.url}}'></image>
-        </view>
-        <view class='prodesc'>
-          <text class='name'>{{item.name}}</text>
-
-          <view class='rows'>
-            <view class='prices'> 
-            <text class='rmb'>¥</text> {{item.price}}
-             </view>
-             <view class='market-price'>￥{{item.marketPrice}}</view>
-            <!-- <view class='shares'>
-              分享朋友 机会翻倍
-              <image src='/static/images/icon_collect.png'></image>
-            </view> -->
-            <!-- <button bindtap='onShareAppMessage' class='share' open-type="share">
-              <text class='share-text'>分享朋友 机会翻倍</text>
-               <image class='share-icon' src='/static/images/icon_collect.png'></image>
-            </button> -->
-
-          </view>
-
-        </view>
-
-      </view>
-      <view wx:if="{{item.status == 0}}" class='dollarTreasure-cells-dataline' >
-        <view class='countDownv'>
-          <text class='textddkj'>倒计时</text>
-          <text class='timer-num'>{{item.hour}}</text> :
-          <text class='timer-num'>{{item.min}}</text> :
-          <text class='timer-num'>{{item.sec}}</text>
-        </view>
-        <!-- <view class='OpeningTime'>
-          {{item.lotteryTime}} 开奖
-        </view> -->
-        <view class='prizebtns'>
-          <text class='btns'>马上抢</text>
-        </view>
-      </view>
-
-     <view wx:else class='dollarTreasure-cells-dataline waitFor'>
-        <view class='countDownv '>
-
-          {{item.lotteryTime}} 开奖
-
-        </view>
-        <view class='prizebtns'>
-          <text class='btns'>查看</text>
-        </view>
-      </view>
-      </navigator>
+                    </view>
+                    <view class="bottom bg_ff flex flex_between flex_center">
+                        <view class="part_one">
+                            <button class="share_btn  flex flex_center flex_just" open-type='share' bindtap='onShareAppMessage'>
+                                <image class="icon_share2" src="/static/images/share.png"></image>
+                                <view class="C666">分享朋友，机会翻倍</view>
+                            </button>
+                        </view>
+                        <view class="lottery_now">
+                            正在开奖05:24:18
+                        </view>
+                    </view>
+                </view>
+            </navigator>
+        </block>
+    </scroll-view>
+    <view class=" flex flex_center flex_just">
+        <view class="more_lottery">更多往期中奖</view>
     </view>
 
+    <view wx:if="{{list == null  }}">
+        <image class='no_order_img'  src="/static/images/noneOrder.png"></image>
+        <view class='no_order_tip'>您还未参与夺宝~</view>
 
-    <!-- 更多往期中奖按钮 -->
-    <navigator url='/pages/shopping/dollarTreasure/dollarTreasureWin' class='morewinprizenav' >
-      <view wx:if="{{winTreasure != null}}" class='morewinprize'>更多往期中奖</view>
-    </navigator>
-
-
-    <!-- 中奖信息 -->
-
-    <view wx:if="{{winTreasure != null}}" class='dollarTreasure-cells'>
-       <navigator url='/pages/shopping/dollarTreasureDetail/dollarTreasureDetail?tag=2&id={{winTreasure.treasureId}}&orderId='>
-      <view class='dollarTreasure-cells-main'>
-        <view class='proimgs'>
-          <image src='{{winTreasure.url}}'></image>
-        </view>
-        <view class='prodesc winprizeinfo'>
-          <text class='name'>{{winTreasure.name}}</text>
-          <text class='peoplename'>获奖者：{{winTreasure.nickName}}</text>
-          <text class='nums'>参与次数：{{winTreasure.winNum}}次</text>
-          <text class='date'>开奖时间：{{winTreasure.lotteryTime}}</text>
-        </view>
-       
-      </view>
-     </navigator>
+        <button class='no_order_btn' bindtap='toIndex'>知道了</button>
     </view>
 
-
-
-  </scroll-view>
-
-
-
 </view>
+
+<view class="n-bottom" hidden="{{hideBottom}}">
+    <view>
+        <view class='transverseline'><text class='line'></text></view>
+
+        <text class='txt'>{{loadMoreData}}</text>
+
+        <view class='transverseline'><text class='line'></text></view>
+    </view>
+</view>
+

@@ -62,6 +62,37 @@
 
     </view>
    </navigator>
+   <navigator url='/pages/shopping/dollarTreasureDetail/dollarTreasureDetail?tag=1&id={{item.treasureId}}&orderId={{item.orderId}}'>
+     <view  wx:if="{{item.status == 1}}" class='dollarTreasure-cells nowinprize'>
+
+      <view class='dollarTreasure-cells-main'>
+        <view class='proimgs'>
+          <image src='{{item.url}}'></image>
+        </view>
+        <view class='prodesc'>
+          <text class='nums'>{{item.code}}</text>
+          <text class='name'>{{item.name}}</text>
+          <view class='sharethis'>
+            <text class='share'>{{item.comments}}</text>
+          </view>
+          <text class='prices'>  ¥{{item.price}} </text>
+        </view>
+
+      </view>
+      <view class='dollarTreasure-cells-dataline'>
+
+
+        <view class='prizebtns'>
+          <text class='btns'>未中奖</text>
+        </view>
+
+        <text class='dates'>{{item.lotteryTime}}开奖</text>
+
+      </view>
+
+    </view>
+</navigator>
+
 
 
 
