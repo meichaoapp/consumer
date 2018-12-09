@@ -37,7 +37,7 @@
 
                     </view>
                     <view wx:if="{{item.status == 0}}"  class="bottom bg_ff flex flex_between flex_center">
-                        <view>我的幸运号码为：1000003</view>
+                        <view>我的幸运号码为：{{item.code}}</view>
                         <view class="btn_lottery lottery_wait">
                             等待开奖
                         </view>
@@ -71,7 +71,7 @@
 
                     </view>
                     <view wx:if="{{item.status == 1}}" class="bottom bg_ff flex flex_between flex_center">
-                        <view>我的幸运号码为：1000003</view>
+                        <view>我的幸运号码为：{{item.code}}</view>
                         <view class="btn_lottery prizebtns">
                             恭喜中奖
                         </view>
@@ -104,7 +104,7 @@
 
                    </view>
                    <view wx:if="{{item.status == 2}}" class="bottom bg_ff flex flex_between flex_center">
-                       <view>我的幸运号码为：1000003</view>
+                       <view>我的幸运号码为：{{item.code}}</view>
                        <view class="btn_lottery un_lottery">
                            未中奖
                        </view>
