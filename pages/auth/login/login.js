@@ -97,7 +97,7 @@ Page({
     util.request(api.QueryMerchants, data , "POST").then(function (res) {
       console.log('------商户信息', res);
       if (res.rs === 1) {
-        var merchantList = res.data.list;
+        var merchantList = res.data;
         if( null != merchantList) {
           that.setData({
             merchantList: merchantList,

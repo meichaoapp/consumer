@@ -103,8 +103,9 @@ Page({
     let _this = this;
     var _data = cart.createOrder(1, _this.data.merchant.merchantId, _this.data.userInfo, _this.data.deliveryType, _this.data.merchant);
     return {
+      merchantId: _this.data.merchant.merchantId,
       totalPay: _data.totalPay.toFixed(2),//共付
-      preferential: (_data.totalPay - _data.needPay).toFixed(2),
+      needPay: _data.needPay.toFixed(2),
       merchantOrder: _data.merchantOrder,// 团购订单
       oneselfOrder: _data.oneselfOrder, // 自营订单
     };
@@ -122,6 +123,7 @@ Page({
     });
   
     var order = _this.getOrderDatas();
+    console.log("order--- " + JSON.stringify(order));
     util.request(api.CreateOrder, order, "POST").then(function (res) {
 
       if (res.rs === 1) { //创建成功

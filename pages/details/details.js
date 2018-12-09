@@ -80,7 +80,7 @@ Page({
   queryGroupPurchaseDetail: function () {
     let that = this;
     util.request(api.QueryGroupPurchaseGoodsDetail, { id: that.data.id }, "POST").then(function (res) {
-      if (res.rs === 1) {
+      if (res.rs == 1) {
         var data = res.data;
         that.setData({
           detail: data.detail, //团购详情

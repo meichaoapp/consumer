@@ -286,8 +286,7 @@ function wxLogin() {
 
 ///查询商户信息
 function queryMerchants() {
-  var data = {
-    list: [
+  var data =  [
       {
         "merchantId": 1,  //店铺id
         "distance": "700米",  //距离
@@ -322,7 +321,7 @@ function queryMerchants() {
         "expenditure": 100//消费额，消费额满多少钱后，免运费，只在自营商品时有此选项
       }
     ]
-  }
+ 
 
   RS.data = data;
   return JSON.stringify(RS);

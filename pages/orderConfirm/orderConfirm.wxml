@@ -1,5 +1,5 @@
 <view class="order_confirm_box container">
-    <view class="auto_tip font15">已为您自动拆分成两个订单</view>
+    <view wx:if="{{merchantOrder != null && oneselfOrder != null }}"  class="auto_tip font15">已为您自动拆分成两个订单</view>
     <!--订单：拼团商品 -->
     <view wx:if="{{merchantOrder != null}}" class="intro_box bg_ff">
         <view class="title C66">订单：拼团商品</view>
