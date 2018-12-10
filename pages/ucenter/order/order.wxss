@@ -130,7 +130,7 @@ page{
     border-bottom:1px solid #CCCCCC;
 }
 .o-details-lists-cell-main{
-    /* width: 100%; */
+    width: 100%;
     padding: 20rpx;
     display: flex;
     flex-direction: row;
