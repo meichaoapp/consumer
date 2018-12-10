@@ -297,7 +297,7 @@ Page({
       num: 0,//和index相比，控制左侧显示激活状态样式
       showModal: false
     });
-
+    _this.clearCart();
     _this.queryTGList();
 
   },
