@@ -140,8 +140,7 @@ function createOrder(flag, t_id, user, _dt, merchant){
   if (_arr.length > 0) {
     var len = _arr.length;
     for (var i = 0; i < len; i++) {
-      totalPay += _arr[i].marketPrice;
-      needPay += _arr[i].price;
+     
       if (_arr[i].productType == GROUP_PURCHASE) {
         m_list.push(_arr[i]);
       } else if (_arr[i].productType == SLEF_SALE) {
@@ -149,11 +148,21 @@ function createOrder(flag, t_id, user, _dt, merchant){
       }
     }
   }
+  var mOrder = getMerchantOrder(flag, m_list, t_id, user);
+  var sOrder = getSelfOrder(flag, s_list, t_id, user, _dt, merchant);
+  if(mOrder != null) {
+    totalPay += mOrder.totalPay;
+    needPay += mOrder.needPay;
+  }
+  if (sOrder != null) {
+    totalPay += sOrder.totalPay;
+    needPay += sOrder.needPay;
+  }
    return {
      totalPay: totalPay,
      needPay: needPay,
-     merchantOrder: getMerchantOrder(flag,m_list, t_id, user),// 团购订单
-     oneselfOrder: getSelfOrder(flag,s_list, t_id, user, _dt, merchant),
+     merchantOrder: mOrder,// 团购订单
+     oneselfOrder: sOrder,
    };
 
 }
@@ -173,8 +182,8 @@ function getMerchantOrder(flag,_arr, t_id, user) {
   var goodsList = []
   var len = _arr.length;
   for (var i = 0; i < len; i++) {
-    totalPay += _arr[i].marketPrice;
-    needPay += _arr[i].price;
+    totalPay += _arr[i].marketPrice * _arr[i].number;
+    needPay += _arr[i].price * _arr[i].number;
     buyNum += _arr[i].number;
     var g = {
       "id": _arr[i].id,  // 商品id
@@ -222,8 +231,8 @@ function getSelfOrder(flag,_arr, t_id, user, _dt, merchant) {
   var goodsList = []
   var len = _arr.length;
   for (var i = 0; i < len; i++) {
-    totalPay += _arr[i].marketPrice;
-    needPay += _arr[i].price;
+    totalPay += _arr[i].marketPrice * _arr[i].number;
+    needPay += _arr[i].price * _arr[i].number;
     buyNum += _arr[i].number;
     var g = {
       "id": _arr[i].id,  // 商品id
