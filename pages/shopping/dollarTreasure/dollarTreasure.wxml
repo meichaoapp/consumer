@@ -45,10 +45,10 @@
                     </view>
                     <view class="bottom bg_ff flex flex_between flex_center">
                         <view class="part_one">
-                            <button class="share_btn  flex flex_center flex_just" open-type='share' bindtap='onShareAppMessage'>
+                            <!-- <button class="share_btn  flex flex_center flex_just" open-type='share' bindtap='onShareAppMessage'>
                                 <image class="icon_share2" src="/static/images/share.png"></image>
                                 <view class="C666">分享朋友，111机会翻倍</view>
-                            </button>
+                            </button> -->
                         </view>
                         <view wx:if="{{ item.status != 2}}" class="lottery_now">
                             正在开奖{{item.hour}}:{{item.min}}:{{item.sec}}
