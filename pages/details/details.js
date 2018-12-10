@@ -82,7 +82,7 @@ Page({
     util.request(api.QueryGroupPurchaseGoodsDetail, { id: that.data.id }, "POST").then(function (res) {
       if (res.rs == 1) {
         var data = res.data;
-        //console.log("queryGroupPurchaseDetail --- " + JSON.stringify(data));
+        console.log("queryGroupPurchaseDetail --- " + JSON.stringify(data));
         that.setData({
           detail: data.detail, //团购详情
           merchant: data.merchant,//商家
@@ -96,6 +96,9 @@ Page({
 
   addCart: function () {
     let _this = this;
+    if (_this.data.detail.status != 1) {
+      return;
+    }
     var goods = {
       "id": _this.data.detail.id, //id
       "name": _this.data.detail.title, //团购名称
@@ -127,15 +130,16 @@ Page({
     // 获取当前时间，同时得到活动结束时间数组
     let newTime = new Date().getTime();
     let countDownArr = [];
-
+   //0 未开始 1 进行中 2 已成团 3 已过期
     let o = this.data.detail;
     if (o != null & o != undefined) {
-      if (o.status == 0) {
+      //console.log("1 o.status---" + o.status);
+      if (o.status == 0 || o.status == 1) {
         // 对结束时间进行处理渲染到页面
         let startTime = new Date(o.startTime).getTime();
         let endTime = new Date(o.endTime).getTime();
 
-        if (newTime - startTime == 0) {
+        if (newTime - startTime >= 0) {
           // 如果活动未结束，对时间进行处理
           if (endTime - newTime > 0) {
             let time = (endTime - newTime) / 1000;
@@ -149,20 +153,18 @@ Page({
             o.hour = this.timeFormat(hou);
             o.min = this.timeFormat(min);
             o.sec = this.timeFormat(sec);
-            o.status = 0; // 设置状态为进行中
+            o.status = 1; // 设置状态为进行中
           } else {//活动已结束，全部设置为'00'
-            o.status = 1;
+            o.status = 2;
             o.day = this.timeFormat(0);
             o.hour = this.timeFormat(0);
             o.min = this.timeFormat(0);
             o.sec = this.timeFormat(0);
           }
-        } else {
-          o.status = 1;
-        }
+        } 
       }
 
-      // console.log("o.status---" + o.status);
+       //console.log("o.status---" + o.status);
 
 
       this.setData({ detail: o })

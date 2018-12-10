@@ -31,7 +31,7 @@
                 <text class="old_price font12 C666">￥{{detail.marketPrice}}</text>
             </view>
             <view class="flex flex_colum flex_end">
-                <view class="timer C666 font12">距结束{{detail.hour}}:{{detail.min}}:{{detail.sec}}</view>
+                <view wx:if="{{detail.status == 1}}" class="timer C666 font12">距结束{{detail.hour}}:{{detail.min}}:{{detail.sec}}</view>
                 <view class="flex mt10">
                     <view class="progress">
                         <view class="progress_bar" style="width:{{(detail.joinNum/detail.limitNum)*100+'%'}}">
