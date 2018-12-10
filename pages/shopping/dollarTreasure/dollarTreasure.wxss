@@ -97,7 +97,7 @@ button.share_btn::after{
 }
 .options{
     text-align:right;
-    width:112rpx;
+    width:121rpx;
     margin-right:50rpx;
 }
 
