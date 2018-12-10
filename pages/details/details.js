@@ -68,8 +68,18 @@ Page({
     util.request(api.Friends, { id: that.data.id }, "POST").then(function (res) {
       if (res.rs === 1) {
         var data = res.data;
+        var friensList = data.list;
+        // if (null != friensList && friensList.length > 0 ) {
+        //   var len = friensList.length;
+        //   if(len < 10) {
+        //     for (len;len<=10;len++) {
+        //       friensList.push("https://s-mall.oss-cn-beijing.aliyuncs.com/meichao/user.png");
+        //     }
+        //   }
+        // }
+        // console.log("friensList ------" + JSON.stringify(friensList));
         that.setData({
-          friensList: data.list,
+          friensList: friensList,
         });
       }
     });
