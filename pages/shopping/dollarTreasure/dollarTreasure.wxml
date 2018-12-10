@@ -64,9 +64,8 @@
         </block>
     </scroll-view>
     <block >
-      
-        <view wx:if="{{winTreasure != null}}" class="n_bottom bg_ff flex">
         <navigator url='/pages/shopping/dollarTreasureDetail/dollarTreasureDetail?tag=2&id={{winTreasure.treasureId}}&orderId='>
+            <view wx:if="{{winTreasure != null}}" class="n_bottom bg_ff flex">
             <view class="left_part">
                 <image src="{{winTreasure.url}}"></image>
             </view>
@@ -89,9 +88,10 @@
                     <view class="c_9000">{{winTreasure.lotteryTime}}</view>
                 </view>
             </view>
-            </navigator> 
+
         </view>
-       
+        </navigator>
+
     </block>
     <navigator url='/pages/shopping/dollarTreasure/dollarTreasureWin' class='morewinprizenav' >
       <view wx:if="{{winTreasure != null}}" class=" flex flex_center flex_just">
