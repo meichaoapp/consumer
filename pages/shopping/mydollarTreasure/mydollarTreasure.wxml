@@ -112,32 +112,7 @@
                </view>
             </navigator>
         </block>
-        <block>
-            <view class="n_bottom bg_ff flex">
-                <view class="left_part">
-                    <image src="/static/images/default.png"></image>
-                </view>
-                <view class="right_part">
-                    <view class="font16">这是名字这是名字</view>
-                    <view class="flex">
-                        <view class="C666 options">获奖者</view>
-                        <view class="c_9000">沧海一只猫</view>
-                    </view>
-                    <view class="flex">
-                        <view class="C666 options">中奖号码</view>
-                        <view class="c_9000">100002</view>
-                    </view>
-                    <view class="flex">
-                        <view class="C666 options">参与次数</view>
-                        <view class="c_9000">44</view>
-                    </view>
-                    <view class="flex">
-                        <view class="C666 options">开奖时间</view>
-                        <view class="c_9000">2018-10-01 19:00:08</view>
-                    </view>
-                </view>
-            </view>
-        </block>
+
     </scroll-view>
 
     <view wx:if="{{list == null  }}">

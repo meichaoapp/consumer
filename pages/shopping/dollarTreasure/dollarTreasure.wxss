@@ -84,3 +84,20 @@ button.share_btn::after{
     margin-bottom:60rpx;
 }
 
+.n_bottom{
+    padding:25rpx 30rpx;
+    margin-top:20rpx;
+}
+.n_bottom .right_part>view{
+    padding:6rpx;
+    border-bottom:1rpx solid #eee;
+}
+.n_bottom .right_part>view:last-child{
+    border:none;
+}
+.options{
+    text-align:right;
+    width:112rpx;
+    margin-right:50rpx;
+}
+
