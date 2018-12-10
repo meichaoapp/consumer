@@ -118,6 +118,14 @@ Page({
       showModal: false
     })
   },
+  //确认选中商户
+  modalConfirm:function(){
+      let _this = this;
+      _this.setData({
+          showModal: false
+      });
+
+  },
   //选中商户
   clickMerchant(e) {
     let _this = this;
@@ -126,6 +134,7 @@ Page({
       _this.setData({
           currentIndex: index,
       })
+      console.log("clickMerchant index -- " + index);
     console.log("clickMerchant id -- " + id);
     var merchantList = _this.data.merchantList;
     var merchat = {};
@@ -166,6 +175,8 @@ Page({
 
         //缓存当前商户信息
         wx.setStorageSync(currentMerchat, _this.data.merchat);
+        //缓存当前商户的index值，方便首页读取，设置选中状态
+        wx.setStorageSync('currIndex', _this.data.currentIndex);
         app.globalData.userInfo = userInfo;
         app.globalData.token = res.data.token;
         wx.setStorageSync('userInfo', userInfo);

@@ -42,7 +42,7 @@ page{
 .icon_share{
     width:38rpx;
     height:38rpx;
-    margin-bottom:6rpx;
+    margin-bottom:10rpx;
 }
 .icon_share2{
     width:38rpx;
@@ -80,5 +80,7 @@ button.share_btn::after{
     text-align:center;
     line-height:84rpx;
     color:#fff;
+    margin-top:35rpx;
+    margin-bottom:60rpx;
 }
 

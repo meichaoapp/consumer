@@ -148,7 +148,7 @@
 
 
 <!--自定义弹框组件-->
-<modal wx:if="{{showModal}}" show="{{showModal}}" height='80%' bindcancel="modalCancel" bindconfirm='modalConfirm'>
+<modal wx:if="{{showModal}}" show="{{showModal}}" height='80%' bind:cancel="modalCancel" bind:confirm='modalConfirm'>
     <view class="title flex flex_between flex_center" slot="slot1">
         <view>选择团长</view>
         <image bindtap='modalCancel' src="/static/images/close.png" class="icon_close"></image>

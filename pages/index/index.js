@@ -6,6 +6,7 @@ const wecache = require('../../utils/wecache.js');
 const cart = require('../../services/cart.js');
 const pointKey = "userLocation";
 const currentMerchat = "currentMerchat";
+const currIndex = "currIndex";
 
 //获取应用实例
 const app = getApp()
@@ -97,9 +98,11 @@ Page({
         }
 
       let merchant = wx.getStorageSync(currentMerchat);
-      if (null != merchant && undefined != merchant) {
+      let currentIndex = wx.getStorageSync(currIndex);
+      if (null != merchant && undefined != merchant && null != currentIndex && undefined != currentIndex) {
         this.setData({
           merchant: merchant,
+          currentIndex:currentIndex
         });
       }
       this.refreshCartRef();
@@ -275,6 +278,7 @@ Page({
     },
 
   modalCancel:function(){
+        console.log('点击取消了')
     this.setData({
       showModal: false
     })
@@ -291,6 +295,7 @@ Page({
       needPay: 0.00, // 购物车核算价格
       goodsNums: 0, //商品数量
       num: 0,//和index相比，控制左侧显示激活状态样式
+      showModal: false
     });
 
     _this.queryTGList();
