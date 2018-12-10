@@ -89,32 +89,39 @@
         </view>
         <scroll-view scroll-y="true" style="flex:1;">
             <view class="m_con">
-                <!--<view class="curr_menu">{{currSellDesc}}</view>-->
-                <view class="goods_con flex flex_between" wx:for="{{goodsList}}" wx:key="{{item.index}}"  data-id="{{item.id}}">
-                   <navigator url="/pages/details/details?id={{item.id}}">
-                      <view class="good_image flex flex_center flex_just br5">
-                          <image  src="{{item.url}}"></image>
-                      </view>
-                    </navigator>
-                    <view class="content flex flex_colum">
+                <view wx:if="{{goodsList.length>0}}">
+                    <view class="goods_con flex flex_between" wx:for="{{goodsList}}"  wx:key="{{item.index}}"  data-id="{{item.id}}">
                         <navigator url="/pages/details/details?id={{item.id}}">
-                           <view class="name ellipsis_2">{{item.name}}</view>
-                        </navigator>
-                        <navigator url="/pages/details/details?id={{item.id}}">
-                            <view class="desc ellipsis">{{item.comments}}</view>
-                        </navigator>
-                        <view class="flex" style="flex:1;">
-                            <view class="price_box flex flex_center">
-                                <view class="curr_price">￥{{item.price}}</view>
-                                <view class="old_price">￥{{item.marketPrice}}</view>
+                            <view class="good_image flex flex_center flex_just br5">
+                                <image  src="{{item.url}}"></image>
                             </view>
-                            <view class="set_car flex flex_center ml10">
-                                <image bindtap='cutNumber' data-id='{{item.id}}' src="https://wxpic.iliangpin.cn/meichao/minus.png"></image>
-                                <text class="count">{{item.number}}</text>
-                                <image bindtap='addNumber' data-id='{{item.id}}'  src="https://wxpic.iliangpin.cn/meichao/plus.png"></image>
+                        </navigator>
+                        <view class="content flex flex_colum">
+                            <navigator url="/pages/details/details?id={{item.id}}">
+                                <view class="name ellipsis_2">{{item.name}}</view>
+                            </navigator>
+                            <navigator url="/pages/details/details?id={{item.id}}">
+                                <view class="desc ellipsis">{{item.comments}}</view>
+                            </navigator>
+                            <view class="flex" style="flex:1;">
+                                <view class="price_box flex flex_center">
+                                    <view class="curr_price">￥{{item.price}}</view>
+                                    <view class="old_price">￥{{item.marketPrice}}</view>
+                                </view>
+                                <view class="set_car flex flex_center ml10">
+                                    <image bindtap='cutNumber' data-id='{{item.id}}' src="https://wxpic.iliangpin.cn/meichao/minus.png"></image>
+                                    <text class="count">{{item.number}}</text>
+                                    <image bindtap='addNumber' data-id='{{item.id}}'  src="https://wxpic.iliangpin.cn/meichao/plus.png"></image>
+                                </view>
                             </view>
                         </view>
                     </view>
+                </view>
+                <!--<view class="curr_menu">{{currSellDesc}}</view>-->
+                <view wx:else class="no_list flex flex_colum flex_center flex_just">
+                    <view class="font18">当前无团购</view>
+                    <view class="C666 tip">下次开团时间，请关注微信群内通知</view>
+                    <view>逛逛其他的</view>
                 </view>
             </view>
         </scroll-view>

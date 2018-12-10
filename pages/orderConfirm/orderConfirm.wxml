@@ -31,7 +31,7 @@
                     <view class="C999 mt10">×{{item.buyNum}}</view>
                 </view>
             </view>
-            
+
         </view>
     </view>
     <!-- 订单：店铺自营商品 -->
@@ -129,7 +129,7 @@
     <!--定位在底部-->
     <view class="fixed_box bg_ff flex flex_between">
         <view class="total flex flex_center">
-            <view class="mr6 C666">已优惠￥{{preferential}}</view>
+            <!--<view class="mr6 C666">已优惠￥{{preferential}}</view>-->
             <view class="flex flex_center"><text>合计：</text><text>￥</text><text class="font24">{{needPay}}</text></view>
         </view>
         <view bindtap='joinGroup' class="flex pay_box flex_center flex_just">

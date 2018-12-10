@@ -251,6 +251,24 @@
     border-left:10rpx solid #8DD26A ;
     box-sizing:border-box;
 }
+.m_con{
+    height:100%;
+}
+.no_list{
+    height:100%;
+}
+.tip{
+    margin:15rpx 0 40rpx 0;
+}
+.no_list view:last-child{
+    width:241rpx;
+    height:51rpx;
+    border: 1px solid #81C95A;
+    border-radius: 25.5px;
+    color:#81C95A;
+    line-height:51rpx;
+    text-align:center;
+}
 .m_con .good_image{
     width:189rpx;
     height:189rpx;
