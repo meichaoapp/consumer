@@ -181,6 +181,9 @@ Page({
   //去订单确认页
   toOrderConfirm: function () {
     let _this = this;
+    if (_this.data.detail.status != 1) {
+      return;
+    }
     _this.addCart();
     wx.navigateTo({
       url: '/pages/orderConfirm/orderConfirm'
