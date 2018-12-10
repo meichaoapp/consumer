@@ -233,8 +233,9 @@
 /*团购*/
 .m_list{
     padding-right:20rpx;
-    margin-bottom:103rpx;
+    /*margin-bottom:103rpx;*/
     flex:1;
+    height:600rpx;
 }
 .m_menu{
     height:100%;
@@ -421,6 +422,10 @@
 .shop_car .car_title{
     height:102rpx;
     padding:0 30rpx;
+}
+.classify_list{
+    overflow:auto;
+    margin-bottom:100rpx;
 }
 .classify_title{
     height:51rpx;

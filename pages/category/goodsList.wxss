@@ -158,6 +158,10 @@ input{
     height:102rpx;
     padding:0 30rpx;
 }
+.classify_list{
+    overflow:auto;
+    margin-bottom:100rpx;
+}
 .classify_title{
     height:51rpx;
     line-height:51rpx;
