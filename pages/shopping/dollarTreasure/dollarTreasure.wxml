@@ -63,34 +63,38 @@
 
         </block>
     </scroll-view>
-    <block>
-        <view class="n_bottom bg_ff flex">
+    <block >
+      
+        <view wx:if="{{winTreasure != null}}" class="n_bottom bg_ff flex">
+        <navigator url='/pages/shopping/dollarTreasureDetail/dollarTreasureDetail?tag=2&id={{winTreasure.treasureId}}&orderId='>
             <view class="left_part">
-                <image src="/static/images/default.png"></image>
+                <image src="{{winTreasure.url}}"></image>
             </view>
             <view class="right_part">
-                <view class="font16">这是名字这是名字</view>
+                <view class="font16">{{winTreasure.name}}</view>
                 <view class="flex">
                     <view class="C666 options">获奖者</view>
-                    <view class="c_9000">沧海一只猫</view>
+                    <view class="c_9000">{{winTreasure.nickName}}</view>
                 </view>
                 <view class="flex">
                     <view class="C666 options">中奖号码</view>
-                    <view class="c_9000">100002</view>
+                    <view class="c_9000">{{winTreasure.code}}</view>
                 </view>
                 <view class="flex">
                     <view class="C666 options">参与次数</view>
-                    <view class="c_9000">44</view>
+                    <view class="c_9000">{{winTreasure.joinNum}}</view>
                 </view>
                 <view class="flex">
                     <view class="C666 options">开奖时间</view>
-                    <view class="c_9000">2018-10-01 19:00:08</view>
+                    <view class="c_9000">{{winTreasure.lotteryTime}}</view>
                 </view>
             </view>
+            </navigator> 
         </view>
+       
     </block>
     <navigator url='/pages/shopping/dollarTreasure/dollarTreasureWin' class='morewinprizenav' >
-      <view class=" flex flex_center flex_just">
+      <view wx:if="{{winTreasure != null}}" class=" flex flex_center flex_just">
           <view class="more_lottery">更多往期中奖</view>
       </view>
     </navigator>
