@@ -218,9 +218,9 @@ function getSelfOrder(flag,_arr, t_id, user, _dt, merchant) {
     "id": t_id,  //团购id
     "userId": user.id,  //用户ID
     "deliveryType": _dt, // 1自提 2送货上门
-    "address": user.province + user.city + user.area + user.address, //送货上门地址
-    "phone": user.phone,
-    "name": user.name,
+    "address": (user.province != null && user.province != "") ? user.province + user.city + user.area + user.address : "", //送货上门地址
+    "phone": (user.phone == null) ? "" : user.phone,
+    "name": (user.name == null) ? "" : user.name,
     "goodsList": []
   }
   var totalPay = 0.00;//共付
