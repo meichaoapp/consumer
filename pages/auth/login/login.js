@@ -169,6 +169,7 @@ Page({
     user.wxLogin(wxUser).then(res => {
       if (res.rs == 1) {
         var userInfo = res.data.user;
+        console.log("userInfo--------" + JSON.stringify(userInfo))
         _this.setData({
           userInfo: userInfo
         });

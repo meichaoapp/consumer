@@ -191,4 +191,9 @@ Page({
       console.log(err)
     });
   },
+  toEditUser:function() {
+     wx.navigateTo({
+       url: '/pages/ucenter/yourinfor/yourinfor?tag=0',
+     })
+  }
 })
