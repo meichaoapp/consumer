@@ -140,7 +140,7 @@
                 <image src="/static/images/shopping_cart.png"></image>
                 <view wx:if="{{goodsNums != 0}}" class="count_num cfff">{{goodsNums}}</view>
             </view>
-            <view class="total_money">￥{{needPay}}</view>
+            <view class="total_money">￥<text class="font24">{{needPay}}</text></view>
         </view>
         <view bindtap='toOrderConfirm' class="icon_settle" >去结算</view>
     </view>
