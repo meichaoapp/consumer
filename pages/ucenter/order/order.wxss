@@ -173,6 +173,8 @@ page{
 .finished{
     color: #999999!important;
 }
-
+.status0{
+    color:#60A33B;
+}
 
 

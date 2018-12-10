@@ -14,7 +14,9 @@
                 <view class='o-details-lists-cell flex flex_colum flex_center'>
                     <view class="o-details-lists-cell-title flex flex_between">
                         <view>订单编号：{{item.orderId}}</view>
-                        <view >{{item.statusStr}}</view>
+                        <view class="status0" wx:if="{{item.status==0}}">即将到货</view>
+                        <view wx:if="{{item.status==1}}" class="c_9000">请前往取货</view>
+                        <view wx:if="{{item.status==2}}" class="C666">已完成</view>
                     </view>
                     <view class='o-details-lists-cell-main flex flex_center'>
                         <view class='o-details-lists-cell-img'>

@@ -13,7 +13,7 @@ Page({
     hideHeader: true, //隐藏顶部提示
     hideBottom: true, //隐藏底部提示
     srollViewHeight: 0, //滚动分页区域高度
-    refreshTime: '', // 刷新的时间 
+    refreshTime: '', // 刷新的时间
     loadMoreData: '加载更多',
   },
   onLoad:function(options){
@@ -103,10 +103,19 @@ Page({
             //hideBottom: true
           })
         }
-
+        // for (var i = 0; i < list.length; ++i) {
+        //     if (list[i].status === 1) {   //当状态为1的时候显示已签，返回okSigin的class样式，class在wxss已设置
+        //         list[i].class = 'okSigin';
+        //         list[i].state = '已签';
+        //         continue;
+        //     }
+        //     list[i].class = 'noSigin';  //当状态为0的时候显示未签，返回noSigin的class样式，class在wxss已设置
+        //     list[i].state = '未签';
+        // }
+        console.log('====================',list);
       }
     });
-    
+
   },
   //跳转首页(知道了)
   toIndex: function () {
