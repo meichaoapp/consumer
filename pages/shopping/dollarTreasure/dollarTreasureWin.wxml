@@ -16,7 +16,7 @@
         <view class='prodesc winprizeinfo'>
           <text class='name'>{{item.name}}</text>
           <text class='peoplename'>获奖者：{{item.nickName}}</text>
-          <text class='nums'>参与次数：{{item.winNum}}次</text>
+          <text class='nums'>参与次数：{{item.joinNum}}次</text>
           <text class='date'>开奖时间：{{item.lotteryTime}}</text>
         </view>
       </view>
