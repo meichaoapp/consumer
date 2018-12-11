@@ -85,16 +85,19 @@ Page({
     util.request(api.QueryUserInfo, data, "POST").then(function (res) {
       if (res.rs === 1) {
         var region = [];
-        region[0] = res.data.province;
-        region[1] = res.data.city;
-        region[2] = res.data.area;
+        var province = res.data.province;
+        var city = res.data.city;
+        var area = res.data.area;
+        region[0] = (province != null) ? province : _this.data.province;
+        region[1] = (city != null) ? city : _this.data.city;
+        region[2] = (area != null) ? area : _this.data.area;
         _this.setData({
           userInfoId: res.data.userInfoId,  //用户信息id
           phone: res.data.phone,  //手机号
           name: res.data.name,  //联系人
-          province: res.data.province,  //省code
-          city: res.data.city,  //市code
-          area: res.data.area,  //地区code
+          province: region[0],  //省code
+          city: region[1],  //市code
+          area: region[2],  //地区code
           address: res.data.address,  //详细地址
           region: region,
         });
@@ -196,7 +199,7 @@ Page({
         user.city =  _this.data.city;  //市code
         user.area =  _this.data.area;  //地区code
         user.address =  _this.data.address; //详细地址
-         
+
         wx.setStorageSync('userInfo', userInfo);
         wx.showToast({
           title: '保存成功',

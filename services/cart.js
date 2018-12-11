@@ -213,6 +213,7 @@ function getMerchantOrder(flag,_arr, t_id, user) {
 //获取自营订单
 function getSelfOrder(flag,_arr, t_id, user, _dt, merchant) {
   if (_arr.length == 0) { return null; }
+  console.log("user-------" + JSON.stringify(user));
   // 自营订单
   var oneselfOrder = {
     "id": t_id,  //团购id
