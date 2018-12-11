@@ -40,8 +40,7 @@ Page({
       userInfo: userInfo,
       userId: userInfo.id,
     });
-    //查询用户信息
-    this.queryUserInfo();
+  
   },
   onReady: function () {
     // 页面渲染完成
@@ -58,6 +57,8 @@ Page({
       userInfo: userInfo,
       userId:userInfo.id,
     });
+    //查询用户信息
+    this.queryUserInfo();
   },
   onHide: function () {
     // 页面隐藏
@@ -84,13 +85,14 @@ Page({
     };
     util.request(api.QueryUserInfo, data, "POST").then(function (res) {
       if (res.rs === 1) {
+        console.log("QueryUserInfo------" + JSON.stringify(res.data));
         var region = [];
         var province = res.data.province;
         var city = res.data.city;
         var area = res.data.area;
-        region[0] = (province != null) ? province : _this.data.province;
-        region[1] = (city != null) ? city : _this.data.city;
-        region[2] = (area != null) ? area : _this.data.area;
+        region[0] = (province != null && province != "" ) ? province : _this.data.province;
+        region[1] = (city != null && city != "" ) ? city : _this.data.city;
+        region[2] = (area != null && area != "" ) ? area : _this.data.area;
         _this.setData({
           userInfoId: res.data.userInfoId,  //用户信息id
           phone: res.data.phone,  //手机号

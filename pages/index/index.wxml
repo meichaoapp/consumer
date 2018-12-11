@@ -16,7 +16,7 @@
 <view class="container">
     <!-- 轮播图 -->
     <view class="bg_ff">
-        <swiper class="banner_box" indicator-dots="true" autoplay="true" interval="3000" duration="1000">
+        <swiper class="banner_box" indicator-dots="true" autoplay="true" interval="5000" duration="1000">
             <swiper-item wx:for="{{banners}}" wx:key="{{item.id}}">
                 <image src="{{item.url}}"></image>
             </swiper-item>

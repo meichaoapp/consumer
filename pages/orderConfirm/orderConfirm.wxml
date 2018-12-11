@@ -92,7 +92,7 @@
     </view>
     <view class="bottom_box bg_ff">
         <view class="bottom_item">
-            <view   class="single flex flex_between flex_center">
+            <view wx:if="{{oneselfOrder != null}}"  class="single flex flex_between flex_center">
                 <view class="flex">
                     <view class="mr10">配送费</view>
                     <view wx:if="{{merchant.expenditure != 0}}" class="C999 font12">
