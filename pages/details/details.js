@@ -46,6 +46,18 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    // 页面显示
+    let userInfo = wx.getStorageSync('userInfo');
+
+    if (null != userInfo || userInfo != "" || undefined != userInfo) {
+      this.setData({
+        userInfo: userInfo,
+      });
+    } else {
+      wx.navigateTo({
+        url: '/pages/auth/login/login'
+      });
+    }
 
   },
 
@@ -69,15 +81,7 @@ Page({
       if (res.rs === 1) {
         var data = res.data;
         var friensList = data.list;
-        // if (null != friensList && friensList.length > 0 ) {
-        //   var len = friensList.length;
-        //   if(len < 10) {
-        //     for (len;len<=10;len++) {
-        //       friensList.push("https://s-mall.oss-cn-beijing.aliyuncs.com/meichao/user.png");
-        //     }
-        //   }
-        // }
-        // console.log("friensList ------" + JSON.stringify(friensList));
+       
         that.setData({
           friensList: friensList,
         });
@@ -107,6 +111,9 @@ Page({
   addCart: function () {
     let _this = this;
     if (_this.data.detail.status != 1) {
+      wx.showToast({
+        title: '未在团购中!',
+      })
       return;
     }
     var goods = {
@@ -120,16 +127,18 @@ Page({
     };
 
     var g = cart.loadCartGoods(goods.id);
-    //console.log("购物无车商品---" + JSON.stringify(g));
+    console.log("购物无车商品---" + JSON.stringify(g));
     if (g == null) {//如果没有则加入购物车
       goods.number = 1;
       cart.add2Cart(goods);
     } else {//如果购物车以前有则更新购物车商品数量
-      var num = g.number + 1;
+      var num = g.number;
       g.number = num + 1;
       cart.updateCart(g);
     }
-
+    wx.showToast({
+      title: '添加购物车成功!',
+    })
   },
 
   //小于10的格式化函数
@@ -192,6 +201,9 @@ Page({
   toOrderConfirm: function () {
     let _this = this;
     if (_this.data.detail.status != 1) {
+      wx.showToast({
+        title: '未在团购中!',
+      })
       return;
     }
     _this.addCart();

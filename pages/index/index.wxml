@@ -65,7 +65,7 @@
                     </view>
                 </view>
                 <view class="bottom flex flex_between flex_center bg_ff">
-                    <view class="timer">
+                    <view wx:if="{{item.status == 1}}" class="timer">
                         <text>{{item.hour}}</text> :
                         <text>{{item.min}}</text> :
                         <text>{{item.sec}}</text>
@@ -128,8 +128,8 @@
                 </view>
                 <!--<view class="curr_menu">{{currSellDesc}}</view>-->
                 <view wx:else class="no_list flex flex_colum flex_center flex_just">
-                    <view class="font18">当前无团购</view>
-                    <view class="C666 tip">下次开团时间，请关注微信群内通知</view>
+                    <view class="font18">当前无商品</view>
+                    <view class="C666 tip">优惠多多，请关注微信群内通知</view>
                     <view>逛逛其他的</view>
                 </view>
             </view>
