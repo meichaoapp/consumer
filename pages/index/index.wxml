@@ -103,7 +103,7 @@
                                 <navigator url="/pages/details/details?id={{item.id}}">
                                     <view class="desc ellipsis">{{item.comments}}</view>
                                 </navigator>
-                                <view class="flex" style="flex:1;">
+                                <view class="flex flex_between" style="flex:1;">
                                     <view class="price_box flex flex_center">
                                         <view class="curr_price">￥{{item.price}}</view>
                                         <view class="old_price">￥{{item.marketPrice}}</view>

@@ -153,7 +153,6 @@
     margin-right:5rpx;
 }
 .group_buy_desc{
-    height:264rpx;
     margin:20rpx 0;
 }
 .group_buy_desc .title{

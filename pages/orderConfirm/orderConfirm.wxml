@@ -61,7 +61,7 @@
                 </view>
                 <view class="address_box flex">
                     <view class="icon_address icon_address2">取货地址</view>
-                    <view bindtap='toEditUser' class="flex flex_center">
+                    <view bindtap='toEditUser' class="adddress_con flex flex_center">
                         <view class="address">{{oneselfOrder.address}}</view>
                         <image src="/static/images/go.png"></image>
                     </view>
