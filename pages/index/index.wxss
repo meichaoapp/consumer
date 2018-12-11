@@ -462,6 +462,8 @@
 .scroll_view{
     position:relative;
     margin-bottom:106rpx;
+    flex:1;
+    width:0;
 }
 
 
