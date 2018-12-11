@@ -117,7 +117,7 @@ page{
 *wsx
 */
 .o-details-lists-cell{
-    height:273rpx;
+    /*height:273rpx;*/
     background: #fff;
     margin-top: 17rpx;
 }
