@@ -1,6 +1,6 @@
 .order_confirm_box{
     height:100%;
-    margin-bottom:100rpx;
+    margin-bottom:200rpx;
 }
 .auto_tip{
     color:#FF9000;
