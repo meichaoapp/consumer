@@ -21,7 +21,7 @@ Page({
         banners: [],
         start: 1, // 页码
         totalPage: 0, // 共有页
-        limit: 3,//每页条数
+        limit: 10,//每页条数
         hideHeader: true, //隐藏顶部提示
         hideBottom: true, //隐藏底部提示
         srollViewHeight: 0, //滚动分页区域高度
@@ -232,6 +232,7 @@ Page({
        util.request(api.QueryTGNewList, data, "POST").then(function (res) {
             _this.$wuxLoading.hide(); //隐藏加载动画
             var goodsList = res.data.list;
+            //console.log("goodsList------" + JSON.stringify(goodsList));
             if (goodsList != null && goodsList.length > 0) {
               goodsList.forEach(o => {
                 o.number = 0;
