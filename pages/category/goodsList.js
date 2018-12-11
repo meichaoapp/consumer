@@ -69,6 +69,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    this.refreshCartRef();
     let userInfo = wx.getStorageSync('userInfo');
     console.log("userinfo----" + userInfo);
     if (null != userInfo && userInfo != "" && undefined != userInfo) {

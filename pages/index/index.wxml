@@ -65,7 +65,7 @@
                     </view>
                 </view>
                 <view class="bottom flex flex_between flex_center bg_ff">
-                    <view wx:if="{{item.status == 1}}" class="timer">
+                    <view class="timer">
                         <text>{{item.hour}}</text> :
                         <text>{{item.min}}</text> :
                         <text>{{item.sec}}</text>
