@@ -77,6 +77,14 @@ Page({
         this.getCurrentLocation();
         //this.queryTGList();
         this.countDown();
+        let that = this;
+        wx.getSystemInfo({success:function(res) {
+                that.setData({
+                     scrollHeight : res.windowHeight
+                });
+                console.log('高度啊',res);
+            } 
+        });
 
     },
 
@@ -123,10 +131,13 @@ Page({
     /**
      * 页面上拉触底事件的处理函数
      */
-    onReachBottom: function () {
+    // onReachBottom: function () {
+    //     this.loadMore();
+    // },
+    //触底后加载更多
+    lower(){
         this.loadMore();
     },
-
     // 上拉加载更多
     loadMore: function () {
         let _this = this;
