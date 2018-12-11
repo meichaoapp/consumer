@@ -29,22 +29,22 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    let _this = this;
-    let userInfo = wx.getStorageSync('userInfo');
-    if (null != userInfo && userInfo != "" && undefined != userInfo) {
-      _this.setData({
-        userInfo: userInfo,
-      });
-    }
-    let merchant = wx.getStorageSync(currentMerchat);
+    // let _this = this;
+    // let userInfo = wx.getStorageSync('userInfo');
+    // if (null != userInfo && userInfo != "" && undefined != userInfo) {
+    //   _this.setData({
+    //     userInfo: userInfo,
+    //   });
+    // }
+    // let merchant = wx.getStorageSync(currentMerchat);
    
-    if (null != merchant && undefined != merchant) {
-      _this.setData({
-        merchant:merchant,
-      });
-    }
+    // if (null != merchant && undefined != merchant) {
+    //   _this.setData({
+    //     merchant:merchant,
+    //   });
+    // }
 
-    this.loadOrderInfo();
+    // this.loadOrderInfo();
   },
 
   /**
@@ -58,7 +58,22 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-  
+    let _this = this;
+    let userInfo = wx.getStorageSync('userInfo');
+    if (null != userInfo && userInfo != "" && undefined != userInfo) {
+      _this.setData({
+        userInfo: userInfo,
+      });
+    }
+    let merchant = wx.getStorageSync(currentMerchat);
+
+    if (null != merchant && undefined != merchant) {
+      _this.setData({
+        merchant: merchant,
+      });
+    }
+
+    this.loadOrderInfo();
   },
 
   /**
