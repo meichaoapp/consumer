@@ -23,19 +23,22 @@
 .modal-btn-wrapper{
     display: flex;
     flex-direction: row;
-    height: 100rpx;
+    height: 210rpx;
     line-height: 100rpx;
-    border-top: 2rpx solid rgba(7,17,27,0.1);
+    align-items:center;
+    justify-content: center;
 }
 
-.cancel-btn, .confirm-btn{
-    flex: 1;
-    height: 100rpx;
-    line-height: 100rpx;
-    text-align: center;
-    font-size: 32rpx;
-}
+.confirm-btn{
+    width:290rpx;
+    height:100rpx;
+    background:#81C95A;
+    color:#fff;
+    text-align:center;
+    line-height:100rpx;
+    border-radius:100rpx;
 
+}
 .cancel-btn{
     border-right: 2rpx solid rgba(7,17,27,0.1);
 }
