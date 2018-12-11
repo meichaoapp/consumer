@@ -86,14 +86,20 @@ function loadGooodsNums() {
  */
 function updateCart(goods) {
   var _arr = loadCart();
+  var _arr1 = [];
   if (_arr.length > 0) {
     _arr.map(g => {
       //replace
       if(g.id == goods.id) {
-        removeCart(g.id);
-        add2Cart(goods);
+        g.number = goods.number;
       }
+      _arr1.push(g);
     });
+    cleanCart();
+    _arr1.map(g => {
+      add2Cart(g);
+    });
+
    }else {
      add2Cart(goods);
    }

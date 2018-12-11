@@ -12,6 +12,7 @@ module.exports = {
   QueryClassifyList: NewApiRootUrl +  "index/classifyList",
    //new index query api
   QueryIndexInfo: NewApiRootUrl + 'index/info',//查询首页信息（新）
+  QueryIndexTreasures: NewApiRootUrl + 'index/treasures',//查询首页信息（新）
   QueryTGNewList: NewApiRootUrl + 'index/list', ///获取团购分类和商品信息（新）
 
   //old index query api

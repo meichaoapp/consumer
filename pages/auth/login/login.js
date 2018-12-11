@@ -4,6 +4,7 @@ var api = require('../../../config/api.js');
 var user = require('../../../services/user.js');
 const maps = require('../../../utils/maps.js');
 const wecache = require('../../../utils/wecache.js');
+const cart = require('../../../services/cart.js');
 var app = getApp();
 const pointKey = "userLocation";
 const currentMerchat = "currentMerchat";
@@ -182,6 +183,8 @@ Page({
         app.globalData.token = res.data.token;
         wx.setStorageSync('userInfo', userInfo);
         wx.setStorageSync('token', res.data.token);
+        //清除购物车缓存
+        cart.cleanCart();
         wx.navigateBack({
           delta: 1
         })

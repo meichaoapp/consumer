@@ -75,6 +75,7 @@ Page({
 
         this.$wuxLoading = app.Wux().$wuxLoading //加载
         this.getCurrentLocation();
+        
         //this.queryTGList();
         this.countDown();
         let that = this;
@@ -92,6 +93,7 @@ Page({
         // 页面渲染完成
     },
     onShow: function () {
+        this.queryIndexTreasures();
         // 页面显示
         let userInfo = wx.getStorageSync('userInfo');
 
@@ -204,7 +206,7 @@ Page({
                 that.setData({
                     banners:res.data.banners,
                     classifyList:res.data.classifys,
-                    treasures:res.data.treasures,
+                    //treasures:res.data.treasures,
                     merchantList:res.data.merchantList,
                     sellList: res.data.sellList,
                 })
@@ -214,13 +216,31 @@ Page({
 
     },
     /**
+     * 一元夺宝
+     */
+   queryIndexTreasures:function(){
+     let that = this;
+     var data = {
+       "token": "",//经度
+     };
+     util.request(api.QueryIndexTreasures, data, "POST").then(function (res) {
+       if (res.rs === 1) {
+         //console.log("res.data.treasures===" + JSON.stringify(res.data.treasures));
+         that.setData({
+           treasures: res.data.treasures,
+         })
+         that.queryTGList();
+       }
+     });
+   },
+    /**
      * 团购信息
      */
     queryTGList: function (){
         let _this = this;
         let sellType = 1;
         _this.$wuxLoading.show({text: '数据加载中',});
-        sellType = _this.data.sellList[_this.data.num].sellType;
+      sellType = (_this.data.sellList != null && _this.data.sellList.length > 0) ? _this.data.sellList[_this.data.num].sellType : 1;
         //console.log("sellType--"+sellType);
         let data = {
           "merchantId": _this.data.merchant.merchantId,//店铺id
