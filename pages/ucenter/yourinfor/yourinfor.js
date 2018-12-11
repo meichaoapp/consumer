@@ -190,6 +190,13 @@ Page({
         //设置缓存
         var userInfo = _this.data.userInfo;
         userInfo.completionInfo = true;
+        userInfo.phone = _this.data.phone;
+        userInfo.name = _this.data.name;
+        user.province = _this.data.province;  //省code
+        user.city =  _this.data.city;  //市code
+        user.area =  _this.data.area;  //地区code
+        user.address =  _this.data.address; //详细地址
+         
         wx.setStorageSync('userInfo', userInfo);
         wx.showToast({
           title: '保存成功',
