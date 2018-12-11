@@ -75,6 +75,9 @@ page{
     height:103rpx;
     padding:0 30rpx;
     border-bottom:1px solid #D9D9D9;
+    background:#f5f5f5;
+    border-top-left-radius: 10rpx;
+    border-top-right-radius: 10rpx;
 }
 .title view{
     font-size:36rpx;
@@ -90,7 +93,6 @@ page{
 .merchant_item{
     padding:0 30rpx;
     height:188rpx;
-    border-bottom:1px solid #ddd;
 }
 .merchant_item image{
     width:87rpx;
