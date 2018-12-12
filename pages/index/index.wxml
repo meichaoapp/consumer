@@ -212,7 +212,7 @@
           </view>
 
            <view wx:if="{{cartselfGoodsList != null && cartselfGoodsList.length > 0}}" class="classify_title">店铺自营商品</view>
-          <view wx:for="{{cartselfGoodsList}}" wx:key="{{item.index}}"  data-id="{{item.id}}" class="classify_con">
+          <view wx:for="{{cartselfGoodsList}}" wx:key="{{item.index}}" style='margin-bottom: 30rpx;'  data-id="{{item.id}}" class="classify_con">
               <view class="classify_item flex flex_center flex_between">
                   <text class="goods_name  ellipsis font16">{{item.name}}</text>
                   <view class="right_part flex flex_between">
