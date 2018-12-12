@@ -31,7 +31,7 @@
         </view>
     </view>
     <!-- 一元夺宝 -->
-    <view class="truesure_box">
+    <!-- <view class="truesure_box">
         <view class="headline flex flex_center flex_between">
             <view class="flex flex_baseline">
                 <text class="icon_bg"></text>
@@ -81,9 +81,9 @@
           </navigator>
           </block>
         </view>
-    </view>
+    </view> -->
     <!-- 团购商品列表  -->
-    <view class="m_list flex flex_between bg_ff">
+    <view class="m_list flex flex_between bg_ff" style='margin-top:6rpx;'>
         <view class="m_menu">
             <view wx:for="{{sellList}}" wx:key="{{item.id}}" data-index="{{index}}" data-id="{{item.sellType}}" class="{{num==index?'active':''}}" bindtap="showList">{{item.sellDesc}}</view>
         </view>

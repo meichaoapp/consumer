@@ -77,7 +77,7 @@ Page({
         this.getCurrentLocation();
         
         //this.queryTGList();
-        this.countDown();
+        //this.countDown();
         let that = this;
         wx.getSystemInfo({success:function(res) {
                 that.setData({
@@ -93,7 +93,7 @@ Page({
         // 页面渲染完成
     },
     onShow: function () {
-        this.queryIndexTreasures();
+        //this.queryIndexTreasures();
         // 页面显示
         let userInfo = wx.getStorageSync('userInfo');
 
