@@ -49,32 +49,48 @@ Page({
     },
 
     onLoad: function (options) {
-        if (options.id != undefined && options.source == 1) {
-            wx.navigateTo({
-                url: '/pages/shopping/dollarTreasureDetail/dollarTreasureDetail?tag=0&id=' + options.id + '&orderId=0'
-            });
-        }
+       
 
-        if (options.id != undefined && options.source == 0) {
-            wx.navigateTo({
-                url: '/pages/details/details?id=' + options.id
-            });
-        }
-
-        let userInfo = wx.getStorageSync('userInfo');
-        console.log("userinfo----" + userInfo);
-        if (null != userInfo && userInfo != "" && undefined != userInfo) {
-          this.setData({
-            userInfo: userInfo,
-          });
-        }else{
-          wx.navigateTo({
-            url: '/pages/auth/login/login'
-          });
-        }
+      let userInfo = wx.getStorageSync('userInfo');
+      console.log("userinfo----" + userInfo);
+      if (null != userInfo && userInfo != "" && undefined != userInfo) {
+        this.setData({
+          userInfo: userInfo,
+        });
+      }else{
+        wx.navigateTo({
+          url: '/pages/auth/login/login'
+        });
+      }
+      
+      let merchant = wx.getStorageSync(currentMerchat);
+      let currentIndex = wx.getStorageSync(currIndex);
+      if (null != merchant && undefined != merchant && null != currentIndex && undefined != currentIndex) {
+        this.setData({
+          merchant: merchant,
+          currentIndex: currentIndex
+        });
+      } else {
+        wx.navigateTo({
+          url: '/pages/auth/login/login'
+        });
+      }
 
         this.$wuxLoading = app.Wux().$wuxLoading //加载
-        this.getCurrentLocation();
+
+      if (options.id != undefined && options.source == 1) {
+        wx.navigateTo({
+          url: '/pages/shopping/dollarTreasureDetail/dollarTreasureDetail?tag=0&id=' + options.id + '&orderId=0'
+        });
+      }
+
+      if (options.id != undefined && options.source == 0) {
+        wx.navigateTo({
+          url: '/pages/details/details?id=' + options.id
+        });
+      }
+
+        //this.getCurrentLocation();
         
         //this.queryTGList();
         //this.countDown();
@@ -114,7 +130,12 @@ Page({
           merchant: merchant,
           currentIndex:currentIndex
         });
+      }else{
+        wx.navigateTo({
+          url: '/pages/auth/login/login'
+        });
       }
+      this.getCurrentLocation();
       this.refreshCartRef();
     },
     onHide: function () {
