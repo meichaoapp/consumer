@@ -34,7 +34,10 @@
                 <view wx:if="{{detail.status == 1}}" class="timer C666 font12">距结束{{detail.hour}}:{{detail.min}}:{{detail.sec}}</view>
                 <view class="flex mt10">
                     <view class="progress">
-                        <view class="progress_bar" style="width:{{(detail.joinNum/detail.limitNum)*100+'%'}}">
+                        <view wx:if="{{detail.joinNum <= detail.limitNum }}" class="progress_bar" style="width:{{(detail.joinNum/detail.limitNum)*100+'%'}}">
+                            <view class="bg_ff"></view>
+                        </view>
+                        <view wx:else class="progress_bar" style="width:{{(1/1)*100+'%'}}">
                             <view class="bg_ff"></view>
                         </view>
                     </view>

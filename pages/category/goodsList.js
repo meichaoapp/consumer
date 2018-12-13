@@ -20,7 +20,7 @@ Page({
     classify:1,
     start: 1, // 页码
     totalPage: 0, // 共有页
-    limit: 3,//每页条数
+    limit: 10,//每页条数
     hideHeader: true, //隐藏顶部提示
     hideBottom: true, //隐藏底部提示
     srollViewHeight: 0, //滚动分页区域高度
@@ -294,18 +294,19 @@ Page({
           if (o.number < 0) {
             o.number = 0;
           }
-          var g = cart.loadCartGoods(o.id);
-          if (g != null) {//如果购物车以前有则更新
-            if (o.number == 0) {
-              cart.removeCart(o.id);
-            } else {
-              cart.updateCart(o);
-            }
-
-          }
         }
       });
     }
+    var g = cart.loadCartGoods(id);
+    if (g != null) {//如果购物车以前有则更新
+      g.number = (g.number - 1);
+      if (g.number <= 0) {
+        cart.removeCart(id);
+      } else {
+        cart.updateCart(g);
+      }
+    }
+
     _this.setData({
       goodsList: goodsList,
     });
@@ -316,20 +317,23 @@ Page({
     let _this = this;
     var id = e.currentTarget.dataset.id;
     var goodsList = _this.data.goodsList;
+    var goods = null;
     if (goodsList != null && goodsList.length > 0) {
       goodsList.forEach(o => {
         if (o.id == id) {
           o.number = o.number + 1;
-          var g = cart.loadCartGoods(o.id);
-          //console.log("购物无车商品---" + JSON.stringify(g));
-          if (g == null) {//如果没有则加入购物车
-            cart.add2Cart(o);
-          } else {//如果购物车以前有则更新购物车商品数量
-            cart.updateCart(o);
-          }
-
+          goods = o;
         }
       });
+    }
+
+    var g = cart.loadCartGoods(id);
+    //console.log("购物无车商品---" + JSON.stringify(g));
+    if (g == null && goods != null) {//如果没有则加入购物车
+      cart.add2Cart(goods);
+    } else {//如果购物车以前有则更新购物车商品数量
+      g.number = g.number + 1;
+      cart.updateCart(g);
     }
 
     _this.setData({

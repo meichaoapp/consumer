@@ -134,7 +134,7 @@
         </view>
         <view bindtap='joinGroup' class="flex pay_box flex_center flex_just">
             <image class="icon_pay2" src="/static/images/wx_pay.png"></image>
-            <view class="font16 cfff">{{needPay}}</view>
+            <view class="font16 cfff">立即支付</view>
         </view>
     </view>
 </view>

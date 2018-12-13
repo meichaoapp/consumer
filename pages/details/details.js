@@ -97,8 +97,9 @@ Page({
       if (res.rs == 1) {
         var data = res.data;
         console.log("queryGroupPurchaseDetail --- " + JSON.stringify(data));
+        var detail = data.detail;
         that.setData({
-          detail: data.detail, //团购详情
+          detail: detail, //团购详情
           merchant: data.merchant,//商家
         });
         WxParse.wxParse('goodsDetail', 'html', res.data.detail.content, that);
