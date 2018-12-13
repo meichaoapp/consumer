@@ -91,16 +91,16 @@
             <view class="m_con">
                 <view wx:if="{{goodsList.length>0}}">
                     <view class="goods_con flex flex_between" wx:for="{{goodsList}}"  wx:key="{{item.index}}"  data-id="{{item.id}}">
-                            <navigator url="/pages/details/details?id={{item.id}}">
+                            <navigator url="/pages/details/details?source=0&id={{item.id}}">
                                 <view class="good_image flex flex_center flex_just br5">
                                     <image  src="{{item.url}}"></image>
                                 </view>
                             </navigator>
                             <view class="content flex flex_colum">
-                                <navigator url="/pages/details/details?id={{item.id}}">
+                                <navigator url="/pages/details/details?source=0&id={{item.id}}">
                                     <view class="name ellipsis_2">{{item.name}}</view>
                                 </navigator>
-                                <navigator url="/pages/details/details?id={{item.id}}">
+                                <navigator url="/pages/details/details?source=0&id={{item.id}}">
                                     <view class="desc ellipsis">{{item.comments}}</view>
                                 </navigator>
                                 <view class="flex flex_between" style="flex:1;">

@@ -5,6 +5,8 @@ var util = require('../../utils/util.js');
 var api = require('../../config/api.js');
 const wecache = require('../../utils/wecache.js');
 const cart = require('../../services/cart.js');
+const currentMerchat = "currentMerchat";
+const currIndex = "currIndex";
 
 Page({
 
@@ -33,6 +35,88 @@ Page({
     });
     this.queryGroupPurchaseDetail();
     this.friends();
+
+    var source = options.source; //跳转来源
+    if (source == 1) {
+      var merchatId = options.mid;
+      let merchant = wx.getStorageSync(currentMerchat);
+      let currentIndex = wx.getStorageSync(currIndex);
+      if (null != merchant && undefined != merchant && null != currentIndex && undefined != currentIndex) {
+        if (merchatId != that.data.merchant.merchantId) {
+          //切换商户
+          that.swithchMerchats(merchatId);
+          //清空购物车
+          cart.cleanCart();
+        }
+
+      } else {
+        //切换商户
+        that.swithchMerchats(merchatId);
+        //清空购物车
+        cart.cleanCart();
+      }
+    }
+
+    // 页面显示
+    let userInfo = wx.getStorageSync('userInfo');
+
+    if (null != userInfo || userInfo != "" || undefined != userInfo) {
+      this.setData({
+        userInfo: userInfo,
+      });
+    } else {
+      wx.navigateTo({
+        url: '/pages/auth/login/login'
+      });
+    }
+   
+   
+
+  },
+
+  //切换商户列表信息
+  swithchMerchats: function (merchatId) {
+    var that = this;
+    wx.getLocation({
+      type: 'gcj02', //返回可以用于wx.openLocation的经纬度
+      success: function (res) {
+        var latitude = res.latitude//维度
+        var longitude = res.longitude//经度
+        ///设置当前地理位置
+        that.setData({
+          latitude: latitude,
+          longitude: longitude,
+        });
+
+        var data = {
+          "longitude": that.data.longitude,//经度
+          "latitude": that.data.latitude,//纬度
+        };
+        util.request(api.QueryMerchants, data, "POST").then(function (res) {
+          console.log('------商户信息', res);
+          if (res.rs === 1) {
+            var merchantList = res.data;
+            var merchant = null;
+            let currentIndex = 0;
+            if (null != merchantList) {
+              for (var i = 0; i < merchantList.length; i++) {
+                if (merchantList[i].merchantId == merchatId) {
+                  currentIndex = i;
+                  merchant = merchantList[i];
+                }
+              }
+              //缓存当前商户信息
+              wx.setStorageSync(currentMerchat,merchat);
+              //缓存当前商户的index值，方便首页读取，设置选中状态
+              wx.setStorageSync('currIndex', currentIndex);
+            }
+          }
+        });
+
+      }
+    })
+
+
   },
 
   /**
@@ -53,10 +137,6 @@ Page({
       this.setData({
         userInfo: userInfo,
       });
-    } else {
-      wx.navigateTo({
-        url: '/pages/auth/login/login'
-      });
     }
 
   },
@@ -70,7 +150,7 @@ Page({
     return {
       title: that.data.detail.title,
       imageUrl: that.data.detail.goodsPic,
-      path: '/pages/index/index?source=0&id=' + that.data.id,
+      path: '/pages/details/details?source=1&id=' + that.data.id + "&mid=" + that.data.merchant.merchantId,
     }
   },
 

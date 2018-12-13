@@ -49,7 +49,7 @@ Page({
     },
 
     onLoad: function (options) {
-       
+      let that = this;
 
       let userInfo = wx.getStorageSync('userInfo');
       console.log("userinfo----" + userInfo);
@@ -62,7 +62,7 @@ Page({
           url: '/pages/auth/login/login'
         });
       }
-      
+
       let merchant = wx.getStorageSync(currentMerchat);
       let currentIndex = wx.getStorageSync(currIndex);
       if (null != merchant && undefined != merchant && null != currentIndex && undefined != currentIndex) {
@@ -75,35 +75,20 @@ Page({
           url: '/pages/auth/login/login'
         });
       }
+      this.getCurrentLocation();
+      this.$wuxLoading = app.Wux().$wuxLoading //加载
 
-        this.$wuxLoading = app.Wux().$wuxLoading //加载
-
-      if (options.id != undefined && options.source == 1) {
-        wx.navigateTo({
-          url: '/pages/shopping/dollarTreasureDetail/dollarTreasureDetail?tag=0&id=' + options.id + '&orderId=0'
-        });
-      }
-
-      if (options.id != undefined && options.source == 0) {
-        wx.navigateTo({
-          url: '/pages/details/details?id=' + options.id
-        });
-      }
-
-        //this.getCurrentLocation();
-        
-        //this.queryTGList();
-        //this.countDown();
-        let that = this;
-        wx.getSystemInfo({success:function(res) {
-                that.setData({
-                     scrollHeight : res.windowHeight
-                });
-                console.log('高度啊',res);
-            } 
-        });
+      wx.getSystemInfo({success:function(res) {
+              that.setData({
+                    scrollHeight : res.windowHeight
+              });
+              console.log('高度啊',res);
+          } 
+      });
 
     },
+
+  
 
     onReady: function () {
         // 页面渲染完成
@@ -135,7 +120,7 @@ Page({
           url: '/pages/auth/login/login'
         });
       }
-      this.getCurrentLocation();
+     
       this.refreshCartRef();
     },
     onHide: function () {
@@ -149,6 +134,8 @@ Page({
      */
     onPullDownRefresh: function () {
         this.refresh();
+        this.refreshCartRef();
+    
     },
 
     /**
@@ -189,16 +176,17 @@ Page({
                 refreshTime: new Date().toLocaleTimeString(),
                 hideHeader: false
             })
-            //_this.queryTGList();
+            _this.getCurrentLocation();
             wx.stopPullDownRefresh();
         }, 300);
     },
+ 
   /**
  * 获取当前地理位置信息
  */
   getCurrentLocation: function () {
     var that = this;
-
+    console.log("刷新..........");
     wx.getLocation({
       type: 'gcj02', //返回可以用于wx.openLocation的经纬度
       success: function (res) {
@@ -267,7 +255,7 @@ Page({
           "merchantId": _this.data.merchant.merchantId,//店铺id
             "start": _this.data.start,     //分页开始页  必填
             "limit": _this.data.limit,    //当前页共显示多少条  必填
-            "previewFlag": -1,// 用于查询previewFlag为-1时，则可以预览新添的团品信息
+            "userId": _this.data.userInfo.id,// 用于查询previewFlag为-1时，则可以预览新添的团品信息
             "sellType": sellType, // 销售类型被选中，默认为1
         }
        util.request(api.QueryTGNewList, data, "POST").then(function (res) {

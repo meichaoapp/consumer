@@ -22,18 +22,18 @@
     <view class="goods_list">
      <block wx:for="{{goodsList}}" wx:key="{{item.index}}">
         <view class="goods_con bg_ff flex flex_between">
-           <navigator url="/pages/details/details?id={{item.id}}">
+           <navigator url="/pages/details/details?source=0&id={{item.id}}">
             <view class="good_image flex flex_center flex_just br5">
                 <image  src="{{item.url}}"></image>
             </view>
              </navigator>
             <view class="content flex flex_colum">
-            <navigator url="/pages/details/details?id={{item.id}}">
+            <navigator url="/pages/details/details?source=0&id={{item.id}}">
                 <view class="name">{{item.name}}</view>
                 <view class="desc">{{item.comments}}</view>
             </navigator>
                 <view class="flex flex_between" style="flex:1;">
-                   <navigator url="/pages/details/details?id={{item.id}}">
+                   <navigator url="/pages/details/details?source=0&id={{item.id}}">
                     <view class="price_box flex flex_center">
                         <view class="curr_price">￥{{item.price}}</view>
                         <view class="old_price">￥{{item.marketPrice}}</view>

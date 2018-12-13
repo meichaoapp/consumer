@@ -8,6 +8,7 @@ const cart = require('../../../services/cart.js');
 var app = getApp();
 const pointKey = "userLocation";
 const currentMerchat = "currentMerchat";
+const currIndex = "currIndex";
 Page({
 
   /**
@@ -99,10 +100,20 @@ Page({
       console.log('------商户信息', res);
       if (res.rs === 1) {
         var merchantList = res.data;
+        let merchant = wx.getStorageSync(currentMerchat);
+        let currentIndex = wx.getStorageSync(currIndex);
+        var i = 0;
+        if(null == merchant || merchant == "") {
+          merchant = merchantList[0];
+        }
+        if (currentIndex != null || currentIndex != ""){
+          i = currentIndex;
+        }
         if( null != merchantList) {
           that.setData({
             merchantList: merchantList,
-            merchat: merchantList[0]
+            merchat: merchant,
+            currentIndex: currentIndex,
           })
         }
       }
