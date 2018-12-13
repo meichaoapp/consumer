@@ -121,6 +121,8 @@
 .banner_box{
     width:90%;
     height:260rpx;
+    border-radius:16rpx;
+    overflow:hidden;
     margin:0 auto;
 }
 .banner_box image{
