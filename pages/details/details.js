@@ -41,13 +41,17 @@ Page({
     if (source == 1) {
       var merchantId = options.mid;
       let merchant = wx.getStorageSync(currentMerchat);
+     
       let currentIndex = wx.getStorageSync(currIndex);
-      if (null != merchant && undefined != merchant && null != currentIndex && undefined != currentIndex) {
-        if (merchantId != that.data.merchant.merchantId) {
+      if (null != merchant 
+          && undefined != merchant 
+          && "" != merchant 
+          && null != currentIndex 
+          && undefined != currentIndex) {
+        console.log("1.merchant -------" + JSON.stringify(merchant));
+        if (merchantId != merchant.merchantId) {
           //切换商户
           that.swithchMerchats(merchantId);
-          //清空购物车
-          cart.cleanCart();
         }
 
       } else {
@@ -60,9 +64,9 @@ Page({
 
     // 页面显示
     let userInfo = wx.getStorageSync('userInfo');
-    console.log("userInfo -------" + userInfo);
+    //console.log("userInfo -------" + userInfo);
     if (null != userInfo && userInfo != "" && undefined != userInfo) {
-      console.log("userInfo -------" + JSON.stringify(userInfo));
+      //console.log("userInfo -------" + JSON.stringify(userInfo));
       this.setData({
         userInfo: userInfo,
       });
