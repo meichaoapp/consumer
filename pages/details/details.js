@@ -26,6 +26,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    let that = this;
     // 页面初始化 options为页面跳转所带来的参数
     this.$wuxLoading = app.Wux().$wuxLoading //加载
     this.$wuxToast = app.Wux().$wuxToast
@@ -38,20 +39,20 @@ Page({
 
     var source = options.source; //跳转来源
     if (source == 1) {
-      var merchatId = options.mid;
+      var merchantId = options.mid;
       let merchant = wx.getStorageSync(currentMerchat);
       let currentIndex = wx.getStorageSync(currIndex);
       if (null != merchant && undefined != merchant && null != currentIndex && undefined != currentIndex) {
-        if (merchatId != that.data.merchant.merchantId) {
+        if (merchantId != that.data.merchant.merchantId) {
           //切换商户
-          that.swithchMerchats(merchatId);
+          that.swithchMerchats(merchantId);
           //清空购物车
           cart.cleanCart();
         }
 
       } else {
         //切换商户
-        that.swithchMerchats(merchatId);
+        that.swithchMerchats(merchantId);
         //清空购物车
         cart.cleanCart();
       }
@@ -59,8 +60,9 @@ Page({
 
     // 页面显示
     let userInfo = wx.getStorageSync('userInfo');
-
-    if (null != userInfo || userInfo != "" || undefined != userInfo) {
+    console.log("userInfo -------" + userInfo);
+    if (null != userInfo && userInfo != "" && undefined != userInfo) {
+      console.log("userInfo -------" + JSON.stringify(userInfo));
       this.setData({
         userInfo: userInfo,
       });
@@ -75,7 +77,7 @@ Page({
   },
 
   //切换商户列表信息
-  swithchMerchats: function (merchatId) {
+  swithchMerchats: function (merchantId) {
     var that = this;
     wx.getLocation({
       type: 'gcj02', //返回可以用于wx.openLocation的经纬度
@@ -100,13 +102,13 @@ Page({
             let currentIndex = 0;
             if (null != merchantList) {
               for (var i = 0; i < merchantList.length; i++) {
-                if (merchantList[i].merchantId == merchatId) {
+                if (merchantList[i].merchantId == merchantId) {
                   currentIndex = i;
                   merchant = merchantList[i];
                 }
               }
               //缓存当前商户信息
-              wx.setStorageSync(currentMerchat,merchat);
+              wx.setStorageSync(currentMerchat, merchant);
               //缓存当前商户的index值，方便首页读取，设置选中状态
               wx.setStorageSync('currIndex', currentIndex);
             }
