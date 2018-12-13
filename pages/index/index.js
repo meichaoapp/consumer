@@ -75,7 +75,7 @@ Page({
           url: '/pages/auth/login/login'
         });
       }
-      this.getCurrentLocation();
+      //this.getCurrentLocation();
       this.$wuxLoading = app.Wux().$wuxLoading //加载
 
       wx.getSystemInfo({success:function(res) {
@@ -120,7 +120,7 @@ Page({
           url: '/pages/auth/login/login'
         });
       }
-     
+      this.getCurrentLocation();
       this.refreshCartRef();
     },
     onHide: function () {
