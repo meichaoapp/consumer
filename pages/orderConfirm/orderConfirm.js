@@ -37,7 +37,7 @@ Page({
     //   });
     // }
     // let merchant = wx.getStorageSync(currentMerchat);
-   
+
     // if (null != merchant && undefined != merchant) {
     //   _this.setData({
     //     merchant:merchant,
@@ -51,7 +51,7 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-  
+
   },
 
   /**
@@ -80,14 +80,14 @@ Page({
    * 生命周期函数--监听页面隐藏
    */
   onHide: function () {
-  
+
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-  
+
   },
   //切换取货方式
   switchDeliveryType: function(e) {
@@ -136,7 +136,7 @@ Page({
     _this.setData({
       count: _this.data.count + 1,
     });
-  
+
     var order = _this.getOrderDatas();
     console.log("order--- " + JSON.stringify(order));
     util.request(api.CreateOrder, order, "POST").then(function (res) {
@@ -210,5 +210,11 @@ Page({
      wx.navigateTo({
        url: '/pages/ucenter/yourinfor/yourinfor?tag=0',
      })
-  }
+  },
+  //跳转首页
+    toIndex: function () {
+        wx.switchTab({
+            url: '/pages/index/index',
+        })
+    },
 })

@@ -137,4 +137,9 @@
             <view class="font16 cfff">立即支付</view>
         </view>
     </view>
+
+    <view bindtap='toIndex' class="fixed_right flex flex_center flex_just flex_colum">
+        <image src="/static/images/icon_home.png"></image>
+        <view>美超首页</view>
+    </view>
 </view>

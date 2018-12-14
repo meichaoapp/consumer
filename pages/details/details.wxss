@@ -238,7 +238,7 @@ button.contact_btn::after{
     bottom:300rpx;
     border-top-left-radius: 10rpx;
     border-bottom-left-radius: 10rpx;
-    background:rgba(76,76,76,0.7);
+    background:rgba(76,76,76,0.6);
 
 }
 .fixed_right image{
