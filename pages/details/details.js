@@ -52,6 +52,8 @@ Page({
         if (merchantId != merchant.merchantId) {
           //切换商户
           that.swithchMerchats(merchantId);
+          //清空购物车
+          cart.cleanCart();
         }
 
       } else {
