@@ -134,4 +134,9 @@
             <view bindtap='toOrderConfirm' class="cfff font15">立即购买</view>
         </view>
     </view>
+
+    <view bindtap='toIndex' class="fixed_right flex flex_center flex_just flex_colum">
+        <image src="/static/images/icon-home.png"></image>
+        <view>美超首页</view>
+    </view>
 </view>

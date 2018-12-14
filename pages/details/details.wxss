@@ -230,3 +230,23 @@ button.contact_btn::after{
     width:68rpx;
     height:68rpx;
 }
+.fixed_right{
+    width:124rpx;
+    height:124rpx;
+    position:fixed;
+    right:0;
+    bottom:300rpx;
+    border-top-left-radius: 10rpx;
+    border-bottom-left-radius: 10rpx;
+    background:rgba(76,76,76,0.7);
+
+}
+.fixed_right image{
+    width:46rpx;
+    height:46rpx;
+    margin-bottom:16rpx;
+}
+.fixed_right view{
+    color:#fff;
+    font-size:20rpx;
+}
