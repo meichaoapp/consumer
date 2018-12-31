@@ -1,6 +1,6 @@
 {
   "pages": [
-    
+
     "pages/index/index",
 
     "pages/category/goodsList",
@@ -15,8 +15,8 @@
     "pages/ucenter/order/order",
     "pages/ucenter/orderDetail/orderDetail",
 
-    "pages/ucenter/yourinfor/yourinfor",
 
+    "pages/ucenter/yourinfor/yourinfor",
     "pages/ucenter/desire/desire",
     "pages/ucenter/partner/partner",
 

@@ -15,14 +15,14 @@
     <view class='u-label'>手机号码</view>
     <view class='u-bd'><input class="weui-inputs" name="phone" value='{{phone}}' bindinput='bindPhone' type="number" placeholder="输入手机号码" placeholder-class='nplaceholder'/></view>
   </view>
-  <!-- <view class='cell_input row noborder'>
+   <view class='cell_input row'>
     <view class='u-label'>验证码</view>
-    <view class='u-bd  u-validate'>
-    <input class="weui-inputs" type="number" name="verifiCode" value='{{verifiCode}}' bindinput='bindVerifiCode' placeholder="输入验证码" placeholder-class='nplaceholder'/>
-    <view wx:if="{{refreshTime <= 0}}" class='getcodebtn' bindtap='getVerifiCode' style="background-image: url('https://s-mall.oss-cn-beijing.aliyuncs.com/meichao/commonbag.png');background-size: 100% 100%;">获取验证码</view>
-    <view wx:else class='getcodebtn' bindtap='getVerifiCode' style="background-image: url('https://s-mall.oss-cn-beijing.aliyuncs.com/meichao/commonbag.png');background-size: 100% 100%;font-size:24rpx">{{refreshTime}}秒后重新获取</view>
+    <view class='u-bd  u-validate flex flex_center flex_between'>
+      <input class="weui-inputs" type="number" name="verifiCode" value='{{verifiCode}}' bindinput='bindVerifiCode' placeholder="输入验证码" placeholder-class='nplaceholder'/>
+      <view wx:if="{{refreshTime <= 0}}" class='getcodebtn' bindtap='getVerifiCode'>获取验证码</view>
+      <view wx:else class='getcodebtn' bindtap='getVerifiCode' style="background-image: url('https://s-mall.oss-cn-beijing.aliyuncs.com/meichao/commonbag.png');background-size: 100% 100%;font-size:24rpx">{{refreshTime}}秒后重新获取</view>
     </view>
-  </view> -->
+  </view>
 </view>
 
 <view class='userinfobox2'>
@@ -50,8 +50,7 @@
 </view>
 
 <view class='submitUserInfobtn-bd'>
-<image  class='submitUserInfobtn' bindtap='submitUserInfo' src='/static/images/confirmmod.png'></image>
-
+  <view  bindtap='submitUserInfo'>提交信息</view>
 </view>
 
 </view>

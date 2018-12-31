@@ -1,0 +1,84 @@
+<view class="container">
+  <view class="profile-info">
+    <image class="avatar" src="{{userInfo.avatar}}"></image>
+    <view class="info flex flex_center">
+      <text class="name">{{userInfo.nickName}}</text>
+      <text class="level" wx:if="{{userInfo.userName}}">{{userInfo.userName}}</text>
+    </view>
+  </view>
+
+  <view class='mylists'>
+  <navigator url="/pages/ucenter/yourinfor/yourinfor?tag=0">
+      <view class='mylist-cells'>
+        <view class='mylist-cell-image'>
+          <image src='/static/images/gerenzhongxin.png'></image>
+        </view>
+        <view class='mylist-cell-desc'>个人资料</view>
+      </view>
+    </navigator>
+
+    <navigator url="/pages/ucenter/order/order">
+      <view class='mylist-cells'>
+        <view class='mylist-cell-image'>
+          <image src='/static/images/icons-my-list01.png'></image>
+        </view>
+        <view class='mylist-cell-desc'>我的参团</view>
+      </view>
+    </navigator>
+
+<!-- 
+    <navigator url='/pages/shopping/mydollarTreasure/mydollarTreasure'>
+      <view class='mylist-cells'>
+        <view class='mylist-cell-image'>
+          <image src='/static/images/icons-my-list02.png'></image>
+        </view>
+        <view class='mylist-cell-desc'>我的一元夺宝</view>
+      </view>
+    </navigator> -->
+
+    <navigator url="/pages/shopping/coupon/coupon">
+      <view class='mylist-cells'>
+        <view class='mylist-cell-image'>
+          <image src='/static/images/icons-my-list03.png'></image>
+        </view>
+        <view class='mylist-cell-desc noborder'>我的优惠券</view>
+      </view>
+    </navigator>
+
+
+  </view>
+
+
+  <!-- <view class='mylists'>
+
+      <view class='mylist-cells' data-phone="13370636266" bindtap='callCFPhone'>
+        <view class='mylist-cell-image'>
+          <image src='/static/images/icons-my-list04.png'></image>
+        </view>
+        <view class='mylist-cell-desc'>电话客服</view>
+      </view>
+      <view class='mylist-cells' data-phone="13370636266" bindtap='toShowContactBox'>
+        <view class='mylist-cell-image'>
+          <image src='/static/images/icons-my-list05.png'></image>
+        </view>
+        <view class='mylist-cell-desc noborder'>在线客服</view>
+      </view>
+
+
+  </view> -->
+  <action-sheet hidden="{{isShowContactBox}}" bindchange="toHideContactBox">
+      <action-sheet-item >+美超小邻：hlkjshi</action-sheet-item>
+      <action-sheet-cancel>取消</action-sheet-cancel>
+  </action-sheet>
+  <!-- <view class='mylists'>
+      <view class='mylist-cells'>
+        <view class='mylist-cell-image'>
+          <image src='/static/images/icons-my-list06.png'></image>
+        </view>
+        <view class='mylist-cell-desc noborder'>设置</view>
+      </view>
+
+
+  </view> -->
+
+</view>
