@@ -7,6 +7,7 @@ const cart = require('../../services/cart.js');
 const pointKey = "userLocation";
 const currentMerchat = "currentMerchat";
 const currIndex = "currIndex";
+const upgrade = "UPGRADE";
 
 //获取应用实例
 const app = getApp()
@@ -50,7 +51,8 @@ Page({
 
     onLoad: function (options) {
       let that = this;
-
+      //升级
+      this.upgrade();
       let userInfo = wx.getStorageSync('userInfo');
       console.log("userinfo----" + userInfo);
       if (null != userInfo && userInfo != "" && undefined != userInfo) {
@@ -87,8 +89,17 @@ Page({
       });
 
     },
-
-  
+    //升级
+    upgrade:function() {
+      var version = wx.getStorageSync(upgrade);
+      var _version = app.globalData._version;
+      if (version == "" || version == null || version != _version) {
+        //清空缓存
+        wx.clearStorageSync();
+        wx.clearStorage();
+        wx.setStorageSync(upgrade, _version);
+      }
+    },
 
     onReady: function () {
         // 页面渲染完成
