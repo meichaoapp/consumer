@@ -22,13 +22,16 @@ Page({
     merchantId: 1,// 店铺id
     merchantOrder: {},// 团购订单
     oneselfOrder: {}, // 自营订单
-
+    count: 0, //提交计数
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    this.setData({
+      count: 0, //提交计数
+    });
     // let _this = this;
     // let userInfo = wx.getStorageSync('userInfo');
     // if (null != userInfo && userInfo != "" && undefined != userInfo) {
@@ -58,6 +61,9 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    this.setData({
+      count: 0, //提交计数
+    });
     let _this = this;
     let userInfo = wx.getStorageSync('userInfo');
     if (null != userInfo && userInfo != "" && undefined != userInfo) {
@@ -68,12 +74,13 @@ Page({
     let merchant = wx.getStorageSync(currentMerchat);
 
     if (null != merchant && undefined != merchant) {
+      //_this.reloadMerchat(merchant.merchantId); //重新加载选中的商户信息
       _this.setData({
-        merchant: merchant,
+        merchant:merchant,
       });
     }
-
     this.loadOrderInfo();
+   
   },
 
   /**
@@ -88,6 +95,24 @@ Page({
    */
   onUnload: function () {
 
+  },
+  //查询商户列表信息
+  reloadMerchat: function (id) {
+    let that = this;
+    var data = {
+      "merchantId": id,//商户ID
+    };
+    util.request(api.QueryMerchants, data, "POST").then(function (res) {
+      console.log('------商户信息', res);
+      if (res.rs === 1) {
+        var merchantList = res.data;
+        if (null != merchantList && merchantList.length > 0) {
+          that.setData({
+            merchant: merchantList[0],
+          })
+        }
+      }
+    });
   },
   //切换取货方式
   switchDeliveryType: function(e) {
