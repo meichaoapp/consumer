@@ -7,7 +7,7 @@ const wecache = require('../../utils/wecache.js');
 const cart = require('../../services/cart.js');
 const currentMerchat = "currentMerchat";
 const currIndex = "currIndex";
-
+const buyGoodsCache = "buyGoodsCache";
 Page({
 
   /**
@@ -52,6 +52,8 @@ Page({
         if (merchantId != merchant.merchantId) {
           //切换商户
           that.swithchMerchats(merchantId);
+          //清空购物车
+          cart.cleanCart();
         }
 
       } else {
@@ -293,9 +295,22 @@ Page({
       })
       return;
     }
-    _this.addCart();
+    //_this.addCart();
+    var goods = {
+      "id": _this.data.detail.id, //id
+      "name": _this.data.detail.title, //团购名称
+      "url": _this.data.detail.goodsPic, //展示url
+      "price": _this.data.detail.price, //团购价
+      "marketPrice": _this.data.detail.marketPrice,//市场价/原价
+      "status": _this.data.detail.status, //0 未开始 1 进行中 2 已成团 3 已过期
+      "productType": _this.data.detail.productType, //商品类型 1.普通团品 2. 一元购 3. 店长自营产品
+      "number":1,
+    };
+    var goodsList = [];
+    goodsList.push(goods);
+    wx.setStorageSync(buyGoodsCache, goodsList);
     wx.navigateTo({
-      url: '/pages/orderConfirm/orderConfirm'
+      url: '/pages/orderConfirm/orderConfirm?type=1'
     });
   },
 

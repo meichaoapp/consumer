@@ -7,6 +7,7 @@ const cart = require('../../services/cart.js');
 const pointKey = "userLocation";
 const currentMerchat = "currentMerchat";
 const currIndex = "currIndex";
+const upgrade = "UPGRADE";
 
 //获取应用实例
 const app = getApp()
@@ -26,7 +27,7 @@ Page({
         hideBottom: true, //隐藏底部提示
         srollViewHeight: 0, //滚动分页区域高度
         refreshTime: '', // 刷新的时间
-        loadMoreData: '加载更多',
+        loadMoreData: '上滑加载更多',
         classifyList: [],//分类导航
         treasures:[],//一元购物
         sellList:[],//拼团店铺列表
@@ -50,7 +51,8 @@ Page({
 
     onLoad: function (options) {
       let that = this;
-
+      //升级
+      this.upgrade();
       let userInfo = wx.getStorageSync('userInfo');
       console.log("userinfo----" + userInfo);
       if (null != userInfo && userInfo != "" && undefined != userInfo) {
@@ -87,8 +89,17 @@ Page({
       });
 
     },
-
-  
+    //升级
+    upgrade:function() {
+      var version = wx.getStorageSync(upgrade);
+      var _version = app.globalData._version;
+      if (version == "" || version == null || version != _version) {
+        //清空缓存
+        wx.clearStorageSync();
+        wx.clearStorage();
+        wx.setStorageSync(upgrade, _version);
+      }
+    },
 
     onReady: function () {
         // 页面渲染完成
@@ -537,7 +548,7 @@ Page({
       return;
     }
     wx.navigateTo({
-      url: '/pages/orderConfirm/orderConfirm'
+      url: '/pages/orderConfirm/orderConfirm?type=0'
     });
   },
   //跳转分类商品类别页

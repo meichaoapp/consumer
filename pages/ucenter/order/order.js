@@ -14,7 +14,7 @@ Page({
     hideBottom: true, //隐藏底部提示
     srollViewHeight: 0, //滚动分页区域高度
     refreshTime: '', // 刷新的时间
-    loadMoreData: '加载更多',
+    loadMoreData: '上滑加载更多',
   },
   onLoad:function(options){
     this.$wuxLoading = app.Wux().$wuxLoading //加载

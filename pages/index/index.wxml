@@ -179,7 +179,7 @@
             <view class="right_part">
                 <view class="flex flex_between">
                     <text class="font15">{{item.merchantName}}</text>
-                    <text class="C999">据您{{item.distance}}</text>
+                    <text class="C999">{{item.distance}}</text>
                 </view>
                 <view class="mt6 C666">取货地址：{{item.address}}</view>
             </view>

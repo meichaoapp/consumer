@@ -137,10 +137,10 @@ function indexOf(id, _arr) {
  * t_id 团购ID  
  * cart googs list to orders( split orders)
  */
-function createOrder(flag, t_id, user, _dt, merchant){
+function createOrder(flag, t_id, user, _dt, merchant, _arr){
   var totalPay = 0.00;//共付
   var needPay =  0.00;// 应付
-  var _arr = loadCart();
+  //var _arr = loadCart();
   var m_list = [];
   var s_list = [];
   if (_arr.length > 0) {

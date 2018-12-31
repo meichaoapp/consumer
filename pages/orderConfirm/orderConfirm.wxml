@@ -132,7 +132,11 @@
             <!--<view class="mr6 C666">已优惠￥{{preferential}}</view>-->
             <view class="flex flex_center"><text>合计：</text><text>￥</text><text class="font24">{{needPay}}</text></view>
         </view>
-        <view bindtap='joinGroup' class="flex pay_box flex_center flex_just">
+        <view wx:if="{{count == 0}}" bindtap='joinGroup' class="flex pay_box flex_center flex_just">
+            <image class="icon_pay2" src="/static/images/wx_pay.png"></image>
+            <view class="font16 cfff">立即支付</view>
+        </view>
+         <view wx:else class="flex pay_box flex_center flex_just">
             <image class="icon_pay2" src="/static/images/wx_pay.png"></image>
             <view class="font16 cfff">立即支付</view>
         </view>
