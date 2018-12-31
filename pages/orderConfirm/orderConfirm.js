@@ -4,6 +4,7 @@ const api = require('../../config/api.js');
 const user = require('../../services/user.js');
 const cart = require('../../services/cart.js');
 const currentMerchat = "currentMerchat";
+const buyGoodsCache = "buyGoodsCache";
 
 //获取应用实例
 const app = getApp()
@@ -23,31 +24,35 @@ Page({
     merchantOrder: {},// 团购订单
     oneselfOrder: {}, // 自营订单
     count: 0, //提交计数
+    orderGoods:[]
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    let _this = this;
     this.setData({
       count: 0, //提交计数
+      orderGoods: (options.type == 0) ? cart.loadCart() : wx.getStorageSync(buyGoodsCache),
     });
-    // let _this = this;
-    // let userInfo = wx.getStorageSync('userInfo');
-    // if (null != userInfo && userInfo != "" && undefined != userInfo) {
-    //   _this.setData({
-    //     userInfo: userInfo,
-    //   });
-    // }
-    // let merchant = wx.getStorageSync(currentMerchat);
+    
+    let userInfo = wx.getStorageSync('userInfo');
+    if (null != userInfo && userInfo != "" && undefined != userInfo) {
+      _this.setData({
+        userInfo: userInfo,
+      });
+    }
+    let merchant = wx.getStorageSync(currentMerchat);
 
-    // if (null != merchant && undefined != merchant) {
-    //   _this.setData({
-    //     merchant:merchant,
-    //   });
-    // }
+    if (null != merchant && undefined != merchant) {
+      //_this.reloadMerchat(merchant.merchantId); //重新加载选中的商户信息
+      _this.setData({
+        merchant: merchant,
+      });
+    }
 
-    // this.loadOrderInfo();
+    this.loadOrderInfo();
   },
 
   /**
@@ -79,7 +84,7 @@ Page({
         merchant:merchant,
       });
     }
-    this.loadOrderInfo();
+    //this.loadOrderInfo();
    
   },
 
@@ -128,7 +133,7 @@ Page({
    */
   loadOrderInfo:function(){
     let _this = this;
-    var _data = cart.createOrder(0,_this.data.merchant.merchantId, _this.data.userInfo, _this.data.deliveryType, _this.data.merchant);
+    var _data = cart.createOrder(0, _this.data.merchant.merchantId, _this.data.userInfo, _this.data.deliveryType, _this.data.merchant, _this.data.orderGoods );
     //console.log("loadOrderInfo----" + JSON.stringify(_data));
     _this.setData({
       totalPay: _data.totalPay.toFixed(2),//共付
@@ -141,7 +146,7 @@ Page({
 
   getOrderDatas: function(){
     let _this = this;
-    var _data = cart.createOrder(1, _this.data.merchant.merchantId, _this.data.userInfo, _this.data.deliveryType, _this.data.merchant);
+    var _data = cart.createOrder(1, _this.data.merchant.merchantId, _this.data.userInfo, _this.data.deliveryType, _this.data.merchant, _this.data.orderGoods);
     return {
       merchantId: _this.data.merchant.merchantId,
       totalPay: _data.totalPay.toFixed(2),//共付

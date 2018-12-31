@@ -537,7 +537,7 @@ Page({
       return;
     }
     wx.navigateTo({
-      url: '/pages/orderConfirm/orderConfirm'
+      url: '/pages/orderConfirm/orderConfirm?type=0'
     });
   },
   //跳转分类商品类别页
