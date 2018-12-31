@@ -61,7 +61,7 @@
         "pagePath": "pages/ucenter/desire/desire",
         "iconPath": "static/images/icon-want.png",
         "selectedIconPath": "static/images/icon-want-selected.png",
-        "text": "我想要"
+        "text": "留言板"
       },
       {
         "pagePath": "pages/ucenter/partner/partner",
