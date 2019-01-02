@@ -1,10 +1,10 @@
 page{
     background: #f4f4f4;
-    min-height: 100%;
+    height: 100%;
 }
 .container{
-    background: #f4f4f4;
-    min-height:100%;
+    height:100%;
+    background: #fff;
 }
 .box {
   display: flex;
@@ -40,7 +40,6 @@ page{
 
 .form{
   width: 100%;
-  background: #fff;
   margin-top: 18rpx;
   padding-top:23rpx;
   padding-bottom: 80rpx;
@@ -54,7 +53,7 @@ page{
   font-size:11pt;
 }
 .box-base{
-  padding: 30rpx 65rpx 23rpx 50rpx;
+  padding: 15rpx 80rpx;
   font-size: 30rpx;
   color: #72cfdd;
   
@@ -64,12 +63,12 @@ page{
   color: #72cfdd;
 }
 input{
-  font-size: 26rpx;
-  color: #333;
-  border: 1px solid rgb(191,191,191);
-  height:72rpx;
-  border-radius: 6rpx;
-  padding-left:16rpx; 
+    background: #F6F6F6;
+    border: 1px solid #DDDDDD;
+    border-radius: 5px;
+    height:92rpx;
+    line-height:92rpx;
+    padding:0 30rpx;
 }
 input::-webkit-input-placeholder {
   color: #999;
@@ -107,18 +106,17 @@ input::-webkit-input-placeholder {
   margin-right: 65rpx;
 }
 
-
 .fb-btn{
-    width:690rpx;
-    height:85rpx;
-    line-height:85rpx;
-    margin:39rpx 29.5rpx;
+    width:440rpx;
+    height:90rpx;
+    background: #89C765;
+    box-shadow: 0 4px 16px 0 #89C765;
+    border-radius: 35px;
+    font-size:30rpx;
+    color:#fff;
+    line-height:90rpx;
     text-align:center;
-    background:#81C95A;
-    border-radius:10rpx;
-    font-size:32rpx;
-    color:#FFFFFF;
-    letter-spacing:-0.01rpx;
+    margin-top:38rpx;
 }
 
 .policy{
@@ -134,9 +132,6 @@ input::-webkit-input-placeholder {
 .pos-shangchao{
   position: relative;
 }
-.pos-shangchao input{
-  padding-left: 50rpx;
-}
 .pos .HintInfor{
   position: absolute;
   top: 11rpx;
@@ -150,4 +145,8 @@ input::-webkit-input-placeholder {
   left: 6rpx;
   font-size: 40rpx;
   color: #72cfdd;
+}
+.tip{
+    text-align:center;
+    margin-top:30rpx;
 }

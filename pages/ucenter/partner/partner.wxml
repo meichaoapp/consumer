@@ -18,35 +18,36 @@
    </view> -->
    
    <view class='form'>
-      <view class='row flex flex_center'>
+     <!-- <view class='row flex flex_center'>
         <image class='tip-icon' src='/static/images/icon-partner-t.png'></image>
         <text class='tip-text'>我们会很快与您取得联系</text>
-      </view>
+      </view>-->
      <view class='box-base'>
-			 <view class='label flex flex_center pos'>
+			<!-- <view class='label flex flex_center pos'>
 			 	<text class="HintInfor">*</text>
 			 	<text class='label'>商超名称或个人姓名</text>
-			 </view>
-        <view class='box-contacts'><input name="name" bindinput='bindName' placeholder='请输入...' placeholder-class="phcolor" value='{{name}}'></input></view>
+			 </view>-->
+        <view class='box-contacts'><input name="name" bindinput='bindName' placeholder='商超名称或个人姓名' placeholder-class="phcolor" value='{{name}}'></input></view>
      </view>
      <view class='box-base'>
-      <view class='label flex flex_center pos'>
+     <!-- <view class='label flex flex_center pos'>
         <text class="HintInfor">*</text>
         <text class='label'>商超位置</text>
-      </view>
+      </view>-->
       <view class='box-contacts pos-shangchao' bindtap='selectLocation'>
       <text class="iconfont icon-zuobiao"></text>
-      <input   name="location" placeholder='请输入...' placeholder-class="phcolor" value='{{address}}'></input></view>
+      <input   name="location" placeholder='地理位置，程序自动填充' placeholder-class="phcolor" value='{{address}}'></input></view>
     </view>
       <view class='box-base'>
-				<view class='label flex flex_center pos'>
+				<!--<view class='label flex flex_center pos'>
 					<text class="HintInfor">*</text>
 					<text class='label'>联系电话</text>
-				</view>
-        <view class='box-contacts'><input name="phone" bindinput='bindPhone' placeholder='请输入...' placeholder-class="phcolor" value='{{phone}}'></input></view>
+				</view>-->
+        <view class='box-contacts'><input name="phone" bindinput='bindPhone' placeholder='联系电话' placeholder-class="phcolor" value='{{phone}}'></input></view>
      </view>
 
-       <button class="fb-btn" bindtap='submit'>提交</button>
+       <button class="fb-btn" bindtap='submit'>提交信息</button>
+       <view class="C666 font15 tip">我们会很快与您取得联系</view>
       <!-- <view class='policy'>
         查看《美超社区团购合作政策》
       </view> -->
