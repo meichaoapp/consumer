@@ -27,7 +27,7 @@
         </view>
         <view class="goods_price flex flex_center flex_between">
             <view>
-                <text class="c_9000 font24 ">￥{{detail.price}}</text>
+                <text class="c_f3f font24 ">￥{{detail.price}}</text>
                 <text class="old_price font12 C666">￥{{detail.marketPrice}}</text>
             </view>
             <view class="flex flex_colum flex_end">

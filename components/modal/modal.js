@@ -47,7 +47,8 @@ Component({
      */
     methods: {
         clickMask() {
-            // this.setData({show: false})
+             // this.setData({show: false})
+            // this.triggerEvent('cancel')
         },
 
         cancel() {
