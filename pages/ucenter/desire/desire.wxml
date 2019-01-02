@@ -9,7 +9,7 @@
       <text class='tip-text'> 想要什么商品，愿望总是出其不意的实现了呐~ </text>
     </view>-->
     <view class="fb-body">
-      <textarea bindinput='bindContent' class="content" value='{{content}}' placeholder-class='phcolor' placeholder="请输入你想要的商品..." />
+      <textarea bindinput='bindContent' class="content" value='{{content}}' placeholder-class='phcolor' placeholder="说点什么吧～" />
     </view>
   </view>
    
