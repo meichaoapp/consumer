@@ -39,6 +39,7 @@ Page({
         num:0,//和index相比，控制左侧显示激活状态样式
         currentIndex:0,
         showModal:false,
+        searchText: '', // 搜索店铺名称、地址
 
     },
     onShareAppMessage: function () {
@@ -325,12 +326,13 @@ Page({
     //选择团长，打开modal
     choiceMerchant(){
         this.setData({
-            showModal:true
+          showModal:true,
+          searchText: '', // 搜索店铺名称、地址
         })
+        this.queryMerchats();
     },
 
   modalCancel:function(){
-        console.log('点击取消了')
     this.setData({
       showModal: false
     })
@@ -342,6 +344,8 @@ Page({
     wx.setStorageSync(currentMerchat, _this.data.merchant);
     //刷新和重置数据
     _this.setData({
+      start: 1, // 页码
+      totalPage: 0, // 共有页
       goodsList: [],//团购商品列表
       cartGoodsList: [],//购物车商品列表
       needPay: 0.00, // 购物车核算价格
@@ -558,6 +562,31 @@ Page({
       url: '/pages/category/goodsList?classify='+type,
     });
   },
+  bindSearchText: function (e) {
+    var _this = this;
+    this.setData({
+      searchText: e.detail.value,
+    })
+  },
+  //查询商户列表信息
+  queryMerchats: function () {
+    let that = this;
+    var data = {
+      "longitude": that.data.longitude,//经度
+      "latitude": that.data.latitude,//纬度
+      "searchText": that.data.searchText,
+    };
+    util.request(api.QueryMerchants, data, "POST").then(function (res) {
+      if (res.rs === 1) {
+        var merchantList = res.data;
+        that.setData({
+          merchantList: merchantList,
+        })
+        
+      }
+    });
+  },
+
   //小于10的格式化函数
   timeFormat(param) {
     return param < 10 ? '0' + param : param;

@@ -10,7 +10,7 @@
     </view>
     <view class="location_box">
         <text>您当前的取货地址为</text>
-        <view class="flex flex_center">
+        <view class="flex flex_center"  bindtap="choiceMerchant">
             <image class="icon_address" src="/static/images/address.png"></image>
             <view class="curr_location">
                 {{merchat.address}}

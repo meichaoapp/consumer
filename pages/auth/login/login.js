@@ -24,7 +24,8 @@ Page({
     count: 0, //提交计数
     merchantList: [], // 团长列表
     merchat: {},//选中的团长信息
-    currentIndex:0
+    currentIndex:0,
+    searchText: '', // 搜索店铺名称、地址
   },
 
   /**
@@ -88,13 +89,20 @@ Page({
 
 
   },
-
+  //绑定改变
+  bindSearchText: function (e) {
+    var _this = this;
+    this.setData({
+      searchText: e.detail.value,
+    })
+  },
   //查询商户列表信息
   queryMerchats:function() {
     let that = this;
     var data = {
       "longitude": that.data.longitude,//经度
       "latitude": that.data.latitude,//纬度
+      "searchText": that.data.searchText,
     };
     util.request(api.QueryMerchants, data , "POST").then(function (res) {
       console.log('------商户信息', res);
@@ -122,8 +130,10 @@ Page({
   //选择团长，打开modal
   choiceMerchant(){
       this.setData({
-          showModal:true
+          showModal:true,
+          searchText: '', // 搜索店铺名称、地址
       })
+    this.queryMerchats();
   },
   closeMerchant() {
     this.setData({

@@ -46,13 +46,13 @@ Page({
     let merchant = wx.getStorageSync(currentMerchat);
 
     if (null != merchant && undefined != merchant) {
-      //_this.reloadMerchat(merchant.merchantId); //重新加载选中的商户信息
-      _this.setData({
-        merchant: merchant,
-      });
+      _this.reloadMerchat(merchant.merchantId); //重新加载选中的商户信息
+      // _this.setData({
+      //   merchant: merchant,
+      // });
     }
 
-    this.loadOrderInfo();
+    
   },
 
   /**
@@ -79,13 +79,8 @@ Page({
     let merchant = wx.getStorageSync(currentMerchat);
 
     if (null != merchant && undefined != merchant) {
-      //_this.reloadMerchat(merchant.merchantId); //重新加载选中的商户信息
-      _this.setData({
-        merchant:merchant,
-      });
+      _this.reloadMerchat(merchant); //重新加载选中的商户信息
     }
-    //this.loadOrderInfo();
-   
   },
 
   /**
@@ -102,10 +97,10 @@ Page({
 
   },
   //查询商户列表信息
-  reloadMerchat: function (id) {
+  reloadMerchat: function (merchant) {
     let that = this;
     var data = {
-      "merchantId": id,//商户ID
+      "merchantId": merchant.merchantId,//商户ID
     };
     util.request(api.QueryMerchants, data, "POST").then(function (res) {
       console.log('------商户信息', res);
@@ -115,7 +110,12 @@ Page({
           that.setData({
             merchant: merchantList[0],
           })
+        }else {
+          that.setData({
+            merchant: merchant,
+          })
         }
+        that.loadOrderInfo();
       }
     });
   },

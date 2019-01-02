@@ -5,7 +5,7 @@
     <view>下拉刷新中…</view>
 </view>
 <view class='merchant-header flex flex_between'>
-    <view wx:if="{{merchant != null }}"  class='current-location flex flex_center' bindtap='selectLocation'>
+    <view wx:if="{{merchant != null }}"  class='current-location flex flex_center' bindtap='choiceMerchant'>
         <image class='location-icon' src='https://wxpic.iliangpin.cn/meichao/address.png'></image>
         <text class='location-address'>{{merchant.merchantName}}</text>
     </view>
@@ -169,9 +169,9 @@
         <!--<view>选择团长</view>-->
         <!--<image bindtap='modalCancel' src="/static/images/close.png" class="icon_close"></image>-->
         <view class="search_box bg_ff">
-            <input class="input" name="goodsName" placeholder="搜索您要找的团长名称"
-                   bindinput="goodsNameInput"/>
-            <image bindtap='search' class="icon_search" src="/static/images/search.png"></image>
+            <input class="input" name="searchText" placeholder="搜索您要找的团长名称"
+                   bindinput="bindSearchText"/>
+            <image bindtap='queryMerchats' class="icon_search" src="/static/images/search.png"></image>
         </view>
     </view>
     <view class='modal-content' slot="slot2">
