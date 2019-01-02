@@ -18,7 +18,7 @@
     <view class="bg_ff">
         <swiper class="banner_box" indicator-dots="true" autoplay="true" interval="5000" duration="1000">
             <swiper-item wx:for="{{banners}}" wx:key="{{item.id}}">
-                <image src="{{item.url}}"></image>
+                <image bindtap='navTo' data-way='0' data-url='{{item.target}}' src="{{item.url}}"></image>
             </swiper-item>
         </swiper>
     </view>

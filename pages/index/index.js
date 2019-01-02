@@ -377,6 +377,10 @@ Page({
   },
     //导航跳转
     navTo: function (e) {
+        var url = e.currentTarget.dataset.url;
+        if(url == "null") {
+          return;
+        }
         //跳转TabBar路径
         if (e.currentTarget.dataset.way == 1) {
             wx.switchTab({
@@ -384,12 +388,7 @@ Page({
             });
         } else {
             wx.navigateTo({
-                url: e.currentTarget.dataset.url,
-                success: function (res) {
-                },
-                fail: function (e) {
-                    console.log("error--", e);
-                }
+              url: "/pages/thirdPage/thirdPage?url=" + url,
             })
         }
     },

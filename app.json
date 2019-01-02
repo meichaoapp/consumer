@@ -34,7 +34,9 @@
     "pages/shopping/dollarTreasureDetail/success",
     "pages/shopping/mydollarTreasure/mydollarTreasure",
     "pages/shopping/dollarTreasure/dollarTreasureWin",
-    "pages/shopping/dollarTreasure/dollarTreasure"
+    "pages/shopping/dollarTreasure/dollarTreasure",
+
+    "pages/thirdPage/thirdPage"
 
   ],
   "permission": {
