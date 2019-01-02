@@ -362,7 +362,9 @@ view,text{
 }
 .c_9000{color:#FF9000}
 
-
+.c_f3f{
+  color:#FF3F3F
+}
 .ellipsis{
   overflow:hidden;
   white-space: nowrap;

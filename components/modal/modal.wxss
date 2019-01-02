@@ -23,7 +23,7 @@
 .modal-btn-wrapper{
     display: flex;
     flex-direction: row;
-    height: 210rpx;
+    height: 140rpx;
     line-height: 100rpx;
     align-items:center;
     justify-content: center;
