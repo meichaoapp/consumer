@@ -382,7 +382,7 @@ Page({
     //导航跳转
     navTo: function (e) {
         var url = e.currentTarget.dataset.url;
-        if(url == "null") {
+      if (url == "null" || url == null) {
           return;
         }
         //跳转TabBar路径
