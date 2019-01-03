@@ -475,7 +475,7 @@
     position:relative;
 }
 input{
-    backgorund:#fff;
+   height:100%;
     border-radius:5rpx;
     border:1px solid #D6D6D6;
     padding:0 28rpx;
@@ -488,7 +488,18 @@ input{
     margin-right:10rpx;
     position:absolute;
     left:23rpx;
-    top:15rpx;
+    top:16rpx;
 
 }
-
+.mask{
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0,0,0,0.4);
+    z-index: 999;
+}

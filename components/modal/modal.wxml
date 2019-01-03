@@ -1,5 +1,5 @@
-<view class='mask' wx:if='{{show}}' bindtap='clickMask'>
-    <view class='modal-content' style='height:{{height}}'>
+<!--<view class='mask2' wx:if='{{show}}' bindtap='clickMask'>-->
+    <view wx:if='{{show}}' class='modal-content' style="margin:atuo;">
         <slot name="slot1"></slot>
         <scroll-view scroll-y class='main-content'>
             <slot name="slot2"></slot>
@@ -9,4 +9,4 @@
             <view class='confirm-btn'  bindtap='confirm'>确认选择</view>
         </view>
     </view>
-</view>
+<!--</view>-->

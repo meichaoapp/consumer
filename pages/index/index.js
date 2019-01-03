@@ -331,11 +331,10 @@ Page({
         })
         this.queryMerchats();
     },
-
-  modalCancel:function(){
-    this.setData({
-      showModal: false
-    })
+  closeModal:function(){
+      this.setData({
+          showModal: false
+      })
   },
   modalConfirm:function(){
     let _this = this;
