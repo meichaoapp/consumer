@@ -173,7 +173,7 @@
         <!--<image bindtap='modalCancel' src="/static/images/close.png" class="icon_close"></image>-->
         <view class="search_box bg_ff">
             <input class="input" name="searchText" placeholder="搜索您要找的团长名称"
-                   bindinput="bindSearchText"/>
+                   bindinput="bindSearchText" bindconfirm="queryMerchats"/>
             <image bindtap='queryMerchats' class="icon_search" src="/static/images/search.png"></image>
         </view>
     </view>
@@ -188,6 +188,9 @@
                 <view class="flex flex_between">
                     <text class="font15">{{item.merchantName}}</text>
                     <text class="C999">{{item.distance}}</text>
+                </view>
+                <view class="label_box">
+                    <text wx:for="{{item.labels}}" wx:key="label"  wx:for-item="label">{{label}}</text>
                 </view>
                 <view class="mt6 C666">取货地址：{{item.address}}</view>
             </view>

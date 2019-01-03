@@ -93,8 +93,8 @@ page{
     overflow:auto;
 }
 .merchant_item{
-    padding:0 30rpx;
-    height:188rpx;
+    padding:12rpx 30rpx;
+   /* height:188rpx;*/
 }
 .merchant_item image{
     width:87rpx;
@@ -129,6 +129,18 @@ input{
     left:23rpx;
     top:16rpx;
 
+}
+.label_box{
+    margin-top:5rpx;
+    margin-bottom:10rpx;
+}
+.label_box text{
+    border: 1px solid #FF9000;
+    border-radius: 2px;
+    padding:2rpx 12rpx;
+    color:#FF9000;
+    margin:0 5rpx;
+    font-size:20rpx;
 }
 .mask{
     position: fixed;
