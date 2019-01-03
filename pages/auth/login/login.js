@@ -135,7 +135,7 @@ Page({
       })
     this.queryMerchats();
   },
-  closeMerchant() {
+    closeModal() {
     this.setData({
       showModal: false
     })
