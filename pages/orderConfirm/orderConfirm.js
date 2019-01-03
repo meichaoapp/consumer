@@ -36,23 +36,7 @@ Page({
       count: 0, //提交计数
       orderGoods: (options.type == 0) ? cart.loadCart() : wx.getStorageSync(buyGoodsCache),
     });
-    
-    let userInfo = wx.getStorageSync('userInfo');
-    if (null != userInfo && userInfo != "" && undefined != userInfo) {
-      _this.setData({
-        userInfo: userInfo,
-      });
-    }
-    let merchant = wx.getStorageSync(currentMerchat);
 
-    if (null != merchant && undefined != merchant) {
-      _this.reloadMerchat(merchant.merchantId); //重新加载选中的商户信息
-      // _this.setData({
-      //   merchant: merchant,
-      // });
-    }
-
-    
   },
 
   /**

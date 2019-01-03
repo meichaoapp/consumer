@@ -54,7 +54,7 @@
                 </view>
             </view>
             <!--送货上门-->
-            <view class="intro flex flex_colum">
+            <view wx:if="{{merchant.isDelivery == 2}}" class="intro flex flex_colum">
                 <view bindtap='switchDeliveryType' data-type='2'  class="flex flex_center choice_state">
                     <image class="icon_choice" src="/static/images/{{(deliveryType == 2) ? 'choice.png':'un_choice.png'}}"></image>
                     <view class="font16">送货上门</view>
