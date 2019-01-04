@@ -65,6 +65,7 @@ Page({
     if (null != merchant && undefined != merchant) {
       _this.reloadMerchat(merchant); //重新加载选中的商户信息
     }
+   
   },
 
   /**
@@ -150,6 +151,17 @@ Page({
     _this.setData({
       count: _this.data.count + 1,
     });
+
+    if (_this.data.deliveryType == 2 && (_this.data.userInfo.address == "" || _this.data.userInfo.address == null) ){
+      _this.setData({
+        count: 0,
+      });
+      wx.showToast({
+        icon: "none",
+        title: '送货上门，请完善用户信息!',
+      })
+      return false;
+    }
 
     var order = _this.getOrderDatas();
     console.log("order--- " + JSON.stringify(order));

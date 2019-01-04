@@ -173,7 +173,7 @@
         <!--<image bindtap='modalCancel' src="/static/images/close.png" class="icon_close"></image>-->
         <view class="search_box bg_ff">
             <input class="input" name="searchText" placeholder="搜索您要找的团长名称"
-                   bindinput="bindSearchText" bindconfirm="queryMerchats"/>
+                   bindinput="bindSearchText" value='{{searchText}}' bindconfirm="queryMerchats"/>
             <image bindtap='queryMerchats' class="icon_search" src="/static/images/search.png"></image>
         </view>
     </view>
