@@ -5,6 +5,7 @@ var app = getApp();
 
 Page({
   data: {
+    basePath: app.globalData._base_path, //基础路径
     sourceTag: 0, //0 表示首页跳转  1 我的
     userInfo: {},
     id: 0,

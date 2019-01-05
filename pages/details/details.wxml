@@ -17,7 +17,7 @@
             </view>
             <view class="right">
                 <button class="share_btn  flex flex_colum flex_center flex_just" open-type='share' bindtap='onShareAppMessage'>
-                    <image class="icon_share" src="/static/images/share.png"></image>
+                    <image class="icon_share" src="{{basePath}}/share.png"></image>
                     <view class="C666 font12">分享</view>
                 </button>
             </view>
@@ -104,7 +104,7 @@
                 <image src="{{item.avatar}}"></image>
             </view>
             <view class="portrait" wx:if="{{friensList.length>=10}}">
-                <image class="icon_more" src="/static/images/more.png"></image>
+                <image class="icon_more" src="{{basePath}}/more.png"></image>
             </view>
         </view>
     </view>

@@ -6,6 +6,7 @@ var app = getApp();
 
 Page({
   data: {
+    basePath: app.globalData._base_path, //基础路径
     userInfo: {},
     latitude: 0.00,
     longitude: 0.00,

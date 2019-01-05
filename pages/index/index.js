@@ -13,6 +13,7 @@ const upgrade = "UPGRADE";
 const app = getApp()
 Page({
     data: {
+        basePath: app.globalData._base_path, //基础路径
         userInfo: null,
         latitude: 0.00,
         longitude: 0.00,

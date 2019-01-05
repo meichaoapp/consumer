@@ -4,14 +4,14 @@
     <view class="flex flex_colum flex_center">
         <image class="icon_location" src="https://wxpic.iliangpin.cn/meichao/shop-location.png"></image>
         <view class="name_box">
-            <image src="/static/images/mingpian.png"></image>
+            <image src="{{basePath}}/mingpian.png"></image>
             <text>{{merchat.merchantName}}</text>
         </view>
     </view>
     <view class="location_box">
         <text>您当前的取货地址为</text>
         <view class="flex flex_center"  bindtap="choiceMerchant">
-            <image class="icon_address" src="/static/images/address.png"></image>
+            <image class="icon_address" src="{{basePath}}/address.png"></image>
             <view class="curr_location">
                 {{merchat.address}}
             </view>
@@ -37,7 +37,7 @@
         <view class="search_box bg_ff">
             <input class="input" name="searchText" placeholder="搜索您要找的团长名称"
                    bindinput="bindSearchText" bindconfirm="queryMerchats"/>
-            <image bindtap='queryMerchats' class="icon_search" src="/static/images/search.png"></image>
+            <image bindtap='queryMerchats' class="icon_search" src="{{basePath}}/search.png"></image>
         </view>
     </view>
     <view class='modal-content' slot="slot2">

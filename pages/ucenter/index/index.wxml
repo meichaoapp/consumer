@@ -1,6 +1,6 @@
 <view class="mine_box">
     <view class="top">
-        <image class="top_bg" src="/static/images/mine_top.png" alt=""/>
+        <image class="top_bg" src="{{basePath}}/mine_top.png" alt=""/>
         <view class="user_info flex flex_center flex_just flex_colum">
             <image class="avatar" src="{{userInfo.avatar}}"></image>
             <text class="name">{{userInfo.nickName}}</text>
@@ -11,20 +11,20 @@
             <navigator url="/pages/ucenter/yourinfor/yourinfor?tag=0">
                 <view class="list_item person_line flex flex_center flex_between">
                     <view class="left_part flex flex_center">
-                        <image class="icon_mine01" src="/static/images/mine_01.png"></image>
+                        <image class="icon_mine01" src="{{basePath}}/mine_01.png"></image>
                         <text class="font15 C666">个人资料</text>
                     </view>
-                    <image src="/static/images/go.png" class="icon_go"></image>
+                    <image src="{{basePath}}/go.png" class="icon_go"></image>
                 </view>
             </navigator>
             <navigator url="/pages/ucenter/order/order">
                 <view class="list_item">
                     <view class="flex flex_center flex_between">
                         <view class="left_part flex flex_center">
-                            <image class="icon_mine01" src="/static/images/mine_02.png"></image>
+                            <image class="icon_mine01" src="{{basePath}}/mine_02.png"></image>
                             <text class="font15 C666">我的参团</text>
                         </view>
-                        <image src="/static/images/go.png" class="icon_go"></image>
+                        <image src="{{basePath}}/go.png" class="icon_go"></image>
                     </view>
                 </view>
             </navigator>
@@ -32,10 +32,10 @@
                 <view class="list_item">
                     <view class="flex flex_center flex_between">
                         <view class="left_part flex flex_center">
-                            <image class="icon_mine01" src="/static/images/mine_03.png"></image>
+                            <image class="icon_mine01" src="{{basePath}}/mine_03.png"></image>
                             <text class="font15 C666">我的一元夺宝</text>
                         </view>
-                        <image src="/static/images/go.png" class="icon_go"></image>
+                        <image src="{{basePath}}/go.png" class="icon_go"></image>
                     </view>
                 </view>
             </navigator> -->
@@ -43,10 +43,10 @@
                 <view class="list_item my_coupon">
                     <view class="flex flex_center flex_between">
                         <view class="left_part flex flex_center">
-                            <image class="icon_mine01" src="/static/images/mine_04.png"></image>
+                            <image class="icon_mine01" src="{{basePath}}/mine_04.png"></image>
                             <text class="font15 C666">我的优惠券</text>
                         </view>
-                        <image src="/static/images/go.png" class="icon_go"></image>
+                        <image src="{{basePath}}/go.png" class="icon_go"></image>
                     </view>
                 </view>
             </navigator>

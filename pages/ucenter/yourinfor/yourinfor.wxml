@@ -38,7 +38,7 @@
         {{region[0]}}，{{region[1]}}，{{region[2]}}
       </view>
     </picker>
-    <view class='guid'><image src='/static/images/arrow.png'></image></view>
+    <view class='guid'><image src='{{basePath}}/arrow.png'></image></view>
     </view>
     <!-- <view class='u-bd'><input class="weui-inputs" type="number" placeholder="请选择城市、县区、乡镇" placeholder-class='nplaceholder'/></view> -->
   </view>

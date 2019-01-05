@@ -3,6 +3,7 @@ var api = require('../../../config/api.js');
 
 Page({
     data: {
+        basePath: app.globalData._base_path, //基础路径
         orderId:0,
         orderNo:0,
         joinTime:"",

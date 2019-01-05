@@ -1,6 +1,7 @@
 var app = getApp();
 Page({
   data: {
+     basePath: app.globalData._base_path, //基础路径
      id : 0,
   },
   onLoad: function (options) {

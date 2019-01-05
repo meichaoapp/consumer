@@ -5,6 +5,7 @@ const app = getApp();
 const statusColor = [""];
 Page({
   data:{
+    basePath: app.globalData._base_path, //基础路径
     userInfo: {},
     orderList: [],
     start: 1, // 页码

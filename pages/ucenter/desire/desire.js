@@ -7,6 +7,7 @@ var app = getApp();
 
 Page({
   data: {
+    basePath: app.globalData._base_path, //基础路径
     userInfo: {},
     array: ['请选择反馈类型', '商品相关', '物流状况', '客户服务', '优惠活动', '功能异常', '产品建议', '其他'],
     index: 0,

@@ -3,6 +3,7 @@ var util = require('../../../utils/util.js');
 var api = require('../../../config/api.js');
 Page({
   data: {
+     basePath: app.globalData._base_path, //基础路径
      id : 0,
      code:"",
      lotteryTime:"",

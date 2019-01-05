@@ -23,7 +23,7 @@
     <view class='CalculationMethod' bindtap='Calculation'>
       计算方法
       <!-- <text class='iconfont icon--yiwen'></text> -->
-      <image class='Questionmark' bindtap='Calculation' src='/static/images/Questionmark.png'></image>
+      <image class='Questionmark' bindtap='Calculation' src='{{basePath}}/Questionmark.png'></image>
     </view>
   </view>
 
@@ -35,7 +35,7 @@
     <view class='jsbox'>
      <view class='gradientEffect Calculationtitle'>计算方法</view>
       <view class='Calculationformula'>
-        <image class='jsimg' src='/static/images/computation.png'></image>
+        <image class='jsimg' src='{{basePath}}/computation.png'></image>
       </view>
       <view class='Calculationformulavalue'>
         <view class='value_A'>
@@ -67,7 +67,7 @@
 
 
     <button bindtap='onShareAppMessage' class='share' open-type="share">
-        <image class='share-icon' src='/static/images/icon_collect.png'></image>
+        <image class='share-icon' src='{{basePath}}/icon_collect.png'></image>
         <text class='share-text'>分享朋友</text>
         <!-- <text class='share-text'>机会翻倍</text> -->
     </button>

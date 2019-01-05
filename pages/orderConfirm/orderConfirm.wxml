@@ -41,7 +41,7 @@
             <!--门店自取-->
             <view class="intro flex flex_colum">
                 <view bindtap='switchDeliveryType' data-type='1' class="flex flex_center choice_state">
-                    <image class="icon_choice" src="/static/images/{{(deliveryType == 1) ? 'choice.png':'un_choice.png'}}"></image>
+                    <image class="icon_choice" src="{{basePath}}/{{(deliveryType == 1) ? 'choice.png':'un_choice.png'}}"></image>
                     <view class="font16">门店自取</view>
                 </view>
                 <view class="address_box flex">
@@ -56,14 +56,14 @@
             <!--送货上门-->
             <view wx:if="{{merchant.isDelivery == 2}}" class="intro flex flex_colum">
                 <view bindtap='switchDeliveryType' data-type='2'  class="flex flex_center choice_state">
-                    <image class="icon_choice" src="/static/images/{{(deliveryType == 2) ? 'choice.png':'un_choice.png'}}"></image>
+                    <image class="icon_choice" src="{{basePath}}/{{(deliveryType == 2) ? 'choice.png':'un_choice.png'}}"></image>
                     <view class="font16">送货上门</view>
                 </view>
                 <view class="address_box flex">
                     <view class="icon_address icon_address2">取货地址</view>
                     <view bindtap='toEditUser' class="adddress_con flex flex_center">
                         <view class="address">{{ (userInfo.address == "" || userInfo.address == null) ? "去完善用户信息" : userInfo.address }}</view>
-                        <image src="/static/images/go.png"></image>
+                        <image src="{{basePath}}/go.png"></image>
                     </view>
                 </view>
                 <view class="merchant_name">
@@ -107,7 +107,7 @@
                 </view>
                 <view class="C999 font12 flex flex_center">
                     <text>暂无可用的优惠券</text>
-                    <image class="icon_go" src="/static/images/go.png"></image>
+                    <image class="icon_go" src="{{basePath}}/go.png"></image>
                 </view>
 
             </view>
@@ -116,7 +116,7 @@
                     <view class="mr10">支付方式</view>
                 </view>
                 <view class="flex flex_center">
-                    <image class="icon_pay" src="/static/images/wx-pay.png"></image>
+                    <image class="icon_pay" src="{{basePath}}/wx-pay.png"></image>
                     <view class="font16">微信支付</view>
                 </view>
             </view>
@@ -133,11 +133,11 @@
             <view class="flex flex_center"><text>合计：</text><text>￥</text><text class="font24">{{needPay}}</text></view>
         </view>
         <view wx:if="{{count == 0}}" bindtap='joinGroup' class="flex pay_box flex_center flex_just">
-            <image class="icon_pay2" src="/static/images/wx_pay.png"></image>
+            <image class="icon_pay2" src="{{basePath}}/wx_pay.png"></image>
             <view class="font16 cfff">立即支付</view>
         </view>
          <view wx:else class="flex pay_box flex_center flex_just">
-            <image class="icon_pay2" src="/static/images/wx_pay.png"></image>
+            <image class="icon_pay2" src="{{basePath}}/wx_pay.png"></image>
             <view class="font16 cfff">立即支付</view>
         </view>
     </view>

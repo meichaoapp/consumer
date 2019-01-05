@@ -7,6 +7,7 @@ const countTime = 120; // 120 s
 
 Page({
   data: {
+    basePath: app.globalData._base_path, //基础路径
     tag:0,
     userInfo: {},
     region: ['北京市', '北京市', '海淀区'],

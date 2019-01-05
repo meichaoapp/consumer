@@ -4,11 +4,11 @@
 
   <view class='success-t'>
     <view class='s-tip'>
-      <image src='/static/images/success.png'></image>
+      <image src='{{basePath}}/success.png'></image>
       <text>恭喜开抢成功</text>
     </view>
     <view class='s-imgbox'>
-      <image class="s-img" src='/static/images/success-icon.png'></image>
+      <image class="s-img" src='{{basePath}}/success-icon.png'></image>
     </view>
 
     <view class='luckynum'>

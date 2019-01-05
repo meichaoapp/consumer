@@ -116,7 +116,7 @@
     </scroll-view>
 
     <view wx:if="{{list == null  }}">
-        <image class='no_order_img'  src="/static/images/noneOrder.png"></image>
+        <image class='no_order_img'  src="{{basePath}}/noneOrder.png"></image>
         <view class='no_order_tip'>您还未参与夺宝~</view>
 
         <button class='no_order_btn' bindtap='toIndex'>知道了</button>

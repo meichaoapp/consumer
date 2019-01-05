@@ -8,6 +8,7 @@ var app = getApp();
 
 Page({
     data: {
+        basePath: app.globalData._base_path, //基础路径
         id:0,
         list: [], // 团购列表
         winTreasure:{},
@@ -19,16 +20,8 @@ Page({
         srollViewHeight: 0, //滚动分页区域高度
         refreshTime: '', // 刷新的时间
         loadMoreData: '上滑加载更多',
-        shareImage: "/static/images/logo.png",
     },
-    // onShareAppMessage: function () {
-    //   var that = this;
-    //   return {
-    //     title: '一元夺宝',
-    //     imageUrl: that.data.shareImage,
-    //     path: '/pages/shopping/dollarTreasureDetail/dollarTreasureDetail?tag=0&id='+that.data.id+'&orderId=0',
-    //   }
-    // },
+  
     onLoad: function (options) {
         this.$wuxLoading = app.Wux().$wuxLoading //加载
         this.queryList();

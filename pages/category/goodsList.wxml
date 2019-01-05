@@ -8,7 +8,7 @@
     <view class="search_box bg_ff">
         <input class="input" name="goodsName" placeholder="搜索想找的商品"
                bindinput="goodsNameInput"/>
-        <image bindtap='search' class="icon_search" src="/static/images/search.png"></image>
+        <image bindtap='search' class="icon_search" src="{{basePath}}/search.png"></image>
     </view>
 
     <!--菜单-->
@@ -54,7 +54,7 @@
     <view  class="car_box flex flex_between">
         <view class="flex flex_center">
             <view class="shopingcart_box" bindtap="openshopCar">
-                <image src="/static/images/shopping_cart.png"></image>
+                <image src="{{basePath}}/shopping_cart.png"></image>
                 <view wx:if="{{goodsNums != 0}}" class="count_num cfff">{{goodsNums}}</view>
             </view>
             <view class="total_money">￥<text class="font24">{{needPay}}</text></view>
@@ -116,7 +116,7 @@
     <view  class="car_box flex flex_between">
         <view class="flex flex_center">
             <view class="shopingcart_box">
-                <image src="/static/images/shopping_cart.png"></image>
+                <image src="{{basePath}}/shopping_cart.png"></image>
                 <view wx:if="{{goodsNums != 0}}" class="count_num cfff">{{goodsNums}}</view>
             </view>
             <view class="total_money">￥<text class="font24">{{needPay}}</text></view>

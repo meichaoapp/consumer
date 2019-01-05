@@ -22,7 +22,6 @@
             </swiper-item>
         </swiper>
     </view>
-
     <!-- 分类列表 -->
     <view wx:if="{{classifyList != null}}" class="classify_box flex flex_center flex_around">
         <view class="flex flex_colum flex_center" wx:for="{{classifyList}}" wx:key="{{item.index}}" data-index="{{item.index}}" bindtap='goCateGrory' data-type='{{item.type}}'>
@@ -153,7 +152,7 @@
     <view  class="car_box flex flex_between">
         <view class="flex flex_center">
             <view class="shopingcart_box" bindtap="openshopCar">
-                <image src="/static/images/shopping_cart.png"></image>
+                <image src="{{basePath}}/shopping_cart.png"></image>
                 <view wx:if="{{goodsNums != 0}}" class="count_num cfff">{{goodsNums}}</view>
             </view>
             <view class="total_money">￥<text class="font24">{{needPay}}</text></view>
@@ -170,11 +169,10 @@
 <modal show="{{showModal}}"  height='80%' bind:confirm='modalConfirm' catchtouchmove="return">
     <view class="title flex flex_just flex_center" slot="slot1">
         <!--<view>选择团长</view>-->
-        <!--<image bindtap='modalCancel' src="/static/images/close.png" class="icon_close"></image>-->
         <view class="search_box bg_ff">
             <input class="input" name="searchText" placeholder="搜索您要找的团长名称"
                    bindinput="bindSearchText" value='{{searchText}}' bindconfirm="queryMerchats"/>
-            <image bindtap='queryMerchats' class="icon_search" src="/static/images/search.png"></image>
+            <image bindtap='queryMerchats' class="icon_search" src="{{basePath}}/search.png"></image>
         </view>
     </view>
     <view class='modal-content' slot="slot2">
@@ -240,7 +238,7 @@
     <view  class="car_box flex flex_between">
         <view class="flex flex_center">
             <view class="shopingcart_box">
-                <image src="/static/images/shopping_cart.png"></image>
+                <image src="{{basePath}}/shopping_cart.png"></image>
                 <view wx:if="{{goodsNums != 0}}" class="count_num cfff">{{goodsNums}}</view>
             </view>
             <view class="total_money">￥{{needPay}}</view>
