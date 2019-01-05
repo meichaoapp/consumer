@@ -406,7 +406,7 @@ Page({
       return;
     }
     wx.navigateTo({
-      url: '/pages/orderConfirm/orderConfirm'
+      url: '/pages/orderConfirm/orderConfirm?type=0'
     });
   },
 })

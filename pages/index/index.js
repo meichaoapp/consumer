@@ -230,6 +230,9 @@ Page({
                     //treasures:res.data.treasures,
                     merchantList:res.data.merchantList,
                     sellList: res.data.sellList,
+                    start: 1, // 页码
+                    totalPage: 0, // 共有页
+                    goodsList: [],//团购商品列表
                 })
               that.queryTGList();
             }

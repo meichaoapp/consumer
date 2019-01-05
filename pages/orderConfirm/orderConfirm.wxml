@@ -54,7 +54,7 @@
                 </view>
             </view>
             <!--送货上门-->
-            <view class="intro flex flex_colum">
+            <view wx:if="{{merchant.isDelivery == 2}}" class="intro flex flex_colum">
                 <view bindtap='switchDeliveryType' data-type='2'  class="flex flex_center choice_state">
                     <image class="icon_choice" src="/static/images/{{(deliveryType == 2) ? 'choice.png':'un_choice.png'}}"></image>
                     <view class="font16">送货上门</view>
@@ -62,13 +62,13 @@
                 <view class="address_box flex">
                     <view class="icon_address icon_address2">取货地址</view>
                     <view bindtap='toEditUser' class="adddress_con flex flex_center">
-                        <view class="address">{{oneselfOrder.address}}</view>
+                        <view class="address">{{ (userInfo.address == "" || userInfo.address == null) ? "去完善用户信息" : userInfo.address }}</view>
                         <image src="/static/images/go.png"></image>
                     </view>
                 </view>
                 <view class="merchant_name">
-                    <text class="C666 mr30">{{oneselfOrder.name}}</text>
-                    <text class="C666">{{oneselfOrder.phone}}</text>
+                    <text class="C666 mr30">{{userInfo.name}}</text>
+                    <text class="C666">{{userInfo.phone}}</text>
                 </view>
             </view>
         </view>
