@@ -10,8 +10,6 @@
     "pages/details/success",
 
     "pages/ucenter/index/index",
-    "pages/ucenter/address/address",
-    "pages/ucenter/addressAdd/addressAdd",
     "pages/ucenter/order/order",
     "pages/ucenter/orderDetail/orderDetail",
 
@@ -21,14 +19,8 @@
     "pages/ucenter/partner/partner",
 
     "pages/auth/login/login",
-    "pages/pay/pay",
-    "pages/payResult/payResult",
-    "pages/search/search",
 
 
-    "pages/shopping/checkout/checkout",
-    "pages/shopping/address/address",
-    "pages/shopping/addressAdd/addressAdd",
     "pages/shopping/coupon/coupon",
     "pages/shopping/dollarTreasureDetail/dollarTreasureDetail",
     "pages/shopping/dollarTreasureDetail/success",
