@@ -164,10 +164,10 @@
 
 
 <!--自定义弹框组件对应的遮罩层-->
-<view class='mask' wx:if="{{showModal}}" bindtap="closeModal">
+<view class='mask' wx:if="{{showModal}}" bindtap="closeModal" catchtouchmove="return">
 </view>
 <!--自定义弹框组件-->
-<modal show="{{showModal}}"  height='80%' bind:confirm='modalConfirm'>
+<modal show="{{showModal}}"  height='80%' bind:confirm='modalConfirm' catchtouchmove="return">
     <view class="title flex flex_just flex_center" slot="slot1">
         <!--<view>选择团长</view>-->
         <!--<image bindtap='modalCancel' src="/static/images/close.png" class="icon_close"></image>-->

@@ -379,6 +379,10 @@
 .merchant_item{
     /*height:188rpx;*/
     padding: 12rpx 30rpx;
+    border-bottom: 1px solid #ECECEC;
+}
+.merchant_item:last-child{
+    border-bottom:none;
 }
 .merchant_item image{
     width:87rpx;
