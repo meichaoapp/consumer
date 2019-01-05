@@ -207,7 +207,7 @@ button.contact_btn::after{
 }
 
 .mem_box{
-    height:348rpx;
+    min-height:348rpx;
     margin-top:20rpx;
 }
 .mem_box .title{

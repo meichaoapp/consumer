@@ -97,7 +97,7 @@
     </view>
 
     <!--参团成员-->
-    <view  wx:if="{{friensList != null && friensList.length > 0}}"  class="mem_box bg_ff">
+    <view  wx:if="{{friensList != null && friensList.length > 0}}"  class="mem_box bg_ff flex flex_colum">
         <view class="title font15">参团成员</view>
         <view class="portrait_box">
             <view class="portrait" wx:for="{{friensList}}" wx:key="{{item.id}}">
