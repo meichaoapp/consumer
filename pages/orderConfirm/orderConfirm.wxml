@@ -30,7 +30,7 @@
                             </view>
                             <view class="set_car flex flex_center flex_end">
                                 <image bindtap='cutNumber' data-id='{{item.id}}' src="https://wxpic.iliangpin.cn/meichao/minus.png"></image>
-                                <text class="count">3</text>
+                                <text class="count">{{item.buyNum}}</text>
                                 <image bindtap='addNumber' data-id='{{item.id}}'  src="https://wxpic.iliangpin.cn/meichao/plus.png"></image>
                             </view>
 
@@ -89,8 +89,17 @@
                     <view class="flex flex_between">
                         <view>{{item.name}}</view>
                         <view>
-                            <text class="mr6 C999">￥{{item.marketPrice}}</text>
+                          <view>
+                             <text class="mr6 C999">￥{{item.marketPrice}}</text>
                             <text class=" font18">￥{{item.price}}</text>
+                          </view>
+                            
+                          <view class="set_car flex flex_center flex_end">
+                                <image bindtap='cutNumber' data-id='{{item.id}}' src="https://wxpic.iliangpin.cn/meichao/minus.png"></image>
+                                <text class="count">{{item.buyNum}}</text>
+                                <image bindtap='addNumber' data-id='{{item.id}}'  src="https://wxpic.iliangpin.cn/meichao/plus.png"></image>
+                        </view>
+
                         </view>
                     </view>
                     <view class="C999 mt10">×{{item.buyNum}}</view>

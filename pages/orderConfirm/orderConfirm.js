@@ -82,6 +82,43 @@ Page({
   onUnload: function () {
 
   },
+  //减
+  cutNumber: function (e) {
+    let _this = this;
+    var id = e.currentTarget.dataset.id;
+    var goodsList = _this.data.orderGoods;
+    if (goodsList != null && goodsList.length > 0) {
+      goodsList.forEach(o => {
+        if (o.id == id) {
+          o.number = o.number - 1;
+          if (o.number < 0) {
+            o.number = 0;
+          }
+        }
+      });
+    }
+    _this.setData({
+      orderGoods: goodsList,
+    });
+    _this.loadOrderInfo();
+  },
+  //加
+  addNumber: function (e) {
+    let _this = this;
+    var id = e.currentTarget.dataset.id;
+    var goodsList = _this.data.orderGoods;
+    if (goodsList != null && goodsList.length > 0) {
+      goodsList.forEach(o => {
+        if (o.id == id) {
+          o.number = o.number + 1;
+        }
+      });
+    }
+    _this.setData({
+      orderGoods: goodsList,
+    });
+    _this.loadOrderInfo();
+  },
   //查询商户列表信息
   reloadMerchat: function (merchant) {
     let that = this;
