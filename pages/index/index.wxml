@@ -1,11 +1,11 @@
 <!--index.wxml-->
-<import src="../../components/loading/loading.wxml" />
-<template is="loading" data="{{ ...$wux.loading }}" />
+<import src="../../components/loading/loading.wxml"/>
+<template is="loading" data="{{ ...$wux.loading }}"/>
 <view class="header" hidden="{{hideHeader}}" style="display:none">
     <view>下拉刷新中…</view>
 </view>
 <view class='merchant-header flex flex_between'>
-    <view wx:if="{{merchant != null }}"  class='current-location flex flex_center' bindtap='choiceMerchant'>
+    <view wx:if="{{merchant != null }}" class='current-location flex flex_center' bindtap='choiceMerchant'>
         <image class='location-icon' src='https://wxpic.iliangpin.cn/meichao/address.png'></image>
         <text class='location-address'>{{merchant.merchantName}}</text>
     </view>
@@ -24,7 +24,8 @@
     </view>
     <!-- 分类列表 -->
     <view wx:if="{{classifyList != null}}" class="classify_box flex flex_center flex_around">
-        <view class="flex flex_colum flex_center" wx:for="{{classifyList}}" wx:key="{{item.index}}" data-index="{{item.index}}" bindtap='goCateGrory' data-type='{{item.type}}'>
+        <view class="flex flex_colum flex_center" wx:for="{{classifyList}}" wx:key="{{item.index}}"
+              data-index="{{item.index}}" bindtap='goCateGrory' data-type='{{item.type}}'>
             <image src="{{item.logo}}"></image>
             <text>{{item.name}}</text>
         </view>
@@ -84,46 +85,52 @@
     <!-- 团购商品列表  -->
     <view class="m_list flex flex_between bg_ff" style='margin-top:6rpx;'>
         <view class="m_menu">
-            <view wx:for="{{sellList}}" wx:key="{{item.id}}" data-index="{{index}}" data-id="{{item.sellType}}" class="{{num==index?'active':''}}" bindtap="showList">{{item.sellDesc}}</view>
+            <view wx:for="{{sellList}}" wx:key="{{item.id}}" data-index="{{index}}" data-id="{{item.sellType}}"
+                  class="{{num==index?'active':''}}" bindtap="showList">{{item.sellDesc}}
+            </view>
         </view>
         <scroll-view scroll-y="true" bindscrolltolower='lower' style="height:{{scrollHeight}}rpx" class="scroll_view">
             <view class="m_con">
                 <view wx:if="{{goodsList.length>0}}">
-                    <view class="goods_con flex flex_between" wx:for="{{goodsList}}"  wx:key="{{item.index}}"  data-id="{{item.id}}">
+                    <view class="goods_con flex flex_between {{item.joinNum>=item.limitNum?'disable':''}}" wx:for="{{goodsList}}" wx:key="{{item.index}}"
+                          data-id="{{item.id}}">
+                        <navigator url="/pages/details/details?source=0&id={{item.id}}">
+                            <view class="good_image flex flex_center flex_just br5">
+                                <image src="{{item.url}}"></image>
+                            </view>
+                        </navigator>
+                        <view class="content flex flex_colum">
                             <navigator url="/pages/details/details?source=0&id={{item.id}}">
-                                <view class="good_image flex flex_center flex_just br5">
-                                    <image  src="{{item.url}}"></image>
-                                </view>
+                                <view class="name ellipsis_2">{{item.name}}</view>
                             </navigator>
-                            <view class="content flex flex_colum">
-                                <navigator url="/pages/details/details?source=0&id={{item.id}}">
-                                    <view class="name ellipsis_2">{{item.name}}</view>
-                                </navigator>
-                                <navigator url="/pages/details/details?source=0&id={{item.id}}">
-                                    <view class="desc ellipsis">{{item.comments}}</view>
-                                </navigator>
-                                <view class="flex flex_between" style="flex:1;">
-                                    <view class="price_box flex flex_center">
-                                        <view class="curr_price">￥{{item.price}}</view>
-                                        <view class="old_price">￥{{item.marketPrice}}</view>
-                                    </view>
-                                    <view class="set_car flex flex_center ml10">
-                                        <image bindtap='cutNumber' data-id='{{item.id}}' src="https://wxpic.iliangpin.cn/meichao/minus.png"></image>
-                                        <text class="count">{{item.number}}</text>
-                                        <image bindtap='addNumber' data-id='{{item.id}}'  src="https://wxpic.iliangpin.cn/meichao/plus.png"></image>
-                                    </view>
+                            <navigator url="/pages/details/details?source=0&id={{item.id}}">
+                                <view class="desc ellipsis">{{item.comments}}</view>
+                            </navigator>
+                            <view class="flex flex_between" style="flex:1;">
+                                <view class="price_box flex flex_center">
+                                    <view class="curr_price">￥{{item.price}}</view>
+                                    <view class="old_price">￥{{item.marketPrice}}</view>
+                                </view>
+                                <view class="set_car flex flex_center ml10" wx:if="{{item.joinNum<item.limitNum}}">
+                                    <image bindtap='cutNumber' data-id='{{item.id}}'
+                                           src="https://wxpic.iliangpin.cn/meichao/minus.png"></image>
+                                    <text class="count">{{item.number}}</text>
+                                    <image bindtap='addNumber' data-id='{{item.id}}'
+                                           src="https://wxpic.iliangpin.cn/meichao/plus.png"></image>
                                 </view>
                             </view>
                         </view>
-                   <!-- <view class="n-bottom" hidden="{{hideBottom}}">
-                        <view>
-                            <view class='transverseline'><text class='line'></text></view>
+                        <image wx:if="{{item.joinNum>=item.limitNum}}" class="icon_soldout" src="/static/images/sold_out.png"></image>
+                    </view>
+                    <!-- <view class="n-bottom" hidden="{{hideBottom}}">
+                         <view>
+                             <view class='transverseline'><text class='line'></text></view>
 
-                            <text class='txt'>{{loadMoreData}}</text>
+                             <text class='txt'>{{loadMoreData}}</text>
 
-                            <view class='transverseline'><text class='line'></text></view>
-                        </view>
-                    </view>-->
+                             <view class='transverseline'><text class='line'></text></view>
+                         </view>
+                     </view>-->
                 </view>
                 <!--<view class="curr_menu">{{currSellDesc}}</view>-->
                 <view wx:else class="no_list flex flex_colum flex_center flex_just">
@@ -149,15 +156,17 @@
 
 <!--底部购物车和去结算-->
 <view>
-    <view  class="car_box flex flex_between">
+    <view class="car_box flex flex_between">
         <view class="flex flex_center">
             <view class="shopingcart_box" bindtap="openshopCar">
                 <image src="{{basePath}}/shopping_cart.png"></image>
                 <view wx:if="{{goodsNums != 0}}" class="count_num cfff">{{goodsNums}}</view>
             </view>
-            <view class="total_money">￥<text class="font24">{{needPay}}</text></view>
+            <view class="total_money">￥
+                <text class="font24">{{needPay}}</text>
+            </view>
         </view>
-        <view bindtap='toOrderConfirm' class="icon_settle" >去结算</view>
+        <view bindtap='toOrderConfirm' class="icon_settle">去结算</view>
     </view>
 </view>
 
@@ -166,7 +175,7 @@
 <view class='mask' wx:if="{{showModal}}" bindtap="closeModal" catchtouchmove="return">
 </view>
 <!--自定义弹框组件-->
-<modal show="{{showModal}}"  height='80%' bind:confirm='modalConfirm' catchtouchmove="return">
+<modal show="{{showModal}}" height='80%' bind:confirm='modalConfirm' catchtouchmove="return">
     <view class="title flex flex_just flex_center" slot="slot1">
         <!--<view>选择团长</view>-->
         <view class="search_box bg_ff">
@@ -188,7 +197,7 @@
                     <text class="C999">{{item.distance}}</text>
                 </view>
                 <view class="label_box">
-                    <text wx:for="{{item.labels}}" wx:key="label"  wx:for-item="label">{{label}}</text>
+                    <text wx:for="{{item.labels}}" wx:key="label" wx:for-item="label">{{label}}</text>
                 </view>
                 <view class="mt6 C666">取货地址：{{item.address}}</view>
             </view>
@@ -204,38 +213,44 @@
         <view bindtap='clearCart' class="C666">清空购物车</view>
     </view>
     <view class="classify_list">
-          <view wx:if="{{cartmerchatGoodsList != null && cartmerchatGoodsList.length > 0}}" class="classify_title">拼团商品</view>
-          <view wx:for="{{cartmerchatGoodsList}}" wx:key="{{item.index}}"  data-id="{{item.id}}" class="classify_con">
-              <view class="classify_item flex flex_center flex_between">
-                  <text class="goods_name  ellipsis font16">{{item.name}}</text>
-                  <view class="right_part flex flex_between">
-                      <text class="font16">￥{{item.price}}</text>
-                      <view class="set_car flex flex_center">
-                         <image bindtap='cutNumber' data-id='{{item.id}}' src="https://wxpic.iliangpin.cn/meichao/minus.png"></image>
-                            <text class="count">{{item.number}}</text>
-                          <image bindtap='addNumber' data-id='{{item.id}}'  src="https://wxpic.iliangpin.cn/meichao/plus.png"></image>
-                      </view>
-                  </view>
-              </view>
-          </view>
+        <view wx:if="{{cartmerchatGoodsList != null && cartmerchatGoodsList.length > 0}}" class="classify_title">拼团商品
+        </view>
+        <view wx:for="{{cartmerchatGoodsList}}" wx:key="{{item.index}}" data-id="{{item.id}}" class="classify_con">
+            <view class="classify_item flex flex_center flex_between">
+                <text class="goods_name  ellipsis font16">{{item.name}}</text>
+                <view class="right_part flex flex_between">
+                    <text class="font16">￥{{item.price}}</text>
+                    <view class="set_car flex flex_center">
+                        <image bindtap='cutNumber' data-id='{{item.id}}'
+                               src="https://wxpic.iliangpin.cn/meichao/minus.png"></image>
+                        <text class="count">{{item.number}}</text>
+                        <image bindtap='addNumber' data-id='{{item.id}}'
+                               src="https://wxpic.iliangpin.cn/meichao/plus.png"></image>
+                    </view>
+                </view>
+            </view>
+        </view>
 
-           <view wx:if="{{cartselfGoodsList != null && cartselfGoodsList.length > 0}}" class="classify_title">店铺自营商品</view>
-          <view wx:for="{{cartselfGoodsList}}" wx:key="{{item.index}}" style='margin-bottom: 30rpx;'  data-id="{{item.id}}" class="classify_con">
-              <view class="classify_item flex flex_center flex_between">
-                  <text class="goods_name  ellipsis font16">{{item.name}}</text>
-                  <view class="right_part flex flex_between">
-                      <text class="font16">￥{{item.price}}</text>
-                      <view class="set_car flex flex_center">
-                         <image bindtap='cutNumber' data-id='{{item.id}}' src="https://wxpic.iliangpin.cn/meichao/minus.png"></image>
-                            <text class="count">{{item.number}}</text>
-                          <image bindtap='addNumber' data-id='{{item.id}}'  src="https://wxpic.iliangpin.cn/meichao/plus.png"></image>
-                      </view>
-                  </view>
-              </view>
-          </view>
+        <view wx:if="{{cartselfGoodsList != null && cartselfGoodsList.length > 0}}" class="classify_title">店铺自营商品</view>
+        <view wx:for="{{cartselfGoodsList}}" wx:key="{{item.index}}" style='margin-bottom: 30rpx;' data-id="{{item.id}}"
+              class="classify_con">
+            <view class="classify_item flex flex_center flex_between">
+                <text class="goods_name  ellipsis font16">{{item.name}}</text>
+                <view class="right_part flex flex_between">
+                    <text class="font16">￥{{item.price}}</text>
+                    <view class="set_car flex flex_center">
+                        <image bindtap='cutNumber' data-id='{{item.id}}'
+                               src="https://wxpic.iliangpin.cn/meichao/minus.png"></image>
+                        <text class="count">{{item.number}}</text>
+                        <image bindtap='addNumber' data-id='{{item.id}}'
+                               src="https://wxpic.iliangpin.cn/meichao/plus.png"></image>
+                    </view>
+                </view>
+            </view>
+        </view>
 
     </view>
-    <view  class="car_box flex flex_between">
+    <view class="car_box flex flex_between">
         <view class="flex flex_center">
             <view class="shopingcart_box">
                 <image src="{{basePath}}/shopping_cart.png"></image>

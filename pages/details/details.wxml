@@ -22,6 +22,7 @@
                 </button>
             </view>
         </view>
+        <view class="C666 font12">{{detail.specifications}}</view>
         <view class="goods_dec C666 font12">
             {{detail.comments}}
         </view>

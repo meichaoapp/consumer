@@ -284,6 +284,8 @@
 }
 .m_con .goods_con{
     margin-bottom:64rpx;
+    position:relative;
+    min-height:189rpx;
 }
 .m_con .curr_menu{
     height:93rpx;
@@ -306,6 +308,18 @@
     font-size:18rpx;
     text-decoration: line-through;
     color:#999999;
+}
+.m_con .disable .name {
+    color:#B4B4B4;
+}
+.m_con .disable .desc {
+    color:#B4B4B4;
+}
+.m_con .disable .curr_price{
+    color:#B4B4B4;
+}
+.m_con .disable .old_price{
+    color:#B4B4B4;
 }
  .set_car image{
     width:46rpx;
@@ -518,4 +532,11 @@ input{
     align-items: center;
     background-color: rgba(0,0,0,0.4);
     z-index: 999;
+}
+.icon_soldout{
+    width:166rpx;
+    height:100rpx;
+    position:absolute;
+    bottom:36rpx;
+    right:0;
 }
