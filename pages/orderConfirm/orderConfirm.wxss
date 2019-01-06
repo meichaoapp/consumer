@@ -148,3 +148,13 @@
     color:#fff;
     font-size:20rpx;
 }
+.set_car{
+    margin-top:20rpx;
+}
+.set_car image{
+    width:46rpx;
+    height:46rpx;
+}
+.set_car .count{
+    margin:0 20rpx;
+}
