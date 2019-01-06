@@ -21,7 +21,8 @@
     <!--商品列表-->
     <view class="goods_list">
      <block wx:for="{{goodsList}}" wx:key="{{item.index}}">
-        <view class="goods_con bg_ff flex flex_between">
+
+        <view wx:if="{{item.joinNum<item.limitNum}}" class="goods_con bg_ff flex flex_between">
            <navigator url="/pages/details/details?source=0&id={{item.id}}">
             <view class="good_image flex flex_center flex_just br5">
                 <image  src="{{item.url}}"></image>
@@ -47,6 +48,31 @@
                 </view>
             </view>
         </view>
+
+          <view wx:else class="goods_con bg_ff flex flex_between  ">
+            <view class="good_image flex flex_center flex_just br5">
+                <image  src="{{item.url}}"></image>
+            </view>
+            <view class="content flex flex_colum disable">
+                <view class="name">{{item.name}}</view>
+                <view class="desc">{{item.comments}}</view>
+                <view class="flex flex_between" style="flex:1;">
+                    <view class="price_box flex flex_center">
+                        <view class="curr_price">￥{{item.price}}</view>
+                        <view class="old_price">￥{{item.marketPrice}}</view>
+                    </view>
+                    <image  class="icon_soldout" src="/static/images/sold_out.png"></image>
+                    <!-- <view class="set_car flex flex_center ml10">
+                        <image bindtap='cutNumber' data-id='{{item.id}}' src="https://wxpic.iliangpin.cn/meichao/minus.png"></image>
+                        <text class="count">{{item.number}}</text>
+                        <image bindtap='addNumber' data-id='{{item.id}}'   src="https://wxpic.iliangpin.cn/meichao/plus.png"></image>
+                    </view> -->
+                </view>
+                
+            </view>
+        </view>
+
+
      </block> 
         
     </view>
