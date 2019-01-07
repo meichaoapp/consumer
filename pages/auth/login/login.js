@@ -131,7 +131,9 @@ Page({
   },
   //选择团长，打开modal
   choiceMerchant(){
+      let _this = this;
       this.setData({
+          tmpCurrentIndex: _this.data.currentIndex,
           showModal:true,
           searchText: '', // 搜索店铺名称、地址
       })

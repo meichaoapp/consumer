@@ -23,7 +23,7 @@
                     </view>
                     <view class='o-details-lists-cell-main flex flex_center'>
                         <view class='o-details-lists-cell-img'>
-                            <image src='{{basePath}}/default.png'></image>
+                            <image src='{{item.url}}'></image>
                         </view>
                         <view class='o-details-lists-cell-desc flex flex_colum flex_just'>
                             <view class="merchant_name flex flex_between flex_center">
