@@ -1,6 +1,6 @@
 .order_confirm_box{
     height:100%;
-    /*margin-bottom:200rpx;*/
+    margin-bottom:200rpx;
 }
 .auto_tip{
     color:#FF9000;
@@ -78,7 +78,7 @@
     margin-bottom:24rpx;
 }
 .bottom_box{
-    height:429rpx;
+    /*height:429rpx;*/
     border-top:1px solid #eee;
 }
 .bottom_item{
@@ -90,7 +90,7 @@
 }
 .single2{
     height:126rpx;
-    margin-bottom:250rpx;
+    /*margin-bottom:250rpx;*/
 }
 .icon_pay{
     width:39rpx;
