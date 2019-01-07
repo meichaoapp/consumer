@@ -25,7 +25,9 @@ Page({
     count: 0, //提交计数
     merchantList: [], // 团长列表
     merchat: {},//选中的团长信息
+    merchantSelected: {},//选中的团长信息
     currentIndex:0,
+    tmpCurrentIndex: 0,
     searchText: '', // 搜索店铺名称、地址
   },
 
@@ -72,7 +74,6 @@ Page({
    */
   getCurrentLocation: function () {
     var that = this;
-
     wx.getLocation({
       type: 'gcj02', //返回可以用于wx.openLocation的经纬度
       success: function (res) {
@@ -130,23 +131,33 @@ Page({
   },
   //选择团长，打开modal
   choiceMerchant(){
+      let _this = this;
       this.setData({
+          tmpCurrentIndex: _this.data.currentIndex,
           showModal:true,
           searchText: '', // 搜索店铺名称、地址
       })
     this.queryMerchats();
   },
-    closeModal() {
+  closeModal() {
     this.setData({
-      showModal: false
+      merchantSelected: {}, //清空临时
+      showModal: false,
+      tmpCurrentIndex: 0,
     })
   },
   //确认选中商户
   modalConfirm:function(){
       let _this = this;
       _this.setData({
-          showModal: false
+          showModal: false,
+          merchat: _this.data.merchantSelected,
+          currentIndex: _this.data.tmpCurrentIndex,
       });
+
+    //将选中的商户写入缓存
+    wx.setStorageSync(currentMerchat, _this.data.merchat);
+    wx.setStorageSync(currIndex, _this.data.currentIndex);
 
   },
   //选中商户
@@ -155,7 +166,7 @@ Page({
     let id = e.currentTarget.dataset.id,
       index = e.currentTarget.dataset.index;
       _this.setData({
-          currentIndex: index,
+        tmpCurrentIndex: index,
       })
       console.log("clickMerchant index -- " + index);
     console.log("clickMerchant id -- " + id);
@@ -168,7 +179,7 @@ Page({
         }
       });
       _this.setData({
-        merchat: merchat
+        merchantSelected: merchat
       })
     }
   },

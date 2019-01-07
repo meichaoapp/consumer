@@ -39,6 +39,7 @@ input{
     color:#79C54C
 }
 
+
 .goods_list .good_image{
     width:189rpx;
     height:189rpx;
@@ -73,6 +74,18 @@ input{
     font-size:18rpx;
     text-decoration: line-through;
     color:#999999;
+}
+.goods_list .disable .name {
+    color:#B4B4B4;
+}
+.goods_list .disable .desc {
+    color:#B4B4B4;
+}
+.goods_list .disable .curr_price{
+    color:#B4B4B4;
+}
+.goods_list .disable .old_price{
+    color:#B4B4B4;
 }
 .set_car image{
     width:46rpx;
@@ -183,4 +196,10 @@ input{
 }
 .classify_item .right_part{
     flex:1;
+}
+.icon_soldout{
+    width:166rpx;
+    height:100rpx;
+    position:absolute;
+    right:0;
 }

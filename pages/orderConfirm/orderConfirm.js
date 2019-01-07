@@ -91,8 +91,8 @@ Page({
       goodsList.forEach(o => {
         if (o.id == id) {
           o.number = o.number - 1;
-          if (o.number < 0) {
-            o.number = 0;
+          if (o.number <= 1) {
+            o.number = 1;
           }
         }
       });

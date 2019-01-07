@@ -41,7 +41,7 @@
         </view>
     </view>
     <view class='modal-content' slot="slot2">
-        <view bindtap='clickMerchant' data-index="{{index}}" class="merchant_item flex flex_center {{currentIndex==index?'on':''}}" wx:for='{{merchantList}}' wx:key='{{item.index}}' title="{{item.merchantName}}" mode='input' rowpadding='10rpx' currentId="{{item.index}}" data-id='{{item.merchantId}}'>
+        <view bindtap='clickMerchant' data-index="{{index}}" class="merchant_item flex flex_center {{tmpCurrentIndex==index?'on':''}}" wx:for='{{merchantList}}' wx:key='{{item.index}}' title="{{item.merchantName}}" mode='input' rowpadding='10rpx' currentId="{{item.index}}" data-id='{{item.merchantId}}'>
             <image src="{{item.logo}}"></image>
             <view class="right_part">
                 <view class="flex flex_between">

@@ -19,6 +19,7 @@ Page({
         longitude: 0.00,
         merchantList: [], // 团长列表
         merchant: {},//选中的团长信息
+        merchantSelected: {},//选中的团长信息
         cityname: "",
         banners: [],
         start: 1, // 页码
@@ -39,6 +40,7 @@ Page({
         goodsNums:0, //商品数量
         num:0,//和index相比，控制左侧显示激活状态样式
         currentIndex:0,
+        tmpCurrentIndex: 0,
         showModal:false,
         searchText: '', // 搜索店铺名称、地址
 
@@ -199,7 +201,6 @@ Page({
  */
   getCurrentLocation: function () {
     var that = this;
-    console.log("刷新..........");
     wx.getLocation({
       type: 'gcj02', //返回可以用于wx.openLocation的经纬度
       success: function (res) {
@@ -329,7 +330,9 @@ Page({
     },
     //选择团长，打开modal
     choiceMerchant(){
+        let _this = this;
         this.setData({
+          tmpCurrentIndex: _this.data.currentIndex,
           showModal:true,
           searchText: '', // 搜索店铺名称、地址
         })
@@ -337,14 +340,14 @@ Page({
     },
   closeModal:function(){
       this.setData({
-          showModal: false
+          merchantSelected:{}, //清空临时
+          showModal: false,
+          tmpCurrentIndex:0,
       })
   },
   modalConfirm:function(){
     let _this = this;
     //console.log("modalConfirm-----");
-    //将选中的商户写入缓存
-    wx.setStorageSync(currentMerchat, _this.data.merchant);
     //刷新和重置数据
     _this.setData({
       start: 1, // 页码
@@ -354,8 +357,14 @@ Page({
       needPay: 0.00, // 购物车核算价格
       goodsNums: 0, //商品数量
       num: 0,//和index相比，控制左侧显示激活状态样式
-      showModal: false
+      showModal: false,
+      merchant: _this.data.merchantSelected,
+      currentIndex: _this.data.tmpCurrentIndex,
     });
+
+    //将选中的商户写入缓存
+    wx.setStorageSync(currentMerchat, _this.data.merchant);
+    wx.setStorageSync(currIndex, _this.data.currentIndex);
     _this.clearCart();
     _this.queryTGList();
 
@@ -366,7 +375,7 @@ Page({
     let id = e.currentTarget.dataset.id,
       index = e.currentTarget.dataset.index
       _this.setData({
-          currentIndex: index,
+        tmpCurrentIndex: index,
       })
     console.log("clickMerchant id -- " + id);
     var merchantList = _this.data.merchantList;
@@ -378,7 +387,7 @@ Page({
         }
       });
       _this.setData({
-        merchant: merchant
+        merchantSelected: merchant
       })
     }
   },

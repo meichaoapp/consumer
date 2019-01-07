@@ -23,18 +23,18 @@
                     </view>
                     <view class='o-details-lists-cell-main flex flex_center'>
                         <view class='o-details-lists-cell-img'>
-                            <image src='{{basePath}}/default.png'></image>
+                            <image src='{{item.url}}'></image>
                         </view>
                         <view class='o-details-lists-cell-desc flex flex_colum flex_just'>
                             <view class="merchant_name flex flex_between flex_center">
-                                <text class="font15">{{item.merchantName}}</text>
-                                <text class="font12">{{item.joinTime}}</text>
+                                <text class="font15">{{item.merchantName != null ? item.merchantName : "" }}</text>
+                                <text class="font12">{{item.joinTime != null ? item.joinTime : "" }}</text>
                             </view>
                             <view wx:if="{{item.deliveryType == 1}}" class="C666" style="line-height:40rpx;">
-                               取货地址：{{item.address}}
+                               取货地址：{{item.address != null ? item.address : "" }}
                             </view>
                              <view wx:else class="C666" style="line-height:40rpx;">
-                               送货地址：{{item.address}}
+                               送货地址：{{item.address != null ? item.address : "" }}
                             </view>
                         </view>
                     </view>
