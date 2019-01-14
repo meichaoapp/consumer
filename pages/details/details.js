@@ -214,16 +214,39 @@ Page({
       "marketPrice": _this.data.detail.marketPrice,//市场价/原价
       "status": _this.data.detail.status, //0 未开始 1 进行中 2 已成团 3 已过期
       "productType": _this.data.detail.productType, //商品类型 1.普通团品 2. 一元购 3. 店长自营产品
+      "limitNum": _this.data.detail.limitNum, //参团人数上限
+      "joinNum": _this.data.detail.joinNum, //参团人数
+      "buyLimitNum": _this.data.detail.buyLimitNum, // 单品购买限制
     };
 
     var g = cart.loadCartGoods(goods.id);
     console.log("购物无车商品---" + JSON.stringify(g));
     if (g == null) {//如果没有则加入购物车
+      if ((goods.joinNum + 1) > goods.limitNum) {
+        wx.showToast({
+          icon: "none",
+          title: '已超过库存!',
+        })
+        return;
+      }
       goods.number = 1;
       cart.add2Cart(goods);
     } else {//如果购物车以前有则更新购物车商品数量
-      var num = g.number;
-      g.number = num + 1;
+      g.number = g.number + 1;
+      if ((g.joinNum + g.number) > g.limitNum) {
+        wx.showToast({
+          icon: "none",
+          title: '已超过库存!',
+        })
+        return;
+      }
+      if (null != g.buyLimitNum && g.number > g.buyLimitNum) {
+        wx.showToast({
+          icon: "none",
+          title: '此商品每人只能买' + o.buyLimitNum + "份",
+        })
+        return;
+      }
       cart.updateCart(g);
     }
     wx.showToast({
