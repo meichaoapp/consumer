@@ -10,7 +10,7 @@
         <text class='location-address'>{{merchant.merchantName}}</text>
     </view>
     <view class='other-merchant' bindtap="choiceMerchant">
-        选择其他团长
+        选择其他社区
     </view>
 </view>
 <view class="container">
@@ -198,7 +198,7 @@
     <view class="title flex flex_just flex_center" slot="slot1">
         <!--<view>选择团长</view>-->
         <view class="search_box bg_ff">
-            <input class="input" name="searchText" placeholder="搜索您要找的团长名称"
+            <input class="input" name="searchText" placeholder="搜索"
                    bindinput="bindSearchText" value='{{searchText}}' bindconfirm="queryMerchats"/>
             <image bindtap='queryMerchats' class="icon_search" src="{{basePath}}/search.png"></image>
         </view>
