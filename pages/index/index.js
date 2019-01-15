@@ -24,7 +24,7 @@ Page({
         banners: [],
         start: 1, // 页码
         totalPage: 0, // 共有页
-        limit: 5,//每页条数
+        limit: 10,//每页条数
         hideHeader: true, //隐藏顶部提示
         hideBottom: true, //隐藏底部提示
         srollViewHeight: 0, //滚动分页区域高度
@@ -483,12 +483,35 @@ Page({
       });
     }
 
+
+
     var g = cart.loadCartGoods(id);
     //console.log("购物无车商品---" + JSON.stringify(g));
     if (g == null && goods != null) {//如果没有则加入购物车
+      if ((goods.joinNum + 1) > goods.limitNum) {
+        wx.showToast({
+          icon: "none",
+          title: '已超过库存!',
+        })
+        return;
+      }
       cart.add2Cart(goods);
     } else {//如果购物车以前有则更新购物车商品数量
       g.number = g.number + 1;
+      if ((goods.joinNum + g.number) > goods.limitNum) {
+        wx.showToast({
+          icon: "none",
+          title: '已超过库存!',
+        })
+        return;
+      }
+      if (null != goods.buyLimitNum && g.number > goods.buyLimitNum) {
+        wx.showToast({
+          icon: "none",
+          title: '此商品每人只能买' + goods.buyLimitNum + "份",
+        })
+        return;
+      }
       cart.updateCart(g);
     }
 

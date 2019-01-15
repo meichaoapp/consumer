@@ -80,6 +80,7 @@
 .bottom_box{
     /*height:429rpx;*/
     border-top:1px solid #eee;
+    margin-bottom: 50px;
 }
 .bottom_item{
     padding:0 30rpx;

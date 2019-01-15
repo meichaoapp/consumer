@@ -110,7 +110,22 @@ Page({
     if (goodsList != null && goodsList.length > 0) {
       goodsList.forEach(o => {
         if (o.id == id) {
-          o.number = o.number + 1;
+          var num = o.number + 1;
+          if ((o.joinNum + num) > o.limitNum) {
+            wx.showToast({
+              icon: "none",
+              title: '已超过库存!',
+            })
+            return;
+          }
+          if (null != o.buyLimitNum && num > o.buyLimitNum) {
+            wx.showToast({
+              icon: "none",
+              title: '此商品每人只能买' + o.buyLimitNum + "份",
+            })
+            return;
+          }
+          o.number = num;
         }
       });
     }

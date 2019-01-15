@@ -19,7 +19,7 @@
     </view>
     <view class="btn_box flex flex_just">
         <button  class='icon_btn' bindtap="choiceMerchant">
-           选择其他团长
+           选择其他社区
         </button>
         <button open-type="getUserInfo"  class='icon_btn sure_btn' bindgetuserinfo="login">
            确认此团长

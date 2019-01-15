@@ -28,7 +28,7 @@
         </view>
         <view class="merchant_name_box">
             <view class="merchant_name_con flex flex_between flex_center">
-                <image class="left_part" src="{{basePath}}/default.png"></image>
+                <image class="left_part" src="{{merchant.logo}}"></image>
                 <view class="right_part">
                     <view class="font15">
                         {{merchant.merchantName}}

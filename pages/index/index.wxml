@@ -10,7 +10,7 @@
         <text class='location-address'>{{merchant.merchantName}}</text>
     </view>
     <view class='other-merchant' bindtap="choiceMerchant">
-        选择其他团长
+        选择其他社区
     </view>
 </view>
 <view class="container">
@@ -89,7 +89,7 @@
                   class="{{num==index?'active':''}}" bindtap="showList">{{item.sellDesc}}
             </view>
         </view>
-        <scroll-view scroll-y="true" bindscrolltolower='lower' style="height:{{scrollHeight}}rpx" class="scroll_view">
+        <scroll-view scroll-y="true" bindscrolltolower='lower' style="height:536px" class="scroll_view">
             <view class="m_con">
                 <view wx:if="{{goodsList.length>0}}">
                   <block wx:for="{{goodsList}}" wx:key="{{item.index}}">
