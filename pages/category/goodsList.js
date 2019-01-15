@@ -317,49 +317,57 @@ Page({
   addNumber: function (e) {
     let _this = this;
     var id = e.currentTarget.dataset.id;
-    var goodsList = _this.data.goodsList;
-    var goods = null;
-    if (goodsList != null && goodsList.length > 0) {
-      goodsList.forEach(o => {
-        if (o.id == id) {
-          o.number = o.number + 1;
-          goods = o;
-        }
-      });
-    }
 
-    var g = cart.loadCartGoods(id);
-    //console.log("购物无车商品---" + JSON.stringify(g));
-    if (g == null && goods != null) {//如果没有则加入购物车
-      if ((goods.joinNum + 1) > goods.limitNum) {
-        wx.showToast({
-          icon: "none",
-          title: '已超过库存!',
-        })
-        return;
+
+    var list = _this.data.goodsList;
+    if (list != null && list.length > 0) {
+      for (var i = 0; i < list.length; i++) {
+
+        if (list[i].id === id) {
+          var goods = list[i];
+          var g = cart.loadCartGoods(id);
+          //console.log("购物无车商品---" + JSON.stringify(g));
+          if (g == null && goods != null) {//如果没有则加入购物车
+            if ((goods.joinNum + 1) > goods.limitNum) {
+              wx.showToast({
+                icon: "none",
+                title: '已超过库存!',
+              })
+              return;
+            } else {
+              goods.number = 1;
+            }
+
+            cart.add2Cart(goods);
+          } else {//如果购物车以前有则更新购物车商品数量
+            g.number = g.number + 1;
+            if ((goods.joinNum + g.number) > goods.limitNum) {
+              wx.showToast({
+                icon: "none",
+                title: '已超过库存!',
+              })
+              return;
+            }
+            if (null != goods.buyLimitNum && g.number > goods.buyLimitNum) {
+              wx.showToast({
+                icon: "none",
+                title: '此商品每人只能买' + goods.buyLimitNum + "份",
+              })
+              return;
+            }
+            goods.number = goods.number + 1;
+            cart.updateCart(g);
+          }
+
+        }
+
+
       }
-      cart.add2Cart(goods);
-    } else {//如果购物车以前有则更新购物车商品数量
-      g.number = g.number + 1;
-      if ((goods.joinNum + g.number) > goods.limitNum) {
-        wx.showToast({
-          icon: "none",
-          title: '已超过库存!',
-        })
-        return;
-      }
-      if (null != goods.buyLimitNum && g.number > goods.buyLimitNum) {
-        wx.showToast({
-          icon: "none",
-          title: '此商品每人只能买' + goods.buyLimitNum + "份",
-        })
-        return;
-      }
-      cart.updateCart(g);
+
     }
 
     _this.setData({
-      goodsList: goodsList,
+      goodsList: list,
     });
     _this.refreshCartRef();
   },
