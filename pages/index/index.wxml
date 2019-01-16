@@ -89,7 +89,7 @@
                   class="{{num==index?'active':''}}" bindtap="showList">{{item.sellDesc}}
             </view>
         </view>
-        <scroll-view scroll-y="true" bindscrolltolower='lower' style="height:439px" class="scroll_view">
+        <scroll-view scroll-y="true" bindscrolltolower='lower' style="height:459px" class="scroll_view">
             <view class="m_con">
                 <view wx:if="{{goodsList.length>0}}">
                   <block wx:for="{{goodsList}}" wx:key="{{item.index}}">
