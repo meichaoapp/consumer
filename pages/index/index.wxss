@@ -442,7 +442,7 @@
 
 }
 .shop_car .car_title{
-    height:102rpx;
+    height:76px;
     padding:0 30rpx;
 }
 .classify_list{
