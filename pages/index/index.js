@@ -46,10 +46,11 @@ Page({
 
     },
     onShareAppMessage: function () {
+        let _this = this;
         return {
             title: '美超团购分享',
             desc: '美超团购',
-            path: '/pages/index/index'
+          path: '/pages/index/index?mid=' + _this.data.merchant.merchantId
         }
     },
 
@@ -57,6 +58,9 @@ Page({
       let that = this;
       //升级
       this.upgrade();
+      var mid = options.mid;
+     
+      
       let userInfo = wx.getStorageSync('userInfo');
       console.log("userinfo----" + userInfo);
       if (null != userInfo && userInfo != "" && undefined != userInfo) {
@@ -76,6 +80,11 @@ Page({
           merchant: merchant,
           currentIndex: currentIndex
         });
+        console.log("mid--------" + mid + "----merchant.merchantId-------" + that.data.merchant.merchantId);
+        if (null != mid && "" != mid && undefined != mid && mid != that.data.merchant.merchantId) {
+          console.log("mid--------" + mid);
+          that.swithchMerchats(mid);
+        }
       } else {
         wx.navigateTo({
           url: '/pages/auth/login/login'
@@ -104,6 +113,57 @@ Page({
         wx.setStorageSync(upgrade, _version);
       }
     },
+  //切换商户列表信息
+  swithchMerchats: function (merchantId) {
+    var that = this;
+    wx.getLocation({
+      type: 'gcj02', //返回可以用于wx.openLocation的经纬度
+      success: function (res) {
+        var latitude = res.latitude//维度
+        var longitude = res.longitude//经度
+        ///设置当前地理位置
+        that.setData({
+          latitude: latitude,
+          longitude: longitude,
+        });
+
+        var data = {
+          "longitude": that.data.longitude,//经度
+          "latitude": that.data.latitude,//纬度
+        };
+        util.request(api.QueryMerchants, data, "POST").then(function (res) {
+          console.log('------商户信息', res);
+          if (res.rs === 1) {
+            var merchantList = res.data;
+            var merchant = null;
+            let currentIndex = 0;
+            if (null != merchantList) {
+              for (var i = 0; i < merchantList.length; i++) {
+                if (merchantList[i].merchantId == merchantId) {
+                  currentIndex = i;
+                  merchant = merchantList[i];
+                }
+              }
+              that.setData({
+                merchant: merchant,
+                currentIndex: currentIndex
+              });
+              //缓存当前商户信息
+              wx.setStorageSync(currentMerchat, merchant);
+              //缓存当前商户的index值，方便首页读取，设置选中状态
+              wx.setStorageSync('currIndex', currentIndex);
+              //清空购物车
+              cart.cleanCart();
+              that.refreshCartRef();
+            }
+          }
+        });
+
+      }
+    })
+
+
+  },
 
     onReady: function () {
         // 页面渲染完成
