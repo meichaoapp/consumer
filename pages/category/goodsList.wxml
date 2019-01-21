@@ -19,7 +19,7 @@
     </view>
 
     <!--商品列表-->
-    <view class="goods_list">
+    <view class="goods_list" style=' margin-bottom:51px;'>
      <block wx:for="{{goodsList}}" wx:key="{{item.index}}">
 
         <view wx:if="{{item.joinNum<item.limitNum}}" class="goods_con bg_ff flex flex_between">
