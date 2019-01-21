@@ -348,6 +348,9 @@ view,text{
 .font24{
   font-size:48rpx;
 }
+.font25{
+  font-size:50rpx;
+}
 .C999{
   color:#999;
 }

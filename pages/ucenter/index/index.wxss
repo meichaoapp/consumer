@@ -75,3 +75,30 @@ page{
     height:35rpx;
     margin-right:24rpx;
 }
+
+
+.coupon_list{
+    padding:30rpx;
+    margin-top:20rpx;
+    overflow:hidden;
+}
+.coupon_item{
+    width:305rpx;
+    height:122rpx;
+    position:relative;
+    float:left;
+    margin:20rpx;
+    background: #FFF5E8;
+    border-radius: 5px;
+}
+.coupon_item .coupon_intro{
+    flex:1;
+}
+.btn_receive{
+    width:44rpx;
+    height:122rpx;
+    background-image: linear-gradient(-180deg, #FAD961 0%, #F76B1C 100%);
+    color:#fff;
+    font-size:20rpx;
+    padding:9rpx 13rpx;
+}

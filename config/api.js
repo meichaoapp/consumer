@@ -44,6 +44,7 @@ module.exports = {
   Partner: NewApiRootUrl + "common/partner", //成为伙伴（成为伙伴页）
   Pay: NewApiRootUrl + "common/pay", ///支付
   GetVerifiCode: NewApiRootUrl + "common/sendMsg", //短信验证码
+  QueryGifts: NewApiRootUrl + "common/getgifts",//获取流量超市优惠券
 
     
 

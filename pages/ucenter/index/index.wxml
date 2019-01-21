@@ -52,4 +52,18 @@
             </navigator>
         </view>
     </view>
+    <!--优惠券列表-->
+    <view class="coupon_list bg_ff">
+        <block wx:for="{{list}}" wx:key="{{item.index}}" data-index="{{item.index}}">
+            <view class="coupon_item flex"  bindtap='navTo' data-way='0' data-url='{{item.target}}'>
+                <!--<image src="{{basePath}}/coupon_bg.png"></image>-->
+                <view class="coupon_intro flex flex_colum flex_center flex_just">
+                    <view class="font25 c_9000">{{item.facevalue}} 优惠券</view>
+                    <view class="font12 c_9000 mt6">{{item.description}}</view>
+                </view>
+                <view class="btn_receive">立即领取</view>
+            </view>
+        </block>
+
+    </view>
 </view>

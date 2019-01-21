@@ -7,11 +7,13 @@ Page({
     data: {
         basePath: app.globalData._base_path, //基础路径
         userInfo: {},
-        isShowContactBox: true
+        isShowContactBox: true,
+        list: [],// 优惠券列表
     },
     onLoad: function (options) {
         // 页面初始化 options为页面跳转所带来的参数
-        console.log(app.globalData)
+        console.log(app.globalData);
+        this.queryGifts();
     },
     onReady: function () {
 
@@ -98,5 +100,37 @@ Page({
             }
         })
 
-    }
+    },
+    //获取流量超市优惠券
+    queryGifts: function () {
+        let that = this;
+        util.request(api.QueryGifts,
+            {
+                "token": ""
+            },
+            "POST").then(function (res) {
+            if (res.rs === 1) {
+                that.setData({
+                    list: res.data.list
+                });
+            }
+        });
+    },
+    //导航跳转
+    navTo: function (e) {
+        var url = e.currentTarget.dataset.url;
+        if (url == "null" || url == null) {
+            return;
+        }
+        //跳转TabBar路径
+        if (e.currentTarget.dataset.way == 1) {
+            wx.switchTab({
+                url: e.currentTarget.dataset.url
+            });
+        } else {
+            wx.navigateTo({
+                url: "/pages/thirdPage/thirdPage?url=" + url,
+            })
+        }
+    },
 })
