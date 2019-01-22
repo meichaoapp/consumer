@@ -57,7 +57,7 @@ Page({
     onLoad: function (options) {
       let that = this;
       //升级
-      this.upgrade();
+      //this.upgrade();
       var mid = options.mid;
      
       
