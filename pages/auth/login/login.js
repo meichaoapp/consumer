@@ -1,5 +1,6 @@
 // pages/auth/login2/login2.js
 const util = require('../../../utils/util.js');
+const auth = require('../../../utils/auth.js');
 var api = require('../../../config/api.js');
 var user = require('../../../services/user.js');
 const maps = require('../../../utils/maps.js');
@@ -53,7 +54,11 @@ Page({
     this.setData({
       count: 0, //提交计数
     });
-    this.getCurrentLocation();
+    let isAuthLocation = auth.authLocation();
+    console.log("isAuthLocation-----" + isAuthLocation);
+    if (isAuthLocation){
+      this.getCurrentLocation();
+    }
   },
 
   /**
