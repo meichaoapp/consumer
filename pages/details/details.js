@@ -35,20 +35,18 @@ Page({
       id: parseInt(options.id),
       count: 0, //提交计数
     });
-    this.queryGroupPurchaseDetail();
-    this.friends();
-
+    var merchantId = 0;
     var source = options.source; //跳转来源
     if (source == 1) {
-      var merchantId = options.mid;
+      merchantId = options.mid;
       let merchant = wx.getStorageSync(currentMerchat);
-     
+
       let currentIndex = wx.getStorageSync(currIndex);
-      if (null != merchant 
-          && undefined != merchant 
-          && "" != merchant 
-          && null != currentIndex 
-          && undefined != currentIndex) {
+      if (null != merchant
+        && undefined != merchant
+        && "" != merchant
+        && null != currentIndex
+        && undefined != currentIndex) {
         console.log("1.merchant -------" + JSON.stringify(merchant));
         if (merchantId != merchant.merchantId) {
           //切换商户
@@ -63,7 +61,35 @@ Page({
         //清空购物车
         cart.cleanCart();
       }
+    }else{
+      let merchant = wx.getStorageSync(currentMerchat);
+      if (null != merchant && undefined != merchant ) {
+        if (merchant.merchantId == undefined
+          || merchant.merchantId == null
+          || merchant.merchantId == "") {
+          //清空缓存
+          wx.clearStorageSync();
+          wx.clearStorage();
+          wx.navigateTo({
+            url: '/pages/auth/login/login'
+          });
+        }else{
+          merchantId = merchant.merchantId;
+        }
+      }else{
+        //清空缓存
+        wx.clearStorageSync();
+        wx.clearStorage();
+        wx.navigateTo({
+          url: '/pages/auth/login/login'
+        });
+      }
     }
+    console.log("merchantId-------------" + merchantId);
+    this.queryGroupPurchaseDetail(merchantId);
+    this.friends();
+
+    
 
     // 页面显示
     let userInfo = wx.getStorageSync('userInfo');
@@ -169,18 +195,21 @@ Page({
     util.request(api.Friends, { id: that.data.id }, "POST").then(function (res) {
       if (res.rs === 1) {
         var data = res.data;
+        
         var friensList = data.list;
+        if(undefined != friensList) {
+          that.setData({
+            friensList: friensList,
+          });
+        }
        
-        that.setData({
-          friensList: friensList,
-        });
       }
     });
     console.log()
   },
 
   ////获取货品信息
-  queryGroupPurchaseDetail: function () {
+  queryGroupPurchaseDetail: function (merchantId) {
     let that = this;
     util.request(api.QueryGroupPurchaseGoodsDetail, { id: that.data.id }, "POST").then(function (res) {
       if (res.rs == 1) {
@@ -189,10 +218,21 @@ Page({
         var detail = data.detail;
         that.setData({
           detail: detail, //团购详情
-          merchant: data.merchant,//商家
         });
         WxParse.wxParse('goodsDetail', 'html', res.data.detail.content, that);
         that.countDown();
+
+        var merchant = data.merchant;
+        if (merchantId == merchant.merchantId) {
+          that.setData({
+            merchant: merchant,//商家
+          });
+        }else{
+          //切换商户
+          that.swithchMerchats(merchant.merchantId);
+          //清空购物车
+          cart.cleanCart();
+        }
       }
     });
 

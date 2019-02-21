@@ -218,9 +218,12 @@ Page({
         wx.setStorageSync('token', res.data.token);
         //清除购物车缓存
         cart.cleanCart();
-        wx.navigateBack({
-          delta: 1
+        wx.switchTab({
+          url: '/pages/index/index',
         })
+        // wx.navigateBack({
+        //   delta: 1
+        // })
       } else {
         _this.setData({
           count: 0,

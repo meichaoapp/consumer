@@ -64,7 +64,18 @@ Page({
     let merchant = wx.getStorageSync(currentMerchat);
 
     if (null != merchant && undefined != merchant) {
-      _this.reloadMerchat(merchant); //重新加载选中的商户信息
+      if (merchant.merchantId == undefined
+        || merchant.merchantId == null
+        || merchant.merchantId == "") {
+        //清空缓存
+        wx.clearStorageSync();
+        wx.clearStorage();
+        wx.navigateTo({
+          url: '/pages/auth/login/login'
+        });
+      }else{
+        _this.reloadMerchat(merchant); //重新加载选中的商户信息
+      }
     }
    
   },

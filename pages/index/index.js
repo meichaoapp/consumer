@@ -76,11 +76,24 @@ Page({
       let merchant = wx.getStorageSync(currentMerchat);
       let currentIndex = wx.getStorageSync(currIndex);
       if (null != merchant && undefined != merchant && null != currentIndex && undefined != currentIndex) {
+        console.log("mid--------" + mid + "----merchant.merchantId-------" + merchant.merchantId);
+        if (merchant.merchantId == undefined
+              || merchant.merchantId == null 
+              || merchant.merchantId == "") {
+          //清空缓存
+          wx.clearStorageSync();
+          wx.clearStorage();
+          wx.navigateTo({
+            url: '/pages/auth/login/login'
+          });
+        }
+
         this.setData({
           merchant: merchant,
           currentIndex: currentIndex
         });
         console.log("mid--------" + mid + "----merchant.merchantId-------" + that.data.merchant.merchantId);
+        
         if (null != mid && "" != mid && undefined != mid && mid != that.data.merchant.merchantId) {
           console.log("mid--------" + mid);
           that.swithchMerchats(mid);
