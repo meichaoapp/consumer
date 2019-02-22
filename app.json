@@ -20,8 +20,8 @@
 
     "pages/auth/login/login",
     "pages/auth/mobileBind/mobileBind",
-    "pages/auth/normalBind/normalBind",
-    "pages/auth/wxBind/wxBind",
+    "pages/auth/mobileBind/normalBind",
+    "pages/auth/mobileBind/wxBind",
 
 
 
