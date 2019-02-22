@@ -17,15 +17,10 @@ module.exports = {
   QueryIndexTreasures: NewApiRootUrl + 'index/treasures',//查询首页信息（新）
   QueryTGNewList: NewApiRootUrl + 'index/list', ///获取团购分类和商品信息（新）
 
-  //old index query api
-  QueryBanner: NewApiRootUrl + 'index/banners',//查询轮播图（旧）
-  QueryTGList: NewApiRootUrl + 'index/list', ///获取团购信息（旧）
 
-  QueryGroupPurchaseGoodsDetail: NewApiRootUrl + 'groupPurchase/details', ///获取团购详情信息（新）
+  QueryGroupPurchaseGoodsDetail: NewApiRootUrl + 'groupPurchase/details', ///获取团购详情信息
+  CheckMerchantGoodsRel: NewApiRootUrl + 'groupPurchase/verifyRelation', 
 
-  QueryGroupPurchaseDetail: NewApiRootUrl + 'groupPurchase/details', ///获取团购详情信息（旧）
-
-  CreateOrder: NewApiRootUrl + 'groupPurchase/createOrder', ///参团（首页+详情页）返回订单信息（旧）
   CreateOrderNew: NewApiRootUrl + 'groupPurchase/createOrder', ///参团（首页+详情页）返回订单信息（新）
   
   FirmOrder: NewApiRootUrl + 'groupPurchase/firmOrder', ///参团（首页+详情页）确认订单信息
@@ -46,7 +41,7 @@ module.exports = {
   Pay: NewApiRootUrl + "common/pay", ///支付
   GetVerifiCode: NewApiRootUrl + "common/sendMsg", //短信验证码
   QueryGifts: NewApiRootUrl + "common/getgifts",//获取流量超市优惠券
-
+  CollectLogs: NewApiRootUrl + "common/logCollection",//日志采集
     
 
 

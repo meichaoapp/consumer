@@ -178,6 +178,7 @@ function createOrder(flag, t_id, user, _dt, merchant, _arr){
      needPay: needPay,
      merchantOrder: mOrder,// 团购订单
      oneselfOrder: sOrder,
+     couponOrder: cOrder,
    };
 
 }

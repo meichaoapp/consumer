@@ -1,6 +1,8 @@
 const util = require('../../utils/util.js');
 const api = require('../../config/api.js');
 const user = require('../../services/user.js');
+const log = require('../../services/log.js');
+const mt = require('../../services/merchant.js');
 const maps = require('../../utils/maps.js');
 const wecache = require('../../utils/wecache.js');
 const cart = require('../../services/cart.js');
@@ -524,11 +526,25 @@ Page({
     });
     _this.refreshCartRef();
   },
+  //检查商户和商品关系
+  checkRel:function(id) {
+    let _this = this;
+    let rel = false;
+    mt.checkMerchantGoodsRel(_this.data.merchant.merchantId, id).then(function (res) {
+      if (res.rs == 1) {
+        rel = res.data.isRel;
+      } 
+    });
+    if(!rel) { //如果不一致切换商户
+      _this.swithchMerchats();
+    }
+    return rel;
+  },
   //加
   addNumber: function (e) {
     let _this = this;
     var id = e.currentTarget.dataset.id;
-    
+    //if(!_this.checkRel(id)){ return;}
    
     var list = _this.data.goodsList;
     if (list != null && list.length > 0) {

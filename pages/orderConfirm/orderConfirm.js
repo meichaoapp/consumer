@@ -24,6 +24,7 @@ Page({
     merchantId: 1,// 店铺id
     merchantOrder: {},// 团购订单
     oneselfOrder: {}, // 自营订单
+    couponOrder:{},
     count: 0, //提交计数
     orderGoods:[]
   },
@@ -190,6 +191,7 @@ Page({
       preferential: (_data.totalPay - _data.needPay).toFixed(2),
       merchantOrder: _data.merchantOrder,// 团购订单
       oneselfOrder: _data.oneselfOrder, // 自营订单
+      couponOrder: _data.couponOrder,// 优惠券
     });
   },
 

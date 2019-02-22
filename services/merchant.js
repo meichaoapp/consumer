@@ -20,3 +20,29 @@ function queryMerchants(data) {
     });
   });
 }
+
+/**
+ * 校验商户和商品的关系
+ */
+function checkMerchantGoodsRel(merchantId , goodsId) {
+  return new Promise(function (resolve, reject) {
+    util.request(api.QueryMerchants, 
+      {
+        merchantId: merchantId,
+        goodsId: goodsId
+      }, "POST").then((res) => {
+      if (res.rs === 1) {
+        resolve(res);
+      } else {
+        reject(res);
+      }
+    }).catch((err) => {
+      reject(err);
+    });
+  });
+}
+
+module.exports = {
+  queryMerchants: queryMerchants,
+  checkMerchantGoodsRel: checkMerchantGoodsRel,
+}
