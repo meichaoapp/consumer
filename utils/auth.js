@@ -11,15 +11,15 @@
 // 4）用户拒绝授权，进入引导弹窗，用户点击授权，进入授权设置页，用户不点击授权，直接退出
 
 function authLocation() {
-   wx.getSetting({
+  return new Promise(function (resolve, reject) {
+    wx.getSetting({
       // 获取配置信息成功
       success(res) {
         if (!res.authSetting['scope.userLocation']) {//如果没有授权
           wx.authorize({
             scope: 'scope.userLocation',
             success: res => {//第一种情况：用户同意授权
-              // 发送地图
-              return true;
+              resolve(true);
             }, fail: res => {//用户点击了取消授权，引导其去授权
               wx.showModal({
                 title: '提示',
@@ -34,7 +34,7 @@ function authLocation() {
                       wx.openSetting({
                         success: function (res) {
                           //第三种情况：用户拒绝授权，进入引导弹窗，用户点击授权，进入授权设置页，用户点击授权。
-                          return true;
+                          resolve(true);
                         }
                       })
                     } else {
@@ -42,7 +42,7 @@ function authLocation() {
                         title: '授权提示',
                         content: '定位需要您的微信授权才能使用哦~ 错过授权页面的处理方法：删除小程序->重新搜索进入->点击授权按钮'
                       })
-                      return false;
+                      reject(false);
                     }
                   } else if (res.cancel) {//第二种情况：用户拒绝授权，进入引导弹窗，用户继续拒绝授权。
                     wx.showModal({
@@ -56,17 +56,19 @@ function authLocation() {
                         }
                       }
                     })
-                    return false;
+                    reject(false);
                   }
                 }
               })
             }
           })
-        }else{
-          return true;
+        } else {
+          resolve(true);
         }
       },
-   })
+    })
+  });
+ 
 }
 
 

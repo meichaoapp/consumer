@@ -30,6 +30,7 @@ Page({
     currentIndex:0,
     tmpCurrentIndex: 0,
     searchText: '', // 搜索店铺名称、地址
+    isAuthLocation:false, //是否授权位置信息
   },
 
   /**
@@ -50,15 +51,24 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    let _this = this;
     // 页面显示
     this.setData({
       count: 0, //提交计数
     });
-    let isAuthLocation = auth.authLocation();
-    console.log("isAuthLocation-----" + isAuthLocation);
-    if (isAuthLocation){
-      this.getCurrentLocation();
-    }
+    auth.authLocation().then(function (res) {
+      console.log("isAuthLocation-----" + res);
+      _this.setData({
+        isAuthLocation: res, 
+      });
+      if (res) {
+        _this.getCurrentLocation();
+      }
+    }).catch((res) => {
+      _this.setData({
+        isAuthLocation: res,
+      });
+    });
   },
 
   /**
@@ -106,6 +116,10 @@ Page({
   //查询商户列表信息
   queryMerchats:function() {
     let that = this;
+    if (!that.isAuthLocation) { // 未授权位置信息
+      return;
+    }
+
     var data = {
       "longitude": that.data.longitude,//经度
       "latitude": that.data.latitude,//纬度
@@ -191,6 +205,9 @@ Page({
   //确认商户授权用户
   login: function (e) {
     var _this = this;
+    if(!_this.isAuthLocation) { // 未授权位置信息
+      return;
+    }
     if (_this.data.count > 0) {
       return;
     }
