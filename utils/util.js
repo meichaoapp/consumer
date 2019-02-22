@@ -166,6 +166,10 @@ function showErrorToast(msg) {
   })
 }
 
+function isNotNULL(obj) {
+  return (null != obj && "" != obj && undefined != obj )
+}
+
 module.exports = {
   formatTime,
   request,
@@ -174,6 +178,7 @@ module.exports = {
   checkSession,
   login,
   getUserInfo,
+  isNotNULL,
 }
 
 

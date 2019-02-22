@@ -61,7 +61,6 @@ Page({
         isAuthLocation: res, 
       });
       if (res) {
-        _this.onLoad();//自刷新
         _this.getCurrentLocation();
       }
     }).catch((res) => {
@@ -92,6 +91,7 @@ Page({
     wx.getLocation({
       type: 'gcj02', //返回可以用于wx.openLocation的经纬度
       success: function (res) {
+        console.log("222222222222")
         var latitude = res.latitude//维度
         var longitude = res.longitude//经度
         ///设置当前地理位置
@@ -186,8 +186,6 @@ Page({
       _this.setData({
         tmpCurrentIndex: index,
       })
-      console.log("clickMerchant index -- " + index);
-    console.log("clickMerchant id -- " + id);
     var merchantList = _this.data.merchantList;
     var merchat = {};
     if (null != merchantList) {
@@ -232,19 +230,31 @@ Page({
         //缓存当前商户信息
         wx.setStorageSync(currentMerchat, _this.data.merchat);
         //缓存当前商户的index值，方便首页读取，设置选中状态
-        wx.setStorageSync('currIndex', _this.data.currentIndex);
+       
+        var index = _this.data.currentIndex;
+        if (util.isNotNULL(index) == false) { index = 0; }
+        wx.setStorageSync(currIndex, index);
         app.globalData.userInfo = userInfo;
         app.globalData.token = res.data.token;
         wx.setStorageSync('userInfo', userInfo);
         wx.setStorageSync('token', res.data.token);
         //清除购物车缓存
         cart.cleanCart();
-        wx.switchTab({
-          url: '/pages/index/index',
-        })
-        // wx.navigateBack({
-        //   delta: 1
-        // })
+
+        let bindingPhone = userInfo.bindingPhone;
+        bindingPhone= "18310722959";
+        console.log("bindingPhone --- " + bindingPhone);
+        if(null == bindingPhone || "" == bindingPhone) { // 未绑定手机号
+          // wx.navigateTo({
+          //   url: '',
+          // })
+        }else{ // 已绑定
+          wx.switchTab({
+            url: '/pages/index/index',
+          })
+        }
+       
+       
       } else {
         _this.setData({
           count: 0,

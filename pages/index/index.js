@@ -7,7 +7,7 @@ const cart = require('../../services/cart.js');
 const pointKey = "userLocation";
 const currentMerchat = "currentMerchat";
 const currIndex = "currIndex";
-const upgrade = "UPGRADE";
+
 
 //获取应用实例
 const app = getApp()
@@ -56,14 +56,12 @@ Page({
 
     onLoad: function (options) {
       let that = this;
-      //升级
-      //this.upgrade();
       var mid = options.mid;
      
       
       let userInfo = wx.getStorageSync('userInfo');
       console.log("userinfo----" + userInfo);
-      if (null != userInfo && userInfo != "" && undefined != userInfo) {
+      if (util.isNotNULL(userInfo)) {
         this.setData({
           userInfo: userInfo,
         });
@@ -103,7 +101,6 @@ Page({
           url: '/pages/auth/login/login'
         });
       }
-      //this.getCurrentLocation();
       this.$wuxLoading = app.Wux().$wuxLoading //加载
 
       wx.getSystemInfo({success:function(res) {
@@ -115,17 +112,7 @@ Page({
       });
 
     },
-    //升级
-    upgrade:function() {
-      var version = wx.getStorageSync(upgrade);
-      var _version = app.globalData._version;
-      if (version == "" || version == null || version != _version) {
-        //清空缓存
-        wx.clearStorageSync();
-        wx.clearStorage();
-        wx.setStorageSync(upgrade, _version);
-      }
-    },
+  
   //切换商户列表信息
   swithchMerchats: function (merchantId) {
     var that = this;
@@ -178,10 +165,8 @@ Page({
 
   },
 
-    onReady: function () {
-        // 页面渲染完成
-    },
     onShow: function () {
+         let _this = this;
         //this.queryIndexTreasures();
         // 页面显示
         let userInfo = wx.getStorageSync('userInfo');
@@ -197,25 +182,21 @@ Page({
         }
 
       let merchant = wx.getStorageSync(currentMerchat);
-      let currentIndex = wx.getStorageSync(currIndex);
-      if (null != merchant && undefined != merchant && null != currentIndex && undefined != currentIndex) {
+      let currentIndex = wx.getStorageSync("currIndex");
+      if (util.isNotNULL(merchant)) {
         this.setData({
           merchant: merchant,
           currentIndex:currentIndex
         });
+        _this.getCurrentLocation();
       }else{
         wx.navigateTo({
           url: '/pages/auth/login/login'
         });
       }
-      this.getCurrentLocation();
+     
+      
       this.refreshCartRef();
-    },
-    onHide: function () {
-        // 页面隐藏
-    },
-    onUnload: function () {
-        // 页面关闭
     },
     /**
      * 页面相关事件处理函数--监听用户下拉动作
@@ -223,7 +204,6 @@ Page({
     onPullDownRefresh: function () {
         this.refresh();
         this.refreshCartRef();
-    
     },
 
     /**
@@ -291,27 +271,27 @@ Page({
     /**
      * 查询首页信息
      */
-    queryIndexInfo: function () {
-        let that = this;
-        var data = {
-          "longitude": that.data.longitude,//经度
-          "latitude": that.data.latitude//纬度
-        };
-      util.request(api.QueryIndexInfo, data, "POST").then(function (res) {
-            if(res.rs === 1){
-                that.setData({
-                    banners:res.data.banners,
-                    classifyList:res.data.classifys,
-                    //treasures:res.data.treasures,
-                    merchantList:res.data.merchantList,
-                    sellList: res.data.sellList,
-                    start: 1, // 页码
-                    totalPage: 0, // 共有页
-                    goodsList: [],//团购商品列表
-                })
-              that.queryTGList();
-            }
-        });
+  queryIndexInfo: function () {
+      let that = this;
+      var data = {
+        "longitude": that.data.longitude,//经度
+        "latitude": that.data.latitude//纬度
+      };
+    util.request(api.QueryIndexInfo, data, "POST").then(function (res) {
+          if(res.rs === 1){
+              that.setData({
+                  banners:res.data.banners,
+                  classifyList:res.data.classifys,
+                  //treasures:res.data.treasures,
+                  merchantList:res.data.merchantList,
+                  sellList: res.data.sellList,
+                  start: 1, // 页码
+                  totalPage: 0, // 共有页
+                  goodsList: [],//团购商品列表
+              })
+            that.queryTGList();
+          }
+      });
 
     },
     /**
@@ -339,14 +319,19 @@ Page({
         let _this = this;
         let sellType = 1;
         _this.$wuxLoading.show({text: '数据加载中',});
-      sellType = (_this.data.sellList != null && _this.data.sellList.length > 0) ? _this.data.sellList[_this.data.num].sellType : 1;
+       sellType = (_this.data.sellList != null && _this.data.sellList.length > 0)
+                   ? _this.data.sellList[_this.data.num].sellType : 1;
         //console.log("sellType--"+sellType);
         let data = {
-          "merchantId": _this.data.merchant.merchantId,//店铺id
+            "merchantId": _this.data.merchant.merchantId,//店铺id
             "start": _this.data.start,     //分页开始页  必填
             "limit": _this.data.limit,    //当前页共显示多少条  必填
             "userId": _this.data.userInfo.id,// 用于查询previewFlag为-1时，则可以预览新添的团品信息
             "sellType": sellType, // 销售类型被选中，默认为1
+            "longitude": _this.data.longitude,//经度
+            "latitude": _this.data.latitude,//纬度
+            "mlongitude": _this.data.merchant.longitude,//经度
+            "mlatitude": _this.data.merchant.latitude,//纬度
         }
        util.request(api.QueryTGNewList, data, "POST").then(function (res) {
             _this.$wuxLoading.hide(); //隐藏加载动画
