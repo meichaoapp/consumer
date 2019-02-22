@@ -1,0 +1,7 @@
+{
+  "enablePullDownRefresh": false,
+  "navigationBarTitleText": "绑定手机号",
+  "usingComponents": {
+    "modal": "/components/modal/modal"
+  }
+}

@@ -1,0 +1,27 @@
+page{
+    height:100%;
+}
+.icon_phone{
+    width:85rpx;
+    height:147rpx;
+    margin-top:181rpx;
+    margin-bottom:43rpx;
+}
+.container{
+    background: darkcyan;
+}
+.bind_box view{
+    width:600rpx;
+    height:98rpx;
+    border-radius: 49rpx;
+    text-align:center;
+    line-height:98rpx;
+}
+.wx_bind{
+    margin-top:227rpx;
+    margin-bottom:47rpx;
+    background: #81C95A;
+}
+.normal_bind{
+    background: #FFFFFF;
+}

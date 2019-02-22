@@ -1,0 +1,170 @@
+page{
+    height:100%;
+}
+.container{
+    padding:0 30rpx;
+    background:#fff;
+}
+.title{
+    margin-top:67rpx;
+    font-weight: 700;
+}
+.get_vcode{
+    background: #81C95A;
+    width:689rpx;
+    height:80rpx;
+    text-align:center;
+    line-height:80rpx;
+    border-radius: 40.5rpx;
+    margin-top:49rpx;
+}
+.label{
+    margin-top:82rpx;
+    margin-bottom:16rpx;
+    font-size: 28rpx;
+    color: #818181;
+}
+.input_box{
+    border-bottom:1px solid #EEEEEE;
+}
+.mobile_input{
+    padding:5rpx 0;
+    height:90rpx;
+    flex:1;
+    font-size:64rpx;
+}
+.code .input-content-wrap .input-code-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center1;
+    height: 150rpx;
+}
+.code .input-content-wrap .input-code-wrap .code_dot {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #000;
+    background-color: #fff;
+    box-sizing: border-box;
+    width: 124rpx;
+    height: 150rpx;
+    border: #dfdfdf solid 1rpx;
+    border-left: none 0;
+    font-size: 60rpx;
+}
+.code .input-content-wrap .input-code-wrap .code_dot:nth-child(1) {
+    border-left: 2rpx solid #ddd;
+}
+.code .input-content-wrap .input-code-wrap .code_dot i {
+    /* background: #000; */
+    border-radius: 50%;
+    width: 20rpx;
+    height: 20rpx;
+    display: flex;
+    align-items: center;
+}
+.code .input-content {
+    position: absolute;
+    opacity: 0;
+    left: -100%;
+    top: 600rpx;
+    background: #f56;
+    z-index: -999;
+    text-align: center;
+}
+.code .input-content.active {
+    z-index: -99;
+}
+.input {
+    height: 100rpx;
+    width: 80rpx;
+    flex: 1;
+    background-color: #fff;
+    color: #262626;
+    font-size: 64rpx;
+    margin: 0 29rpx 0 29rpx;
+    border: 1rpx #81C95A solid;
+    position: relative;
+}
+.input_none{
+    height: 100rpx;
+    width: 80rpx;
+    flex: 1;
+    background-color: #fff;
+    color: #262626;
+    font-size: 64rpx;
+    margin: 0 29rpx 0 29rpx;
+    border-bottom: 1rpx #dfdfdf solid;
+    position: relative;
+}
+.input text {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+.input_none text {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+.disabled{
+    background: #D8D8D8;
+    width:689rpx;
+    height:80rpx;
+    text-align:center;
+    line-height:80rpx;
+    border-radius: 40.5rpx;
+    margin-top:49rpx;
+    color:#fff;
+}
+.code0{
+    margin-left:0;
+}
+.code4{
+    margin-right:0;
+}
+.icon_agree{
+    width:29rpx;
+    height:29rpx;
+    margin-right:10rpx;
+}
+
+.float_box{
+    position:relative;
+}
+.float_box .tip{
+    position:absolute;
+    top:390rpx;
+    left:140rpx;
+}
+.sure_btn{
+    width:400rpx;
+    height:88rpx;
+    background: #81C95A;
+    color:#fff;
+    text-align:center;
+    line-height:88rpx;
+    border-radius: 40.5rpx;
+    font-size:36rpx;
+    position:absolute;
+    bottom:120rpx;
+    left:76rpx;
+
+}
+.float_box image{
+    width:545rpx;
+    height:760rpx;
+}

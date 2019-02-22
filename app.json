@@ -19,6 +19,11 @@
     "pages/ucenter/partner/partner",
 
     "pages/auth/login/login",
+    "pages/auth/mobileBind/mobileBind",
+    "pages/auth/normalBind/normalBind",
+    "pages/auth/wxBind/wxBind",
+
+
 
 
     "pages/shopping/coupon/coupon",

@@ -1,0 +1,51 @@
+<view class="container">
+    <view class="title C333 font22">绑定手机号，方便您的取货</view>
+    <view wx:if="{{!isShowTime}}">
+        <view class="label">输入手机号</view>
+        <input class="mobile_input font32 C333" type="number" placeholder="请输入手机号"/>
+        <view class="get_vcode font15 cfff" bindtap="getCode">获取验证码</view>
+    </view>
+    <view wx:else>
+        <view class="label">验证码已发送至：</view>
+        <view class="input_box flex flex_center">
+            <input class="mobile_input font32 C333" type="number" placeholder="请输入手机号"/>
+            <text style='font-size:28rpx;color:#818181' wx:if="{{isShowTime}}">({{time}}秒)</text>
+        </view>
+        <view class="label">验证码：</view>
+        <view class="code">
+            <view class="input-content-wrap">
+                <view catchtap="set_Focus" class="input-code-wrap">
+                    <view class="code0 {{length==1||length==0?'input':'input_none'}}">
+                        <text>{{code[0]}}</text>
+                    </view>
+                    <view class="{{length==2?'input':'input_none'}}">
+                        <text>{{code[1]}}</text>
+                    </view>
+                    <view class="{{length==3?'input':'input_none'}}">
+                        <text>{{code[2]}}</text>
+                    </view>
+                    <view class="code4 {{length==4?'input':'input_none'}}">
+                        <text>{{code[3]}}</text>
+                    </view>
+                </view>
+            </view>
+            <input bindinput="get_code" class="input-content" type="number" focus="{{code_isFocus}}" maxlength="4" />
+        </view>
+        <view class="font15 cfff {{length==4?'get_vcode':'disabled'}}" catchtap="bindFinish">完成绑定</view>
+        <view class="flex flex_center flex_just mt20">
+            <image class="icon_agree" src="/static/images/icon_agree.png" alt=""/>
+            <view class="C8181">已阅读并同意<text class="C95A">《服务条款》</text></view>
+        </view>
+    </view>
+    <!--弹层-->
+   <view class="mask"  wx:if="{{showModal}}">
+       <view class="float_box">
+           <image src="/static/images/bindSuccess.png"></image>
+           <view class="tip">
+               <view class="C8181 font16" style="text-align:center;margin-bottom:15rpx;">温馨提示</view>
+               <view class="C860 font18">恭喜您注册成功！</view>
+           </view>
+           <view class="sure_btn" bindtap="closeFloat">确认</view>
+       </view>
+   </view>
+</view>
