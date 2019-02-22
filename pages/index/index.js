@@ -330,8 +330,8 @@ Page({
             "sellType": sellType, // 销售类型被选中，默认为1
             "longitude": _this.data.longitude,//经度
             "latitude": _this.data.latitude,//纬度
-            "mlongitude": _this.data.merchant.longitude,//经度
-            "mlatitude": _this.data.merchant.latitude,//纬度
+            "mlongitude": _this.data.merchant.mlongitude,//经度
+            "mlatitude": _this.data.merchant.mlatitude,//纬度
         }
        util.request(api.QueryTGNewList, data, "POST").then(function (res) {
             _this.$wuxLoading.hide(); //隐藏加载动画
