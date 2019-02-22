@@ -15,14 +15,14 @@
         <view class=" mobile_title C333 font21 strong">你的手机号码</view>
         <view class="mobile_box flex flex_between flex_center">
             <view>
-                <text>15515392203</text>
+                <text>{{mobile}}</text>
                 <text class="C8181" style="margin-left:23rpx;">微信绑定号码</text>
             </view>
             <image class="icon_hook" src="/static/images/icon_hook.png"></image>
         </view>
         <view class="btn_box flex flex_around">
-            <view class="btn_refuse font16">拒绝</view>
-            <view class="btn_agree font16">允许</view>
+            <view bindtap='refuse' class="btn_refuse font16">拒绝</view>
+            <view bindtap='submit' class="btn_agree font16">允许</view>
         </view>
     </view>
 </view>

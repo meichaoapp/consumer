@@ -242,12 +242,11 @@ Page({
         cart.cleanCart();
 
         let bindingPhone = userInfo.bindingPhone;
-        bindingPhone= "18310722959";
         console.log("bindingPhone --- " + bindingPhone);
         if(null == bindingPhone || "" == bindingPhone) { // 未绑定手机号
-          // wx.navigateTo({
-          //   url: '',
-          // })
+          wx.navigateTo({
+            url: '/pages/auth/mobileBind/mobileBind',
+          })
         }else{ // 已绑定
           wx.switchTab({
             url: '/pages/index/index',
