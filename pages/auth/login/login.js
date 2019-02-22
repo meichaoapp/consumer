@@ -57,11 +57,11 @@ Page({
       count: 0, //提交计数
     });
     auth.authLocation().then(function (res) {
-      console.log("isAuthLocation-----" + res);
       _this.setData({
         isAuthLocation: res, 
       });
       if (res) {
+        _this.onLoad();//自刷新
         _this.getCurrentLocation();
       }
     }).catch((res) => {
@@ -100,6 +100,9 @@ Page({
           longitude: longitude,
         });
         that.queryMerchats(); // 加载商户信息
+      },
+      fail: function (res){
+        console.log("error-----------" + res);
       }
     })
 
@@ -116,10 +119,6 @@ Page({
   //查询商户列表信息
   queryMerchats:function() {
     let that = this;
-    if (!that.isAuthLocation) { // 未授权位置信息
-      return;
-    }
-
     var data = {
       "longitude": that.data.longitude,//经度
       "latitude": that.data.latitude,//纬度
@@ -205,7 +204,7 @@ Page({
   //确认商户授权用户
   login: function (e) {
     var _this = this;
-    if(!_this.isAuthLocation) { // 未授权位置信息
+    if(!_this.data.isAuthLocation) { // 未授权位置信息
       return;
     }
     if (_this.data.count > 0) {
