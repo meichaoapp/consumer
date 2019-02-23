@@ -32,6 +32,7 @@ page{
     height:90rpx;
     flex:1;
     font-size:64rpx;
+    border-bottom:1px solid #EEEEEE;
 }
 .code .input-content-wrap .input-code-wrap {
     display: flex;

@@ -14,7 +14,7 @@ Page({
         phone: "",
         userInfo: null,
         code_isFocus:false,
-        time: 10,
+        time: 100,
         isShowTime:false,
         code: [],
         focus_status: [],
@@ -203,7 +203,7 @@ Page({
       if (currentTime <= 0) {
         clearInterval(interval)
         that.setData({
-          time: 10,
+          time: 100,
           isShowTime: false,
           disabled: false
         })
