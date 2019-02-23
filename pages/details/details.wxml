@@ -37,8 +37,8 @@
             <view class="right">
                 <button class="share_btn  flex flex_colum flex_center flex_just" open-type='share'
                         bindtap='onShareAppMessage'>
-                    <image class="icon_share" src="{{basePath}}/share.png"></image>
-                    <view class="C666 font12">分享好友</view>
+                    <image class="icon_share" src="/static/images/icon_share.png"></image>
+                    <view class="font12">分享好友</view>
                 </button>
             </view>
         </view>

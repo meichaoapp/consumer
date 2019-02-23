@@ -54,9 +54,8 @@
 }
 
 .icon_share{
-    width:38rpx;
-    height:38rpx;
-    margin-bottom:6rpx;
+    width:41rpx;
+    height:41rpx;
 }
 .goods_dec{
     margin:15rpx 0;
@@ -201,6 +200,9 @@
     align-items: center;
     background:#fff;
     padding:0;
+}
+.share_btn view{
+    color:#60A33B;
 }
 button.share_btn::after{
     border: none;
