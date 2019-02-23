@@ -18,6 +18,11 @@ page{
     line-height:98rpx;
 }
 .wx_bind{
+    width:600rpx;
+    height:98rpx;
+    border-radius: 49rpx;
+    text-align:center;
+    line-height:98rpx;
     margin-top:227rpx;
     margin-bottom:47rpx;
     background: #81C95A;
