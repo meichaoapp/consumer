@@ -21,7 +21,9 @@ Page({
         detail: {}, //团购详情
         merchant: {},//商家
         friensList: [],
-        showModal: false
+        showModal: false,
+        modalTitle: "",
+        disabledOpt:false,
     },
 
     /**
@@ -215,8 +217,12 @@ Page({
                 var data = res.data;
                 console.log("queryGroupPurchaseDetail --- " + JSON.stringify(data));
                 var detail = data.detail;
+                var disabledOpt = false;
+                if (detail.detailStatus == 1) { disabledOpt = true;}
+                if (detail.joinNum >= detail.limitNum) { disabledOpt = true; }
                 that.setData({
                     detail: detail, //团购详情
+                    disabledOpt: disabledOpt,
                 });
                 WxParse.wxParse('goodsDetail', 'html', res.data.detail.content, that);
                 that.countDown();
@@ -316,7 +322,7 @@ Page({
                         let time = (endTime - newTime) / 1000;
                         // 获取天、时、分、秒
                         let day = parseInt(time / (60 * 60 * 24));
-                        let hou = parseInt(time % (60 * 60 * 24) / 3600) + 24 * day;
+                        let hou = parseInt(time % (60 * 60 * 24) / 3600);
                         let min = parseInt(time % (60 * 60 * 24) % 3600 / 60);
                         let sec = parseInt(time % (60 * 60 * 24) % 3600 % 60);
 
@@ -376,21 +382,38 @@ Page({
             url: '/pages/orderConfirm/orderConfirm?type=1'
         });
     },
-    copyPhone() {
-        let that = this;
-        //复制到剪切板
-        wx.setClipboardData({
-            data: that.data.merchant.merchantPhone,
-            success() {
-                wx.hideToast();
-                that.setData({
-                    showModal: true
-                });
-            }
-        })
-    },
-    closeFloat(){
+  copyPhone() {
+      let that = this;
+      //复制到剪切板
+      wx.setClipboardData({
+          data: that.data.merchant.merchantPhone,
+          success() {
+              wx.hideToast();
+              that.setData({
+                  modalTitle: "您已复制团长手机号",
+                  showModal: true
+              });
+          }
+      })
+  },
+  copyWxCode() {
+    let that = this;
+    //复制到剪切板
+    wx.setClipboardData({
+      data: that.data.merchant.merchantPhone,
+      success() {
+        wx.hideToast();
+        that.setData({
+          modalTitle: "您已复制团长微信",
+          showModal: true
+        });
+      }
+    })
+  },
+
+  closeFloat(){
         this.setData({
+            modalTitle: "",
             showModal: false
         });
     }

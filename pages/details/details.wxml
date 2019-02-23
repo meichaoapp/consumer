@@ -8,7 +8,7 @@
     <!-- 商品图片 -->
     <view class="top_image">
         <image src="{{detail.goodsPic}}" mode="widthFix"></image>
-        <view class="soldOut_box">
+        <view wx:if="{{detail.detailStatus == 1}}" class="soldOut_box">
             <view class="has_soldout font18 cfff">已下架</view>
         </view>
     </view>
@@ -20,9 +20,9 @@
             </view>
             <view class="old_price font12 cfff">￥{{detail.marketPrice}}</view>
         </view>
-        <view class="timer_box flex flex_colum flex_center">
+        <view wx:if="{{detail.status == 1}}" class="timer_box flex flex_colum flex_center">
             <text class="font12 cfff">距结束仅剩</text>
-            <text class="font12 cfff mt2">09天21:08:22</text>
+            <text class="font12 cfff mt2">{{detail.day}}天 {{detail.hour}}:{{detail.min}}:{{detail.sec}}</text>
         </view>
     </view>
     <view class="goods_intro bg_ff">
@@ -72,7 +72,7 @@
         </view>-->
     </view>
     <view class="progress_box flex flex_center bg_ff">
-        <view class="has_sale font12 C666">已售：2000</view>
+        <view class="has_sale font12 C666">已售：{{detail.joinNum}}</view>
         <view class="flex mt10 flex_1 flex_end">
             <view class="progress">
                 <view wx:if="{{detail.joinNum <= detail.limitNum }}" class="progress_bar"
@@ -95,7 +95,7 @@
                     <view class="font15">
                         {{merchant.merchantName}}
                     </view>
-                    <view class="connect_wx font12">微信联系团长</view>
+                    <view class="connect_wx font12" catchtap='copyWxCode'>微信联系团长</view>
                 </view>
                 <view class="flex flex_center mt5">
                     <view class="flex flex_center first_child">
@@ -171,15 +171,15 @@
                 </button>
             </view>
         </view>
-        <view class="part_two flex flex_center">
+        <view wx:if="{{ disabledOpt == false }}"  class="part_two flex flex_center">
             <view bindtap='addCart' class="cfff font15">加入购物车</view>
             <view bindtap='toOrderConfirm' class="cfff font15">立即购买</view>
         </view>
         <!--这是已下架界面-->
-        <!--<view class="part_two flex flex_center">
+        <view wx:else class="part_two flex flex_center">
             <view class="cfff font15" style="background:#A2A2A2">加入购物车</view>
             <view  class="cfff font15" style="background: #CFCFCF;">立即购买</view>
-        </view>-->
+        </view>
     </view>
 
     <view bindtap='toIndex' class="fixed_right flex flex_center flex_just flex_colum">
@@ -192,7 +192,7 @@
             <image src="/static/images/bindSuccess.png"></image>
             <view class="tip">
                 <view class="C8181 font16" style="text-align:center;margin-bottom:15rpx;">温馨提示</view>
-                <view class="C860 font18">您已复制团长手机号</view>
+                <view class="C860 font18">{{modalTitle}}</view>
             </view>
             <view class="sure_btn" bindtap="closeFloat">确认</view>
         </view>
