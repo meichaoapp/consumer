@@ -54,7 +54,8 @@ Page({
       "userId": _this.data.userInfo.id, // id 用户id
       "wxPhone": _this.data.mobile, //从微信获取的手机号
       "phone": _this.data.phone, // 用户自主填的手机号
-      "verifyCode":_this.data.code
+      "type": "mc_1002",
+      "verifyCode":_this.data.code.join(",")
     }
     util.request(api.BindMobile, data, "POST").then(function (res) {
       if (res.rs == 1) {
