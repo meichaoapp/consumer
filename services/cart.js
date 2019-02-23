@@ -160,7 +160,7 @@ function createOrder(flag, t_id, user, _dt, merchant, _arr){
   }
   var mOrder = getMerchantOrder(flag, m_list, t_id, user);
   var sOrder = getSelfOrder(flag, s_list, t_id, user, _dt, merchant);
-  var cOrder = getCouponOrder(flag, m_list, t_id, user);
+  var cOrder = getCouponOrder(flag, c_list, t_id, user);
   if(mOrder != null) {
     totalPay += mOrder.totalPay;
     needPay += mOrder.needPay;
