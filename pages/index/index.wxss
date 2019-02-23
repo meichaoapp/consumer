@@ -157,6 +157,11 @@
     background:#fff;
     margin-bottom:20rpx;
 }
+.menu_box image{
+    width:98rpx;
+    height:98rpx;
+    border-radius:50%;
+}
 .menu_box .active{
     position:absolute;
     bottom:-5rpx;
@@ -339,8 +344,8 @@
 }
 
 .car_box image{
-    width:55rpx;
-    height:50rpx;
+    width:74rpx;
+    height:74rpx;
 }
 .shopingcart_box{
     margin:0 45rpx;

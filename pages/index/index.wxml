@@ -37,7 +37,7 @@
               wx:key="{{item.id}}" data-index="{{index}}" data-id="{{item.sellType}}" bindtap="showList"
               style="position:relative;">
             <view class="flex flex_colum flex_just flex_center">
-                <!--<image src="{{item.logo}}"></image>-->
+                <image src="{{item.logo}}"></image>
                 <text class="C5d5d">{{item.sellDesc}}</text>
             </view>
         </view>
@@ -138,7 +138,7 @@
     <view class="car_box flex flex_between">
         <view class="flex flex_center">
             <view class="shopingcart_box" bindtap="openshopCar">
-                <image src="{{basePath}}/shopping_cart.png"></image>
+                <image  src="/static/images/icon_cart.png"></image>
                 <view wx:if="{{goodsNums != 0}}" class="count_num cfff">{{goodsNums}}</view>
             </view>
             <view class="total_money cfff">￥
@@ -250,7 +250,7 @@
     <view class="car_box flex flex_between">
         <view class="flex flex_center">
             <view class="shopingcart_box">
-                <image src="{{basePath}}/shopping_cart.png"></image>
+                <image src="/static/images/icon_cart.png"></image>
                 <view wx:if="{{goodsNums != 0}}" class="count_num cfff">{{goodsNums}}</view>
             </view>
             <view class="total_money cfff">￥<text class="font24 cfff">{{needPay}}</text></view>
