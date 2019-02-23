@@ -48,36 +48,6 @@ Page({
 
     },
 
-  submit: function () {
-    let _this = this;
-    var data = {
-      "userId": _this.data.userInfo.id, // id 用户id
-      "wxPhone": _this.data.mobile, //从微信获取的手机号
-      "phone": _this.data.phone, // 用户自主填的手机号
-      "type": "mc_1002",
-      "verifyCode":_this.data.code.join(",")
-    }
-    util.request(api.BindMobile, data, "POST").then(function (res) {
-      if (res.rs == 1) {
-        wx.showToast({
-          title: '恭喜您绑定成功！',
-        })
-        //更新缓存信息
-        userInfo.bindingPhone = _this.data.mobile;
-        wx.setStorageSync('userInfo', userInfo);
-        //跳转首页
-        wx.switchTab({
-          url: '/pages/index/index',
-        })
-      } else {
-        wx.showToast({
-          icon: "none",
-          title: res.info
-        })
-      }
-    });
-  },
-
     bindPhone: function (e) {
       var _this = this;
       this.setData({
@@ -211,13 +181,74 @@ Page({
     }, 1000)
   },
     bindFinish(){
-        this.setData({
-            showModal:true
+      let _this = this;
+      if ("" == _this.data.phone || _this.data.phone == null) {
+        _this.setData({
+          count: 0,
+        });
+        wx.showToast({
+          title: '手机号码不能为空，请填写后提交！',
+          icon: 'none',
+          duration: 2000
         })
+        return;
+      }
+      var exp = new RegExp("^0?(13|15|18|14)[0-9]{9}$");
+      if (!exp.test(_this.data.phone)) {
+        _this.setData({
+          count: 0,
+        });
+        wx.showToast({
+          title: '手机号码格式不正确！',
+          icon: 'none',
+          duration: 2000
+        })
+        return;
+      }
+      if ("" == _this.data.code || _this.data.code == null) {
+        _this.setData({
+          count: 0,
+        });
+        wx.showToast({
+          title: '验证码不能为空！',
+          icon: 'none',
+          duration: 2000
+        })
+        return;
+      }
+      var data = {
+        "userId": _this.data.userInfo.id, // id 用户id
+        "wxPhone": _this.data.mobile, //从微信获取的手机号
+        "phone": _this.data.phone, // 用户自主填的手机号
+        "type": "mc_1002",
+        "verifyCode": _this.data.code
+      }
+      util.request(api.BindMobile, data, "POST").then(function (res) {
+        if (res.rs == 1) {
+          //更新缓存信息
+          _this.setData({
+            showModal: true
+          })
+          userInfo.bindingPhone = _this.data.phone;
+          wx.setStorageSync('userInfo', userInfo);
+          
+        } else {
+          wx.showToast({
+            icon: "none",
+            title: res.info
+          })
+        }
+      });
+
+       
     },
     closeFloat(){
-        this.setData({
-            showModal: false
-        })
+      this.setData({
+          showModal: false
+      })
+      //跳转首页
+      wx.switchTab({
+        url: '/pages/index/index',
+      })
     }
 })
