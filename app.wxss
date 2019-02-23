@@ -366,6 +366,9 @@ view,text{
 .C666{
   color:#666;
 }
+.C5d5d{
+  color:#5d5d5d;
+}
 .cfff{
   color:#fff;
 }

@@ -122,6 +122,7 @@
     width:90%;
     height:260rpx;
     border-radius:16rpx;
+    padding-bottom:20rpx;
     overflow:hidden;
     margin:0 auto;
 }
@@ -130,8 +131,17 @@
     height:260rpx;
 }
 .classify_box{
-    padding:40rpx 0;
+    height:160rpx;
     background:#fff;
+    border-top: 2rpx solid #F1F1F1;
+    border-bottom:2rpx solid #F1F1F1;
+    box-sizing:border-box;
+}
+ .single_item{
+    flex-grow: 1;
+    height:100%;
+    border-right:2rpx solid #F1F1F1;
+    box-sizing:border-box;
 }
 .classify_box image{
     width:80rpx;
@@ -139,10 +149,19 @@
 }
 .classify_box text{
     font-size:28rpx;
-    color:#333;
-    margin-top:15rpx;
+    color:#5d5d5d;
+    margin-top:10rpx;
 }
-
+.menu_box{
+    height:160rpx;
+    background:#fff;
+    margin-bottom:20rpx;
+}
+.menu_box .active{
+    position:absolute;
+    bottom:-5rpx;
+    border-bottom:5rpx solid #89C765;
+}
 .truesure_box{
     background:#fff;
     /*height:339rpx;*/
@@ -234,25 +253,7 @@
 
 /*团购*/
 .m_list{
-    padding-right:20rpx;
-    /*margin-bottom:103rpx;*/
     flex:1;
-    /*height:600rpx;*/
-}
-.m_menu{
-    /*height:100%;*/
-    width:160rpx;
-    background: #F7F8F9;
-}
-.m_menu view{
-    height:93rpx;
-    line-height:93rpx;
-    text-align:center;
-}
-.m_menu .active{
-    background:#fff;
-    border-left:10rpx solid #8DD26A ;
-    box-sizing:border-box;
 }
 .m_con{
     height:100%;
@@ -272,20 +273,18 @@
     line-height:51rpx;
     text-align:center;
 }
-.m_con .good_image{
-    width:189rpx;
-    height:189rpx;
-    background:#F8F6F7;
-    margin-right:6rpx;
-}
 .m_con .good_image image{
-    width:164rpx;
-    height:164rpx;
+    width:245rpx;
+    height:245rpx;
+    margin-right:20rpx;
 }
 .m_con .goods_con{
-    margin-bottom:64rpx;
     position:relative;
-    min-height:189rpx;
+    padding:30rpx;
+    border-bottom:1rpx solid #DADADA;
+}
+.m_con .goods_con:last-child{
+    border-bottom:none;
 }
 .m_con .curr_menu{
     height:93rpx;
@@ -335,8 +334,7 @@
     left:0;
     width:100%;
     height:103rpx;
-    background:#F6F6F6;
-    border-top:1px solid #E5E5E5;
+    background:rgba(0,0,0,0.7);
     border-bottom:1px solid #E5E5E5;
 }
 
