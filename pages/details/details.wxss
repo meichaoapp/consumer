@@ -5,9 +5,23 @@
 }
 .top_image{
     width:100%;
+    position:relative;
 }
 .top_image image{
     width:100%;
+}
+.price_box{
+    height:80rpx;
+    padding:10rpx 30rpx;
+    background-image: linear-gradient(-262deg, #81C95A 3%, #3C920D 100%);
+}
+.price_box .left_part{
+    flex:1;
+}
+.price_box .timer_box{
+    width:216rpx;
+    align-items:flex-end;
+    border-left:1rpx dashed #fff;
 }
 .goods_intro{
     padding:25rpx 30rpx;
@@ -16,23 +30,26 @@
     flex:1;
 }
 .left .icon_sale{
-    width:112rpx;
-    height:30rpx;
-    line-height:30rpx;
-    text-align:center;
-    border-radius:5rpx;
-    background:#FF9000;
-    color:#fff;
+    width:113rpx;
+    height:37rpx;
     margin-top:6rpx;
     margin-right:10rpx;
+    position:relative;
+}
+.left .icon_sale image{
+    width:113rpx;
+    height:37rpx;
+}
+.icon_sale .txt{
+    position:absolute;
+    left:10rpx;
 }
 .left .name{
-    flex:1;
-    line-height:42rpx;
+    line-height:54rpx;
+    float:left;
 }
 .right{
-    width:100rpx;
-    border-left:1px solid #979797;
+    width:147rpx;
     position:relative;
 }
 
@@ -249,4 +266,62 @@ button.contact_btn::after{
 .fixed_right view{
     color:#fff;
     font-size:20rpx;
+}
+.float_box{
+    position:relative;
+}
+.float_box .tip{
+    position:absolute;
+    top:390rpx;
+    left:120rpx;
+}
+.sure_btn{
+    width:400rpx;
+    height:88rpx;
+    background: #81C95A;
+    color:#fff;
+    text-align:center;
+    line-height:88rpx;
+    border-radius: 40.5rpx;
+    font-size:36rpx;
+    position:absolute;
+    bottom:120rpx;
+    left:76rpx;
+
+}
+.float_box image{
+    width:545rpx;
+    height:760rpx;
+}
+.progress_box{
+    padding:0 30rpx;
+    height:78rpx;
+    border-top: 1px solid #E8E8E8;
+}
+.progress{
+    width:443rpx;
+    height:12rpx;
+}
+
+.has_sale{
+    width:150rpx;
+}
+.has_soldout{
+    width:210rpx;
+    height:210rpx;
+    border-radius:50%;
+    background: rgba(0,0,0,0.5);
+    text-align:center;
+    line-height:210rpx;
+}
+.soldOut_box{
+    width:100%;
+    height:100%;
+    opacity:0.78;
+    background:#FFFFFF;
+    position:absolute;
+    top:0;
+    display:flex;
+    align-items:center;
+    justify-content:center;
 }

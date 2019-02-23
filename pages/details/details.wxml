@@ -1,24 +1,44 @@
-<import src="../../components/loading/loading.wxml" />
-<template is="loading" data="{{ ...$wux.loading }}" />
+<import src="../../components/loading/loading.wxml"/>
+<template is="loading" data="{{ ...$wux.loading }}"/>
 
-<import src="../../components/toast/toast.wxml" />
-<template is="toast" data="{{ ...$wux.toast }}" />
+<import src="../../components/toast/toast.wxml"/>
+<template is="toast" data="{{ ...$wux.toast }}"/>
 
 <view class="detail_box container">
     <!-- 商品图片 -->
     <view class="top_image">
-       <image src="{{detail.goodsPic}}"mode="widthFix"></image>
+        <image src="{{detail.goodsPic}}" mode="widthFix"></image>
+        <view class="soldOut_box">
+            <view class="has_soldout font18 cfff">已下架</view>
+        </view>
+    </view>
+    <view class="price_box flex flex_between">
+        <view class="left_part flex flex_center">
+            <text class="font15 cfff">团购价:</text>
+            <view class="cfff strong ml15">￥
+                <text class="font21 cfff">{{detail.price}}</text>
+            </view>
+            <view class="old_price font12 cfff">￥{{detail.marketPrice}}</view>
+        </view>
+        <view class="timer_box flex flex_colum flex_center">
+            <text class="font12 cfff">距结束仅剩</text>
+            <text class="font12 cfff mt2">09天21:08:22</text>
+        </view>
     </view>
     <view class="goods_intro bg_ff">
         <view class="goods_name flex flex_between">
             <view class="left flex">
-                <view class="icon_sale font12">今日特卖</view>
-                <view class="name font15">{{detail.title}}</view>
+                <view class="icon_sale font12">
+                    <image src="/static/images/icon_sale.png"></image>
+                    <text class="txt cfff font12">今日特卖</text>
+                </view>
+                <text class="name font18 strong">{{detail.title}}</text>
             </view>
             <view class="right">
-                <button class="share_btn  flex flex_colum flex_center flex_just" open-type='share' bindtap='onShareAppMessage'>
+                <button class="share_btn  flex flex_colum flex_center flex_just" open-type='share'
+                        bindtap='onShareAppMessage'>
                     <image class="icon_share" src="{{basePath}}/share.png"></image>
-                    <view class="C666 font12">分享</view>
+                    <view class="C666 font12">分享好友</view>
                 </button>
             </view>
         </view>
@@ -32,20 +52,38 @@
                 <text class="old_price font12 C666">￥{{detail.marketPrice}}</text>
             </view>
             <view class="flex flex_colum flex_end">
-                <view wx:if="{{detail.status == 1}}" class="timer C666 font12">距结束{{detail.hour}}:{{detail.min}}:{{detail.sec}}</view>
-                <view class="flex mt10">
-                    <view class="progress">
-                        <view wx:if="{{detail.joinNum <= detail.limitNum }}" class="progress_bar" style="width:{{(detail.joinNum/detail.limitNum)*100+'%'}}">
-                            <view class="bg_ff"></view>
-                        </view>
-                        <view wx:else class="progress_bar" style="width:{{(1/1)*100+'%'}}">
-                            <view class="bg_ff"></view>
-                        </view>
-                    </view>
-                    <text class="C666 font10">{{detail.joinNum}}/{{detail.limitNum}}</text>
+                <view wx:if="{{detail.status == 1}}" class="timer C666 font12">
+                    距结束{{detail.hour}}:{{detail.min}}:{{detail.sec}}
                 </view>
+                <!--<view class="flex mt10">-->
+                    <!--<view class="progress">-->
+                        <!--<view wx:if="{{detail.joinNum <= detail.limitNum }}" class="progress_bar"-->
+                              <!--style="width:{{(detail.joinNum/detail.limitNum)*100+'%'}}">-->
+                            <!--<view class="bg_ff"></view>-->
+                        <!--</view>-->
+                        <!--<view wx:else class="progress_bar" style="width:{{(1/1)*100+'%'}}">-->
+                            <!--<view class="bg_ff"></view>-->
+                        <!--</view>-->
+                    <!--</view>-->
+                    <!--<text class="C666 font10">{{detail.joinNum}}/{{detail.limitNum}}</text>-->
+                <!--</view>-->
 
             </view>
+        </view>
+    </view>
+    <view class="progress_box flex flex_center bg_ff">
+        <view class="has_sale font12 C666">已售：2000</view>
+        <view class="flex mt10 flex_1 flex_end">
+            <view class="progress">
+                <view wx:if="{{detail.joinNum <= detail.limitNum }}" class="progress_bar"
+                      style="width:{{(detail.joinNum/detail.limitNum)*100+'%'}}">
+                    <view class="bg_ff" wx:if="{{detail.joinNum>2}}"></view>
+                </view>
+                <view wx:else class="progress_bar" style="width:{{(1/1)*100+'%'}}">
+                    <view class="bg_ff" wx:if="{{detail.joinNum>2}}"></view>
+                </view>
+            </view>
+            <text class="C666 font14">{{detail.joinNum}}/{{detail.limitNum}}</text>
         </view>
     </view>
     <!-- 团长介绍 -->
@@ -63,7 +101,7 @@
                     </view>
                     <view class="flex flex_center">
                         <image class="icon_link" src="https://wxpic.iliangpin.cn/meichao/link.png"></image>
-                        <text class="C666">{{merchant.merchantPhone}}</text>
+                        <text class="C666" catchtap="copyPhone">{{merchant.merchantPhone}}</text>
                     </view>
                 </view>
                 <view class="address_box flex">
@@ -78,11 +116,11 @@
                 <view>精品保证</view>
             </view>
             <view class="flex flex_center">
-                <image  class="icon_select" src="https://wxpic.iliangpin.cn/meichao/selected.png"></image>
+                <image class="icon_select" src="https://wxpic.iliangpin.cn/meichao/selected.png"></image>
                 <view>极速送达</view>
             </view>
             <view class="flex flex_center">
-                <image  class="icon_select" src="https://wxpic.iliangpin.cn/meichao/selected.png"></image>
+                <image class="icon_select" src="https://wxpic.iliangpin.cn/meichao/selected.png"></image>
                 <view>自提可选</view>
             </view>
         </view>
@@ -92,13 +130,13 @@
     <view class="group_buy_desc bg_ff">
         <view class="title font15">团购描述</view>
         <view class="con C666">
-            <import src="../../lib/wxParse/wxParse.wxml" />
-            <template is="wxParse" data="{{wxParseData:goodsDetail.nodes}}" />
+            <import src="../../lib/wxParse/wxParse.wxml"/>
+            <template is="wxParse" data="{{wxParseData:goodsDetail.nodes}}"/>
         </view>
     </view>
 
     <!--参团成员-->
-    <view  wx:if="{{friensList != null && friensList.length > 0}}"  class="mem_box bg_ff flex flex_colum">
+    <view wx:if="{{friensList != null && friensList.length > 0}}" class="mem_box bg_ff flex flex_colum">
         <view class="title font15">参团成员</view>
         <view class="portrait_box">
             <view class="portrait" wx:for="{{friensList}}" wx:key="{{item.id}}">
@@ -112,14 +150,14 @@
     <!-- 图文详情 -->
     <view class="graphic_details bg_ff">
         <view class="graphic_details_title font15">图文详情</view>
-        <view  wx:for="{{detail.pics}}" wx:key="{{item.index}}">
+        <view wx:for="{{detail.pics}}" wx:key="{{item.index}}">
             <image src="{{item}}" mode="withFix"></image>
         </view>
 
     </view>
     <view class="fixed_box flex">
         <view class="part_one flex flex_center bg_ff">
-            <view bindtap='toIndex' class="home flex flex_colum flex_center flex_just" >
+            <view bindtap='toIndex' class="home flex flex_colum flex_center flex_just">
                 <image class="icon_home" src="https://wxpic.iliangpin.cn/meichao/home.png"></image>
                 <view class="C999 font12">首页</view>
             </view>
@@ -130,14 +168,30 @@
                 </button>
             </view>
         </view>
-        <view class="part_two flex flex_center">
+        <!--<view class="part_two flex flex_center">
             <view bindtap='addCart' class="cfff font15">加入购物车</view>
             <view bindtap='toOrderConfirm' class="cfff font15">立即购买</view>
+        </view>-->
+        <!--已下架-->
+        <view class="part_two flex flex_center">
+            <view class="cfff font15" style="background:#A2A2A2">加入购物车</view>
+            <view  class="cfff font15" style="background: #CFCFCF;">立即购买</view>
         </view>
     </view>
 
     <view bindtap='toIndex' class="fixed_right flex flex_center flex_just flex_colum">
         <image src="/static/images/icon_home.png"></image>
         <view>美超首页</view>
+    </view>
+    <!--复制团长手机号成功-->
+    <view class="mask"  wx:if="{{showModal}}">
+        <view class="float_box">
+            <image src="/static/images/bindSuccess.png"></image>
+            <view class="tip">
+                <view class="C8181 font16" style="text-align:center;margin-bottom:15rpx;">温馨提示</view>
+                <view class="C860 font18">您已复制团长手机号</view>
+            </view>
+            <view class="sure_btn" bindtap="closeFloat">确认</view>
+        </view>
     </view>
 </view>

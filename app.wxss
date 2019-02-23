@@ -69,6 +69,9 @@ view,text{
 .mt13{
   margin-top: 13px;
 }
+.mt2{
+  margin-top:4rpx;
+}
 .mt5{
   margin-top:10rpx;
 }
@@ -95,6 +98,9 @@ view,text{
 }
 .ml10{
   margin-left: 10rpx;
+}
+.ml15{
+  margin-left:15rpx;
 }
 .mt20{
   margin-top: 20rpx;
@@ -326,6 +332,12 @@ view,text{
 }
 .bg_ff{
   background:#fff;
+}
+.bg_a2a2{
+  background: #A2A2A2;
+}
+.bg_cfcf{
+  background: #CFCFCF;
 }
 .br5{
   border-radius:5px;
