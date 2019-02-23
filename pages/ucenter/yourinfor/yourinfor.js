@@ -137,7 +137,7 @@ Page({
     var data = {
       userId: _this.data.userInfo.id,
       phone: _this.data.phone,  //电话	      
-      type: 1001,  //类型 1001 添加、修改个人信息验证码	    
+      type: "mc_1001",  //类型 1001 添加、修改个人信息验证码	    
     };
     util.request(api.GetVerifiCode, data, "POST").then(function (res) {
       if (res.rs === 1) {

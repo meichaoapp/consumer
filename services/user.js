@@ -48,7 +48,7 @@ function wxLogin(userInfo) {
           //存储用户信息
           wx.setStorageSync('userInfo', res.data.user);
           wx.setStorageSync('token', res.data.token);
-
+          res.code = code;
           resolve(res);
         } else {
           reject(res);

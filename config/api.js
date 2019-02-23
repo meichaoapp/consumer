@@ -42,7 +42,10 @@ module.exports = {
   GetVerifiCode: NewApiRootUrl + "common/sendMsg", //短信验证码
   QueryGifts: NewApiRootUrl + "common/getgifts",//获取流量超市优惠券
   CollectLogs: NewApiRootUrl + "common/logCollection",//日志采集
-  BindMobile: NewApiRootUrl + "common/savePhone",//绑定手机号
 
+  ///绑定手机号相关
+  BindMobile: NewApiRootUrl + "common/savePhone",//绑定手机号
+  PareseMobile: NewApiRootUrl + "consumer/getPhoneNumber",//绑定手机号
+  PareseMobile: NewApiRootUrl + "consumer/getPhoneNumber",//绑定手机号
 
 };

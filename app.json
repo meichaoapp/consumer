@@ -21,7 +21,6 @@
     "pages/auth/login/login",
     "pages/auth/mobileBind/mobileBind",
     "pages/auth/mobileBind/normalBind",
-    "pages/auth/mobileBind/wxBind",
 
 
 
