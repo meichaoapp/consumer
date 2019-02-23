@@ -325,3 +325,12 @@ button.contact_btn::after{
     align-items:center;
     justify-content:center;
 }
+.connect_wx{
+    border: 1px solid #02AE00;
+    border-radius: 5rpx;
+    color:#02AE00;
+    width:168rpx;
+    height:50rpx;
+    text-align:center;
+    line-height:50rpx;
+}

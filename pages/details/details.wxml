@@ -46,7 +46,7 @@
         <view class="goods_dec C666 font12">
             {{detail.comments}}
         </view>
-        <view class="goods_price flex flex_center flex_between">
+        <!--<view class="goods_price flex flex_center flex_between">
             <view>
                 <text class="c_f3f font24 ">￥{{detail.price}}</text>
                 <text class="old_price font12 C666">￥{{detail.marketPrice}}</text>
@@ -55,21 +55,21 @@
                 <view wx:if="{{detail.status == 1}}" class="timer C666 font12">
                     距结束{{detail.hour}}:{{detail.min}}:{{detail.sec}}
                 </view>
-                <!--<view class="flex mt10">-->
-                    <!--<view class="progress">-->
-                        <!--<view wx:if="{{detail.joinNum <= detail.limitNum }}" class="progress_bar"-->
-                              <!--style="width:{{(detail.joinNum/detail.limitNum)*100+'%'}}">-->
-                            <!--<view class="bg_ff"></view>-->
-                        <!--</view>-->
-                        <!--<view wx:else class="progress_bar" style="width:{{(1/1)*100+'%'}}">-->
-                            <!--<view class="bg_ff"></view>-->
-                        <!--</view>-->
-                    <!--</view>-->
-                    <!--<text class="C666 font10">{{detail.joinNum}}/{{detail.limitNum}}</text>-->
-                <!--</view>-->
+                <view class="flex mt10">
+                    <view class="progress">
+                        <view wx:if="{{detail.joinNum <= detail.limitNum }}" class="progress_bar"
+                              style="width:{{(detail.joinNum/detail.limitNum)*100+'%'}}">
+                            <view class="bg_ff"></view>
+                        </view>
+                        <view wx:else class="progress_bar" style="width:{{(1/1)*100+'%'}}">
+                            <view class="bg_ff"></view>
+                        </view>
+                    </view>
+                    <text class="C666 font10">{{detail.joinNum}}/{{detail.limitNum}}</text>
+                </view>
 
             </view>
-        </view>
+        </view>-->
     </view>
     <view class="progress_box flex flex_center bg_ff">
         <view class="has_sale font12 C666">已售：2000</view>
@@ -91,8 +91,11 @@
         <view class="merchant_name_con flex flex_between">
             <image class="left_part" src="{{merchant.logo}}"></image>
             <view class="right_part">
-                <view class="font15">
-                    {{merchant.merchantName}}
+                <view class="flex flex_between">
+                    <view class="font15">
+                        {{merchant.merchantName}}
+                    </view>
+                    <view class="connect_wx font12">微信联系团长</view>
                 </view>
                 <view class="flex flex_center mt5">
                     <view class="flex flex_center first_child">
