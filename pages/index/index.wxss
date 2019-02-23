@@ -360,6 +360,7 @@
 }
 .total_money{
     font-size:36rpx;
+    margin-left:40rpx;
 }
 .icon_settle{
     background:#81C95A;
