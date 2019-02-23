@@ -38,6 +38,7 @@ Page({
         goodsList: [],//团购商品列表
         cartselfGoodsList: [],//购物车自营商品列表
         cartmerchatGoodsList: [],//购物车团购商品列表
+        cartcouponGoodsList: [],//优惠券商品列表
         needPay:0.00, // 购物车核算价格
         goodsNums:0, //商品数量
         num:0,//和index相比，控制左侧显示激活状态样式
@@ -476,6 +477,7 @@ Page({
       var _arr = cart.loadCart();//购物车商品
       var cartselfGoodsList = [];
       var cartmerchatGoodsList = [];
+      var cartcouponGoodsList = [];
       //console.log("cart goods ---" + JSON.stringify(_arr));
       if (null != _arr && _arr.length > 0) {
         var len = _arr.length;
@@ -485,6 +487,8 @@ Page({
             cartmerchatGoodsList.push(_arr[i]);
           } else if (productType == 3) {
             cartselfGoodsList.push(_arr[i]);
+          } else if (productType == 5) {
+            cartcouponGoodsList.push(_arr[i]);
           }
         }
       }
@@ -493,6 +497,7 @@ Page({
         goodsNums: cart.loadGooodsNums(), //商品数量
         cartselfGoodsList: cartselfGoodsList,//购物车自营商品列表
         cartmerchatGoodsList: cartmerchatGoodsList,//购物车团购商品列表
+        cartcouponGoodsList: cartcouponGoodsList, //优惠券列表
       });
     },
     //减

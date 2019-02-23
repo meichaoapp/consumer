@@ -42,59 +42,6 @@
             </view>
         </view>
     </view>
-
-    <!-- 一元夺宝 -->
-    <!-- <view class="truesure_box">
-        <view class="headline flex flex_center flex_between">
-            <view class="flex flex_baseline">
-                <text class="icon_bg"></text>
-                <text class="strong ml10 mr20">一元夺宝</text>
-                <text>分享朋友，机会翻倍</text>
-            </view>
-            <navigator url="/pages/shopping/dollarTreasure/dollarTreasure">
-              <view class="flex flex_center">
-                  <text>查看更多</text>
-                  <image class="icon_go" src="../../static/images/go.png"></image>
-              </view>
-            </navigator>
-        </view>
-        <view class="con flex flex_between">
-          <block wx:for="{{treasures}}" wx:key="{{item.id}}">
-          <navigator url='/pages/shopping/dollarTreasureDetail/dollarTreasureDetail?tag=0&id={{item.treasureId}}&orderId={{item.orderId}}'>
-            <view class="single_box br5" >
-                <view class="top flex flex_between">
-                    <image class="pre_img" src="{{item.url}}"></image>
-                    <view class="content">
-                        <view class="font15 ellipsis_2">{{item.name}}</view>
-                        <view class="mt6">
-                            <text class="curr_price">￥{{item.price}}</text>
-                            <text class="old_price">￥{{item.marketPrice}}</text>
-                        </view>
-                    </view>
-                </view>
-                <view class="progress">
-                    <view class="progress_bar" style="width:{{(item.joinNum/item.limitNum)*100+'%'}}">
-                        <view class="bg_ff"></view>
-                    </view>
-                </view>
-                <view class="bottom flex flex_between flex_center bg_ff">
-                    <view class="timer">
-                        <text>{{item.hour}}</text> :
-                        <text>{{item.min}}</text> :
-                        <text>{{item.sec}}</text>
-                    </view>
-                    <view wx:if="{{item.status == 0}}" class="state">
-                        马上抢
-                    </view>
-                    <view wx:else class="state check">
-                        查看颁奖
-                    </view>
-                </view>
-            </view>
-          </navigator>
-          </block>
-        </view>
-    </view> -->
     <!-- 团购商品列表  -->
     <view class="m_list flex flex_between bg_ff" style='margin-top:6rpx;'>
         <scroll-view scroll-y="true" bindscrolltolower='lower' style="height:459px" class="scroll_view">
@@ -265,6 +212,24 @@
 
         <view wx:if="{{cartselfGoodsList != null && cartselfGoodsList.length > 0}}" class="classify_title">店铺自营商品</view>
         <view wx:for="{{cartselfGoodsList}}" wx:key="{{item.index}}" style='margin-bottom: 30rpx;' data-id="{{item.id}}"
+              class="classify_con">
+            <view class="classify_item flex flex_center flex_between">
+                <text class="goods_name  ellipsis font16">{{item.name}}</text>
+                <view class="right_part flex flex_between">
+                    <text class="font16">￥{{item.price}}</text>
+                    <view class="set_car flex flex_center">
+                        <image bindtap='cutNumber' data-id='{{item.id}}'
+                               src="https://wxpic.iliangpin.cn/meichao/minus.png"></image>
+                        <text class="count">{{item.number}}</text>
+                        <image bindtap='addNumber' data-id='{{item.id}}'
+                               src="https://wxpic.iliangpin.cn/meichao/plus.png"></image>
+                    </view>
+                </view>
+            </view>
+        </view>
+
+        <view wx:if="{{cartcouponGoodsList != null && cartcouponGoodsList.length > 0}}" class="classify_title">优惠券</view>
+        <view wx:for="{{cartcouponGoodsList}}" wx:key="{{item.index}}" style='margin-bottom: 30rpx;' data-id="{{item.id}}"
               class="classify_con">
             <view class="classify_item flex flex_center flex_between">
                 <text class="goods_name  ellipsis font16">{{item.name}}</text>
