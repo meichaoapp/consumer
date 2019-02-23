@@ -218,10 +218,11 @@ Page({
       count: _this.data.count + 1,
     });
     var wxUser = e.detail.userInfo;
-    console.log("userInfo" + wxUser)
+    console.log("userInfo---------------------" + JSON.stringify(wxUser))
     user.wxLogin(wxUser).then(res => {
       if (res.rs == 1) {
         var userInfo = res.data.user;
+        var session_key = userInfo.session_key;
         console.log("userInfo--------" + JSON.stringify(userInfo))
         _this.setData({
           userInfo: userInfo
@@ -245,7 +246,7 @@ Page({
         console.log("bindingPhone --- " + bindingPhone);
         if(null == bindingPhone || "" == bindingPhone) { // 未绑定手机号
           wx.navigateTo({
-            url: '/pages/auth/mobileBind/mobileBind',
+            url: '/pages/auth/mobileBind/mobileBind?session_key=' + session_key,
           })
         }else{ // 已绑定
           wx.switchTab({
