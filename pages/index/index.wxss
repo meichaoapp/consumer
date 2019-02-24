@@ -453,6 +453,12 @@
     overflow:auto;
     margin-bottom:100rpx;
 }
+.icon_tag{
+    width:32rpx;
+    height:32rpx;
+    margin-right:10rpx;
+    margin-top:6rpx;
+}
 .classify_title{
     height:51rpx;
     line-height:51rpx;
@@ -543,4 +549,45 @@ input{
     position:absolute;
     bottom:36rpx;
     right:0;
+}
+
+/*切换社区*/
+.change_merchant_tip{
+    width:80%;
+    height:625rpx;
+    position:absolute;
+    left:0;
+    top:0;
+    right:0;
+    bottom:0;
+    margin:auto;
+    border-radius:10rpx;
+}
+.change_merchant_tip image{
+    width:174rpx;
+    height:174rpx;
+    margin:40rpx 0;
+    margin-top:80rpx;
+}
+.txt{
+    width:420rpx;
+    line-height:42rpx;
+    text-align:center
+}
+.btn_box{
+    margin-top:80rpx;
+}
+.btn_box view{
+    width:257rpx;
+    height:64rpx;
+    line-height:64rpx;
+    text-align:center;
+    border-radius: 37.5rpx;
+}
+.btn_sure{
+    margin-right:30rpx;
+    background: #FFCF3B;
+}
+.btn_cancel{
+    background: #89C765;
 }

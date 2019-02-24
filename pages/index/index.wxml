@@ -58,7 +58,10 @@
                             </navigator>
                             <view class="content flex flex_colum">
                                 <navigator url="/pages/details/details?source=0&id={{item.id}}">
-                                    <view class="name ellipsis_2 font16">{{item.name}}</view>
+                                    <view class="flex">
+                                        <image class="icon_tag" src="/static/images/icon_share.png"></image>
+                                        <view class="name ellipsis_2 font16 flex_1" style="width:0">{{item.name}}</view>
+                                    </view>
                                 </navigator>
                                 <navigator url="/pages/details/details?source=0&id={{item.id}}">
                                     <view class="desc ellipsis">{{item.comments}}</view>
@@ -89,7 +92,10 @@
                                 <image src="{{item.url}}"></image>
                             </view>
                             <view class="content flex flex_colum">
-                                <view class="name ellipsis_2">{{item.name}}</view>
+                                <view class="flex">
+                                    <image class="icon_tag" src="/static/images/icon_share.png"></image>
+                                    <view class="name ellipsis_2 flex_1" style="width:0;">{{item.name}}</view>
+                                </view>
                                 <view class="desc ellipsis">{{item.comments}}</view>
                                 <view class="flex flex_between" style="flex:1;">
                                     <view class="price_box flex flex_center">
@@ -120,7 +126,20 @@
             </view>
         </scroll-view>
     </view>
-
+    <!--切换社团弹层-->
+    <!--<view class="mask">
+        <view class="change_merchant_tip bg_ff">
+            <view class="flex flex_colum flex_center flex_just">
+                <image src="/static/images/Bitmap.png"></image>
+                <view class="txt C999">您访问的链接并非上次登录社区</view>
+                <view class="txt C999">切换将清空购物车</view>
+            </view>
+            <view class="btn_box flex flex_just">
+                <view class="btn_sure cfff font15">确认切换</view>
+                <view class="btn_cancel cfff font15">不切换</view>
+            </view>
+        </view>
+    </view>-->
 
 </view>
 <!--<view class="n-bottom" hidden="{{hideBottom}}">

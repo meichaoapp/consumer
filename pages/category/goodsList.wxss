@@ -36,7 +36,8 @@ input{
 }
 .on{
     border-bottom:2px solid #79C54C;
-    color:#79C54C
+    color:#79C54C;
+    font-weight:bold;
 }
 
 
