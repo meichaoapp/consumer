@@ -463,3 +463,29 @@ view,text{
 }
 
 
+.float_box{
+    position:relative;
+}
+.float_box .tip{
+    position:absolute;
+    top:390rpx;
+    left:120rpx;
+}
+.sure_btn{
+    width:400rpx;
+    height:88rpx;
+    background: #81C95A;
+    color:#fff;
+    text-align:center;
+    line-height:88rpx;
+    border-radius: 40.5rpx;
+    font-size:36rpx;
+    position:absolute;
+    bottom:120rpx;
+    left:76rpx;
+
+}
+.float_box image{
+    width:545rpx;
+    height:760rpx;
+}
