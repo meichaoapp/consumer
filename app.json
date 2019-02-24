@@ -24,6 +24,7 @@
 
 
     "pages/shopping/coupon/coupon",
+    "pages/shopping/couponDetail/couponDetail",
     "pages/shopping/dollarTreasureDetail/dollarTreasureDetail",
     "pages/shopping/dollarTreasureDetail/success",
     "pages/shopping/mydollarTreasure/mydollarTreasure",

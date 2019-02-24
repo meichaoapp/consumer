@@ -1,0 +1,84 @@
+
+.container{
+    height:100%;
+}
+.order_box{
+    padding:30rpx;
+    margin-top:20rpx;
+}
+.merchant_box{
+    margin-top:20rpx;
+}
+.merchant_box .title{
+    height:99rpx;
+    padding:0 30rpx;
+    border-bottom:1px solid #E8E8E8;
+}
+.merchant_box .title image{
+    width:43rpx;
+    height:43rpx;
+    border-radius:5rpx;
+    margin-right:20rpx;
+}
+.merchant_box .con{
+    padding:20rpx 30rpx;
+}
+.merchant_name{
+    margin-right:120rpx;
+}
+.icon_user{
+    width:22rpx;
+    height:25rpx;
+    margin-right:6rpx;
+}
+.icon_link{
+    width:25rpx;
+    height:25rpx;
+    margin-right:6rpx;
+}
+.wx_btn{
+    width:168rpx;
+    height:50rpx;
+    color:#02AE00;
+    border: 1px solid #02AE00;
+    border-radius: 5rpx;
+    text-align:center;
+    line-height:50rpx;
+}
+.icon_address{
+    width:20rpx;
+    height:25rpx;
+    margin-right:6rpx;
+}
+.user{
+    margin-bottom:12rpx;
+}
+
+.coupon_desc{
+    padding:20rpx 70rpx;
+    margin-top:20rpx;
+    margin-bottom:40rpx;
+}
+.coupon_con{
+    padding-top:40rpx;
+}
+.qrcode image{
+    width:293rpx;
+    height:293rpx;
+    margin-bottom:10rpx;
+}
+.qrcode view{
+    width:293rpx;
+    line-height:40rpx;
+    text-align:center;
+}
+.dot{
+    width:10rpx;
+    height:10rpx;
+    margin-right:6rpx;
+    border-radius:50%;
+    background: #7CBF3A;
+}
+.common_lineHeight{
+    line-height:50rpx;
+}
