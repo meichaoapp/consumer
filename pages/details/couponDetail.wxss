@@ -1,0 +1,124 @@
+.container{
+    height:100%;
+}
+.coupon_box{
+    background: #FFFFFF;
+    box-shadow: 0 2px 15px 0 rgba(0,0,0,0.14);
+    border-radius: 10px;
+    width:710rpx;
+    position:relative;
+    padding:0 30rpx;
+    padding-bottom:60rpx;
+}
+.top_info{
+    margin-top:100rpx;
+    border-bottom: 1px dashed #C8C8C8;
+}
+.top_part .name{
+    margin-bottom:12rpx;
+
+}
+.share{
+    width:188rpx;
+    height:64rpx;
+    background: #FB6B2B;
+    position:absolute;
+    right:0;
+    top:0;
+    margin-bottom:25rpx;
+}
+.share image{
+    width:26rpx;
+    height:26rpx;
+}
+.progress_box{
+    margin-top:25rpx;
+    margin-bottom:42rpx;
+}
+.progress{
+    width:443rpx;
+    height:15rpx;
+}
+.progress_bar view{
+    top:4rpx;
+}
+.merchant_box{
+    border-bottom:1px dashed #C8C8C8;
+}
+.merchant_box .title{
+    height:99rpx;
+    padding:0 30rpx;
+}
+.merchant_box .title image{
+    width:43rpx;
+    height:43rpx;
+    border-radius:5rpx;
+    margin-right:20rpx;
+}
+.merchant_box .con{
+    padding:20rpx 30rpx;
+}
+.merchant_name{
+    margin-right:120rpx;
+}
+.icon_user{
+    width:22rpx;
+    height:25rpx;
+    margin-right:6rpx;
+}
+.icon_link{
+    width:25rpx;
+    height:25rpx;
+    margin-right:6rpx;
+}
+.wx_btn{
+    width:168rpx;
+    height:50rpx;
+    color:#02AE00;
+    border: 1px solid #02AE00;
+    border-radius: 5rpx;
+    text-align:center;
+    line-height:50rpx;
+}
+.address_box view{
+    line-height:40rpx;
+}
+.icon_address{
+    width:20rpx;
+    height:25rpx;
+    margin-right:6rpx;
+    margin-top:10rpx;
+}
+.user{
+    margin-bottom:12rpx;
+}
+.coupon_con{
+    padding-top:40rpx;
+}
+.dot{
+    width:10rpx;
+    height:10rpx;
+    margin-right:6rpx;
+    border-radius:50%;
+    background: #7CBF3A;
+}
+.common_lineHeight{
+    line-height:50rpx;
+}
+.btn_box{
+    margin-top:57rpx;
+}
+.btn_box view{
+    width:276rpx;
+    height:76rpx;
+    line-height:76rpx;
+    text-align:center;
+    border-radius: 37.5px;
+}
+.btn_addCar{
+    margin-right:36rpx;
+    background: #FFCF3B;
+}
+.btn_add{
+    background: #89C765;
+}

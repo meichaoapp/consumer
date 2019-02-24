@@ -1,0 +1,91 @@
+<view class="container flex flex_just">
+    <view class="coupon_box">
+        <view class="share flex flex_center flex_just">
+            <image></image>
+            <text class="font12 cfff">分享好友</text>
+        </view>
+        <!--顶部信息-->
+        <view class="top_info">
+            <view class="top_part flex flex_center flex_between">
+                <view>
+                    <view class="name font18 ">鱼库·不仅是一家烤鱼店9.1折</view>
+                    <view>
+                        <text>9.1折优惠券，全场通用</text>
+                        <text>限时优惠</text>
+                    </view>
+                </view>
+                <view class="font32 c_9000">￥5</view>
+            </view>
+            <view class="flex flex_between progress_box" >
+                <view class="progress">
+                    <view class="progress_bar">
+                        <view class="bg_ff"></view>
+                    </view>
+                </view>
+                <text class="c_f3f font15">仅剩2张</text>
+            </view>
+        </view>
+        <!--团长信息-->
+        <view class="merchant_box bg_ff">
+            <view class="title flex flex_between flex_center">
+                <view class="flex flex_center">
+                    <image src="http://101.201.213.248:8094/meichao/Bitmap.png"></image>
+                    <text class="font15 strong">团长名称</text>
+                </view>
+                <view class="wx_btn font12">微信联系团长</view>
+            </view>
+            <view class="con">
+                <view class="user flex flex_center">
+                    <view class="merchant_name flex flex_center">
+                        <image class="icon_user" src="https://wxpic.iliangpin.cn/meichao/user.png"></image>
+                        <text class="font14">张三丰</text>
+                    </view>
+                    <view class="flex flex_center">
+                        <image class="icon_link" src="https://wxpic.iliangpin.cn/meichao/link.png"></image>
+                        <text class="font14">138390384098</text>
+                    </view>
+                </view>
+                <view class="flex address_box">
+                    <image class="icon_address" src="https://wxpic.iliangpin.cn/meichao/location-icon.png"></image>
+                    <view class="font14">山东省日照市东港区大连路三好鲜生超市487号-401</view>
+                </view>
+            </view>
+        </view>
+        <!--优惠券使用说明-->
+        <view class="coupon_con">
+            <view class="flex">
+                <text class="font14">有效日期：</text>
+                <text class="font14 C999 common_lineHeight">2019.2.11 至 2020.2.11</text>
+            </view>
+            <view class="flex">
+                <text class="font14">适用范围：</text>
+                <text class="font14 C999 common_lineHeight">全场通用</text>
+            </view>
+            <view class="flex">
+                <text class="font14">使用规则：</text>
+                <view class="flex_1">
+                    <view class="flex flex_center">
+                        <view class="dot"></view>
+                        <text class="font14 C999 common_lineHeight">无需预约，消费高峰时可能需要等位</text>
+                    </view>
+                    <view class="flex flex_center">
+                        <view class="dot"></view>
+                        <text class="font14 C999 common_lineHeight">每人最多购买2张</text>
+                    </view>
+                    <view class="flex flex_center">
+                        <view class="dot"></view>
+                        <text class="font14 C999 common_lineHeight">每次消费只能使用1张</text>
+                    </view>
+                    <view class="flex flex_center">
+                        <view class="dot"></view>
+                        <text class="font14 C999 common_lineHeight">使用优惠券可打9.1折</text>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view class="btn_box flex flex_center flex_just">
+            <view class="btn_addCar font15 cfff">加入购物车</view>
+            <view class="btn_add font15 cfff">继续购买</view>
+        </view>
+    </view>
+</view>

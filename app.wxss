@@ -69,6 +69,9 @@ view,text{
 .mt13{
   margin-top: 13px;
 }
+.mt25{
+  margin-top:25rpx;
+}
 .mt2{
   margin-top:4rpx;
 }
@@ -369,6 +372,9 @@ view,text{
 .font25{
   font-size:50rpx;
 }
+.font32{
+  font-size:64rpx;
+}
 .C999{
   color:#999;
 }
@@ -396,6 +402,7 @@ view,text{
 .bg_9000{
   background:#FF9000
 }
+
 .c_9000{color:#FF9000}
 
 .c_f3f{

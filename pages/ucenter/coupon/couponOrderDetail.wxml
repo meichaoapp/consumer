@@ -29,7 +29,7 @@
                     <image class="icon_user" src="https://wxpic.iliangpin.cn/meichao/user.png"></image>
                     <text class="font14">张三丰</text>
                 </view>
-                <view class="flex flex_center">
+                <view class="flex">
                     <image class="icon_link" src="https://wxpic.iliangpin.cn/meichao/link.png"></image>
                     <text class="font14">138390384098</text>
                 </view>

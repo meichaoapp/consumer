@@ -49,6 +49,7 @@
     width:20rpx;
     height:25rpx;
     margin-right:6rpx;
+    margin-top:10rpx;
 }
 .user{
     margin-bottom:12rpx;
