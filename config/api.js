@@ -48,4 +48,7 @@ module.exports = {
   PareseMobile: NewApiRootUrl + "consumer/getPhoneNumber",//绑定手机号
   PareseMobile: NewApiRootUrl + "consumer/getPhoneNumber",//绑定手机号
 
+  ///优惠券相关 
+  QueryMyCouponList: NewApiRootUrl + "discountCoupon/mylist",//我的优惠券列表
+  
 };

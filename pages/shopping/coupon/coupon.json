@@ -1,5 +1,5 @@
 {
   "navigationBarTitleText": "我的优惠券",
-  "enablePullDownRefresh": false,
+  "enablePullDownRefresh": true,
   "backgroundTextStyle": "light"
 }

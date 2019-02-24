@@ -1,39 +1,45 @@
+<view class="header" hidden="{{hideHeader}}">
+    <view>下拉刷新中…</view>
+</view>
+
 <view class="container">
+
+  <scroll-view scroll-y="true"  class='section'>
     <view class="coupon_list">
-        <view class="coupon_item bg_ff flex flex_colum">
-            <!--未使用和已使用-->
-            <block>
-                <view class="desc flex flex_1 flex_center">
-                    <image class="icon_image" src="https://wxpic.iliangpin.cn/meichao/phone-background.png"></image>
-                    <view class="right_part">
-                        <view class="name font16 strong">鱼库·不仅是一家鱼店9.1折</view>
-                        <view class="font12 C999 txt">9.1折优惠券，全场通用</view>
-                        <view class="flex flex_between">
-                            <view class="c_f3f">￥2.00</view>
-                            <!--<view class="btn_common btn_unused cfff">未使用</view>-->
-                            <view class="btn_common btn_hasUsed cfff">已使用</view>
-                        </view>
-                    </view>
-                </view>
-                <view class="time C999">有效日期：2019-02-11~2020-01-30</view>
-            </block>
-        </view>
-        <!--已失效-->
-        <view class="coupon_item bg_ff flex flex_colum">
-            <block>
-            <view class="desc flex flex_1 flex_center">
-                <image class="icon_image" src="https://wxpic.iliangpin.cn/meichao/phone-background.png"></image>
-                <view class="right_part">
-                    <view class="name font16 strong" style="color:#898989">鱼库·不仅是一家鱼店9.1折</view>
-                    <view class="font12 C999 txt">9.1折优惠券，全场通用</view>
-                    <view class="flex flex_between">
-                        <view style="color:#A9A9A9">￥2.00</view>
-                        <view class="btn_common btn_hasExpired cfff">已过期</view>
-                    </view>
-                </view>
-            </view>
-            <view class="time C999">有效日期：2019-02-11~2020-01-30</view>
-        </block>
-        </view>
+
+       <block wx:for="{{couponList}}" wx:for-index="index" wx:for-item="item" wx:key="{{item.id}}">
+          <view class="coupon_item bg_ff flex flex_colum">
+              <!--未使用和已使用-->
+              <block>
+                  <view class="desc flex flex_1 flex_center">
+                      <image class="icon_image" src="{{item.url}}"></image>
+                      <view class="right_part">
+                          <view wx:if="{{item.status == 3}}" class="name font16 strong" style="color:#898989">{{item.title}}</view>
+                          <view wx:else class="name font16 strong">{{item.title}}</view>
+                          <view class="font12 C999 txt">9.1折优惠券，全场通用</view>
+                          <view class="flex flex_between">
+                              <view class="c_f3f">￥{{item.price}}</view>
+                              <view wx:if="{{item.status == 1}}" class="btn_common btn_unused cfff">未使用</view>
+                              <view wx:if="{{item.status == 2}}" class="btn_common btn_hasUsed cfff">已使用</view>
+                              <view wx:if="{{item.status == 3}}" class="btn_common btn_hasExpired cfff">已过期</view>
+                          </view>
+                      </view>
+                  </view>
+                  <view class="time C999">有效日期：{{item.validityDate}}</view>
+              </block>
+          </view>
+      </block>
+      
+    </view>
+   </scroll-view>
+   
+</view>
+ <view class="n-bottom" hidden="{{hideBottom}}">
+    <view>
+        <view class='transverseline'><text class='line'></text></view>
+
+        <text class='txt'>{{loadMoreData}}</text>
+
+        <view class='transverseline'><text class='line'></text></view>
     </view>
 </view>
