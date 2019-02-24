@@ -39,7 +39,7 @@
                     </view>
                 </view>
             </navigator> -->
-            <navigator url="/pages/shopping/coupon/coupon">
+            <navigator url="/pages/ucenter/coupon/coupon">
                 <view class="list_item my_coupon">
                     <view class="flex flex_center flex_between">
                         <view class="left_part flex flex_center">
