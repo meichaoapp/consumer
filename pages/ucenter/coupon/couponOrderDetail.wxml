@@ -3,79 +3,79 @@
     <view class="order_box bg_ff">
         <view class="flex flex_between">
             <text class="C999 font15">订单编号</text>
-            <text class="font15">20181121190008</text>
+            <text class="font15">{{detail.orderCode}}</text>
         </view>
         <view class="flex flex_between" style="margin:30rpx 0;">
             <text class="C999 font15">下单时间</text>
-            <text class="font15">2018/11/21 19:00:08</text>
+            <text class="font15">{{detail.joinTime}}</text>
         </view>
-        <view class="flex flex_between">
+        <view wx:if="{{detail.useTime != null}}" class="flex flex_between">
             <text class="C999 font15">使用时间</text>
-            <text class="font15">2018/11/22 19:00:08</text>
+            <text class="font15">{{detail.useTime}}</text>
         </view>
     </view>
     <!--团长信息-->
     <view class="merchant_box bg_ff">
         <view class="title flex flex_between flex_center">
             <view class="flex flex_center">
-                <image src="https://wxpic.iliangpin.cn/meichao/phone-background.png"></image>
-                <text class="font15 strong">团长名称</text>
+                <image src="{{merchant.logo}}"></image>
+                <text class="font15 strong">{{merchant.merchantName}}</text>
             </view>
-            <view class="wx_btn font12">微信联系团长</view>
+            <view class="wx_btn font12" catchtap='copyWxCode'>微信联系团长</view>
         </view>
         <view class="con">
             <view class="user flex flex_center">
                 <view class="merchant_name flex flex_center">
                     <image class="icon_user" src="https://wxpic.iliangpin.cn/meichao/user.png"></image>
-                    <text class="font14">张三丰</text>
+                    <text class="font14">{{merchant.merchantUserName}}</text>
                 </view>
-                <view class="flex">
+                <view class="flex flex_center" catchtap="copyPhone">
                     <image class="icon_link" src="https://wxpic.iliangpin.cn/meichao/link.png"></image>
-                    <text class="font14">138390384098</text>
+                    <text class="font14">{{merchant.merchantPhone}}</text>
                 </view>
             </view>
             <view class="flex flex_center">
                 <image class="icon_address" src="https://wxpic.iliangpin.cn/meichao/location-icon.png"></image>
-                <view>山东省日照市东港区大连路三好鲜生超市487号-401</view>
+                <view>{{merchant.address}}</view>
             </view>
         </view>
     </view>
     <!--购物券介绍-->
     <view class="coupon_desc bg_ff">
         <view class='qrcode flex flex_colum flex_center'>
-            <image src="https://wxpic.iliangpin.cn/20181215/1544856621665.png"></image>
+            <image src="{{detail.orderQRcode}}"></image>
             <view class="font14">请向店主出示此二维码</view>
         </view>
         <view class="coupon_con">
             <view class="flex">
                 <text class="font14">有效日期：</text>
-                <text class="font14 C999 common_lineHeight">2019.2.11 至 2020.2.11</text>
+                <text class="font14 C999 common_lineHeight">{{detail.validityDate}}</text>
             </view>
             <view class="flex">
                 <text class="font14">适用范围：</text>
-                <text class="font14 C999 common_lineHeight">全场通用</text>
+                <text class="font14 C999 common_lineHeight">{{detail.scope}}</text>
             </view>
             <view class="flex">
                 <text class="font14">使用规则：</text>
                 <view class="flex_1">
-                    <view class="flex flex_center">
-                        <view class="dot"></view>
-                        <text class="font14 C999 common_lineHeight">无需预约，消费高峰时可能需要等位</text>
-                    </view>
-                    <view class="flex flex_center">
-                        <view class="dot"></view>
-                        <text class="font14 C999 common_lineHeight">每人最多购买2张</text>
-                    </view>
-                    <view class="flex flex_center">
-                        <view class="dot"></view>
-                        <text class="font14 C999 common_lineHeight">每次消费只能使用1张</text>
-                    </view>
-                    <view class="flex flex_center">
-                        <view class="dot"></view>
-                        <text class="font14 C999 common_lineHeight">使用优惠券可打9.1折</text>
+                    <view class="flex flex_center font14 C999">
+                        {{detail.content}}
                     </view>
                 </view>
             </view>
         </view>
     </view>
+
+     <!--复制团长手机号成功-->
+    <view class="mask"  wx:if="{{showModal}}">
+        <view class="float_box">
+            <image src="/static/images/bindSuccess.png"></image>
+            <view class="tip">
+                <view class="C8181 font16" style="text-align:center;margin-bottom:15rpx;">温馨提示</view>
+                <view class="C860 font18">{{modalTitle}}</view>
+            </view>
+            <view class="sure_btn" bindtap="closeFloat">确认</view>
+        </view>
+    </view>
+
 </view>
