@@ -34,6 +34,13 @@ Page({
    
   },
 
+  toDetail:function(e) {
+    var id = e.currentTarget.dataset.id;
+    wx.navigateTo({
+      url: '/pages/ucenter/coupon/couponOrderDetail?id=' + id,
+    })
+  },
+
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */

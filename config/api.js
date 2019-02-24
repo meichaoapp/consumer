@@ -50,5 +50,5 @@ module.exports = {
 
   ///优惠券相关 
   QueryMyCouponList: NewApiRootUrl + "discountCoupon/mylist",//我的优惠券列表
-  
+  QueryCouponDetail: NewApiRootUrl + "discountCoupon/myDetail",//我的优惠券详情
 };

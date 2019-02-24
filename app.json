@@ -24,7 +24,7 @@
 
 
     "pages/ucenter/coupon/coupon",
-    "pages/ucenter/coupon/couponDetail",
+    "pages/ucenter/coupon/couponOrderDetail",
 
     "pages/shopping/dollarTreasureDetail/dollarTreasureDetail",
     "pages/shopping/dollarTreasureDetail/success",
