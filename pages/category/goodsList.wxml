@@ -39,13 +39,14 @@
                         <view class="curr_price">￥{{item.price}}</view>
                         <view class="old_price">￥{{item.marketPrice}}</view>
                     </view>
-                    </navigator> 
+                    </navigator>
                     <view class="set_car flex flex_center ml10">
                         <image bindtap='cutNumber' data-id='{{item.id}}' src="https://wxpic.iliangpin.cn/meichao/minus.png"></image>
                         <text class="count">{{item.number}}</text>
                         <image bindtap='addNumber' data-id='{{item.id}}'   src="https://wxpic.iliangpin.cn/meichao/plus.png"></image>
                     </view>
                 </view>
+                <view class="C666 font12">已售2000件</view>
             </view>
         </view>
 

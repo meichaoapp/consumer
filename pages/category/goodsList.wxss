@@ -41,18 +41,21 @@ input{
 
 
 .goods_list .good_image{
-    width:189rpx;
-    height:189rpx;
-    background:#F8F6F7;
-    margin-right:6rpx;
+    width:245rpx;
+    height:245rpx;
+    margin-right:20rpx;
 }
 .goods_list .good_image image{
-    width:164rpx;
-    height:164rpx;
+    width:245rpx;
+    height:245rpx;
+    border-radius:5rpx;
+}
+.goods_list .goods_con:first-child{
+    margin-top:20rpx;
 }
 .goods_list .goods_con{
-    margin-top:20rpx;
     padding:35rpx 30rpx;
+    border-bottom:1px solid #DADADA;
 }
 .goods_list .curr_menu{
     height:93rpx;
@@ -67,7 +70,7 @@ input{
 }
 .goods_list .content .curr_price{
     font-size:32rpx;
-    color:#FF9000;
+    color:#FF3F3F;
     margin-right:4rpx;
 }
 .goods_list .content .old_price{
