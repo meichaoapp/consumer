@@ -10,7 +10,7 @@
     </view>
     <view class="location_box">
         <text>您当前的取货地址为</text>
-        <view class="flex flex_center"  bindtap="choiceMerchant">
+        <view class="flex"  bindtap="choiceMerchant">
             <image class="icon_address" src="{{basePath}}/address.png"></image>
             <view class="curr_location">
                 {{merchat.address}}
@@ -21,7 +21,7 @@
         <button  class='icon_btn' bindtap="choiceMerchant">
            选择其他社区
         </button>
-        <button open-type="getUserInfo"  class='icon_btn sure_btn' bindgetuserinfo="login">
+        <button open-type="getUserInfo"  class='icon_btn btn_sure' bindgetuserinfo="login">
            确认此社区
         </button>
     </view>

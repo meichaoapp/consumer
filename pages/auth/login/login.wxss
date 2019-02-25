@@ -27,6 +27,7 @@ page{
     width:22rpx;
     height:28rpx;
     margin-right:6rpx;
+    margin-top:6rpx;
 }
 .location_box{
     margin-top:37rpx;
@@ -67,7 +68,7 @@ page{
     outline:none;
     border:none;
 }
-.btn_box .sure_btn{
+.btn_box .btn_sure{
     background:#81C95A;
     margin-left:25rpx;
 }
