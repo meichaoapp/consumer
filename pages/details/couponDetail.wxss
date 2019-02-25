@@ -1,18 +1,20 @@
-.container{
+page{
     height:100%;
 }
+.container{
+    margin-top:-4rpx;
+}
 .coupon_box{
-    background: #FFFFFF;
-    box-shadow: 0 2px 15px 0 rgba(0,0,0,0.14);
-    border-radius: 10px;
+    background:url("https://wxpic.iliangpin.cn/meichao/mini-program/consumer/order_background.png") no-repeat;
+    background-size:100%;
     width:710rpx;
     position:relative;
-    padding:0 30rpx;
+    padding:0 60rpx;
     padding-bottom:60rpx;
     position:relative;
 }
 .top_info{
-    margin-top:100rpx;
+    margin-top:88rpx;
     border-bottom: 1px dashed #C8C8C8;
 }
 .top_part .name{
@@ -20,12 +22,13 @@
 
 }
 .share{
+    background:url("https://wxpic.iliangpin.cn/meichao/mini-program/consumer/rectangle.png") no-repeat;
+    background-size:100%;
     width:188rpx;
     height:64rpx;
-    background: #FB6B2B;
     position:absolute;
-    right:0;
-    top:0;
+    right:28rpx;
+    top:14rpx;
     margin-bottom:25rpx;
 }
 .share image{

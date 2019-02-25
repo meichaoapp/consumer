@@ -14,113 +14,118 @@
     </view>
 </view>
 <view class="container">
-    <!-- 轮播图 -->
-    <view class="bg_ff">
-        <swiper class="banner_box" indicator-dots="true" autoplay="true" interval="5000" duration="1000">
-            <swiper-item wx:for="{{banners}}" wx:key="{{item.id}}">
-                <image bindtap='navTo' data-way='0' data-url='{{item.target}}' src="{{item.url}}"></image>
-            </swiper-item>
-        </swiper>
-    </view>
-    <!-- 分类列表 -->
-    <view wx:if="{{classifyList != null}}" class="classify_box flex">
-        <view class="single_item flex flex_center flex_just" wx:for="{{classifyList}}" wx:key="{{item.index}}"
-              data-index="{{item.index}}" bindtap='goCateGrory' data-type='{{item.type}}'>
-            <view class="flex flex_colum flex_just flex_center">
-                <image src="{{item.logo}}"></image>
-                <text>{{item.name}}</text>
-            </view>
+
+    <view class="fix_part">
+        <!-- 轮播图 -->
+        <view class="bg_ff">
+            <swiper class="banner_box" indicator-dots="true" autoplay="true" interval="5000" duration="1000">
+                <swiper-item wx:for="{{banners}}" wx:key="{{item.id}}">
+                    <image bindtap='navTo' data-way='0' data-url='{{item.target}}' src="{{item.url}}"></image>
+                </swiper-item>
+            </swiper>
         </view>
-    </view>
-    <view wx:if="{{sellList != null}}" class="menu_box flex">
-        <view class="single_item flex flex_center flex_just {{num==index?'active':''}}" wx:for="{{sellList}}"
-              wx:key="{{item.id}}" data-index="{{index}}" data-id="{{item.sellType}}" bindtap="showList"
-              style="position:relative;">
-            <view class="flex flex_colum flex_just flex_center">
-                <image src="{{item.logo}}"></image>
-                <text class="C5d5d">{{item.sellDesc}}</text>
-            </view>
-        </view>
-    </view>
-    <!-- 团购商品列表  -->
-    <view class="m_list flex flex_between bg_ff" style='margin-top:6rpx;'>
-        <scroll-view scroll-y="true" bindscrolltolower='lower' style="height:459px" class="scroll_view"  wx:if="{{goodsList.length>0}}">
-            <view class="m_con">
-                <view>
-                    <block wx:for="{{goodsList}}" wx:key="{{item.index}}">
-
-                        <view wx:if="{{item.joinNum<item.limitNum}}" class="goods_con flex flex_between"
-                              data-id="{{item.id}}">
-                              <view class="good_image flex flex_center flex_just" 
-                                  data-id='{{item.id}}' data-type='{{item.productType}}' bindtap='toDetail'>
-                                  <image class="br5" src="{{item.url}}"></image>
-                              </view>
-                            <view class="content flex flex_colum">
-                                <view class="flex" data-id='{{item.id}}' data-type='{{item.productType}}' bindtap='toDetail'>
-                                    <image class="icon_tag" src="/static/images/icon_tag.png"></image>
-                                    <view class="name ellipsis_2 font16 flex_1" style="width:0">{{item.name}}</view>
-                                </view>
-                                <view class="desc ellipsis" data-id='{{item.id}}' 
-                                   data-type='{{item.productType}}' bindtap='toDetail'>{{item.comments}}</view>
-                                <view class="flex flex_between" style="flex:1;">
-                                    <view class="price_box flex flex_center">
-                                        <view class="curr_price">￥{{item.price}}</view>
-                                        <view class="old_price">￥{{item.marketPrice}}</view>
-                                    </view>
-                                    <view class="set_car flex flex_center ml10" wx:if="{{item.joinNum<item.limitNum}}">
-                                        <image bindtap='cutNumber' data-id='{{item.id}}'
-                                               src="https://wxpic.iliangpin.cn/meichao/minus.png"></image>
-                                        <text class="count">{{item.number}}</text>
-                                        <image bindtap='addNumber' data-id='{{item.id}}'
-                                               src="https://wxpic.iliangpin.cn/meichao/plus.png"></image>
-                                    </view>
-                                </view>
-                                <view class="C666 font12">已售{{item.joinNum}}</view>
-                            </view>
-                            <image wx:if="{{item.joinNum>=item.limitNum}}" class="icon_soldout"
-                                   src="/static/images/sold_out.png"></image>
-                        </view>
-
-
-                        <view wx:else class="goods_con flex flex_between {{item.joinNum>=item.limitNum?'disable':''}}"
-                              data-id="{{item.id}}">
-                            <view class="good_image flex flex_center flex_just br5">
-                                <image src="{{item.url}}"></image>
-                            </view>
-                            <view class="content flex flex_colum">
-                                <view class="flex">
-                                    <image class="icon_tag" src="/static/images/icon_share.png"></image>
-                                    <view class="name ellipsis_2 flex_1" style="width:0;">{{item.name}}</view>
-                                </view>
-                                <view class="desc ellipsis">{{item.comments}}</view>
-                                <view class="flex flex_between" style="flex:1;">
-                                    <view class="price_box flex flex_center">
-                                        <view class="curr_price">￥{{item.price}}</view>
-                                        <view class="old_price">￥{{item.marketPrice}}</view>
-                                    </view>
-                                    <view class="set_car flex flex_center ml10" wx:if="{{item.joinNum<item.limitNum}}">
-                                        <image bindtap='cutNumber' data-id='{{item.id}}'
-                                               src="https://wxpic.iliangpin.cn/meichao/minus.png"></image>
-                                        <text class="count">{{item.number}}</text>
-                                        <image bindtap='addNumber' data-id='{{item.id}}'
-                                               src="https://wxpic.iliangpin.cn/meichao/plus.png"></image>
-                                    </view>
-                                </view>
-                            </view>
-                            <image wx:if="{{item.joinNum>=item.limitNum}}" class="icon_soldout"
-                                   src="/static/images/sold_out.png"></image>
-                        </view>
-
-                    </block>
+        <!-- 分类列表 -->
+        <view wx:if="{{classifyList != null}}" class="classify_box flex">
+            <view class="single_item flex flex_center flex_just" wx:for="{{classifyList}}" wx:key="{{item.index}}"
+                  data-index="{{item.index}}" bindtap='goCateGrory' data-type='{{item.type}}'>
+                <view class="flex flex_colum flex_just flex_center">
+                    <image src="{{item.logo}}"></image>
+                    <text>{{item.name}}</text>
                 </view>
-                <!--<view class="curr_menu">{{currSellDesc}}</view>-->
             </view>
-        </scroll-view>
-        <view wx:if="{{goodsList.length==0}}" class="no_list flex flex_colum flex_center flex_just">
-            <image src="/static/images/no_list.png"></image>
-            <view class="font18">当前无商品</view>
-            <view class="C666 tip">下次开团时间请关注微信群内通知</view>
-            <view>逛逛其他的</view>
+        </view>
+    </view>
+    <view style="margin-top:504rpx;">
+        <view wx:if="{{sellList != null}}" class="menu_box flex">
+            <view class="single_item flex flex_center flex_just {{num==index?'active':''}}" wx:for="{{sellList}}"
+                  wx:key="{{item.id}}" data-index="{{index}}" data-id="{{item.sellType}}" bindtap="showList"
+                  style="position:relative;">
+                <view class="flex flex_colum flex_just flex_center">
+                    <image src="{{item.logo}}"></image>
+                    <text class="C5d5d">{{item.sellDesc}}</text>
+                </view>
+            </view>
+        </view>
+        <!-- 团购商品列表  -->
+        <view class="m_list flex flex_between bg_ff" style='margin-top:6rpx;'>
+            <scroll-view scroll-y="true" bindscrolltolower='lower' style="height:459px" class="scroll_view"  wx:if="{{goodsList.length>0}}">
+                <view class="m_con">
+                    <view>
+                        <block wx:for="{{goodsList}}" wx:key="{{item.index}}">
+
+                            <view wx:if="{{item.joinNum<item.limitNum}}" class="goods_con flex flex_between"
+                                  data-id="{{item.id}}">
+                                <view class="good_image flex flex_center flex_just"
+                                      data-id='{{item.id}}' data-type='{{item.productType}}' bindtap='toDetail'>
+                                    <image class="br5" src="{{item.url}}"></image>
+                                </view>
+                                <view class="content flex flex_colum">
+                                    <view class="flex" data-id='{{item.id}}' data-type='{{item.productType}}' bindtap='toDetail'>
+                                        <image class="icon_tag" src="/static/images/icon_tag.png"></image>
+                                        <view class="name ellipsis_2 font16 flex_1" style="width:0">{{item.name}}</view>
+                                    </view>
+                                    <view class="desc ellipsis" data-id='{{item.id}}'
+                                          data-type='{{item.productType}}' bindtap='toDetail'>{{item.comments}}</view>
+                                    <view class="flex flex_between" style="flex:1;">
+                                        <view class="price_box flex flex_center">
+                                            <view class="curr_price">￥{{item.price}}</view>
+                                            <view class="old_price">￥{{item.marketPrice}}</view>
+                                        </view>
+                                        <view class="set_car flex flex_center ml10" wx:if="{{item.joinNum<item.limitNum}}">
+                                            <image bindtap='cutNumber' data-id='{{item.id}}'
+                                                   src="https://wxpic.iliangpin.cn/meichao/minus.png"></image>
+                                            <text class="count">{{item.number}}</text>
+                                            <image bindtap='addNumber' data-id='{{item.id}}'
+                                                   src="https://wxpic.iliangpin.cn/meichao/plus.png"></image>
+                                        </view>
+                                    </view>
+                                    <view class="C666 font12">已售{{item.joinNum}}</view>
+                                </view>
+                                <image wx:if="{{item.joinNum>=item.limitNum}}" class="icon_soldout"
+                                       src="/static/images/sold_out.png"></image>
+                            </view>
+
+
+                            <view wx:else class="goods_con flex flex_between {{item.joinNum>=item.limitNum?'disable':''}}"
+                                  data-id="{{item.id}}">
+                                <view class="good_image flex flex_center flex_just br5">
+                                    <image src="{{item.url}}"></image>
+                                </view>
+                                <view class="content flex flex_colum">
+                                    <view class="flex">
+                                        <image class="icon_tag" src="/static/images/icon_share.png"></image>
+                                        <view class="name ellipsis_2 flex_1" style="width:0;">{{item.name}}</view>
+                                    </view>
+                                    <view class="desc ellipsis">{{item.comments}}</view>
+                                    <view class="flex flex_between" style="flex:1;">
+                                        <view class="price_box flex flex_center">
+                                            <view class="curr_price">￥{{item.price}}</view>
+                                            <view class="old_price">￥{{item.marketPrice}}</view>
+                                        </view>
+                                        <view class="set_car flex flex_center ml10" wx:if="{{item.joinNum<item.limitNum}}">
+                                            <image bindtap='cutNumber' data-id='{{item.id}}'
+                                                   src="https://wxpic.iliangpin.cn/meichao/minus.png"></image>
+                                            <text class="count">{{item.number}}</text>
+                                            <image bindtap='addNumber' data-id='{{item.id}}'
+                                                   src="https://wxpic.iliangpin.cn/meichao/plus.png"></image>
+                                        </view>
+                                    </view>
+                                </view>
+                                <image wx:if="{{item.joinNum>=item.limitNum}}" class="icon_soldout"
+                                       src="/static/images/sold_out.png"></image>
+                            </view>
+
+                        </block>
+                    </view>
+                    <!--<view class="curr_menu">{{currSellDesc}}</view>-->
+                </view>
+            </scroll-view>
+            <view wx:if="{{goodsList.length==0}}" class="no_list flex flex_colum flex_center flex_just">
+                <image src="/static/images/no_list.png"></image>
+                <view class="font18">当前无商品</view>
+                <view class="C666 tip">下次开团时间请关注微信群内通知</view>
+                <view>逛逛其他的</view>
+            </view>
         </view>
     </view>
     <!--切换社团弹层-->

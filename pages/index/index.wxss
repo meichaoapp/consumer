@@ -596,3 +596,10 @@ input{
 .btn_cancel{
     background: #89C765;
 }
+.fix_part{
+    position:fixed;
+    top:66rpx;
+    width:100%;
+    background:#fff;
+    z-index:222;
+}
