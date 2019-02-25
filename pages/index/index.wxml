@@ -51,21 +51,17 @@
 
                         <view wx:if="{{item.joinNum<item.limitNum}}" class="goods_con flex flex_between"
                               data-id="{{item.id}}">
-                            <navigator url="/pages/details/details?source=0&id={{item.id}}">
-                                <view class="good_image flex flex_center flex_just">
-                                    <image class="br5" src="{{item.url}}"></image>
-                                </view>
-                            </navigator>
+                              <view class="good_image flex flex_center flex_just" 
+                                  data-id='{{item.id}}' data-type='{{item.productType}}' bindtap='toDetail'>
+                                  <image class="br5" src="{{item.url}}"></image>
+                              </view>
                             <view class="content flex flex_colum">
-                                <navigator url="/pages/details/details?source=0&id={{item.id}}">
-                                    <view class="flex">
-                                        <image class="icon_tag" src="/static/images/icon_share.png"></image>
-                                        <view class="name ellipsis_2 font16 flex_1" style="width:0">{{item.name}}</view>
-                                    </view>
-                                </navigator>
-                                <navigator url="/pages/details/details?source=0&id={{item.id}}">
-                                    <view class="desc ellipsis">{{item.comments}}</view>
-                                </navigator>
+                                <view class="flex" data-id='{{item.id}}' data-type='{{item.productType}}' bindtap='toDetail'>
+                                    <image class="icon_tag" src="/static/images/icon_share.png"></image>
+                                    <view class="name ellipsis_2 font16 flex_1" style="width:0">{{item.name}}</view>
+                                </view>
+                                <view class="desc ellipsis" data-id='{{item.id}}' 
+                                   data-type='{{item.productType}}' bindtap='toDetail'>{{item.comments}}</view>
                                 <view class="flex flex_between" style="flex:1;">
                                     <view class="price_box flex flex_center">
                                         <view class="curr_price">￥{{item.price}}</view>
@@ -79,7 +75,7 @@
                                                src="https://wxpic.iliangpin.cn/meichao/plus.png"></image>
                                     </view>
                                 </view>
-                                <view class="C666 font12">已售2000件</view>
+                                <view class="C666 font12">已售{{item.joinNum}}</view>
                             </view>
                             <image wx:if="{{item.joinNum>=item.limitNum}}" class="icon_soldout"
                                    src="/static/images/sold_out.png"></image>

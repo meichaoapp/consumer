@@ -24,6 +24,7 @@ Page({
     merchantId: 1,// 店铺id
     merchantOrder: {},// 团购订单
     oneselfOrder: {}, // 自营订单
+    couponOrders:[],
     couponOrder:{},
     count: 0, //提交计数
     orderGoods:[]
@@ -183,16 +184,66 @@ Page({
    */
   loadOrderInfo:function(){
     let _this = this;
-    var _data = cart.createOrder(0, _this.data.merchant.merchantId, _this.data.userInfo, _this.data.deliveryType, _this.data.merchant, _this.data.orderGoods );
+    var _data = cart.createOrder(0, _this.data.merchant.merchantId,
+     _this.data.userInfo, _this.data.deliveryType, _this.data.merchant, _this.data.orderGoods );
     //console.log("loadOrderInfo----" + JSON.stringify(_data));
+    var couponOrders = [];
+    var couponOrder = _data.couponOrder;
+    if (null != _data.couponOrder){
+      var gList = couponOrder.goodsList;
+      var merchants = _this.getGoodsMerchants(gList);
+      if (merchants.length > 0) {
+        for (var i = 0; i < merchants.length; i++) {
+          var order = {
+            merchant: merchants[i],
+          }
+          var  list = []
+          gList.forEach(o => {
+            if (merchants[i].merchantId == o.merchantId) {
+              list.push(o)
+            }
+          });
+          order.goodsList = list;
+          couponOrders.push(order);
+        }
+      }
+     
+    }
     _this.setData({
       totalPay: _data.totalPay.toFixed(2),//共付
       needPay: _data.needPay.toFixed(2),// 应付
       preferential: (_data.totalPay - _data.needPay).toFixed(2),
       merchantOrder: _data.merchantOrder,// 团购订单
       oneselfOrder: _data.oneselfOrder, // 自营订单
-      couponOrder: _data.couponOrder,// 优惠券
+      couponOrders: couponOrders,// 优惠券
     });
+  },
+  
+  /**
+   * 获取商品中的商户集合
+   */
+  getGoodsMerchants: function (gList) {
+    var merchants = [];
+    gList.forEach(o => {
+      var m = {
+        "merchantId": o.merchantId,
+        "merchantName": o.merchantName,
+        "address": o.address,
+      }
+      var isUiq = true;
+      if (merchants.length > 0) {
+        for (var i = 0; i < merchants.length; i++) {
+          if (merchants[i].merchantId == m.merchantId) {
+            isUiq = false;
+            break;
+          }
+        }
+      }
+      if (isUiq) {
+        merchants.push(m);
+      }
+    });
+    return merchants;
   },
 
   getOrderDatas: function(){

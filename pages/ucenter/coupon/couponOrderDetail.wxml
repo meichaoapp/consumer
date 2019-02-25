@@ -59,7 +59,8 @@
                 <text class="font14">使用规则：</text>
                 <view class="flex_1">
                     <view class="flex flex_center font14 C999">
-                        {{detail.content}}
+                        <import src="../../../lib/wxParse/wxParse.wxml"/>
+                        <template is="wxParse" data="{{wxParseData:goodsDetail.nodes}}"/>
                     </view>
                 </view>
             </view>

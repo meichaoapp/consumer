@@ -271,6 +271,23 @@ Page({
       }
     })
   },
+  /**
+   * 跳转详情页
+   */
+  toDetail:function(e) {
+    var id = e.currentTarget.dataset.id;
+    var type = e.currentTarget.dataset.type;
+    if(5 == type) {
+      wx.navigateTo({
+        url: '/pages/details/couponDetail?id=' + id,
+      })
+    }else {
+      wx.navigateTo({
+        url: '/pages/details/details?source=0&id=' + id,
+      })
+    }
+    
+  },
     /**
      * 查询首页信息
      */
@@ -569,7 +586,6 @@ Page({
             }else {
               goods.number = 1;
             }
-            
             cart.add2Cart(goods);
           } else {//如果购物车以前有则更新购物车商品数量
             g.number = g.number + 1;

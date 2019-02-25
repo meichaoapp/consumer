@@ -16,6 +16,8 @@ Page({
    */
   data: {
     basePath: app.globalData._base_path, //基础路径
+    latitude: 0.00,
+    longitude: 0.00,
     goodsName:"",
     merchant: {},//选中的团长信息
     classify:1,
@@ -55,15 +57,8 @@ Page({
         userInfo: userInfo,
       });
     }
-    this.queryClassifyList();
+    this.getCurrentLocation();
     
-
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
 
   },
 
@@ -88,19 +83,24 @@ Page({
   },
 
   /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
+ * 获取当前地理位置信息
+ */
+  getCurrentLocation: function () {
+    var that = this;
+    wx.getLocation({
+      type: 'gcj02', //返回可以用于wx.openLocation的经纬度
+      success: function (res) {
+        var latitude = res.latitude//维度
+        var longitude = res.longitude//经度
+        ///设置当前地理位置
+        that.setData({
+          latitude: latitude,
+          longitude: longitude,
+        });
+        that.queryClassifyList(); 
+      }
+    })
   },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
 
   /**
      * 页面相关事件处理函数--监听用户下拉动作
@@ -116,12 +116,6 @@ Page({
     this.loadMore();
   },
 
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
-  },
   search:function() {
     let _this = this;
     _this.setData({
@@ -215,6 +209,10 @@ Page({
       "previewFlag": -1,// 用于查询previewFlag为-1时，则可以预览新添的团品信息
       "classify": classify, // 销售类型被选中，默认为1
       "name": _this.data.goodsName,
+      "longitude": _this.data.longitude,//经度
+      "latitude": _this.data.latitude,//纬度
+      "mlongitude": _this.data.merchant.mlongitude,//经度
+      "mlatitude": _this.data.merchant.mlatitude,//纬度
     }
     util.request(api.QueryClassifyList, data, "POST").then(function (res) {
       _this.$wuxLoading.hide(); //隐藏加载动画

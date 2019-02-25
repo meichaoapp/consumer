@@ -262,6 +262,9 @@ Page({
             "limitNum": _this.data.detail.limitNum, //参团人数上限
             "joinNum": _this.data.detail.joinNum, //参团人数
             "buyLimitNum": _this.data.detail.buyLimitNum, // 单品购买限制
+            "merchantId": _this.data.merchant.merchantId,
+            "merchantName": _this.data.merchant.merchantName,
+            "address": _this.data.merchant.address,
         };
 
         var g = cart.loadCartGoods(goods.id);

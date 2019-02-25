@@ -213,6 +213,9 @@ function getCouponOrder(flag, _arr, t_id, user) {
         "url": _arr[i].url, //展示url
         "price": _arr[i].price, //团购价
         "marketPrice": _arr[i].marketPrice,//市场价/原价
+        "merchantId": _arr[i].merchantId,
+        "merchantName": _arr[i].merchantName,
+        "address": _arr[i].address,
       };
     }
     goodsList.push(g);
@@ -257,6 +260,9 @@ function getMerchantOrder(flag,_arr, t_id, user) {
         "url": _arr[i].url, //展示url
         "price": _arr[i].price, //团购价
         "marketPrice": _arr[i].marketPrice,//市场价/原价
+        "merchantId": _arr[i].merchantId,
+        "merchantName": _arr[i].merchantName,
+        "address": _arr[i].address,
       };
     }
     goodsList.push(g);
@@ -307,6 +313,9 @@ function getSelfOrder(flag,_arr, t_id, user, _dt, merchant) {
         "url": _arr[i].url, //展示url
         "price": _arr[i].price, //团购价
         "marketPrice": _arr[i].marketPrice,//市场价/原价
+        "merchantId": _arr[i].merchantId,
+        "merchantName": _arr[i].merchantName,
+        "address": _arr[i].address,
       };
     }
     goodsList.push(g);
