@@ -264,18 +264,23 @@
     height:100%;
 }
 .no_list{
-    height:100%;
+    width:100%;
+    padding-bottom:163rpx;
+}
+.no_list image{
+    width:228rpx;
+    height:171rpx;
 }
 .tip{
-    margin:15rpx 0 40rpx 0;
+    margin:15rpx 0 30rpx 0;
 }
 .no_list view:last-child{
-    width:241rpx;
-    height:51rpx;
+    width:258rpx;
+    height:66rpx;
     border: 1px solid #81C95A;
-    border-radius: 25.5px;
+    border-radius: 4rpx;
     color:#81C95A;
-    line-height:51rpx;
+    line-height:66rpx;
     text-align:center;
 }
 .m_con .good_image image{

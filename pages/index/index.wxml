@@ -44,9 +44,9 @@
     </view>
     <!-- 团购商品列表  -->
     <view class="m_list flex flex_between bg_ff" style='margin-top:6rpx;'>
-        <scroll-view scroll-y="true" bindscrolltolower='lower' style="height:459px" class="scroll_view">
+        <scroll-view scroll-y="true" bindscrolltolower='lower' style="height:459px" class="scroll_view"  wx:if="{{goodsList.length>0}}">
             <view class="m_con">
-                <view wx:if="{{goodsList.length>0}}">
+                <view>
                     <block wx:for="{{goodsList}}" wx:key="{{item.index}}">
 
                         <view wx:if="{{item.joinNum<item.limitNum}}" class="goods_con flex flex_between"
@@ -114,13 +114,14 @@
                     </block>
                 </view>
                 <!--<view class="curr_menu">{{currSellDesc}}</view>-->
-                <view wx:else class="no_list flex flex_colum flex_center flex_just">
-                    <view class="font18">当前无商品</view>
-                    <view class="C666 tip">优惠多多，请关注微信群内通知</view>
-                    <view>逛逛其他的</view>
-                </view>
             </view>
         </scroll-view>
+        <view wx:if="{{goodsList.length==0}}" class="no_list flex flex_colum flex_center flex_just">
+            <image src="/static/images/no_list.png"></image>
+            <view class="font18">当前无商品</view>
+            <view class="C666 tip">下次开团时间请关注微信群内通知</view>
+            <view>逛逛其他的</view>
+        </view>
     </view>
     <!--切换社团弹层-->
     <view wx:if="{{swithModal}}" class="mask">
