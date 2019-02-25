@@ -46,6 +46,8 @@ Page({
         tmpCurrentIndex: 0,
         showModal:false,
         searchText: '', // 搜索店铺名称、地址
+        swithModal:false,
+        merchantId:null, //分享携带的商户ID
 
     },
     onShareAppMessage: function () {
@@ -58,66 +60,79 @@ Page({
     },
 
     onLoad: function (options) {
+      this.$wuxLoading = app.Wux().$wuxLoading //加载
       let that = this;
       var mid = options.mid;
-     
-      
-      let userInfo = wx.getStorageSync('userInfo');
-      console.log("userinfo----" + userInfo);
-      if (util.isNotNULL(userInfo)) {
-        this.setData({
-          userInfo: userInfo,
-        });
-      }else{
-        wx.navigateTo({
-          url: '/pages/auth/login/login'
-        });
-      }
-
-      let merchant = wx.getStorageSync(currentMerchat);
-      let currentIndex = wx.getStorageSync(currIndex);
-      if (null != merchant && undefined != merchant && null != currentIndex && undefined != currentIndex) {
-        console.log("mid--------" + mid + "----merchant.merchantId-------" + merchant.merchantId);
-        if (merchant.merchantId == undefined
-              || merchant.merchantId == null 
-              || merchant.merchantId == "") {
-          //清空缓存
-          wx.clearStorageSync();
-          wx.clearStorage();
-          wx.navigateTo({
-            url: '/pages/auth/login/login'
-          });
-        }
-
-        this.setData({
-          merchant: merchant,
-          currentIndex: currentIndex
-        });
-        console.log("mid--------" + mid + "----merchant.merchantId-------" + that.data.merchant.merchantId);
-        
-        if (null != mid && "" != mid && undefined != mid && mid != that.data.merchant.merchantId) {
-          console.log("mid--------" + mid);
-          that.swithchMerchats(mid);
-        }
-      } else {
-        wx.navigateTo({
-          url: '/pages/auth/login/login'
-        });
-      }
-      this.$wuxLoading = app.Wux().$wuxLoading //加载
-
-      wx.getSystemInfo({success:function(res) {
-              that.setData({
-                    scrollHeight : res.windowHeight
-              });
-              console.log('高度啊',res);
-          } 
+      if(mid == undefined){ mid = null; }
+      that.setData({
+        merchantId: mid,
       });
-
+      that.checkUser();  //检查用户
+      that.checkMerchant(mid); //检查商户
     },
+
+  //检查用户
+  checkUser:function() {
+    let _this = this;
+    let userInfo = wx.getStorageSync('userInfo');
+    if (util.isNotNULL(userInfo)) {
+      _this.setData({ userInfo: userInfo, });
+    } else {
+      wx.navigateTo({
+        url: '/pages/auth/login/login'
+      });
+    }
+  },
+
+  //检查商户
+  checkMerchant: function (mid) {
+    let that = this;
+    let merchant = wx.getStorageSync(currentMerchat);
+    let currentIndex = wx.getStorageSync(currIndex);
+    
+    if (null != merchant && undefined != merchant 
+        && null != currentIndex && undefined != currentIndex) {
+      console.log("mid--------" + mid + "----merchant.merchantId-------" + merchant.merchantId);
+      if (merchant.merchantId == undefined
+        || merchant.merchantId == null
+        || merchant.merchantId == "") {
+        //清空缓存
+        wx.clearStorageSync();
+        wx.clearStorage();
+        wx.navigateTo({
+          url: '/pages/auth/login/login'
+        });
+      }
+
+      this.setData({
+        merchant: merchant,
+        currentIndex: currentIndex
+      });
+      console.log("mid--------" + mid + "----merchant.merchantId-------" + that.data.merchant.merchantId);
+
+      if (null != mid && "" != mid && undefined != mid && mid != that.data.merchant.merchantId) {
+        console.log("mid--------" + mid);
+        that.setData({
+          swithModal: true,
+        });
+      }
+    } else {
+      wx.navigateTo({
+        url: '/pages/auth/login/login'
+      });
+    }
+  },
+
+  //不切换社区
+  cancleSwitchMerchant:function() {
+    this.setData({
+      swithModal: false,
+    });
+  },
+
   
   //切换商户列表信息
-  swithchMerchats: function (merchantId) {
+  swithchMerchats: function () {
     var that = this;
     wx.getLocation({
       type: 'gcj02', //返回可以用于wx.openLocation的经纬度
@@ -142,12 +157,13 @@ Page({
             let currentIndex = 0;
             if (null != merchantList) {
               for (var i = 0; i < merchantList.length; i++) {
-                if (merchantList[i].merchantId == merchantId) {
+                if (merchantList[i].merchantId == that.data.merchantId) {
                   currentIndex = i;
                   merchant = merchantList[i];
                 }
               }
               that.setData({
+                swithModal: false,
                 merchant: merchant,
                 currentIndex: currentIndex
               });
@@ -158,6 +174,9 @@ Page({
               //清空购物车
               cart.cleanCart();
               that.refreshCartRef();
+              wx.showToast({
+                title: '切换成功',
+              })
             }
           }
         });

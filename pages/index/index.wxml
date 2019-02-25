@@ -123,7 +123,7 @@
         </scroll-view>
     </view>
     <!--切换社团弹层-->
-    <!--<view class="mask">
+    <view wx:if="{{swithModal}}" class="mask">
         <view class="change_merchant_tip bg_ff">
             <view class="flex flex_colum flex_center flex_just">
                 <image src="/static/images/Bitmap.png"></image>
@@ -131,11 +131,11 @@
                 <view class="txt C999">切换将清空购物车</view>
             </view>
             <view class="btn_box flex flex_just">
-                <view class="btn_sure cfff font15">确认切换</view>
-                <view class="btn_cancel cfff font15">不切换</view>
+                <view class="btn_sure cfff font15" bindtap='swithchMerchats'>确认切换</view>
+                <view class="btn_cancel cfff font15" bindtap='cancleSwitchMerchant'>不切换</view>
             </view>
         </view>
-    </view>-->
+    </view>
 
 </view>
 <!--<view class="n-bottom" hidden="{{hideBottom}}">
