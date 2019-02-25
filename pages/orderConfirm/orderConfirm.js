@@ -229,6 +229,7 @@ Page({
         "merchantId": o.merchantId,
         "merchantName": o.merchantName,
         "address": o.address,
+        "merchantPhone": o.merchantPhone,
       }
       var isUiq = true;
       if (merchants.length > 0) {

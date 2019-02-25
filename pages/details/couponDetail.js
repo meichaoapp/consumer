@@ -174,6 +174,7 @@ Page({
       "merchantId": _this.data.merchant.merchantId,
       "merchantName": _this.data.merchant.merchantName,
       "address": _this.data.merchant.address,
+      "merchantPhone": _this.data.merchant.merchantPhone,
     };
 
     var g = cart.loadCartGoods(goods.id);

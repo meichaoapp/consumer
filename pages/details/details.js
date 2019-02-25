@@ -265,6 +265,7 @@ Page({
             "merchantId": _this.data.merchant.merchantId,
             "merchantName": _this.data.merchant.merchantName,
             "address": _this.data.merchant.address,
+            "merchantPhone": _this.data.merchant.merchantPhone,
         };
 
         var g = cart.loadCartGoods(goods.id);
@@ -377,6 +378,10 @@ Page({
             "status": _this.data.detail.status, //0 未开始 1 进行中 2 已成团 3 已过期
             "productType": _this.data.detail.productType, //商品类型 1.普通团品 2. 一元购 3. 店长自营产品
             "number": 1,
+            "merchantId": _this.data.merchant.merchantId,
+            "merchantName": _this.data.merchant.merchantName,
+            "address": _this.data.merchant.address,
+            "merchantPhone": _this.data.merchant.merchantPhone,
         };
         var goodsList = [];
         goodsList.push(goods);
