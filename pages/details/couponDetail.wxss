@@ -9,6 +9,7 @@
     position:relative;
     padding:0 30rpx;
     padding-bottom:60rpx;
+    position:relative;
 }
 .top_info{
     margin-top:100rpx;
@@ -30,6 +31,7 @@
 .share image{
     width:26rpx;
     height:26rpx;
+    margin-right:6rpx;
 }
 .progress_box{
     margin-top:25rpx;

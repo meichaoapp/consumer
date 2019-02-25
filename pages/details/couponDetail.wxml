@@ -1,7 +1,7 @@
 <view class="container flex flex_just">
     <view class="coupon_box">
         <view class="share flex flex_center flex_just">
-            <image></image>
+            <image src="/static/images/share.png"></image>
             <text class="font12 cfff">分享好友</text>
         </view>
         <!--顶部信息-->
@@ -21,8 +21,8 @@
                         <view class="bg_ff"></view>
                     </view>
                 </view>
-                <text class="c_f3f font15" wx:if="{{detail.limitNum - detail.joinNum >=0 }}">
-                仅剩{{detail.limitNum - detail.joinNum}}张</text>
+                <view class="c_f3f font15" wx:if="{{detail.limitNum - detail.joinNum >=0 }}">
+                仅剩{{detail.limitNum - detail.joinNum}}张</view>
             </view>
         </view>
         <!--团长信息-->
@@ -75,6 +75,8 @@
             <view class="btn_addCar font15 cfff" bindtap='addCart'>加入购物车</view>
             <view class="btn_add font15 cfff" bindtap='toIndex'>继续购买</view>
         </view>
+
+
     </view>
 </view>
 

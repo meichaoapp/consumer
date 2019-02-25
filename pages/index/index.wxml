@@ -57,7 +57,7 @@
                               </view>
                             <view class="content flex flex_colum">
                                 <view class="flex" data-id='{{item.id}}' data-type='{{item.productType}}' bindtap='toDetail'>
-                                    <image class="icon_tag" src="/static/images/icon_share.png"></image>
+                                    <image class="icon_tag" src="/static/images/icon_tag.png"></image>
                                     <view class="name ellipsis_2 font16 flex_1" style="width:0">{{item.name}}</view>
                                 </view>
                                 <view class="desc ellipsis" data-id='{{item.id}}' 
