@@ -67,8 +67,10 @@ Page({
       that.setData({
         merchantId: mid,
       });
-      that.checkUser();  //检查用户
+      
       that.checkMerchant(mid); //检查商户
+      that.checkUser();  //检查用户
+     
     },
 
   //检查用户

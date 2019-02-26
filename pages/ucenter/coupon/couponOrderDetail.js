@@ -1,6 +1,6 @@
 var util = require('../../../utils/util.js');
 var api = require('../../../config/api.js');
-
+var WxParse = require('../../../lib/wxParse/wxParse.js');
 var app = getApp();
 
 Page({
@@ -55,6 +55,7 @@ Page({
             detail: res.data.detail,
             merchant: res.data.merchant,
           });
+          WxParse.wxParse('goodsDetail', 'html', res.data.detail.content, that);
         }
       });
   },

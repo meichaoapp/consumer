@@ -24,6 +24,8 @@ Page({
         showModal: false,
         modalTitle: "",
         disabledOpt:false,
+        swithModal: false,
+        merchantId: null, //分享携带的商户ID
     },
 
     /**
@@ -34,84 +36,80 @@ Page({
         // 页面初始化 options为页面跳转所带来的参数
         this.$wuxLoading = app.Wux().$wuxLoading //加载
         this.$wuxToast = app.Wux().$wuxToast
+        var mid = options.mid;
+        if (mid == undefined) { mid = null; }
         this.setData({
             id: parseInt(options.id),
             count: 0, //提交计数
+            merchantId: mid,
         });
-        var merchantId = 0;
-        var source = options.source; //跳转来源
-        if (source == 1) {
-            merchantId = options.mid;
-            let merchant = wx.getStorageSync(currentMerchat);
 
-            let currentIndex = wx.getStorageSync(currIndex);
-            if (null != merchant
-                && undefined != merchant
-                && "" != merchant
-                && null != currentIndex
-                && undefined != currentIndex) {
-                console.log("1.merchant -------" + JSON.stringify(merchant));
-                if (merchantId != merchant.merchantId) {
-                    //切换商户
-                    that.swithchMerchats(merchantId);
-                    //清空购物车
-                    cart.cleanCart();
-                }
-
-            } else {
-                //切换商户
-                that.swithchMerchats(merchantId);
-                //清空购物车
-                cart.cleanCart();
-            }
-        } else {
-            let merchant = wx.getStorageSync(currentMerchat);
-            if (null != merchant && undefined != merchant) {
-                if (merchant.merchantId == undefined
-                    || merchant.merchantId == null
-                    || merchant.merchantId == "") {
-                    //清空缓存
-                    wx.clearStorageSync();
-                    wx.clearStorage();
-                    wx.navigateTo({
-                        url: '/pages/auth/login/login'
-                    });
-                } else {
-                    merchantId = merchant.merchantId;
-                }
-            } else {
-                //清空缓存
-                wx.clearStorageSync();
-                wx.clearStorage();
-                wx.navigateTo({
-                    url: '/pages/auth/login/login'
-                });
-            }
-        }
-        console.log("merchantId-------------" + merchantId);
-        this.queryGroupPurchaseDetail(merchantId);
-        this.friends();
-
-
-        // 页面显示
-        let userInfo = wx.getStorageSync('userInfo');
-        //console.log("userInfo -------" + userInfo);
-        if (null != userInfo && userInfo != "" && undefined != userInfo) {
-            //console.log("userInfo -------" + JSON.stringify(userInfo));
-            this.setData({
-                userInfo: userInfo,
-            });
-        } else {
-            wx.navigateTo({
-                url: '/pages/auth/login/login'
-            });
-        }
-
-
+        that.checkMerchant(mid);
+        that.checkUser();
     },
 
+    //检查用户
+    checkUser: function () {
+      let _this = this;
+      let userInfo = wx.getStorageSync('userInfo');
+      if (util.isNotNULL(userInfo)) {
+        _this.setData({ userInfo: userInfo, });
+      } else {
+        wx.navigateTo({
+          url: '/pages/auth/login/login'
+        });
+      }
+    },
+    //检查商户
+    checkMerchant: function (mid) {
+      let that = this;
+      let merchant = wx.getStorageSync(currentMerchat);
+      let currentIndex = wx.getStorageSync(currIndex);
+
+      if (null != merchant && undefined != merchant
+        && null != currentIndex && undefined != currentIndex) {
+        console.log("mid--------" + mid + "----merchant.merchantId-------" + merchant.merchantId);
+        if (merchant.merchantId == undefined
+          || merchant.merchantId == null
+          || merchant.merchantId == "") {
+          //清空缓存
+          wx.clearStorageSync();
+          wx.clearStorage();
+          wx.navigateTo({
+            url: '/pages/auth/login/login'
+          });
+        }
+
+        this.setData({
+          merchant: merchant,
+          currentIndex: currentIndex
+        });
+        console.log("mid--------" + mid + "----merchant.merchantId-------" + that.data.merchant.merchantId);
+
+        if (null != mid && "" != mid && undefined != mid && mid != that.data.merchant.merchantId) {
+          console.log("mid--------" + mid);
+          that.setData({
+            swithModal: true,
+          });
+        }
+      } else {
+        wx.navigateTo({
+          url: '/pages/auth/login/login'
+        });
+      }
+    },
+
+    //不切换社区
+    cancleSwitchMerchant: function () {
+      this.setData({
+        swithModal: false,
+      });
+      this.toIndex();
+    },
+
+
     //切换商户列表信息
-    swithchMerchats: function (merchantId) {
+    swithchMerchats: function () {
         var that = this;
         wx.getLocation({
             type: 'gcj02', //返回可以用于wx.openLocation的经纬度
@@ -136,7 +134,7 @@ Page({
                         let currentIndex = 0;
                         if (null != merchantList) {
                             for (var i = 0; i < merchantList.length; i++) {
-                                if (merchantList[i].merchantId == merchantId) {
+                                if (merchantList[i].merchantId == that.data.merchantId) {
                                     currentIndex = i;
                                     merchant = merchantList[i];
                                 }
@@ -146,6 +144,11 @@ Page({
                             //缓存当前商户的index值，方便首页读取，设置选中状态
                             wx.setStorageSync('currIndex', currentIndex);
                         }
+                    }else{
+                      wx.showToast({
+                        title: '切换失败!',
+                      })
+                      that.cancleSwitchMerchant();
                     }
                 });
 
@@ -155,26 +158,13 @@ Page({
 
     },
 
-    /**
-     * 生命周期函数--监听页面初次渲染完成
-     */
-    onReady: function () {
-
-    },
-
+  
     /**
      * 生命周期函数--监听页面显示
      */
     onShow: function () {
-        // 页面显示
-        let userInfo = wx.getStorageSync('userInfo');
-
-        if (null != userInfo || userInfo != "" || undefined != userInfo) {
-            this.setData({
-                userInfo: userInfo,
-            });
-        }
-
+      this.queryGroupPurchaseDetail();
+      this.friends();
     },
 
 
@@ -210,7 +200,7 @@ Page({
     },
 
     ////获取货品信息
-    queryGroupPurchaseDetail: function (merchantId) {
+    queryGroupPurchaseDetail: function () {
         let that = this;
         util.request(api.QueryGroupPurchaseGoodsDetail, {id: that.data.id}, "POST").then(function (res) {
             if (res.rs == 1) {
@@ -220,24 +210,14 @@ Page({
                 var disabledOpt = false;
                 if (detail.detailStatus == 1) { disabledOpt = true;}
                 if (detail.joinNum >= detail.limitNum) { disabledOpt = true; }
+                var merchant = data.merchant;
                 that.setData({
                     detail: detail, //团购详情
                     disabledOpt: disabledOpt,
+                  merchant: merchant,//商家
                 });
                 WxParse.wxParse('goodsDetail', 'html', res.data.detail.content, that);
                 that.countDown();
-
-                var merchant = data.merchant;
-                if (merchantId == merchant.merchantId) {
-                    that.setData({
-                        merchant: merchant,//商家
-                    });
-                } else {
-                    //切换商户
-                    that.swithchMerchats(merchant.merchantId);
-                    //清空购物车
-                    cart.cleanCart();
-                }
             }
         });
 

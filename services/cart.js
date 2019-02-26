@@ -204,6 +204,7 @@ function getCouponOrder(flag, _arr, t_id, user) {
     var g = {
       "id": _arr[i].id,  // 商品id
       "buyNum": _arr[i].number, //购买数量
+      "merchantId": _arr[i].merchantId,
     };
     if (flag == 0) {
       g = {
@@ -252,6 +253,7 @@ function getMerchantOrder(flag,_arr, t_id, user) {
     var g = {
       "id": _arr[i].id,  // 商品id
       "buyNum": _arr[i].number, //购买数量
+      "merchantId": _arr[i].merchantId,
     };
     if(flag == 0) {
       g = {
@@ -306,6 +308,7 @@ function getSelfOrder(flag,_arr, t_id, user, _dt, merchant) {
     var g = {
       "id": _arr[i].id,  // 商品id
       "buyNum": _arr[i].number, //购买数量
+      "merchantId": _arr[i].merchantId,
     };
     if (flag == 0) {
       g = {

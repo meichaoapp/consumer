@@ -82,19 +82,6 @@ Page({
    
   },
 
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
   //减
   cutNumber: function (e) {
     let _this = this;
@@ -251,11 +238,13 @@ Page({
     let _this = this;
     var _data = cart.createOrder(1, _this.data.merchant.merchantId, _this.data.userInfo, _this.data.deliveryType, _this.data.merchant, _this.data.orderGoods);
     return {
+      userId: _this.data.userInfo.id,
       merchantId: _this.data.merchant.merchantId,
       totalPay: _data.totalPay.toFixed(2),//共付
       needPay: _data.needPay.toFixed(2),
       merchantOrder: _data.merchantOrder,// 团购订单
       oneselfOrder: _data.oneselfOrder, // 自营订单
+      discountCouponOrder: _data.couponOrder,//优惠券订单
     };
   },
 
@@ -283,7 +272,7 @@ Page({
 
     var order = _this.getOrderDatas();
     console.log("order--- " + JSON.stringify(order));
-    util.request(api.CreateOrder, order, "POST").then(function (res) {
+    util.request(api.CreateOrderNew, order, "POST").then(function (res) {
 
       if (res.rs === 1) { //创建成功
         var data = res.data;
