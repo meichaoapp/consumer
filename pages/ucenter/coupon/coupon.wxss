@@ -14,7 +14,15 @@ page{
 .coupon_item{
   margin:20rpx 0;
   height:280rpx;
-  padding:0 20rpx;
+  padding:0 40rpx;
+}
+.hasexpired{
+  background:url('https://wxpic.iliangpin.cn/meichao/mini-program/consumer/discount_coupon2.png') no-repeat;
+  background-size:100%;
+}
+.canUse{
+  background:url('https://wxpic.iliangpin.cn/meichao/mini-program/consumer/discount_coupon3.png') no-repeat;
+  background-size:100%;
 }
 .txt{
   margin-top:10rpx;

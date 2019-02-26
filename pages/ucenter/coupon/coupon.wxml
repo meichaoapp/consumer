@@ -8,7 +8,7 @@
     <view class="coupon_list">
 
        <block wx:for="{{couponList}}" wx:for-index="index" wx:for-item="item" wx:key="{{item.id}}">
-          <view class="coupon_item bg_ff flex flex_colum" bindtap='toDetail' data-id='{{item.orderId}}'>
+          <view class="coupon_item  flex flex_colum {{item.status==2?'hasexpired':'canUse'}}" bindtap='toDetail' data-id='{{item.orderId}}'>
               <!--未使用和已使用-->
               <block>
                   <view class="desc flex flex_1 flex_center">
