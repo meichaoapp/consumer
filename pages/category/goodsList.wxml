@@ -49,7 +49,7 @@
                         <image bindtap='addNumber' data-id='{{item.id}}'   src="https://wxpic.iliangpin.cn/meichao/plus.png"></image>
                     </view>
                 </view>
-                <view class="C666 font12">已售2000件</view>
+                <view class="C666 font12">已售{{item.joinNum}}</view>
             </view>
         </view>
 
@@ -58,7 +58,10 @@
                 <image  src="{{item.url}}"></image>
             </view>
             <view class="content flex flex_colum disable">
-                <view class="name">{{item.name}}</view>
+                <view class="flex">
+                    <image wx:if="{{item.productType == 5}}" class="icon_tag" src="/static/images/icon_tag.png"></image>
+                    <view class="name flex_1">{{item.name}}</view>
+                </view>
                 <view class="desc">{{item.comments}}</view>
                 <view class="flex flex_between" style="flex:1;">
                     <view class="price_box flex flex_center">
