@@ -30,6 +30,10 @@ page{
     right:28rpx;
     top:14rpx;
     margin-bottom:25rpx;
+    padding:0;
+}
+.share::after {
+    border: none
 }
 .share image{
     width:26rpx;

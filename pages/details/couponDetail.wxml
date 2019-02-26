@@ -1,9 +1,9 @@
 <view class="container flex flex_just">
     <view class="coupon_box">
-        <view class="share flex flex_center flex_just">
+        <button class="share flex flex_center flex_just" open-type='share'>
             <image src="/static/images/share.png"></image>
             <text class="font12 cfff">分享好友</text>
-        </view>
+        </button>
         <!--顶部信息-->
         <view class="top_info">
             <view class="top_part flex flex_center flex_between">
