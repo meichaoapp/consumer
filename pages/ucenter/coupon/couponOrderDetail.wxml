@@ -42,6 +42,10 @@
     </view>
     <!--购物券介绍-->
     <view class="coupon_desc bg_ff">
+        <view class="bg_title flex flex_colum flex_center flex_just">
+            <view class="font16 cfff strong">鱼库 不仅是一家鱼店9.1折</view>
+            <view class="font12 cfff mt20">9.1折优惠券全场通用</view>
+        </view>
         <view class='qrcode flex flex_colum flex_center'>
             <image src="{{detail.orderQRcode}}"></image>
             <view class="font14">请向店主出示此二维码</view>

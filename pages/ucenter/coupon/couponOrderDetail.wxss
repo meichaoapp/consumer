@@ -87,3 +87,9 @@
 .wxParse-inline{
   color: #999;
 }
+.bg_title{
+    width:600rpx;
+    height:180rpx;
+    background:url('https://wxpic.iliangpin.cn/meichao/mini-program/consumer/discount_coupon1.png') no-repeat;
+    background-size:100% 100%;
+}
