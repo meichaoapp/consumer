@@ -28,9 +28,8 @@
     <view class="goods_intro bg_ff">
         <view class="goods_name flex flex_between">
             <view class="left flex">
-                <view class="icon_sale font12">
-                    <image src="/static/images/icon_sale.png"></image>
-                    <text class="txt cfff font12">今日特卖</text>
+                <view class="icon_sale flex flex_center flex_just">
+                    <text class=" cfff font12">今日特卖</text>
                 </view>
                 <text class="name font18 strong">{{detail.title}}</text>
             </view>

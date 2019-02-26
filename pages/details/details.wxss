@@ -30,20 +30,17 @@
     flex:1;
 }
 .left .icon_sale{
-    width:113rpx;
+    width:150rpx;
     height:37rpx;
+    line-height:37rpx;
     margin-top:6rpx;
     margin-right:10rpx;
     position:relative;
+    background:url('https://wxpic.iliangpin.cn/meichao/mini-program/consumer/discount_coupon4.png') no-repeat;
+    background-size:cover;
 }
-.left .icon_sale image{
-    width:113rpx;
-    height:37rpx;
-}
-.icon_sale .txt{
-    position:absolute;
-    left:10rpx;
-}
+
+
 .left .name{
     line-height:54rpx;
     float:left;
