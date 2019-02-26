@@ -223,6 +223,7 @@ Page({
         "type": "mc_1002",
         "verifyCode": _this.data.code
       }
+      var userInfo = _this.data.userInfo;
       util.request(api.BindMobile, data, "POST").then(function (res) {
         if (res.rs == 1) {
           //更新缓存信息

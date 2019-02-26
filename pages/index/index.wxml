@@ -93,7 +93,7 @@
                                 </view>
                                 <view class="content flex flex_colum">
                                     <view class="flex">
-                                        <image class="icon_tag" src="/static/images/icon_share.png"></image>
+                                        <image wx:if="{{item.productType == 5}}" class="icon_tag" src="/static/images/icon_tag.png"></image>
                                         <view class="name ellipsis_2 flex_1" style="width:0;">{{item.name}}</view>
                                     </view>
                                     <view class="desc ellipsis">{{item.comments}}</view>
