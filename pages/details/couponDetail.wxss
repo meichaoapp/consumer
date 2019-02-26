@@ -7,7 +7,7 @@ page{
 .coupon_box{
     background:url("https://wxpic.iliangpin.cn/meichao/mini-program/consumer/order_background.png") no-repeat;
     background-size:100%;
-    width:710rpx;
+    /*width:710rpx;*/
     position:relative;
     padding:0 60rpx;
     padding-bottom:60rpx;

@@ -54,17 +54,17 @@
         <!--优惠券使用说明-->
         <view class="coupon_con">
             <view class="flex">
-                <text class="font14">有效日期：</text>
+                <text class="font14 common_lineHeight">有效日期：</text>
                 <text class="font14 C999 common_lineHeight">{{detail.validityDate}}</text>
             </view>
             <view class="flex">
-                <text class="font14">适用范围：</text>
+                <text class="font14 common_lineHeight">适用范围：</text>
                 <text class="font14 C999 common_lineHeight">{{detail.scope}}</text>
             </view>
             <view class="flex">
-                <text class="font14">使用规则：</text>
+                <text class="font14 common_lineHeight">使用规则：</text>
                 <view class="flex_1 C999">
-                    <view class="flex flex_center font14 C999">
+                    <view class=" font14 C999 common_lineHeight">
                         <import src="../../lib/wxParse/wxParse.wxml"/>
                         <template is="wxParse" data="{{wxParseData:goodsDetail.nodes}}"/>
                     </view>
