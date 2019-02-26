@@ -131,3 +131,7 @@ page{
 .btn_add{
     background: #89C765;
 }
+
+.wxParse-inline{
+  color: #999;
+}
