@@ -13,7 +13,7 @@
         选择其他社区
     </view>
 </view>
-<view class="container">
+<view class="container {{shopCarStatus?'indexFixed':''}}">
         <!-- 轮播图 -->
         <view class="bg_ff">
             <swiper class="banner_box" indicator-dots="true" autoplay="true" interval="5000" duration="1000">

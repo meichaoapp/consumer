@@ -3,7 +3,7 @@
 <view class="header" hidden="{{hideHeader}}" style="display:none">
     <view>下拉刷新中…</view>
 </view>
-<view class="goods_list_box container">
+<view class="goods_list_box container {{shopCarStatus?'indexFixed':''}}">
     <!-- 搜索框 -->
     <view class="search_box bg_ff">
         <input class="input" name="goodsName" placeholder="搜索想找的商品"

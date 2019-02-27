@@ -211,3 +211,10 @@ input{
     position:absolute;
     right:0;
 }
+/*处理有弹窗时，底部还跟着滚动问题*/
+.indexFixed {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    right: 0;
+}
