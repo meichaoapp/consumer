@@ -57,7 +57,7 @@ Page({
 
   // 上拉加载更多
   loadMore: function () {
-    console.log('上拉加载更多');
+    //console.log('上拉加载更多');
     let _this = this;
     // 当前页是最后一页
     if (_this.data.start == _this.data.totalPage) {
@@ -65,7 +65,7 @@ Page({
       return;
     }
     setTimeout(function () {
-      console.log('上拉加载更多');
+      //console.log('上拉加载更多');
       _this.setData({
         start: _this.data.start + 1,
         hideBottom: false

@@ -179,6 +179,7 @@ Page({
               wx.showToast({
                 title: '切换成功',
               })
+              that.refresh();
             }
           }
         });
@@ -617,7 +618,8 @@ Page({
               })
               return;
             }
-            if (null != goods.buyLimitNum && g.number > goods.buyLimitNum) {
+            if (null != goods.buyLimitNum && 
+                  0 != goods.buyLimitNum && g.number > goods.buyLimitNum) {
               wx.showToast({
                 icon: "none",
                 title: '此商品每人只能买' + goods.buyLimitNum + "份",

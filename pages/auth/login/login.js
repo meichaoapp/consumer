@@ -91,7 +91,6 @@ Page({
     wx.getLocation({
       type: 'gcj02', //返回可以用于wx.openLocation的经纬度
       success: function (res) {
-        console.log("222222222222")
         var latitude = res.latitude//维度
         var longitude = res.longitude//经度
         ///设置当前地理位置
@@ -203,6 +202,17 @@ Page({
   login: function (e) {
     var _this = this;
     if(!_this.data.isAuthLocation) { // 未授权位置信息
+      wx.showModal({
+        title: '提示',
+        content: '您未开通权限，部分功能无法正常使用，请先开通权限',
+        showCancel: false,
+        confirmColor: "#c00",
+        success: function (res) {
+          if (res.confirm) {
+            console.log('用户点击确定')
+          }
+        }
+      })
       return;
     }
     if (_this.data.count > 0) {

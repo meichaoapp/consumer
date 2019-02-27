@@ -143,6 +143,9 @@ Page({
                             wx.setStorageSync(currentMerchat, merchant);
                             //缓存当前商户的index值，方便首页读取，设置选中状态
                             wx.setStorageSync('currIndex', currentIndex);
+                            that.setData({
+                              swithModal: false,
+                            });
                         }
                     }else{
                       wx.showToast({

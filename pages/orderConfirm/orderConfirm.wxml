@@ -1,5 +1,6 @@
 <view class="order_confirm_box container">
-    <view wx:if="{{merchantOrder != null && oneselfOrder != null }}"  class="auto_tip font15">已为您自动拆分成两个订单</view>
+    <view wx:if="{{merchantOrder != null && oneselfOrder != null }}"  
+        class="auto_tip font15">已为您自动拆分订单，请您再次确认</view>
     <!--订单：拼团商品 -->
     <view wx:if="{{merchantOrder != null}}" class="intro_box bg_ff">
         <view class="title C66">订单：拼团商品</view>
@@ -42,52 +43,7 @@
 
         </view>
     </view>
-     <!--订单：优惠券 -->
     
-    <view wx:if="{{couponOrders.length > 0}}" class="intro_box bg_ff">
-        <view class="title C66">订单：优惠券</view>
-        <block wx:for="{{couponOrders}}" wx:key="{{item.index}}" wx:for-item="couponOrder"> 
-          <view style="padding:0 30rpx">
-              <view class="intro flex flex_colum">
-                  <view class="address_box flex">
-                      <view class="icon_address">取货地址</view>
-                      <view class="address">{{couponOrder.merchant.address}}</view>
-                  </view>
-                  <view class="merchant_name">
-                      <text class="C666 mr30">{{couponOrder.merchant.merchantName}}</text>
-                      <text class="C666">{{couponOrder.merchant.merchantPhone}}</text>
-                  </view>
-              </view>
-          </view>
-          <view class="list bg_ff">
-              <view wx:for="{{couponOrder.goodsList}}" wx:key="{{item.index}}"  
-              data-id="{{item.id}}" class="list_item flex flex_between flex_center">
-                  <view class="left_part">
-                      <image src="{{item.url}}"></image>
-                  </view>
-                  <view class="right_part">
-                      <view class="flex flex_between">
-                          <view style="margin-right:20rpx;">{{item.name}}</view>
-                          <view>
-                              <view>
-                                  <text class="mr6 C999" style="text-decoration: line-through">￥{{item.marketPrice}}</text>
-                                  <text class=" font18">￥{{item.price}}</text>
-                              </view>
-                              <view class="set_car flex flex_center flex_end">
-                                  <image bindtap='cutNumber' data-id='{{item.id}}' src="https://wxpic.iliangpin.cn/meichao/minus.png"></image>
-                                  <text class="count">{{item.buyNum}}</text>
-                                  <image bindtap='addNumber' data-id='{{item.id}}'  src="https://wxpic.iliangpin.cn/meichao/plus.png"></image>
-                              </view>
-
-                          </view>
-                      </view>
-                      <view class="C999 mt10">×{{item.buyNum}}</view>
-                  </view>
-              </view>
-            
-          </view>
-        </block>   
-    </view>
     <!-- 订单：店铺自营商品 -->
     <view wx:if="{{oneselfOrder != null}}" class="intro_box bg_ff">
         <view class="title C66">订单：店铺自营商品</view>
@@ -153,6 +109,53 @@
             </view>
         </view>
     </view>
+
+     <!--订单：优惠券 -->
+    <view wx:if="{{couponOrders.length > 0}}" class="intro_box bg_ff">
+        <view class="title C66">订单：优惠券</view>
+        <block wx:for="{{couponOrders}}" wx:key="{{item.index}}" wx:for-item="couponOrder"> 
+          <view style="padding:0 30rpx">
+              <view class="intro flex flex_colum">
+                  <view class="address_box flex">
+                      <view class="icon_address">消费地址</view>
+                      <view class="address">{{couponOrder.merchant.address}}</view>
+                  </view>
+                  <view class="merchant_name">
+                      <text class="C666 mr30">{{couponOrder.merchant.merchantName}}</text>
+                      <text class="C666">{{couponOrder.merchant.merchantPhone}}</text>
+                  </view>
+              </view>
+          </view>
+          <view class="list bg_ff">
+              <view wx:for="{{couponOrder.goodsList}}" wx:key="{{item.index}}"  
+              data-id="{{item.id}}" class="list_item flex flex_between flex_center">
+                  <view class="left_part">
+                      <image src="{{item.url}}"></image>
+                  </view>
+                  <view class="right_part">
+                      <view class="flex flex_between">
+                          <view style="margin-right:20rpx;">{{item.name}}</view>
+                          <view>
+                              <view>
+                                  <text class="mr6 C999" style="text-decoration: line-through">￥{{item.marketPrice}}</text>
+                                  <text class=" font18">￥{{item.price}}</text>
+                              </view>
+                              <view class="set_car flex flex_center flex_end">
+                                  <image bindtap='cutNumber' data-id='{{item.id}}' src="https://wxpic.iliangpin.cn/meichao/minus.png"></image>
+                                  <text class="count">{{item.buyNum}}</text>
+                                  <image bindtap='addNumber' data-id='{{item.id}}'  src="https://wxpic.iliangpin.cn/meichao/plus.png"></image>
+                              </view>
+
+                          </view>
+                      </view>
+                      <view class="C999 mt10">×{{item.buyNum}}</view>
+                  </view>
+              </view>
+            
+          </view>
+        </block>   
+    </view>
+
     <view class="bottom_box bg_ff">
         <view class="bottom_item">
             <view wx:if="{{oneselfOrder != null}}"  class="single flex flex_between flex_center">

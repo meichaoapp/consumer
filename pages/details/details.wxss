@@ -336,8 +336,8 @@ button.contact_btn::after{
 
 /*切换社区*/
 .change_merchant_tip{
-    width:80%;
-    height:625rpx;
+    width:88%;
+    height:80%;
     position:absolute;
     left:0;
     top:0;
@@ -358,21 +358,21 @@ button.contact_btn::after{
     text-align:center
 }
 .btn_box{
-    margin-top:80rpx;
+    margin-top:199rpx;
 }
 .btn_box view{
-    width:257rpx;
+    width:239rpx;
     height:64rpx;
     line-height:64rpx;
     text-align:center;
     border-radius: 37.5rpx;
 }
 .btn_sure{
-    margin-right:30rpx;
-    background: #FFCF3B;
+    background: #89C765;
 }
 .btn_cancel{
-    background: #89C765;
+    margin-right:30rpx;
+    background: #FFCF3B;
 }
 .fix_part{
     position:fixed;

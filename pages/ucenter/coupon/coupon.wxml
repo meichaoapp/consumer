@@ -32,9 +32,7 @@
       
     </view>
    </scroll-view>
-   
-</view>
- <view class="n-bottom" hidden="{{hideBottom}}">
+  <view class="n-bottom" hidden="{{hideBottom}}">
     <view>
         <view class='transverseline'><text class='line'></text></view>
 
@@ -42,4 +40,5 @@
 
         <view class='transverseline'><text class='line'></text></view>
     </view>
+  </view>
 </view>
