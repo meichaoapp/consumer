@@ -87,6 +87,7 @@ page{
     margin: 0 29rpx 0 29rpx;
     border: 1rpx #81C95A solid;
     position: relative;
+    border-radius:10rpx;
 }
 .input_none{
     height: 100rpx;
@@ -109,6 +110,7 @@ page{
     bottom: 0;
     left: 0;
     right: 0;
+    font-size:64rpx;
 }
 .input_none text {
     display: flex;
@@ -120,6 +122,7 @@ page{
     bottom: 0;
     left: 0;
     right: 0;
+    font-size:64rpx;
 }
 .disabled{
     background: #D8D8D8;
