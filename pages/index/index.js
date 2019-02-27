@@ -48,6 +48,8 @@ Page({
         searchText: '', // 搜索店铺名称、地址
         swithModal:false,
         merchantId:null, //分享携带的商户ID
+        scrollTop: '',    //滑动的距离
+        navFixed: false,  //导航是否固定
 
     },
     onShareAppMessage: function () {
@@ -70,6 +72,15 @@ Page({
       
       that.checkMerchant(mid); //检查商户
       that.checkUser();  //检查用户
+        /** 设备信息 */
+        wx.getSystemInfo({
+            success: (res) => {
+                this.setData({
+                    windowHeight: res.windowHeight,
+                    windowWidth: res.windowWidth
+                })
+            },
+        })
      
     },
 
@@ -310,6 +321,36 @@ Page({
     }
     
   },
+    //监听滑动
+    layoutScroll: function (e) {
+
+        this.data.scrollTop = this.data.scrollTop * 1 + e.detail.deltaY * 1;
+        console.log(this.data.scrollTop)
+        console.log(this.data.navFixed)
+        // const query = wx.createSelectorQuery();
+        // query.select('.nav').boundingClientRect();
+        // query.selectViewport().scrollOffset();
+        // query.exec(function (res) {
+
+
+        // });
+
+        /** 我这里写了固定值 如果使用rpx 可用query可以动态获取其他的高度 然后修改这里值 */
+        /** 获取方法参考文档 */
+
+        /** scrollTop 在模拟器上检测不是太灵敏 可在真机上测试 基本上不会出现延迟问题 */
+        var navtopHeight = 61;
+
+        if (this.data.scrollTop <= -navtopHeight) {
+            this.setData({
+                navFixed: true
+            })
+        } else {
+            this.setData({
+                navFixed: false
+            })
+        }
+    },
     /**
      * 查询首页信息
      */

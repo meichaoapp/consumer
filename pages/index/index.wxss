@@ -164,7 +164,6 @@
 }
 .menu_box .active{
     position:absolute;
-    bottom:-5rpx;
     border-bottom:5rpx solid #89C765;
 }
 .truesure_box{
@@ -609,4 +608,10 @@ input{
     left: 0;
     bottom: 0;
     right: 0;
+}
+.positionFixed{
+    position: fixed;
+    left: 0;
+    top: 61rpx;
+    z-index:22;
 }
