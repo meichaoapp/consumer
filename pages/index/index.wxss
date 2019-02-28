@@ -579,7 +579,7 @@ input{
     text-align:center
 }
 .btn_box{
-    margin-top:199rpx;
+    margin-top:33%;
 }
 .btn_box view{
     width:257rpx;
