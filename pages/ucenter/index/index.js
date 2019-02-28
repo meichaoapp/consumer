@@ -106,7 +106,10 @@ Page({
         let that = this;
         util.request(api.QueryGifts,
             {
-                "token": ""
+              "token": "",
+              "nickName": that.data.userInfo.nickName,  //用户昵称      
+              "type": "mc-customer",  //类型 mc-customer/ mc-merchant      
+              "phone": that.data.userInfo.phone //用户绑定的手机号
             },
             "POST").then(function (res) {
             if (res.rs === 1) {
