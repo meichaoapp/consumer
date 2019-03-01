@@ -201,7 +201,7 @@ Page({
       if (null != g.buyLimitNum && g.number > g.buyLimitNum) {
         wx.showToast({
           icon: "none",
-          title: '此商品每人只能买' + o.buyLimitNum + "份",
+          title: '此商品每人只能买' + g.buyLimitNum + "份",
         })
         return;
       }
@@ -274,14 +274,22 @@ Page({
     //_this.addCart();
     var goods = {
       "id": _this.data.detail.id, //id
-      "name": _this.data.detail.title, //团购名称
-      "url": _this.data.detail.goodsPic, //展示url
+      "name": _this.data.detail.name, //团购名称
+      "url": _this.data.detail.url, //展示url
       "price": _this.data.detail.price, //团购价
       "marketPrice": _this.data.detail.marketPrice,//市场价/原价
       "status": _this.data.detail.status, //0 未开始 1 进行中 2 已成团 3 已过期
       "productType": _this.data.detail.productType, //商品类型 1.普通团品 2. 一元购 3. 店长自营产品
+      "limitNum": _this.data.detail.limitNum, //参团人数上限
+      "joinNum": _this.data.detail.joinNum, //参团人数
+      "buyLimitNum": _this.data.detail.buyLimitNum, // 单品购买限制
+      "merchantId": _this.data.merchant.merchantId,
+      "merchantName": _this.data.merchant.merchantName,
+      "address": _this.data.merchant.address,
+      "merchantPhone": _this.data.merchant.merchantPhone,
       "number": 1,
     };
+
     var goodsList = [];
     goodsList.push(goods);
     wx.setStorageSync(buyGoodsCache, goodsList);

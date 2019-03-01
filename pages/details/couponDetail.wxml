@@ -71,10 +71,16 @@
                 </view>
             </view>
         </view>
-        <view class="btn_box flex flex_center flex_just">
+
+        <view  wx:if="{{ disabledOpt == false }}" class="btn_box flex flex_center flex_just">
             <view class="btn_addCar font15 cfff" bindtap='addCart'>加入购物车</view>
-            <view class="btn_add font15 cfff" bindtap='toIndex'>继续购买</view>
+            <view class="btn_add font15 cfff" bindtap='toOrderConfirm'>立即购买</view>
         </view>
+        <view  wx:else class="btn_box flex flex_center flex_just">
+            <view class="btn_addCar font15 cfff" style="background:#A2A2A2">加入购物车</view>
+            <view class="btn_add font15 cfff" style="background: #CFCFCF;">立即购买</view>
+        </view>
+        
 
 
     </view>
@@ -90,4 +96,9 @@
             </view>
             <view class="sure_btn" bindtap="closeFloat">确认</view>
         </view>
+    </view>
+
+    <view bindtap='toIndex' class="fixed_right flex flex_center flex_just flex_colum">
+        <image src="/static/images/icon_home.png"></image>
+        <view>美超首页</view>
     </view>

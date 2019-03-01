@@ -135,3 +135,32 @@
 .wxParse-inline{
   color: #999;
 }
+
+.fixed_right{
+    width:124rpx;
+    height:124rpx;
+    position:fixed;
+    right:0;
+    bottom:300rpx;
+    border-top-left-radius: 10rpx;
+    border-bottom-left-radius: 10rpx;
+    background:rgba(76,76,76,0.6);
+
+}
+.fixed_right image{
+    width:46rpx;
+    height:46rpx;
+    margin-bottom:16rpx;
+}
+.fixed_right view{
+    color:#fff;
+    font-size:20rpx;
+}
+.float_box{
+    position:relative;
+}
+.float_box .tip{
+    position:absolute;
+    top:390rpx;
+    left:120rpx;
+}

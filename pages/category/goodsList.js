@@ -442,4 +442,21 @@ Page({
       url: '/pages/orderConfirm/orderConfirm?type=0'
     });
   },
+  /**
+   * 跳转详情页
+   */
+  toDetail: function (e) {
+    var id = e.currentTarget.dataset.id;
+    var type = e.currentTarget.dataset.type;
+    if (5 == type) {
+      wx.navigateTo({
+        url: '/pages/details/couponDetail?id=' + id,
+      })
+    } else {
+      wx.navigateTo({
+        url: '/pages/details/details?source=0&id=' + id,
+      })
+    }
+
+  },
 })

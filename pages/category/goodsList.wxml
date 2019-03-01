@@ -23,26 +23,21 @@
      <block wx:for="{{goodsList}}" wx:key="{{item.index}}">
 
         <view wx:if="{{item.joinNum<item.limitNum}}" class="goods_con bg_ff flex flex_between">
-           <navigator url="/pages/details/details?source=0&id={{item.id}}">
-            <view class="good_image flex flex_center flex_just br5">
+            <view class="good_image flex flex_center flex_just br5" 
+                data-id='{{item.id}}' data-type='{{item.productType}}' bindtap='toDetail'>
                 <image  src="{{item.url}}"></image>
             </view>
-             </navigator>
             <view class="content flex flex_colum">
-            <navigator url="/pages/details/details?source=0&id={{item.id}}">
-                <view class="flex">
+                <view class="flex" data-id='{{item.id}}' data-type='{{item.productType}}' bindtap='toDetail'>
                     <image wx:if="{{item.productType == 5}}" class="icon_tag" src="/static/images/icon_tag.png"></image>
                     <view class="name flex_1">{{item.name}}</view>
                 </view>
                 <view class="desc">{{item.comments}}</view>
-            </navigator>
                 <view class="flex flex_between" style="flex:1;">
-                   <navigator url="/pages/details/details?source=0&id={{item.id}}">
-                    <view class="price_box flex flex_center">
+                    <view class="price_box flex flex_center" data-id='{{item.id}}' data-type='{{item.productType}}' bindtap='toDetail'>
                         <view class="curr_price">￥{{item.price}}</view>
                         <view class="old_price">￥{{item.marketPrice}}</view>
                     </view>
-                    </navigator>
                     <view class="set_car flex flex_center ml10">
                         <image bindtap='cutNumber' data-id='{{item.id}}' src="https://wxpic.iliangpin.cn/meichao/minus.png"></image>
                         <text class="count">{{item.number}}</text>
