@@ -88,7 +88,6 @@ page{
    /* border: 1rpx #81C95A solid;*/
     border-bottom: 1rpx #dfdfdf solid;
     position: relative;
-    border-radius:10rpx;
 }
 .input_none{
     height: 100rpx;
