@@ -1,6 +1,6 @@
 {
   "pages": [
-    "pages/auth/mobileBind/bind",
+    "pages/auth/mobileBind/bindSuccess",
     "pages/auth/mobileBind/getCode",
     "pages/index/index",
 
