@@ -33,7 +33,8 @@
                 </view>
             </view>
         </view>
-        <scroll-view scroll-x="true" class="nav {{navFixed? 'positionFixed':''}}" scroll-left="{{navScrollLeft}}" scroll-with-animation="{{true}}">
+        <!--注释掉是因为客户要求导航菜单随界面一起滚动了-->
+        <!--<scroll-view scroll-x="true" class="nav {{navFixed? 'positionFixed':''}}" scroll-left="{{navScrollLeft}}" scroll-with-animation="{{true}}">-->
         <view wx:if="{{sellList != null}}" class="menu_box flex">
             <view class="single_item flex flex_center flex_just {{num==index?'active':''}}" wx:for="{{sellList}}"
                   wx:key="{{item.id}}" data-index="{{index}}" data-id="{{item.sellType}}" bindtap="showList"
@@ -44,7 +45,7 @@
                 </view>
             </view>
         </view>
-        </scroll-view>
+        <!--</scroll-view>-->
         <!-- 团购商品列表  -->
         <view class="m_list flex flex_between bg_ff {{top>130 ? 'topnav' : ''}}">
             <scroll-view scroll-y="true" bindscrolltolower='lower' style="height:459px" class="scroll_view"
