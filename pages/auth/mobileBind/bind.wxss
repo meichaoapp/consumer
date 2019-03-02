@@ -5,27 +5,11 @@ page{
     padding:0 30rpx;
     background:#fff;
 }
-.title{
-    margin-top:67rpx;
-    font-weight: 700;
-}
-.get_vcode{
-    background: #81C95A;
-    width:689rpx;
-    height:80rpx;
-    text-align:center;
-    line-height:80rpx;
-    border-radius: 40.5rpx;
-    margin-top:49rpx;
-}
 .label{
     margin-top:82rpx;
     margin-bottom:16rpx;
     font-size: 28rpx;
     color: #818181;
-}
-.input_box{
-    border-bottom:1px solid #EEEEEE;
 }
 .mobile_input{
     padding:5rpx 0;
@@ -85,7 +69,7 @@ page{
     color: #262626;
     font-size: 64rpx;
     margin: 0 29rpx 0 29rpx;
-   /* border: 1rpx #81C95A solid;*/
+    /* border: 1rpx #81C95A solid;*/
     border-bottom: 1rpx #dfdfdf solid;
     position: relative;
 }

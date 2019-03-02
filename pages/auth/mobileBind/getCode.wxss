@@ -1,0 +1,33 @@
+page{
+    height:100%;
+}
+.container{
+    padding:0 30rpx;
+    background:#fff;
+}
+.title{
+    margin-top:67rpx;
+    font-weight: 700;
+}
+.get_vcode{
+    background: #81C95A;
+    width:689rpx;
+    height:80rpx;
+    text-align:center;
+    line-height:80rpx;
+    border-radius: 40.5rpx;
+    margin-top:49rpx;
+}
+.label{
+    margin-top:82rpx;
+    margin-bottom:16rpx;
+    font-size: 28rpx;
+    color: #818181;
+}
+.mobile_input{
+    padding:5rpx 0;
+    height:90rpx;
+    flex:1;
+    font-size:64rpx;
+    border-bottom:1px solid #EEEEEE;
+}

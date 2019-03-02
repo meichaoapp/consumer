@@ -1,5 +1,7 @@
 {
   "pages": [
+    "pages/auth/mobileBind/bind",
+    "pages/auth/mobileBind/getCode",
     "pages/index/index",
 
     "pages/category/goodsList",
@@ -19,7 +21,8 @@
     "pages/ucenter/partner/partner",
 
     "pages/auth/login/login",
-    "pages/auth/mobileBind/normalBind",
+
+
     "pages/auth/mobileBind/mobileBind",
 
 

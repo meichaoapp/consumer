@@ -1,0 +1,8 @@
+<view class="container">
+    <view class="title C333 font22">绑定手机号，方便您的取货</view>
+    <view wx:if="{{!isShowTime}}">
+        <view class="label">输入手机号</view>
+        <input class="mobile_input font32 C333" type="number" value='{{phone}}' bindinput='bindPhone' placeholder="请输入手机号"/>
+        <view class="get_vcode font15 cfff" bindtap="getCode">获取验证码</view>
+    </view>
+</view>

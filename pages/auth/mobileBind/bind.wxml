@@ -1,11 +1,5 @@
 <view class="container">
-    <view class="title C333 font22">绑定手机号，方便您的取货</view>
-    <view wx:if="{{!isShowTime}}">
-        <view class="label">输入手机号</view>
-        <input class="mobile_input font32 C333" type="number" value='{{phone}}' bindinput='bindPhone' placeholder="请输入手机号"/>
-        <view class="get_vcode font15 cfff" bindtap="getCode">获取验证码</view>
-    </view>
-    <view wx:else>
+    <view>
         <view class="label">验证码已发送至：</view>
         <view class="input_box flex flex_center">
             <input class="mobile_input font32 C333" type="number" value='{{phone}}' bindinput='bindPhone' placeholder="请输入手机号"/>
@@ -38,14 +32,14 @@
         </view>
     </view>
     <!--弹层-->
-   <view class="mask"  wx:if="{{showModal}}">
-       <view class="float_box">
-           <image src="/static/images/bindSuccess.png"></image>
-           <view class="tip">
-               <view class="C8181 font16" style="text-align:center;margin-bottom:15rpx;">温馨提示</view>
-               <view class="C860 font18">恭喜您注册成功！</view>
-           </view>
-           <view class="sure_btn" bindtap="closeFloat">确认</view>
-       </view>
-   </view>
+    <view class="mask"  wx:if="{{showModal}}">
+        <view class="float_box">
+            <image src="/static/images/bindSuccess.png"></image>
+            <view class="tip">
+                <view class="C8181 font16" style="text-align:center;margin-bottom:15rpx;">温馨提示</view>
+                <view class="C860 font18">恭喜您注册成功！</view>
+            </view>
+            <view class="sure_btn" bindtap="closeFloat">确认</view>
+        </view>
+    </view>
 </view>
