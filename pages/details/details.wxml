@@ -9,7 +9,7 @@
     <view class="top_image">
         <image src="{{detail.goodsPic}}" mode="widthFix"></image>
         <view wx:if="{{detail.detailStatus == 1}}" class="soldOut_box">
-            <view class="has_soldout font18 cfff">已下架</view>
+            <view class="has_soldout font18 cfff">已售罄</view>
         </view>
     </view>
     <view class="price_box flex flex_between">
@@ -174,7 +174,7 @@
             <view bindtap='addCart' class="cfff font15">加入购物车</view>
             <view bindtap='toOrderConfirm' class="cfff font15">立即购买</view>
         </view>
-        <!--这是已下架界面-->
+        <!--这是已售罄界面-->
         <view wx:else class="part_two flex flex_center">
             <view class="cfff font15" style="background:#A2A2A2">加入购物车</view>
             <view  class="cfff font15" style="background: #CFCFCF;">立即购买</view>
