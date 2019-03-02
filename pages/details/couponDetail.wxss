@@ -27,13 +27,14 @@
     width:188rpx;
     height:64rpx;
     position:absolute;
-    right:28rpx;
-    top:14rpx;
+    right:30rpx;
+    top:12rpx;
     margin-bottom:25rpx;
     padding:0;
 }
 .share::after {
-    border: none
+    border: none;
+    border:0;
 }
 .share image{
     width:26rpx;
