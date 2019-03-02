@@ -156,3 +156,13 @@ page{
     width:545rpx;
     height:760rpx;
 }
+
+.get_vcode{
+    background: #81C95A;
+    width:689rpx;
+    height:80rpx;
+    text-align:center;
+    line-height:80rpx;
+    border-radius: 40.5rpx;
+    margin-top:49rpx;
+}

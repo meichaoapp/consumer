@@ -6,7 +6,7 @@
     <view class="bind_box flex flex_colum flex_center">
         <button  open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber"
           class="wx_bind font16 cfff">微信授权绑定当前手机</button >
-        <navigator url='/pages/auth/mobileBind/normalBind?mobile='>
+        <navigator url='/pages/auth/mobileBind/getCode?mobile='>
             <view class="normal_bind font16 C333">手机号绑定</view>
         </navigator>
     </view>

@@ -54,7 +54,7 @@ Page({
         if (res.rs == 1) {
           var mobile = res.data.phoneNumber;
           wx.navigateTo({
-            url: '/pages/auth/mobileBind/normalBind?mobile=' + mobile,
+            url: '/pages/auth/mobileBind/getCode?mobile=' + mobile,
           })
         } else {
           wx.showToast({
