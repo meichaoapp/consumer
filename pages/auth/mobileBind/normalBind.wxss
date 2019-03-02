@@ -85,7 +85,8 @@ page{
     color: #262626;
     font-size: 64rpx;
     margin: 0 29rpx 0 29rpx;
-    border: 1rpx #81C95A solid;
+   /* border: 1rpx #81C95A solid;*/
+    border-bottom: 1rpx #dfdfdf solid;
     position: relative;
     border-radius:10rpx;
 }
