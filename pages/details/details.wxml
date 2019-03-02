@@ -27,11 +27,11 @@
     </view>
     <view class="goods_intro bg_ff">
         <view class="goods_name flex flex_between">
-            <view class="left flex">
+            <view class="left">
                 <view class="icon_sale flex flex_center flex_just">
                     <text class=" cfff font12">今日特卖</text>
                 </view>
-                <text class="name font18 strong">{{detail.title}}</text>
+                <view class="name font18 strong">{{detail.title}}</view>
             </view>
             <view class="right">
                 <button class="share_btn  flex flex_colum flex_center flex_just" open-type='share'
@@ -85,32 +85,41 @@
             <text class="C666 font14">{{detail.joinNum}}/{{detail.limitNum}}</text>
         </view>
     </view>
-    <!-- 团长介绍 -->
-    <view class="merchant_name_box2 bg_ff">
-        <view class="merchant_name_con flex flex_between">
-            <image class="left_part" src="{{merchant.logo}}"></image>
-            <view class="right_part">
-                <view class="flex flex_between">
-                    <view class="font15">
-                        {{merchant.merchantName}}
-                    </view>
-                    <view class="connect_wx font12" catchtap='copyWxCode'>微信联系团长</view>
+    <!--团长介绍-->
+    <view class="merchant_box bg_ff">
+        <view class="top_part flex flex_between">
+            <view class="flex flex_center">
+                <image class="avatar" src="{{merchant.logo}}"></image>
+                <view class="font15 strong">团长名称</view>
+            </view>
+            <view class="connect_wx font12" catchtap='copyWxCode'>微信联系团长</view>
+        </view>
+        <view class="bottom_part">
+            <view class="flex flex_center">
+                <view class="flex flex_center first_child">
+                    <image class="icon_user" src="https://wxpic.iliangpin.cn/meichao/user.png"></image>
+                    <text class="C333">{{merchant.merchantUserName}}</text>
                 </view>
-                <view class="flex flex_center mt5">
-                    <view class="flex flex_center first_child">
-                        <image class="icon_user" src="https://wxpic.iliangpin.cn/meichao/user.png"></image>
-                        <text class="C666">{{merchant.merchantUserName}}</text>
-                    </view>
-                    <view class="flex flex_center">
-                        <image class="icon_link" src="https://wxpic.iliangpin.cn/meichao/link.png"></image>
-                        <text class="C666" catchtap="copyPhone">{{merchant.merchantPhone}}</text>
-                    </view>
-                </view>
-                <view class="address_box flex">
-                    <image src="https://wxpic.iliangpin.cn/meichao/location-icon.png"></image>
-                    <view>{{merchant.address}}</view>
+                <view class="flex flex_center">
+                    <image class="icon_link" src="https://wxpic.iliangpin.cn/meichao/link.png"></image>
+                    <text class="C333" catchtap="copyPhone">{{merchant.merchantPhone}}</text>
                 </view>
             </view>
+            <view class="address_box flex">
+                <image src="https://wxpic.iliangpin.cn/meichao/location-icon.png"></image>
+                <view>{{merchant.address}}</view>
+            </view>
+        </view>
+    </view>
+    <!--团购描述-->
+    <view class="group_buy_desc bg_ff" wx:if="{{detail.content}}">
+        <view class="title font15 flex flex_center">
+            <view class="tag"></view>
+            <view class="strong">团购描述</view>
+        </view>
+        <view class="con C666">
+            <import src="../../lib/wxParse/wxParse.wxml"/>
+            <template is="wxParse" data="{{wxParseData:goodsDetail.nodes}}"/>
         </view>
         <view class="quality flex flex_cneter flex_around">
             <view class="flex flex_center">
@@ -128,18 +137,12 @@
         </view>
     </view>
 
-    <!--团购描述-->
-    <view class="group_buy_desc bg_ff">
-        <view class="title font15">团购描述</view>
-        <view class="con C666">
-            <import src="../../lib/wxParse/wxParse.wxml"/>
-            <template is="wxParse" data="{{wxParseData:goodsDetail.nodes}}"/>
-        </view>
-    </view>
-
     <!--参团成员-->
     <view wx:if="{{friensList != null && friensList.length > 0}}" class="mem_box bg_ff flex flex_colum">
-        <view class="title font15">参团成员</view>
+        <view class="title font15 flex flex_center">
+            <view class="tag"></view>
+            <view class="strong">参团成员</view>
+        </view>
         <view class="portrait_box">
             <view class="portrait" wx:for="{{friensList}}" wx:key="{{item.id}}">
                 <image src="{{item.avatar}}"></image>
@@ -150,8 +153,11 @@
         </view>
     </view>
     <!-- 图文详情 -->
-    <view class="graphic_details bg_ff">
-        <view class="graphic_details_title font15">图文详情</view>
+    <view class="graphic_details bg_ff" wx:if="{{detail.pics.length}}">
+        <view class="graphic_details_title font15 flex flex_center">
+            <view class="tag"></view>
+            <view class="strong">图文详情</view>
+        </view>
         <view wx:for="{{detail.pics}}" wx:key="{{item.index}}">
             <image src="{{item}}" mode="withFix"></image>
         </view>

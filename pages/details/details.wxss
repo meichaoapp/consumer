@@ -20,8 +20,8 @@
 }
 .price_box .timer_box{
     width:216rpx;
-    align-items:flex-end;
     border-left:1rpx dashed #fff;
+    padding-left:30rpx;
 }
 .goods_intro{
     padding:25rpx 30rpx;
@@ -229,7 +229,7 @@ button.contact_btn::after{
 .mem_box .title{
     line-height:81rpx;
     border-bottom:1px solid #eee;
-    padding:0 48rpx;
+    padding:0 30rpx;
 
 }
 .portrait_box {
@@ -380,4 +380,27 @@ button.contact_btn::after{
     width:100%;
     background:#fff;
     z-index:222;
+}
+.merchant_box{
+    margin-top:20rpx;
+}
+.merchant_box .top_part{
+    padding:23rpx 30rpx;
+    border-bottom:1px solid #E8E8E8;
+}
+.merchant_box .bottom_part{
+    padding:20rpx 30rpx;
+}
+
+.merchant_box .avatar{
+    width:43rpx;
+    height:43rpx;
+    margin-right:20rpx;
+    border-radius:5rpx;
+}
+.tag{
+    width:10rpx;
+    height:30rpx;
+    background: #7CBF3A;
+    margin-right:10rpx;
 }
