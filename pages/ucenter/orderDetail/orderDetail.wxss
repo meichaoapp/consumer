@@ -6,7 +6,6 @@ page{
     background:#f4f4f4;
 }
 .o_detail_top{
-    height:604rpx;
     margin-top:20rpx;
 }
  .title{
@@ -23,6 +22,9 @@ page{
     height:72rpx;
     padding:0 30rpx;
 }
+.address_box{
+    padding:15rpx 30rpx;
+}
 .address{
     line-height:42rpx;
 }
@@ -35,7 +37,7 @@ page{
 }
 
 .merchant_name_box{
-    height:151rpx;
+    height:160rpx;
     padding:0 30rpx;
 
 }
@@ -47,6 +49,7 @@ page{
     width:87rpx;
     height:87rpx;
     margin-right:13rpx;
+    border-radius:10rpx;
 }
  .right_part{
     flex:1;
@@ -75,6 +78,7 @@ page{
     width:95rpx;
     height:95rpx;
     margin-right:20rpx;
+    border-radius:10rpx;
 }
 .has_received{
     color:#60A33B;
@@ -95,5 +99,14 @@ page{
     width:293rpx;
     line-height:40rpx;
     text-align:center;
+}
+.wx_btn{
+    width:168rpx;
+    height:50rpx;
+    color:#02AE00;
+    border: 1px solid #02AE00;
+    border-radius: 5rpx;
+    text-align:center;
+    line-height:50rpx;
 }
 

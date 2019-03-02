@@ -15,7 +15,7 @@
                     <view class="o_item_left font15 C999">订单状态</view>
                     <view class="o_item_right font15">{{statusStr}}</view>
                 </view>
-                <view class="o_item flex flex_between flex_center">
+                <view class="address_box flex flex_between ">
                      <view wx:if="{{deliveryType == 1}}" class="o_item_left font15 C999" >
                           取货地址
                       </view>
@@ -30,15 +30,19 @@
             <view class="merchant_name_con flex flex_between flex_center">
                 <image class="left_part" src="{{merchant.logo}}"></image>
                 <view class="right_part">
-                    <view class="font15">
-                        {{merchant.merchantName}}
+                    <view class="flex flex_center flex_between">
+                        <view class="font15">
+                            {{merchant.merchantName}}
+                        </view>
+                        <view class="wx_btn font12" catchtap='copyWxCode'>微信联系团长</view>
                     </view>
-                    <view class="flex flex_center mt5">
+
+                    <view class="flex flex_center mt20">
                         <view class="flex flex_center first_child">
-                            <image class="icon_user" src="{{merchant.avatar}}"></image>
+                            <image class="icon_user" src="https://wxpic.iliangpin.cn/meichao/user.png"></image>
                             <text class="C666">{{merchant.merchantUserName}}</text>
                         </view>
-                        <view class="flex flex_center">
+                        <view class="flex flex_center" catchtap="copyPhone">
                             <image class="icon_link" src="https://wxpic.iliangpin.cn/meichao/link.png"></image>
                             <text class="C666">{{merchant.merchantPhone}}</text>
                         </view>
@@ -58,7 +62,7 @@
                     <view wx:if="{{item.status == 1}}" class="has_received">已领取</view>
                     <view wx:else class="unreceived">未领取</view>
                 </view>
-                <view class="mt5 C999">×{{item.buyNum}}</view>
+                <view class="mt20 C999">×{{item.buyNum}}</view>
             </view>
         </view>
         
@@ -67,6 +71,18 @@
         <view class='qrcode flex flex_colum flex_center'>
             <image src='{{orderQRcode}}'></image>
             <view>请向店主出示此二维码来获取所购商品</view>
+        </view>
+    </view>
+
+    <!--复制团长手机号成功-->
+    <view class="mask"  wx:if="{{showModal}}">
+        <view class="float_box">
+            <image src="/static/images/bindSuccess.png"></image>
+            <view class="tip">
+                <view class="C8181 font16" style="text-align:center;margin-bottom:15rpx;">温馨提示</view>
+                <view class="C860 font18">{{modalTitle}}</view>
+            </view>
+            <view class="sure_btn" bindtap="closeFloat">确认</view>
         </view>
     </view>
 </view>

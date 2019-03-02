@@ -19,6 +19,7 @@ Page({
         groupPurchase:{},
         merchant:{},
         goodsList: [],
+        modalTitle:""
     },
     onLoad: function (options) {
         // 页面初始化 options为页面跳转所带来的参数
@@ -52,6 +53,40 @@ Page({
                 });
                 //that.payTimer();
             }
+        });
+    },
+    copyPhone() {
+        let that = this;
+        //复制到剪切板
+        wx.setClipboardData({
+            data: that.data.merchant.merchantPhone,
+            success() {
+                //wx.hideToast();
+                that.setData({
+                    modalTitle: "您已复制团长手机号",
+                    showModal: true
+                });
+            }
+        })
+    },
+    copyWxCode() {
+        let that = this;
+        //复制到剪切板
+        wx.setClipboardData({
+            data: that.data.merchant.wxcode,
+            success() {
+                //wx.hideToast();
+                that.setData({
+                    modalTitle: "您已复制团长微信",
+                    showModal: true
+                });
+            }
+        })
+    },
+    closeFloat() {
+        this.setData({
+            modalTitle: "",
+            showModal: false
         });
     },
     // payTimer() {
