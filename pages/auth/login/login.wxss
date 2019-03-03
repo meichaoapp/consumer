@@ -90,7 +90,7 @@ page{
     height:27rpx;
 }
 .modal-content{
-
+    margin-bottom:60rpx;
     overflow:auto;
 }
 .merchant_item{

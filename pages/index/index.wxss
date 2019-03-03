@@ -397,6 +397,7 @@
 }
 .modal-content{
     overflow:auto;
+    margin-bottom:60rpx;
 }
 .merchant_item{
     /*height:188rpx;*/
