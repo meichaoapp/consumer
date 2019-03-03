@@ -14,7 +14,6 @@
     </view>
 </view>
 <!--<scroll-view class="layout" bindscroll='layoutScroll' scroll-y="true" style="height: {{windowHeight}}px;">-->
-<scroll-view class="layout" scroll-y="true" style="height: {{windowHeight}}px;">
     <view class="container {{shopCarStatus?'indexFixed':''}}">
         <!-- 轮播图 -->
         <view class="bg_ff">
@@ -154,7 +153,7 @@
         </view>
 
     </view>
-</scroll-view>
+<!--</scroll-view>-->
 <!--<view class="n-bottom" hidden="{{hideBottom}}">
     <view>
         <view class='transverseline'><text class='line'></text></view>
