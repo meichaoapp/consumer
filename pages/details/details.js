@@ -26,6 +26,7 @@ Page({
         disabledOpt:false,
         swithModal: false,
         merchantId: null, //分享携带的商户ID
+        tipTex:"",
     },
 
     /**
@@ -211,13 +212,21 @@ Page({
                 console.log("queryGroupPurchaseDetail --- " + JSON.stringify(data));
                 var detail = data.detail;
                 var disabledOpt = false;
-                if (detail.detailStatus == 1) { disabledOpt = true;}
-                if (detail.joinNum >= detail.limitNum) { disabledOpt = true; }
+                var tipTex = ""; 
+                if (detail.detailStatus == 1) { 
+                  disabledOpt = true;
+                  tipTex = "已下架"; 
+                }
+                if (detail.joinNum >= detail.limitNum) { 
+                  disabledOpt = true;
+                  tipTex = "已售罄"; 
+                }
                 var merchant = data.merchant;
                 that.setData({
                     detail: detail, //团购详情
                     disabledOpt: disabledOpt,
-                  merchant: merchant,//商家
+                    merchant: merchant,//商家
+                    tipTex: tipTex,
                 });
                 WxParse.wxParse('goodsDetail', 'html', res.data.detail.content, that);
                 that.countDown();

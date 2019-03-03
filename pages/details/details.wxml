@@ -8,8 +8,8 @@
     <!-- 商品图片 -->
     <view class="top_image">
         <image src="{{detail.goodsPic}}" mode="widthFix"></image>
-        <view wx:if="{{detail.detailStatus == 1}}" class="soldOut_box">
-            <view class="has_soldout font18 cfff">已售罄</view>
+        <view wx:if="{{ disabledOpt == true }}" class="soldOut_box">
+            <view class="has_soldout font18 cfff">{{tipTex}}</view>
         </view>
     </view>
     <view class="price_box flex flex_between">
