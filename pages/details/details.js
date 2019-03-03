@@ -393,7 +393,7 @@ Page({
     wx.setClipboardData({
       data: that.data.merchant.wxcode,
       success() {
-        swx.hideToast();
+        wx.hideToast();
         that.setData({
           modalTitle: "您已复制团长微信",
           showModal: true

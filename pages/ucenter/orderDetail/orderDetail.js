@@ -61,7 +61,7 @@ Page({
         wx.setClipboardData({
             data: that.data.merchant.merchantPhone,
             success() {
-                //wx.hideToast();
+                wx.hideToast();
                 that.setData({
                     modalTitle: "您已复制团长手机号",
                     showModal: true
@@ -75,7 +75,7 @@ Page({
         wx.setClipboardData({
             data: that.data.merchant.wxcode,
             success() {
-                //wx.hideToast();
+                wx.hideToast();
                 that.setData({
                     modalTitle: "您已复制团长微信",
                     showModal: true
