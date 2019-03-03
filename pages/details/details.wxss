@@ -31,16 +31,18 @@ page{
 }
 .goods_name .left{
     flex:1;
+    line-height:50rpx;
 }
 .left .icon_sale{
-    width:150rpx;
+    display:inline-block;
+    width:113rpx;
     height:37rpx;
     line-height:37rpx;
-    margin-top:6rpx;
     margin-right:10rpx;
     position:relative;
     background:url('https://wxpic.iliangpin.cn/meichao/mini-program/consumer/discount_coupon4.png') no-repeat;
     background-size:cover;
+    text-align:center;
 }
 
 

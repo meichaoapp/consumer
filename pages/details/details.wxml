@@ -27,11 +27,12 @@
     </view>
     <view class="goods_intro bg_ff">
         <view class="goods_name flex flex_between">
-            <view class="left">
+            <view class="left name font18 strong">
                 <view class="icon_sale flex flex_center flex_just">
                     <text class=" cfff font12">今日特卖</text>
                 </view>
-                <view class="name font18 strong">{{detail.title}}</view>
+                {{detail.title}}
+                <!--<view class="name font18 strong">{{detail.title}}</view>-->
             </view>
             <view class="right">
                 <button class="share_btn  flex flex_colum flex_center flex_just" open-type='share'
