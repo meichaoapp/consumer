@@ -7,7 +7,7 @@
     <!-- 搜索框 -->
     <view class="search_box bg_ff">
         <input class="input" name="goodsName" placeholder="搜索想找的商品"
-               bindinput="goodsNameInput"/>
+               bindinput="goodsNameInput" bindconfirm="search"/>
         <image bindtap='search' class="icon_search" src="{{basePath}}/search.png"></image>
     </view>
 
