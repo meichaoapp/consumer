@@ -92,6 +92,8 @@
 }
 .address_box view{
     line-height:40rpx;
+    flex:1;
+    width:0;
 }
 .icon_address{
     width:20rpx;
