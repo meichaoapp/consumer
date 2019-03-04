@@ -50,9 +50,14 @@ Page({
         "orderId": that.data.id,
       },
       "POST").then(function (res) {
+       
         if (res.rs === 1) {
+          var detail = res.data.detail;
+          if (detail.comments.length > 22) {
+            detail.comments = detail.comments.substring(0, 22) + "...";
+          }
           that.setData({
-            detail: res.data.detail,
+            detail: detail,
             merchant: res.data.merchant,
           });
           WxParse.wxParse('goodsDetail', 'html', res.data.detail.content, that);
