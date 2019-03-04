@@ -4,7 +4,7 @@
 
 <view class="container">
 
-  <scroll-view scroll-y="true"  class='section'>
+  <scroll-view wx:if="{{couponList != null}}" scroll-y="true"  class='section'>
     <view class="coupon_list">
 
        <block wx:for="{{couponList}}" wx:for-index="index" wx:for-item="item" wx:key="{{item.id}}">
@@ -41,4 +41,11 @@
         <view class='transverseline'><text class='line'></text></view>
     </view>
   </view>
+</view>
+
+<view wx:if="{{couponList == null }}">
+    <image class='no_order_img'  src="{{basePath}}/noneOrder.png"></image>
+    <view class='no_order_tip'>优惠券不存在</view>
+
+    <button class='no_order_btn' bindtap='toIndex'>知道了</button>
 </view>

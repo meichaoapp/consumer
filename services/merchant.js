@@ -26,7 +26,7 @@ function queryMerchants(data) {
  */
 function checkMerchantGoodsRel(merchantId , goodsId) {
   return new Promise(function (resolve, reject) {
-    util.request(api.QueryMerchants, 
+    util.request(api.CheckMerchantGoodsRel, 
       {
         merchantId: merchantId,
         goodsId: goodsId

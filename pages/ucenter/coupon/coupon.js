@@ -7,6 +7,7 @@ var app = getApp();
 
 Page({
   data: {
+    basePath: app.globalData._base_path, //基础路径
     userInfo: {},
     couponList : [] , //用户优惠券列表
     start: 1, // 页码
@@ -114,6 +115,13 @@ Page({
       }
      
     });
+  },
+
+  //跳转首页(知道了)
+  toIndex: function () {
+    wx.switchTab({
+      url: '/pages/index/index',
+    })
   },
 
 })
