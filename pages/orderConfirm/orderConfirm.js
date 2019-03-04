@@ -3,6 +3,7 @@ const util = require('../../utils/util.js');
 const api = require('../../config/api.js');
 const user = require('../../services/user.js');
 const cart = require('../../services/cart.js');
+const log = require('../../services/log.js');
 const currentMerchat = "currentMerchat";
 const buyGoodsCache = "buyGoodsCache";
 
@@ -154,6 +155,7 @@ Page({
           })
         }
         that.loadOrderInfo();
+        log.collectLog(0, "订单确认页-商户匹配", "groupPurchase/merchants", JSON.stringify(data), JSON.stringify(res), "", that.data.userInfo.id);
       }
     });
   },
@@ -276,7 +278,7 @@ Page({
 
       if (res.rs === 1) { //创建成功
         var data = res.data;
-
+        log.collectLog(0, "订单确认页-创建订单返回", "groupPurchase/createorder", JSON.stringify(order), JSON.stringify(res), "", _this.data.userInfo.id);
         //console.log(res.data.wxPayResponse);
 
         // wx.redirectTo({

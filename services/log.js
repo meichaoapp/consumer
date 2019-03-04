@@ -10,14 +10,15 @@ const api = require('../config/api.js');
 
 
 
-function collectLog(client, pName, url, parameters, others, uid) {
+function collectLog(client, pName, url, parameters, data, others, uid) {
+  const info = wx.getSystemInfoSync()
   var log = {
     client: client,
     pName: pName,
     url: url,
     parameters: parameters,
     data:data,
-    others: others,
+    others: JSON.stringify(info) + " || " +others ,
     userId:uid,
   };
   console.log("collectLog------" + log);

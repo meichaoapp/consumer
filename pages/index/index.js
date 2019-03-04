@@ -162,6 +162,7 @@ Page({
           "longitude": that.data.longitude,//经度
           "latitude": that.data.latitude,//纬度
         };
+      
         util.request(api.QueryMerchants, data, "POST").then(function (res) {
           console.log('------商户信息', res);
           if (res.rs === 1) {
@@ -192,6 +193,8 @@ Page({
               })
               that.refresh();
             }
+          }else{
+            log.collectLog(0, "首页-切换商户", "groupPurchase/merchants", JSON.stringify(data),JSON.stringify(res), "" ,that.data.userInfo.id);
           }
         });
 
@@ -377,6 +380,8 @@ Page({
                   goodsList: [],//团购商品列表
               })
             that.queryTGList();
+          }else{
+            log.collectLog(0, "首页-轮播图、分类信息", "consumer/info", JSON.stringify(data), JSON.stringify(res), "" , that.data.userInfo.id);
           }
       });
 
@@ -624,6 +629,11 @@ Page({
       if (res.rs == 1) {
         rel = res.data.isRel;
         if (!rel) { //如果不一致切换商户
+          var data = {
+            merchantId: _this.data.merchant.merchantId,
+            goodsId: id
+          };
+          log.collectLog(0, "首页-商品信息对应", "groupPurchase/verifyRelation", JSON.stringify(data), JSON.stringify(res), "" , _this.data.userInfo.id);
           wx.redirectTo({
             url: '/pages/auth/login/login',
           })
