@@ -650,7 +650,7 @@ Page({
     let _this = this;
     var id = e.currentTarget.dataset.id;
     
-    if(!_this.checkRel(id)){ return;}
+    
    
     var list = _this.data.goodsList;
     if (list != null && list.length > 0) {
@@ -661,6 +661,7 @@ Page({
           var g = cart.loadCartGoods(id);
           //console.log("购物无车商品---" + JSON.stringify(g));
           if (g == null && goods != null) {//如果没有则加入购物车
+            if (goods.productType != 5 && !_this.checkRel(id)) { return; }
             if ((goods.joinNum + 1) > goods.limitNum) {
               wx.showToast({
                 icon: "none",
@@ -672,6 +673,7 @@ Page({
             }
             cart.add2Cart(goods);
           } else {//如果购物车以前有则更新购物车商品数量
+            if (g.productType != 5 && !_this.checkRel(id)) { return; }
             g.number = g.number + 1;
             if ((goods.joinNum + g.number) > goods.limitNum) {
               wx.showToast({

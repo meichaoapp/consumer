@@ -147,6 +147,7 @@ Page({
                             that.setData({
                               swithModal: false,
                             });
+                           cart.cleanCart();
                         }
                     }else{
                       wx.showToast({
