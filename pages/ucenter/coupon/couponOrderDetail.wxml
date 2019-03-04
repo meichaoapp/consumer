@@ -34,7 +34,7 @@
                     <text class="font14">{{merchant.merchantPhone}}</text>
                 </view>
             </view>
-            <view class="flex flex_center">
+            <view class="flex">
                 <image class="icon_address" src="https://wxpic.iliangpin.cn/meichao/location-icon.png"></image>
                 <view>{{merchant.address}}</view>
             </view>
