@@ -7,7 +7,7 @@
 <view class="detail_box container">
     <!-- 商品图片 -->
     <view class="top_image">
-        <image src="{{detail.goodsPic}}" mode="widthFix"></image>
+        <image src="{{detail.goodsPic}}"></image>
         <view wx:if="{{ disabledOpt == true }}" class="soldOut_box">
             <view class="has_soldout font18 cfff">{{tipTex}}</view>
         </view>
