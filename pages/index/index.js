@@ -227,6 +227,7 @@ Page({
           merchant: merchant,
           currentIndex:currentIndex
         });
+        _this.queryIndexInfo(); // 查询首页信息
         _this.getCurrentLocation();
       }else{
         wx.navigateTo({
@@ -307,7 +308,7 @@ Page({
       fail: function(res) {
       },
       complete:function(res) {
-        that.queryIndexInfo(); // 查询首页信息
+        that.queryMerchats();
       }
     })
   },
@@ -364,8 +365,9 @@ Page({
   queryIndexInfo: function () {
       let that = this;
       var data = {
-        "longitude": that.data.longitude,//经度
-        "latitude": that.data.latitude//纬度
+        "token":"",
+        // "longitude": that.data.longitude,//经度
+        // "latitude": that.data.latitude//纬度
       };
     util.request(api.QueryIndexInfo, data, "POST").then(function (res) {
           if(res.rs === 1){
@@ -373,7 +375,7 @@ Page({
                   banners:res.data.banners,
                   classifyList:res.data.classifys,
                   //treasures:res.data.treasures,
-                  merchantList:res.data.merchantList,
+                 // merchantList:res.data.merchantList,
                   sellList: res.data.sellList,
                   start: 1, // 页码
                   totalPage: 0, // 共有页
