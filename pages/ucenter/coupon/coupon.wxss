@@ -36,6 +36,7 @@
 }
 .right_part{
   flex:1;
+  width:0;
 }
 .btn_common{
   width:130rpx;

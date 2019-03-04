@@ -15,8 +15,8 @@
                       <image class="icon_image" src="{{item.url}}"></image>
                       <view class="right_part">
                           <view wx:if="{{item.status == 3}}" class="name font16 strong" style="color:#898989">{{item.title}}</view>
-                          <view wx:else class="name font16 strong">{{item.title}}</view>
-                          <view class="font12 C999 txt">{{item.comments}}</view>
+                          <view wx:else class="name font16 strong ellipsis">{{item.title}}</view>
+                          <view class="font12 C999 txt ellipsis">{{item.comments}}</view>
                           <view class="flex flex_between">
                               <view class="c_f3f">￥{{item.price}}</view>
                               <view wx:if="{{item.status == 0}}" class="btn_common btn_unused cfff" >未使用</view>
