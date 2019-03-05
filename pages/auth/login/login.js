@@ -31,6 +31,7 @@ Page({
     tmpCurrentIndex: 0,
     searchText: '', // 搜索店铺名称、地址
     isAuthLocation:false, //是否授权位置信息
+    mid:0,
   },
 
   /**
@@ -38,6 +39,13 @@ Page({
    */
   onLoad: function (options) {
     this.$wuxToast = app.Wux().$wuxToast
+    let that = this;
+    var mid = options.mid;
+    if (mid == undefined) { mid = 0; }
+    that.setData({
+      mid: mid,
+    });
+
   },
 
   /**
@@ -129,13 +137,22 @@ Page({
         var merchantList = res.data;
         let merchant = wx.getStorageSync(currentMerchat);
         let currentIndex = wx.getStorageSync(currIndex);
+        if(_this.data.mid != 0) {
+          for(var j = 0; j < merchantList.length ; j++) {
+            if (merchantList[j].merchantId == _this.data.mid){
+              merchant = merchantList[j];
+              currentIndex = j;
+            }
+          }
+        }
         var i = 0;
-        if(null == merchant || merchant == "") {
+        if (null == merchant || merchant == "") {
           merchant = merchantList[0];
         }
-        if (currentIndex != null || currentIndex != ""){
+        if (currentIndex != null || currentIndex != "") {
           i = currentIndex;
         }
+      
         if( null != merchantList) {
           that.setData({
             merchantList: merchantList,

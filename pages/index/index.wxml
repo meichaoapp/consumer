@@ -147,6 +147,7 @@
         </view>
 
     </view>
+    <view style='height:105rpx;'></view>
 </scroll-view>
 <!--</scroll-view>-->
 <!--<view class="n-bottom" hidden="{{hideBottom}}">

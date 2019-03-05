@@ -53,8 +53,13 @@ Page({
        
         if (res.rs === 1) {
           var detail = res.data.detail;
-          if (detail.comments.length > 22) {
-            detail.comments = detail.comments.substring(0, 22) + "...";
+          if (null != detail) {
+            if (detail.title.length > 33) {
+              detail.title = detail.title.substring(0, 33) + "...";
+            }
+            if (detail.comments.length > 20) {
+              detail.comments = detail.comments.substring(0, 20) + "...";
+            }
           }
           that.setData({
             detail: detail,

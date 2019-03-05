@@ -113,7 +113,7 @@ Page({
         wx.clearStorageSync();
         wx.clearStorage();
         wx.navigateTo({
-          url: '/pages/auth/login/login'
+          url: '/pages/auth/login/login?mid=' + (mid != null ? mid : 0)
         });
       }
 
@@ -130,8 +130,9 @@ Page({
         });
       }
     } else {
+
       wx.navigateTo({
-        url: '/pages/auth/login/login'
+        url: '/pages/auth/login/login?mid=' + (mid != null ? mid : 0)
       });
     }
   },
@@ -179,19 +180,26 @@ Page({
               that.setData({
                 swithModal: false,
                 merchant: merchant,
-                currentIndex: currentIndex
+                currentIndex: currentIndex,
+                start: 1, // 页码
+                totalPage: 0, // 共有页
+                goodsList: [],//团购商品列表
+                num: 0,
               });
               //缓存当前商户信息
               wx.setStorageSync(currentMerchat, merchant);
               //缓存当前商户的index值，方便首页读取，设置选中状态
               wx.setStorageSync('currIndex', currentIndex);
+
               //清空购物车
               cart.cleanCart();
               that.refreshCartRef();
               wx.showToast({
                 title: '切换成功',
               })
-              that.refresh();
+             
+              that.queryTGList();
+
             }
           }else{
             log.collectLog(0, "首页-切换商户", "groupPurchase/merchants", JSON.stringify(data),JSON.stringify(res), "" ,that.data.userInfo.id);

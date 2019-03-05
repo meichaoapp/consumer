@@ -99,6 +99,13 @@ Page({
       limit: _this.data.limit,//每页条数
     }, 'POST').then(function (res) {
       var list = res.data.list;
+      if (list != null) {
+        for(var i = 0; i < list.length; i++) {
+          if (list[i].title.length > 28) {
+            list[i].title = list[i].title.substring(0,28) + "...";
+          }
+        }
+      }
       if (_this.data.start == 1) { // 下拉刷新
         _this.setData({
           couponList: list,

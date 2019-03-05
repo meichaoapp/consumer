@@ -77,7 +77,7 @@ Page({
           wx.clearStorageSync();
           wx.clearStorage();
           wx.navigateTo({
-            url: '/pages/auth/login/login'
+            url: '/pages/auth/login/login?mid=' + (mid != null ? mid : 0)
           });
         }
 
@@ -95,7 +95,7 @@ Page({
         }
       } else {
         wx.navigateTo({
-          url: '/pages/auth/login/login'
+          url: '/pages/auth/login/login?mid=' + (mid != null ? mid : 0)
         });
       }
     },

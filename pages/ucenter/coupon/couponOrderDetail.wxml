@@ -43,7 +43,7 @@
     <!--购物券介绍-->
     <view class="coupon_desc bg_ff">
         <view class="bg_title flex flex_colum flex_center flex_just">
-            <view class="font16 cfff strong">{{detail.title}}</view>
+            <view class="font16 cfff strong" style='width:89%;'>{{detail.title}}</view>
             <view class="font12 cfff mt20">{{detail.comments}}</view>
         </view>
         <view class='qrcode flex flex_colum flex_center'>
