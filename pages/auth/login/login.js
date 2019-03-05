@@ -137,9 +137,9 @@ Page({
         var merchantList = res.data;
         let merchant = wx.getStorageSync(currentMerchat);
         let currentIndex = wx.getStorageSync(currIndex);
-        if(_this.data.mid != 0) {
+        if (that.data.mid != 0) {
           for(var j = 0; j < merchantList.length ; j++) {
-            if (merchantList[j].merchantId == _this.data.mid){
+            if (merchantList[j].merchantId == that.data.mid){
               merchant = merchantList[j];
               currentIndex = j;
             }
