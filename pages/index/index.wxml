@@ -13,7 +13,7 @@
         选择其他社区
     </view>
 </view>
-<scroll-view scroll-y="true" bindscrolltolower='lower' style="height: {{windowHeight}}px;" class="scroll_view">
+<scroll-view scroll-y="true" bindscrolltolower='lower' style="height: {{windowHeight}}px;margin-bottom:113rpx;" class="scroll_view">
     <view class="container {{shopCarStatus?'indexFixed':''}}">
         <!-- 轮播图 -->
         <view class="bg_ff">
@@ -147,7 +147,7 @@
         </view>
 
     </view>
-    <view style='height:105rpx;'></view>
+    <view style='height:120rpx;'></view>
 </scroll-view>
 <!--</scroll-view>-->
 <!--<view class="n-bottom" hidden="{{hideBottom}}">
