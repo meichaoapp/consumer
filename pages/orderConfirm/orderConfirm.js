@@ -73,7 +73,7 @@ Page({
         //清空缓存
         wx.clearStorageSync();
         wx.clearStorage();
-        wx.navigateTo({
+        wx.redirectTo({
           url: '/pages/auth/login/login'
         });
       }else{

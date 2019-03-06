@@ -69,7 +69,7 @@
                             <view class="flex flex_between" style="flex:1;">
                                 <view class="price_box flex flex_center">
                                     <view class="curr_price">￥{{item.price}}</view>
-                                    <view class="old_price">￥{{item.marketPrice}}</view>
+                                    <view wx:if="{{item.productType != 5}}" class="old_price">￥{{item.marketPrice}}</view>
                                 </view>
                                 <view class="set_car flex flex_center ml10"
                                       wx:if="{{item.joinNum<item.limitNum}}">
@@ -103,7 +103,7 @@
                             <view class="flex flex_between" style="flex:1;">
                                 <view class="price_box flex flex_center">
                                     <view class="curr_price">￥{{item.price}}</view>
-                                    <view class="old_price">￥{{item.marketPrice}}</view>
+                                    <view wx:if="{{item.productType != 5}}" class="old_price">￥{{item.marketPrice}}</view>
                                 </view>
                                 <view class="set_car flex flex_center ml10"
                                       wx:if="{{item.joinNum<item.limitNum}}">

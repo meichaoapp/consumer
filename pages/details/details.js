@@ -56,7 +56,7 @@ Page({
       if (util.isNotNULL(userInfo)) {
         _this.setData({ userInfo: userInfo, });
       } else {
-        wx.navigateTo({
+        wx.redirectTo({
           url: '/pages/auth/login/login'
         });
       }
@@ -76,7 +76,7 @@ Page({
           //清空缓存
           wx.clearStorageSync();
           wx.clearStorage();
-          wx.navigateTo({
+          wx.redirectTo({
             url: '/pages/auth/login/login?mid=' + (mid != null ? mid : 0)
           });
         }
@@ -94,7 +94,7 @@ Page({
           });
         }
       } else {
-        wx.navigateTo({
+        wx.redirectTo({
           url: '/pages/auth/login/login?mid=' + (mid != null ? mid : 0)
         });
       }

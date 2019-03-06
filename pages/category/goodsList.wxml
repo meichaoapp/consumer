@@ -36,7 +36,7 @@
                 <view class="flex flex_between" style="flex:1;">
                     <view class="price_box flex flex_center" data-id='{{item.id}}' data-type='{{item.productType}}' bindtap='toDetail'>
                         <view class="curr_price">￥{{item.price}}</view>
-                        <view class="old_price">￥{{item.marketPrice}}</view>
+                        <view wx:if="{{item.productType != 5}}" class="old_price">￥{{item.marketPrice}}</view>
                     </view>
                     <view class="set_car flex flex_center ml10">
                         <image bindtap='cutNumber' data-id='{{item.id}}' src="https://wxpic.iliangpin.cn/meichao/minus.png"></image>
@@ -61,7 +61,7 @@
                 <view class="flex flex_between" style="flex:1;">
                     <view class="price_box flex flex_center">
                         <view class="curr_price">￥{{item.price}}</view>
-                        <view class="old_price">￥{{item.marketPrice}}</view>
+                        <view wx:if="{{item.productType != 5}}" class="old_price">￥{{item.marketPrice}}</view>
                     </view>
                     <image  class="icon_soldout" src="/static/images/sold_out.png"></image>
                     <!-- <view class="set_car flex flex_center ml10">
