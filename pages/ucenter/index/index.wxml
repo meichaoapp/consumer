@@ -66,4 +66,6 @@
         </block>
 
     </view>
+     <!--版本号-->
+     <view class='version'>{{appVersion}}</view>
 </view>

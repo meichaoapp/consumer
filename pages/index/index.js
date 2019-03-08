@@ -466,7 +466,9 @@ Page({
            })
          }else {
            var tempArray = _this.data.goodsList;
-           tempArray = tempArray.concat(goodsList);
+           if (tempArray != null && goodsList != null) {
+             tempArray = tempArray.concat(goodsList);
+           }
            _this.setData({
              goodsList: tempArray,
              totalPage: res.data.totalPage,

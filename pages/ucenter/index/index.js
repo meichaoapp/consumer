@@ -9,6 +9,7 @@ Page({
         userInfo: {},
         isShowContactBox: true,
         list: [],// 优惠券列表
+        appVersion: "0.0.1",
     },
     onLoad: function (options) {
         // 页面初始化 options为页面跳转所带来的参数
@@ -22,6 +23,7 @@ Page({
 
         this.setData({
           userInfo: app.globalData.userInfo,
+          appVersion: app.globalData._version
         });
 
         this.queryGifts();

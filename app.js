@@ -53,7 +53,7 @@ App({
   WxValidate: (rules, messages) => new WxValidate(rules, messages), 
   
   globalData: {
-    _version:"v1.1",
+    _version:"V 2.0.0",
     _platformName:"美超",
     userInfo: {
       id:0,

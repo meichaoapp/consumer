@@ -102,3 +102,13 @@ page{
     font-size:20rpx;
     padding:9rpx 13rpx;
 }
+
+.version{
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  margin-top: 50px;
+  margin-bottom: 13px;
+  color: #666;
+  font-size: 10pt;
+}

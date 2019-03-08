@@ -1,4 +1,8 @@
-
+.container1 {
+  box-sizing: border-box;
+  background-color: #f4f4f4;
+  font-family: PingFangSC-Light,helvetica,'Heiti SC';
+}
 .merchant-around{
     color: #2c3ac2;
     height: 25px;

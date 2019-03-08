@@ -14,7 +14,7 @@
     </view>
 </view>
 <scroll-view scroll-y="true" bindscrolltolower='lower' style="height: {{windowHeight}}px;margin-bottom:113rpx;" class="scroll_view">
-    <view class="container {{shopCarStatus?'indexFixed':''}}">
+    <view class="container1 {{shopCarStatus?'indexFixed':''}}">
         <!-- 轮播图 -->
         <view class="bg_ff">
             <swiper class="banner_box" indicator-dots="true" autoplay="true" interval="5000" duration="1000">
