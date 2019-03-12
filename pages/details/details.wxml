@@ -72,7 +72,7 @@
         </view>-->
     </view>
     <view class="progress_box flex flex_center bg_ff">
-        <view class="has_sale font12 C666">已售：{{detail.joinNum}}</view>
+        <view class="has_sale font12 C666">已售：{{detail.sold}}</view>
         <view class="flex mt10 flex_1 flex_end">
             <view class="progress">
                 <view wx:if="{{detail.joinNum <= detail.limitNum }}" class="progress_bar"

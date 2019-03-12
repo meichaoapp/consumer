@@ -44,7 +44,7 @@
                         <image bindtap='addNumber' data-id='{{item.id}}'   src="https://wxpic.iliangpin.cn/meichao/plus.png"></image>
                     </view>
                 </view>
-                <view class="C666 font12">已售{{item.joinNum}}</view>
+                <view class="C666 font12">已售{{item.sold}}</view>
             </view>
         </view>
 
