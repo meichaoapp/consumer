@@ -263,23 +263,6 @@ Page({
     // onReachBottom: function () {
     //     this.loadMore();
     // },
-    onPageScroll() {  // 调用showImg函数
-        this.showImg();
-    },
-    showImg() {  // 判断高度是否需要加载
-        wx.createSelectorQuery().selectAll('.item').boundingClientRect((ret) => {
-            const goodsList = this.data.goodsList
-            const height = this.data.height
-            ret.forEach((item, index) => {
-                if (item.top < height) {
-                    goodsList[index].show = true
-                }
-            })
-            this.setData({
-                goodsList
-            })
-        }).exec()
-    },
     //触底后加载更多
     lower() {
         this.loadMore();
@@ -290,6 +273,7 @@ Page({
         // 当前页是最后一页
         if (_this.data.start == _this.data.totalPage) {
             _this.setData({loadMoreData: '我是有底线的'})
+            console.log('---我是有底线的哦---')
             return;
         }
         setTimeout(function () {
@@ -463,6 +447,23 @@ Page({
                 goodsList.forEach(o => {
                     o.number = 0;
                 });
+
+                _this.setData({
+                    goodsList: goodsList
+                }) //需要先设置下，否则下面的observe找不到元素
+                for (let i in goodsList){
+                    goodsList[i].show = false;
+                    goodsList[i].def = "https://img.alicdn.com/tps/i3/T1QYOyXqRaXXaY1rfd-32-32.gif";
+                    wx.createIntersectionObserver().relativeToViewport({bottom: 20}).observe('.good_'+ i, (ret) => {
+                        if (ret.intersectionRatio > 0){
+                            goodsList[i].show = true
+                        }
+                        _this.setData({ // 更新数据
+                            goodsList
+                        })
+                    })
+                }
+                console.log('======',_this.data.goodsList);
                 var _arr = cart.loadCart();//购物车商品
                 //console.log("cart goods ---" + JSON.stringify(_arr));
                 if (null != _arr && _arr.length > 0) {
@@ -484,26 +485,26 @@ Page({
                     hideHeader: true,
                     totalPage: res.data.totalPage,
                 })
-                if (_this.data.goodsList != null && _this.data.goodsList.length > 0) {
-                    _this.data.goodsList.forEach((r) => {
-                        r.upshow = false;
-                        r.def = "https://img.alicdn.com/tps/i3/T1QYOyXqRaXXaY1rfd-32-32.gif"
-                    })
-                    _this.setData({
-                        goodsList: _this.data.goodsList
-                    })
-                    for (let i in _this.data.goodsList) {
-
-                        wx.createIntersectionObserver().relativeToViewport({bottom: 20}).observe('.item-' + i, (ret) => {
-                            if (ret.intersectionRatio > 0) {
-                                _this.data.goodsList[i].show = true
-                            }
-                            _this.setData({ // 更新数据
-                                goodsList
-                            })
-                        })
-                    }
-                }
+                // if (_this.data.goodsList != null && _this.data.goodsList.length > 0) {
+                //     _this.data.goodsList.forEach((r) => {
+                //         r.upshow = false;
+                //         r.def = "https://img.alicdn.com/tps/i3/T1QYOyXqRaXXaY1rfd-32-32.gif"
+                //     })
+                //     _this.setData({
+                //         goodsList: _this.data.goodsList
+                //     })
+                //     for (let i in _this.data.goodsList) {
+                //
+                //         wx.createIntersectionObserver().relativeToViewport({bottom: 20}).observe('.item-' + i, (ret) => {
+                //             if (ret.intersectionRatio > 0) {
+                //                 _this.data.goodsList[i].show = true
+                //             }
+                //             _this.setData({ // 更新数据
+                //                 goodsList
+                //             })
+                //         })
+                //     }
+                // }
 
             } else {
                 var tempArray = _this.data.goodsList;
