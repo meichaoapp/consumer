@@ -47,14 +47,14 @@
         <view class="m_list flex flex_between bg_ff {{top>130 ? 'topnav' : ''}}">
             <view class="m_con"  wx:if="{{goodsList.length>0}}">
 
-                <view wx:for="{{goodsList}}" wx:key="{{item.index}}" class="item good_{{index}}">
+                <view wx:for="{{goodsList}}" wx:key="{{item.index}}" class="good_{{index}}">
 
                     <view wx:if="{{item.joinNum<item.limitNum}}" class="goods_con flex flex_between"
                           data-id="{{item.id}}">
                         <view class="good_image flex flex_center flex_just"
                               data-id='{{item.id}}' data-type='{{item.productType}}' bindtap='toDetail'>
                             <!--<image class="br5" src="{{item.url}}"></image>-->
-                            <image src='{{item.show? item.url : item.def}}' class='{{item.show? "active" : ""}}'></image>
+                            <image src='{{item.show? item.url : "/static/images/loading.gif"}}' class='br5 {{item.show? "active" : ""}}'></image>
                         </view>
                         <view class="content flex flex_colum">
                             <view class="flex" data-id='{{item.id}}' data-type='{{item.productType}}'

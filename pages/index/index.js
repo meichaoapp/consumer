@@ -453,7 +453,6 @@ Page({
                 }) //需要先设置下，否则下面的observe找不到元素
                 for (let i in goodsList){
                     goodsList[i].show = false;
-                    goodsList[i].def = "https://img.alicdn.com/tps/i3/T1QYOyXqRaXXaY1rfd-32-32.gif";
                     wx.createIntersectionObserver().relativeToViewport({bottom: 20}).observe('.good_'+ i, (ret) => {
                         if (ret.intersectionRatio > 0){
                             goodsList[i].show = true
