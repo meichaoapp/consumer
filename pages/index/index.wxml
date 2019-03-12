@@ -81,7 +81,7 @@
                                            src="https://wxpic.iliangpin.cn/meichao/plus.png"></image>
                                 </view>
                             </view>
-                            <view class="C666 font12">已售：{{item.joinNum}}</view>
+                            <view class="C666 font12">已售：{{item.sold}}</view>
                         </view>
                         <image wx:if="{{item.joinNum>=item.limitNum}}" class="icon_soldout"
                                src="/static/images/sold_out.png"></image>
