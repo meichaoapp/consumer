@@ -154,16 +154,18 @@
         </view>
     </view>
     <!-- 图文详情 -->
+    <scroll-view scroll-y="true" >
     <view class="graphic_details bg_ff" wx:if="{{detail.pics.length}}">
         <view class="graphic_details_title font15 flex flex_center">
             <view class="tag"></view>
             <view class="strong">图文详情</view>
         </view>
         <view wx:for="{{detail.pics}}" wx:key="{{item.index}}">
-            <image src="{{item}}" mode="withFix"></image>
+            <image src="{{item}}" mode="withFix" lazy-load="true"></image>
         </view>
 
     </view>
+    </scroll-view>
     <view class="fixed_box flex">
         <view class="part_one flex flex_center bg_ff">
             <view bindtap='toIndex' class="home flex flex_colum flex_center flex_just">

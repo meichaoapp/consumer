@@ -55,6 +55,12 @@ input{
     width:245rpx;
     height:245rpx;
     border-radius:5rpx;
+    transition: all .2s ease-in-out;
+    opacity: 0;
+}
+
+.goods_list .good_image image.active{
+    opacity: 1
 }
 .goods_list .goods_con:first-child{
     margin-top:20rpx;

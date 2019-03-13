@@ -451,17 +451,19 @@ Page({
                 _this.setData({
                     goodsList: goodsList
                 }) //需要先设置下，否则下面的observe找不到元素
-                for (let i in goodsList){
-                    goodsList[i].show = false;
-                    wx.createIntersectionObserver().relativeToViewport({bottom: 20}).observe('.good_'+ i, (ret) => {
-                        if (ret.intersectionRatio > 0){
-                            goodsList[i].show = true
-                        }
-                        _this.setData({ // 更新数据
-                            goodsList
+                setTimeout(()=>{
+                    for (let i in goodsList){
+                        goodsList[i].show = false;
+                        wx.createIntersectionObserver().relativeToViewport({bottom: 20}).observe('.good_'+ i, (ret) => {
+                            if (ret.intersectionRatio > 0){
+                                goodsList[i].show = true
+                            }
+                            _this.setData({ // 更新数据
+                                goodsList:goodsList
+                            })
                         })
-                    })
-                }
+                    }
+                },1000)
                 console.log('======',_this.data.goodsList);
                 var _arr = cart.loadCart();//购物车商品
                 //console.log("cart goods ---" + JSON.stringify(_arr));
