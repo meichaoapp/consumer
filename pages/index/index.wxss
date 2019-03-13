@@ -498,10 +498,10 @@
     flex:1;
 }
 .n-bottom{
-    position:fixed;
+    /*position:fixed;
     bottom:103rpx;
     left:0;
-    right:0;
+    right:0;*/
     width:100%;
     text-align:center;
     background:#F2F2F2;

@@ -87,6 +87,8 @@ Page({
 
     },
 
+
+
     //检查用户
     checkUser: function () {
         let _this = this;
@@ -520,22 +522,26 @@ Page({
             // _this.setData({
             //     goodsList: goodsList
             // })
-            setTimeout(()=>{
-                for (let i in goodsList){
-                    goodsList[i].show = false;
-                    wx.createIntersectionObserver().relativeToViewport({bottom: 20}).observe('.good_'+ i, (ret) => {
-                        if (ret.intersectionRatio > 0){
-                            goodsList[i].show = true
-                        }
-                        _this.setData({ // 更新数据
-                            goodsList:goodsList
-                        })
-                    })
-                }
-            },1000)
+            _this.getList(_this.data.goodsList);
             _this.refreshCartRef();
         })
 
+    },
+    getList(goodsList){
+        let _this=this;
+        setTimeout(()=>{
+            for (let i in goodsList){
+                goodsList[i].show = false;
+                wx.createIntersectionObserver().relativeToViewport({bottom: 20}).observe('.good_'+ i, (ret) => {
+                    if (ret.intersectionRatio > 0){
+                        goodsList[i].show = true
+                    }
+                    _this.setData({ // 更新数据
+                        goodsList:goodsList
+                    })
+                })
+            }
+        },1000)
     },
     showList: function (e) {
         let that = this;
