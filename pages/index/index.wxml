@@ -152,15 +152,15 @@
     <view style='height:120rpx;'></view>
 </scroll-view>
 <!--</scroll-view>-->
-<!--<view class="n-bottom" hidden="{{hideBottom}}">
+<view class="n-bottom" hidden="{{hideBottom}}">
     <view>
         <view class='transverseline'><text class='line'></text></view>
 
-        <text class='txt'>11{{loadMoreData}}</text>
+        <text class='txt'>{{loadMoreData}}</text>
 
         <view class='transverseline'><text class='line'></text></view>
     </view>
-</view>-->
+</view>
 
 <!--底部购物车和去结算-->
 <view>
