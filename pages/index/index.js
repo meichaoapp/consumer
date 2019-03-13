@@ -271,7 +271,7 @@ Page({
     loadMore: function () {
         let _this = this;
         // 当前页是最后一页
-        if (_this.data.start == _this.data.totalPage) {
+        if (_this.data.start >= _this.data.totalPage) {
             _this.setData({loadMoreData: '我是有底线的'})
             console.log('---我是有底线的哦---')
             return;
@@ -448,23 +448,23 @@ Page({
                     o.number = 0;
                 });
 
-                _this.setData({
-                    goodsList: goodsList
-                }) //需要先设置下，否则下面的observe找不到元素
-                setTimeout(()=>{
-                    for (let i in goodsList){
-                        goodsList[i].show = false;
-                        wx.createIntersectionObserver().relativeToViewport({bottom: 20}).observe('.good_'+ i, (ret) => {
-                            if (ret.intersectionRatio > 0){
-                                goodsList[i].show = true
-                            }
-                            _this.setData({ // 更新数据
-                                goodsList:goodsList
-                            })
-                        })
-                    }
-                },1000)
-                console.log('======',_this.data.goodsList);
+                // _this.setData({
+                //     goodsList: goodsList
+                // }) //需要先设置下，否则下面的observe找不到元素
+                // setTimeout(()=>{
+                //     for (let i in goodsList){
+                //         goodsList[i].show = false;
+                //         wx.createIntersectionObserver().relativeToViewport({bottom: 20}).observe('.good_'+ i, (ret) => {
+                //             if (ret.intersectionRatio > 0){
+                //                 goodsList[i].show = true
+                //             }
+                //             _this.setData({ // 更新数据
+                //                 goodsList:goodsList
+                //             })
+                //         })
+                //     }
+                // },1000)
+                // console.log('======',_this.data.goodsList);
                 var _arr = cart.loadCart();//购物车商品
                 //console.log("cart goods ---" + JSON.stringify(_arr));
                 if (null != _arr && _arr.length > 0) {
@@ -517,7 +517,22 @@ Page({
                     totalPage: res.data.totalPage,
                 })
             }
-
+            // _this.setData({
+            //     goodsList: goodsList
+            // })
+            setTimeout(()=>{
+                for (let i in goodsList){
+                    goodsList[i].show = false;
+                    wx.createIntersectionObserver().relativeToViewport({bottom: 20}).observe('.good_'+ i, (ret) => {
+                        if (ret.intersectionRatio > 0){
+                            goodsList[i].show = true
+                        }
+                        _this.setData({ // 更新数据
+                            goodsList:goodsList
+                        })
+                    })
+                }
+            },1000)
             _this.refreshCartRef();
         })
 

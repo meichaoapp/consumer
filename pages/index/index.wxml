@@ -92,7 +92,8 @@
                           class="goods_con flex flex_between {{item.joinNum>=item.limitNum?'disable':''}}"
                           data-id="{{item.id}}">
                         <view class="good_image flex flex_center flex_just br5">
-                            <image src="{{item.url}}"></image>
+                            <!--<image src="{{item.url}}"></image>-->
+                            <image src='{{item.show? item.url : "/static/images/loading.gif"}}' class='br5 {{item.show? "active" : ""}}'></image>
                         </view>
                         <view class="content flex flex_colum">
                             <view class="flex">
