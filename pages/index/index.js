@@ -9,8 +9,9 @@ const cart = require('../../services/cart.js');
 const pointKey = "userLocation";
 const currentMerchat = "currentMerchat";
 const currIndex = "currIndex";
-
-
+// import lazyLoad from '../../utils/lazyLoad.js';
+const lazyLoad = require('../../utils/lazyLoad.js');
+let lazyload;
 //获取应用实例
 const app = getApp()
 Page({
@@ -84,10 +85,17 @@ Page({
                 })
             },
         })
+        lazyload = new lazyLoad(this, {
+            classNote: '.good_',				//循环节点
+            initNum: 3,						//初始化展示多少个节点
+            limit: 1						//每次加载多少个节点
+        })
 
     },
 
-
+    onReady: function () {
+        // lazyload.observe();
+    },
 
     //检查用户
     checkUser: function () {
@@ -522,7 +530,8 @@ Page({
             // _this.setData({
             //     goodsList: goodsList
             // })
-            _this.getList(_this.data.goodsList);
+            // _this.getList(_this.data.goodsList);
+            lazyload.observe();
             _this.refreshCartRef();
         })
 

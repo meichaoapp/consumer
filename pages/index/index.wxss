@@ -291,7 +291,7 @@
     width:245rpx;
     height:245rpx;
     margin-right:20rpx;
-    transition: all .2s ease-in-out;
+    transition: all 1s ease-in-out;
     opacity: 0;
 }
 
