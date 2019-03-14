@@ -160,8 +160,9 @@
             <view class="tag"></view>
             <view class="strong">图文详情</view>
         </view>
-        <view wx:for="{{detail.pics}}" wx:key="{{item.index}}">
-            <image src="{{item}}" mode="withFix" lazy-load="true"></image>
+        <view wx:for="{{detail.pics}}" wx:key="{{item.index}}" class="item_{{index}}">
+            <!--<image src="{{item}}" mode="withFix" lazy-load="true"></image>-->
+            <image mode="withFix" lazy-load="true"  src="{{index < __LAZT_LOAD_COUNT + 1 ? item: '/static/images/loading.gif'}}" class='{{index < __LAZT_LOAD_COUNT + 1? "active" : ""}}' ></image>
         </view>
 
     </view>
