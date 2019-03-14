@@ -55,7 +55,7 @@ Page({
             limit: 1						//每次加载多少个节点
         })
     },
-    
+
 
     //检查用户
     checkUser: function () {
