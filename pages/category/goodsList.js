@@ -6,6 +6,8 @@ const wecache = require('../../utils/wecache.js');
 const cart = require('../../services/cart.js');
 const pointKey = "userLocation";
 const currentMerchat = "currentMerchat";
+const lazyLoad = require('../../utils/lazyLoad.js');
+let lazyload;
 
 //获取应用实例
 const app = getApp()
@@ -58,8 +60,12 @@ Page({
       });
     }
     this.getCurrentLocation();
-    
 
+    lazyload = new lazyLoad(this, {
+        classNote: '.good_',				//循环节点
+        initNum: 3,						//初始化展示多少个节点
+        limit: 1						//每次加载多少个节点
+    })
   },
 
   /**
@@ -266,7 +272,7 @@ Page({
           totalPage: res.data.totalPage,
         })
       }
-
+      lazyload.observe();
       _this.refreshCartRef();
     })
 
