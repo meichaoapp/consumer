@@ -64,7 +64,7 @@ Page({
     lazyload = new lazyLoad(this, {
         classNote: '.good_',				//循环节点
         initNum: 3,						//初始化展示多少个节点
-        limit: 1						//每次加载多少个节点
+        limit: 3						//每次加载多少个节点
     })
   },
 
@@ -274,7 +274,7 @@ Page({
       }
       setTimeout(()=>{
           lazyload.observe();
-      },1000)
+      },0)
       _this.refreshCartRef();
     })
 

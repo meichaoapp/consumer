@@ -88,7 +88,7 @@ Page({
         lazyload = new lazyLoad(this, {
             classNote: '.good_',				//循环节点
             initNum: 3,						//初始化展示多少个节点
-            limit: 1						//每次加载多少个节点
+            limit: 3					//每次加载多少个节点
         })
 
     },
@@ -282,7 +282,10 @@ Page({
         let _this = this;
         // 当前页是最后一页
         if (_this.data.start >= _this.data.totalPage) {
-            _this.setData({loadMoreData: '我是有底线的'})
+            _this.setData({
+                loadMoreData: '我是有底线的',
+                hideBottom: false
+            })
             console.log('---我是有底线的哦---')
             return;
         }
@@ -531,7 +534,10 @@ Page({
             //     goodsList: goodsList
             // })
             // _this.getList(_this.data.goodsList);
-            lazyload.observe();
+            setTimeout(()=>{
+                lazyload.observe();
+            },0)
+
             _this.refreshCartRef();
         })
 
@@ -560,6 +566,7 @@ Page({
             num: index,
             goodsList: [],
             start: 1,
+            loadMoreData: '上滑加载更多'
         });
         that.queryTGList(id)
     },
@@ -582,7 +589,7 @@ Page({
     },
     modalConfirm: function () {
         let _this = this;
-        //console.log("modalConfirm-----");
+        console.log("modalConfirm-----");
         //刷新和重置数据
         _this.setData({
             start: 1, // 页码
@@ -595,6 +602,7 @@ Page({
             showModal: false,
             merchant: _this.data.merchantSelected,
             currentIndex: _this.data.tmpCurrentIndex,
+            loadMoreData: '上滑加载更多'
         });
 
         //将选中的商户写入缓存
