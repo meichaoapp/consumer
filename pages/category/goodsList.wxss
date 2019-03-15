@@ -1,6 +1,9 @@
 /* pages/category/goodsList.wxss */
 .goods_list_box{
-    margin-bottom:105rpx;
+    margin-bottom:180rpx;
+}
+.n-bottom{
+    background:#fff;
 }
 .search_box{
     padding:0 30rpx;
@@ -68,6 +71,9 @@ input{
 .goods_list .goods_con{
     padding:35rpx 30rpx;
     border-bottom:1px solid #DADADA;
+}
+.goods_list .goods_con:last-child{
+    border-bottom:none;
 }
 .goods_list .curr_menu{
     height:93rpx;

@@ -93,8 +93,10 @@ Page({
 
     },
 
-    onReady: function () {
-        // lazyload.observe();
+    onReady() {
+        setTimeout(() => {
+            lazyload.observe();
+        }, 2000)
     },
 
     //检查用户

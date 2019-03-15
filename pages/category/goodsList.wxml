@@ -79,7 +79,15 @@
 
 
      </view>
-        
+    <view class="n-bottom" hidden="{{hideBottom}}">
+        <view>
+            <view class='transverseline'><text class='line'></text></view>
+
+            <text class='txt'>{{loadMoreData}}</text>
+
+            <view class='transverseline'><text class='line'></text></view>
+        </view>
+    </view>
     </view>
     <!-- 底部购物车 -->
     <view  class="car_box flex flex_between">
@@ -96,15 +104,7 @@
     </view>
 </view>
 
-<!-- <view class="n-bottom" hidden="{{hideBottom}}">
-    <view>
-        <view class='transverseline'><text class='line'></text></view>
 
-        <text class='txt'>11{{loadMoreData}}</text>
-
-        <view class='transverseline'><text class='line'></text></view>
-    </view>
-</view> -->
 
 <!-- 蒙层 -->
 <view class="commodity_screen" bindtap="hideshopCar" wx:if="{{shopCarStatus}}"></view>
