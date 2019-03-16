@@ -6,8 +6,6 @@ const wecache = require('../../utils/wecache.js');
 const cart = require('../../services/cart.js');
 const pointKey = "userLocation";
 const currentMerchat = "currentMerchat";
-const lazyLoad = require('../../utils/lazyLoad.js');
-let lazyload;
 
 //获取应用实例
 const app = getApp()
@@ -60,17 +58,6 @@ Page({
             });
         }
         this.getCurrentLocation();
-
-        lazyload = new lazyLoad(this, {
-            classNote: '.good_',				//循环节点
-            initNum: 3,						//初始化展示多少个节点
-            limit: 5						//每次加载多少个节点
-        })
-    },
-    onReady() {
-        setTimeout(() => {
-            lazyload.observe();
-        }, 2000)
     },
 
     /**
@@ -236,22 +223,6 @@ Page({
                 goodsList.forEach(o => {
                     o.number = 0;
                 });
-                // _this.setData({
-                //     goodsList: goodsList
-                // }) //需要先设置下，否则下面的observe找不到元素
-                // setTimeout(()=>{
-                //     for (let i in goodsList){
-                //         goodsList[i].show = false;
-                //         wx.createIntersectionObserver().relativeToViewport({bottom: 20}).observe('.goods_'+ i, (ret) => {
-                //             if (ret.intersectionRatio > 0){
-                //                 goodsList[i].show = true
-                //             }
-                //             _this.setData({ // 更新数据
-                //                 goodsList:goodsList
-                //             })
-                //         })
-                //     }
-                // },1000)
                 var _arr = cart.loadCart();//购物车商品
                 //console.log("cart goods ---" + JSON.stringify(_arr));
                 if (null != _arr && _arr.length > 0) {
@@ -281,9 +252,6 @@ Page({
                     totalPage: res.data.totalPage,
                 })
             }
-            setTimeout(() => {
-                lazyload.observe();
-            }, 0)
             _this.refreshCartRef();
         })
 
