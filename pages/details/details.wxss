@@ -190,11 +190,6 @@ page{
 }
 .graphic_details image{
     width:100%;
-    transition: all 1s ease-in-out;
-    opacity: 0;
-}
-.graphic_details image{
-    opacity: 1
 }
 .graphic_details_title{
     height:81rpx;

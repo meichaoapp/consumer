@@ -291,13 +291,8 @@
     width:245rpx;
     height:245rpx;
     margin-right:20rpx;
-    transition: all 1s ease-in-out;
-    opacity: 0;
 }
 
-.m_con .good_image image.active{
-    opacity: 1
-}
 .m_con .goods_con{
     position:relative;
     padding:30rpx;

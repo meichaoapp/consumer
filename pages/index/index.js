@@ -9,9 +9,6 @@ const cart = require('../../services/cart.js');
 const pointKey = "userLocation";
 const currentMerchat = "currentMerchat";
 const currIndex = "currIndex";
-// import lazyLoad from '../../utils/lazyLoad.js';
-const lazyLoad = require('../../utils/lazyLoad.js');
-let lazyload;
 //获取应用实例
 const app = getApp()
 Page({
@@ -85,19 +82,9 @@ Page({
                 })
             },
         })
-        lazyload = new lazyLoad(this, {
-            classNote: '.good_',				//循环节点
-            initNum: 3,						//初始化展示多少个节点
-            limit: 3					//每次加载多少个节点
-        })
 
     },
 
-    onReady() {
-        setTimeout(() => {
-            lazyload.observe();
-        }, 2000)
-    },
 
     //检查用户
     checkUser: function () {
@@ -463,23 +450,6 @@ Page({
                     o.number = 0;
                 });
 
-                // _this.setData({
-                //     goodsList: goodsList
-                // }) //需要先设置下，否则下面的observe找不到元素
-                // setTimeout(()=>{
-                //     for (let i in goodsList){
-                //         goodsList[i].show = false;
-                //         wx.createIntersectionObserver().relativeToViewport({bottom: 20}).observe('.good_'+ i, (ret) => {
-                //             if (ret.intersectionRatio > 0){
-                //                 goodsList[i].show = true
-                //             }
-                //             _this.setData({ // 更新数据
-                //                 goodsList:goodsList
-                //             })
-                //         })
-                //     }
-                // },1000)
-                // console.log('======',_this.data.goodsList);
                 var _arr = cart.loadCart();//购物车商品
                 //console.log("cart goods ---" + JSON.stringify(_arr));
                 if (null != _arr && _arr.length > 0) {
@@ -501,27 +471,6 @@ Page({
                     hideHeader: true,
                     totalPage: res.data.totalPage,
                 })
-                // if (_this.data.goodsList != null && _this.data.goodsList.length > 0) {
-                //     _this.data.goodsList.forEach((r) => {
-                //         r.upshow = false;
-                //         r.def = "https://img.alicdn.com/tps/i3/T1QYOyXqRaXXaY1rfd-32-32.gif"
-                //     })
-                //     _this.setData({
-                //         goodsList: _this.data.goodsList
-                //     })
-                //     for (let i in _this.data.goodsList) {
-                //
-                //         wx.createIntersectionObserver().relativeToViewport({bottom: 20}).observe('.item-' + i, (ret) => {
-                //             if (ret.intersectionRatio > 0) {
-                //                 _this.data.goodsList[i].show = true
-                //             }
-                //             _this.setData({ // 更新数据
-                //                 goodsList
-                //             })
-                //         })
-                //     }
-                // }
-
             } else {
                 var tempArray = _this.data.goodsList;
                 if (tempArray != null && goodsList != null) {
@@ -532,34 +481,12 @@ Page({
                     totalPage: res.data.totalPage,
                 })
             }
-            // _this.setData({
-            //     goodsList: goodsList
-            // })
-            // _this.getList(_this.data.goodsList);
-            setTimeout(()=>{
-                lazyload.observe();
-            },0)
+
 
             _this.refreshCartRef();
         })
 
     },
-    // getList(goodsList){
-    //     let _this=this;
-    //     setTimeout(()=>{
-    //         for (let i in goodsList){
-    //             goodsList[i].show = false;
-    //             wx.createIntersectionObserver().relativeToViewport({bottom: 20}).observe('.good_'+ i, (ret) => {
-    //                 if (ret.intersectionRatio > 0){
-    //                     goodsList[i].show = true
-    //                 }
-    //                 _this.setData({ // 更新数据
-    //                     goodsList:goodsList
-    //                 })
-    //             })
-    //         }
-    //     },1000)
-    // },
     showList: function (e) {
         let that = this;
         let index = e.currentTarget.dataset.index;

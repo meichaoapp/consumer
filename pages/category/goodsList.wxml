@@ -25,7 +25,7 @@
         <view wx:if="{{item.joinNum<item.limitNum}}" class="goods_con bg_ff flex flex_between">
             <view class="good_image flex flex_center flex_just br5" 
                 data-id='{{item.id}}' data-type='{{item.productType}}' bindtap='toDetail'>
-                <image  src="{{item.url}}"></image>
+                <image  src="{{item.url}}" lazy-load="true"></image>
             </view>
             <view class="content flex flex_colum">
                 <view class="flex" data-id='{{item.id}}' data-type='{{item.productType}}' bindtap='toDetail'>
@@ -50,7 +50,7 @@
 
           <view wx:else class="goods_con bg_ff flex flex_between  ">
             <view class="good_image flex flex_center flex_just br5">
-                <image  src="{{item.url}}"></image>
+                <image  src="{{item.url}}" lazy-load="true"></image>
             </view>
             <view class="content flex flex_colum disable">
                 <view class="flex">

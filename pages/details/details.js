@@ -8,8 +8,6 @@ const cart = require('../../services/cart.js');
 const currentMerchat = "currentMerchat";
 const currIndex = "currIndex";
 const buyGoodsCache = "buyGoodsCache";
-const lazyLoad = require('../../utils/lazyLoad.js');
-let lazyload;
 Page({
 
     /**
@@ -49,11 +47,6 @@ Page({
 
         that.checkMerchant(mid);
         that.checkUser();
-        lazyload = new lazyLoad(this, {
-            classNote: '.item_',				//循环节点
-            initNum: 2,						//初始化展示多少个节点
-            limit: 1						//每次加载多少个节点
-        })
     },
 
 
@@ -237,9 +230,6 @@ Page({
                     merchant: merchant,//商家
                     tipTex: tipTex,
                 });
-                setTimeout(()=>{
-                    lazyload.observe();
-                },1000)
                 WxParse.wxParse('goodsDetail', 'html', res.data.detail.content, that);
                 that.countDown();
             }
