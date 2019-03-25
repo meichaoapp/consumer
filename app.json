@@ -20,6 +20,7 @@
 
     "pages/auth/login/login",
     "pages/auth/wxLogin/wxLogin",
+    "pages/auth/selectEntry/selectEntry",
 
 
     "pages/auth/mobileBind/mobileBind",

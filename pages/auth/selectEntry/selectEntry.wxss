@@ -1,0 +1,22 @@
+page{
+    height:100%;
+}
+.container{
+    height:100%;
+    padding-top:10rpx;
+}
+.entry_box{
+    height:100%;
+}
+.type_merchant{
+    margin-top:75rpx;
+    margin-bottom:78rpx;
+}
+.title{
+    margin-top:87rpx;
+}
+.entry_box image{
+    width:230rpx;
+    height:230rpx;
+    margin-bottom:27rpx;
+}
