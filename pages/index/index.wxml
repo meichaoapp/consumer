@@ -15,6 +15,13 @@
 </view>
 <scroll-view scroll-y="true" bindscrolltolower='lower' style="height:{{windowHeight}}px;margin-bottom:113rpx;margin-top:39px;" class="scroll_view">
     <view class="container1 {{shopCarStatus?'indexFixed':''}}">
+        <!--分类-->
+        <view wx:if="{{classifyList != null}}" class="classify_box flex bg_ff">
+            <view class="single_item flex flex_center flex_just" wx:for="{{classifyList}}" wx:key="{{item.index}}"
+                  data-index="{{item.index}}" bindtap='goCateGrory' data-type='{{item.type}}'>
+                    <text>{{item.name}}</text>
+            </view>
+        </view>
         <!-- 轮播图 -->
         <view class="bg_ff">
             <swiper class="banner_box" indicator-dots="true" autoplay="true" interval="5000" duration="1000">
@@ -22,16 +29,6 @@
                     <image bindtap='navTo' data-way='0' data-url='{{item.target}}' src="{{item.url}}"></image>
                 </swiper-item>
             </swiper>
-        </view>
-        <!-- 分类列表 -->
-        <view wx:if="{{classifyList != null}}" class="classify_box flex">
-            <view class="single_item flex flex_center flex_just" wx:for="{{classifyList}}" wx:key="{{item.index}}"
-                  data-index="{{item.index}}" bindtap='goCateGrory' data-type='{{item.type}}'>
-                <view class="flex flex_colum flex_just flex_center">
-                    <image src="{{item.logo}}"></image>
-                    <text>{{item.name}}</text>
-                </view>
-            </view>
         </view>
         <view wx:if="{{sellList != null}}" class="menu_box flex">
             <view class="single_item flex flex_center flex_just {{num==index?'active':''}}" wx:for="{{sellList}}"

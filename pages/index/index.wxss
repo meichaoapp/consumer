@@ -1,6 +1,7 @@
 .container1 {
   box-sizing: border-box;
   background-color: #f4f4f4;
+  padding-top:10rpx;
   font-family: PingFangSC-Light,helvetica,'Heiti SC';
 }
 .merchant-around{
@@ -127,6 +128,7 @@
     height:260rpx;
     border-radius:16rpx;
     padding-bottom:20rpx;
+    padding-top:20rpx;
     overflow:hidden;
     margin:0 auto;
 }
@@ -134,32 +136,22 @@
     width:100%;
     height:260rpx;
 }
-.classify_box{
-    height:160rpx;
-    background:#fff;
-    border-top: 2rpx solid #F1F1F1;
-    border-bottom:2rpx solid #F1F1F1;
-    box-sizing:border-box;
-}
+
  .single_item{
     flex-grow: 1;
     height:100%;
-    border-right:2rpx solid #F1F1F1;
     box-sizing:border-box;
 }
-.classify_box image{
-    width:80rpx;
-    height:80rpx;
-}
-.classify_box text{
-    font-size:28rpx;
-    color:#5d5d5d;
-    margin-top:10rpx;
+.classify_box{
+    height:98rpx;
+    border-bottom:1rpx solid #DADADA;
 }
 .menu_box{
-    height:160rpx;
+    height:220rpx;
     background:#fff;
     margin-bottom:20rpx;
+    box-sizing:border-box;
+    padding:0 30rpx;
 }
 .menu_box image{
     width:98rpx;
@@ -168,7 +160,10 @@
 }
 .menu_box .active{
     position:absolute;
-    border-bottom:5rpx solid #89C765;
+    border-bottom:8rpx solid #81C95A;
+}
+.menu_box .active view{
+  margin-top:8rpx;
 }
 .truesure_box{
     background:#fff;
