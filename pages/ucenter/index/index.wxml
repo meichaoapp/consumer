@@ -28,6 +28,17 @@
                     </view>
                 </view>
             </navigator>
+            <navigator url="/pages/ucenter/order/order">
+                <view class="list_item">
+                    <view class="flex flex_center flex_between">
+                        <view class="left_part flex flex_center">
+                            <image class="icon_mine01" src="{{basePath}}/mine_02.png"></image>
+                            <text class="font15 C666">我的订单</text>
+                        </view>
+                        <image src="{{basePath}}/go.png" class="icon_go"></image>
+                    </view>
+                </view>
+            </navigator>
             <!-- <navigator url='/pages/shopping/mydollarTreasure/mydollarTreasure'>
                 <view class="list_item">
                     <view class="flex flex_center flex_between">
@@ -45,6 +56,17 @@
                         <view class="left_part flex flex_center">
                             <image class="icon_mine01" src="{{basePath}}/mine_04.png"></image>
                             <text class="font15 C666">我的优惠券</text>
+                        </view>
+                        <image src="{{basePath}}/go.png" class="icon_go"></image>
+                    </view>
+                </view>
+            </navigator>
+            <navigator url="/pages/ucenter/coupon/coupon">
+                <view class="list_item" >
+                    <view class="flex flex_center flex_between" style="border:none">
+                        <view class="left_part flex flex_center" >
+                            <image class="icon_mine01" src="{{basePath}}/mine_04.png"></image>
+                            <text class="font15 C666">我的消息</text>
                         </view>
                         <image src="{{basePath}}/go.png" class="icon_go"></image>
                     </view>

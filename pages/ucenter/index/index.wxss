@@ -48,9 +48,7 @@ page{
 .person_line>view{
     border-bottom:none;
 }
-.my_coupon>view{
-    border-bottom:none;
-}
+
 .icon_go{
     width:15rpx;
     height:26rpx;
