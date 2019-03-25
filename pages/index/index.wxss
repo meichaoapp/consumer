@@ -452,8 +452,14 @@
 
 }
 .shop_car .car_title{
-    height:76px;
+    height:80rpx;
     padding:0 30rpx;
+    background: #F8FFF4;
+}
+.car_title image{
+    width:28rpx;
+    height:29rpx;
+    margin-right:13rpx;
 }
 .classify_list{
     overflow:auto;
@@ -466,26 +472,50 @@
     margin-top:6rpx;
 }
 .classify_title{
-    height:51rpx;
-    line-height:51rpx;
-    background: #F8FFF4;
+    height:55rpx;
+    line-height:55rpx;
+    background: #F4F4F4;
     color:#60A33B;
-    border-top:1px solid #81C95A;
-    border-bottom:1px solid #81C95A;
     padding:0 30rpx;
 }
-.classify_item{
-    height:103rpx;
-    border-bottom:1px solid #D9D9D9;
-    padding:0 30rpx;
+.classify_title .icon_type{
+    width:31rpx;
+    height:30rpx;
+    margin-right:10rpx;
 }
-.classify_item .goods_name{
-    width:256rpx;
-    margin-right:88rpx;
+.common_tag{
+    width:100rpx;
+    height:42rpx;
+    background: #FFFFFF;
+    border-radius: 4rpx;
+    font-size:28rpx;
+    text-align:center;
+    line-height:42rpx;
+}
+.coupon_tag{
+    color:#FF6901;
+    border: 1rpx solid #FF6901;
+}
+.group_tag{
+    color:#52C123;
+    border: 1rpx solid #52C123;
+}
+.proprietary_tag{
+    color:#FF9400;
+    border: 1rpx solid #FF9400 ;
+}
 
+.classify_item{
+    border-bottom:1px solid #D9D9D9;
+    padding:30rpx 30rpx;
 }
+.classify_item .set_car{
+      margin-left:65rpx;
+}
+
 .classify_item .right_part{
     flex:1;
+    margin-top:20rpx;
 }
 .n-bottom{
     /*position:fixed;

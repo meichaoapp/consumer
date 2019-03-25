@@ -393,6 +393,9 @@ view,text{
 .C95A{
   color:#81C95A;
 }
+.C000{
+  color:#000;
+}
 .C860{
   color:#87C860
 }
