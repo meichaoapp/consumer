@@ -1,0 +1,12 @@
+<view class="container">
+    <view class="wx_login bg_ff flex flex_colum flex_center">
+        <view class="avatar_box">
+            <image src="https://s-mall.oss-cn-beijing.aliyuncs.com/meichao/user.png"></image>
+            <view class="font16 C333">沧海一只喵</view>
+        </view>
+        <view class="login_btn flex flex_center flex_just">
+            <image></image>
+            <view class="font14 cfff">微信登录</view>
+        </view>
+    </view>
+</view>

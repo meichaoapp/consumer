@@ -1,6 +1,5 @@
 {
   "pages": [
-    
     "pages/index/index",
 
     "pages/category/goodsList",
@@ -20,6 +19,7 @@
     "pages/ucenter/partner/partner",
 
     "pages/auth/login/login",
+    "pages/auth/wxLogin/wxLogin",
 
 
     "pages/auth/mobileBind/mobileBind",
