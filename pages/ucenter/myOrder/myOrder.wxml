@@ -1,1 +1,88 @@
 <!--我的订单-->
+<view class="container">
+    <view class="order_box">
+        <!--已发货-->
+        <view class="order bg_ff">
+            <view class="title flex flex_between flex_center">
+                <view class="flex flex_center">
+                    <image class="icon_type" src="/static/images/icon_type.png"></image>
+                    <view>兴业春天【三好鲜生店】</view>
+                </view>
+                <view class="has_send font14">已发货</view>
+            </view>
+
+            <view class="order_item flex">
+                <image class="shop_img" src="https://wxpic.iliangpin.cn/meichao/1.png"></image>
+                <view class="info flex flex_colum flex_1 width_0">
+                    <view class="flex">
+                        <view class="name ellipsis_2">小浣熊儿童洗发沐浴露500ML附赠牙刷+牙膏+洗漱杯</view>
+                        <view class="flex flex_colum flex_end">
+                            <text class="font13 C000">￥31.5</text>
+                            <text class="C999 font12 mt10">×1</text>
+                        </view>
+                    </view>
+                    <view class="C999 font12 mt10">颜色分类：黄色   尺码分类：90码</view>
+                    <view class="price_box">
+                        <text>实付</text>
+                        <text class="price strong">￥31.5</text>
+                    </view>
+                </view>
+            </view>
+
+            <view class="btn_box flex flex_center flex_end">
+                <view class="C666 font14">查看物流</view>
+                <view class="sure_receive">确认收货</view>
+            </view>
+        </view>
+
+        <!--未发货-->
+        <view class="order bg_ff">
+            <view class="title flex flex_between flex_center">
+                <view class="flex flex_center">
+                    <image class="icon_type" src="/static/images/icon_type.png"></image>
+                    <view>兴业春天【三好鲜生店】</view>
+                </view>
+                <view class="no_send font14">未发货</view>
+            </view>
+
+            <view class="order_item flex">
+                <image class="shop_img" src="https://wxpic.iliangpin.cn/meichao/1.png"></image>
+                <view class="info flex flex_colum flex_1 width_0">
+                    <view class="flex">
+                        <view class="name ellipsis_2">小浣熊儿童洗发沐浴露500ML附赠牙刷+牙膏+洗漱杯</view>
+                        <view class="flex flex_colum flex_end">
+                            <text class="font13 C000">￥31.5</text>
+                            <text class="C999 font12 mt10">×1</text>
+                        </view>
+                    </view>
+                    <view class="C999 font12 mt10">颜色分类：黄色   尺码分类：90码</view>
+                    <view class="price_box">
+                        <text>实付</text>
+                        <text class="price strong">￥31.5</text>
+                    </view>
+                </view>
+            </view>
+            <view class="order_item flex">
+                <image class="shop_img" src="https://wxpic.iliangpin.cn/meichao/1.png"></image>
+                <view class="info flex flex_colum flex_1 width_0">
+                    <view class="flex">
+                        <view class="name ellipsis_2">小浣熊儿童洗发沐浴露500ML附赠牙刷+牙膏+洗漱杯</view>
+                        <view class="flex flex_colum flex_end">
+                            <text class="font13 C000">￥31.5</text>
+                            <text class="C999 font12 mt10">×1</text>
+                        </view>
+                    </view>
+                    <view class="C999 font12 mt10">颜色分类：黄色   尺码分类：90码</view>
+                    <view class="price_box">
+                        <text>实付</text>
+                        <text class="price strong">￥31.5</text>
+                    </view>
+                </view>
+            </view>
+
+            <view class="btn_box flex flex_center flex_end">
+                <view class="sure_receive">确认收货</view>
+            </view>
+        </view>
+    </view>
+</view>

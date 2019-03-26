@@ -1,1 +1,74 @@
 /* pages/ucenter/myOrder/myOrder.wxss */
+page{
+    height:100%;
+}
+.container{
+    height:100%;
+    padding-top:20rpx;
+}
+
+.title{
+    height:82rpx;
+    line-height:82rpx;
+    color:#60A33B;
+    padding:0 30rpx;
+}
+.title .icon_type{
+    width:31rpx;
+    height:30rpx;
+    margin-right:10rpx;
+}
+.has_send{
+    color:#86CB61;
+}
+.no_send{
+    color:#FF3F3F;
+}
+.order{
+    margin-bottom:20rpx;
+}
+.name{
+    line-height:40rpx;
+    margin-right:45rpx;
+}
+.order_item{
+    padding:35rpx 30rpx;
+    border-bottom:1rpx solid #CBCBCB;
+    background: #FAFAFA;
+}
+
+.order_item:last-child{
+    border-bottom:none;
+}
+.shop_img{
+    width:190rpx;
+    height:190rpx;
+    margin-right:16rpx;
+}
+.price_box{
+    color:#66696C;
+    font-size:28rpx;
+    text-align:right;
+    margin-top:26rpx;
+}
+.price{
+    font-size:38rpx;
+    color:#3D4244;
+}
+.btn_box{
+    padding:0 30rpx;
+    height:103rpx;
+}
+.btn_box view{
+    width:197rpx;
+    height:54rpx;
+    border: 1rpx solid #AFAFAF;
+    border-radius: 5rpx;
+    text-align:center;
+    line-height:54rpx;
+}
+.btn_box .sure_receive{
+    color: #FF7A16;
+    margin-left:12rpx;
+    border:1rpx solid #FF7A16;
+}
