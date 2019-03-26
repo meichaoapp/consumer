@@ -28,6 +28,7 @@
     "pages/auth/mobileBind/getCode",
 
     "pages/ucenter/coupon/coupon",
+    "pages/ucenter/myMsg/myMsg",
     "pages/ucenter/coupon/couponOrderDetail",
 
     "pages/shopping/dollarTreasureDetail/dollarTreasureDetail",

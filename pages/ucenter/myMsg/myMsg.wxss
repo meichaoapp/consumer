@@ -1,0 +1,41 @@
+/* pages/ucenter/myMsg/myMsg.wxss */
+page{
+    height:100%;
+}
+.msg_box{
+    height:100%;
+}
+.msg_item{
+    margin:0 38rpx;
+    padding:30rpx 0;
+    border-bottom: 1rpx solid #E6E6E6;
+}
+.time{
+    color:#ACACAC;
+    font-size:20rpx;
+    margin-left:75rpx;
+}
+.name{
+    font-size:30rpx;
+    color:#000;
+    font-weight:bold;
+}
+.avatar{
+    width:102rpx;
+    height:102rpx;
+    margin-right:15rpx;
+    border-radius:50%;
+}
+.part_one{
+    margin-bottom:10rpx;
+}
+.unread_count{
+    width:36rpx;
+    height:36rpx;
+    background: #EF2616;
+    color:#fff;
+    margin-left:75rpx;
+    border-radius:50%;
+    line-height:36rpx;
+    text-align:center;
+}

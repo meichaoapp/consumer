@@ -286,7 +286,9 @@ view,text{
 	flex: 1;
 	-webkit-flex: 1;
 }
-
+.width_0{
+  width:0;
+}
 .flex_around {
 	justify-content: space-around;
 }
@@ -363,6 +365,9 @@ view,text{
 .font21{
   font-size:42rpx;
 }
+.font13{
+  font-size:26rpx;
+}
 .font22{
   font-size:44rpx;
 }
@@ -386,6 +391,9 @@ view,text{
 }
 .C5d5d{
   color:#5d5d5d;
+}
+.c_acac{
+  color:#ACACAC;
 }
 .cfff{
   color:#fff;
