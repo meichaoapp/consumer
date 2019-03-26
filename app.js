@@ -62,6 +62,6 @@ App({
       avatarUrl: 'http://yanxuan.nosdn.127.net/8945ae63d940cc42406c3f67019c5cb6.png'
     },
     token: '',
-    _base_path:"https://wxpic.iliangpin.cn/meichao/mini-program/consumer/",
+    _base_path:"https://meichaooss1.oss-cn-beijing.aliyuncs.com/meichao/mini-program/consumer",
   }
 })
