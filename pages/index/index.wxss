@@ -375,8 +375,8 @@
 .icon_settle{
     background:#81C95A;
     width:231rpx;
-    height:103rpx;
-    line-height:103rpx;
+    height:100rpx;
+    line-height:100rpx;
     text-align:center;
     color:#fff;
     font-size:36rpx;

@@ -66,15 +66,15 @@
       },
       {
         "pagePath": "pages/ucenter/desire/desire",
-        "iconPath": "static/images/icon-want.png",
-        "selectedIconPath": "static/images/icon-want-selected.png",
-        "text": "留言板"
+        "iconPath": "static/images/icon_merchant.png",
+        "selectedIconPath": "static/images/icon_merchant_selected.png",
+        "text": "成为团长"
       },
       {
         "pagePath": "pages/ucenter/partner/partner",
-        "iconPath": "static/images/icon-partner.png",
-        "selectedIconPath": "static/images/icon-partner-selected.png",
-        "text": "成为伙伴"
+        "iconPath": "static/images/icon_supplier.png",
+        "selectedIconPath": "static/images/icon_supplier_selected.png",
+        "text": "成为供应商"
       },
       {
         "pagePath": "pages/ucenter/index/index",
