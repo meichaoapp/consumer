@@ -5,7 +5,7 @@
             <view class="font16 C333">沧海一只喵</view>
         </view>
         <view class="login_btn flex flex_center flex_just">
-            <image></image>
+            <image src="/static/images/icon_wechat.png"></image>
             <view class="font14 cfff">微信登录</view>
         </view>
     </view>

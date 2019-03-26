@@ -24,7 +24,7 @@ page{
     margin-top:82rpx;
 }
 .login_btn image{
-    width:50rpx;
-    height:50rpx;
+    width:44rpx;
+    height:35rpx;
     margin-right:10rpx;
 }
