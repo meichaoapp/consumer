@@ -1,5 +1,5 @@
-
-<view class="msg_box bg_ff">
+<view class="container">
+    <view class="msg_box bg_ff">
         <view class="msg_item flex flex_center">
             <image class="avatar" src="https://s-mall.oss-cn-beijing.aliyuncs.com/meichao/user.png"></image>
             <view class="info flex_1">
@@ -27,4 +27,6 @@
             </view>
         </view>
     </view>
+</view>
+
 

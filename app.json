@@ -28,9 +28,9 @@
     "pages/auth/mobileBind/getCode",
 
     "pages/ucenter/coupon/coupon",
-    "pages/ucenter/myMsg/myMsg",
     "pages/ucenter/coupon/couponOrderDetail",
-
+    "pages/ucenter/myMsg/myMsg",
+    "pages/ucenter/myOrder/myOrder",
     "pages/shopping/dollarTreasureDetail/dollarTreasureDetail",
     "pages/shopping/dollarTreasureDetail/success",
     "pages/shopping/mydollarTreasure/mydollarTreasure",
