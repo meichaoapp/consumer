@@ -40,7 +40,7 @@ page{
 }
 .list_item > view{
     height:100%;
-    border-bottom:1px solid #CCCCCC;
+    border-bottom: 1px solid #e7e7e7;
 }
 .person_line{
     margin-bottom:20rpx;
