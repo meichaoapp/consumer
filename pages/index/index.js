@@ -70,8 +70,9 @@ Page({
             merchantId: mid,
         });
 
-        that.checkMerchant(mid); //检查商户
         that.checkUser();  //检查用户
+        that.checkMerchant(mid); //检查商户
+        
         /** 设备信息 */
         wx.getSystemInfo({
             success: (res) => {
@@ -94,7 +95,7 @@ Page({
             _this.setData({userInfo: userInfo,});
         } else {
             wx.redirectTo({
-                url: '/pages/auth/login/login'
+              url: '/pages/auth/wxLogin/wxLogin'
             });
         }
     },
@@ -114,9 +115,11 @@ Page({
                 //清空缓存
                 wx.clearStorageSync();
                 wx.clearStorage();
+                wecache.put("mid", mid != null ? mid : 0, 0);
                 wx.redirectTo({
-                    url: '/pages/auth/login/login?mid=' + (mid != null ? mid : 0)
+                  url: '/pages/auth/choiceMerchant/choiceMerchant'
                 });
+              
             }
 
             this.setData({
@@ -133,9 +136,10 @@ Page({
             }
         } else {
 
-            wx.redirectTo({
-                url: '/pages/auth/login/login?mid=' + (mid != null ? mid : 0)
-            });
+          wecache.put("mid", mid != null ? mid : 0, 0);
+          wx.redirectTo({
+            url: '/pages/auth/choiceMerchant/choiceMerchant'
+          });
         }
     },
 
@@ -218,17 +222,7 @@ Page({
         let _this = this;
         //this.queryIndexTreasures();
         // 页面显示
-        let userInfo = wx.getStorageSync('userInfo');
-
-        if (null != userInfo || userInfo != "" || undefined != userInfo) {
-            this.setData({
-                userInfo: userInfo,
-            });
-        } else {
-            wx.redirectTo({
-                url: '/pages/auth/login/login'
-            });
-        }
+        _this.checkUser();  //检查用户
 
         let merchant = wx.getStorageSync(currentMerchat);
         let currentIndex = wx.getStorageSync("currIndex");
@@ -240,9 +234,10 @@ Page({
             _this.queryIndexInfo(); // 查询首页信息
             _this.getCurrentLocation();
         } else {
-            wx.redirectTo({
-                url: '/pages/auth/login/login'
-            });
+          wecache.put("mid",0, 0);
+          wx.redirectTo({
+            url: '/pages/auth/choiceMerchant/choiceMerchant'
+          });
         }
 
 

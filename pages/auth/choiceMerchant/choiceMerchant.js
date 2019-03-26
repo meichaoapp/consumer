@@ -40,8 +40,7 @@ Page({
   onLoad: function (options) {
     this.$wuxToast = app.Wux().$wuxToast
     let that = this;
-    var mid = options.mid;
-    if (mid == undefined) { mid = 0; }
+    var mid = wecache.get("mid",0);
     that.setData({
       mid: mid,
     });
@@ -216,7 +215,7 @@ Page({
     }
   },
   //确认商户授权用户
-  login: function (e) {
+  submit: function () {
     var _this = this;
     if(!_this.data.isAuthLocation) { // 未授权位置信息
       wx.showModal({
@@ -232,69 +231,20 @@ Page({
       })
       return;
     }
-    if (_this.data.count > 0) {
-      return;
-    }
     if (_this.data.merchat == null) {
       _this.$wuxToast.show({ type: 'forbidden', text: "请选择商户信息", });
-      _this.setData({
-        count: 0,
-      });
     }
-    _this.setData({
-      count: _this.data.count + 1,
-    });
-    var wxUser = e.detail.userInfo;
-    console.log("userInfo---------------------" + JSON.stringify(wxUser))
-    user.wxLogin(wxUser).then(res => {
-      if (res.rs == 1) {
-        var userInfo = res.data.user;
-        var session_key = userInfo.session_key;
-        console.log("userInfo--------" + JSON.stringify(userInfo))
-        _this.setData({
-          userInfo: userInfo
-        });
-
-        //缓存当前商户信息
-        wx.setStorageSync(currentMerchat, _this.data.merchat);
+    //缓存当前商户信息
+    wx.setStorageSync(currentMerchat, _this.data.merchat);
         //缓存当前商户的index值，方便首页读取，设置选中状态
-       
-        var index = _this.data.currentIndex;
-        if (util.isNotNULL(index) == false) { index = 0; }
-        wx.setStorageSync(currIndex, index);
-        app.globalData.userInfo = userInfo;
-        app.globalData.token = res.data.token;
-        wx.setStorageSync('userInfo', userInfo);
-        wx.setStorageSync('token', res.data.token);
-        //清除购物车缓存
-        cart.cleanCart();
+    var index = _this.data.currentIndex;
+    if (util.isNotNULL(index) == false) { index = 0; }
+    wx.setStorageSync(currIndex, index);
+    wecache.remove("mid"); //清除
+    wx.switchTab({
+      url: '/pages/index/index',
+    })
 
-        let bindingPhone = userInfo.bindingPhone;
-        console.log("bindingPhone --- " + bindingPhone);
-        if(null == bindingPhone || "" == bindingPhone) { // 未绑定手机号
-          wx.navigateTo({
-            url: '/pages/auth/mobileBind/mobileBind?session_key=' + session_key,
-          })
-        }else{ // 已绑定
-          wx.switchTab({
-            url: '/pages/index/index',
-          })
-        }
-       
-       
-      } else {
-        _this.setData({
-          count: 0,
-        });
-        _this.$wuxToast.show({ type: 'forbidden', text: res.info, });
-      }
-
-    }).catch((err) => {
-      _this.setData({
-        count: 0,
-      });
-      _this.$wuxToast.show({ type: 'forbidden', text: "提交失败，请重试！", });
-      console.log(err)
-    });
+  
   },
 })
