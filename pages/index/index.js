@@ -603,6 +603,7 @@ Page({
                 }
             }
         }
+        console.log('------',cartcouponGoodsList);
         _this.setData({
             needPay: cart.loadPrice().toFixed(2), // 购物车核算价格
             goodsNums: cart.loadGooodsNums(), //商品数量
