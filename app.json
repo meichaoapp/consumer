@@ -18,7 +18,7 @@
     "pages/ucenter/desire/desire",
     "pages/ucenter/partner/partner",
 
-    "pages/auth/login/login",
+    "pages/auth/choiceMerchant/choiceMerchant",
     "pages/auth/wxLogin/wxLogin",
     "pages/auth/selectEntry/selectEntry",
 
