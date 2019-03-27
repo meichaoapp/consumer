@@ -13,6 +13,7 @@ Page({
     address: "",	   //地址
     name: "", //商户姓名
     phone: "", //电话
+    content:"",
   },
 
   onLoad: function (options) {
@@ -58,12 +59,14 @@ Page({
       name: _this.data.name,
       phone: _this.data.phone,
       type:1,
+      remark:_this.data.content,
     }
     util.request(api.Partner, data, "POST").then(function (res) {
       if (res.rs === 1) {
         _this.setData({
           name: "",
           phone: "",
+          content:"",
         });
         _this.$wuxToast.show({ type: 'success', text: "提交成功!", });
       } else {
@@ -111,6 +114,13 @@ Page({
 
         });
       }
+    })
+  },
+
+  bindContent: function (e) {
+    var _this = this;
+    this.setData({
+      content: e.detail.value,
     })
   },
 

@@ -78,6 +78,12 @@ input::-webkit-input-placeholder {
   font-size: 26rpx;
   color: #666666;
 }
+.txtphcolor{
+  padding-top: 3px;
+  padding-left: 3px;
+  font-size: 26rpx;
+  color: #666666;
+}
  .location-icon{
    width:11px;
   height:15px;
@@ -149,4 +155,9 @@ input::-webkit-input-placeholder {
 .tip{
     text-align:center;
     margin-top:30rpx;
+}
+
+.content{
+  padding:20rpx 0px 0px 20rpx;
+  background:#F6F6F6;
 }

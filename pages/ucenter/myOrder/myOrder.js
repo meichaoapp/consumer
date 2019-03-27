@@ -2,6 +2,7 @@ var util = require('../../../utils/util.js');
 var api = require('../../../config/api.js');
 //获取应用实例
 const app = getApp();
+const orderStatusArr = ["待支付", "已支付", "待领取", "已完成", "放弃","退货"]; // 0 待支付 1 已支付 2 待领取 3 已完成 4 放弃 5 退货
 Page({
   data: {
     basePath: app.globalData._base_path, //基础路径
@@ -15,6 +16,7 @@ Page({
     srollViewHeight: 0, //滚动分页区域高度
     refreshTime: '', // 刷新的时间
     loadMoreData: '上滑加载更多',
+    orderStatusArr: orderStatusArr,
   },
   onLoad: function (options) {
     let userInfo = wx.getStorageSync('userInfo');

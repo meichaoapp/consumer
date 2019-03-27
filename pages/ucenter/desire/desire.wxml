@@ -16,9 +16,13 @@
 		
         <view class='box-contacts'><input name="phone" bindinput='bindPhone' placeholder='联系电话' placeholder-class="phcolor" value='{{phone}}'></input></view>
      </view>
+      <view class='box-base'>
+         <textarea bindinput='bindContent' class="content" value='{{content}}' placeholder-class='txtphcolor' placeholder="您的留言" />
+    </view>
 
        <button class="fb-btn" bindtap='submit'>提交信息</button>
        <view class="C666 font15 tip">我们会很快与您取得联系</view>
+       <view class="C666 font15 tip">团长招募热线：13370636266</view>
    </view>
 
   

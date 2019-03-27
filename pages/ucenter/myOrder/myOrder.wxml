@@ -13,7 +13,7 @@
                         <image class="icon_type" src="/static/images/icon_type.png"></image>
                         <view>{{item.merchantName}}</view>
                     </view>
-                    <view class="has_send font14">已发货</view>
+                    <view class="has_send font14">{{orderStatusArr[item.status]}}</view>
                 </view>
                 <block wx:for="{{item.orderDetailList}}" wx:for-item="orderDetail" wx:key="{{orderDetail.id}}">
                     <view class="order_item flex">
@@ -37,8 +37,8 @@
                     </view>
                 </block>
                 <view class="btn_box flex flex_center flex_end">
-                    <view class="C666 font14">查看物流</view>
-                    <view class="sure_receive">确认收货</view>
+                    <view wx:if="{{item.status == 2 || item.status == 3 || item.status == 5}}" class="C666 font14">查看物流</view>
+                    <view wx:if="{{item.status == 3}}" class="sure_receive">确认收货</view>
                 </view>
             </view>
         </block>

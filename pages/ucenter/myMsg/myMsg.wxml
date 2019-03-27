@@ -13,7 +13,7 @@
                   </view>
                   <view class="part_two  flex flex_between flex_center">
                       <view class="flex_1 width_0 ellipsis font13 c_acac">{{item.lastMessage}}</view>
-                      <view wx:if="{{item.newMessage}}" class="unread_count font12">新</view>
+                      <view wx:if="{{item.newMessage}}" class="unread_count font12">1</view>
                   </view>
               </view>
           </view>
