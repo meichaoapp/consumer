@@ -1,134 +1,152 @@
 page{
+    background: #f4f4f4;
+    height: 100%;
+}
+.container{
+    height:100%;
     background: #fff;
-    min-height: 100%;
+}
+.box {
+  display: flex;
+  background: #fff;
 }
 
-.container{
-    background: #fff;
-    min-height: 100%;
+.box-title {
+  font-size: 13pt;
+}
+
+.box-bd {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 15rpx 40rpx 30rpx;
+}
+.help-q {
+  color: #999;
+  font-size: 11pt;
+  line-height: 200%;
+  margin-top: 5rpx;
+}
+.help-a {
+  color: #555;    
+  text-indent: 1em;
+  line-height: 160%;
+  display: flex;
+  flex-direction: column;
+}
+.help-a text{
+  word-break: break-all;
 }
 
 .form{
   width: 100%;
-  background: #fff;
-  margin-top:6px;
+  margin-top: 18rpx;
   padding-top:23rpx;
+  padding-bottom: 80rpx;
 }
 
-.fb-type{
-  height: 104rpx;
-  width: 100%;
-  background: #fff;
-  margin-bottom: 20rpx;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  padding-left: 30rpx;
-  padding-right: 30rpx;
-}
-
-.fb-type .type-label{
-  height: 36rpx;
-  flex: 1;
+.title{
+  margin-left:10px;
+  margin-top:10px;
   color: #333;
-  font-size: 28rpx;
+  line-height: 39px;
+  font-size:11pt;
 }
-
-.fb-type .type-icon{
-  height: 36rpx;
-  width: 36rpx;
+.box-base{
+  padding: 15rpx 80rpx;
+  font-size: 30rpx;
+  color: #72cfdd;
+  
 }
-
-.fb-body{
-  width: 98%;
-  background: #fff;
-  height: 374rpx;
-  padding: 25rpx 30rpx 64rpx 30rpx;
+ .label{
+  margin-top:4rpx;
+  color: #72cfdd;
 }
-
-.fb-body .content{
-  width: 100%;
-  height: 332rpx;
-  border-radius: 15rpx;
-  color: #333;
-  line-height: 40rpx;
-  font-size: 28rpx;
-  padding:20rpx 0px 0px 20rpx;
-  background:#F6F6F6;
+input{
+    background: #F6F6F6;
+    border: 1px solid #DDDDDD;
+    border-radius: 5px;
+    height:92rpx;
+    line-height:92rpx;
+    padding:0 30rpx;
 }
-
+input::-webkit-input-placeholder {
+  color: #999;
+}
 .phcolor{
-  padding-top: 3px;
   padding-left: 3px;
   font-size: 26rpx;
   color: #666666;
 }
+ .location-icon{
+   width:11px;
+  height:15px;
+  margin-top:-3px;
+  margin-right:6px;
+ }
 
-.fb-body .text-count{
-  padding-top: 17rpx;
-  line-height: 30rpx;
-  float: right;
-  color: #666;
-  font-size: 24rpx;
+.card-check{
+  width: 36rpx;
+  height:36rpx;
 }
-
-.fb-mobile{
-  height: 162rpx;
-  width: 100%;
+.box-contacts{
+  margin-top: 3px;
 }
-
-.fb-mobile .label{
-  height: 58rpx;
-  width: 100%;
-  padding-top: 14rpx;
-  padding-bottom: 11rpx;
-  color: #7f7f7f;
-  font-size: 24rpx;
-  padding-left: 30rpx;
-  padding-right: 30rpx;
-  line-height: 33rpx;
+.box-checked{
+  margin-left: 35rpx;
+  margin-right: 14rpx;
 }
-
-.fb-mobile .mobile-box{
-  height: 104rpx;
-  width: 100%;
-  color: #333;
-  padding-left: 30rpx;
-  padding-right: 30rpx;
-  font-size: 24rpx;
-  background: #fff;
-  position: relative;
+.box-location-text{
+  margin-right: 80rpx;
 }
-
-.fb-mobile .mobile{
-  position: absolute;
-  top: 27rpx;
-  left: 30rpx;
-  height: 50rpx;
-  width: 100%;
-  color: #333;
-  line-height: 50rpx;
-  font-size: 24rpx;
+.box-location{
+  width: 400rpx;
 }
-
-.clear-icon{
-  position: absolute;
-  top:25rpx;
-  right:24rpx;
-  width:64rpx;
-  height:64rpx;
-
+.box-pedestal{
+  margin-right: 65rpx;
 }
 
 .fb-btn{
-  width:440rpx;
-  height:90rpx;
-  background: #89C765;
-  box-shadow: 0 4px 16px 0 #89C765;
-  border-radius: 35px;
-  font-size:30rpx;
-  color:#fff;
-  line-height:90rpx;
-  text-align:center;
-  margin-top:38rpx;
+    width:440rpx;
+    height:90rpx;
+    background: #89C765;
+    box-shadow: 0 4px 16px 0 #89C765;
+    border-radius: 35px;
+    font-size:30rpx;
+    color:#fff;
+    line-height:90rpx;
+    text-align:center;
+    margin-top:38rpx;
+}
+
+.policy{
+  display: flex;
+  justify-content: center;
+  text-justify: center;
+  color: #f0c33d;
+}
+.pos{
+  position: relative;
+  padding-left: 20rpx;
+}
+.pos-shangchao{
+  position: relative;
+}
+.pos .HintInfor{
+  position: absolute;
+  top: 11rpx;
+  left: 0;
+  font-size: 30rpx;
+  color: #fd1a2a;
+}
+.icon-zuobiao{
+  position: absolute;
+  top: 15rpx;
+  left: 6rpx;
+  font-size: 40rpx;
+  color: #72cfdd;
+}
+.tip{
+    text-align:center;
+    margin-top:30rpx;
 }

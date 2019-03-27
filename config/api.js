@@ -52,4 +52,22 @@ module.exports = {
   QueryMyCouponList: NewApiRootUrl + "discountCoupon/mylist",//我的优惠券列表
   QueryCouponDetail: NewApiRootUrl + "discountCoupon/myDetail",//我的优惠券详情
   QueryCouponDetails: NewApiRootUrl + "discountCoupon/detail",//优惠券详情
+
+  ///电商相关
+  QueryShopTypes: NewApiRootUrl + "shop/typelist",//获取电商类型列表信息
+  QueryShopList: NewApiRootUrl + "shop/list",//获取电商列表信息
+  QueryShopDetail: NewApiRootUrl + "shop/detail",//获取电商详情信息
+
+  //电商订单
+  QueryShopOrderList: NewApiRootUrl + "shop/myList",//获取电商类型列表信息
+  QueryShopOrderDetail: NewApiRootUrl + "shop/myDetail",//获取电商订单详情信息
+  ConfirmReceive: NewApiRootUrl + "shop/confirmReceive",//确认收货
+
+  ///消息相关 
+  QueryMessageList: NewApiRootUrl + "common/chat/messageMerchantList",//消息列表
+  QueryMessageHistory: NewApiRootUrl + "common/chat/myMessageContent",//我的优惠券详情
+  SendMessage: NewApiRootUrl + "common/chat/submitMessageContent",//优惠券详情
+
+  ///物流信息相关
+  QueryLogistics: NewApiRootUrl + "common/kuaidi100Query",//获取物流信息（快递100）
 };

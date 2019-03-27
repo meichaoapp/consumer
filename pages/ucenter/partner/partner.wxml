@@ -4,7 +4,7 @@
 
    <view class='form'>
      <view class='box-base'>
-        <view class='box-contacts'><input name="name" bindinput='bindName' placeholder='商超名称或个人姓名' placeholder-class="phcolor" value='{{name}}'></input></view>
+        <view class='box-contacts'><input name="name" bindinput='bindName' placeholder='供应商名称或个人姓名' placeholder-class="phcolor" value='{{name}}'></input></view>
      </view>
      <view class='box-base'>
   

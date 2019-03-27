@@ -57,6 +57,7 @@ Page({
       address: _this.data.address,
       name: _this.data.name,
       phone: _this.data.phone,
+      type: 2,
     }
     util.request(api.Partner, data, "POST").then(function (res) {
       if (res.rs === 1) {

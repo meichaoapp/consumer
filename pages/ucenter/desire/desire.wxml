@@ -1,15 +1,25 @@
 <import src="../../../components/toast/toast.wxml"/>
 <template is="toast" data="{{ ...$wux.toast }}"/>
-
 <view class="container">
 
-  <view class='form'>
-    <view class="fb-body">
-      <textarea bindinput='bindContent' class="content" value='{{content}}' placeholder-class='phcolor' placeholder="说点什么吧～" />
+   <view class='form'>
+     <view class='box-base'>
+        <view class='box-contacts'><input name="name" bindinput='bindName' placeholder='商超名称或个人姓名' placeholder-class="phcolor" value='{{name}}'></input></view>
+     </view>
+     <view class='box-base'>
+  
+      <view class='box-contacts pos-shangchao' bindtap='selectLocation'>
+      <text class="iconfont icon-zuobiao"></text>
+      <input   name="location" placeholder='地理位置，程序自动填充' placeholder-class="phcolor" value='{{address}}'></input></view>
     </view>
-  </view>
-   
-  <view class="flex  flex_just">
-      <button bindtap='submit' class="fb-btn">提交留言</button>
-  </view>
+      <view class='box-base'>
+		
+        <view class='box-contacts'><input name="phone" bindinput='bindPhone' placeholder='联系电话' placeholder-class="phcolor" value='{{phone}}'></input></view>
+     </view>
+
+       <button class="fb-btn" bindtap='submit'>提交信息</button>
+       <view class="C666 font15 tip">我们会很快与您取得联系</view>
+   </view>
+
+  
 </view>
