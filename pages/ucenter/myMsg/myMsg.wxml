@@ -1,32 +1,34 @@
+<view class="header" hidden="{{hideHeader}}">
+    <view>下拉刷新中…</view>
+</view>
 <view class="container">
-    <view class="msg_box bg_ff">
-        <view class="msg_item flex flex_center">
-            <image class="avatar" src="https://s-mall.oss-cn-beijing.aliyuncs.com/meichao/user.png"></image>
-            <view class="info flex_1">
-                <view class="part_one flex flex_between flex_center">
-                    <view class="name flex_1 width_0">童装童鞋店</view>
-                    <view class="time">5分钟前</view>
-                </view>
-                <view class="part_two  flex flex_between flex_center">
-                    <view class="flex_1 width_0 ellipsis font13 c_acac">小主，早安，新势力周，新活动来啦小主，早安，新势力周，新活动来小主，早安，新势力周，新活动来</view>
-                    <view class="unread_count font12">66</view>
-                </view>
-            </view>
-        </view>
-        <view class="msg_item flex flex_center">
-            <image class="avatar" src="https://s-mall.oss-cn-beijing.aliyuncs.com/meichao/user.png"></image>
-            <view class="info flex_1">
-                <view class="part_one flex flex_between flex_center">
-                    <view class="name flex_1 width_0">童装童鞋店</view>
-                    <view class="time">5分钟前</view>
-                </view>
-                <view class="part_two  flex flex_between flex_center">
-                    <view class="flex_1 width_0 ellipsis font13 c_acac">小主，早安，新势力周，新活动来啦小主，早安，新势力周，新活动来小主，早安，新势力周，新活动来</view>
-                    <view class="unread_count font12">9</view>
-                </view>
-            </view>
-        </view>
-    </view>
+    <scroll-view scroll-y="true" class="msg_box bg_ff">
+       <block wx:for="{{list}}" wx:for-index="index" wx:for-item="item" wx:key="{{item.id}}">
+          <view class="msg_item flex flex_center">
+              <image class="avatar" src="{{item.merchantAvatar}}"></image>
+              <view class="info flex_1">
+                  <view class="part_one flex flex_between flex_center">
+                      <view class="name flex_1 width_0">{{item.merchantName}}</view>
+                      <view class="time">{{item.timer}}</view>
+                  </view>
+                  <view class="part_two  flex flex_between flex_center">
+                      <view class="flex_1 width_0 ellipsis font13 c_acac">{{item.lastMessage}}</view>
+                      <view wx:if="{{item.newMessage}}" class="unread_count font12">新</view>
+                  </view>
+              </view>
+          </view>
+       </block>
+
+    </scroll-view>
+
 </view>
 
+<view class="n-bottom" hidden="{{hideBottom}}">
+    <view>
+        <view class='transverseline'><text class='line'></text></view>
 
+        <text class='txt'>{{loadMoreData}}</text>
+
+        <view class='transverseline'><text class='line'></text></view>
+    </view>
+</view>
