@@ -69,6 +69,12 @@ view,text{
 .mt13{
   margin-top: 13px;
 }
+.mt12{
+  margin-top:12rpx;
+}
+.mb12{
+  margin-bottom:12rpx;
+}
 .mt25{
   margin-top:25rpx;
 }
@@ -104,6 +110,9 @@ view,text{
 }
 .ml15{
   margin-left:15rpx;
+}
+.ml25{
+  margin-left:25rpx;
 }
 .mt20{
   margin-top: 20rpx;
@@ -499,4 +508,9 @@ view,text{
 .float_box image{
     width:545rpx;
     height:760rpx;
+}
+.icon_type{
+  width:31rpx;
+  height:30rpx;
+  margin-right:10rpx;
 }

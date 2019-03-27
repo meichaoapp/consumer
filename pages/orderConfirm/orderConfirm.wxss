@@ -4,13 +4,12 @@
 }
 .auto_tip{
     color:#FF9000;
-    height:92rpx;
-    line-height:114rpx;
+    height:82rpx;
+    line-height:82rpx;
     padding:0 30rpx;
 }
 .title{
     height:89rpx;
-    border-bottom:1px solid #CCCCCC;
     line-height:89rpx;
     padding:0 30rpx;
 }
@@ -43,27 +42,23 @@
 
 }
 .address_box{
-    flex:1;
-}
-.address_box image{
-    width:21rpx;
-    height:40rpx;
-    margin-left:6rpx;
+   height:92rpx;
+   padding:0 30rpx;
 }
 .merchant_name{
     margin-top:24rpx
 }
 .list{
     padding:0 30rpx;
+    background:#f4f4f4;
 }
 .list_item{
-    padding:20rpx 0;
+    padding:30rpx 0;
 }
 .left_part image{
-    width:100rpx;
-    height:100rpx;
-    border-radius:5rpx;
-    margin-right:20rpx;
+    width:190rpx;
+    height:190rpx;
+    margin-right:15rpx;
 }
 .right_part{
     flex:1;
@@ -149,9 +144,7 @@
     color:#fff;
     font-size:20rpx;
 }
-.set_car{
-    margin-top:20rpx;
-}
+
 .set_car image{
     width:46rpx;
     height:46rpx;
@@ -164,4 +157,45 @@
 }
 .coupon_box:last-child{
     border-bottom:none;
+}
+.goods_receive_info{
+    padding:30rpx;
+
+}
+.line_border{
+   background:linear-gradient(-90deg, #89E571 0%, #76CA4A 100%);
+    height:10rpx;
+}
+.icon_receive_goods{
+    width:28rpx;
+    height:31rpx;
+    margin-right:14rpx;
+}
+.icon_go_address{
+    margin-left:25rpx;
+}
+.common_tag{
+    width:100rpx;
+    height:42rpx;
+    background: #FFFFFF;
+    border-radius: 4rpx;
+    font-size:28rpx;
+    text-align:center;
+    line-height:42rpx;
+}
+.coupon_tag{
+    color:#FF6901;
+    border: 1rpx solid #FF6901;
+}
+.group_tag{
+    color:#52C123;
+    border: 1rpx solid #52C123;
+}
+.proprietary_tag{
+    color:#FF9400;
+    border: 1rpx solid #FF9400 ;
+}
+.b2c_tag{
+    color:#FF4949;
+    border: 1rpx solid #FF4949 ;
 }
