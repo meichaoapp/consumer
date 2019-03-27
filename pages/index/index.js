@@ -37,6 +37,7 @@ Page({
         cartselfGoodsList: [],//购物车自营商品列表
         cartmerchatGoodsList: [],//购物车团购商品列表
         cartcouponGoodsList: [],//优惠券商品列表
+        cartb2cGoodsList: [],//电商购物车商品列表
         needPay: 0.00, // 购物车核算价格
         goodsNums: 0, //商品数量
         num: 0,//和index相比，控制左侧显示激活状态样式
@@ -71,7 +72,7 @@ Page({
         });
 
         that.checkUser();  //检查用户
-        that.checkMerchant(mid); //检查商户
+       
         
         /** 设备信息 */
         wx.getSystemInfo({
@@ -88,16 +89,18 @@ Page({
 
 
     //检查用户
-    checkUser: function () {
+    checkUser: function (mid) {
         let _this = this;
         let userInfo = wx.getStorageSync('userInfo');
         if (util.isNotNULL(userInfo)) {
             _this.setData({userInfo: userInfo,});
+            _this.checkMerchant(mid); //检查商户
         } else {
             wx.redirectTo({
               url: '/pages/auth/wxLogin/wxLogin'
             });
         }
+     
     },
 
     //检查商户
@@ -219,29 +222,32 @@ Page({
     },
 
     onShow: function () {
-        let _this = this;
-        //this.queryIndexTreasures();
-        // 页面显示
-        _this.checkUser();  //检查用户
-
+      let _this = this;
+      let userInfo = wx.getStorageSync('userInfo');
+      if (util.isNotNULL(userInfo)) {
+        _this.setData({ userInfo: userInfo, });
         let merchant = wx.getStorageSync(currentMerchat);
         let currentIndex = wx.getStorageSync("currIndex");
         if (util.isNotNULL(merchant)) {
-            this.setData({
-                merchant: merchant,
-                currentIndex: currentIndex
-            });
-            _this.queryIndexInfo(); // 查询首页信息
-            _this.getCurrentLocation();
+          this.setData({
+            merchant: merchant,
+            currentIndex: currentIndex
+          });
+          _this.queryIndexInfo(); // 查询首页信息
+          _this.getCurrentLocation();
         } else {
-          wecache.put("mid",0, 0);
+          wecache.put("mid", 0, 0);
           wx.redirectTo({
             url: '/pages/auth/choiceMerchant/choiceMerchant'
           });
         }
+      } else {
+        wx.redirectTo({
+          url: '/pages/auth/wxLogin/wxLogin'
+        });
+      }
 
-
-        this.refreshCartRef();
+      this.refreshCartRef();
     },
     /**
      * 页面相关事件处理函数--监听用户下拉动作
@@ -584,28 +590,76 @@ Page({
         var cartselfGoodsList = [];
         var cartmerchatGoodsList = [];
         var cartcouponGoodsList = [];
+        var cartb2cGoodsList = [];
+
+        var cartselfGoodsListTmp = [];
+        var cartmerchatGoodsListTmp = [];
+        var cartcouponGoodsListTmp = [];
+        var cartb2cGoodsListTmp = [];
         //console.log("cart goods ---" + JSON.stringify(_arr));
         if (null != _arr && _arr.length > 0) {
             var len = _arr.length;
             for (var i = 0; i < len; i++) {
                 var productType = _arr[i].productType;
                 if (productType == 1) {
-                    cartmerchatGoodsList.push(_arr[i]);
+                  cartmerchatGoodsListTmp.push(_arr[i]);
                 } else if (productType == 3) {
-                    cartselfGoodsList.push(_arr[i]);
+                  cartselfGoodsListTmp.push(_arr[i]);
                 } else if (productType == 5) {
-                    cartcouponGoodsList.push(_arr[i]);
+                  cartcouponGoodsListTmp.push(_arr[i]);
+                } else if(productType == 6) {
+                  cartb2cGoodsListTmp.push(_arr[i]);
                 }
             }
         }
-        console.log('------',cartcouponGoodsList);
+     
         _this.setData({
             needPay: cart.loadPrice().toFixed(2), // 购物车核算价格
             goodsNums: cart.loadGooodsNums(), //商品数量
-            cartselfGoodsList: cartselfGoodsList,//购物车自营商品列表
-            cartmerchatGoodsList: cartmerchatGoodsList,//购物车团购商品列表
-            cartcouponGoodsList: cartcouponGoodsList, //优惠券列表
+            cartselfGoodsList: _this.createCartInfo(cartselfGoodsListTmp,cartselfGoodsList),//购物车自营商品列表
+            cartmerchatGoodsList: _this.createCartInfo(cartmerchatGoodsListTmp,cartmerchatGoodsList),//购物车团购商品列表
+            cartcouponGoodsList: _this.createCartInfo(cartcouponGoodsListTmp,cartcouponGoodsList), //优惠券列表
+            cartb2cGoodsList: _this.createCartInfo(cartb2cGoodsListTmp, cartb2cGoodsList),
         });
+    },
+    //组装购物车信息
+    createCartInfo:function(tmpList, cartList) {
+      let _this = this;
+      if (tmpList) {
+        tmpList.forEach(goods => {
+          cartList = _this.checkAndFill(goods, cartList);
+        })
+      }
+      return cartList;
+    },
+    //检查和填充
+    checkAndFill:function(item , cartList) {
+      var obj = {
+        merchantId: item.merchantId,
+        merchantName: item.merchantName,
+      };
+      if(cartList.length > 0) {
+        var inCar = false;
+        cartList.forEach(o => {
+           if(o.merchantId == item.merchantId) {
+             var list = o.list;
+             list.push(item);
+             obj.list = list;
+             inCar = true;
+           }
+        });
+        if (!inCar){
+          var list = [];
+          list.push(item);
+          obj.list = list;
+        }
+      }else {
+        var list = [];
+        list.push(item);
+        obj.list = list;
+      }
+      cartList.push(obj);
+      return cartList;
     },
     //减
     cutNumber: function (e) {

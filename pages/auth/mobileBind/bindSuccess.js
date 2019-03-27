@@ -238,7 +238,16 @@ Page({
         })
         userInfo.bindingPhone = _this.data.phone;
         wx.setStorageSync('userInfo', userInfo);
-
+        let merchant = wx.getStorageSync(currentMerchat);
+        if (merchant) {
+          wx.switchTab({
+            url: '/pages/index/index',
+          })
+        } else {
+          wx.redirectTo({
+            url: '/pages/auth/choiceMerchant/choiceMerchant',
+          })
+        }
       } else {
         wx.showToast({
           icon: "none",
