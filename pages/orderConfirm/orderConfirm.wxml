@@ -162,7 +162,7 @@
                         <image class="icon_type" src="/static/images/icon_type.png"></image>
                         <view>{{couponOrder.merchant.merchantName}}</view>
                     </view>
-                    <view class="common_tag group_tag">优惠券</view>
+                    <view class="common_tag coupon_tag">优惠券</view>
                 </view>
                 <view class="list bg_ff">
                     <view wx:for="{{couponOrder.goodsList}}" wx:key="{{item.index}}"
