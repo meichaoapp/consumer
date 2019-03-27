@@ -31,6 +31,7 @@
     "pages/ucenter/coupon/couponOrderDetail",
     "pages/ucenter/myMsg/myMsg",
     "pages/ucenter/myOrder/myOrder",
+    "pages/ucenter/myOrderDetail/myOrderDetail",
     "pages/shopping/dollarTreasureDetail/dollarTreasureDetail",
     "pages/shopping/dollarTreasureDetail/success",
     "pages/shopping/mydollarTreasure/mydollarTreasure",

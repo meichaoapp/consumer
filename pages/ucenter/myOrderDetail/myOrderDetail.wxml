@@ -1,0 +1,16 @@
+<!--我的订单详情界面-->
+<view class="container">
+    <view class="address_box bg_ff">
+        <view class="flex flex_between">
+            <view class="font14 C666">收货人：朱雪颖</view>
+            <view class="font14 C666">15001006928</view>
+        </view>
+        <view class="flex flex_center">
+            <view class="left_part flex flex_center">
+                <image class="icon_address" src="/static/images/icon_address.png"></image>
+                <view>收货地址：北京市北京海淀区上地街道上地西路联想北研园楼</view>
+            </view>
+            <image src="{{basePath}}/go.png" class="icon_go"></image>
+        </view>
+    </view>
+</view>

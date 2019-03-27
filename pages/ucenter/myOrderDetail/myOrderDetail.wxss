@@ -1,0 +1,12 @@
+.address_box{
+    padding:30rpx;
+}
+.icon_go{
+    width:21rpx;
+    height:40rpx;
+}
+.icon_address{
+    width:28rpx;
+    height:31rpx;
+    margin-right:14rpx;
+}
