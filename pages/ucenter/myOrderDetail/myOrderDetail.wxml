@@ -15,7 +15,7 @@
     </view>
     <view class="line_border"></view>
 
-    <view class="order_info">
+    <view class="order_info_box">
         <view  class="title flex flex_between flex_center bg_ff">
             <view class="flex flex_center">
                 <image class="icon_type" src="/static/images/icon_type.png"></image>
@@ -30,7 +30,7 @@
                 </view>
                 <view class="right_part flex flex_colum">
                     <view class="part_one flex flex_between">
-                        <view class="name flex_1 ellipsis_2">小浣熊儿童洗发沐浴露500ML附赠牙刷+牙膏+洗漱杯</view>
+                        <view class="goods_name flex_1 ellipsis_2">小浣熊儿童洗发沐浴露500ML附赠牙刷+牙膏+洗漱杯</view>
                         <view class="flex flex_colum flex_end">
                             <view>￥31.5</view>
                             <view class="C999 mt10">×1</view>
@@ -46,7 +46,7 @@
                 </view>
                 <view class="right_part flex flex_colum">
                     <view class="part_one flex flex_between">
-                        <view class="name flex_1 ellipsis_2">小浣熊儿童洗发沐浴露500ML附赠牙刷+牙膏+洗漱杯</view>
+                        <view class="goods_name flex_1 ellipsis_2">小浣熊儿童洗发沐浴露500ML附赠牙刷+牙膏+洗漱杯</view>
                         <view class="flex flex_colum flex_end">
                             <view>￥31.5</view>
                             <view class="C999 mt10">×1</view>
@@ -55,6 +55,48 @@
                     <view class="font12 C999 mt20 mb20">颜色分类：黄色   尺码分类：90码</view>
                     <view style="text-align:right;"><text>实付</text>￥31.5</view>
                 </view>
+            </view>
+        </view>
+
+        <!--订单信息-->
+        <view class="order_info">
+            <view class="title font15 C333">订单信息</view>
+            <view class="order_intro">
+                <view class="single_line flex flex_between">
+                    <view class="name">订单编号</view>
+                    <view class="flex flex_center">
+                        <view class="font15">12345678</view>
+                        <view class="font12 copy_btn">复制</view>
+                    </view>
+                </view>
+                <view class="single_line flex flex_between">
+                    <view class="name">订单编号</view>
+                    <view class="flex flex_center">
+                        <view class="font15">12345678</view>
+                        <view class="font12 copy_btn">复制</view>
+                    </view>
+                </view>
+                <view class="single_line flex flex_between">
+                    <view class="name">创建时间</view>
+                    <view class="font15">2019-03-08 15:55:07</view>
+                </view>
+                <view class="single_line flex flex_between">
+                    <view class="name">发货时间</view>
+                    <view class="font15">2019-03-08 15:55:07</view>
+                </view>
+                <view class="single_line flex flex_between">
+                    <view class="name">我的留言</view>
+                    <view class="font15">想要红色</view>
+                </view>
+                <view class="single_line flex flex_between">
+                    <view class="name">快递公司</view>
+                    <view class="font15">圆通速递</view>
+                </view>
+                <view class="single_line flex flex_between">
+                    <view class="name">运单编号</view>
+                    <view class="font15">9876776887787788</view>
+                </view>
+
             </view>
         </view>
     </view>
