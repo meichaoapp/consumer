@@ -10,7 +10,7 @@
                 <image class="icon_address" src="/static/images/icon_address.png"></image>
                 <view>收货地址：{{detail.address || ""}}</view>
             </view>
-            <image src="{{basePath}}/go.png" class="icon_go icon_go_address"></image>
+            <!-- <image src="{{basePath}}/go.png" class="icon_go icon_go_address"></image> -->
         </view>
     </view>
     <view class="line_border"></view>

@@ -27,8 +27,11 @@ Page({
     oneselfOrder: {}, // 自营订单
     couponOrders:[],
     couponOrder:{},
+    b2cOrders:{},
     count: 0, //提交计数
-    orderGoods:[]
+    orderGoods:[],
+    isShowPostInfo:false, // 是否显示邮寄信息
+    isSplitOrder:false, //是否拆单
   },
 
   /**
@@ -40,13 +43,6 @@ Page({
       count: 0, //提交计数
       orderGoods: (options.type == 0) ? cart.loadCart() : wx.getStorageSync(buyGoodsCache),
     });
-
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
 
   },
 
@@ -74,7 +70,7 @@ Page({
         wx.clearStorageSync();
         wx.clearStorage();
         wx.redirectTo({
-          url: '/pages/auth/login/login'
+          url: '/pages/auth/choiceMerchant/choiceMerchant'
         });
       }else{
         _this.reloadMerchat(merchant); //重新加载选中的商户信息
@@ -165,6 +161,7 @@ Page({
     let type = e.currentTarget.dataset.type;
     _this.setData({
       deliveryType: type,
+      isShowPostInfo: ((b2cOrders != null) || (type==2)), 
     });
     _this.loadOrderInfo();
   },
@@ -176,8 +173,13 @@ Page({
     var _data = cart.createOrder(0, _this.data.merchant.merchantId,
      _this.data.userInfo, _this.data.deliveryType, _this.data.merchant, _this.data.orderGoods );
     //console.log("loadOrderInfo----" + JSON.stringify(_data));
+    var merchantOrder = _data.merchantOrder;
+    var oneselfOrder = _data.oneselfOrder;
     var couponOrders = [];
     var couponOrder = _data.couponOrder;
+    var b2cOrders = null;
+
+    ////处理优惠券订单
     if (null != _data.couponOrder){
       var gList = couponOrder.goodsList;
       var merchants = _this.getGoodsMerchants(gList);
@@ -196,18 +198,33 @@ Page({
           couponOrders.push(order);
         }
       }
-     
     }
+
+    ////判断是否拆单
+    var isSplitOrder = false;
+    if ((merchantOrder != null && oneselfOrder != null) ||
+      (merchantOrder != null && b2cOrders != null) ||
+      (oneselfOrder != null && b2cOrders != null) ||
+      (merchantOrder != null && couponOrders.length > 0) ||
+      (b2cOrders != null && couponOrders.length > 0) ||
+      (couponOrders.length > 0 && oneselfOrder != null)) {
+      isSplitOrder = true;
+    }
+
     _this.setData({
       totalPay: _data.totalPay.toFixed(2),//共付
       needPay: _data.needPay.toFixed(2),// 应付
       preferential: (_data.totalPay - _data.needPay).toFixed(2),
-      merchantOrder: _data.merchantOrder,// 团购订单
-      oneselfOrder: _data.oneselfOrder, // 自营订单
+      merchantOrder: merchantOrder,// 团购订单
+      oneselfOrder: oneselfOrder, // 自营订单
       couponOrders: couponOrders,// 优惠券
+      b2cOrders:b2cOrders,
+      isShowPostInfo: (b2cOrders != null), 
+      isSplitOrder: isSplitOrder,
     });
   },
   
+
   /**
    * 获取商品中的商户集合
    */

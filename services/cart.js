@@ -218,6 +218,7 @@ function getCouponOrder(flag, _arr, t_id, user) {
         "merchantName": _arr[i].merchantName,
         "address": _arr[i].address,
         "merchantPhone": _arr[i].merchantPhone,
+        "comments": _arr[i].comments,
       };
     }
     goodsList.push(g);
@@ -267,6 +268,7 @@ function getMerchantOrder(flag,_arr, t_id, user) {
         "merchantName": _arr[i].merchantName,
         "address": _arr[i].address,
         "merchantPhone": _arr[i].merchantPhone,
+        "comments": _arr[i].comments,
       };
     }
     goodsList.push(g);
@@ -322,6 +324,7 @@ function getSelfOrder(flag,_arr, t_id, user, _dt, merchant) {
         "merchantName": _arr[i].merchantName,
         "address": _arr[i].address,
         "merchantPhone": _arr[i].merchantPhone,
+        "comments": _arr[i].comments,
       };
     }
     goodsList.push(g);
