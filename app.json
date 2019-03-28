@@ -40,7 +40,8 @@
 
     "pages/thirdPage/thirdPage",
 
-    "pages/b2c/index/index"
+    "pages/b2c/index/index",
+    "pages/b2c/shopIndex/shopIndex"
 
   ],
   "permission": {

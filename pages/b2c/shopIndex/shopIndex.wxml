@@ -1,0 +1,77 @@
+<view class="container">
+    <view class="shop_name flex flex_between flex_center">
+        <view class="left_part flex flex_center">
+            <image src="https://wxpic.iliangpin.cn/meichao/1.png"></image>
+            <view>
+                <view class="font18 cfff">小浣熊旗舰店</view>
+                <view class="font14 cfff">粉丝5.4万</view>
+            </view>
+        </view>
+        <view class="flex flex_center connect_btn">
+            <image  src="/static/images/icon_connect.png"></image>
+            <view class="cfff">客服咨询</view>
+        </view>
+    </view>
+
+    <view class="goods_list">
+        <view class="goods_item bg_ff">
+            <image src="https://wxpic.iliangpin.cn/meichao/1.png"></image>
+            <view class="name">小浣熊 儿童洗发沐浴露 500ML附赠牙刷 </view>
+            <view class="sell_info">
+                <view class="price">￥ 12.00</view>
+                <view class="font12 C999">已售5.4万件</view>
+            </view>
+        </view>
+        <view class="goods_item bg_ff">
+            <image src="https://wxpic.iliangpin.cn/meichao/1.png"></image>
+            <view class="name">小浣熊 儿童洗发沐浴露 500ML附赠牙刷 </view>
+            <view class="flex flex_between sell_info">
+                <view class="price">￥ 12.00</view>
+                <view class="font12 C999">已售5.4万件</view>
+            </view>
+        </view>
+        <view class="goods_item bg_ff">
+            <image src="https://wxpic.iliangpin.cn/meichao/1.png"></image>
+            <view class="name">小浣熊 儿童洗发沐浴露 500ML附赠牙刷 </view>
+            <view class="flex flex_between sell_info">
+                <view class="price">￥ 12.00</view>
+                <view class="font12 C999">已售5.4万件</view>
+            </view>
+        </view>
+        <view class="goods_item bg_ff">
+            <image src="https://wxpic.iliangpin.cn/meichao/1.png"></image>
+            <view class="name">小浣熊 儿童洗发沐浴露 500ML附赠牙刷 </view>
+            <view class="flex flex_between sell_info">
+                <view class="price">￥ 12.00</view>
+                <view class="font12 C999">已售5.4万件</view>
+            </view>
+        </view>
+    </view>
+
+    <!--底部购物车结算界面-->
+    <view class="fixed_bottom">
+        <view class="car_box flex flex_between">
+            <view class="flex flex_center">
+                <view class="shopingcart_box">
+                    <image src="/static/images/icon_cart.png"></image>
+                    <view class="count_num cfff">3</view>
+                </view>
+                <view class="total_money cfff">￥
+                    <text class="font24 cfff">20</text>
+                </view>
+            </view>
+            <view bindtap='toOrderConfirm' class="icon_settle">去结算</view>
+        </view>
+
+        <view class="bottom_part bg_ff flex">
+            <view class="flex flex_center flex_just">
+                <image class="icon_order" src="/static/images/icon_order.png"></image>
+                <view>我的订单</view>
+            </view>
+            <view class="flex flex_center flex_just">
+                <image class="icon_mine" src="/static/images/icon_mine.png"></image>
+                <view>个人中心</view>
+            </view>
+        </view>
+    </view>
+</view>
