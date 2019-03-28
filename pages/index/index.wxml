@@ -231,7 +231,7 @@
                 <view class="classify_item flex flex_colum">
                     <text class="goods_name  ellipsis font16">{{goods.name}}</text>
                     <view class="flex flex_center mt20">
-                        <view class="desc C999">正装箱20头</view>
+                        <view class="desc C999">{{goods.comments}}</view>
                         <view class="right_part flex flex_end">
                             <text class="font16">￥{{goods.price}}</text>
                             <view class="set_car flex flex_center">
@@ -258,7 +258,7 @@
                 <view class="classify_item flex flex_colum">
                     <text class="goods_name  ellipsis font16">{{goods.name}}</text>
                     <view class="flex mt20">
-                        <view class="desc C999">正装箱20头</view>
+                        <view class="desc C999">{{goods.comments}}</view>
                         <view class="right_part flex flex_end">
                             <text class="font16">￥{{goods.price}}</text>
                             <view class="set_car flex flex_center">
