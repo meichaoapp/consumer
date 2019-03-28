@@ -1,0 +1,116 @@
+<!--电商首页-->
+<view class="container">
+    <view class="tabs bg_ff flex flex_center flex_around font16">
+        <view class="active">母婴</view>
+        <view>家居百货</view>
+        <view>女装</view>
+        <view>鞋包</view>
+        <view>美妆</view>
+    </view>
+
+    <view class="classify_list bg_ff">
+        <view class="single_item flex flex_colum flex_center">
+            <image src="https://wxpic.iliangpin.cn/meichao/1.png"></image>
+            <view class="font13 C666">童装</view>
+        </view>
+        <view class="single_item flex flex_colum flex_center">
+            <image src="https://wxpic.iliangpin.cn/meichao/1.png"></image>
+            <view class="font13">童装</view>
+        </view>
+        <view class="single_item flex flex_colum flex_center">
+            <image src="https://wxpic.iliangpin.cn/meichao/1.png"></image>
+            <view class="font13">童装</view>
+        </view>
+        <view class="single_item flex flex_colum flex_center">
+            <image src="https://wxpic.iliangpin.cn/meichao/1.png"></image>
+            <view class="font13">童装</view>
+        </view>
+        <view class="single_item flex flex_colum flex_center">
+            <image src="https://wxpic.iliangpin.cn/meichao/1.png"></image>
+            <view class="font13">童装</view>
+        </view>
+        <view class="single_item flex flex_colum flex_center">
+            <image src="https://wxpic.iliangpin.cn/meichao/1.png"></image>
+            <view class="font13">童装</view>
+        </view>
+        <view class="single_item flex flex_colum flex_center">
+            <image src="https://wxpic.iliangpin.cn/meichao/1.png"></image>
+            <view class="font13">童装</view>
+        </view>
+        <view class="single_item flex flex_colum flex_center">
+            <image src="https://wxpic.iliangpin.cn/meichao/1.png"></image>
+            <view class="font13">童装</view>
+        </view>
+        <view class="single_item flex flex_colum flex_center">
+            <image src="https://wxpic.iliangpin.cn/meichao/1.png"></image>
+            <view class="font13">童装</view>
+        </view>
+        <view class="single_item flex flex_colum flex_center">
+            <image src="https://wxpic.iliangpin.cn/meichao/1.png"></image>
+            <view class="font13">童装</view>
+        </view>
+    </view>
+
+    <view class="goods_list">
+        <view class="goods_item bg_ff">
+            <image src="https://wxpic.iliangpin.cn/meichao/1.png"></image>
+            <view class="name">小浣熊 儿童洗发沐浴露 500ML附赠牙刷 </view>
+            <view class="sell_info">
+                <view class="price">￥ 12.00</view>
+                <view class="font12 C999">已售5.4万件</view>
+            </view>
+        </view>
+        <view class="goods_item bg_ff">
+            <image src="https://wxpic.iliangpin.cn/meichao/1.png"></image>
+            <view class="name">小浣熊 儿童洗发沐浴露 500ML附赠牙刷 </view>
+            <view class="flex flex_between sell_info">
+                <view class="price">￥ 12.00</view>
+                <view class="font12 C999">已售5.4万件</view>
+            </view>
+        </view>
+        <view class="goods_item bg_ff">
+            <image src="https://wxpic.iliangpin.cn/meichao/1.png"></image>
+            <view class="name">小浣熊 儿童洗发沐浴露 500ML附赠牙刷 </view>
+            <view class="flex flex_between sell_info">
+                <view class="price">￥ 12.00</view>
+                <view class="font12 C999">已售5.4万件</view>
+            </view>
+        </view>
+        <view class="goods_item bg_ff">
+            <image src="https://wxpic.iliangpin.cn/meichao/1.png"></image>
+            <view class="name">小浣熊 儿童洗发沐浴露 500ML附赠牙刷 </view>
+            <view class="flex flex_between sell_info">
+                <view class="price">￥ 12.00</view>
+                <view class="font12 C999">已售5.4万件</view>
+            </view>
+        </view>
+    </view>
+
+    <!--底部购物车结算界面-->
+    <view class="fixed_bottom">
+        <view class="car_box flex flex_between">
+            <view class="flex flex_center">
+                <view class="shopingcart_box">
+                    <image src="/static/images/icon_cart.png"></image>
+                    <view class="count_num cfff">3</view>
+                </view>
+                <view class="total_money cfff">￥
+                    <text class="font24 cfff">20</text>
+                </view>
+            </view>
+            <view bindtap='toOrderConfirm' class="icon_settle">去结算</view>
+        </view>
+
+        <view class="bottom_part bg_ff flex">
+            <view class="flex flex_center flex_just">
+                <image class="icon_order" src="/static/images/icon_order.png"></image>
+                <view>我的订单</view>
+            </view>
+            <view class="flex flex_center flex_just">
+                <image class="icon_mine" src="/static/images/icon_mine.png"></image>
+                <view>个人中心</view>
+            </view>
+        </view>
+    </view>
+
+</view>

@@ -40,6 +40,8 @@
 
     "pages/thirdPage/thirdPage"
 
+    "pages/b2c/index/index",
+
   ],
   "permission": {
     "scope.userLocation": {
