@@ -4,12 +4,12 @@
             <image src="https://s-mall.oss-cn-beijing.aliyuncs.com/meichao/user.png"></image>
             <view class="font16 C333">沧海一只喵</view>
         </view>
-        <!-- <view class="login_btn flex flex_center flex_just">
+         <view class="login_btn flex flex_center flex_just">
+             <button open-type="getUserInfo"  class='icon_btn btn_sure' bindgetuserinfo="login">
+             </button>
             <image src="/static/images/icon_wechat.png"></image>
             <view class="font14 cfff">微信登录</view>
-        </view> -->
-         <button open-type="getUserInfo"  class='icon_btn btn_sure' bindgetuserinfo="login">
-           微信登录
-        </button>
+        </view>
+
     </view>
 </view>
