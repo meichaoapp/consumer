@@ -29,7 +29,7 @@
                                   </view>
                               </view>
                               <block wx:for="{{orderDetail.tagline}}" wx:for-item="tag" wx:key="{{tag.index}}">
-                                  <view class="C999 font12 mt10">{{tag}}</view>
+                                  <view class="C999 font12 mt5 mb5">{{tag}}</view>
                               </block>
                               <view class="price_box">
                                   <text>实付</text>
@@ -40,8 +40,8 @@
                   </block>
               </navigator>
               <view class="btn_box flex flex_center flex_end">
-                  <view wx:if="{{item.status == 2 || item.status == 3 || item.status == 5}}" class="C666 font14">查看物流</view>
-                  <view wx:if="{{item.status == 3}}" class="sure_receive">确认收货</view>
+                  <!-- <view wx:if="{{item.status == 2 || item.status == 3 || item.status == 5}}" class="C666 font14">查看物流</view> -->
+                  <view wx:if="{{item.status == 2}}"  bindtap='confirmReceive' data-id='{{item.id}}' class="sure_receive">确认收货</view>
               </view>
             </view>
           

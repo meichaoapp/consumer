@@ -1,67 +1,53 @@
-// pages/ucenter/myOrderDetail/myOrderDetail.js
+var util = require('../../../utils/util.js');
+var api = require('../../../config/api.js');
 var app = getApp();
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
-      basePath: app.globalData._base_path, //基础路径
+    basePath: app.globalData._base_path, //基础路径
+    orderId: 0,
+    detail:{},
   },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
   onLoad: function (options) {
-
+    // 页面初始化 options为页面跳转所带来的参数
+    this.setData({
+      orderId: options.id
+    });
+    this.getOrderDetail();
   },
 
   /**
-   * 生命周期函数--监听页面初次渲染完成
+   * 查询详情
    */
-  onReady: function () {
-
+  getOrderDetail() {
+    let that = this;
+    util.request(api.QueryShopOrderDetail, {
+      orderId: that.data.orderId
+    }, "POST").then(function (res) {
+      if (res.rs == 1) {
+        that.setData({
+          detail:res.data.detail,
+        });
+      }
+    });
   },
 
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
+  //确认收货
+  confirmReceive: function () {
+    let _this = this;
+    util.request(api.ConfirmReceive, {
+      orderId: that.data.orderId
+    }, "POST").then(function (res) {
+      if (res.rs === 1) {
+        //刷新结果
+        _this.getOrderDetail();
+      } else {
+        wx.showToast({
+          icon: 'none',
+          title: res.info,
+        })
+      }
+    });
   },
 
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
 
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
-  }
 })
