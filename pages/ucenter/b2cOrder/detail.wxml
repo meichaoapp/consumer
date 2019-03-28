@@ -15,7 +15,7 @@
     </view>
     <view class="line_border"></view>
 
-    <view class="order_info">
+    <view class="order_info_box">
         <view  class="title flex flex_between flex_center bg_ff">
             <view class="flex flex_center">
                 <image class="icon_type" src="/static/images/icon_type.png"></image>
@@ -46,5 +46,45 @@
            </block>
         </view>
     </view>
+    <!--订单信息-->
+    <view class="order_info bg_ff">
+        <view class="title font15 C333 strong">订单信息</view>
+        <view class="order_intro">
+            <view class="single_line flex flex_between">
+                <view class="name">订单编号</view>
+                <view class="flex flex_center">
+                    <view class="font15">{{detail.orderCode}}</view>
+                    <view class="font12 copy_btn">复制</view>
+                </view>
+            </view>
+            <view class="single_line flex flex_between">
+                <view class="name">创建时间</view>
+                <view class="font15">{{detail.createTime}}</view>
+            </view>
+            <view class="single_line flex flex_between">
+                <view class="name">发货时间</view>
+                <view class="font15">{{detail.sendTime}}</view>
+            </view>
+            <view class="single_line flex flex_between">
+                <view class="name">我的留言</view>
+                <view class="font15">{{detail.remark}}</view>
+            </view>
+            <view class="single_line flex flex_between">
+                <view class="name">快递公司</view>
+                <view class="font15">{{detail.expressCom}}</view>
+            </view>
+            <view class="single_line flex flex_between">
+                <view class="name">运单编号</view>
+                <view class="font15">{{detail.expressNum}}</view>
+            </view>
+
+        </view>
+    </view>
+
+    <!--查看物流信息-->
+    <view class="logistics_box">
+
+    </view>
+
 
 </view>

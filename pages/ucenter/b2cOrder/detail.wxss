@@ -57,7 +57,10 @@
     border-bottom:1rpx solid #DADADA;
     padding:10rpx 0 20rpx;
 }
-.order_intro name{
+.order_intro{
+    padding:15rpx 0;
+}
+.order_intro .name{
     color:#999;
     font-size:30rpx;
 }
@@ -65,8 +68,10 @@
     width:77rpx;
     height:44rpx;
     text-align:center;
-    line-height:77rpx;
+    line-height:44rpx;
     border:1rpx solid #EBEBEB;
+    font-size:24rpx;
+    margin-left:15rpx;
 }
 .single_line{
     padding:15rpx 0;
