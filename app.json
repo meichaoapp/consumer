@@ -38,9 +38,9 @@
     "pages/shopping/dollarTreasure/dollarTreasureWin",
     "pages/shopping/dollarTreasure/dollarTreasure",
 
-    "pages/thirdPage/thirdPage"
+    "pages/thirdPage/thirdPage",
 
-    "pages/b2c/index/index",
+    "pages/b2c/index/index"
 
   ],
   "permission": {
