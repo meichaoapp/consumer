@@ -72,6 +72,12 @@ view,text{
 .mt12{
   margin-top:12rpx;
 }
+.mt5{
+  margin-top: 5rpx;
+}
+.mb5{
+  margin-bottom:5rpx;
+}
 .mb12{
   margin-bottom:12rpx;
 }

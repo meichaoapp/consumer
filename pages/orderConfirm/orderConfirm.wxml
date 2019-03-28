@@ -1,14 +1,14 @@
 <view class="order_confirm_box container">
-    <view wx:if="{{(merchantOrder != null && oneselfOrder != null) || (merchantOrder != null && couponOrders.length > 0 )  || (couponOrders.length > 0 && oneselfOrder != null) }}" class="auto_tip font15">已为您自动拆分订单，请您再次确认</view>
-    <view class="goods_receive_info bg_ff">
+    <view wx:if="{{isSplitOrder}}" class="auto_tip font15">已为您自动拆分订单，请您再次确认</view>
+    <view wx:if="{{isShowPostInfo}}" class="goods_receive_info bg_ff">
         <view class="flex flex_between" style="padding:0 30rpx;">
-            <view class="font14 C666">收货人：朱雪颖</view>
-            <view class="font14 C666">15001006928</view>
+            <view class="font14 C666">收货人：{{userInfo.name || ""}}</view>
+            <view class="font14 C666">{{userInfo.phone || ""}}</view>
         </view>
-        <view class="flex flex_center mt20">
-            <view class=" flex flex_center">
+        <view class="flex flex_center mt20" bindtap='toEditUser'>
+            <view class=" flex flex_center" style='width:93%;'>
                 <image class="icon_receive_goods" src="/static/images/icon_address.png"></image>
-                <view>收货地址：北京市北京海淀区上地街道上地西路联想北研园楼</view>
+                <view>收货地址：{{ (userInfo.address == "" || userInfo.address == null) ? "去完善用户信息" : userInfo.address }}</view>
             </view>
             <image src="{{basePath}}/go.png" class="icon_go icon_go_address"></image>
         </view>
@@ -23,18 +23,6 @@
             </view>
             <view class="common_tag group_tag">拼团</view>
         </view>
-       <!-- <view style="padding:0 30rpx">
-            <view class="intro flex flex_colum">
-                <view class="address_box flex">
-                    <view class="icon_address">取货地址</view>
-                    <view class="address">{{merchant.address}}</view>
-                </view>
-                <view class="merchant_name">
-                    <text class="C666 mr30">{{merchant.merchantName}}</text>
-                    <text class="C666">{{merchant.merchantPhone}}</text>
-                </view>
-            </view>
-        </view>-->
         <view class="list">
             <view wx:for="{{merchantOrder.goodsList}}" wx:key="{{item.index}}"  data-id="{{item.id}}" class="list_item flex flex_between">
                 <view class="left_part">
@@ -43,10 +31,9 @@
                 <view class="right_part">
                     <view class="flex flex_colum">
                         <view>{{item.name}}</view>
-                        <view class="font12 C999 mt20 mb20">颜色分类：黄色   尺码分类：90码</view>
+                        <view class="font12 C999 mt20 mb20">{{item.comments}}</view>
                         <view class="flex flex_between flex_center">
                             <view>
-                                <!--<text class="mr6 C999" style="text-decoration: line-through">￥{{item.marketPrice}}</text>-->
                                 <text class=" font18 c_f3f">￥{{item.price}}</text>
                             </view>
                             <view class="set_car flex flex_center flex_end">
@@ -57,7 +44,6 @@
 
                         </view>
                     </view>
-                   <!-- <view class="C999 mt10">×{{item.buyNum}}</view>-->
                 </view>
             </view>
         </view>
@@ -75,6 +61,31 @@
                 <view>{{merchant.merchantName}}</view>
             </view>
             <view class="common_tag proprietary_tag">自营</view>
+        </view>
+        <view class="list bg_ff">
+            <view wx:for="{{oneselfOrder.goodsList}}" wx:key="{{item.index}}"  data-id="{{item.id}}" class="list_item flex flex_between flex_center">
+                <view class="left_part">
+                    <image src="{{item.url}}"></image>
+                </view>
+                <view class="right_part">
+                    <view class="flex flex_colum">
+                        <view>{{item.name}}</view>
+                        <view class="font12 C999 mt20 mb20">{{item.comments}}</view>
+                        <view class="flex flex_between flex_center">
+                          <view>
+                            <text class=" c_f3f font18">￥{{item.price}}</text>
+                          </view>
+                            
+                          <view class="set_car flex flex_center flex_end">
+                                <image bindtap='cutNumber' data-id='{{item.id}}' src="https://wxpic.iliangpin.cn/meichao/minus.png"></image>
+                                <text class="count">{{item.buyNum}}</text>
+                                <image bindtap='addNumber' data-id='{{item.id}}'  src="https://wxpic.iliangpin.cn/meichao/plus.png"></image>
+                        </view>
+
+                        </view>
+                    </view>
+                </view>
+            </view>
         </view>
         <view style="padding:0 30rpx">
             <!--门店自取-->
@@ -98,43 +109,14 @@
                     <image class="icon_choice" src="{{basePath}}/{{(deliveryType == 2) ? 'choice.png':'un_choice.png'}}"></image>
                     <view class="font16">送货上门</view>
                 </view>
-                <view class="address_box flex">
-                    <view class="icon_address icon_address2">取货地址</view>
-                    <view bindtap='toEditUser' class="adddress_con flex flex_center">
-                        <view class="address">{{ (userInfo.address == "" || userInfo.address == null) ? "去完善用户信息" : userInfo.address }}</view>
-                        <image src="{{basePath}}/go.png"></image>
-                    </view>
-                </view>
-                <view class="merchant_name">
-                    <text class="C666 mr30">{{userInfo.name}}</text>
-                    <text class="C666">{{userInfo.phone}}</text>
-                </view>
-            </view>
-        </view>
-        <view class="list bg_ff">
-            <view wx:for="{{oneselfOrder.goodsList}}" wx:key="{{item.index}}"  data-id="{{item.id}}" class="list_item flex flex_between flex_center">
-                <view class="left_part">
-                    <image src="{{item.url}}"></image>
-                </view>
-                <view class="right_part">
-                    <view class="flex flex_colum">
-                        <view>{{item.name}}</view>
-                        <view class="font12 C999 mt20 mb20">颜色分类：黄色   尺码分类：90码</view>
-                        <view class="flex flex_between flex_center">
-                          <view>
-                             <!--<text class="mr6 C999">￥{{item.marketPrice}}</text>-->
-                            <text class=" c_f3f font18">￥{{item.price}}</text>
-                          </view>
-                            
-                          <view class="set_car flex flex_center flex_end">
-                                <image bindtap='cutNumber' data-id='{{item.id}}' src="https://wxpic.iliangpin.cn/meichao/minus.png"></image>
-                                <text class="count">{{item.buyNum}}</text>
-                                <image bindtap='addNumber' data-id='{{item.id}}'  src="https://wxpic.iliangpin.cn/meichao/plus.png"></image>
-                        </view>
-
+                <view class="single flex flex_between flex_center">
+                    <view class="flex">
+                        <view class="mr10">配送费</view>
+                        <view wx:if="{{merchant.expenditure != 0}}" class="C999 font12">
+                        (不足{{merchant.expenditure}}元收运费{{merchant.deliveryCost}}元)
                         </view>
                     </view>
-                   <!-- <view class="C999 mt10">×{{item.buyNum}}</view>-->
+                    <view class="font16">￥{{oneselfOrder.deliveryCost}}</view>
                 </view>
             </view>
         </view>
@@ -145,18 +127,6 @@
 
         <block wx:for="{{couponOrders}}" wx:key="{{item.index}}" wx:for-item="couponOrder">
             <view class="coupon_box">
-                <!--<view style="padding:0 30rpx">
-                    <view class="intro flex flex_colum">
-                        <view class="address_box flex">
-                            <view class="icon_address">消费地址</view>
-                            <view class="address">{{couponOrder.merchant.address}}</view>
-                        </view>
-                        <view class="merchant_name">
-                            <text class="C666 mr30">{{couponOrder.merchant.merchantName}}</text>
-                            <text class="C666">{{couponOrder.merchant.merchantPhone}}</text>
-                        </view>
-                    </view>
-                </view>-->
                 <view  class="title flex flex_between flex_center">
                     <view class="flex flex_center">
                         <image class="icon_type" src="/static/images/icon_type.png"></image>
@@ -173,10 +143,9 @@
                         <view class="right_part">
                             <view class="flex flex_colum">
                                 <view style="margin-right:20rpx;">{{item.name}}</view>
-                                <view class="font12 C999 mt20 mb20">颜色分类：黄色   尺码分类：90码</view>
+                                <view class="font12 C999 mt20 mb20">{{item.comments}}</view>
                                 <view class="flex flex_between flex_center">
                                     <view>
-                                        <!--<text class="mr6 C999" style="text-decoration: line-through">￥{{item.marketPrice}}</text>-->
                                         <text class="c_f3f font18">￥{{item.price}}</text>
                                     </view>
                                     <view class="set_car flex flex_center flex_end">
@@ -187,7 +156,6 @@
 
                                 </view>
                             </view>
-                            <!--<view class="C999 mt10">×{{item.buyNum}}</view>-->
                         </view>
                     </view>
 
@@ -230,22 +198,15 @@
 
                         </view>
                     </view>
-                    <!-- <view class="C999 mt10">×{{item.buyNum}}</view>-->
                 </view>
             </view>
         </view>
     </view>
+
+
     <view class="bottom_box bg_ff">
         <view class="bottom_item">
-            <view wx:if="{{oneselfOrder != null}}"  class="single flex flex_between flex_center">
-                <view class="flex">
-                    <view class="mr10">配送费</view>
-                    <view wx:if="{{merchant.expenditure != 0}}" class="C999 font12">
-                    (不足{{merchant.expenditure}}元收运费{{merchant.deliveryCost}}元)
-                    </view>
-                </view>
-                <view class="font16">￥{{oneselfOrder.deliveryCost}}</view>
-            </view>
+            
             <view  class="single flex flex_between flex_center">
                 <view class="flex">
                     <view class="mr10">优惠券</view>

@@ -1,0 +1,62 @@
+<view class="header" hidden="{{hideHeader}}">
+    <view>下拉刷新中…</view>
+</view>
+<!--我的订单-->
+<view class="container">
+
+    <scroll-view scroll-y="true" class="order_box">
+        <!--已发货-->
+        <block wx:for="{{orderList}}" wx:for-index="index" wx:for-item="item" wx:key="{{item.id}}">
+        
+            <view class="order bg_ff">
+              <navigator url='/pages/ucenter/b2cOrder/detail?id={{item.id}}'>       
+                  <view class="title flex flex_between flex_center">
+                      <view class="flex flex_center">
+                          <image class="icon_type" src="/static/images/icon_type.png"></image>
+                          <view>{{item.merchantName}}</view>
+                      </view>
+                      <view class="has_send font14">{{orderStatusArr[item.status]}}</view>
+                  </view>
+                  <block wx:for="{{item.orderDetailList}}" wx:for-item="orderDetail" wx:key="{{orderDetail.id}}">
+                      <view class="order_item flex">
+                          <image class="shop_img" src="{{orderDetail.url}}"></image>
+                          <view class="info flex flex_colum flex_1 width_0">
+                              <view class="flex">
+                                  <view class="name ellipsis_2">{{orderDetail.name}}</view>
+                                  <view class="flex flex_colum flex_end">
+                                      <text class="font13 C000">￥{{orderDetail.price}}</text>
+                                      <text class="C999 font12 mt10">×{{orderDetail.buyNum}}</text>
+                                  </view>
+                              </view>
+                              <block wx:for="{{orderDetail.tagline}}" wx:for-item="tag" wx:key="{{tag.index}}">
+                                  <view class="C999 font12 mt5 mb5">{{tag}}</view>
+                              </block>
+                              <view class="price_box">
+                                  <text>实付</text>
+                                  <text class="price strong">￥{{orderDetail.needPay}}</text>
+                              </view>
+                          </view>
+                      </view>
+                  </block>
+              </navigator>
+              <view class="btn_box flex flex_center flex_end">
+                  <!-- <view wx:if="{{item.status == 2 || item.status == 3 || item.status == 5}}" class="C666 font14">查看物流</view> -->
+                  <view wx:if="{{item.status == 2}}"  bindtap='confirmReceive' data-id='{{item.id}}' class="sure_receive">确认收货</view>
+              </view>
+            </view>
+          
+        </block>
+
+    </scroll-view>
+
+</view>
+
+ <view class="n-bottom" hidden="{{hideBottom}}">
+        <view>
+            <view class='transverseline'><text class='line'></text></view>
+
+            <text class='txt'>{{loadMoreData}}</text>
+
+            <view class='transverseline'><text class='line'></text></view>
+        </view>
+    </view>

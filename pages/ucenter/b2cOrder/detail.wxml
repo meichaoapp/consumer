@@ -1,0 +1,50 @@
+<!--我的订单详情界面-->
+<view class="container">
+    <view class="address_box bg_ff">
+        <view class="flex flex_between" style="padding:0 30rpx;">
+            <view class="font14 C666">收货人：{{detail.name || ""}}</view>
+            <view class="font14 C666">{{detail.orderCode || ""}}</view>
+        </view>
+        <view class="flex flex_center mt20">
+            <view class=" flex flex_center">
+                <image class="icon_address" src="/static/images/icon_address.png"></image>
+                <view>收货地址：{{detail.address || ""}}</view>
+            </view>
+            <!-- <image src="{{basePath}}/go.png" class="icon_go icon_go_address"></image> -->
+        </view>
+    </view>
+    <view class="line_border"></view>
+
+    <view class="order_info">
+        <view  class="title flex flex_between flex_center bg_ff">
+            <view class="flex flex_center">
+                <image class="icon_type" src="/static/images/icon_type.png"></image>
+                <view>{{detail.merchantName}}</view>
+            </view>
+            <view  wx:if="{{detail.status == 2}}" bindtap='confirmReceive'  class="sure_receive">确认收货</view>
+        </view>
+        <view class="list">
+          <block wx:for="{{detail.orderDetailList}}" wx:for-index="index" wx:for-item="item" wx:key="{{item.id}}">
+              <view class="list_item flex">
+                  <view class="left_part">
+                      <image src="{{item.url}}"></image>
+                  </view>
+                  <view class="right_part flex flex_colum">
+                      <view class="part_one flex flex_between">
+                          <view class="name flex_1 ellipsis_2">{{item.name}}</view>
+                          <view class="flex flex_colum flex_end">
+                              <view>￥{{item.price || 0.00}}</view>
+                              <view class="C999 mt10">×{{item.buyNum || 0}}</view>
+                          </view>
+                      </view>
+                      <block wx:for="{{item.tagline}}" wx:for-item="tag" wx:key="{{tag.index}}">
+                          <view class="C999 font12 mt5 mb5">{{tag}}</view>
+                      </block>
+                      <view style="text-align:right;"><text>实付</text>￥{{item.needPay || 0}}</view>
+                  </view>
+              </view>
+           </block>
+        </view>
+    </view>
+
+</view>

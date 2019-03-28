@@ -101,11 +101,23 @@ Page({
     });
 
   },
-  //跳转首页(知道了)
-  toIndex: function () {
-    wx.switchTab({
-      url: '/pages/index/index',
-    })
+  //确认收货
+  confirmReceive: function (e) {
+    let _this = this;
+    var id = e.currentTarget.dataset.id;
+    util.request(api.ConfirmReceive, {
+      orderId: id,
+    }, "POST").then(function (res) {
+      if (res.rs === 1) {
+        //刷新结果
+        _this.refresh();
+      }else{
+        wx.showToast({
+          icon:'none',
+          title: res.info,
+        })
+      }
+    });
   },
 
 
