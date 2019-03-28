@@ -161,7 +161,7 @@ Page({
     let type = e.currentTarget.dataset.type;
     _this.setData({
       deliveryType: type,
-      isShowPostInfo: ((b2cOrders != null) || (type==2)), 
+      isShowPostInfo: ((_this.data.b2cOrders != null) || (type==2)), 
     });
     _this.loadOrderInfo();
   },
@@ -219,7 +219,7 @@ Page({
       oneselfOrder: oneselfOrder, // 自营订单
       couponOrders: couponOrders,// 优惠券
       b2cOrders:b2cOrders,
-      isShowPostInfo: (b2cOrders != null), 
+      isShowPostInfo: ((b2cOrders != null) || (_this.data.deliveryType == 2)), 
       isSplitOrder: isSplitOrder,
     });
   },
