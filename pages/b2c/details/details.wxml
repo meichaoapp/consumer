@@ -106,13 +106,31 @@
     <view animation="{{animationData}}" class="shop_car" wx:if="{{specsStatus}}">
         <view class="image_box">
             <image class="goods_image" src="https://wxpic.iliangpin.cn/meichao/1.png"></image>
+            <view class="price">
+                <view>
+                    <text class="font15 c_f3f">￥</text>
+                    <text class="font24 c_f3f strong">31.5 - 35.9</text>
+                </view>
+                <view class="font13 C666 mt20">请选择：颜色 分类 尺码</view>
+            </view>
         </view>
         <view class="oBox">
-            <view>
-                <text class="font15 c_f3f">￥</text>
-                <text class="font24 c_f3f strong">31.5 - 35.9</text>
+            <view class="color_type">
+                <view class="title C666 font15">颜色分类</view>
+                <view class="list">
+                    <view class="single_item">后背小猫印花款（图片色）</view>
+                    <view class="single_item">后背小猫印花款（图片色）</view>
+                </view>
             </view>
-            <view class="font13 C666 mt20">请选择：颜色 分类 尺码</view>
+            <view class="type_reference">
+                <view class="title C666 font15">参考分类</view>
+                <view class="list">
+                    <view class="single_item check">90码（建议身高80左右）</view>
+                    <view class="single_item no_good">90码（建议身高80左右）</view>
+                    <view class="single_item">90码（建议身高80左右）</view>
+                </view>
+            </view>
         </view>
+        <view class="sure">确定</view>
     </view>
 </view>
