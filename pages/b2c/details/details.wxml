@@ -1,0 +1,102 @@
+<!--商品详情-->
+<import src="../../../components/loading/loading.wxml"/>
+<template is="loading" data="{{ ...$wux.loading }}"/>
+
+<import src="../../../components/toast/toast.wxml"/>
+<template is="toast" data="{{ ...$wux.toast }}"/>
+
+
+<view class="detail_box container">
+    <!-- 商品图片 -->
+    <view class="top_image">
+        <image src="https://wxpic.iliangpin.cn/meichao/1.png"></image>
+    </view>
+    <view class="goods_info bg_ff">
+        <view class="flex flex_between">
+            <view  class="flex flex_center">
+                <view class="mr10">
+                    <text class="font15 c_f3f">￥</text>
+                    <text class="font24 c_f3f strong">12.00</text>
+                </view>
+                <view class="C999 line-through">￥38.00</view>
+            </view>
+           <view class="C666">已售5.4万件</view>
+        </view>
+        <view class="font18 C333 strong mt10">小浣熊儿童洗发沐浴露500ML附赠牙刷+牙</view>
+    </view>
+    <view class="tag_line flex flex_center flex_around bg_ff">
+        <view class="flex flex_center">
+            <image src="/static/images/icon_check.png"></image>
+            <view>全场包邮</view>
+        </view>
+        <view class="flex flex_center">
+            <image src="/static/images/icon_check.png"></image>
+            <view>7天退换</view>
+        </view>
+        <view class="flex flex_center">
+            <image src="/static/images/icon_check.png"></image>
+            <view>假一赔十</view>
+        </view>
+    </view>
+
+    <!--店铺信息-->
+    <view class="merchant_box bg_ff">
+        <view class="part_one flex flex_between flex_center">
+            <view class="flex flex_center">
+                <image  src="https://wxpic.iliangpin.cn/meichao/1.png"></image>
+                <view>
+                    <view class="font16 strong">小浣熊洗护</view>
+                    <view class="C999 font10 mt10">商品数量：67已售2000件</view>
+                </view>
+            </view>
+            <view class="btn_go_shop font12">进店逛逛</view>
+        </view>
+        <view class="part_two flex flex_center flex_between bg_ff">
+            <view class="flex flex_center">
+                <view class="C999 font12">描述相符</view>
+                <view class="icon_gao">高</view>
+            </view>
+            <view class="flex flex_center">
+                <view class="C999 font12">服务态度</view>
+                <view class="icon_gao">高</view>
+            </view>
+            <view class="flex flex_center">
+                <view class="C999 font12">物流服务</view>
+                <view class="icon_gao">高</view>
+            </view>
+        </view>
+    </view>
+
+    <!--图文详情-->
+    <scroll-view scroll-y="true" >
+        <view class="graphic_details bg_ff" >
+            <view class="graphic_details_title font15 flex flex_center">
+                <view class="tag"></view>
+                <view class="font15">图文详情</view>
+            </view>
+            <view >
+                <image  src="https://wxpic.iliangpin.cn/meichao/1.png" mode="withFix" lazy-load="true"></image>
+            </view>
+
+        </view>
+    </scroll-view>
+
+    <view class="fixed_box flex">
+        <view class="left_part flex flex_center bg_ff">
+            <view bindtap='toIndex' class="home flex flex_colum flex_center flex_just">
+                <image class="icon_home" src="https://wxpic.iliangpin.cn/meichao/home.png"></image>
+                <view class="C999 font12">首页</view>
+            </view>
+            <view class="kefu  flex flex_colum flex_center flex_just">
+                <button class="contact_btn" open-type='contact'>
+                    <image class="icon_kefu" src="https://wxpic.iliangpin.cn/meichao/kefu.png"></image>
+                    <view class="C999 font12">客服</view>
+                </button>
+            </view>
+        </view>
+        <view  class="right_part flex flex_center">
+            <view bindtap='addCart' class="cfff font15">加入购物车</view>
+            <view bindtap='toOrderConfirm' class="cfff font15">立即购买</view>
+        </view>
+    </view>
+</view>

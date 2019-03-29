@@ -520,3 +520,6 @@ view,text{
   height:30rpx;
   margin-right:10rpx;
 }
+.line-through{
+  text-decoration: line-through;
+}
