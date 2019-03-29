@@ -44,6 +44,7 @@
     "pages/b2c/shopIndex/shopIndex",
     "pages/b2c/details/details"
 
+
   ],
   "permission": {
     "scope.userLocation": {

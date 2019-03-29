@@ -141,3 +141,48 @@ page{
 button.contact_btn::after{
     border: none;
 }
+
+/*使屏幕变暗  */
+.commodity_screen {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: #000;
+    opacity: 0.2;
+    overflow: hidden;
+    z-index: 1000;
+    color: #fff;
+}
+
+
+
+
+.shop_car {
+    height:840rpx;
+    width:100%;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 2000;
+    background:none;
+    display:flex;
+    flex-direction:column;
+
+}
+.image_box{
+    height:42rpx;
+}
+.goods_image{
+    width:222rpx;
+    height:222rpx;
+    position:absolute;
+    top:-40rpx;
+    margin-right:20rpx;
+    border-radius:10rpx;
+}
+.oBox{
+    height:798rpx;
+    background:#fff;
+}

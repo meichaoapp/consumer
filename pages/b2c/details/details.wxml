@@ -95,8 +95,24 @@
             </view>
         </view>
         <view  class="right_part flex flex_center">
-            <view bindtap='addCart' class="cfff font15">加入购物车</view>
+            <view bindtap='addCart' class="cfff font15" bindtap="openSpecsBox">加入购物车</view>
             <view bindtap='toOrderConfirm' class="cfff font15">立即购买</view>
+        </view>
+    </view>
+
+    <!-- 蒙层 -->
+    <view class="commodity_screen" bindtap="hideSpecsBox" wx:if="{{specsStatus}}"></view>
+    <!--选择规格详情框 -->
+    <view animation="{{animationData}}" class="shop_car" wx:if="{{specsStatus}}">
+        <view class="image_box">
+            <image class="goods_image" src="https://wxpic.iliangpin.cn/meichao/1.png"></image>
+        </view>
+        <view class="oBox">
+            <view>
+                <text class="font15 c_f3f">￥</text>
+                <text class="font24 c_f3f strong">31.5 - 35.9</text>
+            </view>
+            <view class="font13 C666 mt20">请选择：颜色 分类 尺码</view>
         </view>
     </view>
 </view>
