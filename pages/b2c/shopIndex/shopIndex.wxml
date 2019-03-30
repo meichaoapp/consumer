@@ -1,51 +1,29 @@
 <view class="container">
     <view class="shop_name flex flex_between flex_center">
         <view class="left_part flex flex_center">
-            <image src="https://wxpic.iliangpin.cn/meichao/1.png"></image>
+            <image src="{{merchant.logo}}"></image>
             <view>
-                <view class="font18 cfff">小浣熊旗舰店</view>
+                <view class="font18 cfff">{{merchant.merchantUserName}}</view>
                 <view class="font14 cfff">粉丝5.4万</view>
             </view>
         </view>
-        <view class="flex flex_center connect_btn">
+        <view class="flex flex_center connect_btn" bindtap='toCustomerServiceBox'>
             <image  src="/static/images/icon_connect.png"></image>
             <view class="cfff">客服咨询</view>
         </view>
     </view>
 
     <view class="goods_list">
-        <view bindtap='toDetail' data-id='1' class="goods_item bg_ff">
-            <image src="https://wxpic.iliangpin.cn/meichao/1.png"></image>
-            <view class="name">小浣熊 儿童洗发沐浴露 500ML附赠牙刷 </view>
-            <view class="sell_info">
-                <view class="price">￥ 12.00</view>
-                <view class="font12 C999">已售5.4万件</view>
+       <block wx:for="{{goodsList}}" wx:key="{{item.id}}"   >
+            <view bindtap='toDetail' data-id='{{item.id}}' class="goods_item bg_ff">
+                <image src="{{item.url}}"></image>
+                <view class="name">{{item.name || ""}} </view>
+                <view class="sell_info">
+                    <view class="price">￥ {{item.price || 0}}</view>
+                    <view class="font12 C999">{{item.sold || ""}}</view>
+                </view>
             </view>
-        </view>
-        <view class="goods_item bg_ff">
-            <image src="https://wxpic.iliangpin.cn/meichao/1.png"></image>
-            <view class="name">小浣熊 儿童洗发沐浴露 500ML附赠牙刷 </view>
-            <view class="flex flex_between sell_info">
-                <view class="price">￥ 12.00</view>
-                <view class="font12 C999">已售5.4万件</view>
-            </view>
-        </view>
-        <view class="goods_item bg_ff">
-            <image src="https://wxpic.iliangpin.cn/meichao/1.png"></image>
-            <view class="name">小浣熊 儿童洗发沐浴露 500ML附赠牙刷 </view>
-            <view class="flex flex_between sell_info">
-                <view class="price">￥ 12.00</view>
-                <view class="font12 C999">已售5.4万件</view>
-            </view>
-        </view>
-        <view class="goods_item bg_ff">
-            <image src="https://wxpic.iliangpin.cn/meichao/1.png"></image>
-            <view class="name">小浣熊 儿童洗发沐浴露 500ML附赠牙刷 </view>
-            <view class="flex flex_between sell_info">
-                <view class="price">￥ 12.00</view>
-                <view class="font12 C999">已售5.4万件</view>
-            </view>
-        </view>
+        </block> 
     </view>
 
     <!--底部购物车结算界面-->
@@ -63,15 +41,15 @@
             <view bindtap='toOrderConfirm' class="icon_settle">去结算</view>
         </view>
 
-        <view class="bottom_part bg_ff flex">
-            <view class="flex flex_center flex_just">
-                <image class="icon_order" src="/static/images/icon_order.png"></image>
-                <view>我的订单</view>
-            </view>
-            <view class="flex flex_center flex_just">
-                <image class="icon_mine" src="/static/images/icon_mine.png"></image>
-                <view>个人中心</view>
-            </view>
+         <view class="bottom_part bg_ff flex">
+              <view bindtap='toOrder' class="flex flex_center flex_just">
+                  <image class="icon_order" src="/static/images/icon_order.png"></image>
+                  <view>我的订单</view>
+              </view>
+              <view bindtap='toUserCenter' class="flex flex_center flex_just">
+                  <image class="icon_mine" src="/static/images/icon_mine.png"></image>
+                  <view>个人中心</view>
+              </view>
         </view>
     </view>
 </view>

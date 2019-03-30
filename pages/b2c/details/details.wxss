@@ -98,7 +98,7 @@ page{
 }
 .fixed_box .right_part view{
     width:50%;
-    height:90rpx;
+    height:92rpx;
     text-align:center;
     line-height:90rpx;
 }

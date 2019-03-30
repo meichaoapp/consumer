@@ -39,7 +39,7 @@
                 <image  src="{{merchant.logo}}"></image>
                 <view>
                     <view class="font16 strong">{{merchant.merchantName}}</view>
-                    <view class="C999 font10 mt10">商品数量：{{merchant.num}} 已售 {{merchant.sold}}</view>
+                    <view class="C999 font10 mt10">商品数量：{{merchant.num}}  {{merchant.sold}}</view>
                 </view>
             </view>
             <view bindtap='toShop' class="btn_go_shop font12">进店逛逛</view>
@@ -99,23 +99,17 @@
     <!--选择规格详情框 -->
     <view animation="{{animationData}}" class="shop_car" wx:if="{{specsStatus}}">
         <view class="image_box">
-            <image class="goods_image" src="https://wxpic.iliangpin.cn/meichao/1.png"></image>
+            <image class="goods_image" src="{{detail.url}}"></image>
             <view class="price">
                 <view>
                     <text class="font15 c_f3f">￥</text>
                     <text class="font24 c_f3f strong">31.5 - 35.9</text>
                 </view>
-                <view class="font13 C666 mt20">请选择：颜色 分类 尺码</view>
+                <view class="font13 C666 mt20">请选择：{{detail.specificationsTypes}}</view>
             </view>
         </view>
         <view class="oBox">
-            <view class="color_type">
-                <view class="title C666 font15">颜色分类</view>
-                <view class="list">
-                    <view class="single_item">后背小猫印花款（图片色）</view>
-                    <view class="single_item">后背小猫印花款（图片色）</view>
-                </view>
-            </view>
+           <block wx:for="{{goodsList}}" wx:key="{{item.id}}">
             <view class="type_reference">
                 <view class="title C666 font15">参考分类</view>
                 <view class="list">
@@ -124,6 +118,7 @@
                     <view class="single_item">90码（建议身高80左右）</view>
                 </view>
             </view>
+            </block>
             <view class="set_car flex flex_center">
                 <image bindtap='cutNumber' data-id='{{goods.id}}'
                        src="https://wxpic.iliangpin.cn/meichao/minus.png"></image>

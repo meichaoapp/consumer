@@ -69,12 +69,22 @@ Page({
       })
     },
 
+    /**
+     * 查询详情
+     */
     queryShopDetail : function() {
         let that = this;
-        util.request(api.QueryShopDetail, {id: 1}, "POST").then(function (res) {
+        util.request(api.QueryShopDetail, {id: that.data.id}, "POST").then(function (res) {
             if (res.rs == 1) {
                 var data = res.data;
-                let detail = data.detail
+                let detail = data.detail;
+                var  specifications = [
+                  {
+                      spec: "颜色分类",
+                      details: ["黑色","深灰色"]
+                  }
+                ];
+                detail.specifications = specifications;   
                 that.setData({
                     detail:detail,
                     merchant: data.merchant, // 店铺信息
@@ -82,6 +92,24 @@ Page({
                WxParse.wxParse('goodsDetail', 'html', res.data.detail.content, that);
             }
         });
+    },
+
+    /**
+     * 加载规格信息
+     */
+    loadSpecs:function() {
+      let that = this;
+      util.request(api.LoadSpecs, { id: that.data.id }, "POST").then(function (res) {
+        if (res.rs == 1) {
+          var data = res.data;
+          let detail = data.detail
+          that.setData({
+            detail: detail,
+            merchant: data.merchant, // 店铺信息
+          })
+          WxParse.wxParse('goodsDetail', 'html', res.data.detail.content, that);
+        }
+      });
     },
     //打开规格弹窗
     openSpecsBox: function () {

@@ -57,6 +57,7 @@ module.exports = {
   QueryShopTypes: NewApiRootUrl + "common/getShopTypes",//获取电商类型列表信息
   QueryShopList: NewApiRootUrl + "shop/list",//获取电商列表信息
   QueryShopDetail: NewApiRootUrl + "shop/detail",//获取电商详情信息
+  LoadSpecs: NewApiRootUrl + "shop/specificationChoose",//获取电商详情规格信息
 
   //电商订单
   QueryShopOrderList: NewApiRootUrl + "shop/myList",//获取电商类型列表信息

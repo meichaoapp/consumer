@@ -151,20 +151,17 @@
 .bottom_part{
     height:100rpx;
 }
-.bottom_part>navigator{
+.bottom_part>view{
     width:374rpx;
-    display:flex;
-    align-items:center;
-    justify-content: center;
 }
-.bottom_part>navigator:first-child{
+.bottom_part>view:first-child{
     border-right:1px solid #ADADAD;
 }
 .icon_order{
-     width:36rpx;
-     height:39rpx;
-     margin-right:15rpx;
- }
+    width:36rpx;
+    height:39rpx;
+    margin-right:15rpx;
+}
 .icon_mine{
     width:32rpx;
     height:42rpx;

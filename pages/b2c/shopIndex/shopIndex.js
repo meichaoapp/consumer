@@ -8,6 +8,8 @@ Page({
    * 页面的初始数据
    */
   data: {
+    merchantId:0,
+    merchant:{},
     selectedType: "shop_1",
     selectedSubType: "",
     goodsList: [], //商品信息集合
@@ -27,9 +29,9 @@ Page({
   onLoad: function (options) {
     let _this = this;
     _this.setData({
-      selectedType: options.type,
-      selectedSubType: options.subType,
+      merchantId: 10,//options.mid,
     });
+    _this.queryList();
   },
 
 
@@ -94,6 +96,25 @@ Page({
   },
 
   /**
+  * 去个人中心
+  */
+  toUserCenter: function () {
+    wx.switchTab({
+      url: '/pages/ucenter/index/index',
+    })
+  },
+
+  /**
+   * 订单中心
+   */
+  toOrder: function () {
+    wx.navigateTo({
+      url: '/pages/ucenter/b2cOrder/orders',
+    })
+  },
+
+
+  /**
    * 去详情页
    */
   toDetail:function(e) {
@@ -104,15 +125,24 @@ Page({
     })
   },
 
+  /**
+    * 去客服聊天界面
+    */
+  toCustomerServiceBox: function () {
+    wx.navigateTo({
+      url: '/xxx/xx?mid=' + _this.data.merchant.merchantId,
+    })
+  },
+
 
   queryList: function () {
     let _this = this;
     let data = {
-      // merchantId: _this.data.merchant.merchantId,//店铺id
+      merchantId: _this.data.merchantId,//店铺id
       start: _this.data.start,     //分页开始页  必填
       limit: _this.data.limit,    //当前页共显示多少条  必填
-      type: _this.data.selectedType,  // 分类值
-      subType: _this.data.selectedSubType,  // 子分类值
+     //type: _this.data.selectedType,  // 分类值
+      //subType: _this.data.selectedSubType,  // 子分类值
       searchTxt: "",  // 搜索
     };
 
@@ -121,6 +151,7 @@ Page({
       if (goodsList) {
         if (_this.data.start == 1) { // 下拉刷新
           _this.setData({
+            merchant: res.data.merchant,
             goodsList: goodsList,
             hideHeader: true,
             totalPage: res.data.totalPage,
@@ -131,6 +162,7 @@ Page({
             tempArray = tempArray.concat(goodsList);
           }
           _this.setData({
+            merchant: res.data.merchant,
             goodsList: tempArray,
             totalPage: res.data.totalPage,
           })
