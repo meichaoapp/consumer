@@ -93,6 +93,16 @@ Page({
 
   },
 
+  /**
+   * 去详情页
+   */
+  toDetail:function(e) {
+    let _this = this;
+    let id = e.currentTarget.dataset.id;
+    wx.navigateTo({
+      url: '/pages/b2c/details/details?id=' + id,
+    })
+  },
 
 
   queryList: function () {

@@ -14,7 +14,7 @@
     </view>
 
     <view class="goods_list">
-        <view class="goods_item bg_ff">
+        <view bindtap='toDetail' data-id='1' class="goods_item bg_ff">
             <image src="https://wxpic.iliangpin.cn/meichao/1.png"></image>
             <view class="name">小浣熊 儿童洗发沐浴露 500ML附赠牙刷 </view>
             <view class="sell_info">
