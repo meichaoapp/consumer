@@ -54,7 +54,7 @@ module.exports = {
   QueryCouponDetails: NewApiRootUrl + "discountCoupon/detail",//优惠券详情
 
   ///电商相关
-  QueryShopTypes: NewApiRootUrl + "shop/typelist",//获取电商类型列表信息
+  QueryShopTypes: NewApiRootUrl + "common/getShopTypes",//获取电商类型列表信息
   QueryShopList: NewApiRootUrl + "shop/list",//获取电商列表信息
   QueryShopDetail: NewApiRootUrl + "shop/detail",//获取电商详情信息
 

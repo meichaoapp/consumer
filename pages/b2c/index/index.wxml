@@ -1,89 +1,36 @@
 <!--电商首页-->
-<view class="container">
+<view class="header" hidden="{{hideHeader}}" style="display:none">
+    <view>下拉刷新中…</view>
+</view>
+<scroll-view scroll-y="true"  bindscrolltolower='lower' class="container">
     <view class="tabs bg_ff flex flex_center flex_around font16">
-        <view class="active">母婴</view>
-        <view>家居百货</view>
-        <view>女装</view>
-        <view>鞋包</view>
-        <view>美妆</view>
+      <block wx:for="{{typeList}}" wx:key="{{item.code}}"   >
+         <view bindtap='switchTabs' data-code="{{item.code}}" class="{{selectedType == item.code ? 'active' : '' }}">{{item.name}}</view>
+      </block>
     </view>
 
     <view class="classify_list bg_ff">
-        <view class="single_item flex flex_colum flex_center">
-            <image src="https://wxpic.iliangpin.cn/meichao/1.png"></image>
-            <view class="font13 C666">童装</view>
-        </view>
-        <view class="single_item flex flex_colum flex_center">
-            <image src="https://wxpic.iliangpin.cn/meichao/1.png"></image>
-            <view class="font13">童装</view>
-        </view>
-        <view class="single_item flex flex_colum flex_center">
-            <image src="https://wxpic.iliangpin.cn/meichao/1.png"></image>
-            <view class="font13">童装</view>
-        </view>
-        <view class="single_item flex flex_colum flex_center">
-            <image src="https://wxpic.iliangpin.cn/meichao/1.png"></image>
-            <view class="font13">童装</view>
-        </view>
-        <view class="single_item flex flex_colum flex_center">
-            <image src="https://wxpic.iliangpin.cn/meichao/1.png"></image>
-            <view class="font13">童装</view>
-        </view>
-        <view class="single_item flex flex_colum flex_center">
-            <image src="https://wxpic.iliangpin.cn/meichao/1.png"></image>
-            <view class="font13">童装</view>
-        </view>
-        <view class="single_item flex flex_colum flex_center">
-            <image src="https://wxpic.iliangpin.cn/meichao/1.png"></image>
-            <view class="font13">童装</view>
-        </view>
-        <view class="single_item flex flex_colum flex_center">
-            <image src="https://wxpic.iliangpin.cn/meichao/1.png"></image>
-            <view class="font13">童装</view>
-        </view>
-        <view class="single_item flex flex_colum flex_center">
-            <image src="https://wxpic.iliangpin.cn/meichao/1.png"></image>
-            <view class="font13">童装</view>
-        </view>
-        <view class="single_item flex flex_colum flex_center">
-            <image src="https://wxpic.iliangpin.cn/meichao/1.png"></image>
-            <view class="font13">童装</view>
-        </view>
+      <block wx:for="{{subTypeList}}" wx:key="{{item.code}}"   >
+          <view class="single_item flex flex_colum flex_center">
+              <image src="{{item.logo || '/static/images/Bitmap.png'}}"></image>
+              <view class="font13 C666">{{item.name}}</view>
+          </view>
+        </block>
     </view>
 
     <view class="goods_list">
-        <view class="goods_item bg_ff">
-            <image src="https://wxpic.iliangpin.cn/meichao/1.png"></image>
-            <view class="name">小浣熊 儿童洗发沐浴露 500ML附赠牙刷 </view>
-            <view class="sell_info">
-                <view class="price">￥ 12.00</view>
-                <view class="font12 C999">已售5.4万件</view>
-            </view>
-        </view>
-        <view class="goods_item bg_ff">
-            <image src="https://wxpic.iliangpin.cn/meichao/1.png"></image>
-            <view class="name">小浣熊 儿童洗发沐浴露 500ML附赠牙刷 </view>
-            <view class="flex flex_between sell_info">
-                <view class="price">￥ 12.00</view>
-                <view class="font12 C999">已售5.4万件</view>
-            </view>
-        </view>
-        <view class="goods_item bg_ff">
-            <image src="https://wxpic.iliangpin.cn/meichao/1.png"></image>
-            <view class="name">小浣熊 儿童洗发沐浴露 500ML附赠牙刷 </view>
-            <view class="flex flex_between sell_info">
-                <view class="price">￥ 12.00</view>
-                <view class="font12 C999">已售5.4万件</view>
-            </view>
-        </view>
-        <view class="goods_item bg_ff">
-            <image src="https://wxpic.iliangpin.cn/meichao/1.png"></image>
-            <view class="name">小浣熊 儿童洗发沐浴露 500ML附赠牙刷 </view>
-            <view class="flex flex_between sell_info">
-                <view class="price">￥ 12.00</view>
-                <view class="font12 C999">已售5.4万件</view>
-            </view>
-        </view>
+
+      <block wx:for="{{goodsList}}" wx:key="{{item.id}}"   >
+          <view class="goods_item bg_ff">
+              <image src="{{item.url}}"></image>
+              <view class="name">{{item.name || 0}}</view>
+              <view class="sell_info">
+                  <view class="price">￥ {{item.price || 0}}</view>
+                  <view class="font12 C999">已售{{item.sold || 0}}万件</view>
+              </view>
+          </view>
+      </block> 
+
     </view>
 
     <!--底部购物车结算界面-->
@@ -102,15 +49,29 @@
         </view>
 
         <view class="bottom_part bg_ff flex">
-            <view class="flex flex_center flex_just">
-                <image class="icon_order" src="/static/images/icon_order.png"></image>
-                <view>我的订单</view>
-            </view>
-            <view class="flex flex_center flex_just">
-                <image class="icon_mine" src="/static/images/icon_mine.png"></image>
-                <view>个人中心</view>
-            </view>
+            <navigator url="/pages/ucenter/b2cOrder/orders">
+                <view class="flex flex_center flex_just">
+                    <image class="icon_order" src="/static/images/icon_order.png"></image>
+                    <view>我的订单</view>
+                </view>
+            </navigator>
+            <navigator url="/pages/ucenter/index/index">
+                <view class="flex flex_center flex_just">
+                    <image class="icon_mine" src="/static/images/icon_mine.png"></image>
+                    <view>个人中心</view>
+                </view>
+            </navigator>
         </view>
     </view>
 
+</scroll-view>
+
+ <view class="n-bottom" hidden="{{hideBottom}}">
+    <view>
+        <view class='transverseline'><text class='line'></text></view>
+
+        <text class='txt'>{{loadMoreData}}</text>
+
+        <view class='transverseline'><text class='line'></text></view>
+    </view>
 </view>
