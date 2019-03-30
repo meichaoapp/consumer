@@ -1,0 +1,18 @@
+/* pages/b2c/noSearch/noSearch.wxss */
+page{
+    height:100%;
+}
+.container{
+    height:100%;
+    padding-top:10rpx;
+}
+.no_search{
+    height:100%;
+    width:100%;
+}
+.no_search image{
+    width:591rpx;
+    height:305rpx;
+    margin-bottom:25rpx;
+    margin-top:236rpx;
+}

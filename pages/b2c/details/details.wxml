@@ -130,6 +130,13 @@
                     <view class="single_item">90码（建议身高80左右）</view>
                 </view>
             </view>
+            <view class="set_car flex flex_center">
+                <image bindtap='cutNumber' data-id='{{goods.id}}'
+                       src="https://wxpic.iliangpin.cn/meichao/minus.png"></image>
+                <text class="count">3</text>
+                <image bindtap='addNumber' data-id='{{goods.id}}'
+                       src="https://wxpic.iliangpin.cn/meichao/plus.png"></image>
+            </view>
         </view>
         <view class="sure">确定</view>
     </view>

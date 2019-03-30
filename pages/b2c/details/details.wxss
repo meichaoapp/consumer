@@ -220,6 +220,19 @@ button.contact_btn::after{
     background:#F3F3F3;
     color:#D4D4D4;
 }
+.set_car{
+    margin-top:130rpx;
+    text-align:right;
+    justify-content:flex-end;
+    padding-right:30rpx;
+}
+.set_car image{
+    width:46rpx;
+    height:46rpx;
+}
+.set_car .count{
+    margin:0 20rpx;
+}
 .sure{
     position:fixed;
     bottom:0;
