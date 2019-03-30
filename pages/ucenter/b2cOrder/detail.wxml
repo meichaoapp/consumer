@@ -82,8 +82,34 @@
     </view>
 
     <!--查看物流信息-->
-    <view class="logistics_box">
-
+    <view class="check_logistics flex flex_center flex_just">
+        <view>查看物流信息</view>
+        <image src="/static/images/icon_more.png"></image>
+    </view>
+    <view class="kuaidi_follow">  
+        <view class="follow_title"></view>    
+        <view class="follow_satus">
+            <view class="follow_address">
+                <view class="label default"></view>       
+                <view class="address default">上海市|签收|上海市【宝山顾村】，拍照签收 已签收</view>     
+                <view class="date default">2016-08-30 11:31:44</view>   
+            </view>
+            <view class="follow_address">     
+                <view class="label"></view>  
+                <view class="address">上海市|派件|上海市【宝山顾村】，【冯师傅/18917596580】正在派件</view>  
+                <view class="date">2016-08-30 11:31:44</view>
+            </view>      
+            <view class="follow_address">      
+                <view class="label"></view>      
+                <view class="address">上海市|发件|上海市【上海转运中心】，正发往【上海嘉定转运中心】</view>     
+                <view class="date">2016-08-30 11:31:44</view>  
+            </view>
+            <view class="follow_address">     
+                <view class="label"></view>     
+                <view class="address">上海市|发件|上海市【上海转运中心】，正发往【上海嘉定转运中心】</view>     
+                <view class="date">2016-08-30 11:31:44</view>
+            </view>
+        </view>
     </view>
 
 

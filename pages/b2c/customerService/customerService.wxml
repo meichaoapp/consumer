@@ -1,0 +1,11 @@
+<!--客服界面-->
+<view class="container">
+    <view class="other">
+        <view class="time font12 cfff">天22:37</view>
+        <view>
+            <image class="avatar"></image>
+
+        </view>
+    </view>
+    <view class="mine"></view>
+</view>

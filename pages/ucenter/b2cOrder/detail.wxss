@@ -76,3 +76,58 @@
 .single_line{
     padding:15rpx 0;
 }
+.check_logistics{
+    height:78rpx;
+    background: #F8FFF4;
+    border-top: 1px solid #81C95A;
+    border-bottom: 1px solid #81C95A;
+}
+.check_logistics view{
+    color:#2F2F2F;
+    font-size:28prx;
+    margin-right:10rpx;
+}
+.check_logistics image{
+    width:22rpx;
+    height:21rpx;
+}
+/*物流跟踪*/
+.kuaidi_follow{
+    width:100%;
+    background:#fff;
+    padding:0rpx 30rpx;
+    box-sizing:border-box;
+}
+.kuaidi_follow .follow_satus{
+    border-left:1rpx solid #d5d5d5;
+}
+.kuaidi_follow .follow_satus .follow_address{
+    border-bottom: 1rpx solid #d5d5d5;
+    margin: 0 20rpx;
+    padding-bottom: 25rpx;
+    position: relative;
+}
+
+.kuaidi_follow .follow_satus .follow_address .address{
+    color:#A0A0A0;
+}
+.kuaidi_follow .follow_satus .follow_address .date{
+    color:#A0A0A0;
+}
+.kuaidi_follow .follow_satus .follow_address .label{
+    width: 25rpx;
+    height: 25rpx;
+    border-radius: 50%;
+    position: absolute;
+    left: -30rpx;
+    top: -5rpx;
+    background: #d5d5d5;
+}
+
+.kuaidi_follow .follow_satus .follow_address .label.default{
+    background: #7BB009;
+}
+
+.kuaidi_follow .follow_satus .follow_address .default{
+    color:#81C95A
+}
