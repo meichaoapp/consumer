@@ -1,28 +1,21 @@
 <!--商品详情-->
-<import src="../../../components/loading/loading.wxml"/>
-<template is="loading" data="{{ ...$wux.loading }}"/>
-
-<import src="../../../components/toast/toast.wxml"/>
-<template is="toast" data="{{ ...$wux.toast }}"/>
-
-
 <view class="detail_box container">
     <!-- 商品图片 -->
     <view class="top_image">
-        <image src="https://wxpic.iliangpin.cn/meichao/1.png"></image>
+        <image src="{{detail.url}}"></image>
     </view>
     <view class="goods_info bg_ff">
         <view class="flex flex_between">
             <view  class="flex flex_center">
                 <view class="mr10">
                     <text class="font15 c_f3f">￥</text>
-                    <text class="font24 c_f3f strong">12.00</text>
+                    <text class="font24 c_f3f strong">{{detail.price}}</text>
                 </view>
-                <view class="C999 line-through">￥38.00</view>
+                <view class="C999 line-through">￥{{detail.originalPrice || 0.00}}</view>
             </view>
-           <view class="C666">已售5.4万件</view>
+           <view class="C666">已售{{detail.sold || 0}}件</view>
         </view>
-        <view class="font18 C333 strong mt10">小浣熊儿童洗发沐浴露500ML附赠牙刷+牙</view>
+        <view class="font18 C333 strong mt10">{{detail.name || ""}}</view>
     </view>
     <view class="tag_line flex flex_center flex_around bg_ff">
         <view class="flex flex_center">
@@ -43,13 +36,13 @@
     <view class="merchant_box bg_ff">
         <view class="part_one flex flex_between flex_center">
             <view class="flex flex_center">
-                <image  src="https://wxpic.iliangpin.cn/meichao/1.png"></image>
+                <image  src="{{merchant.logo}}"></image>
                 <view>
-                    <view class="font16 strong">小浣熊洗护</view>
-                    <view class="C999 font10 mt10">商品数量：67已售2000件</view>
+                    <view class="font16 strong">{{merchant.merchantName}}</view>
+                    <view class="C999 font10 mt10">商品数量：{{merchant.num}} 已售 {{merchant.sold}}</view>
                 </view>
             </view>
-            <view class="btn_go_shop font12">进店逛逛</view>
+            <view bindtap='toShop' class="btn_go_shop font12">进店逛逛</view>
         </view>
         <view class="part_two flex flex_center flex_between bg_ff">
             <view class="flex flex_center">
@@ -75,7 +68,8 @@
                 <view class="font15">图文详情</view>
             </view>
             <view >
-                <image  src="https://wxpic.iliangpin.cn/meichao/1.png" mode="withFix" lazy-load="true"></image>
+                 <import src="../../../lib/wxParse/wxParse.wxml"/>
+                 <template is="wxParse" data="{{wxParseData:goodsDetail.nodes}}"/>
             </view>
 
         </view>
@@ -87,8 +81,8 @@
                 <image class="icon_home" src="https://wxpic.iliangpin.cn/meichao/home.png"></image>
                 <view class="C999 font12">首页</view>
             </view>
-            <view class="kefu  flex flex_colum flex_center flex_just">
-                <button class="contact_btn" open-type='contact'>
+            <view bindtap='toCustomerServiceBox' class="kefu  flex flex_colum flex_center flex_just">
+                <button class="contact_btn">
                     <image class="icon_kefu" src="https://wxpic.iliangpin.cn/meichao/kefu.png"></image>
                     <view class="C999 font12">客服</view>
                 </button>

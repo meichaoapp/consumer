@@ -2,6 +2,7 @@
 var app = getApp();
 var util = require('../../../utils/util.js');
 var api = require('../../../config/api.js');
+var WxParse = require('../../../lib/wxParse/wxParse.js');
 Page({
 
     /**
@@ -9,21 +10,20 @@ Page({
      */
     data: {
         basePath: app.globalData._base_path, //基础路径
+        id:0,
         detail: {}, //商品详情
+        merchant:{}, // 店铺信息
     },
 
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
+        let _this = this;
+        _this.setData({
+          id: options.id,
+        });
         this.queryShopDetail();
-    },
-
-    /**
-     * 生命周期函数--监听页面初次渲染完成
-     */
-    onReady: function () {
-
     },
 
     /**
@@ -33,33 +33,6 @@ Page({
 
     },
 
-    /**
-     * 生命周期函数--监听页面隐藏
-     */
-    onHide: function () {
-
-    },
-
-    /**
-     * 生命周期函数--监听页面卸载
-     */
-    onUnload: function () {
-
-    },
-
-    /**
-     * 页面相关事件处理函数--监听用户下拉动作
-     */
-    onPullDownRefresh: function () {
-
-    },
-
-    /**
-     * 页面上拉触底事件的处理函数
-     */
-    onReachBottom: function () {
-
-    },
 
     /**
      * 用户点击右上角分享
@@ -67,6 +40,35 @@ Page({
     onShareAppMessage: function () {
 
     },
+
+  /**
+* 进入具体店铺
+*/
+  toShop: function () {
+    let _this = this;
+    wx.navigateTo({
+      url: '/pages/b2c/shopIndex/shopIndex?mid=' + _this.data.merchant.merchantId,
+    })
+  },
+   
+    /**
+     * 去客服聊天界面
+     */
+    toCustomerServiceBox:function() {
+      wx.navigateTo({
+        url: '/xxx/xx?mid=' + _this.data.merchant.merchantId,
+      })
+    },
+
+    /**
+     * 去电商首页
+     */
+    toIndex:function() {
+      wx.redirectTo({
+        url: '/pages/b2c/index/index',
+      })
+    },
+
     queryShopDetail : function() {
         let that = this;
         util.request(api.QueryShopDetail, {id: 1}, "POST").then(function (res) {
@@ -74,8 +76,10 @@ Page({
                 var data = res.data;
                 let detail = data.detail
                 that.setData({
-                    detail:detail
+                    detail:detail,
+                    merchant: data.merchant, // 店铺信息
                 })
+               WxParse.wxParse('goodsDetail', 'html', res.data.detail.content, that);
             }
         });
     },
