@@ -25,7 +25,7 @@
 
     <view class="fixed_bottom flex flex_center">
         <input type="text" />
-       <image class="icon_emotion"></image>
-        <image class="icon_add"></image>
+       <image class="icon_emotion" src="/static/images/icon_emotion.png"></image>
+        <image class="icon_add" src="/static/images/icon_add.png"></image>
     </view>
 </view>
