@@ -8,7 +8,7 @@
         <input class="input" name="goodsName" placeholder="搜索想找的商品"
                bindinput="goodsNameInput" bindconfirm="search"/>
         <image bindtap='search' class="icon_search" src="{{basePath}}/search.png"></image>
-        <view class="flex flex_center">
+        <view bindtap='toC2C' class="flex flex_center">
             <view>进入社区团购</view>
             <image src="{{basePath}}/go.png" class="icon_go"></image>
         </view>
@@ -20,7 +20,7 @@
     </scroll-view>
     <view class="classify_list bg_ff">
       <block wx:for="{{subTypeList}}" wx:key="{{item.code}}"   >
-          <view bindtap='toShop' data-code="{{item.code}}" class="single_item flex flex_colum flex_center">
+          <view bindtap='clickSubType' data-code="{{item.code}}" class="single_item flex flex_colum flex_center">
               <image src="{{item.logo || '/static/images/Bitmap.png'}}"></image>
               <view class="font13 C666">{{item.name}}</view>
           </view>
@@ -30,12 +30,12 @@
     <view class="goods_list">
 
       <block wx:for="{{goodsList}}" wx:key="{{item.id}}"   >
-          <view class="goods_item bg_ff">
+          <view bindtap='toDetail' data-id='{{item.id}}' class="goods_item bg_ff">
               <image src="{{item.url}}"></image>
-              <view class="name">{{item.name || 0}}</view>
+              <view class="name">{{item.name || ""}}</view>
               <view class="sell_info">
                   <view class="price">￥ {{item.price || 0}}</view>
-                  <view class="font12 C999">已售{{item.sold || 0}}万件</view>
+                  <view class="font12 C999">{{item.sold || ""}}</view>
               </view>
           </view>
       </block> 
@@ -58,18 +58,14 @@
         </view>
 
         <view class="bottom_part bg_ff flex">
-            <navigator url="/pages/ucenter/b2cOrder/orders">
-                <view class="flex flex_center flex_just">
-                    <image class="icon_order" src="/static/images/icon_order.png"></image>
-                    <view>我的订单</view>
-                </view>
-            </navigator>
-            <navigator url="/pages/ucenter/index/index">
-                <view class="flex flex_center flex_just">
-                    <image class="icon_mine" src="/static/images/icon_mine.png"></image>
-                    <view>个人中心</view>
-                </view>
-            </navigator>
+              <view bindtap='toOrder' class="flex flex_center flex_just">
+                  <image class="icon_order" src="/static/images/icon_order.png"></image>
+                  <view>我的订单</view>
+              </view>
+              <view bindtap='toUserCenter' class="flex flex_center flex_just">
+                  <image class="icon_mine" src="/static/images/icon_mine.png"></image>
+                  <view>个人中心</view>
+              </view>
         </view>
     </view>
 

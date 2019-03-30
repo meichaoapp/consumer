@@ -95,14 +95,41 @@ Page({
   },
 
   /**
-   * 进入具体店铺
+   * 去社区团购
    */
-  toShop:function(e) {
+  toC2C:function() {
+    wx.switchTab({
+      url: '/pages/index/index',
+    })
+  },
+
+  /**
+   * 去个人中心
+   */
+  toUserCenter:function() {
+    wx.switchTab({
+      url: '/pages/ucenter/index/index',
+    })
+  },
+
+  /**
+   * 订单中心
+   */
+  toOrder:function() {
+    wx.navigateTo({
+      url: '/pages/ucenter/b2cOrder/orders',
+    })
+  },
+
+  /**
+    * 去详情页
+    */
+  toDetail: function (e) {
     let _this = this;
-    let subType = e.currentTarget.dataset.code;
-     wx.navigateTo({
-       url: '/pages/b2c/shopIndex/shopIndex?type=' + _this.data.selectedType + "&subType=" + subType,
-     })
+    let id = e.currentTarget.dataset.id;
+    wx.navigateTo({
+      url: '/pages/b2c/details/details?id=' + id,
+    })
   },
 
   //检查用户
@@ -158,6 +185,48 @@ Page({
       searchTxt: "",  // 搜索
     });
     _this.queryShopTypes(); // 切换分类
+  },
+
+  /**
+   * 点击二级分类
+   */
+  clickSubType: function (e) {
+    let _this = this;
+    let subType = e.currentTarget.dataset.code;
+    _this.setData({
+      selectedSubType: subType,
+      goodsList: [], //商品信息集合
+      start: 1, // 页码
+      totalPage: 0, // 共有页
+      hideHeader: true, //隐藏顶部提示
+      hideBottom: true, //隐
+    });
+    _this.queryList();
+  },
+
+  /**
+   * 搜索内容
+   */
+  goodsNameInput: function (e) {
+    var _this = this;
+    this.setData({
+      searchTxt: e.detail.value,
+    })
+  },
+  
+  /**
+   * 点击查找
+   */
+  search:function() {
+    let _this = this;
+    _this.setData({
+      goodsList: [], //商品信息集合
+      start: 1, // 页码
+      totalPage: 0, // 共有页
+      hideHeader: true, //隐藏顶部提示
+      hideBottom: true, //隐
+    });
+    _this.queryList();
   },
 
   queryList: function () {
