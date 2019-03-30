@@ -3,12 +3,21 @@
     <view>下拉刷新中…</view>
 </view>
 <scroll-view scroll-y="true"  bindscrolltolower='lower' class="container">
-    <view class="tabs bg_ff flex flex_center flex_around font16">
+    <!-- 搜索框 -->
+    <view class="search_box bg_ff flex flex_center">
+        <input class="input" name="goodsName" placeholder="搜索想找的商品"
+               bindinput="goodsNameInput" bindconfirm="search"/>
+        <image bindtap='search' class="icon_search" src="{{basePath}}/search.png"></image>
+        <view class="flex flex_center">
+            <view>进入社区团购</view>
+            <image src="{{basePath}}/go.png" class="icon_go"></image>
+        </view>
+    </view>
+    <scroll-view scroll-x="true" class="tabs">
       <block wx:for="{{typeList}}" wx:key="{{item.code}}"   >
          <view bindtap='switchTabs' data-code="{{item.code}}" class="{{selectedType == item.code ? 'active' : '' }}">{{item.name}}</view>
       </block>
-    </view>
-
+    </scroll-view>
     <view class="classify_list bg_ff">
       <block wx:for="{{subTypeList}}" wx:key="{{item.code}}"   >
           <view bindtap='toShop' data-code="{{item.code}}" class="single_item flex flex_colum flex_center">

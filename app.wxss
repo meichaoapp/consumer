@@ -523,3 +523,12 @@ view,text{
 .line-through{
   text-decoration: line-through;
 }
+/*去除横向滚动条*/
+/**
+去除横向滚动条
+*/
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  color: transparent;
+}
