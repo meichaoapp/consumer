@@ -11,7 +11,7 @@
 
     <view class="classify_list bg_ff">
       <block wx:for="{{subTypeList}}" wx:key="{{item.code}}"   >
-          <view class="single_item flex flex_colum flex_center">
+          <view bindtap='toShop' data-code="{{item.code}}" class="single_item flex flex_colum flex_center">
               <image src="{{item.logo || '/static/images/Bitmap.png'}}"></image>
               <view class="font13 C666">{{item.name}}</view>
           </view>

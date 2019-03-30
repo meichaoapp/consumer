@@ -93,6 +93,17 @@ Page({
 
   },
 
+  /**
+   * 进入具体店铺
+   */
+  toShop:function(e) {
+    let _this = this;
+    let subType = e.currentTarget.dataset.code;
+     wx.navigateTo({
+       url: '/pages/b2c/shopIndex/shopIndex?type=' + _this.data.selectedType + "&subType=" + subType,
+     })
+  },
+
   //检查用户
   checkUser: function () {
     let _this = this;
