@@ -305,6 +305,28 @@ Page({
     },
 
     /**
+     * 监听类型点击事件
+     */
+    listenerSellTypeClick:function(e) {
+      let that = this;
+      let id = e.currentTarget.dataset.id;
+      if(id == 1 || id === 4){
+        let index = e.currentTarget.dataset.index;
+        that.setData({
+          num: index,
+          goodsList: [],
+          start: 1,
+          loadMoreData: '上滑加载更多'
+        });
+        that.queryTGList(id)
+      }else {
+        wx.redirectTo({
+          url: '/pages/b2c/index/index?type=' + id,
+        })
+      }
+    },
+
+    /**
      * 获取当前地理位置信息
      */
     getCurrentLocation: function () {
@@ -350,20 +372,7 @@ Page({
         this.data.scrollTop = this.data.scrollTop * 1 + e.detail.deltaY * 1;
         console.log(this.data.scrollTop)
         console.log(this.data.navFixed)
-        // const query = wx.createSelectorQuery();
-        // query.select('.nav').boundingClientRect();
-        // query.selectViewport().scrollOffset();
-        // query.exec(function (res) {
-
-
-        // });
-
-        /** 我这里写了固定值 如果使用rpx 可用query可以动态获取其他的高度 然后修改这里值 */
-        /** 获取方法参考文档 */
-
-        /** scrollTop 在模拟器上检测不是太灵敏 可在真机上测试 基本上不会出现延迟问题 */
         var navtopHeight = 61;
-
         if (this.data.scrollTop <= -navtopHeight) {
             this.setData({
                 navFixed: true
@@ -381,16 +390,12 @@ Page({
         let that = this;
         var data = {
             "token": "",
-            // "longitude": that.data.longitude,//经度
-            // "latitude": that.data.latitude//纬度
         };
         util.request(api.QueryIndexInfo, data, "POST").then(function (res) {
             if (res.rs === 1) {
                 that.setData({
                     banners: res.data.banners,
                     classifyList: res.data.classifys,
-                    //treasures:res.data.treasures,
-                    // merchantList:res.data.merchantList,
                     sellList: res.data.sellList,
                     start: 1, // 页码
                     totalPage: 0, // 共有页
@@ -403,24 +408,7 @@ Page({
         });
 
     },
-    /**
-     * 一元夺宝
-     */
-    queryIndexTreasures: function () {
-        let that = this;
-        var data = {
-            "token": "",//经度
-        };
-        util.request(api.QueryIndexTreasures, data, "POST").then(function (res) {
-            if (res.rs === 1) {
-                //console.log("res.data.treasures===" + JSON.stringify(res.data.treasures));
-                that.setData({
-                    treasures: res.data.treasures,
-                })
-                that.queryTGList();
-            }
-        });
-    },
+  
     /**
      * 团购信息
      */
@@ -488,18 +476,7 @@ Page({
         })
 
     },
-    showList: function (e) {
-        let that = this;
-        let index = e.currentTarget.dataset.index;
-        let id = e.currentTarget.dataset.id;
-        that.setData({
-            num: index,
-            goodsList: [],
-            start: 1,
-            loadMoreData: '上滑加载更多'
-        });
-        that.queryTGList(id)
-    },
+  
     //选择团长，打开modal
     choiceMerchant() {
         let _this = this;

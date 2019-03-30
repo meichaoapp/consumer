@@ -63,18 +63,11 @@ Page({
           wx.navigateTo({
             url: '/pages/auth/mobileBind/mobileBind?session_key=' + session_key,
           })
-        } else { // 已绑定
-          let merchant = wx.getStorageSync(currentMerchat);
-          if(merchant) {
-            wx.switchTab({
-              url: '/pages/index/index',
-            })
-          }else {
-            wx.redirectTo({
-              url: '/pages/auth/choiceMerchant/choiceMerchant',
-            })
-          }
-         
+        } else { //已绑定
+          //选择进入通道
+          wx.redirectTo({
+            url: '/pages/auth/selectEntry/selectEntry',
+          })
         }
 
 

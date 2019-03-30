@@ -1,11 +1,11 @@
 <view class="container">
     <view class="entry_box bg_ff flex flex_colum flex_center">
         <view class="title font21 C333 strong">请选择您要进入的通道</view>
-        <view class="type_merchant flex flex_colum flex_center">
+        <view bindtap='selectEntry' data-type='1' class="type_merchant flex flex_colum flex_center">
             <image src="https://meichaooss1.oss-cn-beijing.aliyuncs.com/meichao/mini-program/consumer/c2c.png"></image>
             <view class="font15 C333">进入社区团购</view>
         </view>
-        <view class="type_shopping flex flex_colum flex_center">
+        <view bindtap='selectEntry' data-type='2' class="type_shopping flex flex_colum flex_center">
             <image src="https://meichaooss1.oss-cn-beijing.aliyuncs.com/meichao/mini-program/consumer/b2c.png"></image>
             <view class="font15 C333">进入电商</view>
         </view>
