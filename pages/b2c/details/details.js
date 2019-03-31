@@ -61,8 +61,9 @@ Page({
      * 去客服聊天界面
      */
     toCustomerServiceBox:function() {
+      let _this = this;
       wx.navigateTo({
-        url: '/xxx/xx?mid=' + _this.data.merchant.merchantId,
+        url: '/pages/b2c/customerService/customerService?mid=' + _this.data.merchant.merchantId,
       })
     },
 
