@@ -1,4 +1,4 @@
-/* pages/b2c/index/index.wxss */
+@import '/static/css/cart.wxss';
 .container{
     padding-bottom:240rpx;
 }

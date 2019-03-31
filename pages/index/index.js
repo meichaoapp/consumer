@@ -573,7 +573,7 @@ Page({
         var cartmerchatGoodsListTmp = [];
         var cartcouponGoodsListTmp = [];
         var cartb2cGoodsListTmp = [];
-        //console.log("cart goods ---" + JSON.stringify(_arr));
+        console.log("cart goods ---" + JSON.stringify(_arr));
         if (null != _arr && _arr.length > 0) {
             var len = _arr.length;
             for (var i = 0; i < len; i++) {
@@ -696,64 +696,85 @@ Page({
     addNumber: function (e) {
         let _this = this;
         var id = e.currentTarget.dataset.id;
-
-
-        var list = _this.data.goodsList;
-        if (list != null && list.length > 0) {
+        var type = e.currentTarget.dataset.type;
+        if(6 == type) {
+          var g = cart.loadCartGoods(id);
+          //console.log("购物无车商品---" + JSON.stringify(g));
+          var number = g.number + 1;
+          if (g.limitNum) {
+            if ((g.joinNum + number) > g.limitNum) {
+              wx.showToast({
+                icon: "none",
+                title: '已超过库存!',
+              })
+              return;
+            }
+          }
+            
+          if (null != g.buyLimitNum &&
+            0 != g.buyLimitNum &&  number > g.buyLimitNum) {
+            wx.showToast({
+              icon: "none",
+              title: '此商品每人只能买' + g.buyLimitNum + "份",
+            })
+            return;
+          }
+          g.number = g.number + 1;
+          cart.updateCart(g);
+        }else {
+          var list = _this.data.goodsList;
+          if (list != null && list.length > 0) {
             for (var i = 0; i < list.length; i++) {
-
-                if (list[i].id === id) {
-                    var goods = list[i];
-                    var g = cart.loadCartGoods(id);
-                    //console.log("购物无车商品---" + JSON.stringify(g));
-                    if (g == null && goods != null) {//如果没有则加入购物车
-                        if (goods.productType != 5 && !_this.checkRel(id)) {
-                            return;
-                        }
-                        if ((goods.joinNum + 1) > goods.limitNum) {
-                            wx.showToast({
-                                icon: "none",
-                                title: '已超过库存!',
-                            })
-                            return;
-                        } else {
-                            goods.number = 1;
-                        }
-                        cart.add2Cart(goods);
-                    } else {//如果购物车以前有则更新购物车商品数量
-                        if (g.productType != 5 && !_this.checkRel(id)) {
-                            return;
-                        }
-                        g.number = g.number + 1;
-                        if ((goods.joinNum + g.number) > goods.limitNum) {
-                            wx.showToast({
-                                icon: "none",
-                                title: '已超过库存!',
-                            })
-                            return;
-                        }
-                        if (null != goods.buyLimitNum &&
-                            0 != goods.buyLimitNum && g.number > goods.buyLimitNum) {
-                            wx.showToast({
-                                icon: "none",
-                                title: '此商品每人只能买' + goods.buyLimitNum + "份",
-                            })
-                            return;
-                        }
-                        goods.number = goods.number + 1;
-                        cart.updateCart(g);
-                    }
-
+              if (list[i].id === id) {
+                var goods = list[i];
+                var g = cart.loadCartGoods(id);
+                //console.log("购物无车商品---" + JSON.stringify(g));
+                if (g == null && goods != null) {//如果没有则加入购物车
+                  if (goods.productType != 5 && !_this.checkRel(id)) {
+                    return;
+                  }
+                  if ((goods.joinNum + 1) > goods.limitNum) {
+                    wx.showToast({
+                      icon: "none",
+                      title: '已超过库存!',
+                    })
+                    return;
+                  } else {
+                    goods.number = 1;
+                  }
+                  cart.add2Cart(goods);
+                } else {//如果购物车以前有则更新购物车商品数量
+                  if (g.productType != 5 && !_this.checkRel(id)) {
+                    return;
+                  }
+                  g.number = g.number + 1;
+                  if ((goods.joinNum + g.number) > goods.limitNum) {
+                    wx.showToast({
+                      icon: "none",
+                      title: '已超过库存!',
+                    })
+                    return;
+                  }
+                  if (null != goods.buyLimitNum &&
+                    0 != goods.buyLimitNum && g.number > goods.buyLimitNum) {
+                    wx.showToast({
+                      icon: "none",
+                      title: '此商品每人只能买' + goods.buyLimitNum + "份",
+                    })
+                    return;
+                  }
+                  goods.number = goods.number + 1;
+                  cart.updateCart(g);
                 }
 
-
+              }
             }
-
-        }
-
-        _this.setData({
+          }
+          _this.setData({
             goodsList: list,
-        });
+          });
+        }
+        
         _this.refreshCartRef();
     },
     ///清除购物车商品

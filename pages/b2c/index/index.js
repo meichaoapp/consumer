@@ -1,6 +1,7 @@
 var util = require('../../../utils/util.js');
 var api = require('../../../config/api.js');
 var user = require('../../../services/user.js');
+const cart = require('../../../services/cart.js');
 var app = getApp();
 Page({
 
@@ -23,6 +24,14 @@ Page({
     refreshTime: '', // 刷新的时间
     loadMoreData: '上滑加载更多',
     searchTxt: "",  // 搜索
+    cartselfGoodsList: [],//购物车自营商品列表
+    cartmerchatGoodsList: [],//购物车团购商品列表
+    cartcouponGoodsList: [], //优惠券商品列表
+    cartb2cGoodsList: [],//电商购物车商品列表
+    needPay: 0.00, // 购物车核算价格
+    goodsNums: 0, //商品数量
+    showModal: false,
+
   },
 
   /**
@@ -38,7 +47,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    this.refreshCartRef();
   },
 
   /**
@@ -262,6 +271,192 @@ Page({
       }
     })
 
+  },
+
+  //刷新购物车相关
+  refreshCartRef: function () {
+    let _this = this;
+    var _arr = cart.loadCart();//购物车商品
+    var cartselfGoodsList = [];
+    var cartmerchatGoodsList = [];
+    var cartcouponGoodsList = [];
+    var cartb2cGoodsList = [];
+
+    var cartselfGoodsListTmp = [];
+    var cartmerchatGoodsListTmp = [];
+    var cartcouponGoodsListTmp = [];
+    var cartb2cGoodsListTmp = [];
+    console.log("cart goods ---" + JSON.stringify(_arr));
+    if (null != _arr && _arr.length > 0) {
+      var len = _arr.length;
+      for (var i = 0; i < len; i++) {
+        var productType = _arr[i].productType;
+        if (productType == 1) {
+          cartmerchatGoodsListTmp.push(_arr[i]);
+        } else if (productType == 3) {
+          cartselfGoodsListTmp.push(_arr[i]);
+        } else if (productType == 5) {
+          cartcouponGoodsListTmp.push(_arr[i]);
+        } else if (productType == 6) {
+          cartb2cGoodsListTmp.push(_arr[i]);
+        }
+      }
+    }
+
+    _this.setData({
+      needPay: cart.loadPrice().toFixed(2), // 购物车核算价格
+      goodsNums: cart.loadGooodsNums(), //商品数量
+      cartselfGoodsList: _this.createCartInfo(cartselfGoodsListTmp, cartselfGoodsList),//购物车自营商品列表
+      cartmerchatGoodsList: _this.createCartInfo(cartmerchatGoodsListTmp, cartmerchatGoodsList),//购物车团购商品列表
+      cartcouponGoodsList: _this.createCartInfo(cartcouponGoodsListTmp, cartcouponGoodsList), //优惠券列表
+      cartb2cGoodsList: _this.createCartInfo(cartb2cGoodsListTmp, cartb2cGoodsList),
+    });
+  },
+  //组装购物车信息
+  createCartInfo: function (tmpList, cartList) {
+    let _this = this;
+    if (tmpList) {
+      tmpList.forEach(goods => {
+        cartList = _this.checkAndFill(goods, cartList);
+      })
+    }
+    return cartList;
+  },
+  //检查和填充
+  checkAndFill: function (item, cartList) {
+    var obj = {
+      merchantId: item.merchantId,
+      merchantName: item.merchantName,
+    };
+    if (cartList.length > 0) {
+      var inCar = false;
+      cartList.forEach(o => {
+        if (o.merchantId == item.merchantId) {
+          var list = o.list;
+          list.push(item);
+          obj.list = list;
+          inCar = true;
+        }
+      });
+      if (!inCar) {
+        var list = [];
+        list.push(item);
+        obj.list = list;
+      }
+    } else {
+      var list = [];
+      list.push(item);
+      obj.list = list;
+    }
+    cartList.push(obj);
+    return cartList;
+  },
+  //减
+  cutNumber: function (e) {
+    let _this = this;
+    var id = e.currentTarget.dataset.id;
+    var g = cart.loadCartGoods(id);
+    if (g != null) {//如果购物车以前有则更新
+      g.number = (g.number - 1);
+      if (g.number <= 0) {
+        cart.removeCart(id);
+      } else {
+        cart.updateCart(g);
+      }
+    }
+
+    _this.refreshCartRef();
+  },
+  //加
+  addNumber: function (e) {
+    let _this = this;
+    var id = e.currentTarget.dataset.id;
+    var type = e.currentTarget.dataset.type;
+    
+    var g = cart.loadCartGoods(id);
+    //console.log("购物无车商品---" + JSON.stringify(g));
+    var number = g.number + 1;
+    if (g.limitNum) {
+      if ((g.joinNum + number) > g.limitNum) {
+        wx.showToast({
+          icon: "none",
+          title: '已超过库存!',
+        })
+        return;
+      }
+    }
+
+    if (null != g.buyLimitNum &&
+      0 != g.buyLimitNum && number > g.buyLimitNum) {
+      wx.showToast({
+        icon: "none",
+        title: '此商品每人只能买' + g.buyLimitNum + "份",
+      })
+      return;
+    }
+    g.number = g.number + 1;
+    cart.updateCart(g);
+   
+    _this.refreshCartRef();
+  },
+  ///清除购物车商品
+  clearCart: function () {
+    let _this = this;
+    cart.cleanCart();
+    _this.refreshCartRef();
+  },
+  //打开购物车详情
+  openshopCar: function () {
+    let that = this;
+    // 显示遮罩层
+    var animation = wx.createAnimation({
+      duration: 200,
+      timingFunction: "linear",
+      delay: 0
+    })
+    that.animation = animation
+    animation.translateY(300).step()
+    that.setData({
+      animationData: animation.export(),
+      shopCarStatus: true
+    })
+    setTimeout(function () {
+      animation.translateY(0).step()
+      that.setData({
+        animationData: animation.export()
+      })
+    }.bind(this), 200)
+  },
+  //隐藏购物车详情
+  hideshopCar: function () {
+    // 隐藏遮罩层
+    var animation = wx.createAnimation({
+      duration: 200,
+      timingFunction: "linear",
+      delay: 0
+    })
+    this.animation = animation
+    animation.translateY(300).step()
+    this.setData({
+      animationData: animation.export(),
+    })
+    setTimeout(function () {
+      animation.translateY(0).step()
+      this.setData({
+        animationData: animation.export(),
+        shopCarStatus: false,
+      })
+    }.bind(this), 200)
+  },
+  //去订单确认页
+  toOrderConfirm: function () {
+    let _this = this;
+    if (_this.data.goodsNums <= 0) {
+      return;
+    }
+    wx.navigateTo({
+      url: '/pages/orderConfirm/orderConfirm?type=0'
+    });
   },
 
 })

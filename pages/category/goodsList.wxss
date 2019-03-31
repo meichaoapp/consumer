@@ -1,4 +1,4 @@
-/* pages/category/goodsList.wxss */
+@import '/static/css/cart.wxss';
 .goods_list_box{
     margin-bottom:180rpx;
 }

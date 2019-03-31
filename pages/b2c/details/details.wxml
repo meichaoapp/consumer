@@ -89,8 +89,8 @@
             </view>
         </view>
         <view  class="right_part flex flex_center">
-            <view bindtap='addCart' class="cfff font15" bindtap="openSpecsBox">加入购物车</view>
-            <view bindtap='toOrderConfirm' class="cfff font15">立即购买</view>
+            <view bindtap='addCart' class="cfff font15" data-type='1' bindtap="clickBuy">加入购物车</view>
+            <view bindtap='toOrderConfirm' class="cfff font15" data-type='2' bindtap="clickBuy">立即购买</view>
         </view>
     </view>
 
@@ -99,34 +99,33 @@
     <!--选择规格详情框 -->
     <view animation="{{animationData}}" class="shop_car" wx:if="{{specsStatus}}">
         <view class="image_box">
-            <image class="goods_image" src="{{detail.url}}"></image>
+            <image class="goods_image" src="{{specDetails.url}}"></image>
             <view class="price">
                 <view>
                     <text class="font15 c_f3f">￥</text>
-                    <text class="font24 c_f3f strong">31.5 - 35.9</text>
+                    <text class="font24 c_f3f strong">{{specDetails.price}}</text>
                 </view>
-                <view class="font13 C666 mt20">请选择：{{detail.specificationsTypes}}</view>
+                <view class="font13 C666 mt20">请选择：{{specDetails.specificationsTypes}}</view>
             </view>
         </view>
         <view class="oBox">
-           <block wx:for="{{goodsList}}" wx:key="{{item.id}}">
+           <block wx:for="{{specDetails.specifications}}" wx:key="{{item.id}}">
             <view class="type_reference">
-                <view class="title C666 font15">参考分类</view>
+                <view class="title C666 font15">{{item.spec}}</view>
                 <view class="list">
-                    <view class="single_item check">90码（建议身高80左右）</view>
-                    <view class="single_item no_good">90码（建议身高80左右）</view>
-                    <view class="single_item">90码（建议身高80左右）</view>
+                    <block wx:for="{{item.details}}" wx:for-item="d" wx:key="{{d.index}}">
+                      <view wx:if="{{(d.isAble == 0)}}" bindtap='clickSpec' data-s='{{item.spec}}' data-v='{{d.value}}'  class="single_item {{(d.selected == 0) ? '':'check' }}">{{d.value}}</view>
+                      <view wx:else class="single_item no_good">{{d.value}}</view>
+                    </block>
                 </view>
             </view>
             </block>
             <view class="set_car flex flex_center">
-                <image bindtap='cutNumber' data-id='{{goods.id}}'
-                       src="https://wxpic.iliangpin.cn/meichao/minus.png"></image>
-                <text class="count">3</text>
-                <image bindtap='addNumber' data-id='{{goods.id}}'
-                       src="https://wxpic.iliangpin.cn/meichao/plus.png"></image>
+                <image bindtap='cutNumber' src="https://wxpic.iliangpin.cn/meichao/minus.png"></image>
+                <text class="count">{{buyNums}}</text>
+                <image bindtap='addNumber' src="https://wxpic.iliangpin.cn/meichao/plus.png"></image>
             </view>
         </view>
-        <view class="sure">确定</view>
+        <view bindtap='sureSpec' class="sure">确定</view>
     </view>
 </view>
