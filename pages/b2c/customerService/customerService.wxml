@@ -23,9 +23,15 @@
         </view>
     </view>
 
-    <view class="fixed_bottom flex flex_center">
-        <input type="text" />
-       <image class="icon_emotion" src="/static/images/icon_emotion.png"></image>
-        <image class="icon_add" src="/static/images/icon_add.png"></image>
+    <view class="fixed_bottom">
+        <view class="input_box flex flex_center" style="bottom:{{bottom}}">
+            <input type="text" focus="{{isFocus}}" catchfocus="getFocus" cursor-spacing="15" catchblur="blur"/>
+            <image class="icon_emotion" src="/static/images/icon_emotion.png" bindtap="showEmotion" wx:if="{{!isShowEmotion}}"></image>
+            <image class="icon_emotion" src="/static/images/icon_key.png"  bindtap="showKey" wx:else />
+            <image class="icon_add" src="/static/images/icon_add.png"></image>
+        </view>
+        <view class="emotion_list" wx:if="{{isShowEmotion}}">
+            <view wx:for="{{connectEmotion}}" bindtap="insertEmotion">{{item}}</view>
+        </view>
     </view>
 </view>

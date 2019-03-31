@@ -47,12 +47,15 @@ page{
     float:right;
 }
 .fixed_bottom{
-    padding:0 30rpx;
     position:fixed;
     bottom:0;
     left:0;
     right:0;
+
+}
+.input_box{
     height:105rpx;
+    padding:0 30rpx;
     background-image: linear-gradient(-90deg, #89E571 0%, #81CA5B 100%);
 }
 input{
@@ -70,4 +73,17 @@ input{
 .icon_add{
     width:49rpx;
     height:49rpx;
+}
+.emotion_list{
+    padding:30rpx 0;
+    overflow:hidden;
+}
+.emotion_list view{
+    float:left;
+    width:12.5%;
+    text-align:center;
+    height:80rpx;
+    line-height:80rpx;
+    font-size:49rpx;
+
 }
