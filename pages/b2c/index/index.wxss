@@ -1,4 +1,7 @@
 @import '/static/css/cart.wxss';
+page{
+    height:100%;
+}
 .container{
     padding-bottom:240rpx;
 }
@@ -58,6 +61,7 @@
 .classify_list{
     border-top: 1rpx solid #D9D9D9;
     overflow:hidden;
+    margin-bottom:0;
 }
 .single_item{
     width:20%;
@@ -81,6 +85,7 @@
     border-radius:10rpx;
     overflow:hidden;
     padding-bottom:20rpx;
+    height:510rpx;
 }
 .goods_item image{
     width:342rpx;
