@@ -178,16 +178,29 @@
         </block>
 
     </view>
-    <view class="car_box flex flex_between">
-        <view class="flex flex_center">
-            <view class="shopingcart_box">
-                <image src="/static/images/icon_cart.png"></image>
-                <view wx:if="{{goodsNums != 0}}" class="count_num cfff">{{goodsNums}}</view>
+    <view class="fixed_bottom">
+        <view class="car_box flex flex_between">
+            <view class="flex flex_center">
+                <view class="shopingcart_box" bindtap="openshopCar">
+                    <image src="/static/images/icon_cart.png"></image>
+                    <view wx:if="{{goodsNums != 0}}" class="count_num cfff">{{goodsNums}}</view>
+                </view>
+                <view class="total_money cfff">￥
+                    <text class="font24 cfff">{{needPay}}</text>
+                </view>
             </view>
-            <view class="total_money cfff">￥
-                <text class="font24 cfff">{{needPay}}</text>
-            </view>
+            <view bindtap='toOrderConfirm' class="icon_settle">去结算</view>
         </view>
-        <view bindtap='toOrderConfirm' class="icon_settle">去结算</view>
+
+        <view class="bottom_part bg_ff flex">
+              <view bindtap='toOrder' class="flex flex_center flex_just">
+                  <image class="icon_order" src="/static/images/icon_order.png"></image>
+                  <view>我的订单</view>
+              </view>
+              <view bindtap='toUserCenter' class="flex flex_center flex_just">
+                  <image class="icon_mine" src="/static/images/icon_mine.png"></image>
+                  <view>个人中心</view>
+              </view>
+        </view>
     </view>
 </view>
