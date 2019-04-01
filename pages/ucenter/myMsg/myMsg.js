@@ -50,6 +50,17 @@ Page({
   onShow: function () {
 
   },
+
+  /**
+    * 去客服聊天界面
+    */
+  toCustomerServiceBox: function (e) {
+    let _this = this;
+    var mid = e.currentTarget.dataset.mid;
+    wx.navigateTo({
+      url: '/pages/b2c/customerService/customerService?mid=' + mid ,
+    })
+  },
   
   /**
   * 页面相关事件处理函数--监听用户下拉动作

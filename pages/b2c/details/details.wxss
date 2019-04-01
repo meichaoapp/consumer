@@ -190,7 +190,7 @@ button.contact_btn::after{
 .oBox{
     height:798rpx;
     background:#fff;
-    padding-top:282rpx;
+    padding-top:136rpx;
 }
 .title{
     margin-top:12rpx;
@@ -210,7 +210,6 @@ button.contact_btn::after{
 }
 .type_reference{
     margin-top:90rpx;
-
 }
 .check{
     background: #81C95A;

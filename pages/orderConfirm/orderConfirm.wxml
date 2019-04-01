@@ -169,38 +169,42 @@
     </view>
 
     <!--订单：电商 -->
-    <view class="intro_box bg_ff">
-        <view  class="title flex flex_between flex_center">
-            <view class="flex flex_center">
-                <image class="icon_type" src="/static/images/icon_type.png"></image>
-                <view>兴业春天【三好鲜生店】</view>
-            </view>
-            <view class="common_tag b2c_tag">电商</view>
-        </view>
-        <view class="list">
-            <view  class="list_item flex flex_between">
-                <view class="left_part">
-                    <image src="https://wxpic.iliangpin.cn/meichao/1.png"></image>
-                </view>
-                <view class="right_part">
-                    <view class="flex flex_colum">
-                        <view>小浣熊儿童洗发沐浴露500ML附赠牙刷+牙膏+洗漱杯</view>
-                        <view class="font12 C999 mt20 mb20">颜色分类：黄色   尺码分类：90码</view>
-                        <view class="flex flex_between flex_center">
-                            <view>
-                                <text class=" font18 c_f3f">￥31.5</text>
-                            </view>
-                            <view class="set_car flex flex_center flex_end">
-                                <image bindtap='cutNumber'  src="https://wxpic.iliangpin.cn/meichao/minus.png"></image>
-                                <text class="count">5</text>
-                                <image bindtap='addNumber'   src="https://wxpic.iliangpin.cn/meichao/plus.png"></image>
-                            </view>
+    <view  wx:if="{{b2cOrders.length > 0}}" class="intro_box bg_ff">
 
-                        </view>
-                    </view>
-                </view>
-            </view>
-        </view>
+     <block wx:for="{{b2cOrders}}" wx:key="{{item.index}}" wx:for-item="b2cOrder">
+          <view  class="title flex flex_between flex_center">
+              <view class="flex flex_center">
+                  <image class="icon_type" src="/static/images/icon_type.png"></image>
+                  <view>{{b2cOrder.merchant.merchantName}}</view>
+              </view>
+              <view class="common_tag b2c_tag">电商</view>
+          </view>
+          <view class="list">
+              <view  wx:for="{{b2cOrder.goodsList}}" wx:key="{{item.index}}"
+                          data-id="{{item.id}}"  class="list_item flex flex_between">
+                  <view class="left_part">
+                      <image src="{{item.url}}"></image>
+                  </view>
+                  <view class="right_part">
+                      <view class="flex flex_colum">
+                          <view>{{item.name}}</view>
+                          <view class="font12 C999 mt20 mb20">{{item.specsStr}}</view>
+                          <view class="flex flex_between flex_center">
+                              <view>
+                                  <text class=" font18 c_f3f">￥{{item.price}}</text>
+                              </view>
+                              <view class="set_car flex flex_center flex_end">
+                                  <image bindtap='cutNumber'  src="https://wxpic.iliangpin.cn/meichao/minus.png"></image>
+                                  <text class="count">{{item.buyNum}}</text>
+                                  <image bindtap='addNumber'   src="https://wxpic.iliangpin.cn/meichao/plus.png"></image>
+                              </view>
+
+                          </view>
+                      </view>
+                  </view>
+              </view>
+          </view>
+      </block>
     </view>
 
 

@@ -4,7 +4,7 @@
 <view class="container">
     <scroll-view scroll-y="true" class="msg_box bg_ff">
        <block wx:for="{{list}}" wx:for-index="index" wx:for-item="item" wx:key="{{item.id}}">
-          <view class="msg_item flex flex_center">
+          <view bindtap='toCustomerServiceBox' data-mid='{{item.merchantId}}' class="msg_item flex flex_center">
               <image class="avatar" src="{{item.merchantAvatar}}"></image>
               <view class="info flex_1">
                   <view class="part_one flex flex_between flex_center">
