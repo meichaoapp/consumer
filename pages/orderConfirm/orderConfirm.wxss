@@ -1,6 +1,9 @@
+page{
+    height:100%;
+}
 .order_confirm_box{
     height:100%;
-    margin-bottom:200rpx;
+    padding-bottom:200rpx;
 }
 .auto_tip{
     color:#FF9000;
@@ -198,4 +201,14 @@
 .b2c_tag{
     color:#FF4949;
     border: 1rpx solid #FF4949 ;
+}
+.buyer_msg{
+    display:flex;
+    padding:0 30rpx;
+    align-items:center;
+    height:80rpx;
+}
+.buyer_msg input{
+    margin-left:28rpx;
+    flex:1;
 }

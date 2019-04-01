@@ -51,6 +51,11 @@
             <image class="icon_receive_goods" src="/static/images/icon_address.png"></image>
             <view class="C666">取货地址：{{merchant.address}}</view>
         </view>
+
+        <view class="buyer_msg">
+            <view>买家留言：</view>
+            <input type="text" placeholder="选填：填写内容已和卖家协商确认"/>
+        </view>
     </view>
     
     <!-- 订单：店铺自营商品 -->
@@ -120,6 +125,12 @@
                 </view>
             </view>
         </view>
+
+        <!--买家留言-->
+        <view class="buyer_msg">
+            <view>买家留言：</view>
+            <input type="text" placeholder="选填：填写内容已和卖家协商确认"/>
+        </view>
     </view>
 
      <!--订单：优惠券 -->
@@ -164,6 +175,12 @@
                     <image class="icon_receive_goods" src="/static/images/icon_address.png"></image>
                     <view class="C666">消费地址：{{couponOrder.merchant.address}}</view>
                 </view>
+
+                <!--买家留言-->
+                <view class="buyer_msg">
+                    <view>买家留言：</view>
+                    <input type="text" placeholder="选填：填写内容已和卖家协商确认"/>
+                </view>
             </view>
         </block>   
     </view>
@@ -204,6 +221,11 @@
                   </view>
               </view>
           </view>
+         <!--买家留言-->
+         <view class="buyer_msg">
+             <view>买家留言：</view>
+             <input type="text" placeholder="选填：填写内容已和卖家协商确认"/>
+         </view>
       </block>
     </view>
 
