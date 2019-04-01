@@ -27,7 +27,7 @@ Page({
     oneselfOrder: {}, // 自营订单
     couponOrders:[],
     couponOrder:{},
-    b2cOrders:{},
+    b2cOrders:[],//电商商品
     count: 0, //提交计数
     orderGoods:[],
     isShowPostInfo:false, // 是否显示邮寄信息
@@ -161,7 +161,7 @@ Page({
     let type = e.currentTarget.dataset.type;
     _this.setData({
       deliveryType: type,
-      isShowPostInfo: ((_this.data.b2cOrders != null) || (type==2)), 
+      isShowPostInfo: ((_this.data.b2cOrders.length > 0) || (type==2)), 
     });
     _this.loadOrderInfo();
   },
@@ -177,7 +177,8 @@ Page({
     var oneselfOrder = _data.oneselfOrder;
     var couponOrders = [];
     var couponOrder = _data.couponOrder;
-    var b2cOrders = null;
+    var b2cOrders = [];
+    var b2cOrder = _data.b2cOrder;
 
     ////处理优惠券订单
     if (null != _data.couponOrder){
@@ -199,14 +200,34 @@ Page({
         }
       }
     }
+    ////处理电商
+    if (b2cOrder) {
+      var gList = b2cOrder.goodsList;
+      var merchants = _this.getGoodsMerchants(gList);
+      if (merchants.length > 0) {
+        for (var i = 0; i < merchants.length; i++) {
+          var order = {
+            merchant: merchants[i],
+          }
+          var list = []
+          gList.forEach(o => {
+            if (merchants[i].merchantId == o.merchantId) {
+              list.push(o)
+            }
+          });
+          order.goodsList = list;
+          b2cOrders.push(order);
+        }
+      }
+    }
 
     ////判断是否拆单
     var isSplitOrder = false;
     if ((merchantOrder != null && oneselfOrder != null) ||
-      (merchantOrder != null && b2cOrders != null) ||
-      (oneselfOrder != null && b2cOrders != null) ||
+      (merchantOrder != null && b2cOrders.length > 0) ||
+      (oneselfOrder != null && b2cOrders.length > 0) ||
       (merchantOrder != null && couponOrders.length > 0) ||
-      (b2cOrders != null && couponOrders.length > 0) ||
+      (b2cOrders.length > 0 && couponOrders.length > 0) ||
       (couponOrders.length > 0 && oneselfOrder != null)) {
       isSplitOrder = true;
     }
@@ -218,8 +239,8 @@ Page({
       merchantOrder: merchantOrder,// 团购订单
       oneselfOrder: oneselfOrder, // 自营订单
       couponOrders: couponOrders,// 优惠券
-      b2cOrders:b2cOrders,
-      isShowPostInfo: ((b2cOrders != null) || (_this.data.deliveryType == 2)), 
+      b2cOrders:b2cOrders,//电商订单
+      isShowPostInfo: ((b2cOrders.length > 0) || (_this.data.deliveryType == 2)), 
       isSplitOrder: isSplitOrder,
     });
   },

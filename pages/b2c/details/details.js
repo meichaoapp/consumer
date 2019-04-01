@@ -15,7 +15,7 @@ Page({
         id:0,
         detail: {}, //商品详情
         merchant:{}, // 店铺信息
-        buyNums:0, //购买数量
+        buyNums:1, //购买数量
         buyBtnType:0, // 点击按钮类型 0 未点击 1 购物车 2 直接购买
         specDetails:{}, //规格面板数据
         specs:[], //选中规格信息
@@ -150,7 +150,7 @@ Page({
   cutNumber:function() {
     let _this = this;
     var buyNums = _this.data.buyNums  - 1;
-    if(buyNums < 0) { buyNums = 0;}
+    if(buyNums < 1) { buyNums = 1;}
     _this.setData({
       buyNums:buyNums,
     });
@@ -366,7 +366,7 @@ Page({
       "name": _this.data.detail.name, //团购名称
       "url": specDetails.url, //展示url
       "price": specDetails.price, //团购价
-      "marketPrice": specDetails.marketPrice,//市场价/原价
+      "marketPrice": specDetails.originalPrice,//市场价/原价
       "status": _this.data.detail.status, //0 未开始 1 进行中 2 已成团 3 已过期
       "productType": _this.data.detail.productType, //商品类型 1.普通团品 2. 一元购 3. 店长自营产品
       "limitNum": specDetails.limitNum, //参团人数上限
@@ -412,7 +412,7 @@ Page({
       "name": _this.data.detail.name, //团购名称
       "url": specDetails.url, //展示url
       "price": specDetails.price, //团购价
-      "marketPrice": specDetails.marketPrice,//市场价/原价
+      "marketPrice": specDetails.originalPrice,//市场价/原价
       "status": _this.data.detail.status, //0 未开始 1 进行中 2 已成团 3 已过期
       "productType": _this.data.detail.productType, //商品类型 1.普通团品 2. 一元购 3. 店长自营产品
       "limitNum": specDetails.limitNum, //参团人数上限

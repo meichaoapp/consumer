@@ -8,11 +8,12 @@ const wecache = require('../utils/wecache.js');
 
 const CART_KEY = "MEICHAO_CART";  
 
-//商品类型 1.普通团品 2. 一元购 3. 店长自营产品 5.优惠券商品类型
+//商品类型 1.普通团品 2. 一元购 3. 店长自营产品 5.优惠券商品类型 6.电商
 const GROUP_PURCHASE = 1;
 const DOLLAR_TREASURE = 2;
 const SLEF_SALE = 3;
 const COUPON_PURCHASE = 5;
+const B2C_TYPE = 6;
 const DELIVERY_LINE = 200; // 免邮费标准线
 const DELIVERY_COST_PRICE  = 10.00; // 邮费
 
@@ -145,6 +146,7 @@ function createOrder(flag, t_id, user, _dt, merchant, _arr){
   var m_list = [];
   var s_list = [];
   var c_list = [];
+  var b_list = [];
   if (_arr.length > 0) {
     var len = _arr.length;
     for (var i = 0; i < len; i++) {
@@ -155,12 +157,15 @@ function createOrder(flag, t_id, user, _dt, merchant, _arr){
         s_list.push(_arr[i]);
       } else if (_arr[i].productType ==  COUPON_PURCHASE){ // 优惠券
         c_list.push(_arr[i]);
+      } else if (_arr[i].productType ==  B2C_TYPE) {// 电商
+        b_list.push(_arr[i]);
       }
     }
   }
   var mOrder = getMerchantOrder(flag, m_list, t_id, user);
   var sOrder = getSelfOrder(flag, s_list, t_id, user, _dt, merchant);
   var cOrder = getCouponOrder(flag, c_list, t_id, user);
+  var bOrder = getB2COrder(flag,b_list,user);
   if(mOrder != null) {
     totalPay += mOrder.totalPay;
     needPay += mOrder.needPay;
@@ -173,13 +178,71 @@ function createOrder(flag, t_id, user, _dt, merchant, _arr){
     totalPay += cOrder.totalPay;
     needPay += cOrder.needPay;
   }
+  if (bOrder != null) {
+    totalPay += bOrder.totalPay;
+    needPay += bOrder.needPay;
+  }
    return {
      totalPay: totalPay,
      needPay: needPay,
      merchantOrder: mOrder,// 团购订单
      oneselfOrder: sOrder,
      couponOrder: cOrder,
+     b2cOrder:bOrder,
    };
+
+}
+
+//获取电商订单
+function getB2COrder(flag, _arr, user) {
+  if (_arr.length == 0) { return null; }
+
+  var b2cOrder = {
+    //"id": t_id,  //团购id
+    "userId": user.id,  //用户ID
+  };
+  var totalPay = 0.00;//共付
+  var needPay = 0.00;// 应付
+  var buyNum = 0;//购买总数量
+
+  var goodsList = []
+  var len = _arr.length;
+  for (var i = 0; i < len; i++) {
+    totalPay += _arr[i].marketPrice * _arr[i].number;
+    needPay += _arr[i].price * _arr[i].number;
+    buyNum += _arr[i].number;
+    var g = {
+      "id": _arr[i].id,  // 商品id
+      "buyNum": _arr[i].number, //购买数量
+      "merchantId": _arr[i].merchantId,
+    };
+    if (flag == 0) {
+      g = {
+        "id": _arr[i].id,  // 商品id
+        "buyNum": _arr[i].number, //购买数量
+        "name": _arr[i].name, //团购名称
+        "url": _arr[i].url, //展示url
+        "price": _arr[i].price, //团购价
+        "marketPrice": _arr[i].marketPrice,//市场价/原价
+        "merchantId": _arr[i].merchantId,
+        "merchantName": _arr[i].merchantName,
+        //"address": _arr[i].address,
+        //"merchantPhone": _arr[i].merchantPhone,
+        "comments": _arr[i].comments,
+        "b2cId": _arr[i].b2cId,
+        "specs": _arr[i].specs,
+        "specsStr": _arr[i].specsStr,
+      };
+    }
+    goodsList.push(g);
+  }
+  //console.log("getB2COrder---------------totalPay " + totalPay + "  needPay " + needPay  );
+  b2cOrder.totalPay = totalPay;
+  b2cOrder.needPay = needPay;
+  b2cOrder.buyNum = buyNum;
+  b2cOrder.goodsList = goodsList;
+
+  return b2cOrder;
 
 }
 
