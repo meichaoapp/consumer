@@ -25,7 +25,7 @@
 
     <view class="fixed_bottom">
         <view class="input_box flex flex_center" style="bottom:{{bottom}}">
-            <input type="text" focus="{{isFocus}}" catchfocus="getFocus" cursor-spacing="15" catchblur="blur"/>
+            <input type="text" focus="{{isFocus}}" catchfocus="getFocus" cursor-spacing="30" catchblur="blur"/>
             <image class="icon_emotion" src="/static/images/icon_emotion.png" bindtap="showEmotion" wx:if="{{!isShowEmotion}}"></image>
             <image class="icon_emotion" src="/static/images/icon_key.png"  bindtap="showKey" wx:else />
             <image class="icon_add" src="/static/images/icon_add.png"></image>
