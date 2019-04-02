@@ -11,6 +11,7 @@ Page({
      * 页面的初始数据
      */
     data: {
+        userInfo: null,
         basePath: app.globalData._base_path, //基础路径
         id:0,
         detail: {}, //商品详情
@@ -29,6 +30,7 @@ Page({
         _this.setData({
           id: options.id,
         });
+        _this.checkUser();
         this.queryShopDetail();
     },
 
@@ -44,6 +46,20 @@ Page({
      * 用户点击右上角分享
      */
     onShareAppMessage: function () {
+
+    },
+
+    //检查用户
+    checkUser: function () {
+      let _this = this;
+      let userInfo = wx.getStorageSync('userInfo');
+      if (util.isNotNULL(userInfo)) {
+        _this.setData({ userInfo: userInfo, });
+      } else {
+        wx.redirectTo({
+          url: '/pages/auth/wxLogin/wxLogin'
+        });
+      }
 
     },
 
