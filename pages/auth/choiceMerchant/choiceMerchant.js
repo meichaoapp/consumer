@@ -234,6 +234,8 @@ Page({
     if (_this.data.merchat == null) {
       _this.$wuxToast.show({ type: 'forbidden', text: "请选择商户信息", });
     }
+    //清除购物车缓存
+    cart.cleanCart2();
     //缓存当前商户信息
     wx.setStorageSync(currentMerchat, _this.data.merchat);
         //缓存当前商户的index值，方便首页读取，设置选中状态

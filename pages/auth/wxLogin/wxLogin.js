@@ -1,6 +1,6 @@
 //获取应用实例
 var user = require('../../../services/user.js');
-const cart = require('../../../services/cart.js');
+//const cart = require('../../../services/cart.js');
 const app = getApp();
 const currentMerchat = "currentMerchat";
 const currIndex = "currIndex";
@@ -55,7 +55,7 @@ Page({
         wx.setStorageSync('userInfo', userInfo);
         wx.setStorageSync('token', res.data.token);
         //清除购物车缓存
-        cart.cleanCart();
+        //cart.cleanCart();
 
         let bindingPhone = userInfo.bindingPhone;
         console.log("bindingPhone --- " + bindingPhone);
