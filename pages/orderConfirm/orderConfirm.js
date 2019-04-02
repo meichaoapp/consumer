@@ -86,7 +86,7 @@ Page({
     var goodsList = _this.data.orderGoods;
     if (goodsList != null && goodsList.length > 0) {
       goodsList.forEach(o => {
-        if (o.id == id) {
+        if (o.id == sid) {
           o.number = o.number - 1;
           if (o.number <= 1) {
             o.number = 1;
@@ -106,7 +106,7 @@ Page({
     var goodsList = _this.data.orderGoods;
     if (goodsList != null && goodsList.length > 0) {
       goodsList.forEach(o => {
-        if (o.id == id) {
+        if (o.id == sid) {
           var num = o.number + 1;
           if ((o.joinNum + num) > o.limitNum) {
             wx.showToast({
@@ -277,6 +277,9 @@ Page({
   getOrderDatas: function(){
     let _this = this;
     var _data = cart.createOrder(1, _this.data.merchant.merchantId, _this.data.userInfo, _this.data.deliveryType, _this.data.merchant, _this.data.orderGoods);
+    ////组装电商商品
+    var shopOrder = null;
+   
     return {
       userId: _this.data.userInfo.id,
       merchantId: _this.data.merchant.merchantId,
@@ -285,6 +288,7 @@ Page({
       merchantOrder: _data.merchantOrder,// 团购订单
       oneselfOrder: _data.oneselfOrder, // 自营订单
       discountCouponOrder: _data.couponOrder,//优惠券订单
+      shopOrder: _data.b2cOrders,
     };
   },
 
@@ -390,4 +394,26 @@ Page({
             url: '/pages/index/index',
         })
     },
+   
+  
+   
+   /**
+    * 监听
+    */
+  lisentWords:function(e) {
+    let _this = this;
+    let mid = e.currentTarget.dataset.mid;
+    let val = e.detail.value;
+    var b2cOrders = _this.data.b2cOrders;
+    if(b2cOrders) {
+      b2cOrders.forEach(order => {
+        if(order.merchant.merchantId == mid) {
+          order.remark = val;
+        }
+      });
+    }
+    _this.setData({
+      b2cOrders:b2cOrders
+    });
+  },
 })

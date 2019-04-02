@@ -52,10 +52,6 @@
             <view class="C666">取货地址：{{merchant.address}}</view>
         </view>
 
-        <view class="buyer_msg">
-            <view>买家留言：</view>
-            <input type="text" placeholder="选填：填写内容已和卖家协商确认"/>
-        </view>
     </view>
     
     <!-- 订单：店铺自营商品 -->
@@ -126,11 +122,6 @@
             </view>
         </view>
 
-        <!--买家留言-->
-        <view class="buyer_msg">
-            <view>买家留言：</view>
-            <input type="text" placeholder="选填：填写内容已和卖家协商确认"/>
-        </view>
     </view>
 
      <!--订单：优惠券 -->
@@ -176,11 +167,6 @@
                     <view class="C666">消费地址：{{couponOrder.merchant.address}}</view>
                 </view>
 
-                <!--买家留言-->
-                <view class="buyer_msg">
-                    <view>买家留言：</view>
-                    <input type="text" placeholder="选填：填写内容已和卖家协商确认"/>
-                </view>
             </view>
         </block>   
     </view>
@@ -221,10 +207,19 @@
                   </view>
               </view>
           </view>
+          <view class="single flex flex_between flex_center">
+              <view class="flex">
+                  <view class="mr10">配送费</view>
+                  <view wx:if="{{b2cOrder.merchant.expenditure != 0}}" class="C999 font12">
+                  (不足{{b2cOrder.merchant.expenditure}}元收运费{{b2cOrder.merchant.deliveryCost}}元)
+                  </view>
+              </view>
+              <view class="font16">￥{{b2cOrder.deliveryCost}}</view>
+          </view>
          <!--买家留言-->
          <view class="buyer_msg">
              <view>买家留言：</view>
-             <input type="text" placeholder="选填：填写内容已和卖家协商确认"/>
+             <input bindinput='lisentWords' data-mid='{{b2cOrder.merchant.merchantId}}'   type="text" placeholder="选填：填写内容已和卖家协商确认"/>
          </view>
       </block>
     </view>

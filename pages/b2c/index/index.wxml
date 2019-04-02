@@ -29,7 +29,7 @@
         </block>
     </view>
 
-    <view class="goods_list">
+    <view wx:if="{{goodsList != null}}" class="goods_list">
         <block wx:for="{{goodsList}}" wx:key="{{item.id}}">
             <view bindtap='toDetail' data-id='{{item.id}}' class="goods_item bg_ff">
                 <image src="{{item.url}}"></image>
@@ -53,6 +53,11 @@
                 </view>
             </view>
         </view>
+    </view>
+
+    <view wx:else class="no_search bg_ff flex  flex_colum flex_center">
+        <image src="/static/images/no_search.png"></image>
+        <view class="font15 C666">无搜索结果，换个词试试吧~</view>
     </view>
 
     <!--底部购物车结算界面-->
@@ -83,21 +88,6 @@
     </view>
 
 </scroll-view>
-
-<!--<view class="n-bottom" hidden="{{hideBottom}}">
-    <view>
-        <view class='transverseline'>
-            <text class='line'></text>
-        </view>
-
-        <text class='txt'>{{loadMoreData}}</text>
-
-        <view class='transverseline'>
-            <text class='line'></text>
-        </view>
-    </view>
-</view>-->
-
 
 <!-- 蒙层 -->
 <view class="commodity_screen" bindtap="hideshopCar" wx:if="{{shopCarStatus}}"></view>

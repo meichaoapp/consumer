@@ -209,70 +209,14 @@ Page({
       id: _this.data.detail.id,
       specs: _this.data.specs,
     };
-    // util.request(api.LoadSpecs, data , "POST").then(function (res) {
-    //   if (res.rs == 1) {
-    //     var data = res.data;
-    //     _this.setData({
-    //       specDetails: specDetails,
-    //     })
-    //   }
-    // });
-    var specDetails = {
-      id: 1, // 通过规格计算出来的id
-      url: "https://meichaooss1.oss-cn-beijing.aliyuncs.com/shop/2019-03-30/1553952086045.jpg",
-      buyLimitNum: null, // 限制
-      joinNum: null, // 已销售
-      limitNum: 3, // 库存 
-      originalPrice: 99, // 原价 
-      price: 59, // 现价
-      specificationsTypes: "颜色分类 尺码分类",
-      purchasable: 0, // 是否有库存 0有 1无
-      specifications: [
-        {
-          spec: "颜色分类",
-          details: [
-            {
-              value: "黑色",
-              selected: 1, // 否 0 是 1
-              isAble: 0, // 是 0 否 1
-            },
-            {
-              value: "红色",
-              selected: 0, // 否 0 是 1
-              isAble: 0, // 是 0 否 1
-            },
-            {
-              value: "紫色",
-              selected: 0, // 否 0 是 1
-              isAble: 0, // 是 0 否 1
-            }
-          ]
-        },
-        {
-          spec: "尺码分类",
-          details: [
-            {
-              value: "M",
-              selected: 1, // 否 0 是 1
-              isAble: 0, // 是 0 否 1
-            },
-            {
-              value: "XL",
-              selected: 0, // 否 0 是 1
-              isAble: 1, // 是 0 否 1
-            },
-            {
-              value: "XXL",
-              selected: 0, // 否 0 是 1
-              isAble: 0, // 是 0 否 1
-            }
-          ],
-        },
-      ]
-    };
-    _this.setData({
-      specDetails: specDetails,
-    })
+    util.request(api.LoadSpecs, data , "POST").then(function (res) {
+      if (res.rs == 1) {
+        var specDetails = res.data;
+        _this.setData({
+          specDetails: specDetails,
+        })
+      }
+    });
     //打开规格选择
     if (!_this.data.specsStatus) {
       _this.openSpecsBox();
@@ -330,7 +274,7 @@ Page({
         }
       });
     });
-    console.log("getSelectedSpec-----------" + JSON.stringify(specs));
+   // console.log("getSelectedSpec-----------" + JSON.stringify(specs));
     _this.setData({
       specs: specs
     });
@@ -362,7 +306,8 @@ Page({
       })
     }
     var goods = {
-      "id": specDetails.id, //id
+      "id": cart.appendPrefix(_this.data.detail.productType, specDetails.id), //id
+      "sid": specDetails.id, //id
       "name": _this.data.detail.name, //团购名称
       "url": specDetails.url, //展示url
       "price": specDetails.price, //团购价
@@ -377,6 +322,7 @@ Page({
       "b2cId": _this.data.detail.id,
       "specs": _this.data.specs,
       "specsStr": specsStr,
+      "deliveryCost": _this.data.merchant.deliveryCost,
       //"address": _this.data.merchant.address,
       //"merchantPhone": _this.data.merchant.merchantPhone,
     };
@@ -384,7 +330,7 @@ Page({
     var g = cart.loadCartGoods(goods.id);
     console.log("购物车商品---" + JSON.stringify(g));
     if (g == null) {//如果没有则加入购物车
-      goods.number = 1;
+      goods.number = _this.data.buyNums;
       cart.add2Cart(goods);
     } else {//如果购物车以前有则更新购物车商品数量
       g.number = _this.data.buyNums;
@@ -408,7 +354,8 @@ Page({
       })
     }
     var goods = {
-      "id": specDetails.id, //id
+      "id": cart.appendPrefix(_this.data.detail.productType, specDetails.id), //id
+      "sid": specDetails.id, //id
       "name": _this.data.detail.name, //团购名称
       "url": specDetails.url, //展示url
       "price": specDetails.price, //团购价
@@ -423,6 +370,7 @@ Page({
       "b2cId": _this.data.detail.id,
       "specs": _this.data.specs,
       "specsStr": specsStr,
+      "deliveryCost": _this.data.merchant.deliveryCost,
     };
     var goodsList = [];
     goodsList.push(goods);

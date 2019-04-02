@@ -39,6 +39,9 @@ Page({
    */
   onLoad: function (options) {
     let _this = this;
+    _this.setData({
+      selectedType: options.type,
+    });
     _this.checkUser(); //检查用户
     _this.queryShopTypes();
   },
@@ -246,29 +249,28 @@ Page({
       limit: _this.data.limit,    //当前页共显示多少条  必填
       type: _this.data.selectedType,  // 分类值
       subType: _this.data.selectedSubType,  // 子分类值
-      searchTxt: "",  // 搜索
+      searchTxt: _this.data.searchTxt,  // 搜索
     };
 
     util.request(api.QueryShopList, data, "POST").then(function (res) {
       var goodsList = res.data.list;
-      if (goodsList) {
-        if (_this.data.start == 1) { // 下拉刷新
-          _this.setData({
-            goodsList: goodsList,
-            hideHeader: true,
-            totalPage: res.data.totalPage,
-          })
-        } else {
-          var tempArray = _this.data.goodsList;
-          if (tempArray != null && goodsList != null) {
-            tempArray = tempArray.concat(goodsList);
-          }
-          _this.setData({
-            goodsList: tempArray,
-            totalPage: res.data.totalPage,
-          })
+      if (_this.data.start == 1) { // 下拉刷新
+        _this.setData({
+          goodsList: goodsList,
+          hideHeader: true,
+          totalPage: res.data.totalPage,
+        })
+      } else {
+        var tempArray = _this.data.goodsList;
+        if (tempArray != null && goodsList != null) {
+          tempArray = tempArray.concat(goodsList);
         }
+        _this.setData({
+          goodsList: tempArray,
+          totalPage: res.data.totalPage,
+        })
       }
+     
     })
 
   },
