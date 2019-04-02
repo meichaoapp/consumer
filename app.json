@@ -42,7 +42,6 @@
 
     "pages/b2c/index/index",
     "pages/b2c/details/details",
-    "pages/b2c/noSearch/noSearch",
     "pages/b2c/customerService/customerService",
     "pages/b2c/shopIndex/shopIndex"
 

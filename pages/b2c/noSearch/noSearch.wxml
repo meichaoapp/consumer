@@ -1,7 +1,0 @@
-<!--搜索无结果-->
-<view class="container">
-    <view class="no_search bg_ff flex  flex_colum flex_center">
-        <image src="/static/images/no_search.png"></image>
-        <view class="font15 C666">无搜索结果，换个词试试吧~</view>
-    </view>
-</view>
