@@ -262,7 +262,9 @@ Page({
   //减
   cutNumber: function (e) {
     let _this = this;
-    var id = e.currentTarget.dataset.id;
+    var sid = e.currentTarget.dataset.sid;
+    var type = e.currentTarget.dataset.type;
+    var id = cart.appendPrefix(type, sid);
     var g = cart.loadCartGoods(id);
     if (g != null) {//如果购物车以前有则更新
       g.number = (g.number - 1);
@@ -278,8 +280,9 @@ Page({
   //加
   addNumber: function (e) {
     let _this = this;
-    var id = e.currentTarget.dataset.id;
+    var sid = e.currentTarget.dataset.sid;
     var type = e.currentTarget.dataset.type;
+    var id = cart.appendPrefix(type, sid);
 
     var g = cart.loadCartGoods(id);
     //console.log("购物无车商品---" + JSON.stringify(g));

@@ -84,10 +84,10 @@
                         <view class="right_part flex flex_end">
                             <text class="font16">￥{{goods.price}}</text>
                             <view class="set_car flex flex_center">
-                                <image bindtap='cutNumber' data-id='{{goods.id}}'
+                                <image bindtap='cutNumber' data-type='{{goods.productType}}' data-sid='{{goods.sid}}'
                                       src="https://wxpic.iliangpin.cn/meichao/minus.png"></image>
                                 <text class="count">{{goods.number}}</text>
-                                <image bindtap='addNumber' data-id='{{goods.id}}'
+                                <image bindtap='addNumber' data-type='{{goods.productType}}' data-sid='{{goods.sid}}'
                                       src="https://wxpic.iliangpin.cn/meichao/plus.png"></image>
                             </view>
                         </view>
@@ -111,10 +111,10 @@
                         <view class="right_part flex flex_end">
                             <text class="font16">￥{{goods.price}}</text>
                             <view class="set_car flex flex_center">
-                                <image bindtap='cutNumber' data-id='{{goods.id}}'
+                                <image bindtap='cutNumber' data-type='{{goods.productType}}' data-sid='{{goods.sid}}'
                                       src="https://wxpic.iliangpin.cn/meichao/minus.png"></image>
                                 <text class="count">{{goods.number}}</text>
-                                <image bindtap='addNumber' data-id='{{goods.id}}'
+                                <image bindtap='addNumber' data-type='{{goods.productType}}' data-sid='{{goods.sid}}'
                                       src="https://wxpic.iliangpin.cn/meichao/plus.png"></image>
                             </view>
                         </view>
@@ -137,10 +137,10 @@
                     <view class="right_part flex flex_end mt20">
                         <text class="font16">￥{{goods.price}}</text>
                         <view class="set_car flex flex_center">
-                            <image bindtap='cutNumber' data-id='{{goods.id}}'
+                            <image bindtap='cutNumber' data-type='{{goods.productType}}' data-sid='{{goods.sid}}'
                                   src="https://wxpic.iliangpin.cn/meichao/minus.png"></image>
                             <text class="count">{{goods.number}}</text>
-                            <image bindtap='addNumber' data-id='{{goods.id}}'
+                            <image bindtap='addNumber' data-type='{{goods.productType}}' data-sid='{{goods.sid}}'
                                   src="https://wxpic.iliangpin.cn/meichao/plus.png"></image>
                         </view>
                     </view>
@@ -165,10 +165,10 @@
                         <view class="right_part flex flex_end">
                             <text class="font16">￥{{goods.price}}</text>
                             <view class="set_car flex flex_center">
-                                <image bindtap='cutNumber' data-id='{{goods.id}}'
+                                <image bindtap='cutNumber' data-type='{{goods.productType}}' data-sid='{{goods.sid}}'
                                       src="https://wxpic.iliangpin.cn/meichao/minus.png"></image>
                                 <text class="count">{{goods.number}}</text>
-                                <image bindtap='addNumber' data-id='{{goods.id}}' data-type='{{goods.productType}}'
+                                <image bindtap='addNumber' data-type='{{goods.productType}}' data-sid='{{goods.sid}}'
                                       src="https://wxpic.iliangpin.cn/meichao/plus.png"></image>
                             </view>
                         </view>

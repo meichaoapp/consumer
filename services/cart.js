@@ -18,6 +18,32 @@ const DELIVERY_LINE = 200; // 免邮费标准线
 const DELIVERY_COST_PRICE  = 10.00; // 邮费
 
 /**
+ * 带业务前缀的id
+ */
+function appendPrefix(type,id){
+  var prefixId = "";
+  switch (type) {
+    case GROUP_PURCHASE:
+      prefixId = "purchase_" + id;
+      break;
+    case DOLLAR_TREASURE:
+      prefixId = "treasure_" + id;
+      break;
+    case SLEF_SALE:
+      prefixId = "self_" + id;
+      break;
+    case COUPON_PURCHASE:
+      prefixId = "coupon_" + id;
+      break;
+    case B2C_TYPE:
+      prefixId = "b2c_" + id;
+      break;
+    default:
+      prefixId = "purchase_" + id;
+  }
+}
+
+/**
  * add goods to cart
  */
 function add2Cart(goods) {
@@ -31,6 +57,22 @@ function add2Cart(goods) {
  */
 function cleanCart() {
   wecache.remove(CART_KEY);
+}
+
+/**
+ * clean cart goods data ， rule out b2c
+ */
+function cleanCart2() {
+  var _arr = loadCart();
+  var _arr_ = [];
+  if(_arr){
+    _arr.forEach(c =>{
+      if (c.productType == B2C_TYPE){
+        _arr_.push(c);
+      }
+    });
+  }
+  if (_arr_.length > 0) { wecache.put(CART_KEY, _arr_, -1);}
 }
 
 /**
@@ -265,13 +307,13 @@ function getCouponOrder(flag, _arr, t_id, user) {
     needPay += _arr[i].price * _arr[i].number;
     buyNum += _arr[i].number;
     var g = {
-      "id": _arr[i].id,  // 商品id
+      "id": _arr[i].sid,  // 商品id
       "buyNum": _arr[i].number, //购买数量
       "merchantId": _arr[i].merchantId,
     };
     if (flag == 0) {
       g = {
-        "id": _arr[i].id,  // 商品id
+        "id": _arr[i].sid,  // 商品id
         "buyNum": _arr[i].number, //购买数量
         "name": _arr[i].name, //团购名称
         "url": _arr[i].url, //展示url
@@ -315,7 +357,7 @@ function getMerchantOrder(flag,_arr, t_id, user) {
     needPay += _arr[i].price * _arr[i].number;
     buyNum += _arr[i].number;
     var g = {
-      "id": _arr[i].id,  // 商品id
+      "id": _arr[i].sid,  // 商品id
       "buyNum": _arr[i].number, //购买数量
       "merchantId": _arr[i].merchantId,
     };
@@ -371,13 +413,13 @@ function getSelfOrder(flag,_arr, t_id, user, _dt, merchant) {
     needPay += _arr[i].price * _arr[i].number;
     buyNum += _arr[i].number;
     var g = {
-      "id": _arr[i].id,  // 商品id
+      "id": _arr[i].sid,  // 商品id
       "buyNum": _arr[i].number, //购买数量
       "merchantId": _arr[i].merchantId,
     };
     if (flag == 0) {
       g = {
-        "id": _arr[i].id,  // 商品id
+        "id": _arr[i].sid,  // 商品id
         "buyNum": _arr[i].number, //购买数量
         "name": _arr[i].name, //团购名称
         "url": _arr[i].url, //展示url
@@ -408,8 +450,10 @@ function getSelfOrder(flag,_arr, t_id, user, _dt, merchant) {
 
 
   module.exports = {
+    appendPrefix,//带业务前缀的ID
     add2Cart, //添加购物车
     cleanCart,//清空购物车
+    cleanCart2,//清空购物车，排除电商商品
     loadCart,//加载购车商品
     loadCartGoods, //加载购物车商品
     updateCart,//更改购物车信息

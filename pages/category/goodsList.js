@@ -229,7 +229,7 @@ Page({
                 if (null != _arr && _arr.length > 0) {
                     var len = _arr.length;
                     for (var i = 0; i < len; i++) {
-                        var gid = _arr[i].id;
+                        var gid = _arr[i].sid;
                         goodsList.forEach(o => {
                             if (o.id == gid) {
                                 o.number = _arr[i].number;
@@ -340,7 +340,9 @@ Page({
     //减
     cutNumber: function (e) {
         let _this = this;
-        var id = e.currentTarget.dataset.id;
+        var sid = e.currentTarget.dataset.sid;
+        var type = e.currentTarget.dataset.type;
+        var id = cart.appendPrefix(type, sid);
         var goodsList = _this.data.goodsList;
         if (goodsList != null && goodsList.length > 0) {
             goodsList.forEach(o => {
@@ -355,6 +357,7 @@ Page({
         var g = cart.loadCartGoods(id);
         if (g != null) {//如果购物车以前有则更新
             g.number = (g.number - 1);
+            g.sid = sid;
             if (g.number <= 0) {
                 cart.removeCart(id);
             } else {
@@ -370,8 +373,9 @@ Page({
     //加
     addNumber: function (e) {
       let _this = this;
-      var id = e.currentTarget.dataset.id;
+      var sid = e.currentTarget.dataset.sid;
       var type = e.currentTarget.dataset.type;
+      var id = cart.appendPrefix(type, sid);
       if (6 == type) {
         var g = cart.loadCartGoods(id);
         //console.log("购物无车商品---" + JSON.stringify(g));
@@ -395,6 +399,7 @@ Page({
           return;
         }
         g.number = g.number + 1;
+        g.sid = sid;
         cart.updateCart(g);
       } else {
         var list = _this.data.goodsList;
@@ -417,6 +422,7 @@ Page({
                 } else {
                   goods.number = 1;
                 }
+                goods.sid = sid;
                 cart.add2Cart(goods);
               } else {//如果购物车以前有则更新购物车商品数量
                 if (g.productType != 5 && !_this.checkRel(id)) {
@@ -439,6 +445,7 @@ Page({
                   return;
                 }
                 goods.number = goods.number + 1;
+                g.sid = sid;
                 cart.updateCart(g);
               }
 

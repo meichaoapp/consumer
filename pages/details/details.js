@@ -148,7 +148,7 @@ Page({
                             that.setData({
                               swithModal: false,
                             });
-                           cart.cleanCart();
+                           cart.cleanCart2();
                         }
                     }else{
                       wx.showToast({
@@ -246,7 +246,8 @@ Page({
             return;
         }
         var goods = {
-            "id": _this.data.detail.id, //id
+            "id": cart.appendPrefix(_this.data.detail.productType, _this.data.detail.id), //id
+            "sid": _this.data.detail.id, //id
             "name": _this.data.detail.title, //团购名称
             "url": _this.data.detail.goodsPic, //展示url
             "price": _this.data.detail.price, //团购价
@@ -364,7 +365,8 @@ Page({
         }
         //_this.addCart();
         var goods = {
-            "id": _this.data.detail.id, //id
+            "id": cart.appendPrefix(_this.data.detail.productType, _this.data.detail.id), //id
+            "sid": _this.data.detail.id, //id
             "name": _this.data.detail.title, //团购名称
             "url": _this.data.detail.goodsPic, //展示url
             "price": _this.data.detail.price, //团购价
