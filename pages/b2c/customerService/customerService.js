@@ -42,6 +42,14 @@ Page({
         });
       }
       _this.loadMerchat(); //加载商户信息
+      //开启刷新
+      if (this.interval) clearInterval(this.interval);;
+      this.interval = setInterval(function () {
+        _this.setData({
+          start: 1, // 页码
+        });
+        _this.queryMessageHistory(); // 加载聊天信息
+      }, 10000);//10秒刷新
     },
 
     //查询商户信息
@@ -87,7 +95,12 @@ Page({
       util.request(api.SendMessage, data, "POST").then(function (res) {
         if (res.rs == 1) {
           //重新加载最近一页条消息
-          
+          _this.setData({
+            list: [], //消息集合
+            start: 1, // 页码
+            totalPage: 0, // 共有页
+          });
+          _this.queryMessageHistory(); // 加载聊天信息
         }
       });
     },
