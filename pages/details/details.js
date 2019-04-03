@@ -44,21 +44,22 @@ Page({
             count: 0, //提交计数
             merchantId: mid,
         });
-
+        that.checkUser(mid);
         that.checkMerchant(mid);
-        that.checkUser();
     },
 
 
     //检查用户
-    checkUser: function () {
+    checkUser: function (mid) {
       let _this = this;
       let userInfo = wx.getStorageSync('userInfo');
       if (util.isNotNULL(userInfo)) {
         _this.setData({ userInfo: userInfo, });
       } else {
+        wecache.put("pid", _this.data.pid, 0);
+        wecache.put("mid", mid != null ? mid : 0, 0);
         wx.redirectTo({
-          url: '/pages/auth/login/login'
+          url: '/pages/auth/wxLogin/wxLogin'
         });
       }
     },
@@ -78,7 +79,7 @@ Page({
           wx.clearStorageSync();
           wx.clearStorage();
           wx.redirectTo({
-            url: '/pages/auth/login/login?mid=' + (mid != null ? mid : 0)
+            url: '/pages/auth/choiceMerchant/choiceMerchant?mid=' + (mid != null ? mid : 0)
           });
         }
 
@@ -96,7 +97,7 @@ Page({
         }
       } else {
         wx.redirectTo({
-          url: '/pages/auth/login/login?mid=' + (mid != null ? mid : 0)
+          url: '/pages/auth/choiceMerchant/choiceMerchant?mid=' + (mid != null ? mid : 0)
         });
       }
     },
@@ -182,7 +183,7 @@ Page({
         return {
             title: that.data.detail.title,
             imageUrl: that.data.detail.goodsPic,
-            path: '/pages/details/details?source=1&id=' + that.data.id + "&mid=" + that.data.merchant.merchantId,
+            path: '/pages/details/details?source=1&id=' + that.data.id + "&mid=" + that.data.merchant.merchantId + "&pid=2" ,
         }
     },
 

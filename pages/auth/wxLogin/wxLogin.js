@@ -1,6 +1,6 @@
 //获取应用实例
 var user = require('../../../services/user.js');
-//const cart = require('../../../services/cart.js');
+const wecache = require('../../../utils/wecache.js');
 const app = getApp();
 const currentMerchat = "currentMerchat";
 const currIndex = "currIndex";
@@ -64,10 +64,36 @@ Page({
             url: '/pages/auth/mobileBind/mobileBind?session_key=' + session_key,
           })
         } else { //已绑定
-          //选择进入通道
-          wx.redirectTo({
-            url: '/pages/auth/selectEntry/selectEntry',
-          })
+          var pid = wecache.get("pid", 0);
+          var mid = wecache.get("mid", 0);
+          var did = wecache.get("did", 0);
+          if(0 == pid) { //正常搜索进入
+            //选择进入通道
+            wx.redirectTo({
+              url: '/pages/auth/selectEntry/selectEntry',
+            })
+          }else if (1 == pid || pid  == 2) { //拼团首页和拼团详情页
+            wx.redirectTo({
+              url: '/pages/auth/choiceMerchant/choiceMerchant',
+            })
+          }else if(3 == pid){ // 电商首页
+            wx.redirectTo({
+              url: '/pages/b2c/index/index',
+            })
+          }else if(4 == pid) {// 电商详情页
+            wx.redirectTo({
+              url: '/pages/b2c/details/details?id' = did,
+            })
+          } else if (5 == pid) {// 电商详情页
+            wx.redirectTo({
+              url: '/pages/b2c/shopIndex/shopIndex?mid' = mid,
+            })
+          }else{
+            wx.redirectTo({
+              url: '/pages/auth/choiceMerchant/choiceMerchant',
+            })
+          }
+         
         }
 
 

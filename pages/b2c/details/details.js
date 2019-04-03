@@ -20,6 +20,7 @@ Page({
         buyBtnType:0, // 点击按钮类型 0 未点击 1 购物车 2 直接购买
         specDetails:{}, //规格面板数据
         specs:[], //选中规格信息
+        pid: 0,//分享携带的页面ID
     },
 
     /**
@@ -27,8 +28,11 @@ Page({
      */
     onLoad: function (options) {
         let _this = this;
+        var pid = options.pid;
+        if (pid == undefined) { pid = 0; }
         _this.setData({
           id: options.id,
+          pid: pid,
         });
         _this.checkUser();
         this.queryShopDetail();
@@ -46,7 +50,12 @@ Page({
      * 用户点击右上角分享
      */
     onShareAppMessage: function () {
-
+      var that = this
+      return {
+        title: that.data.detail.name,
+        imageUrl: that.data.detail.url,
+        path: '/pages/details/details?source=1&id=' + that.data.id + "&pid=4",
+      }
     },
 
     //检查用户
@@ -56,6 +65,8 @@ Page({
       if (util.isNotNULL(userInfo)) {
         _this.setData({ userInfo: userInfo, });
       } else {
+        wecache.put("pid", _this.data.pid, 0);
+        wecache.put("did", _this.data.id, 0);
         wx.redirectTo({
           url: '/pages/auth/wxLogin/wxLogin'
         });

@@ -47,6 +47,7 @@ Page({
         searchText: '', // 搜索店铺名称、地址
         swithModal: false,
         merchantId: null, //分享携带的商户ID
+        pid:0,//分享携带的页面ID
         scrollTop: '',    //滑动的距离
         navFixed: false,  //导航是否固定
 
@@ -56,7 +57,7 @@ Page({
         return {
             title: '美超团购分享',
             desc: '美超团购',
-            path: '/pages/index/index?mid=' + _this.data.merchant.merchantId
+            path: '/pages/index/index?mid=' + _this.data.merchant.merchantId + "&pid=1"
         }
     },
 
@@ -64,11 +65,12 @@ Page({
         this.$wuxLoading = app.Wux().$wuxLoading //加载
         let that = this;
         var mid = options.mid;
-        if (mid == undefined) {
-            mid = null;
-        }
+        var pid = options.pid;
+        if (mid == undefined) {mid = null;}
+        if (pid == undefined) {pid = 0;}
         that.setData({
             merchantId: mid,
+            pid:pid,
         });
 
         that.checkUser();  //检查用户
@@ -96,8 +98,10 @@ Page({
             _this.setData({userInfo: userInfo,});
             _this.checkMerchant(mid); //检查商户
         } else {
+            wecache.put("pid", _this.data.pid, 0);
+            wecache.put("mid", mid != null ? mid : 0, 0);
             wx.redirectTo({
-              url: '/pages/auth/wxLogin/wxLogin'
+              url: '/pages/auth/wxLogin/wxLogin' 
             });
         }
      

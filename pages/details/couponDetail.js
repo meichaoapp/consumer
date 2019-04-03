@@ -39,6 +39,18 @@ Page({
       count: 0, //提交计数
     });
 
+    // 页面显示
+    let userInfo = wx.getStorageSync('userInfo');
+    if (null != userInfo && userInfo != "" && undefined != userInfo) {
+      this.setData({
+        userInfo: userInfo,
+      });
+    } else {
+      wx.redirectTo({
+        url: '/pages/auth/wxLogin/wxLogin'
+      });
+    }
+
     var merchantId = 0;
     let merchant = wx.getStorageSync(currentMerchat);
     if (null != merchant && undefined != merchant) {
@@ -49,7 +61,7 @@ Page({
         wx.clearStorageSync();
         wx.clearStorage();
         wx.redirectTo({
-          url: '/pages/auth/login/login'
+          url: '/pages/auth/choiceMerchant/choiceMerchant'
         });
       } else {
         merchantId = merchant.merchantId;
@@ -59,27 +71,12 @@ Page({
       wx.clearStorageSync();
       wx.clearStorage();
       wx.redirectTo({
-        url: '/pages/auth/login/login'
+        url: '/pages/auth/choiceMerchant/choiceMerchant'
       });
     }
     console.log("merchantId-------------" + merchantId);
     this.queryCouponDetail(merchantId);
     //this.friends();
-
-
-    // 页面显示
-    let userInfo = wx.getStorageSync('userInfo');
-    if (null != userInfo && userInfo != "" && undefined != userInfo) {
-      this.setData({
-        userInfo: userInfo,
-      });
-    } else {
-      wx.redirectTo({
-        url: '/pages/auth/login/login'
-      });
-    }
-
-
   },
 
 

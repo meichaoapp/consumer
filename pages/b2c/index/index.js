@@ -2,6 +2,7 @@ var util = require('../../../utils/util.js');
 var api = require('../../../config/api.js');
 var user = require('../../../services/user.js');
 const cart = require('../../../services/cart.js');
+const wecache = require('../../../utils/wecache.js');
 var app = getApp();
 Page({
 
@@ -32,7 +33,7 @@ Page({
     needPay: 0.00, // 购物车核算价格
     goodsNums: 0, //商品数量
     showModal: false,
-
+    pid: 0,//分享携带的页面ID
   },
 
   /**
@@ -40,8 +41,16 @@ Page({
    */
   onLoad: function (options) {
     let _this = this;
+    var type = options.type;
+    if (type != undefined) {
+      _this.setData({
+        selectedType: type,
+      });
+    }
+    var pid = options.pid;
+    if (pid == undefined) { pid = 0; }
     _this.setData({
-      selectedType: options.type,
+      pid: pid,
     });
     _this.checkUser(); //检查用户
     _this.queryShopTypes();
@@ -104,7 +113,12 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-
+    let _this = this;
+    return {
+      title: '美超电商分享',
+      desc: '美超电商',
+      path: '/pages/b2c/index/index?pid=3'
+    }
   },
 
   /**
@@ -152,6 +166,7 @@ Page({
     if (util.isNotNULL(userInfo)) {
       _this.setData({ userInfo: userInfo, });
     } else {
+      wecache.put("pid", _this.data.pid, 0);
       wx.redirectTo({
         url: '/pages/auth/wxLogin/wxLogin'
       });

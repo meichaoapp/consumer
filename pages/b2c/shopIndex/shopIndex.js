@@ -30,6 +30,7 @@ Page({
     needPay: 0.00, // 购物车核算价格
     goodsNums: 0, //商品数量
     showModal: false,
+    pid: 0,//分享携带的页面ID
   },
 
   /**
@@ -37,10 +38,33 @@ Page({
    */
   onLoad: function (options) {
     let _this = this;
-    _this.setData({
-      merchantId: 10,//options.mid,
+    var mid = options.mid;
+    var pid = options.pid;
+    if (mid == undefined) { mid = null; }
+    if (pid == undefined) { pid = 0; }
+    that.setData({
+      merchantId: mid,
+      pid: pid,
     });
+    _this.checkUser(mid);
     _this.queryList();
+  },
+
+  //检查用户
+  checkUser: function (mid) {
+    let _this = this;
+    let userInfo = wx.getStorageSync('userInfo');
+    if (util.isNotNULL(userInfo)) {
+      _this.setData({ userInfo: userInfo, });
+      _this.checkMerchant(mid); //检查商户
+    } else {
+      wecache.put("pid", _this.data.pid, 0);
+      wecache.put("mid", mid != null ? mid : 0, 0);
+      wx.redirectTo({
+        url: '/pages/auth/wxLogin/wxLogin'
+      });
+    }
+
   },
 
 
@@ -101,7 +125,12 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-
+    let _this = this;
+    return {
+      title: '美超电商分享',
+      desc: '美超电商',
+      path: '/pages/b2c/index/index?pid=5&mid=' + _this.data.merchantId,
+    }
   },
 
   /**
