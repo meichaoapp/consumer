@@ -15,136 +15,140 @@
     </view>
     <view class="line_border"></view>
     <!--订单：拼团商品 -->
-    <view wx:if="{{merchantOrder != null}}" class="intro_box bg_ff">
-        <view  class="title flex flex_between flex_center">
-            <view class="flex flex_center">
-                <image class="icon_type" src="/static/images/icon_type.png"></image>
-                <view>{{merchant.merchantName}}</view>
-            </view>
-            <view class="common_tag group_tag">拼团</view>
-        </view>
-        <view class="list">
-            <view wx:for="{{merchantOrder.goodsList}}" wx:key="{{item.index}}"  data-id="{{item.id}}" class="list_item flex flex_between">
-                <view class="left_part">
-                    <image src="{{item.url}}"></image>
-                </view>
-                <view class="right_part">
-                    <view class="flex flex_colum">
-                        <view>{{item.name}}</view>
-                        <view class="font12 C999 mt20 mb20">{{item.comments}}</view>
-                        <view class="flex flex_between flex_center">
-                            <view>
-                                <text class=" font18 c_f3f">￥{{item.price}}</text>
-                            </view>
-                            <view class="set_car flex flex_center flex_end">
-                                <image bindtap='cutNumber' data-id='{{item.id}}' src="https://wxpic.iliangpin.cn/meichao/minus.png"></image>
-                                <text class="count">{{item.buyNum}}</text>
-                                <image bindtap='addNumber' data-id='{{item.id}}'  src="https://wxpic.iliangpin.cn/meichao/plus.png"></image>
-                            </view>
+    <view wx:if="{{merchantOrders != null}}" class="intro_box bg_ff">
+      <block wx:for="{{merchantOrders}}" wx:key="{{order.index}}" wx:for-item="order"> 
+          <view  class="title flex flex_between flex_center">
+              <view class="flex flex_center">
+                  <image class="icon_type" src="/static/images/icon_type.png"></image>
+                  <view>{{order.merchantName}}</view>
+              </view>
+              <view class="common_tag group_tag">拼团</view>
+          </view>
+          <view class="list">
+              <view wx:for="{{order.goodsList}}" wx:key="{{item.index}}"  data-id="{{item.id}}" class="list_item flex flex_between">
+                  <view class="left_part">
+                      <image src="{{item.url}}"></image>
+                  </view>
+                  <view class="right_part">
+                      <view class="flex flex_colum">
+                          <view>{{item.title}}</view>
+                          <view class="font12 C999 mt20 mb20">{{item.comments}}</view>
+                          <view class="flex flex_between flex_center">
+                              <view>
+                                  <text class=" font18 c_f3f">￥{{item.price}}</text>
+                              </view>
+                              <view class="set_car flex flex_center flex_end">
+                                  <image bindtap='cutNumber' data-id='{{item.id}}' src="https://wxpic.iliangpin.cn/meichao/minus.png"></image>
+                                  <text class="count">{{item.buyNum}}</text>
+                                  <image bindtap='addNumber' data-id='{{item.id}}'  src="https://wxpic.iliangpin.cn/meichao/plus.png"></image>
+                              </view>
 
-                        </view>
-                    </view>
-                </view>
-            </view>
-        </view>
-        <view class="address_box flex flex_center">
-            <image class="icon_receive_goods" src="/static/images/icon_address.png"></image>
-            <view class="C666">取货地址：{{merchant.address}}</view>
-        </view>
+                          </view>
+                      </view>
+                  </view>
+              </view>
+          </view>
+          <view class="address_box flex flex_center">
+              <image class="icon_receive_goods" src="/static/images/icon_address.png"></image>
+              <view class="C666">取货地址：{{order.address}}</view>
+          </view>
+      </block>
 
     </view>
     
     <!-- 订单：店铺自营商品 -->
-    <view wx:if="{{oneselfOrder != null}}" class="intro_box bg_ff">
-        <view  class="title flex flex_between flex_center">
-            <view class="flex flex_center">
-                <image class="icon_type" src="/static/images/icon_type.png"></image>
-                <view>{{merchant.merchantName}}</view>
-            </view>
-            <view class="common_tag proprietary_tag">自营</view>
-        </view>
-        <view class="list bg_ff">
-            <view wx:for="{{oneselfOrder.goodsList}}" wx:key="{{item.index}}"  data-id="{{item.id}}" class="list_item flex flex_between flex_center">
-                <view class="left_part">
-                    <image src="{{item.url}}"></image>
-                </view>
-                <view class="right_part">
-                    <view class="flex flex_colum">
-                        <view>{{item.name}}</view>
-                        <view class="font12 C999 mt20 mb20">{{item.comments}}</view>
-                        <view class="flex flex_between flex_center">
-                          <view>
-                            <text class=" c_f3f font18">￥{{item.price}}</text>
+    <view wx:if="{{oneselfOrders != null}}" class="intro_box bg_ff">
+
+      <block wx:for="{{oneselfOrders}}" wx:key="{{order.index}}" wx:for-item="order"> 
+          <view  class="title flex flex_between flex_center">
+              <view class="flex flex_center">
+                  <image class="icon_type" src="/static/images/icon_type.png"></image>
+                  <view>{{order.merchantName}}</view>
+              </view>
+              <view class="common_tag proprietary_tag">自营</view>
+          </view>
+          <view class="list bg_ff">
+              <view wx:for="{{order.goodsList}}" wx:key="{{item.index}}"  data-id="{{item.id}}" class="list_item flex flex_between flex_center">
+                  <view class="left_part">
+                      <image src="{{item.url}}"></image>
+                  </view>
+                  <view class="right_part">
+                      <view class="flex flex_colum">
+                          <view>{{item.title}}</view>
+                          <view class="font12 C999 mt20 mb20">{{item.comments}}</view>
+                          <view class="flex flex_between flex_center">
+                            <view>
+                              <text class=" c_f3f font18">￥{{item.price}}</text>
+                            </view>
+                              
+                            <view class="set_car flex flex_center flex_end">
+                                  <image bindtap='cutNumber' data-id='{{item.id}}' src="https://wxpic.iliangpin.cn/meichao/minus.png"></image>
+                                  <text class="count">{{item.buyNum}}</text>
+                                  <image bindtap='addNumber' data-id='{{item.id}}'  src="https://wxpic.iliangpin.cn/meichao/plus.png"></image>
                           </view>
-                            
-                          <view class="set_car flex flex_center flex_end">
-                                <image bindtap='cutNumber' data-id='{{item.id}}' src="https://wxpic.iliangpin.cn/meichao/minus.png"></image>
-                                <text class="count">{{item.buyNum}}</text>
-                                <image bindtap='addNumber' data-id='{{item.id}}'  src="https://wxpic.iliangpin.cn/meichao/plus.png"></image>
-                        </view>
 
-                        </view>
-                    </view>
-                </view>
-            </view>
-        </view>
-        <view style="padding:0 30rpx">
-            <!--门店自取-->
-            <view class="intro flex flex_colum">
-                <view bindtap='switchDeliveryType' data-type='1' class="flex flex_center choice_state">
-                    <image class="icon_choice" src="{{basePath}}/{{(deliveryType == 1) ? 'choice.png':'un_choice.png'}}"></image>
-                    <view class="font16">门店自取</view>
-                </view>
-                <view class="address_box flex">
-                    <view class="icon_address">取货地址</view>
-                    <view class="address">{{merchant.address}}</view>
-                </view>
-                <view class="merchant_name">
-                    <text class="C666 mr30">{{merchant.merchantName}}</text>
-                    <text class="C666">{{merchant.merchantPhone}}</text>
-                </view>
-            </view>
-            <!--送货上门-->
-            <view wx:if="{{merchant.isDelivery == 2}}" class="intro flex flex_colum">
-                <view bindtap='switchDeliveryType' data-type='2'  class="flex flex_center choice_state">
-                    <image class="icon_choice" src="{{basePath}}/{{(deliveryType == 2) ? 'choice.png':'un_choice.png'}}"></image>
-                    <view class="font16">送货上门</view>
-                </view>
-                <view class="single flex flex_between flex_center">
-                    <view class="flex">
-                        <view class="mr10">配送费</view>
-                        <view wx:if="{{merchant.expenditure != 0}}" class="C999 font12">
-                        (不足{{merchant.expenditure}}元收运费{{merchant.deliveryCost}}元)
-                        </view>
-                    </view>
-                    <view class="font16">￥{{oneselfOrder.deliveryCost}}</view>
-                </view>
-            </view>
-        </view>
-
+                          </view>
+                      </view>
+                  </view>
+              </view>
+          </view>
+          <view style="padding:0 30rpx">
+              <!--门店自取-->
+              <view class="intro flex flex_colum">
+                  <view bindtap='switchDeliveryType' data-type='1' class="flex flex_center choice_state">
+                      <image class="icon_choice" src="{{basePath}}/{{(order.deliveryType == 1) ? 'choice.png':'un_choice.png'}}"></image>
+                      <view class="font16">门店自取</view>
+                  </view>
+                  <view class="address_box flex">
+                      <view class="icon_address">取货地址</view>
+                      <view class="address">{{order.address}}</view>
+                  </view>
+                  <view class="merchant_name">
+                      <text class="C666 mr30">{{order.merchantName}}</text>
+                      <text class="C666">{{order.merchantPhone}}</text>
+                  </view>
+              </view>
+              <!--送货上门-->
+              <view wx:if="{{order.isDelivery == 2}}" class="intro flex flex_colum">
+                  <view bindtap='switchDeliveryType' data-type='2'  class="flex flex_center choice_state">
+                      <image class="icon_choice" src="{{basePath}}/{{(order.deliveryType == 2) ? 'choice.png':'un_choice.png'}}"></image>
+                      <view class="font16">送货上门</view>
+                  </view>
+                  <view class="single flex flex_between flex_center">
+                      <view class="flex">
+                          <view class="mr10">配送费</view>
+                          <view wx:if="{{order.expenditure != 0}}" class="C999 font12">
+                          (不足{{order.expenditure}}元收运费{{order.needDeliveryPay}}元)
+                          </view>
+                      </view>
+                      <view class="font16">￥{{order.deliveryCost}}</view>
+                  </view>
+              </view>
+          </view>
+       </block>
     </view>
 
      <!--订单：优惠券 -->
-    <view wx:if="{{couponOrders.length > 0}}" class="intro_box bg_ff">
+    <view wx:if="{{couponOrders != null }}" class="intro_box bg_ff">
 
-        <block wx:for="{{couponOrders}}" wx:key="{{item.index}}" wx:for-item="couponOrder">
+        <block wx:for="{{couponOrders}}" wx:key="{{order.index}}" wx:for-item="order">
             <view class="coupon_box">
                 <view  class="title flex flex_between flex_center">
                     <view class="flex flex_center">
                         <image class="icon_type" src="/static/images/icon_type.png"></image>
-                        <view>{{couponOrder.merchant.merchantName}}</view>
+                        <view>{{order.merchantName}}</view>
                     </view>
                     <view class="common_tag coupon_tag">优惠券</view>
                 </view>
                 <view class="list bg_ff">
-                    <view wx:for="{{couponOrder.goodsList}}" wx:key="{{item.index}}"
+                    <view wx:for="{{order.goodsList}}" wx:key="{{item.index}}"
                           data-id="{{item.id}}" class="list_item flex flex_between flex_center">
                         <view class="left_part">
                             <image src="{{item.url}}"></image>
                         </view>
                         <view class="right_part">
                             <view class="flex flex_colum">
-                                <view style="margin-right:20rpx;">{{item.name}}</view>
+                                <view style="margin-right:20rpx;">{{item.title}}</view>
                                 <view class="font12 C999 mt20 mb20">{{item.comments}}</view>
                                 <view class="flex flex_between flex_center">
                                     <view>
@@ -164,7 +168,7 @@
                 </view>
                 <view class="address_box flex flex_center">
                     <image class="icon_receive_goods" src="/static/images/icon_address.png"></image>
-                    <view class="C666">消费地址：{{couponOrder.merchant.address}}</view>
+                    <view class="C666">消费地址：{{order.address}}</view>
                 </view>
 
             </view>
@@ -172,25 +176,25 @@
     </view>
 
     <!--订单：电商 -->
-    <view  wx:if="{{b2cOrders.length > 0}}" class="intro_box bg_ff">
+    <view  wx:if="{{b2cOrders != null}}" class="intro_box bg_ff">
 
-     <block wx:for="{{b2cOrders}}" wx:key="{{item.index}}" wx:for-item="b2cOrder">
+     <block wx:for="{{b2cOrders}}" wx:key="{{item.index}}" wx:for-item="order">
           <view  class="title flex flex_between flex_center">
               <view class="flex flex_center">
                   <image class="icon_type" src="/static/images/icon_type.png"></image>
-                  <view>{{b2cOrder.merchant.merchantName}}</view>
+                  <view>{{order.merchantName}}</view>
               </view>
               <view class="common_tag b2c_tag">电商</view>
           </view>
           <view class="list">
-              <view  wx:for="{{b2cOrder.goodsList}}" wx:key="{{item.index}}"
+              <view  wx:for="{{order.goodsList}}" wx:key="{{item.index}}"
                           data-id="{{item.id}}"  class="list_item flex flex_between">
                   <view class="left_part">
                       <image src="{{item.url}}"></image>
                   </view>
                   <view class="right_part">
                       <view class="flex flex_colum">
-                          <view>{{item.name}}</view>
+                          <view>{{item.title}}</view>
                           <view class="font12 C999 mt20 mb20">{{item.specsStr}}</view>
                           <view class="flex flex_between flex_center">
                               <view>
@@ -210,16 +214,16 @@
           <view class="single flex flex_between flex_center">
               <view class="flex">
                   <view class="mr10">配送费</view>
-                  <view wx:if="{{b2cOrder.merchant.expenditure != 0}}" class="C999 font12">
-                  (不足{{b2cOrder.merchant.expenditure}}元收运费{{b2cOrder.merchant.deliveryCost}}元)
+                  <view wx:if="{{order.expenditure != 0}}" class="C999 font12">
+                  (不足{{order.expenditure}}元收运费{{order.needDeliveryPay}}元)
                   </view>
               </view>
-              <view class="font16">￥{{b2cOrder.deliveryCost}}</view>
+              <view class="font16">￥{{order.deliveryCost}}</view>
           </view>
          <!--买家留言-->
          <view class="buyer_msg">
              <view>买家留言：</view>
-             <input bindinput='lisentWords' data-mid='{{b2cOrder.merchant.merchantId}}'   type="text" placeholder="选填：填写内容已和卖家协商确认"/>
+             <input bindinput='lisentWords' data-pid='{{order.productId}}'   type="text" placeholder="选填：填写内容已和卖家协商确认"/>
          </view>
       </block>
     </view>

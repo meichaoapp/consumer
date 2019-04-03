@@ -82,11 +82,11 @@ Page({
             })
           }else if(4 == pid) {// 电商详情页
             wx.redirectTo({
-              url: '/pages/b2c/details/details?id' = did,
+              url: '/pages/b2c/details/details?id=' + did,
             })
           } else if (5 == pid) {// 电商详情页
             wx.redirectTo({
-              url: '/pages/b2c/shopIndex/shopIndex?mid' = mid,
+              url: '/pages/b2c/shopIndex/shopIndex?mid=' + mid,
             })
           }else{
             wx.redirectTo({
