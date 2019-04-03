@@ -1,33 +1,69 @@
-// pages/b2c/customerService/customerService.js
+var app = getApp();
+var util = require('../../../utils/util.js');
+var api = require('../../../config/api.js');
+var WxParse = require('../../../lib/wxParse/wxParse.js');
 Page({
 
     /**
      * 页面的初始数据
      */
     data: {
+        merchantId:0,
+        merchant:{},
+        userInfo:{},
+        content:"", // 消息内容
         connectEmotion: ['😊', '😅', '😲', '😭', '😂', '😄', '😩', '😞', '😵', '😒', '😍',
             '😤', '😜', '😝', '😋', '😘', '😚', '😷', '😳', '😃', '😆', '😁', '😢', '😨',
             '😠', '😣', '😌', '😖', '😔', '😰', '😱', '😪', '😏', '😓'
         ],
         isShowEmotion: false,
         isFocus:false,
-        bottom:0//输入框距离底部的距离
+        bottom:0,//输入框距离底部的距离
+        list: [], //消息集合
+        start: 1, // 页码
+        totalPage: 0, // 共有页
+        limit: 10,//每页条数
+        showMore: false, //显示更多历史消息提示
+     
     },
 
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-
+      let _this = this;
+      _this.setData({
+        merchantId:options.mid,
+      });
+      let userInfo = wx.getStorageSync('userInfo');
+      if (null != userInfo && userInfo != "" && undefined != userInfo) {
+        _this.setData({
+          userInfo: userInfo,
+        });
+      }
+      _this.loadMerchat(); //加载商户信息
     },
 
-    /**
-     * 生命周期函数--监听页面初次渲染完成
-     */
-    onReady: function () {
-
+    //查询商户信息
+    loadMerchat: function (merchant) {
+      let that = this;
+      var data = {
+        "merchantId": that.data.merchantId,//商户ID
+      };
+      util.request(api.QueryMerchants, data, "POST").then(function (res) {
+        console.log('------商户信息', res);
+        if (res.rs === 1) {
+          var merchantList = res.data;
+          if (null != merchantList && merchantList.length > 0) {
+            that.setData({
+              merchant: merchantList[0],
+            })
+          } 
+        }
+      });
     },
 
+   
     /**
      * 生命周期函数--监听页面显示
      */
@@ -36,39 +72,83 @@ Page({
     },
 
     /**
-     * 生命周期函数--监听页面隐藏
+     * 发送聊天信息
      */
-    onHide: function () {
-
+    sendMessage:function() {
+      let _this = this;
+      var data = {
+        "merchantId": _this.data.merchant.merchantId, //商户ID
+        "userId": _this.data.userInfo.id, //用户ID
+        "type": 2, // 1商户 2 用户,
+        "merchantAvatar": _this.data.merchant.logo, // 商户头像
+        "userAvatar": _this.data.userInfo.avatar, // 用户头像
+        "content": _this.data.content //内容
+      };
+      util.request(api.SendMessage, data, "POST").then(function (res) {
+        if (res.rs == 1) {
+          //重新加载最近一页条消息
+          
+        }
+      });
     },
 
     /**
-     * 生命周期函数--监听页面卸载
+     * 加载更多历史消息
      */
-    onUnload: function () {
-
+    loadMore: function() {
+      let _this = this;
+      // 当前页是最后一页
+      if (_this.data.start >= _this.data.totalPage) {
+        _this.setData({
+          showMore: false, //显示更多历史消息提示
+        })
+        return;
+      }
+      setTimeout(function () {
+        _this.setData({
+          start: _this.data.start + 1,
+        })
+        _this.queryMessageHistory();
+      }, 300);
     },
-
     /**
-     * 页面相关事件处理函数--监听用户下拉动作
+     * 查询历史消息
      */
-    onPullDownRefresh: function () {
-
+    queryMessageHistory:function() {
+      let _this = this;
+      let data = {
+        merchantId: _this.data.merchant.merchantId,//店铺id
+        userId: _this.data.userInfo.id, //用户ID
+        start: _this.data.start,     //分页开始页  必填
+        limit: _this.data.limit,    //当前页共显示多少条  必填
+      };
+      util.request(api.QueryMessageHistory, data, "POST").then(function (res) {
+        var list = res.data.list;
+        if (_this.data.start == 1) { 
+          _this.setData({
+            list: list,
+            hideHeader: true,
+            totalPage: res.data.totalPage,
+          })
+        } else {
+          var tempArray = _this.data.list;
+          if (tempArray != null && list != null) {
+            tempArray = list.concat(tempArray);
+          }
+          _this.setData({
+            list: tempArray,
+            totalPage: res.data.totalPage,
+          })
+        }
+        if(_this.data.start < _this.data.totalPage) {
+          _this.setData({
+            showMore: true, //显示更多历史消息提示
+          })
+        }
+      })
     },
 
-    /**
-     * 页面上拉触底事件的处理函数
-     */
-    onReachBottom: function () {
 
-    },
-
-    /**
-     * 用户点击右上角分享
-     */
-    onShareAppMessage: function () {
-
-    },
     showEmotion:function(){
         console.log('显示表情了');
         this.setData({
