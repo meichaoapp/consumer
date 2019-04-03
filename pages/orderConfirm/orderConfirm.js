@@ -60,23 +60,30 @@ Page({
         userInfo: userInfo,
       });
     }
-    let merchant = wx.getStorageSync(currentMerchat);
+    _this.loadOrderInfo();
+  },
 
-    if (null != merchant && undefined != merchant) {
-      if (merchant.merchantId == undefined
-        || merchant.merchantId == null
-        || merchant.merchantId == "") {
-        //清空缓存
-        wx.clearStorageSync();
-        wx.clearStorage();
-        wx.redirectTo({
-          url: '/pages/auth/choiceMerchant/choiceMerchant'
-        });
-      }else{
-        _this.reloadMerchat(merchant); //重新加载选中的商户信息
-      }
-    }
-   
+  /**
+   * 加载订单确认页信息
+   */
+  loadCartOrders:function() {
+      let _this = this;
+      var orders = [];
+      var orderGoods = _this.data.orderGoods;
+      orderGoods.forEach(o => {
+         var order = {
+           "productId": o.sid, // 团购id
+           "detailId": o.sid, // 商品id
+           "merchantId": o.merchantId,// 店铺id
+           "productType": o.productType,// 类型 1 团购 3 自营 5 优惠券 6 电商 
+           "buyNum": o.number, //购买总数量
+         };
+         orders.push(order);
+      });
+      var data = {
+        order:orders,
+      };
+      
   },
 
   //减
@@ -131,30 +138,7 @@ Page({
     });
     _this.loadOrderInfo();
   },
-  //查询商户列表信息
-  reloadMerchat: function (merchant) {
-    let that = this;
-    var data = {
-      "merchantId": merchant.merchantId,//商户ID
-    };
-    util.request(api.QueryMerchants, data, "POST").then(function (res) {
-      console.log('------商户信息', res);
-      if (res.rs === 1) {
-        var merchantList = res.data;
-        if (null != merchantList && merchantList.length > 0) {
-          that.setData({
-            merchant: merchantList[0],
-          })
-        }else {
-          that.setData({
-            merchant: merchant,
-          })
-        }
-        that.loadOrderInfo();
-        log.collectLog(0, "订单确认页-商户匹配", "groupPurchase/merchants", JSON.stringify(data), JSON.stringify(res), "", that.data.userInfo.id);
-      }
-    });
-  },
+ 
   //切换取货方式
   switchDeliveryType: function(e) {
     let _this = this;
@@ -170,6 +154,7 @@ Page({
    */
   loadOrderInfo:function(){
     let _this = this;
+
     var _data = cart.createOrder(0, _this.data.merchant.merchantId,
      _this.data.userInfo, _this.data.deliveryType, _this.data.merchant, _this.data.orderGoods );
     //console.log("loadOrderInfo----" + JSON.stringify(_data));
