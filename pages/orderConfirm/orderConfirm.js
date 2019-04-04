@@ -87,42 +87,31 @@ Page({
     // util.request(api.LoadCartOrder, data, "POST").then(function (res) {
     //   if (res.rs === 1) {
     //     var orderInfo = res.data;
-    //     var merchantOrders = orderInfo.merchantOrder;
-    //     var oneselfOrders = orderInfo.oneselfOrder;
-    //     var couponOrders = orderInfo.discountCouponOrder;
-    //     var b2cOrders = orderInfo.shopOrder;
-    //     ////判断是否拆单
-    //     var isSplitOrder = false;
-    //     if ((merchantOrders != null && oneselfOrders != null) ||
-    //       (merchantOrders != null && b2cOrders != null) ||
-    //       (oneselfOrders != null && b2cOrders != null) ||
-    //       (merchantOrders != null && couponOrders != null) ||
-    //       (b2cOrders != null && couponOrders != null) ||
-    //       (couponOrders != null && oneselfOrders != null)) {
-    //       isSplitOrder = true;
-    //     }
-    //     var isShowPostInfo = false;
-    //     if (b2cOrders != null) {
-    //       isShowPostInfo = true;
-    //     }else {
-    //       if (oneselfOrders != null) {
-    //         oneselfOrders.forEach(o => {
-    //           if (o.isDelivery == 2){
-    //             isShowPostInfo = true;
-    //           }
-    //         });
-    //       }
-    //     }
+    //     var merchantOrders = orderInfo.merchantOrders;
+    //     var oneselfOrders = orderInfo.oneselfOrders;
+    //     var couponOrders = orderInfo.couponOrders;
+    //     var b2cOrders = orderInfo.b2cOrders;
+
+    //     var totalPay = orderInfo.totalPay;
+    //     var needPay = orderInfo.needPay;
+    //     totalPay = (totalPay != null && !isNaN(totalPay)) ? totalPay : 0;
+    //     needPay = (needPay != null && !isNaN(needPay)) ? needPay : 0;
+    //     var preferential = totalPay - needPay;
+    //     preferential = (preferential >= 0) ? preferential : 0;
+
     //     _this.setData({
-    //       totalPay: orderInfo.totalPay,//共付
-    //       needPay: orderInfo.needPay,// 应付
-    //       preferential: 0.00,//优惠
+    //       totalPay: totalPay,//共付
+    //       needPay: needPay,// 应付
+    //       preferential: preferential,//优惠
     //       merchantOrders: merchantOrders,// 团购订单
     //       oneselfOrders: oneselfOrders, // 自营订单
     //       couponOrders: couponOrders,
     //       b2cOrders: b2cOrders,//电商商品
-    //       isShowPostInfo: isShowPostInfo,  // 是否显示邮寄信息
-    //       isSplitOrder: isSplitOrder, //是否拆单
+    //     });
+
+    //     _this.setData({
+    //       isShowPostInfo: _this.isShowPostInfo(),  // 是否显示邮寄信息
+    //       isSplitOrder: _this.isSplitOrders(), //是否拆单
     //     });
     //   }
     // });
@@ -132,9 +121,10 @@ Page({
       "totalPay": 210.1,
       "needPay": 210.1,
       "userId": 1,
-      "merchantOrder": [
+      "merchantOrders": [
         {
           "productId": 1,
+          "productType": 1, //商品类型 1.普通团品 2. 一元购 3. 店长自营产品 5.优惠券商品类型 6.电商
           "needDeliveryPay": 10,
           "merchantId": 1,
           "merchantName": "三好鲜生",
@@ -150,6 +140,7 @@ Page({
             {
               "id": 1,
               "price": 10,
+              "marketPrice":3.0,
               "url": "https://meichaooss1.oss-cn-beijing.aliyuncs.com/mc/material/img/2019-03-10/1552209717227.jpg",
               "title": "【俄罗斯大牛威化饼干】纯正俄罗斯风味，再次击穿低价！",
               "buyNum": 10,
@@ -158,9 +149,10 @@ Page({
           ]
         }
       ],
-      "oneselfOrder": [
+      "oneselfOrders": [
         {
           "productId": 1,
+          "productType": 3, //商品类型 1.普通团品 2. 一元购 3. 店长自营产品 5.优惠券商品类型 6.电商
           "needDeliveryPay": 10,
           "merchantId": 1,
           "merchantName": "三好鲜生",
@@ -176,6 +168,7 @@ Page({
             {
               "id": 1,
               "price": 10,
+              "marketPrice": 3.0,
               "url": "https://meichaooss1.oss-cn-beijing.aliyuncs.com/mc/material/img/2019-03-10/1552209717227.jpg",
               "title": "【俄罗斯大牛威化饼干】纯正俄罗斯风味，再次击穿低价！",
               "buyNum": 10,
@@ -184,9 +177,10 @@ Page({
           ]
         }
       ],
-      "discountCouponOrder": [
+      "couponOrders": [
         {
           "productId": 1,
+          "productType": 5, //商品类型 1.普通团品 2. 一元购 3. 店长自营产品 5.优惠券商品类型 6.电商
           "needDeliveryPay": 10,
           "merchantId": 1,
           "merchantName": "三好鲜生",
@@ -202,6 +196,7 @@ Page({
             {
               "id": 1,
               "price": 10,
+              "marketPrice": 3.0,
               "url": "https://meichaooss1.oss-cn-beijing.aliyuncs.com/mc/material/img/2019-03-10/1552209717227.jpg",
               "title": "【俄罗斯大牛威化饼干】纯正俄罗斯风味，再次击穿低价！",
               "buyNum": 10,
@@ -211,6 +206,7 @@ Page({
         },
         {
           "productId": 1,
+          "productType": 5, //商品类型 1.普通团品 2. 一元购 3. 店长自营产品 5.优惠券商品类型 6.电商
           "needDeliveryPay": 10,
           "merchantId": 1,
           "merchantName": "三好鲜生",
@@ -226,6 +222,7 @@ Page({
             {
               "id": 1,
               "price": 10,
+              "marketPrice": 3.0,
               "url": "https://meichaooss1.oss-cn-beijing.aliyuncs.com/mc/material/img/2019-03-10/1552209717227.jpg",
               "title": "【俄罗斯大牛威化饼干】纯正俄罗斯风味，再次击穿低价！",
               "buyNum": 10,
@@ -234,9 +231,10 @@ Page({
           ]
         }
       ],
-      "shopOrder": [
+      "b2cOrders": [
         {
           "productId": 1,
+          "productType": 6, //商品类型 1.普通团品 2. 一元购 3. 店长自营产品 5.优惠券商品类型 6.电商
           "needDeliveryPay": 10,
           "merchantId": 1,
           "merchantName": "三好鲜生",
@@ -252,6 +250,7 @@ Page({
             {
               "id": 1,
               "price": 10,
+              "marketPrice": 3.0,
               "url":"https://meichaooss1.oss-cn-beijing.aliyuncs.com/mc/material/img/2019-03-10/1552209717227.jpg",
               "title": "【俄罗斯大牛威化饼干】纯正俄罗斯风味，再次击穿低价！",
               "buyNum": 10,
@@ -262,6 +261,7 @@ Page({
         },
         {
           "productId": 2,
+          "productType": 6, //商品类型 1.普通团品 2. 一元购 3. 店长自营产品 5.优惠券商品类型 6.电商
           "needDeliveryPay": 10,
           "merchantId": 1,
           "merchantName": "三好鲜生",
@@ -276,6 +276,7 @@ Page({
             {
               "id": 1,
               "price": 10,
+              "marketPrice": 3.0,
               "url": "https://meichaooss1.oss-cn-beijing.aliyuncs.com/mc/material/img/2019-03-10/1552209717227.jpg",
               "title": "【俄罗斯大牛威化饼干】纯正俄罗斯风味，再次击穿低价！",
               "buyNum": 10,
@@ -287,10 +288,10 @@ Page({
       ]
     }
 
-    var merchantOrders = orderInfo.merchantOrder;
-    var oneselfOrders = orderInfo.oneselfOrder;
-    var couponOrders = orderInfo.discountCouponOrder;
-    var b2cOrders = orderInfo.shopOrder;
+    var merchantOrders = orderInfo.merchantOrders;
+    var oneselfOrders = orderInfo.oneselfOrders;
+    var couponOrders = orderInfo.couponOrders;
+    var b2cOrders = orderInfo.b2cOrders;
 
     var totalPay = orderInfo.totalPay;
     var needPay = orderInfo.needPay;
@@ -344,7 +345,7 @@ Page({
               return _order;
             }
             if (num > 0) {
-              g.buyNum += num;
+              g.buyNum = num;
               _tList.push(g);
             }
           }
@@ -356,9 +357,8 @@ Page({
     }
    
     if (_order && _post) {
-      _order.productType = _post;
+      _order.deliveryType = _post;
     }
-
     if(_order) {
       var _list = _order.goodsList;
       var totalPay = 0;
@@ -368,7 +368,7 @@ Page({
         needPay += g.price * g.buyNum;
       });
 
-      if (_order.deliveryType == 2 && needPay < expenditure ) { //邮寄
+      if (_order.deliveryType == 2 && needPay < _order.expenditure ) { //邮寄
         _order.deliveryCost = _order.needDeliveryPay;
         needPay += _order.deliveryCost;
       }
@@ -402,6 +402,7 @@ Page({
    * 判断是否拆单
    */
   isSplitOrders: function() {
+    let _this = this;
     ////判断是否拆单
     var isSplitOrder = false;
     var merchantOrders = _this.data.merchantOrders;
@@ -484,6 +485,119 @@ Page({
       isSplitOrder: _this.isSplitOrders(), //是否拆单
     });
   },
+  
+  /**
+   * 获取具体订单
+   */
+  getOrder: function(_type, _index) {
+      let _this = this;
+      var order = null;
+      //商品类型 1.普通团品 2. 一元购 3. 店长自营产品 5.优惠券商品类型 6.电商
+      switch(_type) {
+        case 1: 
+          order = _this.data.merchantOrders[_index];
+          break;
+        case 3:
+          order = _this.data.oneselfOrders[_index];
+          break;
+        case 5:
+          order = _this.data.couponOrders[_index];
+          break;
+        case 6:
+          order = _this.data.b2cOrders[_index];
+          break;
+        default:
+          order = _this.data.merchantOrders[_index];
+      }
+      return order;
+  },
+  /**
+   * 设置具体订单
+   */
+  setOrder: function (_type, _index, _order) {
+    let _this = this;
+    //商品类型 1.普通团品 2. 一元购 3. 店长自营产品 5.优惠券商品类型 6.电商
+    switch (_type) {
+      case 1:
+        var orders = _this.data.merchantOrders;
+        orders[_index] = _order;
+        _this.setData({
+          merchantOrders:orders,
+        });
+        break;
+      case 3:
+        var orders = _this.data.oneselfOrders;
+        orders[_index] = _order;
+        _this.setData({
+          oneselfOrders: orders,
+        });
+        break;
+      case 5:
+        var orders = _this.data.couponOrders;
+        orders[_index] = _order;
+        _this.setData({
+          couponOrders: orders,
+        });
+        break;
+      case 6:
+        var orders = _this.data.b2cOrders;
+        orders[_index] = _order;
+        _this.setData({
+          b2cOrders: orders,
+        });
+        break;
+      default:
+        var orders = _this.data.merchantOrders;
+        orders[_index] = _order;
+        _this.setData({
+          merchantOrders: orders,
+        });
+    }
+  },
+
+  /**
+   * 移除订单
+   */
+  removeOrder: function (_type, _index) {
+    let _this = this;
+    //商品类型 1.普通团品 2. 一元购 3. 店长自营产品 5.优惠券商品类型 6.电商
+    switch (_type) {
+      case 1:
+        var orders = _this.data.merchantOrders;
+        orders.splice(_index, 1); 
+        _this.setData({
+          merchantOrders: orders.length < 1 ? null : orders,
+        });
+        break;
+      case 3:
+        var orders = _this.data.oneselfOrders;
+        orders.splice(_index, 1);
+        _this.setData({
+          oneselfOrders: orders.length < 1 ? null : orders,
+        });
+        break;
+      case 5:
+        var orders = _this.data.couponOrders;
+        orders.splice(_index, 1);
+        _this.setData({
+          couponOrders: orders.length < 1 ? null : orders,
+        });
+        break;
+      case 6:
+        var orders = _this.data.b2cOrders;
+        orders.splice(_index, 1);
+        _this.setData({
+          b2cOrders: orders.length < 1 ? null : orders,
+        });
+        break;
+      default:
+        var orders = _this.data.merchantOrders;
+        orders.splice(_index, 1);
+        _this.setData({
+          merchantOrders: orders.length < 1 ? null : orders,
+        });
+    }
+  },
 
   /**
    * 监听
@@ -509,83 +623,66 @@ Page({
   cutNumber: function (e) {
     let _this = this;
     var id = e.currentTarget.dataset.id;
-    var goodsList = _this.data.orderGoods;
-    if (goodsList != null && goodsList.length > 0) {
-      goodsList.forEach(o => {
-        if (o.id == sid) {
-          o.number = o.number - 1;
-          if (o.number <= 1) {
-            o.number = 1;
-          }
+    var index = e.currentTarget.dataset.index;
+    var type = e.currentTarget.dataset.type;
+    //console.log("cutNumber----------- index:" + index + "  type: " + type );
+    var order = _this.getOrder(type, index);
+    var _order = _this.changeOrderAndCalCost(order, id, -1, null); //_order, _gid, _num, _post
+    if (null == _order) {
+      wx.showModal({
+        title: '提示',
+        content: '确定要移除该商品吗？',
+        success: function (sm) {
+          if (sm.confirm) {
+            _this.removeOrder(type,index);
+          } 
         }
-      });
+      })
+    }else {
+      _this.setOrder(type, index, _order);
     }
-    _this.setData({
-      orderGoods: goodsList,
-    });
-    _this.loadOrderInfo();
+
+    _this.refresh();
+
   },
   //加
   addNumber: function (e) {
     let _this = this;
     var id = e.currentTarget.dataset.id;
-    var goodsList = _this.data.orderGoods;
-    if (goodsList != null && goodsList.length > 0) {
-      goodsList.forEach(o => {
-        if (o.id == sid) {
-          var num = o.number + 1;
-          if ((o.joinNum + num) > o.limitNum) {
-            wx.showToast({
-              icon: "none",
-              title: '已超过库存!',
-            })
-            return;
-          }
-          if (null != o.buyLimitNum && num > o.buyLimitNum) {
-            wx.showToast({
-              icon: "none",
-              title: '此商品每人只能买' + o.buyLimitNum + "份",
-            })
-            return;
-          }
-          o.number = num;
-        }
-      });
-    }
-    _this.setData({
-      orderGoods: goodsList,
-    });
-    _this.loadOrderInfo();
+    var index = e.currentTarget.dataset.index;
+    var type = e.currentTarget.dataset.type;
+    var order = _this.getOrder(type, index);
+    var _order = _this.changeOrderAndCalCost(order, id, 1, null); //_order, _gid, _num, _post
+    _this.setOrder(type, index, _order);
+    _this.refresh();
   },
  
   //切换取货方式
   switchDeliveryType: function(e) {
     let _this = this;
+    var post = e.currentTarget.dataset.post;
+    var index = e.currentTarget.dataset.index;
     let type = e.currentTarget.dataset.type;
-    _this.setData({
-      deliveryType: type,
-      isShowPostInfo: ((_this.data.b2cOrders.length > 0) || (type==2)), 
-    });
-    _this.loadOrderInfo();
+    var order = _this.getOrder(type, index);
+    var _order = _this.changeOrderAndCalCost(order, null, null, post); //_order, _gid, _num, _post
+    _this.setOrder(type, index, _order);
+    _this.refresh();
   },
  
 
   getOrderDatas: function(){
     let _this = this;
-    var _data = cart.createOrder(1, _this.data.merchant.merchantId, _this.data.userInfo, _this.data.deliveryType, _this.data.merchant, _this.data.orderGoods);
-    ////组装电商商品
-    var shopOrder = null;
-   
-    return {
-      userId: _this.data.userInfo.id,
-      merchantId: _this.data.merchant.merchantId,
-      totalPay: _data.totalPay.toFixed(2),//共付
-      needPay: _data.needPay.toFixed(2),
-      merchantOrder: _data.merchantOrder,// 团购订单
-      oneselfOrder: _data.oneselfOrder, // 自营订单
-      discountCouponOrder: _data.couponOrder,//优惠券订单
-      shopOrder: _data.b2cOrders,
-    };
+    var orderInfo = {
+      "key": "1_123456",
+      "totalPay": _this.data.totalPay,
+      "needPay": _this.data.needPay,
+      "userId": _this.data.userInfo.id,
+      "merchantOrders": _this.data.merchantOrders,
+      "oneselfOrders": _this.data.oneselfOrders,
+      "couponOrders":_this.data.couponOrders,
+      "b2cOrders": _this.data.b2cOrders,
+    }
+    return orderInfo;
   },
 
   //参团
@@ -599,32 +696,24 @@ Page({
       count: _this.data.count + 1,
     });
 
-    if (_this.data.deliveryType == 2 && (_this.data.userInfo.address == "" || _this.data.userInfo.address == null) ){
+    if (_this.data.isShowPostInfo && (_this.data.userInfo.address == "" || _this.data.userInfo.address == null) ){
       _this.setData({
         count: 0,
       });
       wx.showToast({
         icon: "none",
-        title: '送货上门，请完善用户信息!',
+        title: '请完善用户邮寄信息!',
       })
       return false;
     }
 
     var order = _this.getOrderDatas();
     console.log("order--- " + JSON.stringify(order));
-    util.request(api.CreateOrderNew, order, "POST").then(function (res) {
+    util.request(api.CreateOrder, order, "POST").then(function (res) {
 
       if (res.rs === 1) { //创建成功
         var data = res.data;
         log.collectLog(0, "订单确认页-创建订单返回", "groupPurchase/createorder", JSON.stringify(order), JSON.stringify(res), "", _this.data.userInfo.id);
-        //console.log(res.data.wxPayResponse);
-
-        // wx.redirectTo({
-        //   url: '/pages/details/success?id=' + data.id,
-        // })
-        // cart.cleanCart();
-        // return;
-
 
         var wxPayResponse = res.data.wxPayResponse;
         var timestamp = Date.parse(new Date());
