@@ -54,7 +54,7 @@
                 <view class="name">订单编号</view>
                 <view class="flex flex_center">
                     <view class="font15">{{detail.orderCode}}</view>
-                    <view class="font12 copy_btn">复制</view>
+                    <view bindtap='copyOrderCode' class="font12 copy_btn">复制</view>
                 </view>
             </view>
             <view class="single_line flex flex_between">
@@ -82,35 +82,34 @@
     </view>
 
     <!--查看物流信息-->
-    <view class="check_logistics flex flex_center flex_just">
+    <view bindtap='viewLogistics' class="check_logistics flex flex_center flex_just">
         <view>查看物流信息</view>
         <image src="/static/images/icon_more.png"></image>
     </view>
-    <view class="kuaidi_follow">  
+    <view wx:if="{{logisticsList != null}}" class="kuaidi_follow">  
         <view class="follow_title"></view>    
         <view class="follow_satus">
-            <view class="follow_address">
-                <view class="label default"></view>       
-                <view class="address default">上海市|签收|上海市【宝山顾村】，拍照签收 已签收</view>     
-                <view class="date default">2016-08-30 11:31:44</view>   
-            </view>
-            <view class="follow_address">     
-                <view class="label"></view>  
-                <view class="address">上海市|派件|上海市【宝山顾村】，【冯师傅/18917596580】正在派件</view>  
-                <view class="date">2016-08-30 11:31:44</view>
-            </view>      
-            <view class="follow_address">      
-                <view class="label"></view>      
-                <view class="address">上海市|发件|上海市【上海转运中心】，正发往【上海嘉定转运中心】</view>     
-                <view class="date">2016-08-30 11:31:44</view>  
-            </view>
-            <view class="follow_address">     
-                <view class="label"></view>     
-                <view class="address">上海市|发件|上海市【上海转运中心】，正发往【上海嘉定转运中心】</view>     
-                <view class="date">2016-08-30 11:31:44</view>
-            </view>
+           <block  wx:for="{{logisticsList}}"  wx:key="{{item.id}}" wx:index="index">
+              <view class="follow_address">
+                <view class="label {{index == 0 ? 'default' : ''}}"></view>       
+                <view class="address {{index == 0 ? 'default' : ''}}">{{item.context}}</view>     
+                <view class="date {{index == 0 ? 'default' : ''}}">{{item.time}}</view>   
+              </view>
+           </block>
         </view>
     </view>
 
 
 </view>
+
+  <!--复制成功-->
+    <view class="mask"  wx:if="{{showModal}}">
+        <view class="float_box">
+            <image src="/static/images/bindSuccess.png"></image>
+            <view class="tip">
+                <view class="C8181 font16" style="text-align:center;margin-bottom:15rpx;">温馨提示</view>
+                <view class="C860 font18">{{modalTitle}}</view>
+            </view>
+            <view class="sure_btn" bindtap="closeFloat">确认</view>
+        </view>
+    </view>

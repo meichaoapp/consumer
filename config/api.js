@@ -73,7 +73,7 @@ module.exports = {
   QueryLogistics: NewApiRootUrl + "common/kuaidi100Query",//获取物流信息（快递100）
 
   ///订单确认
-  LoadCartOrder: NewApiRootUrl + "groupPurchase/cartOrder",//生成订单信息
+  LoadCartOrder: NewApiRootUrl + "order/cartOrder",//生成订单信息
   CreateOrder: NewApiRootUrl + "order/createOrder",//创建订单
   
 };

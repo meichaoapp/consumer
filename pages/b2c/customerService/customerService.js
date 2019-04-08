@@ -174,12 +174,12 @@ Page({
           })
         }
       })
-      var list = _this.data.list;
-      if (list) {
-        list.forEach(msg => {
-          WxParse.wxParse('Msg' + msg.id, 'html', msg.content, _this);
-        });
-      }
+      //var list = _this.data.list;
+      // if (list) {
+      //   list.forEach(msg => {
+      //     WxParse.wxParse('Msg' + msg.id, 'html', msg.content, _this);
+      //   });
+      // }
       
     },
 

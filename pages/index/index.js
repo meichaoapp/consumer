@@ -440,47 +440,50 @@ Page({
         }
         util.request(api.QueryTGNewList, data, "POST").then(function (res) {
             _this.$wuxLoading.hide(); //隐藏加载动画
-            var goodsList = res.data.list;
-            //console.log("goodsList------" + JSON.stringify(goodsList));
-            if (goodsList != null && goodsList.length > 0) {
+            if (res.data) {
+              var goodsList = res.data.list;
+              //console.log("goodsList------" + JSON.stringify(goodsList));
+              if (goodsList != null && goodsList.length > 0) {
                 goodsList.forEach(o => {
-                    o.number = 0;
+                  o.number = 0;
                 });
 
                 var _arr = cart.loadCart();//购物车商品
                 //console.log("cart goods ---" + JSON.stringify(_arr));
                 if (null != _arr && _arr.length > 0) {
-                    var len = _arr.length;
-                    for (var i = 0; i < len; i++) {
-                        var gid = _arr[i].sid;
-                        goodsList.forEach(o => {
-                            if (o.id == gid) {
-                                o.number = _arr[i].number;
-                            }
-                        });
-                    }
+                  var len = _arr.length;
+                  for (var i = 0; i < len; i++) {
+                    var gid = _arr[i].sid;
+                    goodsList.forEach(o => {
+                      if (o.id == gid) {
+                        o.number = _arr[i].number;
+                      }
+                    });
+                  }
                 }
 
-            }
-            if (_this.data.start == 1) { // 下拉刷新
+              }
+              if (_this.data.start == 1) { // 下拉刷新
                 _this.setData({
-                    goodsList: goodsList,
-                    hideHeader: true,
-                    totalPage: res.data.totalPage,
+                  goodsList: goodsList,
+                  hideHeader: true,
+                  totalPage: res.data.totalPage,
                 })
-            } else {
+              } else {
                 var tempArray = _this.data.goodsList;
                 if (tempArray != null && goodsList != null) {
-                    tempArray = tempArray.concat(goodsList);
+                  tempArray = tempArray.concat(goodsList);
                 }
                 _this.setData({
-                    goodsList: tempArray,
-                    totalPage: res.data.totalPage,
+                  goodsList: tempArray,
+                  totalPage: res.data.totalPage,
                 })
+              }
+
+
+              _this.refreshCartRef();
             }
-
-
-            _this.refreshCartRef();
+           
         })
 
     },

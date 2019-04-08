@@ -7,6 +7,8 @@ Page({
     orderId: 0,
     detail:{},
     logisticsList:null, //物流信息
+    showModal: false,
+    modalTitle: "",
   },
   onLoad: function (options) {
     // 页面初始化 options为页面跳转所带来的参数
@@ -38,15 +40,18 @@ Page({
    */
   viewLogistics: function() {
     let _this = this;
+    _this.data.detail.expressNum = "3700390913306";
+    _this.data.detail.expressCode = "yunda";
     if (_this.data.detail.expressNum) {
       var data = {
         expressCode: _this.data.detail.expressCode,// 快递公司编号
         expressNum: _this.data.detail.expressNum ,// 运单编号，未发货时，不显示
       };
       util.request(api.QueryLogistics, data, "POST").then(function (res) {
-        if (res.rs === 1) {
+        if (res.rs === 1 && res.data) {
+          var data = JSON.parse(res.data).data;
           _this.setData({
-            logisticsList: res.data, //物流信息
+            logisticsList: data, //物流信息
           });
         } else {
           wx.showToast({
@@ -75,6 +80,28 @@ Page({
       }
     });
   },
+
+  copyOrderCode() {
+    let that = this;
+    //复制到剪切板
+    wx.setClipboardData({
+      data: that.data.detail.orderCode,
+      success() {
+        wx.hideToast();
+        that.setData({
+          modalTitle: "您已复制订单编号",
+          showModal: true
+        });
+      }
+    })
+  },
+
+  closeFloat() {
+    this.setData({
+      modalTitle: "",
+      showModal: false
+    });
+  }
 
 
 })

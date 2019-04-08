@@ -73,6 +73,7 @@ Page({
       var orderGoods = _this.data.orderGoods;
       orderGoods.forEach(o => {
          var order = {
+           "userId":_this.data.userInfo.id,
            "productId": o.sid, // 团购id
            "detailId": o.sid, // 商品id
            "merchantId": o.merchantId,// 店铺id
