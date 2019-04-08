@@ -194,6 +194,9 @@ page{
     color:#52C123;
     border: 1rpx solid #52C123;
 }
+.shipping{
+    padding:0 30rpx;
+}
 .proprietary_tag{
     color:#FF9400;
     border: 1rpx solid #FF9400 ;
