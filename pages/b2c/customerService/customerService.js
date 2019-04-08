@@ -85,10 +85,10 @@ Page({
      * 消息输入
      */
     msgInput: function (e) {
-      // var _this = this;
-      // this.setData({
-      //   content: e.detail.value,
-      // })
+      var _this = this;
+      this.setData({
+        content: e.detail.value,
+      })
     },
 
     /**
@@ -96,6 +96,7 @@ Page({
      */
     sendMessage:function() {
       let _this = this;
+
       var data = {
         "merchantId": _this.data.merchant.merchantId, //商户ID
         "userId": _this.data.userInfo.id, //用户ID
@@ -104,6 +105,7 @@ Page({
         "userAvatar": _this.data.userInfo.avatar, // 用户头像
         "content": _this.data.content //内容
       };
+      console.log("sendMessage-------" + JSON.stringify(data));
       util.request(api.SendMessage, data, "POST").then(function (res) {
         if (res.rs == 1) {
           //重新加载最近一页条消息
