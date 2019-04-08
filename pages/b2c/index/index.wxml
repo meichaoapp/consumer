@@ -20,7 +20,7 @@
             </view>
         </block>
     </scroll-view>
-    <view class="classify_list bg_ff">
+    <view class="subtype_list bg_ff">
         <block wx:for="{{subTypeList}}" wx:key="{{item.code}}">
             <view bindtap='clickSubType' data-code="{{item.code}}" class="single_item flex flex_colum flex_center">
                 <image src="{{item.logo || '/static/images/Bitmap.png'}}"></image>

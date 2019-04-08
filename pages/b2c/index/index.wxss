@@ -58,7 +58,7 @@ page{
     font-size:30rpx;
     font-weight:bold;
 }
-.classify_list{
+.subtype_list{
     border-top: 1rpx solid #D9D9D9;
     overflow:hidden;
     margin-bottom:0;
@@ -186,4 +186,7 @@ page{
     height:305rpx;
     margin-bottom:25rpx;
     margin-top:121rpx;
+}
+.classify_list{
+    margin-bottom:174rpx;
 }

@@ -53,6 +53,7 @@
 .classify_list{
     overflow:auto;
     margin-bottom:100rpx;
+    flex:1;
 }
 .icon_tag{
     width:32rpx;
