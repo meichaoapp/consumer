@@ -32,6 +32,7 @@ Page({
     orderGoods:[],
     isShowPostInfo:false, // 是否显示邮寄信息
     isSplitOrder:false, //是否拆单
+    key:"",
   },
 
   /**
@@ -84,236 +85,237 @@ Page({
         order:orders,
       };
 
-    // util.request(api.LoadCartOrder, data, "POST").then(function (res) {
-    //   if (res.rs === 1) {
-    //     var orderInfo = res.data;
-    //     var merchantOrders = orderInfo.merchantOrders;
-    //     var oneselfOrders = orderInfo.oneselfOrders;
-    //     var couponOrders = orderInfo.couponOrders;
-    //     var b2cOrders = orderInfo.b2cOrders;
+    util.request(api.LoadCartOrder, data, "POST").then(function (res) {
+      if (res.rs === 1) {
+        var orderInfo = res.data;
+        var merchantOrders = orderInfo.merchantOrders;
+        var oneselfOrders = orderInfo.oneselfOrders;
+        var couponOrders = orderInfo.couponOrders;
+        var b2cOrders = orderInfo.b2cOrders;
 
-    //     var totalPay = orderInfo.totalPay;
-    //     var needPay = orderInfo.needPay;
-    //     totalPay = (totalPay != null && !isNaN(totalPay)) ? totalPay : 0;
-    //     needPay = (needPay != null && !isNaN(needPay)) ? needPay : 0;
-    //     var preferential = totalPay - needPay;
-    //     preferential = (preferential >= 0) ? preferential : 0;
+        var totalPay = orderInfo.totalPay;
+        var needPay = orderInfo.needPay;
+        totalPay = (totalPay != null && !isNaN(totalPay)) ? totalPay : 0;
+        needPay = (needPay != null && !isNaN(needPay)) ? needPay : 0;
+        var preferential = totalPay - needPay;
+        preferential = (preferential >= 0) ? preferential : 0;
 
-    //     _this.setData({
-    //       totalPay: totalPay,//共付
-    //       needPay: needPay,// 应付
-    //       preferential: preferential,//优惠
-    //       merchantOrders: merchantOrders,// 团购订单
-    //       oneselfOrders: oneselfOrders, // 自营订单
-    //       couponOrders: couponOrders,
-    //       b2cOrders: b2cOrders,//电商商品
-    //     });
+        _this.setData({
+          key:orderInfo.key,
+          totalPay: totalPay,//共付
+          needPay: needPay,// 应付
+          preferential: preferential,//优惠
+          merchantOrders: merchantOrders,// 团购订单
+          oneselfOrders: oneselfOrders, // 自营订单
+          couponOrders: couponOrders,
+          b2cOrders: b2cOrders,//电商商品
+        });
 
-    //     _this.setData({
-    //       isShowPostInfo: _this.isShowPostInfo(),  // 是否显示邮寄信息
-    //       isSplitOrder: _this.isSplitOrders(), //是否拆单
-    //     });
-    //   }
+        _this.setData({
+          isShowPostInfo: _this.isShowPostInfo(),  // 是否显示邮寄信息
+          isSplitOrder: _this.isSplitOrders(), //是否拆单
+        });
+      }
+    });
+
+    // var orderInfo = {
+    //   "key": "1_123456",
+    //   "totalPay": 210.1,
+    //   "needPay": 210.1,
+    //   "userId": 1,
+    //   "merchantOrders": [
+    //     {
+    //       "productId": 1,
+    //       "productType": 1, //商品类型 1.普通团品 2. 一元购 3. 店长自营产品 5.优惠券商品类型 6.电商
+    //       "needDeliveryPay": 10,
+    //       "merchantId": 1,
+    //       "merchantName": "三好鲜生",
+    //       "address": "山东省日照市大连路540号",
+    //       "merchantPhone": "18310722959",
+    //       "isDelivery": 2,
+    //       "deliveryCost": 10,
+    //       "expenditure": 100,
+    //       "deliveryType":1,
+    //       "totalPay": 210.1,
+    //       "needPay": 210.1,
+    //       "goodsList": [
+    //         {
+    //           "id": 1,
+    //           "price": 10,
+    //           "marketPrice":3.0,
+    //           "url": "https://meichaooss1.oss-cn-beijing.aliyuncs.com/mc/material/img/2019-03-10/1552209717227.jpg",
+    //           "title": "【俄罗斯大牛威化饼干】纯正俄罗斯风味，再次击穿低价！",
+    //           "buyNum": 10,
+    //           "comments":"纯正俄罗斯风味，再次击穿低价",
+    //         }
+    //       ]
+    //     }
+    //   ],
+    //   "oneselfOrders": [
+    //     {
+    //       "productId": 1,
+    //       "productType": 3, //商品类型 1.普通团品 2. 一元购 3. 店长自营产品 5.优惠券商品类型 6.电商
+    //       "needDeliveryPay": 10,
+    //       "merchantId": 1,
+    //       "merchantName": "三好鲜生",
+    //       "merchantPhone":"18310722959",
+    //       "address": "山东省日照市大连路540号",
+    //       "isDelivery": 2,
+    //       "deliveryCost": 10,
+    //       "expenditure": 100,
+    //       "deliveryType": 1,
+    //       "totalPay": 210.1,
+    //       "needPay": 210.1,
+    //       "goodsList": [
+    //         {
+    //           "id": 1,
+    //           "price": 10,
+    //           "marketPrice": 3.0,
+    //           "url": "https://meichaooss1.oss-cn-beijing.aliyuncs.com/mc/material/img/2019-03-10/1552209717227.jpg",
+    //           "title": "【俄罗斯大牛威化饼干】纯正俄罗斯风味，再次击穿低价！",
+    //           "buyNum": 10,
+    //           "comments": "纯正俄罗斯风味，再次击穿低价",
+    //         }
+    //       ]
+    //     }
+    //   ],
+    //   "couponOrders": [
+    //     {
+    //       "productId": 1,
+    //       "productType": 5, //商品类型 1.普通团品 2. 一元购 3. 店长自营产品 5.优惠券商品类型 6.电商
+    //       "needDeliveryPay": 10,
+    //       "merchantId": 1,
+    //       "merchantName": "三好鲜生",
+    //       "address": "山东省日照市大连路540号",
+    //       "merchantPhone": "18310722959",
+    //       "isDelivery": 2,
+    //       "deliveryCost": 10,
+    //       "expenditure": 100,
+    //       "deliveryType": 1,
+    //       "totalPay": 210.1,
+    //       "needPay": 210.1,
+    //       "goodsList": [
+    //         {
+    //           "id": 1,
+    //           "price": 10,
+    //           "marketPrice": 3.0,
+    //           "url": "https://meichaooss1.oss-cn-beijing.aliyuncs.com/mc/material/img/2019-03-10/1552209717227.jpg",
+    //           "title": "【俄罗斯大牛威化饼干】纯正俄罗斯风味，再次击穿低价！",
+    //           "buyNum": 10,
+    //           "comments": "纯正俄罗斯风味，再次击穿低价",
+    //         }
+    //       ]
+    //     },
+    //     {
+    //       "productId": 1,
+    //       "productType": 5, //商品类型 1.普通团品 2. 一元购 3. 店长自营产品 5.优惠券商品类型 6.电商
+    //       "needDeliveryPay": 10,
+    //       "merchantId": 1,
+    //       "merchantName": "三好鲜生",
+    //       "address": "山东省日照市大连路540号",
+    //       "merchantPhone": "18310722959",
+    //       "isDelivery": 2,
+    //       "deliveryCost": 10,
+    //       "expenditure": 100,
+    //       "deliveryType": 1,
+    //       "totalPay": 210.1,
+    //       "needPay": 210.1,
+    //       "goodsList": [
+    //         {
+    //           "id": 1,
+    //           "price": 10,
+    //           "marketPrice": 3.0,
+    //           "url": "https://meichaooss1.oss-cn-beijing.aliyuncs.com/mc/material/img/2019-03-10/1552209717227.jpg",
+    //           "title": "【俄罗斯大牛威化饼干】纯正俄罗斯风味，再次击穿低价！",
+    //           "buyNum": 10,
+    //           "comments": "纯正俄罗斯风味，再次击穿低价",
+    //         }
+    //       ]
+    //     }
+    //   ],
+    //   "b2cOrders": [
+    //     {
+    //       "productId": 1,
+    //       "productType": 6, //商品类型 1.普通团品 2. 一元购 3. 店长自营产品 5.优惠券商品类型 6.电商
+    //       "needDeliveryPay": 10,
+    //       "merchantId": 1,
+    //       "merchantName": "三好鲜生",
+    //       "merchantPhone": "18310722959",
+    //       "address": "",
+    //       "isDelivery": 1,
+    //       "deliveryCost": 10,
+    //       "expenditure": 100,
+    //       "deliveryType": 1,
+    //       "totalPay": 210.1,
+    //       "needPay": 210.1,
+    //       "goodsList": [
+    //         {
+    //           "id": 1,
+    //           "price": 10,
+    //           "marketPrice": 3.0,
+    //           "url":"https://meichaooss1.oss-cn-beijing.aliyuncs.com/mc/material/img/2019-03-10/1552209717227.jpg",
+    //           "title": "【俄罗斯大牛威化饼干】纯正俄罗斯风味，再次击穿低价！",
+    //           "buyNum": 10,
+    //           "comments": "纯正俄罗斯风味，再次击穿低价",
+    //           "specsStr":"选择颜色: 红色 尺码： M",
+    //         }
+    //       ]
+    //     },
+    //     {
+    //       "productId": 2,
+    //       "productType": 6, //商品类型 1.普通团品 2. 一元购 3. 店长自营产品 5.优惠券商品类型 6.电商
+    //       "needDeliveryPay": 10,
+    //       "merchantId": 1,
+    //       "merchantName": "三好鲜生",
+    //       "address": "",
+    //       "isDelivery": 1,
+    //       "deliveryCost": 10,
+    //       "expenditure": 100,
+    //       "deliveryType": 1,
+    //       "totalPay": 210.1,
+    //       "needPay": 210.1,
+    //       "goodsList": [
+    //         {
+    //           "id": 1,
+    //           "price": 10,
+    //           "marketPrice": 3.0,
+    //           "url": "https://meichaooss1.oss-cn-beijing.aliyuncs.com/mc/material/img/2019-03-10/1552209717227.jpg",
+    //           "title": "【俄罗斯大牛威化饼干】纯正俄罗斯风味，再次击穿低价！",
+    //           "buyNum": 10,
+    //           "comments": "纯正俄罗斯风味，再次击穿低价",
+    //           "specsStr": "选择颜色: 红色 尺码： M",
+    //         }
+    //       ]
+    //     }
+    //   ]
+    // }
+
+    // var merchantOrders = orderInfo.merchantOrders;
+    // var oneselfOrders = orderInfo.oneselfOrders;
+    // var couponOrders = orderInfo.couponOrders;
+    // var b2cOrders = orderInfo.b2cOrders;
+
+    // var totalPay = orderInfo.totalPay;
+    // var needPay = orderInfo.needPay;
+    // totalPay = (totalPay != null && !isNaN(totalPay)) ? totalPay : 0;
+    // needPay = (needPay != null && !isNaN(needPay)) ? needPay : 0;
+    // var preferential = totalPay - needPay;
+    // preferential = (preferential >= 0) ? preferential : 0;
+
+    // _this.setData({
+    //   totalPay: totalPay,//共付
+    //   needPay: needPay,// 应付
+    //   preferential: preferential,//优惠
+    //   merchantOrders: merchantOrders,// 团购订单
+    //   oneselfOrders: oneselfOrders, // 自营订单
+    //   couponOrders: couponOrders,
+    //   b2cOrders: b2cOrders,//电商商品
     // });
 
-    var orderInfo = {
-      "key": "1_123456",
-      "totalPay": 210.1,
-      "needPay": 210.1,
-      "userId": 1,
-      "merchantOrders": [
-        {
-          "productId": 1,
-          "productType": 1, //商品类型 1.普通团品 2. 一元购 3. 店长自营产品 5.优惠券商品类型 6.电商
-          "needDeliveryPay": 10,
-          "merchantId": 1,
-          "merchantName": "三好鲜生",
-          "address": "山东省日照市大连路540号",
-          "merchantPhone": "18310722959",
-          "isDelivery": 2,
-          "deliveryCost": 10,
-          "expenditure": 100,
-          "deliveryType":1,
-          "totalPay": 210.1,
-          "needPay": 210.1,
-          "goodsList": [
-            {
-              "id": 1,
-              "price": 10,
-              "marketPrice":3.0,
-              "url": "https://meichaooss1.oss-cn-beijing.aliyuncs.com/mc/material/img/2019-03-10/1552209717227.jpg",
-              "title": "【俄罗斯大牛威化饼干】纯正俄罗斯风味，再次击穿低价！",
-              "buyNum": 10,
-              "comments":"纯正俄罗斯风味，再次击穿低价",
-            }
-          ]
-        }
-      ],
-      "oneselfOrders": [
-        {
-          "productId": 1,
-          "productType": 3, //商品类型 1.普通团品 2. 一元购 3. 店长自营产品 5.优惠券商品类型 6.电商
-          "needDeliveryPay": 10,
-          "merchantId": 1,
-          "merchantName": "三好鲜生",
-          "merchantPhone":"18310722959",
-          "address": "山东省日照市大连路540号",
-          "isDelivery": 2,
-          "deliveryCost": 10,
-          "expenditure": 100,
-          "deliveryType": 1,
-          "totalPay": 210.1,
-          "needPay": 210.1,
-          "goodsList": [
-            {
-              "id": 1,
-              "price": 10,
-              "marketPrice": 3.0,
-              "url": "https://meichaooss1.oss-cn-beijing.aliyuncs.com/mc/material/img/2019-03-10/1552209717227.jpg",
-              "title": "【俄罗斯大牛威化饼干】纯正俄罗斯风味，再次击穿低价！",
-              "buyNum": 10,
-              "comments": "纯正俄罗斯风味，再次击穿低价",
-            }
-          ]
-        }
-      ],
-      "couponOrders": [
-        {
-          "productId": 1,
-          "productType": 5, //商品类型 1.普通团品 2. 一元购 3. 店长自营产品 5.优惠券商品类型 6.电商
-          "needDeliveryPay": 10,
-          "merchantId": 1,
-          "merchantName": "三好鲜生",
-          "address": "山东省日照市大连路540号",
-          "merchantPhone": "18310722959",
-          "isDelivery": 2,
-          "deliveryCost": 10,
-          "expenditure": 100,
-          "deliveryType": 1,
-          "totalPay": 210.1,
-          "needPay": 210.1,
-          "goodsList": [
-            {
-              "id": 1,
-              "price": 10,
-              "marketPrice": 3.0,
-              "url": "https://meichaooss1.oss-cn-beijing.aliyuncs.com/mc/material/img/2019-03-10/1552209717227.jpg",
-              "title": "【俄罗斯大牛威化饼干】纯正俄罗斯风味，再次击穿低价！",
-              "buyNum": 10,
-              "comments": "纯正俄罗斯风味，再次击穿低价",
-            }
-          ]
-        },
-        {
-          "productId": 1,
-          "productType": 5, //商品类型 1.普通团品 2. 一元购 3. 店长自营产品 5.优惠券商品类型 6.电商
-          "needDeliveryPay": 10,
-          "merchantId": 1,
-          "merchantName": "三好鲜生",
-          "address": "山东省日照市大连路540号",
-          "merchantPhone": "18310722959",
-          "isDelivery": 2,
-          "deliveryCost": 10,
-          "expenditure": 100,
-          "deliveryType": 1,
-          "totalPay": 210.1,
-          "needPay": 210.1,
-          "goodsList": [
-            {
-              "id": 1,
-              "price": 10,
-              "marketPrice": 3.0,
-              "url": "https://meichaooss1.oss-cn-beijing.aliyuncs.com/mc/material/img/2019-03-10/1552209717227.jpg",
-              "title": "【俄罗斯大牛威化饼干】纯正俄罗斯风味，再次击穿低价！",
-              "buyNum": 10,
-              "comments": "纯正俄罗斯风味，再次击穿低价",
-            }
-          ]
-        }
-      ],
-      "b2cOrders": [
-        {
-          "productId": 1,
-          "productType": 6, //商品类型 1.普通团品 2. 一元购 3. 店长自营产品 5.优惠券商品类型 6.电商
-          "needDeliveryPay": 10,
-          "merchantId": 1,
-          "merchantName": "三好鲜生",
-          "merchantPhone": "18310722959",
-          "address": "",
-          "isDelivery": 1,
-          "deliveryCost": 10,
-          "expenditure": 100,
-          "deliveryType": 1,
-          "totalPay": 210.1,
-          "needPay": 210.1,
-          "goodsList": [
-            {
-              "id": 1,
-              "price": 10,
-              "marketPrice": 3.0,
-              "url":"https://meichaooss1.oss-cn-beijing.aliyuncs.com/mc/material/img/2019-03-10/1552209717227.jpg",
-              "title": "【俄罗斯大牛威化饼干】纯正俄罗斯风味，再次击穿低价！",
-              "buyNum": 10,
-              "comments": "纯正俄罗斯风味，再次击穿低价",
-              "specsStr":"选择颜色: 红色 尺码： M",
-            }
-          ]
-        },
-        {
-          "productId": 2,
-          "productType": 6, //商品类型 1.普通团品 2. 一元购 3. 店长自营产品 5.优惠券商品类型 6.电商
-          "needDeliveryPay": 10,
-          "merchantId": 1,
-          "merchantName": "三好鲜生",
-          "address": "",
-          "isDelivery": 1,
-          "deliveryCost": 10,
-          "expenditure": 100,
-          "deliveryType": 1,
-          "totalPay": 210.1,
-          "needPay": 210.1,
-          "goodsList": [
-            {
-              "id": 1,
-              "price": 10,
-              "marketPrice": 3.0,
-              "url": "https://meichaooss1.oss-cn-beijing.aliyuncs.com/mc/material/img/2019-03-10/1552209717227.jpg",
-              "title": "【俄罗斯大牛威化饼干】纯正俄罗斯风味，再次击穿低价！",
-              "buyNum": 10,
-              "comments": "纯正俄罗斯风味，再次击穿低价",
-              "specsStr": "选择颜色: 红色 尺码： M",
-            }
-          ]
-        }
-      ]
-    }
-
-    var merchantOrders = orderInfo.merchantOrders;
-    var oneselfOrders = orderInfo.oneselfOrders;
-    var couponOrders = orderInfo.couponOrders;
-    var b2cOrders = orderInfo.b2cOrders;
-
-    var totalPay = orderInfo.totalPay;
-    var needPay = orderInfo.needPay;
-    totalPay = (totalPay != null && !isNaN(totalPay)) ? totalPay : 0;
-    needPay = (needPay != null && !isNaN(needPay)) ? needPay : 0;
-    var preferential = totalPay - needPay;
-    preferential = (preferential >= 0) ? preferential : 0;
-
-    _this.setData({
-      totalPay: totalPay,//共付
-      needPay: needPay,// 应付
-      preferential: preferential,//优惠
-      merchantOrders: merchantOrders,// 团购订单
-      oneselfOrders: oneselfOrders, // 自营订单
-      couponOrders: couponOrders,
-      b2cOrders: b2cOrders,//电商商品
-    });
-
-    _this.setData({
-      isShowPostInfo: _this.isShowPostInfo(),  // 是否显示邮寄信息
-      isSplitOrder: _this.isSplitOrders(), //是否拆单
-    });
+    // _this.setData({
+    //   isShowPostInfo: _this.isShowPostInfo(),  // 是否显示邮寄信息
+    //   isSplitOrder: _this.isSplitOrders(), //是否拆单
+    // });
 
       
   },
@@ -673,7 +675,7 @@ Page({
   getOrderDatas: function(){
     let _this = this;
     var orderInfo = {
-      "key": "1_123456",
+      "key": _this.data.key,
       "totalPay": _this.data.totalPay,
       "needPay": _this.data.needPay,
       "userId": _this.data.userInfo.id,

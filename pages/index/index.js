@@ -94,8 +94,10 @@ Page({
     checkUser: function (mid) {
         let _this = this;
         let userInfo = wx.getStorageSync('userInfo');
+        //console.log("checkUser-000000000------" + JSON.stringify(userInfo));
         if (util.isNotNULL(userInfo)) {
             _this.setData({userInfo: userInfo,});
+             wx.setStorageSync('userInfo', userInfo);
             _this.checkMerchant(mid); //检查商户
         } else {
             wecache.put("pid", _this.data.pid, 0);
@@ -120,8 +122,9 @@ Page({
                 || merchant.merchantId == null
                 || merchant.merchantId == "") {
                 //清空缓存
-                wx.clearStorageSync();
-                wx.clearStorage();
+                //wx.clearStorageSync();
+                //wx.clearStorage();
+                cart.cleanCart2();
                 wecache.put("mid", mid != null ? mid : 0, 0);
                 wx.redirectTo({
                   url: '/pages/auth/choiceMerchant/choiceMerchant'
@@ -228,6 +231,7 @@ Page({
     onShow: function () {
       let _this = this;
       let userInfo = wx.getStorageSync('userInfo');
+      //console.log("checkUser-011111111------" + JSON.stringify(userInfo));
       if (util.isNotNULL(userInfo)) {
         _this.setData({ userInfo: userInfo, });
         let merchant = wx.getStorageSync(currentMerchat);
