@@ -30,16 +30,18 @@
     </view>
 
     <view wx:if="{{goodsList != null}}" class="goods_list">
-        <block wx:for="{{goodsList}}" wx:key="{{item.id}}">
-            <view bindtap='toDetail' data-id='{{item.id}}' class="goods_item bg_ff">
-                <image src="{{item.url}}"></image>
-                <view class="name ellipsis_2">{{item.name || ""}}</view>
-                <view class="sell_info">
-                    <view class="price">￥ {{item.price || 0}}</view>
-                    <view class="font12 C999">{{item.sold || ""}}</view>
+        <view class="goods_box">
+            <block wx:for="{{goodsList}}" wx:key="{{item.id}}">
+                <view bindtap='toDetail' data-id='{{item.id}}' class="goods_item bg_ff">
+                    <image src="{{item.url}}"></image>
+                    <view class="name ellipsis_2">{{item.name || ""}}</view>
+                    <view class="sell_info">
+                        <view class="price">￥ {{item.price || 0}}</view>
+                        <view class="font12 C999">{{item.sold || ""}}</view>
+                    </view>
                 </view>
-            </view>
-        </block>
+            </block>
+        </view>
         <view class="n-bottom" hidden="{{hideBottom}}">
             <view>
                 <view class='transverseline'>
