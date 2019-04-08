@@ -168,7 +168,7 @@ Page({
         } else {
           var tempArray = _this.data.list;
           if (tempArray != null && list != null) {
-            tempArray = list.concat(tempArray);
+            tempArray = tempArray.concat(list);
           }
           _this.setData({
             list: tempArray,
@@ -198,7 +198,7 @@ Page({
       var _this = this;
       if (_this.data.list) {
         for (var i = 0; i < _this.data.list.length; i++) {
-          _this.data.list[i].timer = timeUtil.getDateDiff(new Date(_this.data.list[i].createTime).getTime());
+          _this.data.list[i].timer = timeUtil.getDateDiff(new Date(_this.data.list[i].createTimeStr).getTime());
         }
         _this.setData({
           list: _this.data.list,
