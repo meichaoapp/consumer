@@ -64,7 +64,7 @@ input{
     background: #FFFFFF;
     border-radius:6rpx;
     padding:0 10rpx;
-    font-size:40rpx;
+    font-size:28rpx;
 }
 .icon_emotion{
     width:49rpx;
