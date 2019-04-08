@@ -58,8 +58,9 @@ Page({
         || merchant.merchantId == null
         || merchant.merchantId == "") {
         //清空缓存
-        wx.clearStorageSync();
-        wx.clearStorage();
+        // wx.clearStorageSync();
+        // wx.clearStorage();
+        cart.cleanCart2();
         wx.redirectTo({
           url: '/pages/auth/choiceMerchant/choiceMerchant'
         });
