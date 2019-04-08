@@ -182,36 +182,7 @@ input{
     flex-direction:column;
 
 }
-.shop_car .car_title{
-    height:76px;
-    padding:0 30rpx;
-}
-.classify_list{
-    overflow:auto;
-    margin-bottom:100rpx;
-}
-.classify_title{
-    height:51rpx;
-    line-height:51rpx;
-    background: #F8FFF4;
-    color:#60A33B;
-    border-top:1px solid #81C95A;
-    border-bottom:1px solid #81C95A;
-    padding:0 30rpx;
-}
-.classify_item{
-    height:103rpx;
-    border-bottom:1px solid #D9D9D9;
-    padding:0 30rpx;
-}
-.classify_item .goods_name{
-    width:256rpx;
-    margin-right:88rpx;
 
-}
-.classify_item .right_part{
-    flex:1;
-}
 .icon_soldout{
     width:166rpx;
     height:100rpx;
