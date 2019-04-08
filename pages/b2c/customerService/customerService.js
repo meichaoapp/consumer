@@ -3,6 +3,11 @@ var util = require('../../../utils/util.js');
 var api = require('../../../config/api.js');
 var WxParse = require('../../../lib/wxParse/wxParse.js');
 var timeUtil = require('../../../utils/timeUtils.js');
+
+const inputHeight = 54;
+const emojiHeight = 224;
+const timeouts = [];
+let windowHeight;
 Page({
 
     /**
@@ -19,6 +24,9 @@ Page({
         ],
         isShowEmotion: false,
         isFocus:false,
+        sysInfo: {},
+        scrollHeight: '0',
+        scrollTop: 9999,
         bottom:0,//输入框距离底部的距离
         list: [], //消息集合
         start: 1, // 页码
@@ -35,6 +43,12 @@ Page({
       let _this = this;
       _this.setData({
         merchantId:options.mid,
+      });
+      const sysInfo = wx.getSystemInfoSync()
+      windowHeight = sysInfo.windowHeight
+      const scrollHeight = `${windowHeight - inputHeight}px`
+      _this.setData({
+          scrollHeight: scrollHeight,
       });
       let userInfo = wx.getStorageSync('userInfo');
       if (null != userInfo && userInfo != "" && undefined != userInfo) {
@@ -122,6 +136,7 @@ Page({
             totalPage: 0, // 共有页
             content:"",
           });
+          _this.goBottom(500);
           _this.queryMessageHistory(); // 加载聊天信息
         }
       });
@@ -215,17 +230,31 @@ Page({
         console.log('显示表情了');
         this.setData({
             isShowEmotion:true,
+            scrollHeight: `${windowHeight - inputHeight - emojiHeight}px`,
         })
+        this.goBottom(50);
         console.log('isShowEmotion',this.data.isShowEmotion);
     },
     showKey(){
-        // if(this.data.isFocus){
-        //
-        // }
         this.setData({
             isFocus:true,
-            isShowEmotion:false
+            isShowEmotion:false,
+            scrollHeight: `${windowHeight - inputHeight}px`,
         })
+    },
+    onUnload: function () {
+        // 清除定时器
+        timeouts.forEach(item => {
+            clearTimeout(item)
+        })
+    },
+    // 滚动聊天
+    goBottom: function (n = 0) {
+        timeouts.push(setTimeout(() => {
+            this.setData({
+                scrollTop: 9999
+            })
+        }, n))
     },
     getFocus(e){
         console.log('333333',e.detail);
@@ -234,7 +263,8 @@ Page({
         })
         if(this.data.isShowEmotion){
             this.setData({
-                isShowEmotion:false
+                isShowEmotion:false,
+                scrollHeight: `${windowHeight - inputHeight}px`,
             })
         }
     },
@@ -248,5 +278,15 @@ Page({
     insertEmotion(e){
         const { key } = e.currentTarget.dataset;
         this.setData({ content: this.data.content + key });
+    },
+    // 点击滚动框
+    scrollClick: function () {
+        const { isShowEmotion } = this.data;
+        if (isShowEmotion) {
+            this.setData({
+                scrollHeight: `${windowHeight - inputHeight}px`,
+                isShowEmotion: false
+            });
+        }
     },
 })

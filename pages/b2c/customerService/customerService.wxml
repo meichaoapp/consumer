@@ -2,7 +2,8 @@
 <view class="container">
     <!--客服消息-->
     <view class="msgList">
-      <block wx:for="{{list}}" wx:key="{{item.id}}">
+        <scroll-view catchtap="scrollClick" class="msg_scroll" style="height:{{scrollHeight}}" scroll-top="{{scrollTop}}" scroll-y scroll-with-animation>
+            <block wx:for="{{list}}" wx:key="{{item.id}}">
          <view class="{{item.type == 1 ? 'other' : 'mine'}}">
             <view class="flex flex_just">
                 <view class="time font12 cfff">{{item.timer}}</view>
@@ -17,6 +18,7 @@
             </view>
          </view>
       </block>
+        </scroll-view>
     </view>
 
     <view class="fixed_bottom">

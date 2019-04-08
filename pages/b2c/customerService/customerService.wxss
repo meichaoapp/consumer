@@ -4,7 +4,7 @@ page{
 }
 .container{
     height:100%;
-    padding:30rpx;
+    /*padding:30rpx;*/
 }
 .time{
     opacity: 0.16;
@@ -14,9 +14,9 @@ page{
     line-height:38rpx;
     display:inline-block;
 }
-.msgList{
-    padding-bottom:135rpx;
-}
+/*.msgList{*/
+    /*padding-bottom:135rpx;*/
+/*}*/
 .msg_box{
     margin:35rpx 0;
     overflow:hidden;
@@ -25,6 +25,12 @@ page{
     width:72rpx;
     height:72rpx;
     border-radius:50%;
+}
+.other{
+    padding:0 30rpx;
+}
+.mine{
+    padding:0 30rpx;
 }
 .other .avatar{
     margin-right:15rpx;
