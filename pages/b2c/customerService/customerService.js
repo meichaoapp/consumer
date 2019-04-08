@@ -2,6 +2,7 @@ var app = getApp();
 var util = require('../../../utils/util.js');
 var api = require('../../../config/api.js');
 var WxParse = require('../../../lib/wxParse/wxParse.js');
+var timeUtil = require('../../../utils/timeUtils.js');
 Page({
 
     /**
@@ -42,7 +43,13 @@ Page({
         });
       }
       _this.loadMerchat(); //加载商户信息
-     
+
+      //开启刷新
+      if (this.interval0) clearInterval(this.interval0);;
+      this.interval0 = setInterval(function () {
+        _this.refreshTimer();
+      }, 30000);//30秒刷新
+
       //开启刷新
       if (this.interval) clearInterval(this.interval);;
       this.interval = setInterval(function () {
@@ -173,6 +180,7 @@ Page({
             showMore: true, //显示更多历史消息提示
           })
         }
+        _this.refreshTimer();
       })
       //var list = _this.data.list;
       // if (list) {
@@ -181,6 +189,21 @@ Page({
       //   });
       // }
       
+    },
+
+    /**
+    * 刷新时间
+    */
+    refreshTimer: function () {
+      var _this = this;
+      if (_this.data.list) {
+        for (var i = 0; i < _this.data.list.length; i++) {
+          _this.data.list[i].timer = timeUtil.getDateDiff(new Date(_this.data.list[i].createTime).getTime());
+        }
+        _this.setData({
+          list: _this.data.list,
+        });
+      }
     },
 
 

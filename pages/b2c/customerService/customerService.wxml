@@ -5,7 +5,7 @@
       <block wx:for="{{list}}" wx:key="{{item.id}}">
          <view class="{{item.type == 1 ? 'other' : 'mine'}}">
             <view class="flex flex_just">
-                <view class="time font12 cfff">今天22:37</view>
+                <view class="time font12 cfff">{{item.timer}}</view>
             </view>
             <view class="msg_box">
                 <image class="avatar" src="{{item.type == 1 ? item.merchantAvatar : item.userAvatar}}"></image>
