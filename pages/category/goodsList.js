@@ -308,35 +308,37 @@ Page({
       }
       return cartList;
     },
-    //检查和填充
-    checkAndFill: function (item, cartList) {
-      var obj = {
-        merchantId: item.merchantId,
-        merchantName: item.merchantName,
-      };
-      if (cartList.length > 0) {
-        var inCar = false;
-        cartList.forEach(o => {
-          if (o.merchantId == item.merchantId) {
-            var list = o.list;
-            list.push(item);
-            obj.list = list;
-            inCar = true;
-          }
-        });
-        if (!inCar) {
-          var list = [];
+  //检查和填充
+  checkAndFill: function (item, cartList) {
+    var obj = {
+      merchantId: item.merchantId,
+      merchantName: item.merchantName,
+    };
+    if (cartList.length > 0) {
+      var inCar = false;
+      cartList.forEach(o => {
+        if (o.merchantId == item.merchantId) {
+          var list = o.list;
           list.push(item);
           obj.list = list;
+          inCar = true;
         }
-      } else {
+      });
+      if (!inCar) {
         var list = [];
         list.push(item);
         obj.list = list;
+        cartList.push(obj);
       }
+    } else {
+      var list = [];
+      list.push(item);
+      obj.list = list;
       cartList.push(obj);
-      return cartList;
-    },
+    }
+
+    return cartList;
+  },
     //减
     cutNumber: function (e) {
         let _this = this;
@@ -346,7 +348,7 @@ Page({
         var goodsList = _this.data.goodsList;
         if (goodsList != null && goodsList.length > 0) {
             goodsList.forEach(o => {
-                if (o.id == id) {
+                if (o.id == sid) {
                     o.number = o.number - 1;
                     if (o.number < 0) {
                         o.number = 0;
@@ -376,6 +378,7 @@ Page({
       var sid = e.currentTarget.dataset.sid;
       var type = e.currentTarget.dataset.type;
       var id = cart.appendPrefix(type, sid);
+      console.log("addNumber-----------------" + id);
       if (6 == type) {
         var g = cart.loadCartGoods(id);
         //console.log("购物无车商品---" + JSON.stringify(g));
@@ -405,14 +408,14 @@ Page({
         var list = _this.data.goodsList;
         if (list != null && list.length > 0) {
           for (var i = 0; i < list.length; i++) {
-            if (list[i].id === id) {
+            if (list[i].id === sid) {
               var goods = list[i];
               var g = cart.loadCartGoods(id);
               //console.log("购物无车商品---" + JSON.stringify(g));
               if (g == null && goods != null) {//如果没有则加入购物车
-                if (goods.productType != 5 && !_this.checkRel(id)) {
-                  return;
-                }
+                // if (goods.productType != 5 && !_this.checkRel(sid)) {
+                //   return;
+                // }
                 if ((goods.joinNum + 1) > goods.limitNum) {
                   wx.showToast({
                     icon: "none",
@@ -423,11 +426,13 @@ Page({
                   goods.number = 1;
                 }
                 goods.sid = sid;
+                goods.id = id;
                 cart.add2Cart(goods);
+                goods.id = sid;
               } else {//如果购物车以前有则更新购物车商品数量
-                if (g.productType != 5 && !_this.checkRel(id)) {
-                  return;
-                }
+                // if (g.productType != 5 && !_this.checkRel(sid)) {
+                //   return;
+                // }
                 g.number = g.number + 1;
                 if ((goods.joinNum + g.number) > goods.limitNum) {
                   wx.showToast({

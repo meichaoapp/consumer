@@ -70,10 +70,10 @@
                                 </view>
                                 <view class="set_car flex flex_center ml10"
                                       wx:if="{{item.joinNum<item.limitNum}}">
-                                    <image bindtap='cutNumber' data-id='{{item.id}}'
+                                    <image bindtap='cutNumber' data-type='{{item.productType}}' data-sid='{{item.id}}'
                                            src="https://wxpic.iliangpin.cn/meichao/minus.png"></image>
                                     <text class="count">{{item.number}}</text>
-                                    <image bindtap='addNumber' data-id='{{item.id}}'
+                                    <image bindtap='addNumber' data-type='{{item.productType}}' data-sid='{{item.id}}'
                                            src="https://wxpic.iliangpin.cn/meichao/plus.png"></image>
                                 </view>
                             </view>

@@ -103,8 +103,8 @@ Page({
 
         _this.setData({
           key:orderInfo.key,
-          totalPay: totalPay,//共付
-          needPay: needPay,// 应付
+          totalPay: totalPay.toFixed(2),//共付
+          needPay: needPay.toFixed(2),// 应付
           preferential: preferential,//优惠
           merchantOrders: merchantOrders,// 团购订单
           oneselfOrders: oneselfOrders, // 自营订单
@@ -283,8 +283,8 @@ Page({
     preferential = (preferential >= 0) ? preferential : 0;
 
     _this.setData({
-      totalPay: totalPay,//共付
-      needPay: needPay,// 应付
+      totalPay: totalPay.toFixed(2),//共付
+      needPay: needPay.toFixed(2),// 应付
       preferential: preferential,//优惠
       isShowPostInfo: _this.isShowPostInfo(),  // 是否显示邮寄信息
       isSplitOrder: _this.isSplitOrders(), //是否拆单

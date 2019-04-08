@@ -41,6 +41,7 @@ function appendPrefix(type,id){
     default:
       prefixId = "purchase_" + id;
   }
+  return prefixId;
 }
 
 /**
