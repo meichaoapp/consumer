@@ -42,6 +42,7 @@ Page({
         });
       }
       _this.loadMerchat(); //加载商户信息
+     
       //开启刷新
       if (this.interval) clearInterval(this.interval);;
       this.interval = setInterval(function () {
@@ -67,6 +68,7 @@ Page({
               merchant: merchantList[0],
             })
           } 
+          that.queryMessageHistory();
         }
       });
     },
@@ -77,6 +79,16 @@ Page({
      */
     onShow: function () {
 
+    },
+   
+    /**
+     * 消息输入
+     */
+    msgInput: function (e) {
+      var _this = this;
+      this.setData({
+        content: e.detail.value,
+      })
     },
 
     /**
@@ -99,6 +111,7 @@ Page({
             list: [], //消息集合
             start: 1, // 页码
             totalPage: 0, // 共有页
+            content:"",
           });
           _this.queryMessageHistory(); // 加载聊天信息
         }
@@ -159,6 +172,13 @@ Page({
           })
         }
       })
+      var list = _this.data.list;
+      if (list) {
+        list.forEach(msg => {
+          WxParse.wxParse('Msg' + msg.id, 'html', msg.content, _this);
+        });
+      }
+      
     },
 
 
