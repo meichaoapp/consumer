@@ -27,7 +27,7 @@
             <image class="icon_add" src="/static/images/icon_add.png"></image>
         </view>
         <view class="emotion_list" wx:if="{{isShowEmotion}}">
-            <view wx:for="{{connectEmotion}}" bindtap="insertEmotion">{{item}}</view>
+            <view wx:for="{{connectEmotion}}" bindtap="insertEmotion" data-key="{{item}}">{{item}}</view>
         </view>
     </view>
 </view>

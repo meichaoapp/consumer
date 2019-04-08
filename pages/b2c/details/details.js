@@ -92,6 +92,9 @@ Page({
       wx.navigateTo({
         url: '/pages/b2c/customerService/customerService?mid=' + _this.data.merchant.merchantId,
       })
+      wx.setNavigationBarTitle({
+        title: _this.data.merchant.merchantName
+      })
     },
 
     /**

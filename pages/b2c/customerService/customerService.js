@@ -85,10 +85,10 @@ Page({
      * 消息输入
      */
     msgInput: function (e) {
-      var _this = this;
-      this.setData({
-        content: e.detail.value,
-      })
+      // var _this = this;
+      // this.setData({
+      //   content: e.detail.value,
+      // })
     },
 
     /**
@@ -209,13 +209,15 @@ Page({
             })
         }
     },
-    blur(){
+    blur(e){
         console.log('失去焦点');
         this.setData({
-            isShowEmotionIcon:false
+            isShowEmotionIcon:false,
+            content: e.detail.value
         })
     },
-    insertEmotion(){
-
+    insertEmotion(e){
+        const { key } = e.currentTarget.dataset;
+        this.setData({ content: this.data.content + key });
     },
 })
