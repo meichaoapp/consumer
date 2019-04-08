@@ -74,7 +74,7 @@ Page({
       orderGoods.forEach(o => {
          var order = {
            "userId":_this.data.userInfo.id,
-           "productId": (o.productType == 6) ? o.b2cId : o.sid, // 团购id
+           "productId": (o.productType == 6) ? o.b2cId : o.productId, // 团购id
            "detailId": o.sid, // 商品id
            "merchantId": o.merchantId,// 店铺id
            "productType": o.productType,// 类型 1 团购 3 自营 5 优惠券 6 电商 
