@@ -39,7 +39,7 @@
                         <view wx:if="{{item.productType != 5}}" class="old_price">￥{{item.marketPrice}}</view>
                     </view>
                     <view class="set_car flex flex_center ml10">
-                        <image bindtap='cutNumber' data-type='{{item.productType}}' data-sid='{{item.id}}' src="https://wxpic.iliangpin.cn/meichao/minus.png"></image>
+                        <image bindtap='cutNumber' data-type='{{item.productType}}' data-sid='{{item.id}}'src="https://wxpic.iliangpin.cn/meichao/minus.png"></image>
                         <text class="count">{{item.number}}</text>
                         <image bindtap='addNumber' data-type='{{item.productType}}' data-sid='{{item.id}}'  src="https://wxpic.iliangpin.cn/meichao/plus.png"></image>
                     </view>
