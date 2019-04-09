@@ -34,7 +34,7 @@
                         <view class="font15">
                             {{merchant.merchantName}}
                         </view>
-                        <view class="wx_btn font12" catchtap='copyWxCode'>微信联系团长</view>
+                        <!-- <view class="wx_btn font12" catchtap='copyWxCode'>微信联系团长</view> -->
                     </view>
 
                     <view class="flex flex_center mt20">
