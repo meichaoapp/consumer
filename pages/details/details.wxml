@@ -93,7 +93,7 @@
                 <image class="avatar" src="{{merchant.logo}}"></image>
                 <view class="font15 strong">团长名称</view>
             </view>
-            <view class="connect_wx font12" catchtap='copyWxCode'>微信联系团长</view>
+            <!-- <view class="connect_wx font12" catchtap='copyWxCode'>微信联系团长</view> -->
         </view>
         <view class="bottom_part">
             <view class="flex flex_center">

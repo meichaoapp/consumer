@@ -117,7 +117,7 @@ Page({
 
         if (null != merchant && undefined != merchant
             && null != currentIndex && undefined != currentIndex) {
-            console.log("mid--------" + mid + "----merchant.merchantId-------" + merchant.merchantId);
+            //console.log("mid--------" + mid + "----merchant.merchantId-------" + merchant.merchantId);
             if (merchant.merchantId == undefined
                 || merchant.merchantId == null
                 || merchant.merchantId == "") {
@@ -136,10 +136,10 @@ Page({
                 merchant: merchant,
                 currentIndex: currentIndex
             });
-            console.log("mid--------" + mid + "----merchant.merchantId-------" + that.data.merchant.merchantId);
+            //console.log("mid--------" + mid + "----merchant.merchantId-------" + that.data.merchant.merchantId);
 
             if (null != mid && "" != mid && undefined != mid && mid != that.data.merchant.merchantId) {
-                console.log("mid--------" + mid);
+                //console.log("mid--------" + mid);
                 that.setData({
                     swithModal: true,
                 });
@@ -181,7 +181,7 @@ Page({
                 };
 
                 util.request(api.QueryMerchants, data, "POST").then(function (res) {
-                    console.log('------商户信息', res);
+                    //console.log('------商户信息', res);
                     if (res.rs === 1) {
                         var merchantList = res.data;
                         var merchant = null;
@@ -318,7 +318,7 @@ Page({
     listenerSellTypeClick:function(e) {
       let that = this;
       let id = e.currentTarget.dataset.id;
-      if(id == 1 || id === 4){
+      if(id == 1 || id == 4){
         let index = e.currentTarget.dataset.index;
         that.setData({
           num: index,
@@ -507,7 +507,6 @@ Page({
     },
     modalConfirm: function () {
         let _this = this;
-        console.log("modalConfirm-----");
         //刷新和重置数据
         _this.setData({
             start: 1, // 页码
@@ -538,7 +537,7 @@ Page({
         _this.setData({
             tmpCurrentIndex: index,
         })
-        console.log("clickMerchant id -- " + id);
+       // console.log("clickMerchant id -- " + id);
         var merchantList = _this.data.merchantList;
         var merchant = {};
         if (null != merchantList) {

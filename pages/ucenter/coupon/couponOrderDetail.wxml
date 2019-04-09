@@ -21,7 +21,7 @@
                 <image src="{{merchant.logo}}"></image>
                 <text class="font15 strong">{{merchant.merchantName}}</text>
             </view>
-            <view class="wx_btn font12" catchtap='copyWxCode'>微信联系团长</view>
+            <!-- <view class="wx_btn font12" catchtap='copyWxCode'>微信联系团长</view> -->
         </view>
         <view class="con">
             <view class="user flex flex_center">
