@@ -115,7 +115,7 @@ Page({
     var _this = this;
     if (_this.data.list) {
       for (var i = 0; i < _this.data.list.length; i++) {
-        _this.data.list[i].timer = timeUtil.getDateDiff(new Date(_this.data.list[i].createTime).getTime());
+        _this.data.list[i].timer = timeUtil.getDateDiff(new Date(_this.data.list[i].createTimeStr).getTime());
       }
       _this.setData({
         list: _this.data.list,
