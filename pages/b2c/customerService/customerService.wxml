@@ -2,7 +2,7 @@
 <view class="container">
     <!--客服消息-->
     <view class="msgList">
-        <scroll-view catchtap="scrollClick" class="msg_scroll" style="height:{{scrollHeight}}" scroll-top="{{scrollTop}}" scroll-y scroll-with-animation>
+        <scroll-view bindscrolltoupper="loadMore" catchtap="scrollClick" class="msg_scroll" style="height:{{scrollHeight}}" scroll-top="{{scrollTop}}" scroll-y scroll-with-animation>
             <block wx:for="{{list}}" wx:key="{{item.id}}">
          <view class="{{item.type == 1 ? 'other' : 'mine'}}">
             <view class="flex flex_just">

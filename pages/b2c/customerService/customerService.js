@@ -33,6 +33,7 @@ Page({
         totalPage: 0, // 共有页
         limit: 10,//每页条数
         showMore: false, //显示更多历史消息提示
+        loadType:0, //加载最新消息 0  历史消息 1
      
     },
 
@@ -67,9 +68,6 @@ Page({
       //开启刷新
       if (this.interval) clearInterval(this.interval);;
       this.interval = setInterval(function () {
-        _this.setData({
-          start: 1, // 页码
-        });
         _this.queryMessageHistory(); // 加载聊天信息
       }, 10000);//10秒刷新
     },
@@ -81,7 +79,7 @@ Page({
         "merchantId": that.data.merchantId,//商户ID
       };
       util.request(api.QueryMerchants, data, "POST").then(function (res) {
-        console.log('------商户信息', res);
+        //console.log('------商户信息', res);
         if (res.rs === 1) {
           var merchantList = res.data;
           if (null != merchantList && merchantList.length > 0) {
@@ -156,6 +154,7 @@ Page({
       }
       setTimeout(function () {
         _this.setData({
+          loadType: 1,
           start: _this.data.start + 1,
         })
         _this.queryMessageHistory();
@@ -166,43 +165,84 @@ Page({
      */
     queryMessageHistory:function() {
       let _this = this;
+      var start = _this.data.start;
+      var loadType = _this.data.loadType;
+      if(loadType == 0) { start = 1;}
       let data = {
         merchantId: _this.data.merchant.merchantId,//店铺id
         userId: _this.data.userInfo.id, //用户ID
-        start: _this.data.start,     //分页开始页  必填
+        start: start,     //分页开始页  必填
         limit: _this.data.limit,    //当前页共显示多少条  必填
       };
       util.request(api.QueryMessageHistory, data, "POST").then(function (res) {
         var list = res.data.list;
-        if (_this.data.start == 1) { 
-          _this.setData({
-            list: list,
-            hideHeader: true,
-            totalPage: res.data.totalPage,
-          })
-        } else {
+        if(loadType == 1) {
+          if (_this.data.start == 1) {
+            _this.setData({
+              list: list,
+              hideHeader: true,
+              totalPage: res.data.totalPage,
+              loadType: 0,
+            })
+          } else {
+            var tempArray = _this.data.list;
+            var fliterArr = [];
+            if (tempArray != null && list != null) {
+              list.forEach(m => {
+                var isIn = false;
+                tempArray.forEach(t => {
+                  if (m.id == t.id) {
+                    isIn = true;
+                  }
+                });
+                if (!isIn) {
+                  fliterArr.push(m);
+                }
+              });
+              if (fliterArr) {
+                tempArray = fliterArr.concat(tempArray);
+              }
+            }
+            _this.setData({
+              list: tempArray,
+              totalPage: res.data.totalPage,
+              loadType: 0,
+            })
+          }
+          if (_this.data.start < _this.data.totalPage) {
+            _this.setData({
+              showMore: true, //显示更多历史消息提示
+            })
+          }
+        }else {
           var tempArray = _this.data.list;
+          var fliterArr = [];
           if (tempArray != null && list != null) {
-            tempArray = tempArray.concat(list);
+             list.forEach(m => {
+               var isIn = false;
+               tempArray.forEach(t => {
+                  if(m.id == t.id) {
+                    isIn = true;
+                  }
+               });
+               if(!isIn) {
+                 fliterArr.push(m);
+               }
+             });
+            if (fliterArr) {
+              tempArray = tempArray.concat(fliterArr);
+            }
+          }else {
+            tempArray = list;
           }
           _this.setData({
             list: tempArray,
             totalPage: res.data.totalPage,
           })
         }
-        if(_this.data.start < _this.data.totalPage) {
-          _this.setData({
-            showMore: true, //显示更多历史消息提示
-          })
-        }
+
         _this.refreshTimer();
       })
-      //var list = _this.data.list;
-      // if (list) {
-      //   list.forEach(msg => {
-      //     WxParse.wxParse('Msg' + msg.id, 'html', msg.content, _this);
-      //   });
-      // }
       
     },
 
