@@ -69,7 +69,7 @@ page{
     background-image: linear-gradient(-90deg, #89E571 0%, #81CA5B 100%);
 }
 input{
-    width:565rpx;
+    width:616rpx;
     height:74rpx;
     background: #FFFFFF;
     border-radius:6rpx;

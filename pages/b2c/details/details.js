@@ -402,6 +402,7 @@ Page({
       "specsStr": specsStr,
       "deliveryCost": _this.data.merchant.deliveryCost,
     };
+    goods.number = _this.data.buyNums;
     var goodsList = [];
     goodsList.push(goods);
     wx.setStorageSync(buyGoodsCache, goodsList);

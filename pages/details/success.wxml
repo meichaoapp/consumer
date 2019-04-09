@@ -1,13 +1,13 @@
 <view class='container'>
 
    <view class='success-t'>
-       <text class='s-tip'>恭喜参团付款成功</text>
+       <text class='s-tip'>恭喜支付成功</text>
        <view class='s-imgbox'>
         <image class="s-img" src='{{basePath}}/success-icon.png'></image>
        </view>
       
        <view class='s-content flex flex_center flex_colum'>
-           <text class='t t1'>预计1-2天到货 </text>
+           <text class='t t1'>团购商品预计1-2天到货</text>
            <text class='t'>到货后，将会在社区微信群中通知</text>
        </view>
 

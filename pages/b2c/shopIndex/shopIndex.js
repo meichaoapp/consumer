@@ -42,7 +42,7 @@ Page({
     var pid = options.pid;
     if (mid == undefined) { mid = null; }
     if (pid == undefined) { pid = 0; }
-    that.setData({
+    _this.setData({
       merchantId: mid,
       pid: pid,
     });
@@ -56,7 +56,6 @@ Page({
     let userInfo = wx.getStorageSync('userInfo');
     if (util.isNotNULL(userInfo)) {
       _this.setData({ userInfo: userInfo, });
-      _this.checkMerchant(mid); //检查商户
     } else {
       wecache.put("pid", _this.data.pid, 0);
       wecache.put("mid", mid != null ? mid : 0, 0);
@@ -167,8 +166,9 @@ Page({
     * 去客服聊天界面
     */
   toCustomerServiceBox: function () {
+    let _this = this;
     wx.navigateTo({
-      url: '/xxx/xx?mid=' + _this.data.merchant.merchantId,
+      url: '/pages/b2c/customerService/customerService?mid=' + _this.data.merchant.merchantId,
     })
   },
 

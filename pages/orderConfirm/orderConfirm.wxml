@@ -122,10 +122,10 @@
                       <view class="flex">
                           <view class="mr10">配送费</view>
                           <view wx:if="{{order.expenditure != 0}}" class="C999 font12">
-                          (不足{{order.expenditure}}元收运费{{order.needDeliveryPay}}元)
+                          (不足{{order.expenditure}}元收运费{{order.deliveryCost}}元)
                           </view>
                       </view>
-                      <view class="font16">￥{{order.deliveryCost}}</view>
+                      <view class="font16">￥{{order.needDeliveryPay}}</view>
                   </view>
               </view>
           </view>
@@ -223,10 +223,10 @@
               <view class="flex flex_center">
                   <view class="mr10">配送费</view>
                   <view wx:if="{{order.expenditure != 0}}" class="C999 font12">
-                  (不足{{order.expenditure}}元收运费{{order.needDeliveryPay}}元)
+                  (不足{{order.expenditure}}元收运费{{order.deliveryCost}}元)
                   </view>
               </view>
-              <view class="font16">￥{{order.deliveryCost}}</view>
+              <view class="font16">￥{{order.needDeliveryPay}}</view>
           </view>
          <!--买家留言-->
          <view class="buyer_msg">
