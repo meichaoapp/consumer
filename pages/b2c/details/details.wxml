@@ -95,9 +95,9 @@
     </view>
 
     <!-- 蒙层 -->
-    <view class="commodity_screen" bindtap="hideSpecsBox" wx:if="{{specsStatus}}"></view>
+    <view class="commodity_screen" bindtap="hideSpecsBox" wx:if="{{specsStatus}}" catchtouchmove="return"></view>
     <!--选择规格详情框 -->
-    <view animation="{{animationData}}" class="shop_car" wx:if="{{specsStatus}}">
+    <view animation="{{animationData}}" class="shop_car" wx:if="{{specsStatus}}" catchtouchmove="return">
         <view class="image_box">
             <image class="goods_image" src="{{specDetails.url}}"></image>
             <view class="price">
