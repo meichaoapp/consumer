@@ -44,7 +44,7 @@
         <view class="m_list flex flex_between bg_ff {{top>130 ? 'topnav' : ''}}">
             <view class="m_con"  wx:if="{{goodsList.length>0}}">
 
-                <view wx:for="{{goodsList}}" wx:key="{{item.index}}">
+                <block wx:for="{{goodsList}}" wx:key="{{item.index}}">
 
                     <view wx:if="{{item.joinNum<item.limitNum}}" class="goods_con flex flex_between"
                           data-id="{{item.id}}">
@@ -116,7 +116,7 @@
                                src="/static/images/sold_out.png"></image>
                     </view>
 
-                </view>
+                </block>
                 <view class="n-bottom" hidden="{{hideBottom}}">
                     <view>
                         <view class='transverseline'><text class='line'></text></view>
