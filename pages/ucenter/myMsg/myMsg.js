@@ -35,10 +35,11 @@ Page({
     this.getList();
     _this.refreshTimer(); //刷新timer
     //开启刷新
-    if (this.interval) clearInterval(this.interval);;
-    this.interval = setInterval(function () {
+    if (this.interval0) clearInterval(this.interval0);
+    this.interval0 = setInterval(function () {
       _this.refreshTimer();
     }, 10000);//10秒刷新
+    if (this.interval) clearInterval(this.interval);
     this.interval = setInterval(function () {
       _this.refresh();
     }, 10000*6*3);//3分钟刷新
@@ -49,6 +50,11 @@ Page({
    */
   onShow: function () {
 
+  },
+
+  onUnload: function () {
+    if (this.interval0) clearInterval(this.interval0);
+    if (this.interval) clearInterval(this.interval);
   },
 
   /**

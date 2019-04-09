@@ -99,6 +99,11 @@ Page({
     onShow: function () {
 
     },
+
+    onUnload: function () {
+      if (this.interval0) clearInterval(this.interval0);
+      if (this.interval) clearInterval(this.interval);
+    },
    
     /**
      * 消息输入
