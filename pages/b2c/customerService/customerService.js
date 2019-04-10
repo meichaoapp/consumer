@@ -120,14 +120,21 @@ Page({
      */
     sendMessage:function() {
       let _this = this;
-
+      var content = _this.data.content ;
+      if (content == "" || content == null) {
+        wx.showToast({
+          icon:'none',
+          title: '发送内容不能为空!',
+        })
+        return;
+      }
       var data = {
         "merchantId": _this.data.merchant.merchantId, //商户ID
         "userId": _this.data.userInfo.id, //用户ID
         "type": 2, // 1商户 2 用户,
         "merchantAvatar": _this.data.merchant.logo, // 商户头像
         "userAvatar": _this.data.userInfo.avatar, // 用户头像
-        "content": _this.data.content //内容
+        "content": content //内容
       };
       console.log("sendMessage-------" + JSON.stringify(data));
       util.request(api.SendMessage, data, "POST").then(function (res) {

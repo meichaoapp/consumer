@@ -115,13 +115,6 @@ Page({
             if (res.rs == 1) {
                 var data = res.data;
                 let detail = data.detail;
-                var  specifications = [
-                  {
-                      spec: "颜色分类",
-                      details: ["黑色","深灰色"]
-                  }
-                ];
-                detail.specifications = specifications;   
                 that.setData({
                     detail:detail,
                     merchant: data.merchant, // 店铺信息
@@ -242,11 +235,26 @@ Page({
     util.request(api.LoadSpecs, data , "POST").then(function (res) {
       if (res.rs == 1) {
         var specDetails = res.data;
-        _this.setData({
-          specDetails: specDetails,
+        if (specDetails == null || (specDetails != null && specDetails.id == null)) {
+          wx.showToast({
+            icon:'none',
+            title: '无可选择规格',
+          })
+          return;
+        }else{
+          _this.setData({
+            specDetails: specDetails,
+          })
+        }
+      }else {
+        wx.showToast({
+          icon: 'none',
+          title: res.info,
         })
+        return;
       }
     });
+    
     //打开规格选择
     if (!_this.data.specsStatus) {
       _this.openSpecsBox();
