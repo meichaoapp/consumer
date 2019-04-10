@@ -1,4 +1,7 @@
 @import '/static/css/cart.wxss';
+page{
+    height:100%;
+}
 .container{
     padding-bottom:83px;
 }
