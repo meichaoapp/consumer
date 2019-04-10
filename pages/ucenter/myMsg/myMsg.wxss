@@ -43,3 +43,9 @@ page{
     line-height:36rpx;
     text-align:center;
 }
+.red_dot{
+    width:20rpx;
+    height:20rpx;
+    background: #EF2616;
+    border-radius:50%;
+}
