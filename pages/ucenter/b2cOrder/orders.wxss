@@ -71,4 +71,10 @@ page{
     color: #FF7A16;
     margin-left:12rpx;
     border:1rpx solid #FF7A16;
+    width:197rpx;
+    height:53rpx;
+    border-radius: 5rpx;
+    line-height:53rpx;
+    text-align:center;
+    font-size:0.28rpx;
 }
