@@ -36,6 +36,7 @@
     border-radius:10rpx;
     overflow:hidden;
     padding-bottom:20rpx;
+    height:510rpx;
 }
 .goods_item image{
     width:342rpx;
