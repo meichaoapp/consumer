@@ -1,6 +1,6 @@
 @import '/static/css/cart.wxss';
 .container{
-    padding-bottom:240rpx;
+    padding-bottom:83px;
 }
 .shop_name{
     padding:25rpx 30rpx;

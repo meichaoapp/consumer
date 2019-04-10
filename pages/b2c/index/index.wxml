@@ -62,7 +62,10 @@
         <view class="font15 C666">无搜索结果，换个词试试吧~</view>
     </view>
 
-    <!--底部购物车结算界面-->
+    
+</scroll-view>
+
+<!--底部购物车结算界面-->
     <view class="fixed_bottom">
         <view class="car_box flex flex_between">
             <view class="flex flex_center">
@@ -89,7 +92,6 @@
         </view>
     </view>
 
-</scroll-view>
 
 <!-- 蒙层 -->
 <view class="commodity_screen" bindtap="hideshopCar" wx:if="{{shopCarStatus}}"></view>

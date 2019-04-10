@@ -3,7 +3,7 @@ page{
     height:100%;
 }
 .container{
-    padding-bottom:240rpx;
+    padding-bottom:83px;
 }
 .search_box{
     padding:20rpx 30rpx;
