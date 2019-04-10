@@ -79,7 +79,6 @@ input{
 .icon_emotion{
     width:49rpx;
     height:49rpx;
-    margin:0 18rpx 0 9rpx;
 }
 .icon_add{
     width:49rpx;

@@ -22,7 +22,7 @@
     </view>
 
     <view class="fixed_bottom">
-        <view class="input_box flex flex_center" style="bottom:{{bottom}}">
+        <view class="input_box flex flex_center flex_between" style="bottom:{{bottom}}">
             <input type="text" bindinput='msgInput' bindconfirm="sendMessage"
                    value='{{content}}' focus="{{isFocus}}" placeholder="请输入您要咨询的问题"
                    catchfocus="getFocus" cursor-spacing="30" catchblur="blur"/>
