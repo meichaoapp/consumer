@@ -49,15 +49,16 @@
         </view>
 
           <view wx:else class="goods_con bg_ff flex flex_between  ">
-            <view class="good_image flex flex_center flex_just br5">
+            <view class="good_image flex flex_center flex_just br5" 
+               data-id='{{item.id}}' data-type='{{item.productType}}' bindtap='toDetail'>
                 <image  src="{{item.url}}" lazy-load="true"></image>
             </view>
             <view class="content flex flex_colum disable">
-                <view class="flex">
+                <view class="flex" data-id='{{item.id}}' data-type='{{item.productType}}' bindtap='toDetail'>
                     <image wx:if="{{item.productType == 5}}" class="icon_tag" src="/static/images/icon_tag.png"></image>
                     <view class="name flex_1">{{item.name}}</view>
                 </view>
-                <view class="desc">{{item.comments}}</view>
+                <view class="desc" data-id='{{item.id}}' data-type='{{item.productType}}' bindtap='toDetail'>{{item.comments}}</view>
                 <view class="flex flex_between" style="flex:1;">
                     <view class="price_box flex flex_center">
                         <view class="curr_price">￥{{item.price}}</view>

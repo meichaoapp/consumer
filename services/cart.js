@@ -73,7 +73,11 @@ function cleanCart2() {
       }
     });
   }
-  if (_arr_.length > 0) { wecache.put(CART_KEY, _arr_, -1);}
+  if (_arr_.length > 0) { 
+    wecache.put(CART_KEY, _arr_, -1);
+  }else{
+    wecache.remove(CART_KEY);
+  }
 }
 
 /**

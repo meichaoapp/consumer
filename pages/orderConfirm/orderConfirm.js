@@ -172,9 +172,11 @@ Page({
         needPay += g.price * g.buyNum;
       });
 
-      if ((_order.deliveryType == 2 && needPay < _order.expenditure) || _order.productType == 6 ) { //邮寄
-        _order.deliveryCost = _order.needDeliveryPay;
-        needPay += _order.deliveryCost;
+      if ((_order.deliveryType == 2 || _order.productType == 6 ) && needPay < _order.expenditure   ) { //邮寄
+        _order.needDeliveryPay = _order.deliveryCost;
+        needPay += _order.needDeliveryPay;
+      }else {
+        _order.needDeliveryPay = 0;
       }
       _order.totalPay = totalPay;
       _order.needPay = needPay;
@@ -436,15 +438,16 @@ Page({
     var order = _this.getOrder(type, index);
     var _order = _this.changeOrderAndCalCost(order, id, -1, null); //_order, _gid, _num, _post
     if (null == _order) {
-      wx.showModal({
-        title: '提示',
-        content: '确定要移除该商品吗？',
-        success: function (sm) {
-          if (sm.confirm) {
-            _this.removeOrder(type,index);
-          } 
-        }
-      })
+      return;
+      // wx.showModal({
+      //   title: '提示',
+      //   content: '确定要移除该商品吗？',
+      //   success: function (sm) {
+      //     if (sm.confirm) {
+      //       _this.removeOrder(type,index);
+      //     } 
+      //   }
+      // })
     }else {
       _this.setOrder(type, index, _order);
     }

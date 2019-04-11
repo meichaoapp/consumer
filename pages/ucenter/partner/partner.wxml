@@ -23,7 +23,7 @@
 
        <button class="fb-btn" bindtap='submit'>提交信息</button>
        <view class="C666 font15 tip">我们会很快与您取得联系</view>
-       <view class="C666 font15 tip">供应商入住热线：18806330666</view>
+       <view class="C666 font15 tip">供应商入驻热线：18806330666</view>
        
    </view>
 

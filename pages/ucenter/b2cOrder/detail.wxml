@@ -3,7 +3,7 @@
     <view class="address_box bg_ff">
         <view class="flex flex_between" style="padding:0 30rpx;">
             <view class="font14 C666">收货人：{{detail.name || ""}}</view>
-            <view class="font14 C666">{{detail.orderCode || ""}}</view>
+            <view class="font14 C666">{{detail.phone || ""}}</view>
         </view>
         <view class="flex flex_center mt20">
             <view class=" flex flex_center">

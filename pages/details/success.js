@@ -26,8 +26,11 @@ Page({
 
   //查看团购订单
   toOrder:function(){
-    wx.redirectTo({
-      url: '/pages/ucenter/order/order?id='+this.data.id,
+    // wx.redirectTo({
+    //   url: '/pages/ucenter/order/order?id='+this.data.id,
+    // })
+    wx.switchTab({
+      url: '/pages/ucenter/index/index',
     })
   },
 

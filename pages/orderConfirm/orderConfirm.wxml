@@ -1,14 +1,14 @@
 <view class="order_confirm_box container">
     <view wx:if="{{isSplitOrder}}" class="auto_tip font15">已为您自动拆分订单，请您再次确认</view>
     <view wx:if="{{isShowPostInfo}}" class="goods_receive_info bg_ff">
-        <view class="flex flex_between" style="padding:0 30rpx;">
-            <view class="font14 C666">收货人：{{userInfo.name || ""}}</view>
+        <view wx:if='{{userInfo.name != null && userInfo.name != ""}}' class="flex flex_between" style="padding:0 30rpx;">
+            <view class="font14 C666">{{(userInfo.name == null || userInfo.name == "") ? "" : "收货人："}}{{userInfo.name || ""}}</view>
             <view class="font14 C666">{{userInfo.phone || ""}}</view>
         </view>
         <view class="flex flex_center mt20" bindtap='toEditUser'>
             <view class=" flex flex_center" style='width:93%;'>
-                <image class="icon_receive_goods" src="/static/images/icon_address.png"></image>
-                <view>收货地址：{{ (userInfo.address == "" || userInfo.address == null) ? "去完善用户信息" : userInfo.address }}</view>
+                <image wx:if='{{ userInfo.address != "" && userInfo.address != null}}' class="icon_receive_goods" src="/static/images/icon_address.png"></image>
+                <view>{{ (userInfo.address == "" || userInfo.address == null) ? "" : "收货地址：" }}{{ (userInfo.address == "" || userInfo.address == null) ? "去完善用户信息" : userInfo.address }}</view>
             </view>
             <image src="{{basePath}}/go.png" class="icon_go icon_go_address"></image>
         </view>

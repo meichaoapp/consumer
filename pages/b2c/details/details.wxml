@@ -17,7 +17,7 @@
         </view>
         <view class="font18 C333 strong mt10">{{detail.name || ""}}</view>
     </view>
-    <view class="tag_line flex flex_center flex_around bg_ff">
+    <!-- <view class="tag_line flex flex_center flex_around bg_ff">
         <view class="flex flex_center">
             <image src="/static/images/icon_check.png"></image>
             <view>全场包邮</view>
@@ -30,7 +30,7 @@
             <image src="/static/images/icon_check.png"></image>
             <view>假一赔十</view>
         </view>
-    </view>
+    </view> -->
 
     <!--店铺信息-->
     <view class="merchant_box bg_ff">
