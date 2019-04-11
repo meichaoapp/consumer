@@ -21,7 +21,7 @@
                 <image class="icon_type" src="/static/images/icon_type.png"></image>
                 <view>{{detail.merchantName}}</view>
             </view>
-            <view  wx:if="{{item.expressStatus == 1}}" bindtap='confirmReceive'  class="sure_receive">确认收货</view>
+            <view  wx:if="{{detail.expressStatus == 1}}" bindtap='confirmReceive'  class="sure_receive">确认收货</view>
         </view>
         <view class="list">
           <block wx:for="{{detail.orderDetailList}}" wx:for-index="index" wx:for-item="item" wx:key="{{item.id}}">

@@ -39,7 +39,7 @@
                       </view>
                   </block>
               </navigator>
-              <view class="btn_box flex flex_center flex_end">
+              <view wx:if="{{item.expressStatus == 1}}" class="btn_box flex flex_center flex_end">
                   <!-- <view wx:if="{{item.status == 2 || item.status == 3 || item.status == 5}}" class="C666 font14">查看物流</view> -->
                   <view wx:if="{{item.expressStatus == 1}}"  bindtap='confirmReceive' data-id='{{item.id}}' class="sure_receive">确认收货</view>
               </view>

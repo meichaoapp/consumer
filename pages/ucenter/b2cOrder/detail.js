@@ -67,7 +67,7 @@ Page({
   confirmReceive: function () {
     let _this = this;
     util.request(api.ConfirmReceive, {
-      orderId: that.data.orderId
+      orderId: _this.data.orderId
     }, "POST").then(function (res) {
       if (res.rs === 1) {
         //刷新结果

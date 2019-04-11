@@ -76,5 +76,5 @@ page{
     border-radius: 5rpx;
     line-height:53rpx;
     text-align:center;
-    font-size:0.28rpx;
+    font-size:28rpx;
 }

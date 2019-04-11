@@ -23,6 +23,10 @@ Page({
     this.setData({
       userInfo: userInfo,
     });
+    
+  },
+
+  onShow: function () {
     this.getOrderList();
   },
 
