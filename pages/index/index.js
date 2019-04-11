@@ -525,7 +525,7 @@ Page({
         //将选中的商户写入缓存
         wx.setStorageSync(currentMerchat, _this.data.merchant);
         wx.setStorageSync(currIndex, _this.data.currentIndex);
-        _this.clearCart2();
+        cart.cleanCart2();
         _this.queryTGList();
 
     },

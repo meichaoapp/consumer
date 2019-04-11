@@ -54,7 +54,7 @@ Page({
       return {
         title: that.data.detail.name,
         imageUrl: that.data.detail.url,
-        path: '/pages/details/details?source=1&id=' + that.data.id + "&pid=4",
+        path: '/pages/b2c/details/details?source=1&id=' + that.data.id + "&pid=4",
       }
     },
 

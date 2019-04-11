@@ -106,7 +106,7 @@ Page({
           key:orderInfo.key,
           totalPay: totalPay.toFixed(2),//共付
           needPay: needPay.toFixed(2),// 应付
-          preferential: preferential,//优惠
+          preferential: preferential.toFixed(2),//优惠
           merchantOrders: merchantOrders,// 团购订单
           oneselfOrders: oneselfOrders, // 自营订单
           couponOrders: couponOrders,
@@ -172,7 +172,7 @@ Page({
         needPay += g.price * g.buyNum;
       });
 
-      if (_order.deliveryType == 2 && needPay < _order.expenditure ) { //邮寄
+      if ((_order.deliveryType == 2 && needPay < _order.expenditure) || _order.productType == 6 ) { //邮寄
         _order.deliveryCost = _order.needDeliveryPay;
         needPay += _order.deliveryCost;
       }
@@ -286,7 +286,7 @@ Page({
     _this.setData({
       totalPay: totalPay.toFixed(2),//共付
       needPay: needPay.toFixed(2),// 应付
-      preferential: preferential,//优惠
+      preferential: preferential.toFixed(2),//优惠
       isShowPostInfo: _this.isShowPostInfo(),  // 是否显示邮寄信息
       isSplitOrder: _this.isSplitOrders(), //是否拆单
     });

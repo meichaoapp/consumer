@@ -150,3 +150,9 @@ input::-webkit-input-placeholder {
     text-align:center;
     margin-top:30rpx;
 }
+
+.content{
+  padding:20rpx 0px 0px 20rpx;
+  background:#F6F6F6;
+  color: #666666;
+}

@@ -2,7 +2,7 @@
     <view>下拉刷新中…</view>
 </view>
 <!--我的订单-->
-<view class="container">
+<view wx:if="{{orderList != null }}" class="container">
 
     <scroll-view scroll-y="true" class="order_box">
         <!--已发货-->
@@ -41,7 +41,7 @@
               </navigator>
               <view class="btn_box flex flex_center flex_end">
                   <!-- <view wx:if="{{item.status == 2 || item.status == 3 || item.status == 5}}" class="C666 font14">查看物流</view> -->
-                  <view wx:if="{{item.status == 2}}"  bindtap='confirmReceive' data-id='{{item.id}}' class="sure_receive">确认收货</view>
+                  <view wx:if="{{item.expressStatus == 1}}"  bindtap='confirmReceive' data-id='{{item.id}}' class="sure_receive">确认收货</view>
               </view>
             </view>
           
@@ -49,6 +49,13 @@
 
     </scroll-view>
 
+</view>
+
+<view wx:if="{{orderList == null }}">
+    <image class='no_order_img'  src="{{basePath}}/noneOrder.png"></image>
+    <view class='no_order_tip'>订单不存在</view>
+
+    <button class='no_order_btn' bindtap='toIndex'>知道了</button>
 </view>
 
  <view class="n-bottom" hidden="{{hideBottom}}">

@@ -109,8 +109,21 @@ Page({
       orderId: id,
     }, "POST").then(function (res) {
       if (res.rs === 1) {
-        //刷新结果
-        _this.refresh();
+        wx.showModal({
+          title: '系统提示',
+          content: '收货成功',
+          showCancel: false,//是否显示取消按钮
+          success: function (res) {
+            if (res.cancel) {
+              //点击取消,默认隐藏弹框
+            } else {
+              //刷新结果
+              _this.refresh();
+            }
+          },
+
+        })
+       
       }else{
         wx.showToast({
           icon:'none',

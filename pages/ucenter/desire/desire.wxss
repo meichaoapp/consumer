@@ -160,4 +160,5 @@ input::-webkit-input-placeholder {
 .content{
   padding:20rpx 0px 0px 20rpx;
   background:#F6F6F6;
+  color: #666666;
 }
