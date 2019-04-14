@@ -9,7 +9,7 @@
             <view  class="flex flex_center">
                 <view class="mr10">
                     <text class="font15 c_f3f">￥</text>
-                    <text class="font24 c_f3f strong">{{detail.price}}</text>
+                    <text class="font24 c_f3f strong">{{detail.priceScope}}</text>
                 </view>
                 <view class="C999 line-through">￥{{detail.originalPrice || 0.00}}</view>
             </view>
@@ -105,7 +105,7 @@
                     <text class="font15 c_f3f">￥</text>
                     <text class="font24 c_f3f strong">{{specDetails.price}}</text>
                 </view>
-                <view class="font13 C666 mt20">请选择：{{specDetails.specificationsTypes}}</view>
+                <view class="font13 C666 mt20">{{specDetails.specificationChoose}}</view>
             </view>
         </view>
         <view class="oBox">
@@ -126,6 +126,7 @@
                 <image bindtap='addNumber' src="https://wxpic.iliangpin.cn/meichao/plus.png"></image>
             </view>
         </view>
-        <view bindtap='sureSpec' class="sure">确定</view>
+        <view wx:if="{{specDetails.isAble == 0}}" bindtap='sureSpec' class="sure">确定</view>
+        <view wx:else style="background:#A2A2A2" class="sure">确定</view>
     </view>
 </view>

@@ -131,3 +131,16 @@
 .kuaidi_follow .follow_satus .follow_address .default{
     color:#81C95A
 }
+
+.btn_box{
+    padding:0 30rpx;
+    height:86rpx;
+    background: #FFF;
+    padding-top:13rpx;
+}
+
+.money{
+  color: #FF3F3F;
+  font-size: 26rpx;
+  font-weight: bold;
+}

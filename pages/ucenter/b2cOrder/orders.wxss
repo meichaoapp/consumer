@@ -60,9 +60,7 @@ page{
     height:103rpx;
 }
 .btn_box view{
-    width:197rpx;
     height:54rpx;
-    border: 1rpx solid #AFAFAF;
     border-radius: 5rpx;
     text-align:center;
     line-height:54rpx;
@@ -77,4 +75,9 @@ page{
     line-height:53rpx;
     text-align:center;
     font-size:28rpx;
+}
+.money{
+  color: #FF3F3F;
+  font-size: 26rpx;
+  font-weight: bold;
 }

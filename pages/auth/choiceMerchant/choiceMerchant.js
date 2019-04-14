@@ -119,6 +119,7 @@ Page({
     this.setData({
       searchText: e.detail.value,
     })
+    _this.queryMerchats();
   },
   //查询商户列表信息
   queryMerchats:function() {

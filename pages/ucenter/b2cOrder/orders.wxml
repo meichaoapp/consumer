@@ -39,14 +39,22 @@
                       </view>
                   </block>
               </navigator>
-              <view wx:if="{{item.expressStatus == 1}}" class="btn_box flex flex_center flex_end">
-                  <!-- <view wx:if="{{item.status == 2 || item.status == 3 || item.status == 5}}" class="C666 font14">查看物流</view> -->
+              <view class="btn_box flex flex_center flex_between">
+                  <view  class="C666 font14">合计(含运费):<text class='money'>￥{{item.totalPay}}</text>  </view>
                   <view wx:if="{{item.expressStatus == 1}}"  bindtap='confirmReceive' data-id='{{item.id}}' class="sure_receive">确认收货</view>
               </view>
             </view>
           
         </block>
+        <view class="n-bottom" hidden="{{hideBottom}}">
+            <view>
+                <view class='transverseline'><text class='line'></text></view>
 
+                <text class='txt'>{{loadMoreData}}</text>
+
+                <view class='transverseline'><text class='line'></text></view>
+            </view>
+        </view>
     </scroll-view>
 
 </view>
@@ -58,12 +66,3 @@
     <button class='no_order_btn' bindtap='toIndex'>知道了</button>
 </view>
 
- <view class="n-bottom" hidden="{{hideBottom}}">
-        <view>
-            <view class='transverseline'><text class='line'></text></view>
-
-            <text class='txt'>{{loadMoreData}}</text>
-
-            <view class='transverseline'><text class='line'></text></view>
-        </view>
-    </view>

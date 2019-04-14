@@ -36,7 +36,7 @@
                     <image src="{{item.url}}"></image>
                     <view class="name ellipsis_2">{{item.name || ""}}</view>
                     <view class="sell_info">
-                        <view class="price">￥ {{item.price || 0}}</view>
+                        <view class="price">￥ {{item.minPrice || 0}}</view>
                         <view class="font12 C999">{{item.sold || ""}}</view>
                     </view>
                 </view>

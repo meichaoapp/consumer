@@ -405,9 +405,9 @@ Page({
                     banners: res.data.banners,
                     classifyList: res.data.classifys,
                     sellList: res.data.sellList,
-                    start: 1, // 页码
-                    totalPage: 0, // 共有页
-                    goodsList: [],//团购商品列表
+                    //start: 1, // 页码
+                    //totalPage: 0, // 共有页
+                    //goodsList: [],//团购商品列表
                 })
                 that.queryTGList();
             } else {
@@ -882,6 +882,7 @@ Page({
         this.setData({
             searchText: e.detail.value,
         })
+        _this.queryMerchats();
     },
     //查询商户列表信息
     queryMerchats: function () {

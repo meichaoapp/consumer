@@ -40,8 +40,6 @@ Page({
    */
   viewLogistics: function() {
     let _this = this;
-    _this.data.detail.expressNum = "3700390913306";
-    _this.data.detail.expressCode = "yunda";
     if (_this.data.detail.expressNum) {
       var data = {
         expressCode: _this.data.detail.expressCode,// 快递公司编号
