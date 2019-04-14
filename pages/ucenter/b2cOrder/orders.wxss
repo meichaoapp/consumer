@@ -66,15 +66,15 @@ page{
     line-height:54rpx;
 }
 .btn_box .sure_receive{
-    color: #FF7A16;
-    margin-left:12rpx;
-    border:1rpx solid #FF7A16;
-    width:197rpx;
-    height:53rpx;
-    border-radius: 5rpx;
-    line-height:53rpx;
-    text-align:center;
-    font-size:28rpx;
+  color:#FF7A16;
+  margin-left:6px;
+  border:0.5px solid #FF7A16;
+  width:93px;
+  height:26px;
+  border-radius:2px;
+  line-height:26px;
+  text-align:center;
+  font-size:13px;
 }
 .money{
   color: #FF3F3F;

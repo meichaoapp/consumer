@@ -471,21 +471,44 @@ Page({
                 })
               } else {
                 var tempArray = _this.data.goodsList;
-                if (tempArray != null && goodsList != null) {
-                  tempArray = tempArray.concat(goodsList);
+                var list =  _this.fliterItems(goodsList, tempArray);
+                if (tempArray != null && list.length > 0) {
+                  tempArray = tempArray.concat(list);
                 }
                 _this.setData({
                   goodsList: tempArray,
                   totalPage: res.data.totalPage,
                 })
               }
-
-
               _this.refreshCartRef();
             }
            
         })
 
+    },
+    /***
+     * 过滤重复
+     */
+    fliterItems: function(_list, _list_) {
+        var list = [];
+        if(_list) {
+          if(_list_) {
+            _list.forEach(item => {
+              var isIn = false;
+              _list_.forEach(ol => {
+                if(item.id == ol.id) {
+                  isIn = true;
+                }
+              });
+              if(!isIn){
+                list.push(item);
+              }
+            });
+          }else {
+            list = _list;
+          }
+        }
+        return list;
     },
   
     //选择团长，打开modal

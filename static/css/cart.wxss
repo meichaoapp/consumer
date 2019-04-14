@@ -75,12 +75,12 @@
 }
 .common_tag{
     width:100rpx;
-    height:42rpx;
+    height:26px;
     background: #FFFFFF;
     border-radius: 4rpx;
-    font-size:28rpx;
+    font-size:13px;
     text-align:center;
-    line-height:42rpx;
+    line-height:26px;
 }
 .coupon_tag{
     color:#FF6901;

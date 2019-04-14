@@ -105,7 +105,7 @@
                     <text class="font15 c_f3f">￥</text>
                     <text class="font24 c_f3f strong">{{specDetails.price}}</text>
                 </view>
-                <view class="font13 C666 mt20">{{specDetails.specificationChoose}}</view>
+                <view class="font13 C666 mt20">{{specDetails.specDesc}}</view>
             </view>
         </view>
         <view class="oBox">
