@@ -57,6 +57,8 @@ view,text{
   font-family: PingFangSC-Light,helvetica,'Heiti SC';
   font-size: 28rpx;
   color: #333;
+   word-break:break-all;
+   word-wrap:break-word;
 }
 
 .logo{
