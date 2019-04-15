@@ -415,6 +415,13 @@ Page({
     let _this = this;
     let pid = e.currentTarget.dataset.pid;
     let val = e.detail.value;
+    if(val != null && val != "" && val.length > 30) {
+      wx.showToast({
+        icon:'none',
+        title: '买家留言不能大于30字',
+      })
+      return;
+    }
     var b2cOrders = _this.data.b2cOrders;
     if (b2cOrders) {
       b2cOrders.forEach(order => {
@@ -548,7 +555,7 @@ Page({
               });
               wx.showToast({
                 icon: "none",
-                title: '参团失败请重试!',
+                title: '支付失败请重试!',
               })
               return false;
             },

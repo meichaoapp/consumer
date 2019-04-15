@@ -124,7 +124,7 @@ Page({
       _this.$wuxToast.show({ type: 'forbidden', text: "手机号码不能为空，请填写后提交！", });
       return;
     }
-    var exp = new RegExp("^0?(13|15|18|14)[0-9]{9}$");
+    var exp = new RegExp("^0?(13|15|18|14|17)[0-9]{9}$");
     if (!exp.test(_this.data.phone)) {
       _this.setData({
         count: 0,
