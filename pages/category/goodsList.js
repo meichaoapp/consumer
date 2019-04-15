@@ -298,16 +298,16 @@ Page({
         cartb2cGoodsList: _this.createCartInfo(cartb2cGoodsListTmp, cartb2cGoodsList),
       });
     },
-    //组装购物车信息
-    createCartInfo: function (tmpList, cartList) {
-      let _this = this;
-      if (tmpList) {
-        tmpList.forEach(goods => {
-          cartList = _this.checkAndFill(goods, cartList);
-        })
-      }
-      return cartList;
-    },
+  //组装购物车信息
+  createCartInfo: function (tmpList, cartList) {
+    let _this = this;
+    if (tmpList) {
+      tmpList.forEach(goods => {
+        cartList = _this.checkAndFill(goods, cartList);
+      })
+    }
+    return cartList;
+  },
   //检查和填充
   checkAndFill: function (item, cartList) {
     var obj = {

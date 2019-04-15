@@ -360,13 +360,15 @@ Page({
         var list = [];
         list.push(item);
         obj.list = list;
+        cartList.push(obj);
       }
     } else {
       var list = [];
       list.push(item);
       obj.list = list;
+      cartList.push(obj);
     }
-    cartList.push(obj);
+
     return cartList;
   },
   //减
