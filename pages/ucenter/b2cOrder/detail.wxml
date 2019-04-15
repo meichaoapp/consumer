@@ -46,7 +46,7 @@
            </block>
         </view>
         <view class="btn_box flex  flex_colum">
-            <view  class="C666 font14" style="text-align:right;">运费:<text class='money'>￥{{item.deliveryCost || 0.00}}</text>  </view>
+            <view  class="C666 font14" style="text-align:right;">运费:<text class='money'>￥{{detail.deliveryCost || 0.00}}</text>  </view>
             <view  class="C666 font14" style="text-align:right;">合计(含运费):<text class='money'>￥{{detail.totalPay}}</text>  </view>
         </view>
     </view>
