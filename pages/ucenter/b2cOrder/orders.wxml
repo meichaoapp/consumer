@@ -22,7 +22,7 @@
                           <image class="shop_img" src="{{orderDetail.url}}"></image>
                           <view class="info flex flex_colum flex_1 width_0">
                               <view class="flex">
-                                  <view class="name ellipsis_2">{{orderDetail.name}}</view>
+                                  <view class="name ellipsis_2 flex_1 width_0">{{orderDetail.name}}</view>
                                   <view class="flex flex_colum flex_end">
                                       <text class="font13 C000">￥{{orderDetail.price}}</text>
                                       <text class="C999 font12 mt10">×{{orderDetail.buyNum}}</text>
