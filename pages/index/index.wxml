@@ -32,7 +32,7 @@
         </view>
         <view wx:if="{{sellList != null}}" class="menu_box flex">
             <view class="single_item flex flex_center flex_just {{num==index?'active':''}}" wx:for="{{sellList}}"
-                  wx:key="{{item.id}}" data-index="{{index}}" data-id="{{item.sellType}}" bindtap="listenerSellTypeClick"
+                  wx:key="{{item.id}}" data-index="{{index}}" data-id="{{item.sellType}}" data-type="{{item.type}}" bindtap="listenerSellTypeClick"
                   style="position:relative;">
                 <view class="flex flex_colum flex_just flex_center">
                     <image src="{{item.logo}}"></image>

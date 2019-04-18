@@ -318,7 +318,8 @@ Page({
     listenerSellTypeClick:function(e) {
       let that = this;
       let id = e.currentTarget.dataset.id;
-      if(id == 1 || id == 4){
+      let type = e.currentTarget.dataset.type;
+      if (type == 1){
         let index = e.currentTarget.dataset.index;
         that.setData({
           num: index,
