@@ -65,15 +65,18 @@ Page({
         this.$wuxLoading = app.Wux().$wuxLoading //加载
         let that = this;
         var mid = options.mid;
+       
         var pid = options.pid;
-        if (mid == undefined) {mid = null;}
+        if (typeof (mid) == "undefined") {
+          mid = null;
+        }
         if (pid == undefined) {pid = 0;}
         that.setData({
             merchantId: mid,
             pid:pid,
         });
 
-        that.checkUser();  //检查用户
+       that.checkUser(mid);  //检查用户
        
         
         /** 设备信息 */
@@ -117,7 +120,7 @@ Page({
 
         if (null != merchant && undefined != merchant
             && null != currentIndex && undefined != currentIndex) {
-            //console.log("mid--------" + mid + "----merchant.merchantId-------" + merchant.merchantId);
+            console.log("mid--------" + mid + "----merchant.merchantId-------" + merchant.merchantId);
             if (merchant.merchantId == undefined
                 || merchant.merchantId == null
                 || merchant.merchantId == "") {
@@ -136,10 +139,10 @@ Page({
                 merchant: merchant,
                 currentIndex: currentIndex
             });
-            //console.log("mid--------" + mid + "----merchant.merchantId-------" + that.data.merchant.merchantId);
+            console.log("mid--------" + mid + "----merchant.merchantId-------" + that.data.merchant.merchantId);
 
             if (null != mid && "" != mid && undefined != mid && mid != that.data.merchant.merchantId) {
-                //console.log("mid--------" + mid);
+                console.log("mid--------" + mid);
                 that.setData({
                     swithModal: true,
                 });

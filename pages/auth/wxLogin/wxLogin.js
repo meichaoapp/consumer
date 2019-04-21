@@ -69,8 +69,11 @@ Page({
           var did = wecache.get("did", 0);
           if(0 == pid) { //正常搜索进入
             //选择进入通道
+            // wx.redirectTo({
+            //   url: '/pages/auth/selectEntry/selectEntry',
+            // })
             wx.redirectTo({
-              url: '/pages/auth/selectEntry/selectEntry',
+              url: '/pages/auth/choiceMerchant/choiceMerchant',
             })
           }else if (1 == pid || pid  == 2) { //拼团首页和拼团详情页
             wx.redirectTo({

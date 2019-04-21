@@ -125,8 +125,18 @@ Page({
       })
       return;
     }
-    var exp = new RegExp("^0?(13|15|18|14)[0-9]{9}$");
-    if (!exp.test(_this.data.phone)) {
+    if (_this.data.phone.length != 11) {
+      _this.setData({
+        count: 0,
+      });
+      wx.showToast({
+        title: '手机号码格式不正确！',
+        icon: 'none',
+        duration: 2000
+      })
+      return;
+    }
+    if (_this.data.phone.charAt(0) != "1") {
       _this.setData({
         count: 0,
       });
@@ -200,8 +210,18 @@ Page({
       })
       return;
     }
-    var exp = new RegExp("^0?(13|15|18|14)[0-9]{9}$");
-    if (!exp.test(_this.data.phone)) {
+    if (_this.data.phone.length != 11) {
+      _this.setData({
+        count: 0,
+      });
+      wx.showToast({
+        title: '手机号码格式不正确！',
+        icon: 'none',
+        duration: 2000
+      })
+      return;
+    }
+    if (_this.data.phone.charAt(0) != "1") {
       _this.setData({
         count: 0,
       });
@@ -245,8 +265,11 @@ Page({
         var did = wecache.get("did", 0);
         if (0 == pid) { //正常搜索进入
           //选择进入通道
+          // wx.redirectTo({
+          //   url: '/pages/auth/selectEntry/selectEntry',
+          // })
           wx.redirectTo({
-            url: '/pages/auth/selectEntry/selectEntry',
+            url: '/pages/auth/choiceMerchant/choiceMerchant',
           })
         } else if (1 == pid || pid == 2) { //拼团首页和拼团详情页
           wx.redirectTo({

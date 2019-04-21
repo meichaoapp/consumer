@@ -124,8 +124,23 @@ Page({
       _this.$wuxToast.show({ type: 'forbidden', text: "手机号码不能为空，请填写后提交！", });
       return;
     }
-    var exp = new RegExp("^0?(13|15|18|14|17)[0-9]{9}$");
-    if (!exp.test(_this.data.phone)) {
+    // var exp = new RegExp("^0?(13|15|18|14|17)[0-9]{9}$");
+    // if (!exp.test(_this.data.phone)) {
+    //   _this.setData({
+    //     count: 0,
+    //   });
+    //   _this.$wuxToast.show({ type: 'forbidden', text: "手机号码格式不正确！", });
+    //   return;
+    // }
+
+    if (_this.data.phone.length != 11) {
+      _this.setData({
+        count: 0,
+      });
+      _this.$wuxToast.show({ type: 'forbidden', text: "手机号码格式不正确！", });
+      return;
+    }
+    if (_this.data.phone.charAt(0) != "1") {
       _this.setData({
         count: 0,
       });

@@ -2,7 +2,9 @@
 //var NewApiRootUrl = 'https://wxapp.iliangpin.cn/api/';
 //var NewApiRootUrl = "http://101.201.213.248:8093/api/";
 //var NewApiRootUrl = "https://wxapp.iliangpin.cn/api/";
-var NewApiRootUrl = "https://wxapp.galaxyxd.cn/api/";
+//var NewApiRootUrl = "https://wxapp.galaxyxd.cn/api/";
+var NewApiRootUrl = "https://wxapp1.galaxyxd.cn/api/";
+
 module.exports = {
   WXLogin: NewApiRootUrl + 'consumer/user/login',//微信登录（新）
   QueryUserInfo: NewApiRootUrl + 'consumer/info',//获取个人资料

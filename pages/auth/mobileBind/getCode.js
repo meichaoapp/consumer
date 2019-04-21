@@ -113,8 +113,7 @@ Page({
         })
         return;
       }
-      var exp = new RegExp("^0?(13|15|18|14|17)[0-9]{9}$");
-      if (!exp.test(_this.data.phone)) {
+      if(_this.data.phone.length != 11) {
         _this.setData({
           count: 0,
         });
@@ -125,6 +124,29 @@ Page({
         })
         return;
       }
+      if (_this.data.phone.charAt(0) != "1") {
+        _this.setData({
+          count: 0,
+        });
+        wx.showToast({
+          title: '手机号码格式不正确！',
+          icon: 'none',
+          duration: 2000
+        })
+        return;
+      }
+      // var exp = new RegExp("^0?(13|15|18|14|17)[0-9]{9}$");
+      // if (!exp.test(_this.data.phone)) {
+      //   _this.setData({
+      //     count: 0,
+      //   });
+      //   wx.showToast({
+      //     title: '手机号码格式不正确！',
+      //     icon: 'none',
+      //     duration: 2000
+      //   })
+      //   return;
+      // }
        
       wx.navigateTo({
         url: '/pages/auth/mobileBind/bindSuccess?mobile=' + _this.data.mobile + "&phone=" + _this.data.phone ,
