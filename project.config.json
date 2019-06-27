@@ -11,6 +11,8 @@
 	"libVersion": "2.6.4",
 	"appid": "wx46b95c220f0d53a8",
 	"projectname": "wx-mall-consumer",
+	"simulatorType": "wechat",
+	"simulatorPluginLibVersion": {},
 	"condition": {
 		"search": {
 			"current": -1,

@@ -1,32 +1,23 @@
 {
   "pages": [
     "pages/index/index",
-
     "pages/category/goodsList",
-
     "pages/orderConfirm/orderConfirm",
     "pages/details/details",
     "pages/details/success",
     "pages/details/couponDetail",
-
     "pages/ucenter/index/index",
     "pages/ucenter/order/order",
     "pages/ucenter/orderDetail/orderDetail",
-
-
     "pages/ucenter/yourinfor/yourinfor",
     "pages/ucenter/desire/desire",
     "pages/ucenter/partner/partner",
-
     "pages/auth/choiceMerchant/choiceMerchant",
     "pages/auth/wxLogin/wxLogin",
     "pages/auth/selectEntry/selectEntry",
-
-
     "pages/auth/mobileBind/mobileBind",
     "pages/auth/mobileBind/bindSuccess",
     "pages/auth/mobileBind/getCode",
-
     "pages/ucenter/coupon/coupon",
     "pages/ucenter/coupon/couponOrderDetail",
     "pages/ucenter/myMsg/myMsg",
@@ -37,17 +28,11 @@
     "pages/shopping/mydollarTreasure/mydollarTreasure",
     "pages/shopping/dollarTreasure/dollarTreasureWin",
     "pages/shopping/dollarTreasure/dollarTreasure",
-
     "pages/thirdPage/thirdPage",
-
     "pages/b2c/index/index",
     "pages/b2c/details/details",
     "pages/b2c/customerService/customerService",
     "pages/b2c/shopIndex/shopIndex"
-
-
-
-
   ],
   "permission": {
     "scope.userLocation": {
@@ -94,5 +79,6 @@
       }
     ]
   },
-  "debug": true
+  "debug": true,
+  "sitemapLocation": "sitemap.json"
 }
